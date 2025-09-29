@@ -2,7 +2,7 @@
 
 Une application Flutter avancée qui affiche des présentations éducatives interactives avec animations synchronisées.
 
-## 🏗️ Architecture
+## Architecture
 
 Cette application suit l'architecture Clean avec le pattern BLoC :
 
@@ -22,19 +22,19 @@ Cette application suit l'architecture Clean avec le pattern BLoC :
 - **Widgets** : Composants réutilisables
 - **CustomPainter** : Rendu graphique avec animations
 
-## 🎨 Fonctionnalités
+## Fonctionnalités
 
-- ✅ Rendu temps réel des Hypertokens synchronisés
-- ✅ Animations typewriter progressives
-- ✅ Dessins animés avec coordonnées
-- ✅ Mouvements de souris avec chemins
-- ✅ Support LaTeX complet
-- ✅ Système de coordonnées proportionnelles (0-100%)
-- ✅ Contrôles de lecture : play/pause/seek/reset
-- ✅ Timeline visuelle avec indicateurs
-- ✅ Interface responsive
+- Rendu temps réel des Hypertokens synchronisés
+- Animations typewriter progressives
+- Dessins animés avec coordonnées
+- Mouvements de souris avec chemins
+- Support LaTeX complet
+- Système de coordonnées proportionnelles (0-100%)
+-  Contrôles de lecture : play/pause/seek/reset
+- Timeline visuelle avec indicateurs
+- Interface responsive
 
-## 🚀 Installation
+##  Installation
 
 1. Créer un nouveau projet Flutter :
 ```bash
@@ -56,14 +56,14 @@ flutter pub get
 flutter run
 ```
 
-## 📱 Utilisation
+##  Utilisation
 
 1. **Charger des données** : Utilisez le bouton paramètres pour saisir votre JSON
 2. **Navigation** : Contrôles play/pause/seek pour naviguer
 3. **Timeline** : Barre de progression avec indicateurs de tokens
 4. **Animations** : Observer le rendu en temps réel sur le tableau blanc
 
-## 📐 Schéma JSON
+##  Schéma JSON
 
 ```json
 {
@@ -84,7 +84,7 @@ flutter run
 }
 ```
 
-## 🔧 Dépendances Principales
+##  Dépendances Principales
 
 - `flutter_bloc` : Architecture BLoC
 - `flutter_math_fork` : Rendu LaTeX
@@ -92,7 +92,7 @@ flutter run
 - `dartz` : Programmation fonctionnelle
 - `just_audio` : Support audio (extensible)
 
-## 🎯 Extensions Possibles
+##  Extensions Possibles
 
 - Synchronisation audio avec just_audio
 - Export des animations en vidéo
