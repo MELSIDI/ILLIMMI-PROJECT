@@ -18,7 +18,7 @@ class HypercourseParser {
     
     _skipWhitespaceAndComments();
     
-    if (_match('hypergeneration')) {
+    if (_match('course')) {
       _skipWhitespace();
       _parseString();
       _skipWhitespace();
@@ -245,14 +245,15 @@ class HypercourseParser {
     String content = '';
     
     while (!_check(';')) {
+
       _skipWhitespace();
       
-      if (_match('at')) {
-        position = _parsePoint();
-      } else if (_match('start')) {
+      if (_match('start')) {
         startTime = _parseTime();
       } else if (_match('for')) {
         duration = _parseTime();
+      } else if (_match('at')) {
+        position = _parsePoint();
       } else if (_checkQuotes()) {
         content = _parseLatexString();
       } else {
