@@ -581,7 +581,7 @@ class BoardPainter extends CustomPainter {
     for (int i = 0; i <= numPoints; i++) {
       final x = repere.xStart + i * step;
       
-      // 🔥 CORRECTION CRITIQUE : Passer x à l'évaluation !
+      //  CORRECTION CRITIQUE : Passer x à l'évaluation !
       final y = _evaluateFunction(element.expression, x);
       
       if (y.isNaN || y.isInfinite) continue;
