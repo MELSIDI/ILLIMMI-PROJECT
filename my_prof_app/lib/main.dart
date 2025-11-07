@@ -41,20 +41,20 @@ class HypercourseDebugPage extends StatelessWidget {
     # ═══════════════════════════════════════
 
     draw 2drep id 100
-  start 0s for 2s
-  at (88.89, 50)
-  color (100, 100, 100, 0.7)
-  scale = 8
-  x_range = [-6, 6]
-  y_range = [-4, 4];
+      start 0s for 2s
+      at (88.89, 50)
+      color (100, 100, 100, 0.7)
+      scale = 8
+      x_range = [-6, 6]
+      y_range = [-4, 4];
 
-# Fonction dans le repère
-draw 2dfunc id 101
-  start 2s for 3s
-  color (255, 50, 50, 1.0)
-  width 3
-  at 100
-  y = sin(x);
+    # Fonction dans le repère
+      draw 2dfunc id 101
+        start 2s for 3s
+        color (255, 50, 50, 1.0)
+        width 3
+      at 100
+        y = sin(x);
     
     # Titre principal
     text id 1 start 1s for 2s at (88.89, 10)
