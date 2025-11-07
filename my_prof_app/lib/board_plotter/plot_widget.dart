@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
-import '../models/hyper_element.dart';
+import '../../models/basic_elements/plot_element.dart';
 
 class PlotWidget extends StatefulWidget {
   final PlotElement element;
