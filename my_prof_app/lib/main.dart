@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'parser/hypercourse_parser.dart';
-import 'parser/hypercourse_timer.dart';
+import 'parsers/hypercourse_parser.dart';
+import 'parsers/hypercourse_timer.dart';
 import 'player/course_player.dart';
 
 void main() {
@@ -39,6 +39,22 @@ class HypercourseDebugPage extends StatelessWidget {
     # ═══════════════════════════════════════
     # SECTION 1 : INTRODUCTION
     # ═══════════════════════════════════════
+
+    draw 2drep id 100
+  start 0s for 2s
+  at (88.89, 50)
+  color (100, 100, 100, 0.7)
+  scale = 8
+  x_range = [-6, 6]
+  y_range = [-4, 4];
+
+# Fonction dans le repère
+draw 2dfunc id 101
+  start 2s for 3s
+  color (255, 50, 50, 1.0)
+  width 3
+  at 100
+  y = sin(x);
     
     # Titre principal
     text id 1 start 1s for 2s at (88.89, 10)
@@ -117,7 +133,7 @@ class HypercourseDebugPage extends StatelessWidget {
          ''[bold][color=#E74C3C]$N$[/color][/bold]'' ;
     
     # Ligne MN (parallèle à AC)
-    draw line id 24 start 11s for 2s 
+    draw arrow id 24 start 11s for 2s 
               color (46, 204, 113, 1) 
               width 3 
               at [(50, 63), (127.78, 63)] ;
