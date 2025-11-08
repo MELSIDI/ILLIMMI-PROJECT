@@ -47,29 +47,50 @@ class CurveDrawParser implements DrawParser {
         currentIndex++;
       } else if (token.value == 'at') {
         points = ParsingUtils.parsePointList(tokens, currentIndex + 1);
-        currentIndex += points.length * 3 + 2;
+        // Calculer combien de tokens ont été consommés
+        // Format: at [(x1, y1), (x2, y2), ...]
+        // = 'at' + '[' + pour chaque point: '(' + x + ',' + y + ')' + ',' + ']'
+        int pointTokens = 2; // 'at' + '['
+        for (int i = 0; i < points.length; i++) {
+          pointTokens += 5; // '(' + x + ',' + y + ')'
+          if (i < points.length - 1) pointTokens++; // ','
+        }
+        pointTokens++; // ']'
+        currentIndex += pointTokens;
       } else if (token.value == 'with') {
         hasArrowAtEnd = true;
-        currentIndex++;
+        currentIndex++; // skip 'with'
         
         // Check for + or - for arrow direction
-        if (tokens[currentIndex].value == '+') {
-          arrowCounterClockwise = true;
-          currentIndex++;
-        } else if (tokens[currentIndex].value == '-') {
-          arrowCounterClockwise = false;
-          currentIndex++;
+        if (currentIndex < tokens.length) {
+          if (tokens[currentIndex].value == '+') {
+            arrowCounterClockwise = true;
+            currentIndex++;
+          } else if (tokens[currentIndex].value == '-') {
+            arrowCounterClockwise = false;
+            currentIndex++;
+          }
         }
         
-        // Skip 'arrow at end'
-        while (currentIndex < tokens.length && 
-               tokens[currentIndex].value != ';' &&
-               !_isNextCommand(tokens, currentIndex)) {
-          currentIndex++;
+        // Skip 'arrow', 'at', 'end'
+        while (currentIndex < tokens.length && tokens[currentIndex].value != ';') {
+          if (tokens[currentIndex].value == 'arrow' || 
+              tokens[currentIndex].value == 'at' || 
+              tokens[currentIndex].value == 'end') {
+            currentIndex++;
+          } else if (_isNextCommand(tokens, currentIndex)) {
+            break;
+          } else {
+            currentIndex++;
+          }
         }
       } else {
         currentIndex++;
       }
+    }
+    
+    if (points.length < 2) {
+      throw Exception('Une courbe nécessite au moins 2 points');
     }
     
     return CurveElement(
@@ -86,10 +107,12 @@ class CurveDrawParser implements DrawParser {
   }
 
   bool _isNextCommand(List<Token> tokens, int index) {
+    if (index >= tokens.length) return false;
     return tokens[index].value == 'start' ||
            tokens[index].value == 'for' ||
            tokens[index].value == 'color' ||
            tokens[index].value == 'width' ||
-           tokens[index].value == 'at';
+           tokens[index].value == 'smooth' ||
+           tokens[index].value == 'bezier';
   }
 }

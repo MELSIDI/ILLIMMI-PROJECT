@@ -1,4 +1,4 @@
-// hypercourse_parser.dart
+// parsers/hypercourse_parser.dart
 import '../models/hyper_element.dart';
 import 'tokenizer/tokenizer.dart';
 import 'tokenizer/token_types.dart';
@@ -36,7 +36,7 @@ class HypercourseParser {
 
     print('📋 Elements parsés: ${elements.length}');
     for (var el in elements) {
-      print('  - ${el.runtimeType} id=${el.id}');
+      print('  - ${el.runtimeType} id=${el.id} start=${el.startTime}s');
     }
 
     return elements;
@@ -63,6 +63,7 @@ class HypercourseParser {
         
         if (parser != null) {
           try {
+            print('🔍 Parsing commande: $command à index $currentIndex');
             final element = parser.parse(tokens, currentIndex);
             elements.add(element);
             
@@ -70,13 +71,20 @@ class HypercourseParser {
             while (currentIndex < tokens.length && tokens[currentIndex].value != ';') {
               currentIndex++;
             }
-            if (currentIndex < tokens.length) currentIndex++; // Skip ';'
+            if (currentIndex < tokens.length && tokens[currentIndex].value == ';') {
+              currentIndex++; // Skip ';'
+            }
           } catch (e) {
+            print('❌ Erreur parsing commande $command: $e');
             throw Exception('Erreur parsing commande $command: $e');
           }
         } else {
-          // Commande inconnue, avancer
-          currentIndex++;
+          print('⚠️ Commande inconnue: $command');
+          // Commande inconnue, avancer jusqu'au prochain ;
+          while (currentIndex < tokens.length && tokens[currentIndex].value != ';') {
+            currentIndex++;
+          }
+          if (currentIndex < tokens.length) currentIndex++;
         }
       } else {
         currentIndex++;

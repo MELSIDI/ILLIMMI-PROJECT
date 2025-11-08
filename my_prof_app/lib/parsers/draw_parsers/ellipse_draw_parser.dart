@@ -1,11 +1,12 @@
 // draw_parsers/ellipse_draw_parser.dart
-import 'dart:math' as math;
+//import 'dart:math' as math;
 import 'draw_parser_interface.dart';
 import '../../models/hyper_element.dart';
 import '../../models/draw_elements/ellipse_element.dart'; 
 import '../tokenizer/token_types.dart';
 import '../parsing_utils.dart';
 import 'package:flutter/material.dart';
+
 
 class EllipseDrawParser implements DrawParser {
   @override
@@ -53,31 +54,45 @@ class EllipseDrawParser implements DrawParser {
         radiusY = double.parse(tokens[currentIndex + 1].value);
         currentIndex += 2;
       } else if (token.value == 'rotation') {
-        rotation = double.parse(tokens[currentIndex + 1].value) * math.pi / 180;
+        rotation = double.parse(tokens[currentIndex + 1].value);
         currentIndex += 2;
       } else if (token.value == 'at') {
         center = ParsingUtils.parsePoint(tokens, currentIndex + 1);
         currentIndex += 4;
       } else if (token.value == 'with') {
-        currentIndex++;
+        currentIndex++; // skip 'with'
         
         // Check for + or - for arrow direction
-        if (tokens[currentIndex].value == '+') {
-          arrowCounterClockwise = true;
-          currentIndex++;
-        } else if (tokens[currentIndex].value == '-') {
-          arrowCounterClockwise = false;
-          currentIndex++;
+        if (currentIndex < tokens.length) {
+          if (tokens[currentIndex].value == '+') {
+            arrowCounterClockwise = true;
+            currentIndex++;
+          } else if (tokens[currentIndex].value == '-') {
+            arrowCounterClockwise = false;
+            currentIndex++;
+          }
         }
         
-        // Skip 'arrow on X deg'
-        while (currentIndex < tokens.length && 
-               tokens[currentIndex].value != ';' &&
-               !_isNextCommand(tokens, currentIndex)) {
-          if (tokens[currentIndex].type == TokenType.NUMBER) {
-            arrowAngle = double.parse(tokens[currentIndex].value);
+        // Skip 'arrow', 'on', puis parse l'angle
+        while (currentIndex < tokens.length && tokens[currentIndex].value != ';') {
+          if (tokens[currentIndex].value == 'arrow' || tokens[currentIndex].value == 'on') {
+            currentIndex++;
+          } else if (tokens[currentIndex].type == TokenType.NUMBER || 
+                     tokens[currentIndex].type == TokenType.IDENTIFIER) {
+            // Peut être "120" ou "120deg"
+            String angleStr = tokens[currentIndex].value;
+            arrowAngle = _parseAngleValue(angleStr);
+            currentIndex++;
+            // Skip 'deg' si c'est un token séparé
+            if (currentIndex < tokens.length && tokens[currentIndex].value == 'deg') {
+              currentIndex++;
+            }
+            break;
+          } else if (_isNextCommand(tokens, currentIndex)) {
+            break;
+          } else {
+            currentIndex++;
           }
-          currentIndex++;
         }
       } else {
         currentIndex++;
@@ -100,10 +115,20 @@ class EllipseDrawParser implements DrawParser {
     );
   }
 
+  /// Parse une valeur d'angle qui peut être "120" ou "120deg"
+  double _parseAngleValue(String value) {
+    if (value.endsWith('deg')) {
+      return double.parse(value.substring(0, value.length - 3));
+    }
+    return double.parse(value);
+  }
+
   bool _isNextCommand(List<Token> tokens, int index) {
+    if (index >= tokens.length) return false;
     return tokens[index].value == 'start' ||
            tokens[index].value == 'for' ||
            tokens[index].value == 'color' ||
+           tokens[index].value == 'fillcolor' ||
            tokens[index].value == 'width' ||
            tokens[index].value == 'radiusX' ||
            tokens[index].value == 'radiusY' ||
