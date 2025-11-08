@@ -53,35 +53,56 @@ class ArcDrawParser implements DrawParser {
         center = ParsingUtils.parsePoint(tokens, currentIndex + 1);
         currentIndex += 4;
       } else if (token.value == 'from') {
-        startAngle = double.parse(tokens[currentIndex + 1].value);
-        currentIndex += 3; // Skip 'X deg'
+        // Parse angle value (peut être "0deg" ou "0" + "deg")
+        String angleStr = tokens[currentIndex + 1].value;
+        startAngle = _parseAngleValue(angleStr);
+        currentIndex += 2; // Skip 'from' + angle
+        // Skip 'deg' si c'est un token séparé
+        if (currentIndex < tokens.length && tokens[currentIndex].value == 'deg') {
+          currentIndex++;
+        }
       } else if (token.value == 'to') {
-        endAngle = double.parse(tokens[currentIndex + 1].value);
-        currentIndex += 3; // Skip 'X deg'
+        // Parse angle value (peut être "180deg" ou "180" + "deg")
+        String angleStr = tokens[currentIndex + 1].value;
+        endAngle = _parseAngleValue(angleStr);
+        currentIndex += 2; // Skip 'to' + angle
+        // Skip 'deg' si c'est un token séparé
+        if (currentIndex < tokens.length && tokens[currentIndex].value == 'deg') {
+          currentIndex++;
+        }
       } else if (token.value == 'with') {
         hasArrowAtEnd = true;
         currentIndex++;
         
         // Check for + or - for arrow direction
-        if (tokens[currentIndex].value == '+') {
-          arrowCounterClockwise = true;
-          currentIndex++;
-        } else if (tokens[currentIndex].value == '-') {
-          arrowCounterClockwise = false;
-          currentIndex++;
+        if (currentIndex < tokens.length) {
+          if (tokens[currentIndex].value == '+') {
+            arrowCounterClockwise = true;
+            currentIndex++;
+          } else if (tokens[currentIndex].value == '-') {
+            arrowCounterClockwise = false;
+            currentIndex++;
+          }
         }
         
-        // Skip 'arrow at end'
-        while (currentIndex < tokens.length && 
-               tokens[currentIndex].value != ';' &&
-               !_isNextCommand(tokens, currentIndex)) {
-          currentIndex++;
+        // Skip 'arrow', 'at', 'end'
+        while (currentIndex < tokens.length && tokens[currentIndex].value != ';') {
+          if (tokens[currentIndex].value == 'arrow' || 
+              tokens[currentIndex].value == 'at' || 
+              tokens[currentIndex].value == 'end') {
+            currentIndex++;
+          } else if (_isNextCommand(tokens, currentIndex)) {
+            break;
+          } else {
+            currentIndex++;
+          }
         }
       } else {
         currentIndex++;
       }
     }
     
+    // Convertir en radians
     double sweepAngle = (endAngle - startAngle) * math.pi / 180;
     startAngle = startAngle * math.pi / 180;
     
@@ -101,10 +122,20 @@ class ArcDrawParser implements DrawParser {
     );
   }
 
+  /// Parse une valeur d'angle qui peut être "180" ou "180deg"
+  double _parseAngleValue(String value) {
+    if (value.endsWith('deg')) {
+      return double.parse(value.substring(0, value.length - 3));
+    }
+    return double.parse(value);
+  }
+
   bool _isNextCommand(List<Token> tokens, int index) {
+    if (index >= tokens.length) return false;
     return tokens[index].value == 'start' ||
            tokens[index].value == 'for' ||
            tokens[index].value == 'color' ||
+           tokens[index].value == 'fillcolor' ||
            tokens[index].value == 'width' ||
            tokens[index].value == 'radius' ||
            tokens[index].value == 'at' ||

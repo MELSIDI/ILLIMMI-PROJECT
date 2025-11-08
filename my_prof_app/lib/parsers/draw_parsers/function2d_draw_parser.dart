@@ -40,9 +40,12 @@ class Function2DDrawParser implements DrawParser {
         repereId = int.parse(tokens[currentIndex + 1].value);
         currentIndex += 2;
       } else if (token.value == 'y') {
-        // Skip '='
-        expression = _parseExpression(tokens, currentIndex + 2);
-        currentIndex += expression.split(' ').length + 2;
+        // Skip '=' qui est à currentIndex + 1
+        int exprResult = _parseExpression(tokens, currentIndex + 2);
+        expression = tokens.sublist(currentIndex + 2, exprResult)
+            .map((t) => t.value)
+            .join('');
+        currentIndex = exprResult;
       } else {
         currentIndex++;
       }
@@ -56,6 +59,8 @@ class Function2DDrawParser implements DrawParser {
       throw Exception('2dfunc id $id: manque "y = <expression>"');
     }
     
+    print('✅ 2dfunc parsé: id=$id, repereId=$repereId, expression="$expression"');
+    
     return Function2DElement(
       id: id,
       startTime: startTime,
@@ -67,17 +72,15 @@ class Function2DDrawParser implements DrawParser {
     );
   }
 
-  String _parseExpression(List<Token> tokens, int startIndex) {
-    String expr = '';
+  /// Retourne l'index du token après l'expression (avant le ';')
+  int _parseExpression(List<Token> tokens, int startIndex) {
     int currentIndex = startIndex;
     
-    while (currentIndex < tokens.length && 
-           tokens[currentIndex].value != ';' && 
-           tokens[currentIndex].type != TokenType.PUNCTUATION) {
-      expr += tokens[currentIndex].value + ' ';
+    // Lire tous les tokens jusqu'au ';'
+    while (currentIndex < tokens.length && tokens[currentIndex].value != ';') {
       currentIndex++;
     }
     
-    return expr.trim();
+    return currentIndex;
   }
 }

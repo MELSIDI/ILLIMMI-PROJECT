@@ -35,334 +35,525 @@ class HypercourseDebugPage extends StatelessWidget {
   Widget build(BuildContext context) {
     // Script de test simple
     const script = r'''
-      course "Théorème de Thalès" {
+      course "Démonstration Complète des Éléments Hypercourse" {
     # ═══════════════════════════════════════
-    # SECTION 1 : INTRODUCTION
-    # ═══════════════════════════════════════
-
-    draw 2drep id 100
-      start 0s for 2s
-      at (88.89, 50)
-      color (100, 100, 100, 0.7)
-      scale = 8
-      x_range = [-6, 6]
-      y_range = [-4, 4];
-
-    # Fonction dans le repère
-      draw 2dfunc id 101
-        start 2s for 3s
-        color (255, 50, 50, 1.0)
-        width 3
-      at 100
-        y = sin(x);
-    
-    # Titre principal
-    text id 1 start 1s for 2s at (88.89, 10)
-         ''[bold][color=#2C3E50]Le Théorème de Thalès[/color][/bold]'' ;
-    
-    # Sous-titre
-    text id 2 start 3s for 2s at (88.89, 18)
-         ''[italic]Proportionnalité dans les triangles[/italic]'' ;
-    
-    # ═══════════════════════════════════════
-    # SECTION 2 : CONSTRUCTION DU TRIANGLE ABC
+    # SECTION 1 : INTRODUCTION ET TEXTES
     # ═══════════════════════════════════════
     
-    # Triangle ABC (grand triangle)
-    draw polygone id 10 start 5s for 2s 
-                  color (52, 152, 219, 1) 
-                  width 3 
-                  fillcolor (52, 152, 219, 0.15) 
-                  at [(30, 80), (88.89, 30), (147.78, 80)] ;
+    # Titre principal avec formatage avancé
+    text id 1 start 0.5s for 2s at (88.89, 8)
+         ''[bold][color=#2C3E50]Démonstration Complète Hypercourse[/color][/bold]'' ;
     
-    # Points A, B, C
-    draw circle id 11 start 7s 
-                color (52, 152, 219, 1) 
-                width 2 
-                fillcolor (52, 152, 219, 1) 
-                radius 2 
-                at (30, 80) ;
-    
-    text id 12 start 7.5s at (23, 82)
-         ''[bold]$A$[/bold]'' ;
-    
-    draw circle id 13 start 7s 
-                color (52, 152, 219, 1) 
-                width 2 
-                fillcolor (52, 152, 219, 1) 
-                radius 2 
-                at (88.89, 30) ;
-    
-    text id 14 start 7.5s at (88.89, 24)
-         ''[bold]$B$[/bold]'' ;
-    
-    draw circle id 15 start 7s 
-                color (52, 152, 219, 1) 
-                width 2 
-                fillcolor (52, 152, 219, 1) 
-                radius 2 
-                at (147.78, 80) ;
-    
-    text id 16 start 7.5s at (152, 82)
-         ''[bold]$C$[/bold]'' ;
+    # Sous-titre avec formule LaTeX inline
+    text id 2 start 2.5s for 2s at (88.89, 15)
+         ''[italic]Exploration de toutes les primitives graphiques et $\LaTeX$[/italic]'' ;
     
     # ═══════════════════════════════════════
-    # SECTION 3 : POINTS M ET N (PARALLÈLE)
+    # SECTION 2 : LIGNES ET FLÈCHES
     # ═══════════════════════════════════════
     
-    # Point M sur AB
-    draw circle id 20 start 9s 
-                color (231, 76, 60, 1) 
-                width 2 
-                fillcolor (231, 76, 60, 1) 
-                radius 2 
-                at (50, 63) ;
+    text id 10 start 5s for 2s at (30, 25)
+         ''[bold][color=#E74C3C]1. Lignes et Flèches[/color][/bold]'' ;
     
-    text id 21 start 9.5s at (43, 65)
-         ''[bold][color=#E74C3C]$M$[/color][/bold]'' ;
+    # Ligne simple
+    draw line id 20 start 6s for 1.5s 
+              color (231, 76, 60, 1) 
+              width 2.5 
+              at [(15, 35), (45, 35)] ;
     
-    # Point N sur BC
-    draw circle id 22 start 9s 
-                color (231, 76, 60, 1) 
-                width 2 
-                fillcolor (231, 76, 60, 1) 
-                radius 2 
-                at (127.78, 63) ;
+    text id 21 start 7.5s at (30, 38) ''Ligne simple'' ;
     
-    text id 23 start 9.5s at (133, 65)
-         ''[bold][color=#E74C3C]$N$[/color][/bold]'' ;
+    # Flèche
+    draw arrow id 22 start 8s for 1.5s 
+               color (52, 152, 219, 1) 
+               width 2.5 
+               at [(15, 42), (45, 42)] ;
     
-    # Ligne MN (parallèle à AC)
-    draw arrow id 24 start 11s for 2s 
+    text id 23 start 9.5s at (30, 45) ''Flèche'' ;
+    
+    # ═══════════════════════════════════════
+    # SECTION 3 : CHEMINS ET COURBES
+    # ═══════════════════════════════════════
+    
+    text id 30 start 11s for 2s at (30, 52)
+         ''[bold][color=#2ECC71]2. Chemins et Courbes[/color][/bold]'' ;
+    
+    # Chemin brisé (path)
+    draw path id 40 start 12s for 2s 
               color (46, 204, 113, 1) 
+              width 2 
+              at [(10, 60), (20, 65), (30, 58), (40, 63), (50, 60)] ;
+    
+    text id 41 start 14s at (30, 68) ''Chemin brisé'' ;
+    
+    # Courbe lissée smooth
+    draw curve id 42 start 15s for 2s 
+               color (155, 89, 182, 1) 
+               width 2.5 
+               smooth 
+               at [(10, 72), (20, 78), (30, 70), (40, 76), (50, 72)] ;
+    
+    text id 43 start 17s at (30, 80) ''Courbe lissée'' ;
+    
+    # Courbe Bézier avec flèche
+    draw curve id 44 start 18s for 2s 
+               color (243, 156, 18, 1) 
+               width 2.5 
+               bezier 
+               at [(10, 84), (25, 92), (35, 84), (50, 88)] 
+               with +arrow at end ;
+    
+    text id 45 start 20s at (30, 93) ''Courbe Bézier + flèche'' ;
+    
+    # ═══════════════════════════════════════
+    # SECTION 4 : FORMES FERMÉES
+    # ═══════════════════════════════════════
+    
+    text id 50 start 22s for 2s at (88.89, 25)
+         ''[bold][color=#3498DB]3. Formes Fermées[/color][/bold]'' ;
+    
+    # Triangle
+    draw polygone id 60 start 23s for 1.5s 
+                  color (52, 152, 219, 1) 
+                  width 2.5 
+                  fillcolor (52, 152, 219, 0.2) 
+                  at [(65, 35), (80, 45), (70, 45)] ;
+    
+    text id 61 start 24.5s at (72, 48) ''Triangle'' ;
+    
+    # Carré
+    draw polygone id 62 start 25s for 1.5s 
+                  color (231, 76, 60, 1) 
+                  width 2.5 
+                  fillcolor (231, 76, 60, 0.2) 
+                  at [(85, 35), (95, 35), (95, 45), (85, 45)] ;
+    
+    text id 63 start 26.5s at (90, 48) ''Carré'' ;
+    
+    # Pentagone
+    draw polygone id 64 start 27s for 1.5s 
+                  color (46, 204, 113, 1) 
+                  width 2.5 
+                  fillcolor (46, 204, 113, 0.2) 
+                  at [(105, 38), (110, 35), (113, 40), (110, 45), (105, 42)] ;
+    
+    text id 65 start 28.5s at (109, 48) ''Pentagone'' ;
+    
+    # ═══════════════════════════════════════
+    # SECTION 5 : CERCLES ET ELLIPSES
+    # ═══════════════════════════════════════
+    
+    text id 70 start 30s for 2s at (88.89, 52)
+         ''[bold][color=#9B59B6]4. Cercles et Ellipses[/color][/bold]'' ;
+    
+    # Cercle simple
+    draw circle id 80 start 31s for 1.5s 
+                color (155, 89, 182, 1) 
+                width 2.5 
+                fillcolor (155, 89, 182, 0.15) 
+                radius 6 
+                at (70, 62) ;
+    
+    text id 81 start 32.5s at (70, 70) ''Cercle'' ;
+    
+    # Cercle avec flèche sur 45°
+    draw circle id 82 start 33s for 1.5s 
+                color (231, 76, 60, 1) 
+                width 2.5 
+                fillcolor (231, 76, 60, 0.15) 
+                radius 6 
+                at (88.89, 62) 
+                with +arrow on 45deg ;
+    
+    text id 83 start 34.5s at (88.89, 70) ''Cercle + flèche'' ;
+    
+    # Ellipse simple
+    draw ellipse id 84 start 35s for 1.5s 
+                 color (52, 152, 219, 1) 
+                 width 2.5 
+                 fillcolor (52, 152, 219, 0.15) 
+                 radiusX 8 
+                 radiusY 5 
+                 at (107, 62) ;
+    
+    text id 85 start 36.5s at (107, 70) ''Ellipse'' ;
+    
+    # Ellipse avec rotation et flèche
+    draw ellipse id 86 start 37s for 1.5s 
+                 color (46, 204, 113, 1) 
+                 width 2.5 
+                 fillcolor (46, 204, 113, 0.15) 
+                 radiusX 9 
+                 radiusY 4 
+                 rotation 30 
+                 at (125, 62) 
+                 with -arrow on 120deg ;
+    
+    text id 87 start 38.5s at (125, 70) ''Ellipse rotée'' ;
+    
+    # ═══════════════════════════════════════
+    # SECTION 6 : ARCS
+    # ═══════════════════════════════════════
+    
+    text id 90 start 40s for 2s at (88.89, 75)
+         ''[bold][color=#F39C12]5. Arcs de Cercle et Elliptiques[/color][/bold]'' ;
+    
+    # Arc de cercle simple
+    draw arc id 100 start 41s for 1.5s 
+              color (243, 156, 18, 1) 
               width 3 
-              at [(50, 63), (127.78, 63)] ;
+              fillcolor (243, 156, 18, 0.1) 
+              radius 7 
+              at (70, 85) 
+              from 0deg to 180deg ;
     
-    text id 25 start 13s at (88.89, 68)
-         ''[color=#2ECC71]$(MN)$ parallèle à $(AC)$[/color]'' ;
+    text id 101 start 42.5s at (70, 93) ''Arc 180°'' ;
     
-    # ═══════════════════════════════════════
-    # SECTION 4 : ANNOTATIONS DES LONGUEURS
-    # ═══════════════════════════════════════
+    # Arc avec flèche
+    draw arc id 102 start 43s for 1.5s 
+              color (155, 89, 182, 1) 
+              width 3 
+              radius 7 
+              at (88.89, 85) 
+              from 45deg to 225deg 
+              with +arrow at end ;
     
-    # Segment AM
-    draw line id 30 start 15s 
-              color (155, 89, 182, 0.6) 
-              width 2 
-              at [(30, 80), (50, 63)] ;
+    text id 103 start 44.5s at (88.89, 93) ''Arc + flèche'' ;
     
-    text id 31 start 15.5s at (35, 70)
-         ''[color=#9B59B6]$a$[/color]'' ;
+    # Arc elliptique
+    draw elliptic_arc id 104 start 45s for 1.5s 
+                      color (231, 76, 60, 1) 
+                      width 3 
+                      fillcolor (231, 76, 60, 0.1) 
+                      radiusX 9 
+                      radiusY 5 
+                      at (107, 85) 
+                      from 0deg to 270deg ;
     
-    # Segment MB
-    draw line id 32 start 16s 
-              color (155, 89, 182, 0.6) 
-              width 2 
-              at [(50, 63), (88.89, 30)] ;
+    text id 105 start 46.5s at (107, 93) ''Arc elliptique'' ;
     
-    text id 33 start 16.5s at (65, 43)
-         ''[color=#9B59B6]$b$[/color]'' ;
+    # Arc elliptique roté avec flèche
+    draw elliptic_arc id 106 start 47s for 1.5s 
+                      color (52, 152, 219, 1) 
+                      width 3 
+                      radiusX 8 
+                      radiusY 4 
+                      rotation 45 
+                      at (125, 85) 
+                      from 30deg to 330deg 
+                      with -arrow at end ;
     
-    # Segment CN
-    draw line id 34 start 17s 
-              color (243, 156, 18, 0.6) 
-              width 2 
-              at [(147.78, 80), (127.78, 63)] ;
-    
-    text id 35 start 17.5s at (141, 70)
-         ''[color=#F39C12]$c$[/color]'' ;
-    
-    # Segment NB
-    draw line id 36 start 18s 
-              color (243, 156, 18, 0.6) 
-              width 2 
-              at [(127.78, 63), (88.89, 30)] ;
-    
-    text id 37 start 18.5s at (112, 43)
-         ''[color=#F39C12]$d$[/color]'' ;
+    text id 107 start 48.5s at (125, 93) ''Arc roté'' ;
     
     # ═══════════════════════════════════════
-    # SECTION 5 : ÉNONCÉ DU THÉORÈME
-    # ═══════════════════════════════════════
-    
-    # Cadre pour l'énoncé
-    draw polygone id 40 start 20s for 1s 
-                  color (52, 73, 94, 1) 
-                  width 2 
-                  fillcolor (236, 240, 241, 0.9) 
-                  at [(10, 88), (167.78, 88), (167.78, 98), (10, 98)] ;
-    
-    # Énoncé du théorème
-    text id 41 start 21s for 3s at (88.89, 93)
-         ''Si $(MN) \parallel (AC)$, alors : $\frac{AM}{AB} = \frac{AN}{AC} = \frac{MN}{AC}$'' ;
-    
-    # ═══════════════════════════════════════
-    # SECTION 6 : FORMULE DÉTAILLÉE
-    # ═══════════════════════════════════════
-    
-    # Flèche pointant vers la formule
-    draw arrow id 50 start 24s 
-               color (231, 76, 60, 1) 
-               width 2 
-               at [(88.89, 86), (88.89, 78)] ;
-    
-    # Formule avec les longueurs
-    text id 51 start 25s for 3s at (88.89, 75)
-         ''$$\frac{a}{a+b} = \frac{c}{c+d}$$'' ;
-    
-    # ═══════════════════════════════════════
-    # SECTION 7 : EXEMPLE NUMÉRIQUE
+    # SECTION 7 : REPÈRES ET FONCTIONS 2D
     # ═══════════════════════════════════════
     
     # Effacer les éléments précédents
-    erase id 900 start 29s for 1s at [30, 31, 32, 33, 34, 35, 36, 37, 40, 41, 50, 51] ;
+    erase id 900 start 50s for 1s at [10, 20, 21, 22, 23, 30, 40, 41, 42, 43, 44, 45, 
+                                       50, 60, 61, 62, 63, 64, 65, 70, 80, 81, 82, 83, 
+                                       84, 85, 86, 87, 90, 100, 101, 102, 103, 104, 105, 106, 107] ;
     
-    # Titre exemple
-    text id 60 start 30s at (88.89, 15)
-         ''[bold]Exemple numérique[/bold]'' ;
+    text id 200 start 51s for 2s at (88.89, 10)
+         ''[bold][color=#E74C3C]6. Repères Cartésiens et Fonctions Mathématiques[/color][/bold]'' ;
     
-    # Valeurs numériques sur AM
-    text id 61 start 31s at (35, 70)
-         ''[color=#9B59B6][bold]$3$ cm[/bold][/color]'' ;
+    # Repère cartésien principal
+    draw 2drep id 300 start 52s for 1.5s 
+               at (88.89, 50) 
+               color (100, 100, 100, 0.7) 
+               width 1.5 
+               scale = 5 
+               x_range = [-6, 6] 
+               y_range = [-4, 4] ;
     
-    # Valeurs sur MB
-    text id 62 start 31.5s at (65, 43)
-         ''[color=#9B59B6][bold]$6$ cm[/bold][/color]'' ;
+    text id 201 start 53.5s at (20, 18) ''Repère cartésien'' ;
     
-    # Valeurs sur CN
-    text id 63 start 32s at (141, 70)
-         ''[color=#F39C12][bold]$4$ cm[/bold][/color]'' ;
+    # Fonction polynomiale : parabole
+    draw 2dfunc id 310 start 54s for 2s 
+                color (231, 76, 60, 1) 
+                width 3 
+                at 300 
+                y = x^2/4 - 2 ;
     
-    # Question : trouver d
-    text id 64 start 33s at (112, 43)
-         ''[color=#F39C12][bold]$d = ?$[/bold][/color]'' ;
+    text id 202 start 56s at (150, 25)
+         ''[color=#E74C3C]$f(x) = \frac{x^2}{4} - 2$[/color]'' ;
     
-    # ═══════════════════════════════════════
-    # SECTION 8 : RÉSOLUTION
-    # ═══════════════════════════════════════
+    # Fonction trigonométrique : sinus
+    draw 2dfunc id 311 start 57s for 2s 
+                color (52, 152, 219, 1) 
+                width 3 
+                at 300 
+                y = 2*sin(x) ;
     
-    # Cadre de résolution
-    draw polygone id 70 start 35s for 1s 
-                  color (52, 73, 94, 1) 
-                  width 2 
-                  fillcolor (236, 240, 241, 0.9) 
-                  at [(130, 20), (167.78, 20), (167.78, 50), (130, 50)] ;
+    text id 203 start 59s at (150, 32)
+         ''[color=#3498DB]$g(x) = 2\sin(x)$[/color]'' ;
     
-    # Étape 1 : proportion
-    text id 71 start 36s at (149, 25)
-         ''$\frac{3}{3+6} = \frac{4}{4+d}$'' ;
-    
-    # Étape 2 : simplification
-    text id 72 start 38s at (149, 32)
-         ''$\frac{3}{9} = \frac{4}{4+d}$'' ;
-    
-    # Étape 3 : simplification de 3/9
-    text id 73 start 40s at (149, 39)
-         ''$\frac{1}{3} = \frac{4}{4+d}$'' ;
-    
-    # Étape 4 : produit en croix
-    text id 74 start 42s at (149, 46)
-         ''$4+d = 12$'' ;
-    
-    # ═══════════════════════════════════════
-    # SECTION 9 : SOLUTION FINALE
-    # ═══════════════════════════════════════
-    
-    # Cadre solution
-    draw polygone id 80 start 44s for 1.5s 
-                  color (46, 204, 113, 1) 
-                  width 3 
-                  fillcolor (46, 204, 113, 0.2) 
-                  at [(10, 88), (167.78, 88), (167.78, 98), (10, 98)] ;
-    
-    # Solution
-    text id 81 start 45s for 3s at (88.89, 93)
-         ''[bold][color=#2ECC71]Solution : $d = 8$ cm[/color][/bold]'' ;
-    
-    # Afficher la valeur sur le triangle
-    erase id 901 start 47s at [64] ;
-    
-    text id 82 start 47.5s at (112, 43)
-         ''[color=#F39C12][bold]$8$ cm[/bold][/color]'' ;
-    
-    # Animation de curseur montrant la solution
-    mouse move id 600 start 47s for 2s 
-               at [(149, 46), (112, 43)] ;
-    
-    # ═══════════════════════════════════════
-    # SECTION 10 : VÉRIFICATION
-    # ═══════════════════════════════════════
-    
-    # Titre vérification
-    text id 90 start 50s at (88.89, 5)
-         ''[bold]Vérification[/bold]'' ;
-    
-    # Calcul côté gauche
-    text id 91 start 51s at (40, 93)
-         ''$\frac{3}{9} = \frac{1}{3}$'' ;
-    
-    # Calcul côté droit
-    text id 92 start 52s at (137, 93)
-         ''$\frac{4}{12} = \frac{1}{3}$'' ;
-    
-    # Signe égal avec validation
-    draw circle id 93 start 53s for 1s 
+    # Fonction exponentielle décroissante
+    draw 2dfunc id 312 start 60s for 2s 
                 color (46, 204, 113, 1) 
                 width 3 
-                radius 8 
-                at (88.89, 93) ;
+                at 300 
+                y = 3*exp(-x/2)*cos(x) ;
     
-    text id 94 start 53.5s at (88.89, 93)
-         ''[bold][color=#2ECC71]✓[/color][/bold]'' ;
+    text id 204 start 62s at (150, 39)
+         ''[color=#2ECC71]$h(x) = 3e^{-x/2}\cos(x)$[/color]'' ;
+    
+    # Fonction racine carrée
+    draw 2dfunc id 313 start 63s for 2s 
+                color (155, 89, 182, 1) 
+                width 3 
+                at 300 
+                y = sqrt(abs(x)) ;
+    
+    text id 205 start 65s at (150, 46)
+         ''[color=#9B59B6]$i(x) = \sqrt{|x|}$[/color]'' ;
+    
+    # Points remarquables sur les fonctions
+    draw circle id 320 start 66s 
+                color (243, 156, 18, 1) 
+                width 2 
+                fillcolor (243, 156, 18, 1) 
+                radius 1.5 
+                at (88.89, 40) ;
+    
+    text id 206 start 66.5s at (83, 37) ''$(0, -2)$'' ;
+    
+    draw circle id 321 start 67s 
+                color (243, 156, 18, 1) 
+                width 2 
+                fillcolor (243, 156, 18, 1) 
+                radius 1.5 
+                at (113.89, 50) ;
+    
+    text id 207 start 67.5s at (118, 52) ''$(\frac{\pi}{2}, 2)$'' ;
+    
+    # ═══════════════════════════════════════
+    # SECTION 8 : ANIMATIONS DE CURSEUR
+    # ═══════════════════════════════════════
+    
+    text id 210 start 69s at (20, 75)
+         ''[bold][color=#F39C12]Animation du curseur[/color][/bold]'' ;
+    
+    # Curseur suivant les points remarquables
+    mouse move id 600 start 70s for 3s 
+               at [(88.89, 40), (113.89, 50), (88.89, 50), (68.89, 60)] ;
+    
+    # ═══════════════════════════════════════
+    # SECTION 9 : FORMULES LaTeX COMPLEXES
+    # ═══════════════════════════════════════
+    
+    erase id 901 start 74s for 1s at [200, 201, 202, 203, 204, 205, 206, 207, 210, 
+                                       300, 310, 311, 312, 313, 320, 321] ;
+    
+    text id 400 start 75s for 2s at (88.89, 15)
+         ''[bold][color=#2C3E50]7. Formules Mathématiques Avancées[/color][/bold]'' ;
+    
+    # Formule de Taylor
+    text id 410 start 77s for 3s at (88.89, 30)
+         ''$$f(x) = \sum_{n=0}^{\infty} \frac{f^{(n)}(a)}{n!}(x-a)^n$$'' ;
+    
+    text id 411 start 80s at (88.89, 38)
+         ''[italic]Série de Taylor[/italic]'' ;
+    
+    # Intégrale de Gauss
+    text id 412 start 82s for 3s at (88.89, 50)
+         ''$$\int_{-\infty}^{+\infty} e^{-x^2} dx = \sqrt{\pi}$$'' ;
+    
+    text id 413 start 85s at (88.89, 58)
+         ''[italic]Intégrale de Gauss[/italic]'' ;
+    
+    # Équation de Schrödinger
+    text id 414 start 87s for 3s at (88.89, 70)
+         ''$$i\hbar\frac{\partial}{\partial t}\Psi(\mathbf{r},t) = \hat{H}\Psi(\mathbf{r},t)$$'' ;
+    
+    text id 415 start 90s at (88.89, 78)
+         ''[italic]Équation de Schrödinger[/italic]'' ;
+    
+    # Formule d'Euler
+    text id 416 start 92s for 3s at (88.89, 90)
+         ''$$e^{i\pi} + 1 = 0$$'' ;
+    
+    text id 417 start 95s at (88.89, 95)
+         ''[italic]Identité d'Euler : la plus belle équation[/italic]'' ;
+    
+    # ═══════════════════════════════════════
+    # SECTION 10 : DÉMONSTRATION GÉOMÉTRIQUE
+    # ═══════════════════════════════════════
+    
+    erase id 902 start 98s for 1s at [400, 410, 411, 412, 413, 414, 415, 416, 417] ;
+    
+    text id 500 start 99s for 2s at (88.89, 8)
+         ''[bold][color=#E74C3C]8. Construction Géométrique Complexe[/color][/bold]'' ;
+    
+    text id 501 start 101s at (88.89, 13)
+         ''[italic]Théorème du cercle inscrit dans un triangle[/italic]'' ;
+    
+    # Triangle principal
+    draw polygone id 510 start 102s for 2s 
+                  color (52, 152, 219, 1) 
+                  width 3 
+                  fillcolor (52, 152, 219, 0.1) 
+                  at [(40, 70), (88.89, 25), (137.78, 70)] ;
+    
+    # Points du triangle
+    draw circle id 511 start 104s 
+                color (231, 76, 60, 1) 
+                width 2 
+                fillcolor (231, 76, 60, 1) 
+                radius 2 
+                at (40, 70) ;
+    
+    text id 512 start 104.5s at (33, 72) ''[bold]$A$[/bold]'' ;
+    
+    draw circle id 513 start 104s 
+                color (231, 76, 60, 1) 
+                width 2 
+                fillcolor (231, 76, 60, 1) 
+                radius 2 
+                at (88.89, 25) ;
+    
+    text id 514 start 104.5s at (88.89, 20) ''[bold]$B$[/bold]'' ;
+    
+    draw circle id 515 start 104s 
+                color (231, 76, 60, 1) 
+                width 2 
+                fillcolor (231, 76, 60, 1) 
+                radius 2 
+                at (137.78, 70) ;
+    
+    text id 516 start 104.5s at (143, 72) ''[bold]$C$[/bold]'' ;
+    
+    # Bissectrices
+    draw line id 520 start 106s for 1.5s 
+              color (46, 204, 113, 0.6) 
+              width 2 
+              at [(40, 70), (88.89, 52)] ;
+    
+    draw line id 521 start 106s for 1.5s 
+              color (46, 204, 113, 0.6) 
+              width 2 
+              at [(88.89, 25), (88.89, 52)] ;
+    
+    draw line id 522 start 106s for 1.5s 
+              color (46, 204, 113, 0.6) 
+              width 2 
+              at [(137.78, 70), (88.89, 52)] ;
+    
+    text id 523 start 107.5s at (60, 60)
+         ''[color=#2ECC71]Bissectrices[/color]'' ;
+    
+    # Centre du cercle inscrit (incentre)
+    draw circle id 530 start 109s 
+                color (155, 89, 182, 1) 
+                width 2 
+                fillcolor (155, 89, 182, 1) 
+                radius 2 
+                at (88.89, 52) ;
+    
+    text id 531 start 109.5s at (93, 54) ''[bold][color=#9B59B6]$I$[/color][/bold]'' ;
+    
+    # Cercle inscrit
+    draw circle id 540 start 111s for 2s 
+                color (243, 156, 18, 1) 
+                width 3 
+                fillcolor (243, 156, 18, 0.15) 
+                radius 12 
+                at (88.89, 52) ;
+    
+    text id 541 start 113s at (88.89, 78)
+         ''[color=#F39C12]Cercle inscrit[/color]'' ;
+    
+    # Rayons vers les points de tangence
+    draw line id 550 start 114s 
+              color (243, 156, 18, 0.7) 
+              width 1.5 
+              at [(88.89, 52), (64.44, 61)] ;
+    
+    draw line id 551 start 114s 
+              color (243, 156, 18, 0.7) 
+              width 1.5 
+              at [(88.89, 52), (88.89, 40)] ;
+    
+    draw line id 552 start 114s 
+              color (243, 156, 18, 0.7) 
+              width 1.5 
+              at [(88.89, 52), (113.34, 61)] ;
+    
+    text id 553 start 115s at (88.89, 48) ''$r$'' ;
     
     # ═══════════════════════════════════════
     # SECTION 11 : CONCLUSION
     # ═══════════════════════════════════════
     
-    # Effacer la vérification
-    erase id 902 start 56s for 1s at [80, 81, 90, 91, 92, 93, 94] ;
+    erase id 903 start 118s for 1.5s at [500, 501, 510, 511, 512, 513, 514, 515, 516, 
+                                          520, 521, 522, 523, 530, 531, 540, 541, 
+                                          550, 551, 552, 553] ;
     
-    # Message final
-    draw polygone id 100 start 57s for 1.5s 
+    # Message final avec cadre décoratif
+    draw polygone id 600 start 120s for 1.5s 
                   color (155, 89, 182, 1) 
                   width 3 
-                  fillcolor (155, 89, 182, 0.15) 
-                  at [(15, 85), (162.78, 85), (162.78, 98), (15, 98)] ;
+                  fillcolor (155, 89, 182, 0.1) 
+                  at [(20, 35), (157.78, 35), (157.78, 65), (20, 65)] ;
     
-    text id 101 start 58s for 3s at (88.89, 88)
-         ''[bold]Le théorème de Thalès[/bold]'' ;
+    text id 601 start 121s for 3s at (45, 38)
+         ''[bold][font=Arial][color=#9B59B6]Démonstration Complète Terminée ![/color][/font][/bold]'' ;
     
-    text id 102 start 58s for 3s at (88.89, 94)
-         ''[italic]permet de calculer des longueurs inaccessibles[/italic]'' ;
+    text id 602 start 121s for 3s at (45, 45)
+         ''[italic]Tous les éléments Hypercourse présentés[/italic]'' ;
+    
+    text id 603 start 121s for 3s at (45, 52)
+         ''$\checkmark$ Lignes • Flèches • Chemins • Courbes • Polygones'' ;
+    
+    text id 604 start 121s for 3s at (45, 57)
+         ''$\checkmark$ Cercles • Ellipses • Arcs • Repères 2D • Fonctions'' ;
     
     # Étoiles décoratives
-    draw circle id 110 start 60s 
+    draw circle id 610 start 123s 
                 color (241, 196, 15, 1) 
                 width 2 
-                fillcolor (241, 196, 15, 0.8) 
+                fillcolor (241, 196, 15, 0.9) 
                 radius 1.5 
-                at (20, 91) ;
+                at (25, 50) ;
     
-    draw circle id 111 start 60.2s 
+    draw circle id 611 start 123.2s 
                 color (241, 196, 15, 1) 
                 width 2 
-                fillcolor (241, 196, 15, 0.8) 
+                fillcolor (241, 196, 15, 0.9) 
                 radius 1.5 
-                at (157.78, 91) ;
+                at (152.78, 50) ;
     
-    draw circle id 112 start 60.4s 
+    draw circle id 612 start 123.4s 
                 color (241, 196, 15, 1) 
                 width 2 
-                fillcolor (241, 196, 15, 0.8) 
+                fillcolor (241, 196, 15, 0.9) 
                 radius 1.5 
-                at (25, 86) ;
+                at (30, 40) ;
     
-    draw circle id 113 start 60.6s 
+    draw circle id 613 start 123.6s 
                 color (241, 196, 15, 1) 
                 width 2 
-                fillcolor (241, 196, 15, 0.8) 
+                fillcolor (241, 196, 15, 0.9) 
                 radius 1.5 
-                at (152.78, 86) ;
+                at (147.78, 40) ;
+    
+    draw circle id 614 start 123.8s 
+                color (241, 196, 15, 1) 
+                width 2 
+                fillcolor (241, 196, 15, 0.9) 
+                radius 1.5 
+                at (30, 60) ;
+    
+    draw circle id 615 start 124s 
+                color (241, 196, 15, 1) 
+                width 2 
+                fillcolor (241, 196, 15, 0.9) 
+                radius 1.5 
+                at (147.78, 60) ;
+    
+    # Animation finale du curseur célébrant la fin
+    mouse move id 700 start 124s for 2s 
+               at [(20, 20), (157.78, 20), (157.78, 80), (20, 80), (88.89, 50)] ;
 }
     ''';
 
