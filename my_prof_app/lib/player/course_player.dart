@@ -162,7 +162,7 @@ class CoursePlayerState extends State<CoursePlayer> with SingleTickerProviderSta
             CustomPaint(
               size: Size.infinite,
               painter: BoardPainter(
-                drawElements: _visibleElements.whereType<DrawElement>().toList(),
+                allElements: _visibleElements,
                 currentTime: currentTime,
                 defaultColor: defaultDrawColor,
                 showGrid: false, // Mettre à true pour debug
