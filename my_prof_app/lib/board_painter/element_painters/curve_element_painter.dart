@@ -1,6 +1,7 @@
 // element_painters/curve_element_painter.dart
 import 'package:flutter/material.dart';
 import 'dart:math' as math;
+import '../../models/hyper_element.dart';
 import 'element_painter_interface.dart';
 import '../helpers/path_animation.dart';
 import '../helpers/arrow_head_painter.dart';
@@ -13,7 +14,7 @@ class CurveElementPainter implements ElementPainter {
   bool canPaint(DrawElement element) => element is CurveElement;
 
   @override
-  void paint(Canvas canvas, CoordinateSystem coordinateSystem, DrawElement element, double progress, Paint paint, List<DrawElement> allElements) {
+  void paint(Canvas canvas, CoordinateSystem coordinateSystem, DrawElement element, double progress, Paint paint, List<HyperElement> allElements) {
     final curveElement = element as CurveElement;
     
     if (curveElement.points.length < 2) return;

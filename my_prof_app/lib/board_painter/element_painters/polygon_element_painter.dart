@@ -1,4 +1,5 @@
 // element_painters/polygon_element_painter.dart
+import '../../models/hyper_element.dart';
 import 'element_painter_interface.dart';
 import '../helpers/path_animation.dart';
 import '../../models/basic_elements/draw_element.dart';
@@ -11,7 +12,7 @@ class PolygonElementPainter implements ElementPainter {
   bool canPaint(DrawElement element) => element is PolygonElement;
 
   @override
-  void paint(Canvas canvas, CoordinateSystem coordinateSystem, DrawElement element, double progress, Paint paint, List<DrawElement> allElements) {
+  void paint(Canvas canvas, CoordinateSystem coordinateSystem, DrawElement element, double progress, Paint paint, List<HyperElement> allElements) {
     final polygonElement = element as PolygonElement;
     
     if (polygonElement.points.isEmpty) return;

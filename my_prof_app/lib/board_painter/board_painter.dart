@@ -2,18 +2,19 @@
 // board_painter.dart
 import 'package:flutter/material.dart';
 import '../../models/basic_elements/draw_element.dart';
+import '../models/hyper_element.dart';
 import 'coordinate_system.dart';
 import 'element_painters/element_painter_factory.dart';
 import 'helpers/grid_painter.dart';
 
 class BoardPainter extends CustomPainter {
-  final List<DrawElement> drawElements;
+  final List<HyperElement> allElements;
   final double currentTime;
   final Color defaultColor;
   final bool showGrid;
 
   BoardPainter({
-    required this.drawElements,
+    required this.allElements,
     required this.currentTime,
     this.defaultColor = Colors.black,
     this.showGrid = false,
@@ -27,7 +28,7 @@ class BoardPainter extends CustomPainter {
       GridPainter.draw(canvas, coordinateSystem, coordinateSystem.referenceWidth, coordinateSystem.referenceHeight);
     }
 
-    for (final element in drawElements) {
+    for (final element in allElements.whereType<DrawElement>()) {
       _paintElement(canvas, coordinateSystem, element);
     }
   }
@@ -40,7 +41,7 @@ class BoardPainter extends CustomPainter {
     final painter = ElementPainterFactory.getPainter(element);
 
     // Passe tous les éléments au painter pour le contexte
-    painter?.paint(canvas, coordinateSystem, element, progress, paint, drawElements);
+    painter?.paint(canvas, coordinateSystem, element, progress, paint, allElements);
   }
 
   double _calculateProgress(DrawElement element) {

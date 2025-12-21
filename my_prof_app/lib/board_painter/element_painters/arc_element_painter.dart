@@ -1,6 +1,7 @@
 // element_painters/arc_element_painter.dart
 import 'package:flutter/material.dart';
 import 'dart:math' as math;
+import '../../models/hyper_element.dart';
 import 'element_painter_interface.dart';
 import '../helpers/arrow_head_painter.dart';
 import '../../models/basic_elements/draw_element.dart'; 
@@ -12,7 +13,7 @@ class ArcElementPainter implements ElementPainter {
   bool canPaint(DrawElement element) => element is ArcElement;
 
   @override
-  void paint(Canvas canvas, CoordinateSystem coordinateSystem, DrawElement element, double progress, Paint paint, List<DrawElement> allElements) {
+  void paint(Canvas canvas, CoordinateSystem coordinateSystem, DrawElement element, double progress, Paint paint, List<HyperElement> allElements) {
     final arcElement = element as ArcElement;
 
     _drawArcOutline(canvas, coordinateSystem, arcElement, progress, paint);
