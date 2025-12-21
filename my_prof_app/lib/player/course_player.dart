@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
 import '../models/hyper_element.dart';
-import 'board_painter.dart';
-import 'latex_widget.dart';
-import 'plot_widget.dart';
+import '../../models/basic_elements/draw_element.dart';
+import '../../models/basic_elements/text_element.dart';
+import '../../models/basic_elements/plot_element.dart';
+import '../../models/basic_elements/mouse_event_element.dart';
+import '../../models/basic_elements/erase_element.dart';
+import '../../models/basic_elements/speech_element.dart';
+import '../board_painter/board_painter.dart';
+import '../board_writter/latex_widget.dart';
+import '../board_plotter/plot_widget.dart';
 
 class CoursePlayer extends StatefulWidget {
   final List<HyperElement> elements;
