@@ -1,4 +1,358 @@
-import 'package:flutter/material.dart';
+// main.dart
+/*import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
+import 'parsers/hypercourse_parser.dart';
+import 'parsers/hypercourse_timer.dart';
+import 'player/course_player.dart';
+
+void main() {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'Hypercourse AI',
+      theme: ThemeData(
+        brightness: Brightness.light,
+        primarySwatch: Colors.blue,
+        useMaterial3: true,
+      ),
+      darkTheme: ThemeData(
+        brightness: Brightness.dark,
+        useMaterial3: true,
+      ),
+      home: const CourseRequestPage(),
+    );
+  }
+}
+
+class CourseRequestPage extends StatefulWidget {
+  const CourseRequestPage({super.key});
+
+  @override
+  State<CourseRequestPage> createState() => _CourseRequestPageState();
+}
+
+class _CourseRequestPageState extends State<CourseRequestPage> {
+  final TextEditingController _topicController = TextEditingController();
+  final TextEditingController _levelController = TextEditingController(text: 'débutant');
+  
+  bool _isGenerating = false;
+  String? _errorMessage;
+  
+  // URL du serveur backend (modifie selon ton environnement)
+  static const String apiUrl = 'http://localhost:8000/generate_course'; // Émulateur Android
+  // Pour device réel ou iOS: 'http://192.168.x.x:8000/generate_course'
+  // Pour web: 'http://localhost:8000/generate_course'
+
+  Future<void> _generateCourse() async {
+    if (_topicController.text.trim().isEmpty) {
+      setState(() {
+        _errorMessage = 'Veuillez entrer un sujet pour le cours';
+      });
+      return;
+    }
+
+    setState(() {
+      _isGenerating = true;
+      _errorMessage = null;
+    });
+
+    try {
+      print('📤 Envoi de la requête au serveur...');
+      print('📝 Sujet: ${_topicController.text}');
+      print('📊 Niveau: ${_levelController.text}');
+      
+      final response = await http.post(
+        Uri.parse(apiUrl),
+        headers: {'Content-Type': 'application/json'},
+        body: jsonEncode({
+          'topic': _topicController.text.trim(),
+          'level': _levelController.text.trim(),
+        }),
+      ).timeout(
+        const Duration(seconds: 120), // Timeout de 2 minutes
+        onTimeout: () {
+          throw Exception('La génération a pris trop de temps. Veuillez réessayer.');
+        },
+      );
+
+      if (response.statusCode == 200) {
+        print('✅ Réponse reçue du serveur');
+        
+        final data = jsonDecode(response.body);
+        final script = data['script'] as String;
+        
+        print('📜 Script reçu (${script.length} caractères)');
+        print('🚀 Démarrage du parsing...');
+        
+        // Parser le script
+        final parser = HypercourseParser(script);
+        final elements = parser.parse();
+        
+        print('✅ Parsing réussi !');
+        HypercourseTimer.printCourseStats(elements);
+        
+        final totalDuration = HypercourseTimer.calculateTotalDuration(elements);
+        
+        print('🎬 Lancement du player...');
+        
+        // Navigation vers le player
+        if (!mounted) return;
+        
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => CoursePlayer(
+              elements: elements,
+              totalDuration: totalDuration,
+            ),
+          ),
+        );
+        
+      } else {
+        throw Exception('Erreur serveur: ${response.statusCode}');
+      }
+      
+    } catch (e, stackTrace) {
+      print('❌ Erreur: $e');
+      print('Stack trace: $stackTrace');
+      
+      setState(() {
+        _errorMessage = 'Erreur lors de la génération: ${e.toString()}';
+      });
+    } finally {
+      setState(() {
+        _isGenerating = false;
+      });
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: SafeArea(
+        child: Center(
+          child: SingleChildScrollView(
+            padding: const EdgeInsets.all(24.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                // Logo/Icône
+                Icon(
+                  Icons.school,
+                  size: 80,
+                  color: Theme.of(context).primaryColor,
+                ),
+                const SizedBox(height: 24),
+                
+                // Titre
+                Text(
+                  'MY PROF.AI',
+                  style: Theme.of(context).textTheme.headlineLarge?.copyWith(
+                    fontWeight: FontWeight.bold,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+                const SizedBox(height: 8),
+                
+                Text(
+                  'Générez des cours interactifs avec l\'IA',
+                  style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                    color: Colors.grey[600],
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+                const SizedBox(height: 48),
+                
+                // Champ sujet
+                TextField(
+                  controller: _topicController,
+                  decoration: InputDecoration(
+                    labelText: 'Sujet du cours',
+                    hintText: 'Ex: Le théorème de Pythagore',
+                    prefixIcon: const Icon(Icons.topic),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    filled: true,
+                  ),
+                  textInputAction: TextInputAction.next,
+                  enabled: !_isGenerating,
+                ),
+                const SizedBox(height: 16),
+                
+                // Champ niveau
+                TextField(
+                  controller: _levelController,
+                  decoration: InputDecoration(
+                    labelText: 'Niveau',
+                    hintText: 'Ex: débutant, intermédiaire, avancé',
+                    prefixIcon: const Icon(Icons.bar_chart),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    filled: true,
+                  ),
+                  textInputAction: TextInputAction.done,
+                  enabled: !_isGenerating,
+                  onSubmitted: (_) => _generateCourse(),
+                ),
+                const SizedBox(height: 24),
+                
+                // Bouton génération
+                ElevatedButton.icon(
+                  onPressed: _isGenerating ? null : _generateCourse,
+                  icon: _isGenerating
+                      ? const SizedBox(
+                          width: 20,
+                          height: 20,
+                          child: CircularProgressIndicator(
+                            strokeWidth: 2,
+                            valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
+                          ),
+                        )
+                      : const Icon(Icons.auto_awesome),
+                  label: Text(
+                    _isGenerating ? 'Génération en cours...' : 'Générer le cours',
+                    style: const TextStyle(fontSize: 16),
+                  ),
+                  style: ElevatedButton.styleFrom(
+                    padding: const EdgeInsets.symmetric(vertical: 16),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                  ),
+                ),
+                
+                // Message d'erreur
+                if (_errorMessage != null) ...[
+                  const SizedBox(height: 16),
+                  Container(
+                    padding: const EdgeInsets.all(12),
+                    decoration: BoxDecoration(
+                      color: Colors.red[50],
+                      borderRadius: BorderRadius.circular(8),
+                      border: Border.all(color: Colors.red[300]!),
+                    ),
+                    child: Row(
+                      children: [
+                        Icon(Icons.error_outline, color: Colors.red[700]),
+                        const SizedBox(width: 8),
+                        Expanded(
+                          child: Text(
+                            _errorMessage!,
+                            style: TextStyle(color: Colors.red[700]),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+                
+                // Indicateur de progression
+                if (_isGenerating) ...[
+                  const SizedBox(height: 24),
+                  const LinearProgressIndicator(),
+                  const SizedBox(height: 8),
+                  Text(
+                    'Génération du cours par l\'IA...\nCela peut prendre 30-60 secondes',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      color: Colors.grey[600],
+                      fontSize: 12,
+                    ),
+                  ),
+                ],
+                
+                // Exemples
+                const SizedBox(height: 32),
+                Text(
+                  'Exemples de sujets :',
+                  style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                const SizedBox(height: 8),
+                _buildExampleChip('Théorème de Pythagore', 'débutant'),
+                _buildExampleChip('Dérivées de fonctions', 'intermédiaire'),
+                _buildExampleChip('Série de Fourier', 'avancé'),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildExampleChip(String topic, String level) {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 8.0),
+      child: InkWell(
+        onTap: _isGenerating ? null : () {
+          _topicController.text = topic;
+          _levelController.text = level;
+        },
+        child: Container(
+          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+          decoration: BoxDecoration(
+            color: Theme.of(context).primaryColor.withOpacity(0.1),
+            borderRadius: BorderRadius.circular(8),
+            border: Border.all(
+              color: Theme.of(context).primaryColor.withOpacity(0.3),
+            ),
+          ),
+          child: Row(
+            children: [
+              Icon(
+                Icons.lightbulb_outline,
+                size: 16,
+                color: Theme.of(context).primaryColor,
+              ),
+              const SizedBox(width: 8),
+              Expanded(
+                child: Text(
+                  topic,
+                  style: const TextStyle(fontWeight: FontWeight.w500),
+                ),
+              ),
+              Container(
+                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+                decoration: BoxDecoration(
+                  color: Theme.of(context).primaryColor,
+                  borderRadius: BorderRadius.circular(4),
+                ),
+                child: Text(
+                  level,
+                  style: const TextStyle(
+                    color: Colors.white,
+                    fontSize: 12,
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  @override
+  void dispose() {
+    _topicController.dispose();
+    _levelController.dispose();
+    super.dispose();
+  }
+}
+
+*/import 'package:flutter/material.dart';
 import 'parsers/hypercourse_parser.dart';
 import 'parsers/hypercourse_timer.dart';
 import 'player/course_player.dart';

@@ -1,0 +1,10 @@
+.env
+static/
+__pycache__/
+.idea/
+*.pyc
+etc/
+lib/
+scripts/
+share/
+pyvenv.cfg
