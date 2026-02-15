@@ -5,7 +5,7 @@ import 'tokenizer/token_types.dart';
 class ParsingUtils {
   static int parseId(List<Token> tokens, int startIndex) {
     if (startIndex + 1 < tokens.length &&
-        tokens[startIndex].value == 'id' && 
+        (tokens[startIndex].value == 'id' || tokens[startIndex].value == 'idgap') &&
         tokens[startIndex + 1].type == TokenType.NUMBER) {
       return int.parse(tokens[startIndex + 1].value);
     }

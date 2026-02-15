@@ -13,6 +13,7 @@ class Repere2DElement extends DrawElement {
     required super.id,
     required super.startTime,
     super.duration,
+    super.endTime,
     super.color,
     super.width = 1.5,
     required this.origin,

@@ -43,3 +43,14 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+
+# Platform-distrubition related
+linux/
+macos/
+windows/
+ios/
+android/
+.vscode/
+build/
+.github/

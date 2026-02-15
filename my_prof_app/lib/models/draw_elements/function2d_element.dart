@@ -8,6 +8,7 @@ class Function2DElement extends DrawElement {
     required super.id,
     required super.startTime,
     super.duration,
+    super.endTime,
     super.color,
     required super.width,
     required this.repereId,

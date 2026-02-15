@@ -4,7 +4,8 @@ class ArrowElement extends LineElement {
   ArrowElement({
     required super.id, 
     required super.startTime, 
-    super.duration, 
+    super.duration,
+    super.endTime, 
     super.color, 
     required super.width, 
     super.from, 
