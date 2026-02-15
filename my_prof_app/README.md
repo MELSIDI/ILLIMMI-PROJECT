@@ -161,7 +161,7 @@ lib/
 Créez un fichier `lesson.hypercourse` :
 
 ```hypercourse
-course "Ma Première Leçon" {
+course "Ma Première Leçon" id 1 idgap 7000 for 9s {
     # Afficher un titre
     text id 1 start 1s for 2s at (88.89, 20)  
          ''[bold]Bienvenue ![/bold]'' ;

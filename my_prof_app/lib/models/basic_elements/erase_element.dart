@@ -5,7 +5,8 @@ class EraseElement extends HyperElement {
   EraseElement({
     required super.id, 
     required super.startTime, 
-    super.duration, 
+    super.duration,
+    super.endTime,
     required this.idsToErase
   });
 }

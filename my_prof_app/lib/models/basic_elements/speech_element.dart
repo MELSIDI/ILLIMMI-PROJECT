@@ -5,7 +5,8 @@ class SpeechElement extends HyperElement {
   SpeechElement({
     required super.id, 
     required super.startTime, 
-    super.duration, 
+    super.duration,
+    super.endTime,
     required this.text
   });
 }
