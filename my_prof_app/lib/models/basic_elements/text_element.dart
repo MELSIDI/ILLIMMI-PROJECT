@@ -7,7 +7,8 @@ class TextElement extends HyperElement {
   TextElement({
     required super.id, 
     required super.startTime, 
-    super.duration, 
+    super.duration,
+    super.endTime,  
     required this.content, 
     required this.position
   });

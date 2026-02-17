@@ -7,9 +7,10 @@ abstract class DrawElement extends HyperElement {
   final double width;
   DrawElement({
     required super.id, 
-    required super.startTime, 
-    super.duration, 
+    required super.startTime,
+    super.duration,
+    super.endTime,
     this.color, 
-    this.width = 2.5
+    this.width = 2.5,
   });
 }

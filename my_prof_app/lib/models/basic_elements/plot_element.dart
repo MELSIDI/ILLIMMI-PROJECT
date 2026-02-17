@@ -7,7 +7,8 @@ class PlotElement extends HyperElement {
   PlotElement({
     required super.id, 
     required super.startTime, 
-    super.duration, 
+    super.duration,
+    super.endTime,  
     required this.position, 
     required this.code
   });

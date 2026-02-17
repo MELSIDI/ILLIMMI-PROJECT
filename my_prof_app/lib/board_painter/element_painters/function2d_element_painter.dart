@@ -1,6 +1,7 @@
 // element_painters/function2d_element_painter.dart
 import 'package:flutter/material.dart';
 //import 'dart:math' as math;
+import '../../models/hyper_element.dart';
 import 'element_painter_interface.dart';
 import '../helpers/path_animation.dart';
 import '../helpers/function_evaluator.dart';
@@ -20,12 +21,13 @@ class Function2DElementPainter implements ElementPainter {
     DrawElement element, 
     double progress, 
     Paint paint,
-    List<DrawElement> allElements, // Reçoit tous les éléments
+    List<HyperElement> allElements, // Reçoit tous les éléments
   ) {
     final functionElement = element as Function2DElement;
+    final drawElements = allElements.whereType<DrawElement>().toList();
     
     // Trouver le repère associé dans tous les éléments
-    final repere = _findRepere(allElements, functionElement.repereId);
+    final repere = _findRepere(drawElements, functionElement.repereId);
     if (repere == null) return;
     
     final path = _createFunctionPath(functionElement, repere);
@@ -34,8 +36,8 @@ class Function2DElementPainter implements ElementPainter {
     }
   }
 
-  Repere2DElement? _findRepere(List<DrawElement> allElements, int repereId) {
-    for (final element in allElements) {
+  Repere2DElement? _findRepere(List<DrawElement> drawElements, int repereId) {
+    for (final element in drawElements) {
       if (element is Repere2DElement && element.id == repereId) {
         return element;
       }

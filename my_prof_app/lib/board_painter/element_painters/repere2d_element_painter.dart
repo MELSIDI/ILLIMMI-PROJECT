@@ -1,6 +1,7 @@
 // element_painters/repere2d_element_painter.dart
 import 'package:flutter/material.dart';
 import 'dart:math' as math;
+import '../../models/hyper_element.dart';
 import 'element_painter_interface.dart';
 import '../helpers/arrow_head_painter.dart';
 import '../../models/basic_elements/draw_element.dart';
@@ -12,7 +13,7 @@ class Repere2DElementPainter implements ElementPainter {
   bool canPaint(DrawElement element) => element is Repere2DElement;
 
   @override
-  void paint(Canvas canvas, CoordinateSystem coordinateSystem, DrawElement element, double progress, Paint paint, List<DrawElement> allElements) {
+  void paint(Canvas canvas, CoordinateSystem coordinateSystem, DrawElement element, double progress, Paint paint, List<HyperElement> allElements) {
     final repereElement = element as Repere2DElement;
 
     final xFirst = repereElement.id % 2 == 0;

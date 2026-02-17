@@ -1,4 +1,5 @@
 // element_painters/path_element_painter.dart
+import '../../models/hyper_element.dart';
 import 'element_painter_interface.dart';
 import '../helpers/path_animation.dart';
 import '../../models/basic_elements/draw_element.dart';
@@ -11,7 +12,7 @@ class PathElementPainter implements ElementPainter {
   bool canPaint(DrawElement element) => element is PathElement;
 
   @override
-  void paint(Canvas canvas, CoordinateSystem coordinateSystem, DrawElement element, double progress, Paint paint, List<DrawElement> allElements) {
+  void paint(Canvas canvas, CoordinateSystem coordinateSystem, DrawElement element, double progress, Paint paint, List<HyperElement> allElements) {
     final pathElement = element as PathElement;
     
     if (pathElement.points.isEmpty) return;

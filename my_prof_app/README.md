@@ -69,17 +69,86 @@ dependencies:
 Copiez les fichiers suivants dans votre projet :
 
 ```
+my_prof_app/
 lib/
 ├── models/
+|   ├── basic_elements/
+|   |  ├── draw_element.dart
+|   |  ├── erase_element.dart
+|   |  ├── mouse_element.dart
+|   |  ├── plot_element.dart
+|   |  ├── speech_element.dart
+|   |  └── text_element.dart
+|   ├── draw_elements/
+|   |  ├── arc_element.dart
+|   |  ├── arrow_element.dart
+|   |  ├── circle_element.dart
+|   |  ├── curve_element.dart
+|   |  ├── ellipse_element.dart
+|   |  ├── elliptic_arc_element.dart
+|   |  ├── function2d_element.dart
+|   |  ├── line_element.dart
+|   |  ├── path_element.dart
+|   |  ├── polygon_element.dart
+|   |  └── repere2d_element.dart
 │   └── hyper_element.dart
 ├── parsers/
-│   └── hypercourse_parser.dart
-|   └── hypercourse_timer.dart
-├── player/
-|    └── board_painter.dart
-|    └── course_player.dart
-|    └── latex_widget.dart
+|   ├── command_parsers/
+|   |  ├── command_parser_factory.dart
+|   |  ├── command_parser_interface.dart
+|   |  ├── draw_command_parser.dart
+|   |  ├── erase_command_parser.dart
+|   |  ├── mouse_command_parser.dart
+|   |  ├── plot_command_parser.dart
+|   |  ├── speech_command_parser.dart
+|   |  └── text_command_parser.dart
+|   ├── draw_parsers/
+|   |  ├── arc_draw_parser.dart
+|   |  ├── circle_draw_parser.dart
+|   |  ├── curve_draw_parser.dart
+|   |  ├── draw_parser_factory.dart
+|   |  ├── draw_parser_interface.dart
+|   |  ├── ellipse_draw_parser.dart
+|   |  ├── elliptic_arc_draw_parser.dart
+|   |  ├── function2d_draw_parser.dart
+|   |  ├── line_draw_parser.dart
+|   |  ├── path_draw_parser.dart
+|   |  ├── polygon_draw_parser.dart
+|   |  └── repere2d_draw_parser.dart
+|   ├── tokenizer/
+|   |  ├── token_types.dart
+|   |  └── tokenizer.dart
+│   ├── hypercourse_parser.dart
+│   ├── hypercourse_timer.dart
+|   └── parsing_utils.dart
+├── board_painter/
+|   ├── element_painters/
+|   |  ├── arc_element_painter.dart
+|   |  ├── circle_element_painter.dart
+|   |  ├── curve_element_painter.dart
+|   |  ├── element_painter_factory.dart
+|   |  ├── element_painter_interface.dart
+|   |  ├── ellipse_element_painter.dart
+|   |  ├── elliptic_arc_element_painter.dart
+|   |  ├── function2d_element_painter.dart
+|   |  ├── line_element_painter.dart
+|   |  ├── path_element_painter.dart
+|   |  ├── polygon_element_painter.dart
+|   |  └── repere2d_element_painter.dart
+|   ├── helpers/
+|   |  ├── arrow_head_painter.dart
+|   |  ├── function_evaluator.dart
+|   |  ├── grid_painter.dart
+|   |  ├── path_animation.dart
+|   |  └── text_pattern_finder.dart
+│   ├── board_painter.dart
+|   └── coordinate_system.dart
+├── board_plotter/
 |    └── plot_widget.dart
+├── board_writter/
+|    └── latex_widget.dart
+├── player/
+|    └── course_player.dart
 └── main.dart
 ```
 
@@ -92,7 +161,7 @@ lib/
 Créez un fichier `lesson.hypercourse` :
 
 ```hypercourse
-course "Ma Première Leçon" {
+course "Ma Première Leçon" id 1 idgap 7000 for 9s {
     # Afficher un titre
     text id 1 start 1s for 2s at (88.89, 20)  
          ''[bold]Bienvenue ![/bold]'' ;
