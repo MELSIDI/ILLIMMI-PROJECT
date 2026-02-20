@@ -12,12 +12,14 @@ class BoardPainter extends CustomPainter {
   final double currentTime;
   final Color defaultColor;
   final bool showGrid;
+  final bool isStatic;
 
   BoardPainter({
     required this.allElements,
     required this.currentTime,
     this.defaultColor = Colors.black,
     this.showGrid = false,
+    this.isStatic = false,
   });
 
   @override
@@ -25,7 +27,12 @@ class BoardPainter extends CustomPainter {
     final coordinateSystem = CoordinateSystem(size);
 
     if (showGrid) {
-      GridPainter.draw(canvas, coordinateSystem, coordinateSystem.referenceWidth, coordinateSystem.referenceHeight);
+      GridPainter.draw(
+        canvas,
+        coordinateSystem,
+        coordinateSystem.referenceWidth,
+        coordinateSystem.referenceHeight,
+      );
     }
 
     for (final element in allElements.whereType<DrawElement>()) {
@@ -33,19 +40,37 @@ class BoardPainter extends CustomPainter {
     }
   }
 
-  void _paintElement(Canvas canvas, CoordinateSystem coordinateSystem, DrawElement element) {
-    final progress = _calculateProgress(element);
+  void _paintElement(
+    Canvas canvas,
+    CoordinateSystem coordinateSystem,
+    DrawElement element,
+  ) {
+    final double progress;
+    if (isStatic) {
+      progress = 1.0; // Affichage statique : on affiche tout
+    } else {
+      progress = _calculateProgress(element);
+    }
     if (progress <= 0.0) return;
 
     final paint = _createPaint(element);
     final painter = ElementPainterFactory.getPainter(element);
 
     // Passe tous les éléments au painter pour le contexte
-    painter?.paint(canvas, coordinateSystem, element, progress, paint, allElements);
+    painter?.paint(
+      canvas,
+      coordinateSystem,
+      element,
+      progress,
+      paint,
+      allElements,
+    );
   }
 
   double _calculateProgress(DrawElement element) {
-    return ((currentTime - element.startTime) / (element.duration > 0 ? element.duration : 1.0)).clamp(0.0, 1.0);
+    return ((currentTime - element.startTime) /
+            (element.duration > 0 ? element.duration : 1.0))
+        .clamp(0.0, 1.0);
   }
 
   Paint _createPaint(DrawElement element) {

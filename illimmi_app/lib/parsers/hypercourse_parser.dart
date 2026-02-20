@@ -1,8 +1,12 @@
 // parsers/hypercourse_parser.dart
+import 'dart:io';
+
 import 'package:illimmi_app/models/basic_elements/erase_element.dart';
+import 'package:illimmi_app/models/basic_elements/speech_element.dart';
 import 'package:illimmi_app/models/basic_elements/text_element.dart';
 import 'package:illimmi_app/models/hyper_element.dart';
 import 'package:illimmi_app/parsers/parsing_utils.dart';
+import 'package:illimmi_app/speech_manager/piper_servicices.dart';
 
 //import '../models/hyper_element.dart';
 import 'tokenizer/tokenizer.dart';
@@ -14,10 +18,11 @@ import '../models/id_config.dart';
 class HypercourseParser {
   final String script;
   int currentIndex = 0;
+  final PiperServices _tts = PiperServices();
 
   HypercourseParser(this.script);
 
-  Course parse() {
+  Future<Course> parse() async {
     final tokenizer = Tokenizer(script);
     final tokens = tokenizer.tokenize();
 
@@ -30,17 +35,17 @@ class HypercourseParser {
         )
         .toList();
 
-    return _parseCourse(filteredTokens);
+    return await _parseCourse(filteredTokens);
   }
 
-  Course _parseCourse(List<Token> tokens) {
+  Future<Course> _parseCourse(List<Token> tokens) async {
     Course? course;
 
     // Chercher le début du cours
     while (currentIndex < tokens.length) {
       if (tokens[currentIndex].value == 'course') {
         currentIndex++; // Skip 'course'
-        course = _parseCourseBlock(tokens);
+        course = await _parseCourseBlock(tokens);
         break;
       }
       currentIndex++;
@@ -54,13 +59,14 @@ class HypercourseParser {
     return course ?? (throw Exception('Bloc course non trouvé'));
   }
 
-  Course _parseCourseBlock(List<Token> tokens) {
+  Future<Course> _parseCourseBlock(List<Token> tokens) async {
     String courseName = 'Unnamed Course';
     int id = 1;
     int idGap = 10000;
     double duration = 3600;
     Map<int, HyperElement> elements = {};
     double Maxduration = 0;
+    PiperServices tts = PiperServices();
 
     while (currentIndex < tokens.length && tokens[currentIndex].value != '{') {
       // on recupere le nom du cours, son id, son idGap et sa durée specipier par l'IA
@@ -148,22 +154,112 @@ class HypercourseParser {
     // Calcul de la durée
     duration = Maxduration > duration ? Maxduration + 60 : duration + 60;
 
-    print('🛠 Création du cours: $courseName avec duration: $duration');
-    Course course = Course(
-      courseName,
-      IdConfig(id: id, idGap: idGap, duration: duration),
-    );
+    // Avant d'insérer les éléments dans le cours, on applique les corrections temporelles pour éviter les chevauchements
+    try {
+      double? realDuration = await _applyTemporalCorrections(
+        elements,
+        courseName,
+        id,
+      );
+      duration = realDuration! > duration ? realDuration + 60 : duration;
+      print('🛠 Création du cours: $courseName avec duration: $duration');
+      Course course = Course(
+        courseName,
+        IdConfig(id: id, idGap: idGap, duration: duration),
+      );
+      for (var element in elements.values) {
+        try {
+          // L'INSERTION DOIT TOUJOURS ÊTRE APRÈS LA SYNTHÈSE
+          // Pour que l'arbre de segments connaisse la vraie durée
+          // Et ici c'est le cas car on insère les éléments APRÈS avoir appliqué
+          //les corrections temporelles basées sur les durées réelles des éléments de type SpeechElement
+          course.insert(element);
+        } catch (e, stack) {
+          print('❌ LE CRASH EST ICI: $e');
+          print('STACKTRACE: $stack');
+          rethrow;
+        }
+      }
+      return course;
+    } catch (e) {
+      print('❌ Erreur lors de l\'application des corrections temporelles: $e');
+      throw Exception(
+        'Erreur lors de l\'application des corrections temporelles: $e',
+      );
+    }
+  }
 
-    for (var element in elements.values) {
-      print('🚀 Tentative d\'insertion de l\'élément ID: ${element.id}');
-      try {
-        course.insert(element);
-      } catch (e, stack) {
-        print('❌ LE CRASH EST ICI: $e');
-        print('STACKTRACE: $stack');
-        rethrow;
+  Future<double?> _applyTemporalCorrections(
+    Map<int, HyperElement> elements,
+    String courseName,
+    int courseId,
+  ) async {
+    double cumulativeOffset = 0.0;
+    double lastAudioEnd = 0.0;
+    double realDuration =
+        0.0; // Durée reele du cours, à calculer en fonction des éléments et de leurs durées réelles après synthèse
+    const double safetyBuffer = 0.5;
+
+    // On trie les éléments par ordre de début pour appliquer les corrections dans le bon ordre
+    var sortedElements = elements.values.toList()
+      ..sort((a, b) => a.startTime.compareTo(b.startTime));
+
+    for (var element in sortedElements) {
+      // 1. On applique le retard accumulé à tout le monde
+      element.startTime += cumulativeOffset;
+      element.endTime += cumulativeOffset;
+
+      if (element is SpeechElement) {
+        // 2. Si collision avec l'audio précédent, on décale et on augmente le retard
+        if (element.startTime < lastAudioEnd) {
+          double shift = lastAudioEnd - element.startTime;
+          element.startTime += shift;
+          element.endTime += shift;
+          cumulativeOffset += shift;
+        }
+
+        // 3. On stocke le moment PRÉCIS où cet audio commence
+        double currentSpeechStart = element.startTime;
+
+        // Synthèse Piper
+        final result = await _tts.tts(
+          text: element.text,
+          dirName: '${courseName}_$courseId',
+          fileName: 'Speech${element.id}',
+        );
+
+        if (result != null) {
+          element.audioPath = result.file!.path;
+          element.duration = result.duration;
+          element.endTime = element.startTime + result.duration;
+
+          lastAudioEnd = element.endTime + safetyBuffer;
+          realDuration = element.endTime > realDuration
+              ? element.endTime
+              : realDuration;
+
+          // 4. Correction des éléments statiques PRÉCÉDENTS
+          // On repasse sur les éléments pour étirer ceux qui chevauchent ce speech
+          for (var other in elements.values) {
+            if (other is! SpeechElement && other is! EraseElement) {
+              // SI l'élément finit APRÈS le début de l'audio actuel
+              // ET qu'il finit AVANT la fin de l'audio actuel
+              if (other.endTime > currentSpeechStart &&
+                  other.endTime < element.endTime) {
+                other.endTime = element.endTime;
+              }
+            }
+          }
+        } else {
+          print(
+            '❌ ERREUR TTS pour SpeechElement ID: ${element.id} avec texte: "${element.text}"',
+          );
+          throw Exception(
+            'Erreur TTS pour SpeechElement ID: ${element.id} avec texte: "${element.text}"',
+          );
+        }
       }
     }
-    return course;
+    return realDuration;
   }
 }
