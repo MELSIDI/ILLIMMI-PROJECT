@@ -14,9 +14,9 @@ void main() {
     }
   ''';
 
-  HypercourseParser parser = HypercourseParser(script);
+  /*HypercourseParser parser = HypercourseParser(script);
   Course course = parser.parse();
   print(
     'Course parsed: ${course.name}, id=${course.config.id}, idGap=${course.config.idGap}, duration=${course.config.duration}s',
-  );
+  );*/
 }

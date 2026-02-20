@@ -6,8 +6,8 @@ class IdConfig {
 
   IdConfig({
     this.id = 1,
-    this.idGap = 100000, 
-    this.duration = 600,// 10 minutes par défaut
+    this.idGap = 100000,
+    this.duration = 600, // 10 minutes par défaut
     this.familyNames = const ['text', 'draw', 'speech', 'mouse', 'erase'],
   });
 
@@ -15,9 +15,11 @@ class IdConfig {
   int getFamilyIndex(int idelement) {
     if (idelement < 0) throw ArgumentError("ID cannot be negative");
     if (idelement == 0) return 0;
-    int idCalculate =  (idelement - 1) ~/ idGap;
+    int idCalculate = (idelement - 1) ~/ idGap;
     if (idCalculate >= familyNames.length) {
-      throw ArgumentError("ID $idelement exceeds the maximum allowed ID for configured families");
+      throw ArgumentError(
+        "ID $idelement exceeds the maximum allowed ID for configured families",
+      );
     }
     return idCalculate;
   }
@@ -37,7 +39,13 @@ class IdConfig {
     int index = familyNames.indexOf(familyName);
     if (index == -1) throw ArgumentError("Family $familyName not found");
     return minId(index);
-  } 
+  }
+
+  int getFamilyIndexByName(String familyName) {
+    int index = familyNames.indexOf(familyName);
+    if (index == -1) throw ArgumentError("Family $familyName not found");
+    return index;
+  }
 
   /// Recupère la plage ici le max pour une famille donnée par son nom
   int getMaxIdByFamily(String familyName) {
