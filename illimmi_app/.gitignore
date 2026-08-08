@@ -43,3 +43,16 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+
+# Ignorer le dossier de build et le cache CMake
+build/
+.dart_tool/
+.packages
+.pub-cache/
+.pub/
+
+# Fichiers spécifiques à Windows
+**/CMakeCache.txt
+**/CMakeFiles/
+**/cmake_install.cmake
