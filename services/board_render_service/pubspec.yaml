@@ -1,0 +1,21 @@
+name: board_render_service
+description: >
+  Wrapper HTTP autour du harnais de rendu headless Flutter d'illimmi_app :
+  reçoit un lot de captures du tableau (contrat JSON produit par
+  generation-orchestrator), invoque `flutter test` pour le rendre via le vrai
+  code de production (BoardPainter/LatexWidget/ArrowHeadPainter), et renvoie
+  les PNG résultants.
+publish_to: 'none'
+version: 1.0.0
+
+environment:
+  sdk: ^3.11.5
+
+dependencies:
+  path: ^1.9.1
+  shelf: ^1.4.2
+  shelf_router: ^1.1.4
+
+dev_dependencies:
+  test: ^1.25.0
+  lints: ^6.0.0

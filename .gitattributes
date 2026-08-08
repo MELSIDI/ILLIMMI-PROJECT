@@ -2,3 +2,5 @@ services/audio_sevice/*.dll filter=lfs diff=lfs merge=lfs -text
 services/audio_sevice/speaker/piper/** filter=lfs diff=lfs merge=lfs -text
 services/audio_sevice/speaker/whisper/** filter=lfs diff=lfs merge=lfs -text
 services/audio_sevice/speaker/whispercpp/** filter=lfs diff=lfs merge=lfs -text
+/services/audio_service/speaker/whisper/model/decoder.onnx filter=lfs diff=lfs merge=lfs -text
+/services/audio_service/speaker/whispercpp/models/ggml-small.bin filter=lfs diff=lfs merge=lfs -text

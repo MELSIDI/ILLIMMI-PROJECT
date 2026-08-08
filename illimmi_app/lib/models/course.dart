@@ -1,5 +1,3 @@
-import 'package:illimmi_app/models/basic_elements/speech_element.dart';
-
 import 'hyper_element.dart';
 import 'id_config.dart';
 
@@ -16,9 +14,6 @@ class Course {
   /// Le registre global pour l'accès direct (O(1)) par ID.
   /// Très utile pour retrouver un élément et changer son `endTime` via un erase.
   final Map<int, HyperElement> globalRegistry = {};
-
-  /// Garder les audios à part pour éviter de les stocker dans les arbres de segments (car ils ne sont pas vivants, juste des références)
-  final Map<int, SpeechElement> audioRegistry = {};
 
   // Cache pour la requête "Sac à dos" : on stocke le dernier résultat et son temps de requête
   double? _lastQueryTime;
@@ -50,14 +45,10 @@ class Course {
     }
 
     // 3. Enregistrement dans le registre global (référence)
-    if (element is SpeechElement) {
-      audioRegistry[element.id] = element;
-    } else {
-      globalRegistry[element.id] = element;
+    globalRegistry[element.id] = element;
 
-      // 4. Insertion dans la forêt spécifique à sa famille
-      familyForests[familyIndex]!.insert(element);
-    }
+    // 4. Insertion dans la forêt spécifique à sa famille
+    familyForests[familyIndex]!.insert(element);
   }
 
   /// Gère l'effacement d'un élément (Erase)

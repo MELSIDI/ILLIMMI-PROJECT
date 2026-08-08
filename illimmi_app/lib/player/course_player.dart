@@ -1,4 +1,5 @@
 // course_player.dart
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:audioplayers/audioplayers.dart';
 import '../models/hyper_element.dart';
@@ -7,7 +8,6 @@ import '../models/basic_elements/text_element.dart';
 import '../models/basic_elements/plot_element.dart';
 import '../models/basic_elements/mouse_event_element.dart';
 import '../models/basic_elements/erase_element.dart';
-import '../models/basic_elements/speech_element.dart';
 import '../board_painter/board_painter.dart';
 import '../board_writter/latex_widget.dart';
 import '../board_plotter/plot_widget.dart';
@@ -16,11 +16,13 @@ import '../models/course.dart';
 class CoursePlayer extends StatefulWidget {
   final Course course;
   final double totalDuration;
+  final VoidCallback onBack;
 
   const CoursePlayer({
     super.key,
     required this.course,
     required this.totalDuration,
+    required this.onBack,
   });
 
   @override
@@ -29,22 +31,42 @@ class CoursePlayer extends StatefulWidget {
 
 class CoursePlayerState extends State<CoursePlayer>
     with SingleTickerProviderStateMixin {
+  static const _skipSeconds = 10;
+
   late AnimationController _controller;
   final AudioPlayer _audioPlayer = AudioPlayer();
   final TextEditingController _questionController = TextEditingController();
 
   List<HyperElement> _dynamicElements = [];
   List<HyperElement> _staticElements = [];
-  final Set<int> _playedSpeechIds = {};
-  final Map<int, String> _speechAudioUrls =
-      {}; // Cache des URLs audio par ID speech
+
+  // Nouveau format ILLIMMI : audio unique et externe déclaré dans le header du cours.
+  late final bool _hasCourseAudio;
+
+  // Horloge réelle basée sur l'audio (mode _hasCourseAudio uniquement).
+  Duration _audioPosition = Duration.zero;
+  Duration _audioDuration = Duration.zero;
+  bool _isPlaying = false;
+  bool _isCompleted = false;
+
+  StreamSubscription<Duration>? _durationSub;
+  StreamSubscription<Duration>? _positionSub;
+  StreamSubscription<void>? _completeSub;
+  StreamSubscription<PlayerState>? _playerStateSub;
+
+  // Volume / luminosité.
+  double _volume = 1.0;
+  double _dimOpacity = 0.0;
+  bool _showVolumeSlider = false;
+  bool _showBrightnessSlider = false;
 
   @override
   void initState() {
     super.initState();
 
-    // Extraire les URLs audio des éléments speech
-    _extractSpeechUrls();
+    _hasCourseAudio =
+        widget.course.config.audioPath != null &&
+        widget.course.config.audioPath!.isNotEmpty;
 
     // Calculer la vraie durée max depuis les éléments
     double maxTime =
@@ -65,92 +87,196 @@ class CoursePlayerState extends State<CoursePlayer>
     print('📊 Durée calculée: ${maxTime.toStringAsFixed(2)}s');
     print('📊 Durée utilisée: ${actualDuration.toStringAsFixed(2)}s');
     print('📊 Nombre d\'éléments: inconue');
-    print('📊 Nombre de speech: ${_speechAudioUrls.length}');
 
     _controller = AnimationController(
       vsync: this,
       duration: Duration(milliseconds: (actualDuration * 1000).round()),
     );
 
-    _controller.addListener(() {
+    // Configurer l'audio player
+    _audioPlayer.setReleaseMode(ReleaseMode.stop);
+    _audioPlayer.setVolume(_volume);
+
+    if (_hasCourseAudio) {
+      // Mode audio réel : la barre de progression et le temps courant sont
+      // pilotés par la vraie position/durée de l'audio (voir _wireAudioListeners),
+      // pas par l'AnimationController.
+      _wireAudioListeners();
+      _playCourseAudio();
+      _isPlaying = true;
+    } else {
+      // Mode legacy sans audio externe : comportement inchangé.
+      _controller.addListener(() {
+        setState(() {
+          _updateAndHandleElements();
+        });
+      });
+      _controller.forward();
+      _isPlaying = true;
+    }
+  }
+
+  /// Écoute la vraie horloge audio pour piloter la progression et le temps
+  /// courant du cours, au lieu de la durée estimée par le parseur.
+  void _wireAudioListeners() {
+    _durationSub = _audioPlayer.onDurationChanged.listen((d) {
+      if (!mounted) return;
+      setState(() => _audioDuration = d);
+    });
+
+    _positionSub = _audioPlayer.onPositionChanged.listen((p) {
+      if (!mounted) return;
       setState(() {
+        _audioPosition = p;
         _updateAndHandleElements();
       });
     });
 
-    // Configurer l'audio player
-    _audioPlayer.setReleaseMode(ReleaseMode.stop);
+    _completeSub = _audioPlayer.onPlayerComplete.listen((_) {
+      if (!mounted) return;
+      setState(() {
+        _isPlaying = false;
+        _isCompleted = true;
+        // Force la position affichée à la durée réelle : garantit que la
+        // barre de progression atteint bien 100% quand la narration se termine.
+        _audioPosition = _audioDuration;
+        _updateAndHandleElements();
+      });
+    });
 
-    _controller.forward();
+    _playerStateSub = _audioPlayer.onPlayerStateChanged.listen((state) {
+      if (!mounted) return;
+      setState(() {
+        _isPlaying = state == PlayerState.playing;
+      });
+    });
   }
 
-  void _extractSpeechUrls() {
-    for (var element in widget.course.audioRegistry.values) {
-      if (element.audioPath != null) {
-        _speechAudioUrls[element.id] = element.audioPath!;
-      } else {
-        print(
-          '⚠️ Aucune URL audio pour speech ${element.id} - ${element.text.substring(0, element.text.length > 20 ? 20 : element.text.length)}...',
-        );
-      }
-    }
-  }
-
-  Future<void> _playSpeech(SpeechElement speech) async {
-    if (_playedSpeechIds.contains(speech.id)) return;
-
-    final audioUrl = _speechAudioUrls[speech.id];
-    if (audioUrl == null || audioUrl.isEmpty) {
-      print('⚠️ Pas d\'URL audio pour speech ${speech.id}');
-      return;
-    }
+  /// Lance l'audio unique et externe du cours (nouveau format ILLIMMI), en parallèle
+  /// de la timeline visuelle. Contrairement au `speech` legacy, il n'y a qu'un seul
+  /// fichier pour tout le cours, démarré dès le lancement.
+  Future<void> _playCourseAudio() async {
+    final path = widget.course.config.audioPath;
+    if (path == null || path.isEmpty) return;
 
     try {
-      // Vérifier si c'est une URL réseau ou locale
-      if (audioUrl.startsWith('http://') || audioUrl.startsWith('https://')) {
-        await _audioPlayer.play(UrlSource(audioUrl));
+      if (path.startsWith('http://') || path.startsWith('https://')) {
+        await _audioPlayer.play(UrlSource(path));
       } else {
-        await _audioPlayer.play(DeviceFileSource(audioUrl));
+        await _audioPlayer.play(DeviceFileSource(path));
       }
-
-      _playedSpeechIds.add(speech.id);
-      print('🎤 Audio joué: ${speech.id} - ${audioUrl}');
+      print('🔊 Audio du cours lancé: $path');
     } catch (e) {
-      print('❌ Erreur lecture audio ${speech.id}: $e');
+      print('❌ Erreur lecture audio du cours: $e');
     }
   }
 
+  double get _currentTimeSeconds => _hasCourseAudio
+      ? _audioPosition.inMilliseconds / 1000.0
+      : _controller.value * widget.totalDuration;
+
+  double get _totalTimeSeconds => _hasCourseAudio
+      ? (_audioDuration > Duration.zero
+            ? _audioDuration.inMilliseconds / 1000.0
+            : widget.totalDuration)
+      : widget.totalDuration;
+
   void _updateAndHandleElements() {
-    final currentTime = _controller.value * widget.totalDuration;
+    final currentTime = _currentTimeSeconds;
 
     ActiveElement activeElement = widget.course.queryAll(currentTime);
     _dynamicElements = activeElement.dynamicElement;
     _staticElements = activeElement.staticElement;
-
-    // Gérer les speech (audio)
-    for (var speech in widget.course.audioRegistry.values) {
-      if (speech.startTime <= currentTime &&
-          currentTime < speech.endTime &&
-          !_playedSpeechIds.contains(speech.id)) {
-        _playSpeech(speech);
-      }
-    }
   }
 
   void _togglePlayPause() {
+    if (_hasCourseAudio) {
+      _toggleAudioPlayPause();
+    } else {
+      _toggleAnimationPlayPause();
+    }
+  }
+
+  void _toggleAudioPlayPause() {
+    if (_isPlaying) {
+      _audioPlayer.pause();
+      setState(() => _isPlaying = false);
+    } else {
+      if (_isCompleted) {
+        setState(() {
+          _isCompleted = false;
+          _audioPosition = Duration.zero;
+        });
+        _audioPlayer.seek(Duration.zero);
+        _playCourseAudio(); // relance l'audio du cours depuis le début
+      } else {
+        _audioPlayer.resume();
+      }
+      setState(() => _isPlaying = true);
+    }
+  }
+
+  void _toggleAnimationPlayPause() {
     setState(() {
       if (_controller.isAnimating) {
         _controller.stop();
-        _audioPlayer.pause();
+        _isPlaying = false;
       } else {
         if (_controller.isCompleted) {
           _controller.reset();
-          _playedSpeechIds.clear();
         }
         _controller.forward();
-        // L'audio reprendra automatiquement via _updateAndHandleElements
+        _isPlaying = true;
       }
     });
+  }
+
+  Future<void> _skip(int deltaSeconds) async {
+    if (_hasCourseAudio) {
+      final total = _audioDuration;
+      var target = _audioPosition + Duration(seconds: deltaSeconds);
+      if (target < Duration.zero) target = Duration.zero;
+      if (total > Duration.zero && target > total) target = total;
+      await _audioPlayer.seek(target);
+      if (mounted) {
+        setState(() {
+          _audioPosition = target;
+          if (_isCompleted && target < total) _isCompleted = false;
+        });
+      }
+    } else {
+      final total = widget.totalDuration;
+      if (total <= 0) return;
+      final currentSeconds = _controller.value * total;
+      final targetSeconds = (currentSeconds + deltaSeconds).clamp(0.0, total);
+      _controller.value = targetSeconds / total;
+    }
+  }
+
+  Future<void> _seekTo(double seconds) async {
+    if (_hasCourseAudio) {
+      final target = Duration(milliseconds: (seconds * 1000).round());
+      await _audioPlayer.seek(target);
+      if (mounted) {
+        setState(() {
+          _audioPosition = target;
+          if (_isCompleted && target < _audioDuration) _isCompleted = false;
+        });
+      }
+    } else {
+      final total = widget.totalDuration;
+      if (total <= 0) return;
+      setState(() {
+        _controller.value = (seconds / total).clamp(0.0, 1.0);
+      });
+    }
+  }
+
+  String _formatDuration(double seconds) {
+    final d = Duration(milliseconds: (seconds * 1000).round());
+    final m = d.inMinutes.remainder(60).toString().padLeft(2, '0');
+    final s = d.inSeconds.remainder(60).toString().padLeft(2, '0');
+    return '$m:$s';
   }
 
   void _handleQuestion() {
@@ -161,7 +287,7 @@ class CoursePlayerState extends State<CoursePlayer>
     print('❓ Question posée: $question');
 
     // Pause du cours pour permettre la réponse
-    if (_controller.isAnimating) {
+    if (_isPlaying) {
       _togglePlayPause();
     }
 
@@ -178,6 +304,10 @@ class CoursePlayerState extends State<CoursePlayer>
 
   @override
   void dispose() {
+    _durationSub?.cancel();
+    _positionSub?.cancel();
+    _completeSub?.cancel();
+    _playerStateSub?.cancel();
     _controller.dispose();
     _audioPlayer.dispose();
     _questionController.dispose();
@@ -199,21 +329,34 @@ class CoursePlayerState extends State<CoursePlayer>
           child: Column(
             children: [
               Expanded(
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: whiteboardColor,
-                    border: Border.all(color: Colors.blueGrey.withOpacity(0.2)),
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                  child: _buildWhiteboardContent(defaultDrawColor),
+                child: Stack(
+                  children: [
+                    Container(
+                      decoration: BoxDecoration(
+                        color: whiteboardColor,
+                        border: Border.all(
+                          color: Colors.blueGrey.withOpacity(0.2),
+                        ),
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      child: _buildWhiteboardContent(defaultDrawColor),
+                    ),
+                    if (_dimOpacity > 0)
+                      Positioned.fill(
+                        child: IgnorePointer(
+                          child: Container(
+                            decoration: BoxDecoration(
+                              color: Colors.black.withOpacity(_dimOpacity),
+                              borderRadius: BorderRadius.circular(12),
+                            ),
+                          ),
+                        ),
+                      ),
+                  ],
                 ),
               ),
               const SizedBox(height: 12),
-              AnimatedBuilder(
-                animation: _controller,
-                builder: (context, child) =>
-                    LinearProgressIndicator(value: _controller.value),
-              ),
+              _buildProgressBar(),
               const SizedBox(height: 12),
               _buildControlBar(),
             ],
@@ -223,10 +366,42 @@ class CoursePlayerState extends State<CoursePlayer>
     );
   }
 
+  Widget _buildProgressBar() {
+    final total = _totalTimeSeconds;
+    final current = _currentTimeSeconds.clamp(0.0, total > 0 ? total : 0.0);
+    return Column(
+      children: [
+        SliderTheme(
+          data: SliderTheme.of(context).copyWith(
+            trackHeight: 3,
+            thumbShape: const RoundSliderThumbShape(enabledThumbRadius: 6),
+            overlayShape: const RoundSliderOverlayShape(overlayRadius: 12),
+          ),
+          child: Slider(
+            min: 0.0,
+            max: total > 0 ? total : 1.0,
+            value: current,
+            onChanged: total > 0 ? (value) => _seekTo(value) : null,
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16.0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(_formatDuration(current)),
+              Text(_formatDuration(total)),
+            ],
+          ),
+        ),
+      ],
+    );
+  }
+
   Widget _buildWhiteboardContent(Color defaultDrawColor) {
     return LayoutBuilder(
       builder: (context, constraints) {
-        final currentTime = _controller.value * widget.totalDuration;
+        final currentTime = _currentTimeSeconds;
 
         // Système de coordonnées 16:9
         final aspectRatio = 16.0 / 9.0;
@@ -432,6 +607,58 @@ class CoursePlayerState extends State<CoursePlayer>
     return points.last;
   }
 
+  Widget _buildVolumeControl() {
+    return Row(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        IconButton(
+          icon: Icon(_volume == 0 ? Icons.volume_off : Icons.volume_up),
+          tooltip: 'Volume',
+          onPressed: () =>
+              setState(() => _showVolumeSlider = !_showVolumeSlider),
+        ),
+        if (_showVolumeSlider)
+          SizedBox(
+            width: 110,
+            child: Slider(
+              min: 0.0,
+              max: 1.0,
+              value: _volume,
+              onChanged: (value) {
+                setState(() => _volume = value);
+                _audioPlayer.setVolume(value);
+              },
+            ),
+          ),
+      ],
+    );
+  }
+
+  Widget _buildBrightnessControl() {
+    return Row(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        IconButton(
+          icon: const Icon(Icons.brightness_6),
+          tooltip: 'Luminosité',
+          onPressed: () => setState(
+            () => _showBrightnessSlider = !_showBrightnessSlider,
+          ),
+        ),
+        if (_showBrightnessSlider)
+          SizedBox(
+            width: 110,
+            child: Slider(
+              min: 0.0,
+              max: 0.8,
+              value: _dimOpacity,
+              onChanged: (value) => setState(() => _dimOpacity = value),
+            ),
+          ),
+      ],
+    );
+  }
+
   Widget _buildControlBar() {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
@@ -446,70 +673,88 @@ class CoursePlayerState extends State<CoursePlayer>
           ),
         ],
       ),
-      child: Row(
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
         children: [
-          // Bouton Menu/Retour
-          IconButton(
-            icon: const Icon(Icons.arrow_back),
-            onPressed: () => Navigator.of(context).pop(),
-            tooltip: 'Retour',
-          ),
-
-          // Bouton Play/Pause
-          IconButton(
-            icon: Icon(
-              _controller.isAnimating ? Icons.pause : Icons.play_arrow,
-            ),
-            onPressed: _togglePlayPause,
-            tooltip: _controller.isAnimating ? 'Pause' : 'Lecture',
-          ),
-
-          const SizedBox(width: 8),
-
-          // Bouton Interaction (pause pour poser question)
-          IconButton(
-            icon: const Icon(Icons.front_hand_outlined),
-            onPressed: () {
-              if (_controller.isAnimating) {
-                _togglePlayPause();
-              }
-            },
-            tooltip: 'Pause pour interaction',
-          ),
-
-          // Champ de saisie pour question
-          Expanded(
-            child: TextField(
-              controller: _questionController,
-              decoration: const InputDecoration(
-                hintText: "Posez une question...",
-                border: InputBorder.none,
-                contentPadding: EdgeInsets.symmetric(horizontal: 12),
+          // Rangée 1 : contrôles de lecture
+          Row(
+            children: [
+              IconButton(
+                icon: const Icon(Icons.arrow_back),
+                onPressed: widget.onBack,
+                tooltip: 'Retour',
               ),
-              onSubmitted: (_) => _handleQuestion(),
-            ),
+              IconButton(
+                icon: const Icon(Icons.replay_10),
+                onPressed: () => _skip(-_skipSeconds),
+                tooltip: 'Reculer de 10s',
+              ),
+              IconButton(
+                icon: Icon(_isPlaying ? Icons.pause : Icons.play_arrow),
+                onPressed: _togglePlayPause,
+                tooltip: _isPlaying ? 'Pause' : 'Lecture',
+              ),
+              IconButton(
+                icon: const Icon(Icons.forward_10),
+                onPressed: () => _skip(_skipSeconds),
+                tooltip: 'Avancer de 10s',
+              ),
+              const Spacer(),
+              _buildVolumeControl(),
+              const SizedBox(width: 4),
+              _buildBrightnessControl(),
+            ],
           ),
+          const Divider(height: 8),
+          // Rangée 2 : interaction / question
+          Row(
+            children: [
+              // Bouton Interaction (pause pour poser question)
+              IconButton(
+                icon: const Icon(Icons.front_hand_outlined),
+                onPressed: () {
+                  if (_isPlaying) {
+                    _togglePlayPause();
+                  }
+                },
+                tooltip: 'Pause pour interaction',
+              ),
 
-          // Bouton Envoyer question
-          IconButton(
-            icon: const Icon(Icons.send),
-            onPressed: _handleQuestion,
-            tooltip: 'Envoyer la question',
-          ),
-
-          // Bouton Micro (pour futur)
-          IconButton(
-            icon: const Icon(Icons.mic_none),
-            onPressed: () {
-              // TODO: Implémenter reconnaissance vocale
-              ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(
-                  content: Text('Reconnaissance vocale bientôt disponible'),
-                  duration: Duration(seconds: 2),
+              // Champ de saisie pour question
+              Expanded(
+                child: TextField(
+                  controller: _questionController,
+                  decoration: const InputDecoration(
+                    hintText: "Posez une question...",
+                    border: InputBorder.none,
+                    contentPadding: EdgeInsets.symmetric(horizontal: 12),
+                  ),
+                  onSubmitted: (_) => _handleQuestion(),
                 ),
-              );
-            },
-            tooltip: 'Reconnaissance vocale',
+              ),
+
+              // Bouton Envoyer question
+              IconButton(
+                icon: const Icon(Icons.send),
+                onPressed: _handleQuestion,
+                tooltip: 'Envoyer la question',
+              ),
+
+              // Bouton Micro (pour futur)
+              IconButton(
+                icon: const Icon(Icons.mic_none),
+                onPressed: () {
+                  // TODO: Implémenter reconnaissance vocale
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(
+                      content: Text('Reconnaissance vocale bientôt disponible'),
+                      duration: Duration(seconds: 2),
+                    ),
+                  );
+                },
+                tooltip: 'Reconnaissance vocale',
+              ),
+            ],
           ),
         ],
       ),

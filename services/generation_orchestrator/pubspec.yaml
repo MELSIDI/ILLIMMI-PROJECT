@@ -1,0 +1,20 @@
+name: generation_orchestrator
+description: >
+  Microservice ILLIMMI : orchestre la génération IA d'un cours (Layer1
+  planification, Layer2 narration via audio-service, Layer3 appuis visuels,
+  assemblage, boucle de validation/correction).
+publish_to: 'none'
+version: 1.0.0
+
+environment:
+  sdk: ^3.11.5
+
+dependencies:
+  shelf: ^1.4.2
+  shelf_router: ^1.1.4
+  http: ^1.5.0
+  dart_jsonwebtoken: ^2.14.0
+
+dev_dependencies:
+  test: ^1.25.0
+  lints: ^6.0.0

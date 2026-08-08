@@ -1,0 +1,22 @@
+name: audio_service
+description: >
+  Microservice ILLIMMI : synthèse vocale (Piper TTS) + alignement mot-à-mot
+  (sherpa local ou Whisper distant). Reçoit du texte, renvoie une URL audio +
+  les timestamps par mot.
+publish_to: 'none'
+version: 1.0.0
+
+environment:
+  sdk: ^3.11.5
+
+dependencies:
+  shelf: ^1.4.2
+  shelf_router: ^1.1.4
+  shelf_static: ^1.1.3
+  http: ^1.5.0
+  sherpa_onnx: ^1.13.0
+  path: ^1.9.1
+
+dev_dependencies:
+  test: ^1.25.0
+  lints: ^6.0.0

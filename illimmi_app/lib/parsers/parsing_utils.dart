@@ -21,6 +21,15 @@ class ParsingUtils {
     throw Exception('Temps attendu à la position ${tokens[startIndex].position}');
   }
 
+  static String parseAudioPath(List<Token> tokens, int startIndex) {
+    if (startIndex + 1 < tokens.length &&
+        tokens[startIndex].value == 'audio' &&
+        tokens[startIndex + 1].type == TokenType.STRING) {
+      return tokens[startIndex + 1].value;
+    }
+    throw Exception('Chemin audio attendu à la position ${tokens[startIndex].position}');
+  }
+
   static String parseColor(List<Token> tokens, int startIndex) {
     if (startIndex + 9 < tokens.length &&
         tokens[startIndex + 1].value == '(' &&

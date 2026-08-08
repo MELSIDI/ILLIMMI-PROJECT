@@ -1,0 +1,53 @@
+services:
+  generation-orchestrator:
+    build: ./services/generation-orchestrator
+    ports:
+      - "8080:8080"
+    environment:
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+      - AUDIO_SERVICE_URL=http://host.docker.internal:8082
+      - AUTH_JWT_SECRET=${AUTH_JWT_SECRET}
+      - USER_SERVICE_URL=http://host.docker.internal:8081
+      - BOARD_RENDER_SERVICE_URL=http://board-render-service:5001
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    depends_on:
+      - board-render-service
+
+  plot-service:
+    build: ./services/plot-service
+    ports:
+      - "5000:5000"
+
+  # Rendu headless du tableau pour la vérification visuelle du Layer 3 (voir
+  # services/generation-orchestrator/world-model-visual-feedback.md) : le
+  # Dockerfile a besoin à la fois d'illimmi_app/ (vrai code de rendu) et de
+  # services/board-render-service/ (wrapper HTTP), donc le contexte de build
+  # est la racine du repo — pas ./services/board-render-service comme les
+  # autres services.
+  board-render-service:
+    build:
+      context: .
+      dockerfile: services/board-render-service/Dockerfile
+    ports:
+      - "5001:5001"
+
+# audio-service n'est PAS ici : il enveloppe un binaire Windows natif
+# (speaker/piper/piper.exe + DLLs), incompatible avec un conteneur Linux, et
+# un conteneur Windows serait disproportionné pour un simple subprocess.
+# Lance-le à part, en process natif sur l'hôte :
+#
+#   cd services/audio-service
+#   dart pub get
+#   dart run bin/server.dart
+#
+# (port 8082, voir README.md à la racine du projet)
+#
+# user-service n'est pas non plus containerisé dans cette passe (comptes
+# utilisateurs + historique) — lance-le de la même façon :
+#
+#   cd services/user-service
+#   dart pub get
+#   AUTH_JWT_SECRET=... dart run bin/server.dart
+#
+# (port 8081)

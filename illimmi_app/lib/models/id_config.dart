@@ -4,11 +4,16 @@ class IdConfig {
   double duration;
   final List<String> familyNames;
 
+  /// Chemin (ou URL) du fichier audio externe du cours (nouveau format ILLIMMI).
+  /// `null` pour les cours legacy qui synthétisent l'audio via des commandes `speech`.
+  final String? audioPath;
+
   IdConfig({
     this.id = 1,
     this.idGap = 100000,
     this.duration = 600, // 10 minutes par défaut
     this.familyNames = const ['text', 'draw', 'speech', 'mouse', 'erase'],
+    this.audioPath,
   });
 
   /// Calcule l'index de la famille à partir de l'ID
