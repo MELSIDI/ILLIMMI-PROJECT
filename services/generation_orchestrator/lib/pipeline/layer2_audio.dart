@@ -1,5 +1,6 @@
 import '../http/audio_service_client.dart';
-import 'claude_client.dart';
+import 'gemini_client.dart';
+import 'llm_client.dart';
 import 'models.dart';
 
 /// Layer 2 : transcript complet + narration audio + alignement mot-par-mot
@@ -10,11 +11,11 @@ import 'models.dart';
 /// [AudioServiceClient], qui renvoie une URL HTTP jouable directement par le
 /// client Flutter (`CoursePlayer` sait déjà lire une URL `http(s)://`).
 class Layer2AudioGenerator {
-  final ClaudeClient _client;
+  final LlmClient _client;
   final AudioServiceClient _audioClient;
 
-  Layer2AudioGenerator({ClaudeClient? client, AudioServiceClient? audioClient})
-    : _client = client ?? ClaudeClient(),
+  Layer2AudioGenerator({LlmClient? client, AudioServiceClient? audioClient})
+    : _client = client ?? GeminiClient(),
       _audioClient = audioClient ?? AudioServiceClient();
 
   Future<TranscriptResult> generate(CourseMetadata metadata) async {

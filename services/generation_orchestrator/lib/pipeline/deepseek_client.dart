@@ -4,28 +4,10 @@ import 'dart:io';
 import 'package:http/http.dart' as http;
 
 import 'content_block.dart';
+import 'llm_client.dart';
 
-/// Client HTTP brut pour l'API DeepSeek — même contrat que [ClaudeClient]
-/// (`../pipeline/claude_client.dart`), pas de SDK officiel. L'API DeepSeek
-/// est compatible OpenAI (même forme de requête/réponse `chat/completions`).
-///
-/// La clé est lue depuis la variable d'environnement `DEEPSEEK_API_KEY` —
-/// jamais en dur dans le code. Le modèle est surchargeable via
-/// `DEEPSEEK_MODEL` (défaut `deepseek-chat`).
-///
-/// **Limite assumée** : l'API DeepSeek n'a pas d'entrée image (pas
-/// d'équivalent vision) — [completeMultimodalJson] existe pour garder le
-/// même contrat que les trois autres clients, mais lève immédiatement une
-/// [UnsupportedError] plutôt que d'ignorer silencieusement les images ou
-/// d'échouer de façon opaque côté API.
-///
-/// **Limite assumée (2)** : DeepSeek n'a pas de mode `json_schema` strict
-/// comme OpenAI, seulement `json_object` (garantit une syntaxe JSON valide,
-/// pas la conformité à un schéma précis). [completeJson] compense en
-/// injectant le schéma en texte dans le prompt système, en plus du mode
-/// JSON — moins fiable qu'une validation stricte côté serveur, mais c'est
-/// tout ce que l'API expose aujourd'hui.
-class DeepSeekClient {
+/// Client HTTP brut pour l'API DeepSeek — implémente [LlmClient].
+class DeepSeekClient implements LlmClient {
   static const String _defaultModel = 'deepseek-chat';
   static const String _endpoint = 'https://api.deepseek.com/chat/completions';
 

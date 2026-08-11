@@ -1,18 +1,14 @@
-import 'claude_client.dart';
+import 'gemini_client.dart';
+import 'llm_client.dart';
 import 'models.dart';
 
 /// Layer 3 : génération des appuis visuels Hypercourse (illimmi-doc.md
-/// §2.4), normalement confiée à un Gemma 4 fine-tuné — remplacé ici par
-/// Claude en attendant ce fine-tuning.
-///
-/// Ne génère volontairement jamais de commande `speech` : le sous-titre n'a
-/// pas encore d'affichage à l'écran (aucun toggle/overlay construit), donc
-/// seuls `text`/`draw`/`mouse`/`erase` sont produits.
+/// §2.4).
 class Layer3VisualGenerator {
-  final ClaudeClient _client;
+  final LlmClient _client;
 
-  Layer3VisualGenerator({ClaudeClient? client})
-    : _client = client ?? ClaudeClient();
+  Layer3VisualGenerator({LlmClient? client})
+    : _client = client ?? GeminiClient();
 
   static const String _systemPrompt = '''
 Tu es ILLIMMI Layer 3.

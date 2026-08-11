@@ -1,0 +1,47 @@
+sequenceDiagram
+    autonumber
+    actor User as Utilisateur
+    participant App as Client Flutter
+    participant Orch as Orchestrator (:8080)
+    participant Gemini as Google Gemini API
+    participant Audio as audio-service (:8082)
+    participant Render as board-render-service (:5001)
+
+    User->>App: Entre un prompt ("Explique-moi les dérivées")
+    App->>Orch: POST /courses/generate { prompt }
+    Orch-->>App: { jobId: "job_1", status: "planning" }
+    
+    rect rgb(240, 248, 255)
+        Note over Orch,Gemini: Layer 1 - Planification
+        Orch->>Gemini: plan(userPrompt)
+        Gemini-->>Orch: CourseMetadata (Sujet, Niveau, Concepts, Langue)
+    end
+
+    rect rgb(255, 245, 238)
+        Note over Orch,Audio: Layer 2 - Audio & Timestamps
+        Orch->>Gemini: generateTranscript(metadata)
+        Gemini-->>Orch: Transcript textuel
+        Orch->>Audio: POST /narrate { text, dirName, fileName }
+        Audio-->>Orch: { audioUrl, duration, wordTimestamps }
+    end
+
+    rect rgb(240, 255, 240)
+        Note over Orch,Render: Layer 3 - Génération & Auto-Correction Visuelle
+        loop Max 3 tentatives
+            Orch->>Gemini: generateVisuals(transcriptTimestamped)
+            Gemini-->>Orch: Script Hypercourse (.hc)
+            Orch->>Orch: Parse script -> Course
+            Orch->>Orch: planCaptures(Course) (Pre-Erase, N = count(erase) + 1)
+            Orch->>Render: POST /render { CaptureBatch }
+            Render-->>Orch: PNG Images par Scène
+            Orch->>Gemini: verifyMultimodal(Script + PNGs + Mutable/Immutable IDs)
+            Gemini-->>Orch: { ok: true/false, issues: [] }
+            opt ok == true
+                Note over Orch: Script validé !
+            end
+        end
+    end
+
+    App->>Orch: GET /courses/job_1/status
+    Orch-->>App: { status: "done", script: "...", audioUrl: "..." }
+    App->>App: Rejoue le cours sur le Tableau Blanc

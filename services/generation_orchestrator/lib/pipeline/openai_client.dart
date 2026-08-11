@@ -4,20 +4,10 @@ import 'dart:io';
 import 'package:http/http.dart' as http;
 
 import 'content_block.dart';
+import 'llm_client.dart';
 
-/// Client HTTP brut pour l'API Chat Completions d'OpenAI (ChatGPT) — même
-/// contrat que [ClaudeClient] (`../pipeline/claude_client.dart`), pas de SDK
-/// officiel. Nommé d'après le fournisseur de l'API (cohérent avec
-/// `ANTHROPIC_API_KEY`/`GEMINI_API_KEY`), pas d'après le nom produit
-/// "ChatGPT".
-///
-/// La clé est lue depuis la variable d'environnement `OPENAI_API_KEY` —
-/// jamais en dur dans le code. Le modèle est surchargeable via `OPENAI_MODEL`
-/// (défaut `gpt-4o`) : à vérifier/ajuster selon le modèle effectivement
-/// disponible au moment de l'usage. Certains modèles de raisonnement
-/// (`o1`/`o3`/...) attendent `max_completion_tokens` plutôt que `max_tokens`
-/// — si `OPENAI_MODEL` pointe vers l'un d'eux, ajuster ce champ.
-class OpenAiClient {
+/// Client HTTP brut pour l'API Chat Completions d'OpenAI — implémente [LlmClient].
+class OpenAiClient implements LlmClient {
   static const String _defaultModel = 'gpt-4o';
   static const String _endpoint = 'https://api.openai.com/v1/chat/completions';
 

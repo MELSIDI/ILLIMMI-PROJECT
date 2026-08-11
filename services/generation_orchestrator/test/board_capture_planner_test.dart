@@ -11,7 +11,7 @@ import 'package:generation_orchestrator/pipeline/board_capture_planner.dart';
 Course _buildCourse() => Course('Test', IdConfig(duration: 120));
 
 void main() {
-  test('groups elements finishing at the same instant into one capture point', () {
+  test('plans exactly 1 pre-erase scene capture for a course without erase', () {
     final course = _buildCourse();
     course.insert(
       TextElement(id: 1, startTime: 0, duration: 1, content: 'a', position: const Offset(0, 0)),
@@ -32,14 +32,16 @@ void main() {
 
     final batches = planCaptures(course);
     expect(batches, hasLength(1));
-    final times = batches.first.points.map((p) => p.time).toList();
-    expect(times, [1.0, 5.0]);
+    expect(batches.first.points, hasLength(1));
 
-    final sharedPoint = batches.first.points.firstWhere((p) => p.time == 5.0);
-    expect(sharedPoint.triggerElementIds, [2, 100002]);
+    final point = batches.first.points.first;
+    expect(point.time, 5.0);
+    expect(point.triggerElementIds, [1, 2, 100002]);
+    expect(point.mutableElementIds, [1, 2, 100002]);
+    expect(point.immutableElementIds, isEmpty);
   });
 
-  test('splits batches at erase boundaries', () {
+  test('plans pre-erase scene captures at erase boundaries and tracks mutable vs immutable elements', () {
     final course = _buildCourse();
     course.insert(
       TextElement(id: 1, startTime: 0, duration: 1, content: 'a', position: const Offset(0, 0)),
@@ -47,36 +49,30 @@ void main() {
     course.insert(
       CircleElement(id: 100001, startTime: 1, duration: 1, width: 2, center: const Offset(5, 5), radius: 2),
     );
-    course.handleErase(1, 6.0);
-    course.insert(EraseElement(id: 400001, startTime: 6, duration: 0, idsToErase: const [1]));
+    
+    // Erase element 100001 at t=6s. Element 1 survives.
+    course.handleErase(100001, 6.0);
+    course.insert(EraseElement(id: 400001, startTime: 6, duration: 0, idsToErase: const [100001]));
+
     course.insert(
       TextElement(id: 2, startTime: 7, duration: 1, content: 'c', position: const Offset(0, 0)),
     );
 
     final batches = planCaptures(course);
-    expect(batches, hasLength(2));
-    expect(batches[0].points.map((p) => p.time), [1.0, 2.0]);
-    expect(batches[1].points.map((p) => p.time), [8.0]);
-  });
+    expect(batches, hasLength(1));
+    expect(batches.first.points, hasLength(2)); // Scene 1 (pre-erase) + Scene 2 (final)
 
-  test('caps a scene at maxCapturePointsPerBatch, splitting chronologically', () {
-    final course = _buildCourse();
-    for (var i = 0; i < 20; i++) {
-      course.insert(
-        TextElement(
-          id: i + 1,
-          startTime: i.toDouble(),
-          duration: 0,
-          content: 'e$i',
-          position: const Offset(0, 0),
-        ),
-      );
-    }
+    final point1 = batches.first.points[0];
+    expect(point1.time, 2.0); // max(1, 2)
+    expect(point1.triggerElementIds, [1, 100001]);
+    expect(point1.mutableElementIds, [1, 100001]);
+    expect(point1.immutableElementIds, isEmpty);
 
-    final batches = planCaptures(course);
-    expect(batches, hasLength(2));
-    expect(batches[0].points, hasLength(maxCapturePointsPerBatch));
-    expect(batches[1].points, hasLength(20 - maxCapturePointsPerBatch));
+    final point2 = batches.first.points[1];
+    expect(point2.time, 8.0); // 7 + 1
+    expect(point2.triggerElementIds, [1, 2]); // Element 1 survived, Element 2 is new
+    expect(point2.mutableElementIds, [2]);    // Element 2 needs check
+    expect(point2.immutableElementIds, [1]);  // Element 1 is already verified!
   });
 
   test('ignores erase and speech elements as capture triggers', () {
@@ -87,3 +83,4 @@ void main() {
     expect(batches, isEmpty);
   });
 }
+

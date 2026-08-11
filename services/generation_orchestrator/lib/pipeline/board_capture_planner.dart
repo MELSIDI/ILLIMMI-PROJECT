@@ -2,14 +2,28 @@ import '../models/basic_elements/erase_element.dart';
 import '../models/basic_elements/speech_element.dart';
 import '../models/course.dart';
 
-/// Un instant où le tableau doit être capturé, avec le ou les éléments dont
-/// l'achèvement (`startTime + duration`) déclenche cette capture — plusieurs
-/// éléments peuvent finir exactement au même instant, auquel cas ils
-/// partagent une seule image plutôt que d'en produire des doublons.
+/// Un instant où le tableau doit être capturé (juste avant un `erase` ou à la
+/// fin du cours), représentant l'état final complet d'une scène.
 class CapturePoint {
   final double time;
+
+  /// Tous les éléments visuels actifs sur le tableau lors de cette capture.
   final List<int> triggerElementIds;
-  CapturePoint({required this.time, required this.triggerElementIds});
+
+  /// Éléments introduits dans cette scène et devant être vérifiés/corrigés.
+  final List<int> mutableElementIds;
+
+  /// Éléments ayant survécu d'une scène précédente et déjà validés.
+  /// Leur position géographique ne doit PAS être modifiée.
+  final List<int> immutableElementIds;
+
+  CapturePoint({
+    required this.time,
+    required this.triggerElementIds,
+    List<int>? mutableElementIds,
+    List<int>? immutableElementIds,
+  })  : mutableElementIds = mutableElementIds ?? triggerElementIds,
+        immutableElementIds = immutableElementIds ?? const [];
 }
 
 /// Un lot de [CapturePoint] à envoyer ensemble à Claude pour vérification.
@@ -22,58 +36,89 @@ class CaptureBatch {
 /// `world-model-visual-feedback.md`, section "Décisions".
 const int maxCapturePointsPerBatch = 15;
 
-/// Calcule le plan de capture d'un [Course] déjà parsé : un point de capture
-/// par instant distinct de fin d'apparition d'élément (`startTime +
-/// duration`), regroupé en lots aux frontières d'`erase` et plafonné à
-/// [maxCapturePointsPerBatch] points par lot.
+/// Calcule le plan de capture d'un [Course] déjà parsé selon la stratégie pré-erase :
+/// une capture d'écran par scène, juste avant chaque commande `erase`
+/// (à `t = max(startTime + duration)` des éléments de la scène), plus une capture
+/// finale. Le nombre total d'images produites est égal au nombre de commandes
+/// `erase` + 1.
 List<CaptureBatch> planCaptures(Course course) {
-  final Map<double, List<int>> pointsByTime = {};
-  for (final element in course.globalRegistry.values) {
-    // `erase` ne déclenche jamais de capture (ce n'est pas un élément visuel
-    // apparaissant sur le tableau) ; `speech` est un sous-titre optionnel,
-    // jamais rendu par BoardPainter/CoursePlayer.
-    if (element is EraseElement || element is SpeechElement) continue;
-    final captureTime = element.startTime + element.duration;
-    pointsByTime.putIfAbsent(captureTime, () => []).add(element.id);
+  final eraseElements = course.globalRegistry.values
+      .whereType<EraseElement>()
+      .toList()
+    ..sort((a, b) => a.startTime.compareTo(b.startTime));
+
+  final sceneStartTimes = <double>[0.0];
+  for (final erase in eraseElements) {
+    if (!sceneStartTimes.contains(erase.startTime)) {
+      sceneStartTimes.add(erase.startTime);
+    }
   }
 
-  final points = pointsByTime.entries
-      .map((e) => CapturePoint(time: e.key, triggerElementIds: e.value..sort()))
-      .toList()
-    ..sort((a, b) => a.time.compareTo(b.time));
+  final points = <CapturePoint>[];
+  final verifiedElementIds = <int>{};
+
+  for (var i = 0; i < sceneStartTimes.length; i++) {
+    final startTime = sceneStartTimes[i];
+    final endTime = (i + 1 < sceneStartTimes.length)
+        ? sceneStartTimes[i + 1]
+        : double.infinity;
+
+    final sceneElements = course.globalRegistry.values.where((element) {
+      if (element is EraseElement || element is SpeechElement) return false;
+      return element.startTime >= startTime && element.startTime < endTime;
+    }).toList();
+
+    if (sceneElements.isEmpty) continue;
+
+    var captureTime = 0.0;
+    for (final element in sceneElements) {
+      final endTimeOfElement = element.startTime + element.duration;
+      if (endTimeOfElement > captureTime) {
+        captureTime = endTimeOfElement;
+      }
+    }
+
+    final activeAtCapture = course.queryAll(captureTime);
+    final activeElements = [...activeAtCapture.staticElement, ...activeAtCapture.dynamicElement]
+        .where((e) => e is! EraseElement && e is! SpeechElement)
+        .toList();
+
+    final triggerIds = activeElements.map((e) => e.id).toSet().toList()..sort();
+    if (triggerIds.isEmpty) continue;
+
+    final mutableIds = <int>[];
+    final immutableIds = <int>[];
+
+    for (final id in triggerIds) {
+      if (verifiedElementIds.contains(id)) {
+        immutableIds.add(id);
+      } else {
+        mutableIds.add(id);
+      }
+    }
+
+    verifiedElementIds.addAll(triggerIds);
+
+    points.add(
+      CapturePoint(
+        time: captureTime,
+        triggerElementIds: triggerIds,
+        mutableElementIds: mutableIds,
+        immutableElementIds: immutableIds,
+      ),
+    );
+  }
 
   if (points.isEmpty) return [];
 
-  final sceneBoundaries = course.globalRegistry.values
-      .whereType<EraseElement>()
-      .map((e) => e.startTime)
-      .toSet()
-      .toList()
-    ..sort();
-
   final batches = <CaptureBatch>[];
-  var current = <CapturePoint>[];
-
-  void flushCurrent() {
-    for (var i = 0; i < current.length; i += maxCapturePointsPerBatch) {
-      final end = (i + maxCapturePointsPerBatch < current.length)
-          ? i + maxCapturePointsPerBatch
-          : current.length;
-      batches.add(CaptureBatch(current.sublist(i, end)));
-    }
-    current = [];
+  for (var i = 0; i < points.length; i += maxCapturePointsPerBatch) {
+    final end = (i + maxCapturePointsPerBatch < points.length)
+        ? i + maxCapturePointsPerBatch
+        : points.length;
+    batches.add(CaptureBatch(points.sublist(i, end)));
   }
-
-  var boundaryIndex = 0;
-  for (final point in points) {
-    while (boundaryIndex < sceneBoundaries.length &&
-        point.time >= sceneBoundaries[boundaryIndex]) {
-      flushCurrent();
-      boundaryIndex++;
-    }
-    current.add(point);
-  }
-  flushCurrent();
 
   return batches;
 }
+

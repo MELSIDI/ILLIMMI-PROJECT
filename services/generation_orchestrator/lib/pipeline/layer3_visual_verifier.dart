@@ -1,7 +1,8 @@
 import '../http/board_render_service_client.dart';
 import '../models/course.dart';
 import 'board_capture_planner.dart';
-import 'claude_client.dart';
+import 'gemini_client.dart';
+import 'llm_client.dart';
 
 class VisualIssue {
   final int? elementId;
@@ -16,38 +17,36 @@ class VisualVerificationResult {
   const VisualVerificationResult.failed(this.issueDescription) : ok = false;
 }
 
-/// Vérification visuelle du tableau : capture le tableau à la fin de
-/// l'apparition de chaque élément (voir `board_capture_planner.dart`), et
-/// demande à Claude de comparer ces captures au script Hypercourse pour
-/// détecter chevauchement, débordement, texte par-dessus une figure, ou
-/// flèche mal orientée — ce que la seule vérification syntaxique
-/// (`HypercourseParser`) ne peut pas voir.
+/// Vérification visuelle du tableau : capture le tableau à la fin de chaque scène
+/// juste avant un `erase` (voir `board_capture_planner.dart`), et demande à l'IA
+/// (Gemini par défaut) de comparer ces captures au script Hypercourse.
 class Layer3VisualVerifier {
-  final ClaudeClient _client;
+  final LlmClient _client;
   final BoardRenderServiceClient _renderClient;
 
-  Layer3VisualVerifier({ClaudeClient? client, BoardRenderServiceClient? renderClient})
-    : _client = client ?? ClaudeClient(),
+  Layer3VisualVerifier({LlmClient? client, BoardRenderServiceClient? renderClient})
+    : _client = client ?? GeminiClient(),
       _renderClient = renderClient ?? BoardRenderServiceClient();
 
   static const String _systemPrompt = '''
-Tu es ILLIMMI Layer 3 — vérification visuelle.
-On te montre le script Hypercourse d'un cours ainsi qu'une séquence
-d'images du tableau, capturées juste après que chaque élément a fini
-d'apparaître. Chaque image est précédée de l'ID (ou des IDs) de l'élément
-dont l'achèvement a déclenché cette capture.
+Tu es ILLIMMI Layer 3 — vérification visuelle du tableau.
+On te montre le script Hypercourse d'un cours ainsi qu'une séquence d'images
+représentant l'état du tableau juste avant chaque effacement (`erase`) et à la fin du cours.
 
-Vérifie que la composition du tableau est cohérente sur CHAQUE image :
-- aucun texte ni figure ne déborde du cadre du tableau ;
-- aucun élément ne chevauche un autre élément encore visible ;
-- aucun texte n'est écrit par-dessus une figure ;
-- toute flèche (draw line en mode flèche, ou mouse move) pointe
-  effectivement vers l'élément qu'elle est censée désigner, pas à côté.
+Chaque image représente une SCÈNE complète et est accompagnée de :
+1. La liste des **Éléments à vérifier / corriger** (IDs des nouveaux éléments introduits dans cette scène).
+2. La liste des **Éléments immutables (déjà validés)** (IDs des éléments ayant survécu d'une scène précédente).
 
-Si tout est correct sur toutes les images, réponds ok=true et issues=[].
-Sinon, réponds ok=false et liste chaque problème dans `issues`, avec l'ID
-de l'élément fautif et une description précise et actionnable du problème
-(ce qui ne va pas et ce qu'il faudrait changer).
+RÈGLES STRICTES DE VÉRIFICATION ET CORRECTION :
+- Pour chaque image de scène, vérifie la composition spatiale :
+  - Aucun texte ni figure ne déborde du cadre du tableau ;
+  - Aucun élément ne chevauche un autre élément visible ;
+  - Aucun texte n'est écrit par-dessus une figure ;
+  - Toute flèche (draw line en mode flèche, ou mouse move) pointe effectivement vers l'élément visé.
+- **Règle d'immutabilité** : Tu peux proposer des corrections de position géométrique UNIQUEMENT pour les **Éléments à vérifier / corriger**. Les **Éléments immutables** sont déjà validés et NE DOIVENT PAS être déplacés ou modifiés.
+
+Si tout est correct sur toutes les images, réponds `ok=true` et `issues=[]`.
+Sinon, réponds `ok=false` et liste chaque problème dans `issues`, en ciblant l'ID d'un élément mutable et en fournissant une description précise de la correction géométrique requise.
 ''';
 
   static final Map<String, dynamic> _schema = {
@@ -83,10 +82,23 @@ de l'élément fautif et une description précise et actionnable du problème
       final content = <ContentBlock>[
         TextBlock('SCRIPT HYPERCOURSE COMPLET :\n$script'),
       ];
-      for (final image in images) {
+
+      for (var i = 0; i < batch.points.length; i++) {
+        final point = batch.points[i];
+        final image = images[i];
+
+        final mutableStr = point.mutableElementIds.isNotEmpty
+            ? point.mutableElementIds.join(', ')
+            : 'Aucun';
+        final immutableStr = point.immutableElementIds.isNotEmpty
+            ? point.immutableElementIds.join(', ')
+            : 'Aucun';
+
         content.add(
           TextBlock(
-            'Image — élément(s) déclencheur(s) ID: ${image.triggerElementIds.join(', ')}',
+            'Capture de Scène pré-erase à t=${point.time.toStringAsFixed(2)}s :\n'
+            '- Éléments à vérifier / corriger (IDs): $mutableStr\n'
+            '- Éléments immutables déjà validés (à NE PAS déplacer) (IDs): $immutableStr',
           ),
         );
         content.add(ImageBlock(image.bytes));

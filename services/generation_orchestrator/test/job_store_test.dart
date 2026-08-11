@@ -187,12 +187,38 @@ void main() {
       final jobId = jobStore.startJob('Explique-moi les dérivées');
       final job = await _waitForCompletion(jobStore, jobId);
 
-      // La vérification visuelle mockée échoue systématiquement (toujours
-      // `ok: false`), donc les 3 tentatives sont consommées et le job finit
-      // en erreur — ce qui confirme que le résultat de la vérification
-      // pilote bien la boucle de retry existante.
       expect(job.status, 'error');
       expect(job.error, contains('déborde du cadre du tableau'));
     },
   );
+
+  test('startJob() fonctionne de bout en bout avec Gemini (FakeGeminiClient)', () async {
+    const validVisuals =
+        "text id 1 start 1.5s at (88.89, 8) ''[bold]Les Dérivées[/bold]'' ;";
+
+    final jobStore = JobStore(
+      llmClient: FakeGeminiClient(
+        jsonResponse: _metadataJson,
+        textResponses: ['Narration Gemini...', validVisuals],
+      ),
+      audioServiceClient: FakeAudioServiceClient(),
+      boardRenderServiceClient: FakeBoardRenderServiceClient(),
+    );
+
+    final jobId = jobStore.startJob('Explique-moi les dérivées');
+    final job = await _waitForCompletion(jobStore, jobId);
+
+    expect(job.status, 'done');
+    expect(job.script, contains('course "Les Dérivées"'));
+    expect(job.script, contains(validVisuals));
+  });
 }
+
+class FakeGeminiClient extends FakeClaudeClient {
+  FakeGeminiClient({
+    required super.jsonResponse,
+    required super.textResponses,
+    super.visualVerificationResponse,
+  });
+}
+

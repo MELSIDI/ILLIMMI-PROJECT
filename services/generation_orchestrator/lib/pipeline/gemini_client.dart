@@ -4,17 +4,15 @@ import 'dart:io';
 import 'package:http/http.dart' as http;
 
 import 'content_block.dart';
+import 'llm_client.dart';
 
-/// Client HTTP brut pour l'API Generative Language de Google (Gemini) — même
-/// contrat que [ClaudeClient] (`../pipeline/claude_client.dart`), pas de SDK
-/// officiel.
+/// Client HTTP brut pour l'API Generative Language de Google (Gemini) —
+/// implémente le contrat unifié [LlmClient].
 ///
 /// La clé est lue depuis la variable d'environnement `GEMINI_API_KEY` —
 /// jamais en dur dans le code. Le modèle est surchargeable via `GEMINI_MODEL`
-/// (défaut `gemini-2.5-flash`) : à vérifier/ajuster selon le modèle
-/// effectivement disponible au moment de l'usage, les identifiants de modèle
-/// évoluent plus vite que ce code.
-class GeminiClient {
+/// (défaut `gemini-2.5-flash`).
+class GeminiClient implements LlmClient {
   static const String _defaultModel = 'gemini-2.5-flash';
   static const String _apiVersion = 'v1beta';
 
@@ -40,7 +38,7 @@ class GeminiClient {
     'x-goog-api-key': _apiKey,
   };
 
-  /// Complétion texte simple (pas de sortie JSON contrainte).
+  @override
   Future<String> complete({
     required String system,
     required String userMessage,
@@ -71,16 +69,14 @@ class GeminiClient {
     return _extractText(body);
   }
 
-  /// Complétion contrainte par un schéma JSON (`generationConfig.responseSchema`)
-  /// — Gemini n'accepte qu'un sous-ensemble de JSON Schema (pas de `$schema`,
-  /// `additionalProperties`, etc.) ; un schéma trop riche peut être rejeté ou
-  /// simplifié silencieusement côté API.
+  @override
   Future<Map<String, dynamic>> completeJson({
     required String system,
     required String userMessage,
     required Map<String, dynamic> schema,
     int maxTokens = 2048,
   }) async {
+    final sanitizedSchema = _sanitizeSchema(schema);
     final response = await http.post(
       Uri.parse(_endpoint),
       headers: _headers,
@@ -101,7 +97,7 @@ class GeminiClient {
         'generationConfig': {
           'maxOutputTokens': maxTokens,
           'responseMimeType': 'application/json',
-          'responseSchema': schema,
+          'responseSchema': sanitizedSchema,
         },
       }),
     );
@@ -111,15 +107,14 @@ class GeminiClient {
     return jsonDecode(text) as Map<String, dynamic>;
   }
 
-  /// Complétion multimodale (texte + images) contrainte par un schéma JSON —
-  /// chaque [ImageBlock] devient une partie `inlineData` (base64), chaque
-  /// [TextBlock] une partie `text`, dans l'ordre reçu.
+  @override
   Future<Map<String, dynamic>> completeMultimodalJson({
     required String system,
     required List<ContentBlock> content,
     required Map<String, dynamic> schema,
     int maxTokens = 4096,
   }) async {
+    final sanitizedSchema = _sanitizeSchema(schema);
     final response = await http.post(
       Uri.parse(_endpoint),
       headers: _headers,
@@ -135,7 +130,7 @@ class GeminiClient {
         'generationConfig': {
           'maxOutputTokens': maxTokens,
           'responseMimeType': 'application/json',
-          'responseSchema': schema,
+          'responseSchema': sanitizedSchema,
         },
       }),
     );
@@ -143,6 +138,28 @@ class GeminiClient {
     final body = _decodeOrThrow(response);
     final text = _extractText(body);
     return jsonDecode(text) as Map<String, dynamic>;
+  }
+
+  Map<String, dynamic> _sanitizeSchema(Map<String, dynamic> rawSchema) {
+    final copy = Map<String, dynamic>.from(rawSchema);
+    copy.remove('additionalProperties');
+    copy.remove('\$schema');
+
+    if (copy.containsKey('properties') && copy['properties'] is Map<String, dynamic>) {
+      final props = Map<String, dynamic>.from(copy['properties'] as Map<String, dynamic>);
+      for (final key in props.keys) {
+        if (props[key] is Map<String, dynamic>) {
+          props[key] = _sanitizeSchema(props[key] as Map<String, dynamic>);
+        }
+      }
+      copy['properties'] = props;
+    }
+
+    if (copy.containsKey('items') && copy['items'] is Map<String, dynamic>) {
+      copy['items'] = _sanitizeSchema(copy['items'] as Map<String, dynamic>);
+    }
+
+    return copy;
   }
 
   Map<String, dynamic> _partFor(ContentBlock block) => switch (block) {
@@ -173,3 +190,4 @@ class GeminiClient {
     return (parts.first as Map<String, dynamic>)['text'] as String;
   }
 }
+

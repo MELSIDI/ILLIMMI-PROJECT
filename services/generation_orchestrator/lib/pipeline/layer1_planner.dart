@@ -1,4 +1,5 @@
-import 'claude_client.dart';
+import 'gemini_client.dart';
+import 'llm_client.dart';
 import 'models.dart';
 
 /// Layer 1 : planification pédagogique (illimmi-doc.md §2.2).
@@ -6,9 +7,9 @@ import 'models.dart';
 /// Entrée : le prompt de l'utilisateur ("Explique-moi les dérivées").
 /// Sortie : les métadonnées qui guident les Layers suivants.
 class Layer1Planner {
-  final ClaudeClient _client;
+  final LlmClient _client;
 
-  Layer1Planner({ClaudeClient? client}) : _client = client ?? ClaudeClient();
+  Layer1Planner({LlmClient? client}) : _client = client ?? GeminiClient();
 
   static const String _systemPrompt = '''
 Tu es ILLIMMI Layer 1, un planificateur pédagogique.

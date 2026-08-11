@@ -1,9 +1,6 @@
 # World model visuel pour la génération Hypercourse (Layer 3)
 
 
-## Idée Optimale
- @services\generation-orchestrator\world-model-visual-feedback.md  en fait ici ya une maniere beaucoup plus optimale de faire et ça permet de reduire le nombre d'image drastiquement, avant chaque erase , on prend parmis les élément à erase celui dont le start+duration est le plus grand et on fais une capture du tableau à ce moment , donc tous les élément prensent là sont dependant entre et aucun element non corriger dependant de l'ensemble des element present sur le tableau n'as était effacer , donc le model corrige tous les positions géographiques des elements  present pour qu'ils soient coherent à son image mentale : fleche qui pointe bien, texte bien centre. Et du cous le nombre d'image est agele au nombre de commande erase + 1. Le modele doit corriger tous les element present dans le tableau sauf ceux ayant etait corriger lord du dernier erase , tu sais un element peut survivre tous le long du cours alors qu'il a etait corriger lors du premier erase et donc pour la coherence il doit plus etre reecoriger. ultrathink.
-
 ## Statut
 
 **Implémentée** (2026-07-24). Ce document capture d'abord la solution
@@ -50,37 +47,29 @@ bugs observés : texte débordant du canevas, figures qui se chevauchent, texte
 par-dessus une figure, flèche (`mouse move`) qui ne pointe pas correctement
 vers l'élément visé.
 
-## Solution retenue : world model par captures d'écran
+## Solution retenue : world model par captures d'écran (Stratégie pré-erase)
 
 Donner à l'IA un **retour visuel réel** du tableau plutôt que de lui demander
 de raisonner uniquement sur des coordonnées abstraites — « une image vaut
 mille mots ». Concrètement :
 
-1. Une fois le script généré et parsé avec succès (`Course` construit), on
-   génère une **capture d'écran du tableau à un instant précis**, pour chaque
-   élément du cours.
-2. **Politique de déclenchement : à la fin de l'apparition de chaque élément**
-   (quand son animation de révélation/tracé est terminée et qu'il est dans son
-   état final stable), pas à intervalle de temps fixe et surtout pas par
-   frame. Concrètement, l'instant de capture pour l'élément `i` est
-   `startTime_i + duration_i` — une donnée déjà calculée par le parseur pour
-   chaque `HyperElement`, et déjà indexée temporellement dans l'arbre de
-   segments de `Course` (`FamilyForest`). Aucune nouvelle logique de calcul de
-   timing n'est nécessaire, seulement un nouveau consommateur de cette donnée.
-3. Ces captures sont envoyées à Claude (accompagnées du script Hypercourse
-   correspondant) pour vérification/correction, en réutilisant la boucle de
-   retry existante (`previousAttempt` / `previousError`) : on étend la notion
-   d'« erreur qui justifie une régénération » pour inclure les problèmes
-   visuels identifiés à partir des captures (chevauchement, débordement,
-   flèche mal orientée), en plus des erreurs de parsing actuelles.
+1. Une fois le script généré et parsé avec succès (`Course` construit), le cours est découpé en **scènes** délimitées par les commandes `erase` (ou la fin du cours).
+2. **Politique de déclenchement optimale : une capture par scène juste avant chaque `erase`** (plus une capture finale à la fin du cours). 
+   - L'instant de capture pour chaque scène est situé à `t = max(startTime + duration)` parmi les éléments présentés dans la scène juste avant l'effacement.
+   - À cet instant précis, **tous les éléments de la scène sont entièrement dessinés** et aucun n'a encore été effacé : la composition complète (textes, graphiques, flèches) est ainsi visible d'un seul coup dans son état stable.
+   - Le nombre total d'images est drastiquement réduit à **`nombre(erase) + 1`** (ex. 3 à 5 images par cours au lieu de 30 à 50 images).
+3. **Règle d'immutabilité / persistance** : 
+   - Si un élément survit à un `erase` (non spécifié dans `idsToErase`) et a déjà été validé/corrigé lors d'une capture précédente, il conserve sa position géographique et ne doit **plus être re-déplacé** par le modèle afin de préserver la cohérence spatiale globale tout au long du cours.
+4. Ces captures sont envoyées à Claude (accompagnées du script Hypercourse et de la liste explicite des éléments mutables vs immutables) pour vérification/correction, en réutilisant la boucle de retry existante (`previousAttempt` / `previousError`).
 
-### Pourquoi "une image par élément terminé" plutôt que les alternatives
+### Pourquoi "une image par scène pré-erase" plutôt que les alternatives
 
 | Approche | Nombre d'images | Verdict |
 |---|---|---|
 | Rendu par frame (ex. 30-60 fps) | Des milliers | Rejeté — coût explosif, la plupart des frames sont en pleine animation et n'apportent aucune information de vérification |
 | Vidéo complète encodée | 1 vidéo | Rejeté — plus coûteux à produire, et l'analyse vidéo par un modèle nécessite de toute façon un échantillonnage de frames en interne, donc un détour inutile |
-| Une image par élément terminé | = nombre d'éléments du cours (ex. ~300 pour un cours riche) | **Retenu** — un point de contrôle propre et significatif par élément réellement ajouté au tableau ; le coût est proportionnel à la richesse du cours (plus d'éléments = plus de points de contrôle), ce qui est le bon axe de scaling. Accepté explicitement comme un **coût nécessaire** pour la fidélité/qualité du cours généré. |
+| Une image par élément terminé | = nombre d'éléments du cours (~30-50 images) | Ancien choix — fonctionnel mais trop lourd en nombre d'images et en tokens |
+| **Une image par scène pré-erase** | **= nombre d'effacements + 1 (ex. 3-5 images)** | **Retenu (Optimal)** — capture l'intégralité de chaque scène au moment où tous ses éléments sont présents sur le tableau avant effacement. Réduit le coût et le temps de rendu tout en offrant au modèle une vision globale et complète de la composition. |
 
 ## Implémentation
 

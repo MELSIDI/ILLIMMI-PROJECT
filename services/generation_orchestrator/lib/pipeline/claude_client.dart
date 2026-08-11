@@ -4,15 +4,14 @@ import 'dart:io';
 import 'package:http/http.dart' as http;
 
 import 'content_block.dart';
+import 'llm_client.dart';
 
 export 'content_block.dart';
 
-/// Client HTTP brut pour l'API Messages de Claude (pas de SDK Dart officiel,
-/// donc HTTP direct via `package:http`).
+/// Client HTTP brut pour l'API Messages de Claude — implémente le contrat unifié [LlmClient].
 ///
-/// La clé est lue depuis la variable d'environnement `ANTHROPIC_API_KEY` —
-/// jamais en dur dans le code.
-class ClaudeClient {
+/// La clé est lue depuis la variable d'environnement `ANTHROPIC_API_KEY`.
+class ClaudeClient implements LlmClient {
   static const String model = 'claude-sonnet-5';
   static const String _endpoint = 'https://api.anthropic.com/v1/messages';
   static const String _apiVersion = '2023-06-01';

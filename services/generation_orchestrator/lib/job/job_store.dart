@@ -6,16 +6,16 @@ import '../http/user_service_client.dart';
 import '../parsers/hypercourse_parser.dart';
 import '../pipeline/claude_client.dart';
 import '../pipeline/course_assembler.dart';
+import '../pipeline/gemini_client.dart';
 import '../pipeline/layer1_planner.dart';
 import '../pipeline/layer2_audio.dart';
 import '../pipeline/layer3_visual_verifier.dart';
 import '../pipeline/layer3_visuals.dart';
+import '../pipeline/llm_client.dart';
 import 'generation_job.dart';
 
 /// Registre en mémoire des jobs de génération + boucle d'orchestration
-/// Layer1 → Layer2 → Layer3 → assemblage → validation (reprend la logique de
-/// l'ancien `CourseGenerator` in-process, adaptée pour tourner derrière une
-/// API HTTP au lieu d'un callback `onProgress` direct).
+/// Layer1 → Layer2 → Layer3 → assemblage → validation.
 class JobStore {
   static const int _maxAttempts = 3;
 
@@ -29,18 +29,22 @@ class JobStore {
   final UserServiceClient _userServiceClient;
 
   JobStore({
+    LlmClient? llmClient,
     ClaudeClient? claudeClient,
     AudioServiceClient? audioServiceClient,
     UserServiceClient? userServiceClient,
     BoardRenderServiceClient? boardRenderServiceClient,
-  }) : _layer1 = Layer1Planner(client: claudeClient),
-       _layer2 = Layer2AudioGenerator(client: claudeClient, audioClient: audioServiceClient),
-       _layer3 = Layer3VisualGenerator(client: claudeClient),
-       _visualVerifier = Layer3VisualVerifier(
-         client: claudeClient,
-         renderClient: boardRenderServiceClient,
-       ),
-       _userServiceClient = userServiceClient ?? UserServiceClient();
+  })  : _layer1 = Layer1Planner(client: llmClient ?? claudeClient ?? GeminiClient()),
+        _layer2 = Layer2AudioGenerator(
+          client: llmClient ?? claudeClient ?? GeminiClient(),
+          audioClient: audioServiceClient,
+        ),
+        _layer3 = Layer3VisualGenerator(client: llmClient ?? claudeClient ?? GeminiClient()),
+        _visualVerifier = Layer3VisualVerifier(
+          client: llmClient ?? claudeClient ?? GeminiClient(),
+          renderClient: boardRenderServiceClient,
+        ),
+        _userServiceClient = userServiceClient ?? UserServiceClient();
 
   GenerationJob? get(String jobId) => _jobs[jobId];
 
