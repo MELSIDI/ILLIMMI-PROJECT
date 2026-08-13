@@ -11,11 +11,11 @@ WORKDIR /workspace
 COPY illimmi_app ./illimmi_app
 RUN cd illimmi_app && flutter pub get
 
-COPY services/board-render-service ./services/board-render-service
-RUN cd services/board-render-service && dart pub get
+COPY services/board_render_service ./services/board_render_service
+RUN cd services/board_render_service && dart pub get
 
 ENV ILLIMMI_APP_DIR=/workspace/illimmi_app
 EXPOSE 5001
 
-WORKDIR /workspace/services/board-render-service
+WORKDIR /workspace/services/board_render_service
 CMD ["dart", "run", "bin/serve.dart"]

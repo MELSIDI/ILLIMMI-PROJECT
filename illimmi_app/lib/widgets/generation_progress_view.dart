@@ -1,12 +1,11 @@
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
+import '../theme/app_theme.dart';
 
-/// Animation affichée pendant que le cours se génère en tâche de fond
-/// (voir `runGenerationInBackground` dans `api/generation_isolate.dart`) :
-/// un anneau qui tourne autour d'une icône qui pulse, avec le statut courant
-/// qui se met à jour en fondu au fil des étapes (planification, narration,
-/// appuis visuels...).
+/// Animation de génération façon Google Gemini :
+/// Un orbe lumineux aux couleurs emblématiques de Gemini avec anneau tournant,
+/// pulsation fluide et statut d'avancement mis à jour avec élégance.
 class GenerationProgressView extends StatefulWidget {
   final String message;
 
@@ -23,8 +22,10 @@ class _GenerationProgressViewState extends State<GenerationProgressView>
   @override
   void initState() {
     super.initState();
-    _controller = AnimationController(vsync: this, duration: const Duration(seconds: 2))
-      ..repeat();
+    _controller = AnimationController(
+      vsync: this,
+      duration: const Duration(seconds: 3),
+    )..repeat();
   }
 
   @override
@@ -35,75 +36,140 @@ class _GenerationProgressViewState extends State<GenerationProgressView>
 
   @override
   Widget build(BuildContext context) {
-    final scheme = Theme.of(context).colorScheme;
+    final isDark = Theme.of(context).brightness == Brightness.dark;
 
     return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          SizedBox(
-            width: 120,
-            height: 120,
-            child: AnimatedBuilder(
-              animation: _controller,
-              builder: (context, _) {
-                final pulse =
-                    0.85 + 0.15 * (0.5 + 0.5 * math.sin(_controller.value * 2 * math.pi));
-                return Stack(
-                  alignment: Alignment.center,
-                  children: [
-                    Transform.rotate(
-                      angle: _controller.value * 2 * math.pi,
-                      child: Container(
-                        width: 120,
-                        height: 120,
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          gradient: SweepGradient(
-                            colors: [
-                              scheme.primary.withValues(alpha: 0),
-                              scheme.primary,
-                            ],
+      child: Padding(
+        padding: const EdgeInsets.all(Spacing.xl),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            // Orbe Lumineux Gemini
+            SizedBox(
+              width: 140,
+              height: 140,
+              child: AnimatedBuilder(
+                animation: _controller,
+                builder: (context, _) {
+                  final angle = _controller.value * 2 * math.pi;
+                  final pulse = 0.88 + 0.12 * math.sin(angle * 2);
+
+                  return Stack(
+                    alignment: Alignment.center,
+                    children: [
+                      // Halo lumineux externe
+                      Transform.scale(
+                        scale: pulse * 1.15,
+                        child: Container(
+                          width: 130,
+                          height: 130,
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            gradient: RadialGradient(
+                              colors: [
+                                AppTheme.geminiBlue.withValues(alpha: 0.25),
+                                AppTheme.geminiPurple.withValues(alpha: 0.15),
+                                Colors.transparent,
+                              ],
+                            ),
                           ),
                         ),
                       ),
-                    ),
-                    Container(
-                      width: 96,
-                      height: 96,
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: Theme.of(context).scaffoldBackgroundColor,
+                      // Anneau rotatif dégradé Gemini
+                      Transform.rotate(
+                        angle: angle,
+                        child: Container(
+                          width: 120,
+                          height: 120,
+                          decoration: const BoxDecoration(
+                            shape: BoxShape.circle,
+                            gradient: SweepGradient(
+                              colors: [
+                                Colors.transparent,
+                                AppTheme.geminiCyan,
+                                AppTheme.geminiBlue,
+                                AppTheme.geminiPurple,
+                                AppTheme.geminiPink,
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                      // Masque central
+                      Container(
+                        width: 104,
+                        height: 104,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: isDark ? AppTheme.darkBackground : AppTheme.lightBackground,
+                        ),
+                      ),
+                      // Icône d'étincelle pulsante avec dégradé
+                      Transform.scale(
+                        scale: pulse,
+                        child: ShaderMask(
+                          blendMode: BlendMode.srcIn,
+                          shaderCallback: (b) => AppTheme.geminiSparkleGradient.createShader(b),
+                          child: const Icon(Icons.auto_awesome, size: 48),
+                        ),
+                      ),
+                    ],
+                  );
+                },
+              ),
+            ),
+            const SizedBox(height: Spacing.xl),
+            // Message de progression
+            AnimatedSwitcher(
+              duration: const Duration(milliseconds: 350),
+              child: Container(
+                key: ValueKey(widget.message),
+                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                decoration: BoxDecoration(
+                  color: isDark ? AppTheme.darkSurfaceContainer : AppTheme.lightSurfaceContainer,
+                  borderRadius: BorderRadius.circular(20),
+                  border: Border.all(
+                    color: isDark ? AppTheme.darkBorder : AppTheme.lightBorder,
+                    width: 1,
+                  ),
+                ),
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    const SizedBox(
+                      width: 14,
+                      height: 14,
+                      child: CircularProgressIndicator(
+                        strokeWidth: 2,
+                        valueColor: AlwaysStoppedAnimation<Color>(AppTheme.geminiBlue),
                       ),
                     ),
-                    Transform.scale(
-                      scale: pulse,
-                      child: Icon(Icons.auto_awesome, size: 40, color: scheme.primary),
+                    const SizedBox(width: 12),
+                    Text(
+                      widget.message,
+                      style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                            fontWeight: FontWeight.w600,
+                          ),
                     ),
                   ],
-                );
-              },
+                ),
+              ),
             ),
-          ),
-          const SizedBox(height: 28),
-          AnimatedSwitcher(
-            duration: const Duration(milliseconds: 350),
-            child: Text(
-              widget.message,
-              key: ValueKey(widget.message),
-              textAlign: TextAlign.center,
-              style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+            const SizedBox(height: Spacing.lg),
+            // Barre de progression dégradée
+            SizedBox(
+              width: 220,
+              height: 4,
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(4),
+                child: const LinearProgressIndicator(
+                  backgroundColor: Colors.transparent,
+                  valueColor: AlwaysStoppedAnimation<Color>(AppTheme.geminiBlue),
+                ),
+              ),
             ),
-          ),
-          const SizedBox(height: 20),
-          const SizedBox(
-            width: 200,
-            child: ClipRRect(
-              borderRadius: BorderRadius.all(Radius.circular(4)),
-              child: LinearProgressIndicator(minHeight: 6),
-            ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

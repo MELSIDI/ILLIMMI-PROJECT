@@ -1,11 +1,15 @@
 services:
   generation-orchestrator:
-    build: ./services/generation-orchestrator
+    build: ./services/generation_orchestrator
     ports:
       - "8080:8080"
     environment:
       - GEMINI_API_KEY=${GEMINI_API_KEY}
       - GEMINI_MODEL=${GEMINI_MODEL:-gemini-2.5-flash}
+      - GCP_PROJECT_ID=${GCP_PROJECT_ID}
+      - GCP_ACCESS_TOKEN=${GCP_ACCESS_TOKEN}
+      - GCP_LOCATION=${GCP_LOCATION:-us-central1}
+      - USE_BIGQUERY_SQL=${USE_BIGQUERY_SQL}
       - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
       - AUDIO_SERVICE_URL=http://host.docker.internal:8082
       - AUTH_JWT_SECRET=${AUTH_JWT_SECRET}
@@ -17,7 +21,7 @@ services:
       - board-render-service
 
   plot-service:
-    build: ./services/plot-service
+    build: ./services/plot_service
     ports:
       - "5000:5000"
 
@@ -30,7 +34,7 @@ services:
   board-render-service:
     build:
       context: .
-      dockerfile: services/board-render-service/Dockerfile
+      dockerfile: services/board_render_service/Dockerfile
     ports:
       - "5001:5001"
 

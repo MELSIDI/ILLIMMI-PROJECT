@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:io';
 
 import '../http/audio_service_client.dart';
 import '../http/board_render_service_client.dart';
@@ -6,6 +7,7 @@ import '../http/user_service_client.dart';
 import '../parsers/hypercourse_parser.dart';
 import '../pipeline/claude_client.dart';
 import '../pipeline/course_assembler.dart';
+import '../pipeline/gcp_vertex_gemini_client.dart';
 import '../pipeline/gemini_client.dart';
 import '../pipeline/layer1_planner.dart';
 import '../pipeline/layer2_audio.dart';
@@ -28,20 +30,26 @@ class JobStore {
   final Layer3VisualVerifier _visualVerifier;
   final UserServiceClient _userServiceClient;
 
+  static LlmClient _resolveDefaultClient() {
+    final hasGcp = Platform.environment.containsKey('GCP_PROJECT_ID') ||
+        Platform.environment.containsKey('BIGQUERY_PROJECT_ID');
+    return hasGcp ? GcpVertexGeminiClient() : GeminiClient();
+  }
+
   JobStore({
     LlmClient? llmClient,
     ClaudeClient? claudeClient,
     AudioServiceClient? audioServiceClient,
     UserServiceClient? userServiceClient,
     BoardRenderServiceClient? boardRenderServiceClient,
-  })  : _layer1 = Layer1Planner(client: llmClient ?? claudeClient ?? GeminiClient()),
+  })  : _layer1 = Layer1Planner(client: llmClient ?? claudeClient ?? _resolveDefaultClient()),
         _layer2 = Layer2AudioGenerator(
-          client: llmClient ?? claudeClient ?? GeminiClient(),
+          client: llmClient ?? claudeClient ?? _resolveDefaultClient(),
           audioClient: audioServiceClient,
         ),
-        _layer3 = Layer3VisualGenerator(client: llmClient ?? claudeClient ?? GeminiClient()),
+        _layer3 = Layer3VisualGenerator(client: llmClient ?? claudeClient ?? _resolveDefaultClient()),
         _visualVerifier = Layer3VisualVerifier(
-          client: llmClient ?? claudeClient ?? GeminiClient(),
+          client: llmClient ?? claudeClient ?? _resolveDefaultClient(),
           renderClient: boardRenderServiceClient,
         ),
         _userServiceClient = userServiceClient ?? UserServiceClient();

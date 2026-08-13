@@ -16,30 +16,47 @@ Toute la documentation technique du projet est centralisée et maintenue dans le
 
 ---
 
-## ⚡ Démarrage Rapide (En local)
+## ⚡ Démarrage Rapide Automatisé (1 seule commande)
+
+Exécutez simplement le script d'automatisation tout-en-un (PowerShell / Batch) :
+
+```powershell
+.\start.ps1
+```
+*ou double-cliquez sur `start.bat`.*
+
+**Ce script s'occupe de tout :**
+1. 🔑 **Auto-détection GCP** : Récupère automatiquement votre projet GCP et votre jeton de crédits (`$300 offerts`) si `gcloud` est installé.
+2. 📦 **Dépendances** : Installe automatiquement les dépendances `dart pub get` si nécessaire.
+3. 🎙️ **Services Natifs** : Lance `audio-service` (port 8082) et `user-service` (port 8081) en arrière-plan.
+4. 🐳 **Stack Docker** : Compile et lance `generation-orchestrator` (8080), `plot-service` (5000) et `board-render-service` (5001) via Docker Compose.
+
+---
+
+## 🛠️ Lancement Manuel (Étape par étape)
 
 ### 1. Variables d'environnement
-Exportez votre clé API Gemini :
 ```powershell
-$env:GEMINI_API_KEY="votre_cle_gemini"
+$env:GCP_PROJECT_ID="mon-projet-gcp"
+$env:GCP_ACCESS_TOKEN=(gcloud auth print-access-token)
 $env:AUTH_JWT_SECRET="change_moi_en_production"
 ```
 
 ### 2. Démarrer les services natifs Windows (`audio-service` & `user-service`)
 ```powershell
-# Dans un premier terminal
+# Premier terminal
 cd services/audio-service ; dart pub get ; dart run bin/server.dart
 
-# Dans un second terminal
+# Second terminal
 cd services/user-service ; dart pub get ; dart run bin/server.dart
 ```
 
-### 3. Démarrer les services conteneurisés (`generation-orchestrator`, `plot-service`, `board-render-service`)
+### 3. Démarrer la stack Docker
 ```powershell
 docker compose up --build
 ```
 
-### 4. Lancer le client Flutter (`illimmi_app`)
+### 4. Lancer l'application Flutter (`illimmi_app`)
 ```powershell
 cd illimmi_app
 flutter run -d windows

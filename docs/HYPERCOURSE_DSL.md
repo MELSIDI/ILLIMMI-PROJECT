@@ -9,7 +9,7 @@
 Hypercourse (`.hc`) est un DSL (Domain Specific Language) déclaratif et déterministe conçu pour synchroniser des appuis visuels (textes, formules LaTeX, figures géométriques, tracés de fonctions, curseur de tableau) avec un fichier audio de narration.
 
 ### Propriétés clés
-- **Orientation temporelle** : Chaque élément visuel est positionné dans le temps au moyen d'un timestamp de début (`start`) et d'une durée d'animation (`for`).
+- **Orientation temporelle** : Chaque élément visuel est positionné dans le temps au moyen d'un timestamp de début (`start`) et d'une durée d'animation de son dessin (`for`) et disparrait du tableau une fois effacer par la commande (`erase`).
 - **Coordonnées normalisées 16:9** : L'espace de travail est indépendant de la résolution de l'écran.
 - **Transparence et Légèreté** : Un cours complet de plusieurs minutes tient dans un fichier texte de quelques Ko.
 
@@ -41,7 +41,22 @@ Le tableau blanc utilise un repère cartésien à origine en haut à gauche avec
 
 ---
 
-## 3. Définition des plages d'ID (Espaces de noms)
+## 3. Gestion du temps
+Tous les événements sont exprimés en secondes.
+
+```hypercourse
+start 2.5s      # Démarre à 2,5 secondes depuis le début de l'audio
+for 1.5s        # Durée d'animation de 1,5 seconde pour l'apparition    complete de l'élément.
+```
+
+**Règles :**
+- Le suffixe `s` est obligatoire
+- Les décimales sont supportées
+- `start` est **obligatoire** pour chaque élément
+- `for` est **optionnel** — si absent, l'élément appairait instantanément et resterait affiché jusqu'à la fin du cours ou jusqu'à un `erase`.
+
+
+## 4. Définition des plages d'ID (Espaces de noms)
 
 Chaque élément possède un identifiant numérique unique (`id`). La famille d'un élément est déduite automatiquement selon la valeur du paramètre `idgap` (valeur par défaut recommandée : `100`) :
 
@@ -55,77 +70,268 @@ Chaque élément possède un identifiant numérique unique (`id`). La famille d'
 
 ---
 
-## 4. Syntaxe de référence des commandes
+## 5. Couleurs
+Format RGBA : `color (R, G, B, A)`
 
-### 4.1 En-tête de cours
-Définit le nom du cours et le fichier audio associé :
 ```hypercourse
-course "Les Dérivées et Tangentes" ;
-audio "audios/les_derivees/narration.wav" ;
+color (255, 0, 0, 1)          # Rouge opaque
+color (0, 100, 255, 0.5)      # Bleu semi-transparent
+fillcolor (200, 200, 0, 0.3)  # Remplissage jaune translucide
+```
+
+- **R, G, B** : 0–255
+- **A** : 0.0–1.0
+
+---
+
+# 6 Formatage de texte
+
+Le contenu textuel est encadré par `''` :
+
+| Syntaxe | Résultat |
+|---------|----------|
+| `''texte''` | Texte normal |
+| `''[bold]texte[/bold]''` | **Gras** |
+| `''[italic]texte[/italic]''` | *Italique* |
+| `''[color=#FF0000]texte[/color]''` | Texte coloré |
+| `''[font=Courier]texte[/font]''` | Police spécifique |
+| `''$E=mc^2$''` | Formule LaTeX inline |
+| `''$$\int_0^\infty e^{-x}dx$$''` | Formule LaTeX display |
+
+L'imbrication est supportée :
+
+```hypercourse
+''[bold][color=#00FF00]Texte vert en gras[/color][/bold]''
 ```
 
 ---
 
-### 4.2 Commande `text` (Texte et LaTeX)
-Affiche un texte ou une formule mathématique LaTeX.
+# 7 Structure d'un cours
+
+```hypercourse
+course "Titre du cours" id <courseid> idgap <idgap> for <durée>s audio "<fichier.wav>" {
+
+    # Appuis visuels — l'audio joue en fond
+    text id 1 start 1.5s at (88.89, 8) ''[bold]Titre[/bold]'' ;
+    draw circle id 101 start 5.2s ... ;
+    # et ça continue...
+}
+```
+
+**Paramètres du header :**
+
+| Paramètre | Description |
+|-----------|-------------|
+| `id` | Identifiant unique du cours |
+| `idgap` | Taille des plages d'IDs (exemple : 100) |
+| `for` | Durée totale = durée exacte de l'audio `.wav` |
+| `audio` | Chemin vers le fichier audio (`.wav`, `.mp3`, ...) — seule source de narration |
+
+---
+
+## 8 Syntaxe de référence des commandes
+
+### 8.1 `text` - Affichage de texte ou formule LaTeX
 ```hypercourse
 text id <ID> start <TIME>s [for <DURATION>s] at (<X>, <Y>) ''<CONTENU>'' ;
 ```
-- **Formattage inline** : `[bold]...[/bold]`, `[italic]...[/italic]`, `[color=#RRGGBB]...[/color]`
-- **Formules LaTeX** : Inline `$...$` ou Display `$$...$$` (rendues via KaTeX / `flutter_math_fork`).
 
 **Exemple :**
 ```hypercourse
-text id 1 start 1.5s for 1.0s at (88.89, 10.0) ''[bold]1. Définition de la dérivée[/bold]'' ;
-text id 2 start 4.0s for 2.0s at (20.0, 30.0) ''La limite est : $f'(a) = \lim_{h \to 0} \frac{f(a+h) - f(a)}{h}$'' ;
+text id 1 start 1.5s for 30s at (88.89, 8)
+     ''[bold][color=#2980B9]Les Dérivées[/color][/bold]'' ;
+
+text id 2 start 12s at (88.89, 40)
+     ''$$f'(x) = \lim_{h \to 0} \frac{f(x+h)-f(x)}{h}$$'' ;
 ```
 
 ---
 
-### 4.3 Commandes `draw` (Formes géométriques & Figures)
 
-#### Line / Arrow (Ligne et Flèche)
-```hypercourse
-draw line id <ID> start <TIME>s [for <DURATION>s] [color (R, G, B, A)] width <W> at [(X1, Y1), (X2, Y2)] ;
-```
-- **Flèche** : Si l'ID ou le drapeau indique un mode flèche, une pointe de flèche orientée est dessinée à l'extrémité.
+### 4.3 `draw` - Formes géométriques & Figures
 
-#### Circle (Cercle)
+#### 4.3.1 `draw line` - Ligne droite
 ```hypercourse
-draw circle id <ID> start <TIME>s [for <DURATION>s] [color (...)] [width <W>] [fillcolor (...)] radius <R> at (CX, CY) ;
+draw line id <n> start <t>s [for <d>s]
+          [color (<r>,<g>,<b>,<a>)] width <w>
+          at [(<x1>,<y1>), (<x2>,<y2>)] ;
 ```
 
-#### Polygon (Polygone)
+#### 4.3.2 `draw arrow` - Flèche
 ```hypercourse
-draw polygone id <ID> start <TIME>s [for <DURATION>s] [color (...)] [width <W>] [fillcolor (...)] at [(X1, Y1), (X2, Y2), (X3, Y3)] ;
+draw arrow id <n> start <t>s [for <d>s]
+           [color (<r>,<g>,<b>,<a>)] width <w>
+           at [(<x1>,<y1>), (<x2>,<y2>)] ;
 ```
 
-#### Ellipse & Arc
+#### 4.3.3 `draw path` - Ligne brisée
 ```hypercourse
-draw ellipse id <ID> start <TIME>s [for <DURATION>s] [color (...)] [width <W>] radius_x <RX> radius_y <RY> rotation <ANGLE> at (CX, CY) ;
+draw path id <n> start <t>s [for <d>s]
+          [color (<r>,<g>,<b>,<a>)] width <w>
+          at [(<x1>,<y1>), (<x2>,<y2>), ...] ;
 ```
 
-#### Repère 2D & Fonction 2D
+#### 4.3.4 `draw curve` - Courbe lissée
 ```hypercourse
-draw 2drep id 101 start 5.0s for 1.0s at (88.89, 60.0) scale = 1.0 x_range = [-5, 5] y_range = [-5, 5] ;
-draw 2dfunc id 102 start 7.0s for 2.0s color (0, 150, 255, 1) width 2 at 101 y = x^2 - 2 ;
+draw curve id <n> start <t>s [for <d>s]
+           [color (<r>,<g>,<b>,<a>)] width <w>
+           [option]
+           at [points]
+           [with <+/->arrow at end] ;
+```
+Options :
+- `smooth` : lissage naturel (défaut)
+- `bezier` : courbe de Bézier
+- `+arrow` : flèche dans le sens trigonométrique
+- `-arrow` : flèche dans le sens horaire
+
+#### 4.3.5 `draw circle` - Cercle
+
+```hypercourse
+draw circle id <n> start <t>s [for <d>s]
+            [color (<r>,<g>,<b>,<a>)] [width <w>]
+            [fillcolor (<r>,<g>,<b>,<a>)]
+            radius <r> at (<cx>, <cy>)
+            [with <+/->arrow on <angle>deg] ;
+```
+
+**Exemple :**
+```hypercourse
+draw circle id 101 start 5.2s for 2s
+            color (41, 128, 185, 1) width 3
+            fillcolor (41, 128, 185, 0.15)
+            radius 20 at (88.89, 55) ;
+
+draw circle id 101 start 5.2s for 2s
+            color (41, 128, 185, 1) width 3
+            fillcolor (41, 128, 185, 0.15)
+            radius 20 at (60, 70) 
+            with +arrow at 90deg;
+```
+
+#### 4.3.6 `draw ellipse` - Ellipse
+
+```hypercourse
+draw ellipse id <n> start <t>s [for <d>s]
+             [color (<r>,<g>,<b>,<a>)] [width <w>]
+             [fillcolor (<r>,<g>,<b>,<a>)]
+             radiusX <rx> radiusY <ry>
+             [rotation <angle>]
+             at (<cx>, <cy>)
+             [with <+/->arrow on <angle>deg] ;
+```
+
+#### 4.3.7 `draw arc` - Arc de cercle
+
+```hypercourse
+draw arc id <n> start <t>s [for <d>s]
+         [color (<r>,<g>,<b>,<a>)] [width <w>]
+         [fillcolor (<r>,<g>,<b>,<a>)]
+         radius <r> at (<cx>, <cy>)
+         from <début>deg to <fin>deg
+         [with <+/->arrow at end] ;
+```
+
+#### 4.3.8 `draw elliptic_arc` - Arc elliptique
+
+```hypercourse
+draw elliptic_arc id <n> start <t>s [for <d>s]
+                  [color (<r>,<g>,<b>,<a>)] [width <w>]
+                  [fillcolor (<r>,<g>,<b>,<a>)]
+                  radiusX <rx> radiusY <ry>
+                  [rotation <angle>]
+                  at (<cx>, <cy>)
+                  from <début>deg to <fin>deg
+                  [with <+/->arrow at end] ;
+```
+
+#### 4.3.9 `draw polygone` - Polygone
+
+```hypercourse
+draw polygone id <n> start <t>s [for <d>s]
+              [color (<r>,<g>,<b>,<a>)] [width <w>]
+              [fillcolor (<r>,<g>,<b>,<a>)]
+              at [(<x1>,<y1>), (<x2>,<y2>), ...] ;
+```
+
+#### 4.3.10 `draw 2drep` - Repère cartésien
+
+```hypercourse
+draw 2drep id <n> start <t>s [for <d>s]
+           at (<x>, <y>)
+           [color (<r>,<g>,<b>,<a>)] [width <w>]
+           [scale = <facteur>]
+           [x_range = [xmin, xmax]]
+           [y_range = [ymin, ymax]] ;
+```
+
+**Valeurs par défaut :**
+- Position : `(88.89, 50)`
+- Scale : `1.0`
+- x_range : `[-10, 10]`
+- y_range : `[-10, 10]`
+
+**Exemple :**
+```hypercourse
+draw 2drep id 101 start 8s
+           at (88.89, 55)
+           scale = 1.5
+           x_range = [-5, 5]
+           y_range = [-2, 8] ;
 ```
 
 ---
 
-### 4.4 Commande `mouse` (Animation du curseur)
+#### 4.3.11 `draw 2dfunc` - Fonction mathématique
+
+```hypercourse
+draw 2dfunc id <n> start <t>s [for <d>s]
+            [color (<r>,<g>,<b>,<a>)] [width <w>]
+            at <id_du_repere>
+            y = <expression> ;
+```
+
+**Expressions supportées :**
+
+| Type | Éléments |
+|------|----------|
+| Opérateurs | `+`, `-`, `*`, `/`, `^` |
+| Fonctions | `sin`, `cos`, `tan`, `exp`, `log`, `sqrt`, `abs` |
+| Constantes | `pi`, `e` |
+| Variable | `x` |
+
+**Exemples :**
+```hypercourse
+draw 2dfunc id 102 start 10s color (41, 128, 185, 1) width 2 at 101 y = x^2 ;
+draw 2dfunc id 103 start 12s color (231, 76, 60, 1) width 2 at 101 y = sin(x) ;
+draw 2dfunc id 104 start 14s at 101 y = exp(-x^2/2) ;
+draw 2dfunc id 105 start 16s at 101 y = sin(x) * exp(-x/5) ;
+```
+
+---
+
+### 4.4 `mouse move` - Animation du curseur
 Simule le déplacement du curseur du professeur pour souligner ou pointer un élément sur le tableau.
 ```hypercourse
 mouse move id <ID> start <TIME>s for <DURATION>s at [(X1, Y1), (X2, Y2), ...] ;
 ```
 
+**Exemple :**
+```hypercourse
+# Le curseur souligne une formule en 2 secondes
+mouse move id 301 start 15.5s for 2s
+           at [(55, 45), (135, 45)] ;
+```
+
 ---
 
-### 4.5 Commande `erase` (Effacement du tableau)
+### 4.5 `erase` - Effacement
 Efface une liste d'éléments actuellement visibles à l'écran pour nettoyer le tableau blanc avant une nouvelle section.
+
 ```hypercourse
 erase id <ID> start <TIME>s [for <DURATION>s] at [<ID_1>, <ID_2>, ...] ;
 ```
+**Règle critique :** les IDs référencés dans `at [...]` doivent être des éléments actuellement visibles à l'écran.
 
 **Exemple :**
 ```hypercourse
@@ -134,8 +340,73 @@ erase id 401 start 25.0s for 0.5s at [1, 2, 101, 102] ;
 
 ---
 
-### 4.6 Commande `plot` (Composant interactif Python)
+### 4.6 `plot` - Composant interactif Python
 Intègre un graphique Python/Matplotlib/Plotly complexe calculé via `plot-service`.
 ```hypercourse
 plot id <ID> start <TIME>s at (<X>, <Y>) width <W> height <H> ''<CODE_PYTHON>'' ;
+
+```
+
+## 5. Exemple complet
+
+```hypercourse
+course "Les Dérivées" id 1000 idgap 100 for 87.3s audio "derivees.wav" {
+
+    # ══════════════════════════════════════
+    # SECTION 1 : INTRODUCTION (0s – 12s)
+    # ══════════════════════════════════════
+
+    # Le prof dit "dérivées" à 1.3s → titre apparaît à 1.5s
+    text id 1 start 1.5s at (88.89, 8)
+         ''[bold][color=#2980B9]Les Dérivées[/color][/bold]'' ;
+
+    # ══════════════════════════════════════
+    # SECTION 2 : LA COURBE (12s – 35s)
+    # ══════════════════════════════════════
+
+    # Le prof dit "courbe" à 12.2s → repère apparaît à 12.5s
+    draw 2drep id 101 start 12.5s
+               at (88.89, 55) scale = 1.5
+               x_range = [-2, 4] y_range = [-1, 10] ;
+
+    # Le prof dit "x carré" à 14s → fonction tracée à 14.2s
+    draw 2dfunc id 102 start 14.2s for 20s
+                color (41, 128, 185, 1) width 2.5
+                at 101 y = x^2 ;
+
+    # Label de la fonction
+    text id 2 start 14.5s for 20s at (140, 22)
+         ''[color=#2980B9]$f(x) = x^2$[/color]'' ;
+
+    # ══════════════════════════════════════
+    # SECTION 3 : LA DÉFINITION (35s – 70s)
+    # ══════════════════════════════════════
+
+    # Effacement avant nouvelle section
+    erase id 401 start 35.8s for 1s at [1, 2, 101, 102] ;
+
+    # Le prof dit "définition" à 36.2s
+    draw circle id 103 start 36.5s
+                color (231, 76, 60, 1) fillcolor (231, 76, 60, 1)
+                radius 2 at (88.89, 55) ;
+
+    text id 3 start 37s at (88.89, 20)
+         ''[bold]Définition :[/bold]'' ;
+
+    # Le prof énonce la formule à 40s
+    text id 4 start 40.3s at (88.89, 40)
+         ''$$f'(a) = \lim_{h \to 0} \frac{f(a+h)-f(a)}{h}$$'' ;
+
+    mouse move id 301 start 41s for 3s
+               at [(45, 43), (133, 43)] ;
+
+    # ══════════════════════════════════════
+    # SECTION 4 : CONCLUSION (70s – 87.3s)
+    # ══════════════════════════════════════
+
+    erase id 402 start 70s for 1s at [103, 3, 4] ;
+
+    text id 5 start 71s at (88.89, 45)
+         ''[bold][color=#27AE60]Dérivée = pente de la tangente[/color][/bold]'' ;
+}
 ```
