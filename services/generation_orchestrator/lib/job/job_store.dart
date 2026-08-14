@@ -92,17 +92,21 @@ class JobStore {
             ? 'Génération des appuis visuels...'
             : 'Correction des appuis visuels (tentative $attempt/$_maxAttempts)...';
 
-        final visualsText = await _layer3.generate(
+        final layer3Result = await _layer3.generate(
           transcript,
           metadata,
           previousAttempt: previousAttempt,
           previousError: previousError,
         );
+        final courseId = _calculateCourseId(job.userId, job.id);
         final script = assembleCourseScript(
+          courseId: courseId,
+          idGap: layer3Result.idGap,
           metadata: metadata,
           transcript: transcript,
-          visualsText: visualsText,
+          visualsText: layer3Result.visualsText,
         );
+
 
         try {
           final course = await HypercourseParser(script).parse();
@@ -160,4 +164,13 @@ class JobStore {
       print('user-service injoignable, historique non persisté pour ${job.id}: $e');
     }
   }
+
+  /// Calcule l'ID du cours à partir du userId et du jobId.
+  int _calculateCourseId(String? userId, String jobId) {
+    if (userId != null && userId.isNotEmpty) {
+      return (userId.hashCode.abs() % 900000) + 100000;
+    }
+    return (jobId.hashCode.abs() % 900000) + 100000;
+  }
 }
+

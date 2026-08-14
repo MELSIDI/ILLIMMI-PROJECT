@@ -17,8 +17,10 @@ import 'llm_client.dart';
 /// - `GEMINI_MODEL` : Modèle Gemini (défaut : `gemini-2.5-flash`).
 /// - `USE_BIGQUERY_SQL` : `true` pour exécuter la requête via SQL BigQuery `ML.GENERATE_TEXT`, `false` (défaut) pour l'API Vertex AI.
 class GcpVertexGeminiClient implements LlmClient {
-  static const String _defaultModel = 'gemini-2.5-flash';
+  static const String _defaultModel = 'gemini-flash-latest';
   static const String _defaultLocation = 'us-central1';
+
+
 
   String get model => Platform.environment['GEMINI_MODEL'] ?? _defaultModel;
   String get location => Platform.environment['GCP_LOCATION'] ?? _defaultLocation;

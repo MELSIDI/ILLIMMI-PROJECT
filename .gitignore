@@ -1,3 +1,4 @@
 illimmi_app/.dart_tool/
 illimmi_app/build/
 illimmi_app/windows/flutter/ephemeral/
+.env

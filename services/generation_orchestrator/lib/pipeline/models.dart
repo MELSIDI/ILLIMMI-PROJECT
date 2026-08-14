@@ -66,3 +66,25 @@ class TranscriptResult {
     required this.language,
   });
 }
+
+/// Sortie du Layer 3 (idgap + visuels Hypercourse).
+class Layer3Result {
+  final int idGap;
+  final String visualsText;
+
+  Layer3Result({
+    required this.idGap,
+    required this.visualsText,
+  });
+
+  factory Layer3Result.fromJson(Map<String, dynamic> json) {
+    return Layer3Result(
+      idGap: (json['idgap'] as num?)?.toInt() ??
+          (json['id_gap'] as num?)?.toInt() ??
+          100,
+      visualsText:
+          (json['visualsText'] ?? json['visuals_text']) as String? ?? '',
+    );
+  }
+}
+

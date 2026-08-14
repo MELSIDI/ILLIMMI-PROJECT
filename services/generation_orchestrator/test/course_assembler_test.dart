@@ -27,12 +27,14 @@ void main() {
         "text id 1 start 1.5s at (88.89, 8) ''[bold]Les Dérivées[/bold]'' ;";
 
     final script = assembleCourseScript(
+      courseId: 1000,
+      idGap: 100,
       metadata: metadata,
       transcript: transcript,
       visualsText: visualsText,
     );
 
-    expect(script, contains('course "Les Dérivées"'));
+    expect(script, contains('course "Les Dérivées" id 1000 idgap 100'));
     expect(script, contains('for 87.3s'));
     expect(script, contains('audio "http://localhost:8082/audios/derivees/narration.wav"'));
     expect(script, contains(visualsText));
@@ -56,10 +58,13 @@ void main() {
     );
 
     final script = assembleCourseScript(
+      courseId: 2000,
+      idGap: 100,
       metadata: metadata,
       transcript: transcript,
       visualsText: '',
     );
+
 
     expect(script, isNot(contains('"de Pythagore"')));
     expect(script, contains("'de Pythagore'"));

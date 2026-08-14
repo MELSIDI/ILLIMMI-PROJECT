@@ -30,7 +30,19 @@ class FakeClaudeClient extends ClaudeClient {
     required String userMessage,
     required Map<String, dynamic> schema,
     int maxTokens = 2048,
-  }) async => jsonResponse;
+  }) async {
+    if (schema.containsKey('properties') &&
+        (schema['properties'] as Map).containsKey('idgap')) {
+      final response = textResponses[_textCallIndex];
+      if (_textCallIndex < textResponses.length - 1) _textCallIndex++;
+      return {
+        'idgap': 100,
+        'visualsText': response,
+      };
+    }
+    return jsonResponse;
+  }
+
 
   @override
   Future<String> complete({
