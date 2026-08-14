@@ -1,4 +1,4 @@
 illimmi_app/.dart_tool/
 illimmi_app/build/
 illimmi_app/windows/flutter/ephemeral/
-.env
+.envservices/user_service/illimmi_users.db
