@@ -54,11 +54,9 @@ class CoursePlayerState extends State<CoursePlayer>
   StreamSubscription<void>? _completeSub;
   StreamSubscription<PlayerState>? _playerStateSub;
 
-  // Volume / luminosité.
+  // Volume
   double _volume = 1.0;
-  double _dimOpacity = 0.0;
   bool _showVolumeSlider = false;
-  bool _showBrightnessSlider = false;
 
   @override
   void initState() {
@@ -316,47 +314,22 @@ class CoursePlayerState extends State<CoursePlayer>
 
   @override
   Widget build(BuildContext context) {
-    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
-    final whiteboardColor = isDarkMode
-        ? const Color(0xFF1E1E1E)
-        : const Color(0xFFF8F9FA);
-    final defaultDrawColor = isDarkMode ? Colors.white70 : Colors.black87;
+    const defaultDrawColor = Color(0xFFF2F6F3);
 
     return Scaffold(
+      backgroundColor: Colors.transparent,
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.all(16.0),
+          padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
           child: Column(
             children: [
+              // En-tête du lecteur : Bouton Retour / Titre du cours en craie / Profil
+              _buildPlayerHeader(),
+              const SizedBox(height: 8),
+              // Zone de dessin directe sur le tableau vert
               Expanded(
-                child: Stack(
-                  children: [
-                    Container(
-                      decoration: BoxDecoration(
-                        color: whiteboardColor,
-                        border: Border.all(
-                          color: Colors.blueGrey.withOpacity(0.2),
-                        ),
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                      child: _buildWhiteboardContent(defaultDrawColor),
-                    ),
-                    if (_dimOpacity > 0)
-                      Positioned.fill(
-                        child: IgnorePointer(
-                          child: Container(
-                            decoration: BoxDecoration(
-                              color: Colors.black.withOpacity(_dimOpacity),
-                              borderRadius: BorderRadius.circular(12),
-                            ),
-                          ),
-                        ),
-                      ),
-                  ],
-                ),
+                child: _buildWhiteboardContent(defaultDrawColor),
               ),
-              const SizedBox(height: 12),
-              _buildProgressBar(),
               const SizedBox(height: 12),
               _buildControlBar(),
             ],
@@ -366,35 +339,38 @@ class CoursePlayerState extends State<CoursePlayer>
     );
   }
 
-  Widget _buildProgressBar() {
-    final total = _totalTimeSeconds;
-    final current = _currentTimeSeconds.clamp(0.0, total > 0 ? total : 0.0);
-    return Column(
-      children: [
-        SliderTheme(
-          data: SliderTheme.of(context).copyWith(
-            trackHeight: 3,
-            thumbShape: const RoundSliderThumbShape(enabledThumbRadius: 6),
-            overlayShape: const RoundSliderOverlayShape(overlayRadius: 12),
+  /// En-tête avec titre du cours en craie centré (laissant la place au bouton Sidebar global à gauche)
+  Widget _buildPlayerHeader() {
+    final title = widget.course.name.isNotEmpty
+        ? widget.course.name
+        : 'Cours interactif ILLIMMI';
+
+    return Container(
+      height: 48,
+      padding: const EdgeInsets.symmetric(horizontal: 8),
+      child: Row(
+        children: [
+          // Espace réservé pour le bouton Sidebar global à gauche
+          const SizedBox(width: 140),
+          // Titre du cours en typographie craie
+          Expanded(
+            child: Text(
+              title,
+              textAlign: TextAlign.center,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+              style: const TextStyle(
+                color: Color(0xFFF2F6F3),
+                fontSize: 18,
+                fontWeight: FontWeight.w600,
+                letterSpacing: 0.3,
+              ),
+            ),
           ),
-          child: Slider(
-            min: 0.0,
-            max: total > 0 ? total : 1.0,
-            value: current,
-            onChanged: total > 0 ? (value) => _seekTo(value) : null,
-          ),
-        ),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16.0),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(_formatDuration(current)),
-              Text(_formatDuration(total)),
-            ],
-          ),
-        ),
-      ],
+          // Espace d'équilibrage à droite pour un centrage parfait
+          const SizedBox(width: 140),
+        ],
+      ),
     );
   }
 
@@ -436,7 +412,7 @@ class CoursePlayerState extends State<CoursePlayer>
 
                   // Couche graphiques
                   ..._staticElements.whereType<PlotElement>().map((element) {
-                    final progress =
+                    const progress =
                         1.0; // Toujours complet pour les éléments statiques
 
                     final x = element.position.dx * uniformScale + offsetX;
@@ -458,7 +434,7 @@ class CoursePlayerState extends State<CoursePlayer>
 
                   // Couche textes
                   ..._staticElements.whereType<TextElement>().map((element) {
-                    final double progress =
+                    const double progress =
                         1.0; // Toujours complet pour les éléments statiques
 
                     final x = element.position.dx * uniformScale + offsetX;
@@ -474,7 +450,6 @@ class CoursePlayerState extends State<CoursePlayer>
                       ),
                     );
                   }),
-                  // pas de curseur pour les éléments statiques
                 ],
               ),
             ),
@@ -536,8 +511,9 @@ class CoursePlayerState extends State<CoursePlayer>
                 // Couche curseur
                 ..._dynamicElements.whereType<MouseEvent>().map((element) {
                   final progress = _calculateProgress(element, currentTime);
-                  if (progress <= 0.0 || progress > 1.0)
+                  if (progress <= 0.0 || progress > 1.0) {
                     return const SizedBox.shrink();
+                  }
 
                   final currentPosition = _getPositionOnPath(
                     element.points,
@@ -553,7 +529,7 @@ class CoursePlayerState extends State<CoursePlayer>
                     top: y - 12,
                     child: const Icon(
                       Icons.circle,
-                      color: Colors.redAccent,
+                      color: Color(0xFFFA89A4),
                       size: 24,
                     ),
                   );
@@ -612,18 +588,24 @@ class CoursePlayerState extends State<CoursePlayer>
       mainAxisSize: MainAxisSize.min,
       children: [
         IconButton(
-          icon: Icon(_volume == 0 ? Icons.volume_off : Icons.volume_up),
+          icon: Icon(
+            _volume == 0 ? Icons.volume_off_rounded : Icons.volume_up_rounded,
+            color: const Color(0xFFF2F6F3),
+            size: 20,
+          ),
           tooltip: 'Volume',
           onPressed: () =>
               setState(() => _showVolumeSlider = !_showVolumeSlider),
         ),
         if (_showVolumeSlider)
           SizedBox(
-            width: 110,
+            width: 80,
             child: Slider(
               min: 0.0,
               max: 1.0,
               value: _volume,
+              activeColor: const Color(0xFFF2F6F3),
+              inactiveColor: Colors.white.withValues(alpha: 0.25),
               onChanged: (value) {
                 setState(() => _volume = value);
                 _audioPlayer.setVolume(value);
@@ -634,84 +616,107 @@ class CoursePlayerState extends State<CoursePlayer>
     );
   }
 
-  Widget _buildBrightnessControl() {
-    return Row(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        IconButton(
-          icon: const Icon(Icons.brightness_6),
-          tooltip: 'Luminosité',
-          onPressed: () => setState(
-            () => _showBrightnessSlider = !_showBrightnessSlider,
-          ),
-        ),
-        if (_showBrightnessSlider)
-          SizedBox(
-            width: 110,
-            child: Slider(
-              min: 0.0,
-              max: 0.8,
-              value: _dimOpacity,
-              onChanged: (value) => setState(() => _dimOpacity = value),
-            ),
-          ),
-      ],
-    );
-  }
-
   Widget _buildControlBar() {
+    final total = _totalTimeSeconds;
+    final current = _currentTimeSeconds.clamp(0.0, total > 0 ? total : 0.0);
+
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
       decoration: BoxDecoration(
-        color: Theme.of(context).cardColor,
+        color: Colors.black.withValues(alpha: 0.35),
         borderRadius: BorderRadius.circular(30),
+        border: Border.all(
+          color: Colors.white.withValues(alpha: 0.38),
+          width: 1.2,
+        ),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.1),
-            spreadRadius: 1,
-            blurRadius: 4,
+            color: Colors.black.withValues(alpha: 0.35),
+            blurRadius: 16,
+            offset: const Offset(0, 6),
           ),
         ],
       ),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          // Rangée 1 : contrôles de lecture
+          // Rangée 1 : contrôles de lecture + slide de progression en blanc
           Row(
             children: [
               IconButton(
-                icon: const Icon(Icons.arrow_back),
+                icon: const Icon(Icons.arrow_back_rounded, color: Color(0xFFF2F6F3)),
                 onPressed: widget.onBack,
                 tooltip: 'Retour',
               ),
               IconButton(
-                icon: const Icon(Icons.replay_10),
+                icon: const Icon(Icons.replay_10_rounded, color: Color(0xFFF2F6F3)),
                 onPressed: () => _skip(-_skipSeconds),
                 tooltip: 'Reculer de 10s',
               ),
               IconButton(
-                icon: Icon(_isPlaying ? Icons.pause : Icons.play_arrow),
+                icon: Icon(
+                  _isPlaying ? Icons.pause_rounded : Icons.play_arrow_rounded,
+                  color: const Color(0xFFF2F6F3),
+                  size: 28,
+                ),
                 onPressed: _togglePlayPause,
                 tooltip: _isPlaying ? 'Pause' : 'Lecture',
               ),
               IconButton(
-                icon: const Icon(Icons.forward_10),
+                icon: const Icon(Icons.forward_10_rounded, color: Color(0xFFF2F6F3)),
                 onPressed: () => _skip(_skipSeconds),
                 tooltip: 'Avancer de 10s',
               ),
-              const Spacer(),
+              const SizedBox(width: 8),
+              // Slide de progression et timestamps en blanc entre Avancer 10s et Volume
+              Text(
+                _formatDuration(current),
+                style: const TextStyle(
+                  color: Color(0xFFF2F6F3),
+                  fontSize: 12,
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
+              Expanded(
+                child: SliderTheme(
+                  data: SliderTheme.of(context).copyWith(
+                    trackHeight: 3,
+                    activeTrackColor: const Color(0xFFF2F6F3),
+                    inactiveTrackColor: Colors.white.withValues(alpha: 0.25),
+                    thumbColor: const Color(0xFFF2F6F3),
+                    thumbShape: const RoundSliderThumbShape(enabledThumbRadius: 6),
+                    overlayShape: const RoundSliderOverlayShape(overlayRadius: 12),
+                  ),
+                  child: Slider(
+                    min: 0.0,
+                    max: total > 0 ? total : 1.0,
+                    value: current,
+                    onChanged: total > 0 ? (value) => _seekTo(value) : null,
+                  ),
+                ),
+              ),
+              Text(
+                _formatDuration(total),
+                style: const TextStyle(
+                  color: Color(0xFFF2F6F3),
+                  fontSize: 12,
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
+              const SizedBox(width: 8),
               _buildVolumeControl(),
-              const SizedBox(width: 4),
-              _buildBrightnessControl(),
             ],
           ),
-          const Divider(height: 8),
+          Divider(
+            height: 8,
+            color: Colors.white.withValues(alpha: 0.15),
+          ),
           // Rangée 2 : interaction / question
           Row(
             children: [
               // Bouton Interaction (pause pour poser question)
               IconButton(
-                icon: const Icon(Icons.front_hand_outlined),
+                icon: const Icon(Icons.front_hand_outlined, color: Color(0xFFF2F6F3), size: 20),
                 onPressed: () {
                   if (_isPlaying) {
                     _togglePlayPause();
@@ -719,32 +724,42 @@ class CoursePlayerState extends State<CoursePlayer>
                 },
                 tooltip: 'Pause pour interaction',
               ),
-
+              const SizedBox(width: 4),
               // Champ de saisie pour question
               Expanded(
                 child: TextField(
                   controller: _questionController,
+                  style: const TextStyle(
+                    color: Color(0xFFF2F6F3),
+                    fontSize: 14,
+                  ),
                   decoration: const InputDecoration(
                     hintText: "Posez une question...",
+                    hintStyle: TextStyle(
+                      color: Color(0xFF7E978A),
+                      fontSize: 13,
+                    ),
                     border: InputBorder.none,
-                    contentPadding: EdgeInsets.symmetric(horizontal: 12),
+                    enabledBorder: InputBorder.none,
+                    focusedBorder: InputBorder.none,
+                    filled: false,
+                    contentPadding: EdgeInsets.symmetric(horizontal: 10, vertical: 8),
                   ),
                   onSubmitted: (_) => _handleQuestion(),
                 ),
               ),
 
-              // Bouton Envoyer question
+              // Bouton Envoyer question (blanc)
               IconButton(
-                icon: const Icon(Icons.send),
+                icon: const Icon(Icons.send_rounded, color: Color(0xFFF2F6F3), size: 20),
                 onPressed: _handleQuestion,
                 tooltip: 'Envoyer la question',
               ),
 
-              // Bouton Micro (pour futur)
+              // Bouton Micro (blanc)
               IconButton(
-                icon: const Icon(Icons.mic_none),
+                icon: const Icon(Icons.mic_none_rounded, color: Color(0xFFF2F6F3), size: 20),
                 onPressed: () {
-                  // TODO: Implémenter reconnaissance vocale
                   ScaffoldMessenger.of(context).showSnackBar(
                     const SnackBar(
                       content: Text('Reconnaissance vocale bientôt disponible'),
@@ -761,3 +776,4 @@ class CoursePlayerState extends State<CoursePlayer>
     );
   }
 }
+

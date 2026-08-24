@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../api/history_client.dart';
 import '../theme/app_theme.dart';
 
-/// Élément de la liste d'historique au style Gemini Web
+/// Élément de la liste d'historique au style Tableau Vert (Chalkboard)
 class HistoryListTile extends StatelessWidget {
   final HistoryEntry entry;
   final VoidCallback onTap;
@@ -12,7 +12,6 @@ class HistoryListTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final isDark = Theme.of(context).brightness == Brightness.dark;
     final title = (entry.subject?.isNotEmpty ?? false) ? entry.subject! : entry.prompt;
 
     return Padding(
@@ -23,7 +22,7 @@ class HistoryListTile extends StatelessWidget {
         child: InkWell(
           borderRadius: BorderRadius.circular(12),
           onTap: onTap,
-          hoverColor: (isDark ? AppTheme.darkSurfaceContainer : AppTheme.lightSurfaceContainer),
+          hoverColor: Colors.white.withValues(alpha: 0.08),
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
             child: Row(
@@ -31,7 +30,7 @@ class HistoryListTile extends StatelessWidget {
                 Icon(
                   Icons.chat_bubble_outline_rounded,
                   size: 16,
-                  color: isDark ? AppTheme.darkTextSecondary : AppTheme.lightTextSecondary,
+                  color: Colors.white.withValues(alpha: 0.5),
                 ),
                 const SizedBox(width: 10),
                 Expanded(
@@ -42,16 +41,18 @@ class HistoryListTile extends StatelessWidget {
                         title,
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
-                        style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                              fontWeight: FontWeight.w500,
-                            ),
+                        style: const TextStyle(
+                          color: AppTheme.chalkWhite,
+                          fontSize: 13,
+                          fontWeight: FontWeight.w500,
+                        ),
                       ),
                       Text(
                         _relativeDate(entry.createdAt),
-                        style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                              fontSize: 10,
-                              color: isDark ? AppTheme.darkTextSecondary : AppTheme.lightTextSecondary,
-                            ),
+                        style: const TextStyle(
+                          fontSize: 10,
+                          color: AppTheme.chalkDustMuted,
+                        ),
                       ),
                     ],
                   ),
@@ -72,3 +73,4 @@ class HistoryListTile extends StatelessWidget {
     return 'Il y a ${diff.inDays} j';
   }
 }
+

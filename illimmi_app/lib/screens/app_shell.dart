@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 
 import '../state/session_controller.dart';
+import '../theme/app_theme.dart';
+import '../widgets/chalkboard_frame.dart';
 import '../widgets/main_content_area.dart';
 import '../widgets/sidebar.dart';
 
-/// Nouveau point d'entrée visuel de l'app : sidebar façon Claude/ChatGPT à
-/// gauche + zone de contenu principale à droite (prompt / animation de
-/// génération / lecteur de cours).
+/// Point d'entrée visuel de l'app ILLIMMI :
+/// Encadré dans le tableau vert d'école (ChalkboardFrame) avec sa texture
+/// ardoise, cadre bois et craies, intégrant la sidebar escamotable et
+/// la zone de contenu principale.
 class AppShell extends StatefulWidget {
   final SessionController sessionController;
 
@@ -29,23 +32,27 @@ class _AppShellState extends State<AppShell> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(
-        children: [
-          MainContentArea(
-            key: _contentKey,
-            sessionController: widget.sessionController,
-            courseActive: _courseActive,
-          ),
-          Positioned.fill(
-            child: Sidebar(
+      backgroundColor: AppTheme.chalkboardGreenDeep,
+      body: ChalkboardFrame(
+        child: Stack(
+          children: [
+            MainContentArea(
+              key: _contentKey,
               sessionController: widget.sessionController,
-              onNewCourse: () => _contentKey.currentState?.newCourse(),
-              onSelectHistory: (entry) => _contentKey.currentState?.loadFromHistory(entry),
               courseActive: _courseActive,
             ),
-          ),
-        ],
+            Positioned.fill(
+              child: Sidebar(
+                sessionController: widget.sessionController,
+                onNewCourse: () => _contentKey.currentState?.newCourse(),
+                onSelectHistory: (entry) => _contentKey.currentState?.loadFromHistory(entry),
+                courseActive: _courseActive,
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
 }
+

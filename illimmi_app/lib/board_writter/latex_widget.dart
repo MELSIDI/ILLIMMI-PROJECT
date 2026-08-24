@@ -14,7 +14,7 @@ class AdvancedTextWidget extends StatelessWidget {
     super.key,
     required this.content,
     this.fontSize = 24.0,
-    this.defaultColor = Colors.black,
+    this.defaultColor = const Color(0xFFF2F6F3),
     this.defaultFont = 'Roboto',
     this.progress = 1.0,
   });
@@ -340,7 +340,7 @@ class LatexWidget extends StatelessWidget {
     super.key,
     required this.content,
     this.fontSize = 24.0,
-    this.color = Colors.black,
+    this.color = const Color(0xFFF2F6F3),
     this.progress = 1.0,
   });
 

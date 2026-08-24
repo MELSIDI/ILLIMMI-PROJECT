@@ -2,14 +2,23 @@ import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 import '../theme/app_theme.dart';
+import 'illimmi_logo.dart';
 
-/// Animation de génération façon Google Gemini :
-/// Un orbe lumineux aux couleurs emblématiques de Gemini avec anneau tournant,
+/// Animation de génération style Tableau Vert (Chalkboard) :
+/// Un orbe lumineux aux couleurs pastel de craie avec anneau tournant,
 /// pulsation fluide et statut d'avancement mis à jour avec élégance.
 class GenerationProgressView extends StatefulWidget {
-  final String message;
+  final double progress;
+  final String statusText;
+  final VoidCallback? onCancel;
 
-  const GenerationProgressView({super.key, required this.message});
+  const GenerationProgressView({
+    super.key,
+    this.progress = 0.0,
+    String? statusText,
+    String? message,
+    this.onCancel,
+  }) : statusText = statusText ?? message ?? 'Génération en cours...';
 
   @override
   State<GenerationProgressView> createState() => _GenerationProgressViewState();
@@ -24,7 +33,7 @@ class _GenerationProgressViewState extends State<GenerationProgressView>
     super.initState();
     _controller = AnimationController(
       vsync: this,
-      duration: const Duration(seconds: 3),
+      duration: const Duration(seconds: 4),
     )..repeat();
   }
 
@@ -36,15 +45,13 @@ class _GenerationProgressViewState extends State<GenerationProgressView>
 
   @override
   Widget build(BuildContext context) {
-    final isDark = Theme.of(context).brightness == Brightness.dark;
-
     return Center(
-      child: Padding(
-        padding: const EdgeInsets.all(Spacing.xl),
+      child: ConstrainedBox(
+        constraints: const BoxConstraints(maxWidth: 500),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            // Orbe Lumineux Gemini
+            // Orbe lumineux central en craie
             SizedBox(
               width: 140,
               height: 140,
@@ -67,15 +74,15 @@ class _GenerationProgressViewState extends State<GenerationProgressView>
                             shape: BoxShape.circle,
                             gradient: RadialGradient(
                               colors: [
-                                AppTheme.geminiBlue.withValues(alpha: 0.25),
-                                AppTheme.geminiPurple.withValues(alpha: 0.15),
+                                AppTheme.chalkBlue.withValues(alpha: 0.25),
+                                AppTheme.chalkPurple.withValues(alpha: 0.15),
                                 Colors.transparent,
                               ],
                             ),
                           ),
                         ),
                       ),
-                      // Anneau rotatif dégradé Gemini
+                      // Anneau rotatif dégradé craie
                       Transform.rotate(
                         angle: angle,
                         child: Container(
@@ -86,10 +93,10 @@ class _GenerationProgressViewState extends State<GenerationProgressView>
                             gradient: SweepGradient(
                               colors: [
                                 Colors.transparent,
-                                AppTheme.geminiCyan,
-                                AppTheme.geminiBlue,
-                                AppTheme.geminiPurple,
-                                AppTheme.geminiPink,
+                                AppTheme.chalkCyan,
+                                AppTheme.chalkBlue,
+                                AppTheme.chalkPurple,
+                                AppTheme.chalkPink,
                               ],
                             ),
                           ),
@@ -101,16 +108,19 @@ class _GenerationProgressViewState extends State<GenerationProgressView>
                         height: 104,
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
-                          color: isDark ? AppTheme.darkBackground : AppTheme.lightBackground,
+                          color: Colors.black.withValues(alpha: 0.4),
+                          border: Border.all(
+                            color: Colors.white.withValues(alpha: 0.2),
+                            width: 1,
+                          ),
                         ),
                       ),
-                      // Icône d'étincelle pulsante avec dégradé
+                      // Logo Craie ILLIMMI au centre
                       Transform.scale(
                         scale: pulse,
-                        child: ShaderMask(
-                          blendMode: BlendMode.srcIn,
-                          shaderCallback: (b) => AppTheme.geminiSparkleGradient.createShader(b),
-                          child: const Icon(Icons.auto_awesome, size: 48),
+                        child: IllimmiChalkLogo(
+                          height: 34,
+                          borderRadius: BorderRadius.circular(6),
                         ),
                       ),
                     ],
@@ -123,14 +133,14 @@ class _GenerationProgressViewState extends State<GenerationProgressView>
             AnimatedSwitcher(
               duration: const Duration(milliseconds: 350),
               child: Container(
-                key: ValueKey(widget.message),
+                key: ValueKey(widget.statusText),
                 padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                 decoration: BoxDecoration(
-                  color: isDark ? AppTheme.darkSurfaceContainer : AppTheme.lightSurfaceContainer,
+                  color: Colors.black.withValues(alpha: 0.35),
                   borderRadius: BorderRadius.circular(20),
                   border: Border.all(
-                    color: isDark ? AppTheme.darkBorder : AppTheme.lightBorder,
-                    width: 1,
+                    color: Colors.white.withValues(alpha: 0.38),
+                    width: 1.2,
                   ),
                 ),
                 child: Row(
@@ -141,15 +151,17 @@ class _GenerationProgressViewState extends State<GenerationProgressView>
                       height: 14,
                       child: CircularProgressIndicator(
                         strokeWidth: 2,
-                        valueColor: AlwaysStoppedAnimation<Color>(AppTheme.geminiBlue),
+                        valueColor: AlwaysStoppedAnimation<Color>(AppTheme.chalkBlue),
                       ),
                     ),
                     const SizedBox(width: 12),
                     Text(
-                      widget.message,
-                      style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                            fontWeight: FontWeight.w600,
-                          ),
+                      widget.statusText,
+                      style: const TextStyle(
+                        color: AppTheme.chalkWhite,
+                        fontWeight: FontWeight.w600,
+                        fontSize: 14,
+                      ),
                     ),
                   ],
                 ),
@@ -162,15 +174,24 @@ class _GenerationProgressViewState extends State<GenerationProgressView>
               height: 4,
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(4),
-                child: const LinearProgressIndicator(
-                  backgroundColor: Colors.transparent,
-                  valueColor: AlwaysStoppedAnimation<Color>(AppTheme.geminiBlue),
+                child: LinearProgressIndicator(
+                  value: widget.progress > 0 ? widget.progress : null,
+                  backgroundColor: Colors.white.withValues(alpha: 0.15),
+                  valueColor: const AlwaysStoppedAnimation<Color>(AppTheme.chalkBlue),
                 ),
               ),
             ),
+            if (widget.onCancel != null) ...[
+              const SizedBox(height: Spacing.md),
+              TextButton(
+                onPressed: widget.onCancel,
+                child: const Text('Annuler', style: TextStyle(color: AppTheme.chalkDust)),
+              ),
+            ],
           ],
         ),
       ),
     );
   }
 }
+

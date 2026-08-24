@@ -2,7 +2,7 @@
 /// et `/courses/<jobId>`.
 class GenerationJob {
   final String id;
-  String status; // planning | narrating | generating_visuals | correcting_visuals | done | error
+  String status; // planning | narrating | generating_visuals | correcting_syntax | checking_visuals | correcting_visuals | done | error
   String message;
   String? script;
   String? audioUrl;

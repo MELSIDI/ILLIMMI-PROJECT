@@ -17,7 +17,7 @@ class BoardPainter extends CustomPainter {
   BoardPainter({
     required this.allElements,
     required this.currentTime,
-    this.defaultColor = Colors.black,
+    this.defaultColor = const Color(0xFFF2F6F3),
     this.showGrid = false,
     this.isStatic = false,
   });

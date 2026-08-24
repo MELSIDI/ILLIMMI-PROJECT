@@ -13,12 +13,13 @@ import '../state/session_controller.dart';
 import '../theme/app_theme.dart';
 import 'gemini_gradient_text.dart';
 import 'generation_progress_view.dart';
+import 'illimmi_logo.dart';
 
 const _orchestratorBaseUrl = 'http://localhost:8080';
 
-/// Zone de contenu principale style Google Gemini Web :
-/// En-tête avec sélecteur de modèle, greeting avec dégradé polychrome,
-/// cartes de suggestion interactives et barre de saisie flottante (pill input).
+/// Zone de contenu principale sur tableau vert (Chalkboard) :
+/// En-tête avec badge modèle, greeting avec dégradé craie pastel,
+/// 4 cartes de suggestion aux contours en craie blanche et barre de saisie flottante.
 class MainContentArea extends StatefulWidget {
   final SessionController sessionController;
   final ValueNotifier<bool> courseActive;
@@ -131,7 +132,7 @@ class MainContentAreaState extends State<MainContentArea> {
   @override
   Widget build(BuildContext context) {
     if (_courseFuture == null) {
-      return _buildGeminiHome();
+      return _buildChalkboardHome();
     }
 
     return FutureBuilder<Course>(
@@ -151,118 +152,94 @@ class MainContentAreaState extends State<MainContentArea> {
             onBack: newCourse,
           );
         }
-        return const Center(child: Text('État inconnu'));
+        return const Center(
+          child: Text(
+            'État inconnu',
+            style: TextStyle(color: AppTheme.chalkDust),
+          ),
+        );
       },
     );
   }
 
-  /// Page d'accueil style Google Gemini Web
-  Widget _buildGeminiHome() {
-    final isDark = Theme.of(context).brightness == Brightness.dark;
-    final colorScheme = Theme.of(context).colorScheme;
-
+  /// Page d'accueil style Tableau Vert
+  Widget _buildChalkboardHome() {
     return SafeArea(
-      child: Stack(
+      child: Column(
         children: [
-          // Arrière-plan subtil avec gradient radial Gemini en haut
-          Positioned(
-            top: -100,
-            left: MediaQuery.of(context).size.width * 0.3,
-            child: Container(
-              width: 400,
-              height: 300,
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                gradient: RadialGradient(
-                  colors: [
-                    AppTheme.geminiBlue.withValues(alpha: isDark ? 0.12 : 0.08),
-                    AppTheme.geminiPurple.withValues(alpha: isDark ? 0.06 : 0.04),
-                    Colors.transparent,
-                  ],
+          // Barre supérieure (Header avec badge modèle)
+          _buildTopHeader(context),
+          Expanded(
+            child: SingleChildScrollView(
+              physics: const BouncingScrollPhysics(),
+              padding: const EdgeInsets.symmetric(horizontal: Spacing.lg),
+              child: Center(
+                child: ConstrainedBox(
+                  constraints: const BoxConstraints(maxWidth: 860),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const SizedBox(height: Spacing.xl),
+                      // Hero Header avec dégradé Craie Pastel
+                      _buildHeroHeader(context),
+                      const SizedBox(height: Spacing.xxl),
+                      // Grille des 4 suggestions encadrées à la craie
+                      _buildSuggestionGrid(context),
+                      const SizedBox(height: Spacing.xxl + Spacing.lg),
+                    ],
+                  ),
                 ),
               ),
             ),
           ),
-          Column(
-            children: [
-              // Barre supérieure (Header Gemini avec badge modèle)
-              _buildTopHeader(context),
-              Expanded(
-                child: SingleChildScrollView(
-                  physics: const BouncingScrollPhysics(),
-                  padding: const EdgeInsets.symmetric(horizontal: Spacing.lg),
-                  child: Center(
-                    child: ConstrainedBox(
-                      constraints: const BoxConstraints(maxWidth: 860),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          const SizedBox(height: Spacing.xl),
-                          // Hero Header avec dégradé Gemini
-                          _buildHeroHeader(context),
-                          const SizedBox(height: Spacing.xxl),
-                          // Grille des suggestions Gemini (4 cartes)
-                          _buildSuggestionGrid(context),
-                          const SizedBox(height: Spacing.xxl + Spacing.lg),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-              // Floating Pill Input Bar Gemini en bas
-              _buildFloatingInputBar(context, colorScheme, isDark),
-            ],
-          ),
+          // Barre de saisie flottante en capsule
+          _buildFloatingInputBar(context),
         ],
       ),
     );
   }
 
-  /// En-tête Gemini avec sélecteur de modèle "ILLIMMI 1.5 Flash"
+  /// En-tête avec sélecteur de modèle style pilule ardoise
   Widget _buildTopHeader(BuildContext context) {
-    final isDark = Theme.of(context).brightness == Brightness.dark;
     return Container(
-      height: 64,
-      padding: const EdgeInsets.symmetric(horizontal: Spacing.lg),
+      height: 56,
+      padding: const EdgeInsets.symmetric(horizontal: Spacing.md),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          // Espace pour le logo sidebar à gauche
+          // Espace réservé pour le bouton sidebar à gauche
           const SizedBox(width: 140),
-          // Badge sélecteur de modèle style Gemini
+          // Badge modèle style ardoise
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 6),
             decoration: BoxDecoration(
-              color: isDark ? AppTheme.darkSurfaceContainer : AppTheme.lightSurfaceContainer,
+              color: Colors.black.withValues(alpha: 0.25),
               borderRadius: BorderRadius.circular(20),
               border: Border.all(
-                color: isDark ? AppTheme.darkBorder : AppTheme.lightBorder,
+                color: Colors.white.withValues(alpha: 0.35),
                 width: 1,
               ),
             ),
             child: Row(
               mainAxisSize: MainAxisSize.min,
               children: [
-                ShaderMask(
-                  blendMode: BlendMode.srcIn,
-                  shaderCallback: (b) => AppTheme.geminiSparkleGradient.createShader(b),
-                  child: const Icon(Icons.auto_awesome, size: 18),
-                ),
+                IllimmiChalkIcon(size: 16),
                 const SizedBox(width: 8),
-                Text(
+                const Text(
                   'ILLIMMI 1.5 Flash',
-                  style: Theme.of(context).textTheme.titleSmall?.copyWith(
-                        fontWeight: FontWeight.w600,
-                        letterSpacing: 0.2,
-                      ),
+                  style: TextStyle(
+                    color: AppTheme.chalkWhite,
+                    fontWeight: FontWeight.w600,
+                    fontSize: 13,
+                    letterSpacing: 0.2,
+                  ),
                 ),
                 const SizedBox(width: 4),
-                Icon(
+                const Icon(
                   Icons.arrow_drop_down,
-                  size: 20,
-                  color: isDark ? AppTheme.darkTextSecondary : AppTheme.lightTextSecondary,
+                  size: 18,
+                  color: AppTheme.chalkDust,
                 ),
               ],
             ),
@@ -273,43 +250,30 @@ class MainContentAreaState extends State<MainContentArea> {
     );
   }
 
-  /// Titre d'accueil avec dégradé Gemini
+  /// Titre d'accueil avec dégradé craie pastel
   Widget _buildHeroHeader(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Container(
-              padding: const EdgeInsets.all(8),
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                gradient: LinearGradient(
-                  colors: [
-                    AppTheme.geminiBlue.withValues(alpha: 0.2),
-                    AppTheme.geminiPurple.withValues(alpha: 0.2),
-                  ],
-                ),
-              ),
-              child: ShaderMask(
-                blendMode: BlendMode.srcIn,
-                shaderCallback: (b) => AppTheme.geminiSparkleGradient.createShader(b),
-                child: const Icon(Icons.auto_awesome, size: 32),
-              ),
+            IllimmiChalkLogo(
+              height: 48,
+              borderRadius: BorderRadius.circular(8),
             ),
-            const SizedBox(width: 12),
-            Text(
+            const SizedBox(width: 14),
+            const Text(
               'Bonjour,',
-              style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                    fontWeight: FontWeight.w500,
-                    color: Theme.of(context).brightness == Brightness.dark
-                        ? AppTheme.darkTextSecondary
-                        : AppTheme.lightTextSecondary,
-                  ),
+              style: TextStyle(
+                fontSize: 26,
+                fontWeight: FontWeight.w500,
+                color: AppTheme.chalkDust,
+              ),
             ),
           ],
         ),
-        const SizedBox(height: 8),
+        const SizedBox(height: 10),
         const GeminiGradientText(
           'Que veux-tu apprendre aujourd\'hui ?',
           style: TextStyle(
@@ -320,19 +284,19 @@ class MainContentAreaState extends State<MainContentArea> {
           ),
         ),
         const SizedBox(height: 12),
-        Text(
+        const Text(
           'Sélectionne une suggestion ci-dessous ou saisis ton sujet pour générer un cours interactif personnalisé.',
-          style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                color: Theme.of(context).brightness == Brightness.dark
-                    ? AppTheme.darkTextSecondary
-                    : AppTheme.lightTextSecondary,
-              ),
+          style: TextStyle(
+            color: AppTheme.chalkDust,
+            fontSize: 15,
+            height: 1.4,
+          ),
         ),
       ],
     );
   }
 
-  /// Grille des cartes de suggestion Gemini (4 cartes)
+  /// Grille des 4 cartes de suggestion aux contours en craie
   Widget _buildSuggestionGrid(BuildContext context) {
     return LayoutBuilder(
       builder: (context, constraints) {
@@ -340,21 +304,21 @@ class MainContentAreaState extends State<MainContentArea> {
         final suggestions = [
           _SuggestionData(
             icon: Icons.square_foot_rounded,
-            iconColor: const Color(0xFF4285F4),
+            iconColor: AppTheme.chalkBlue,
             title: 'Géométrie dans l\'espace',
             description: 'Introduction aux figures, théorèmes et constructions visuelles',
             onTap: () => _startExample('introduction_geometrie.hc'),
           ),
           _SuggestionData(
             icon: Icons.balance_rounded,
-            iconColor: const Color(0xFF9B51E0),
+            iconColor: AppTheme.chalkPurple,
             title: 'Théorie des Barycentres',
             description: 'Centre de masse, vecteurs et coefficients pondérés',
             onTap: () => _startExample('barycentres.hc'),
           ),
           _SuggestionData(
             icon: Icons.show_chart_rounded,
-            iconColor: const Color(0xFFD9657B),
+            iconColor: AppTheme.chalkPink,
             title: 'Calcul Différentiel',
             description: 'Explique-moi les dérivées, tangentes et variations de fonctions',
             onTap: () {
@@ -364,7 +328,7 @@ class MainContentAreaState extends State<MainContentArea> {
           ),
           _SuggestionData(
             icon: Icons.science_rounded,
-            iconColor: const Color(0xFF34A853),
+            iconColor: AppTheme.chalkGreen,
             title: 'Physique & Cinématique',
             description: 'Comprendre la vitesse, l\'accélération et les lois du mouvement',
             onTap: () {
@@ -398,23 +362,23 @@ class MainContentAreaState extends State<MainContentArea> {
     );
   }
 
-  /// Carte de suggestion individuelle style Gemini
+  /// Carte de suggestion individuelle avec bordure fine en craie
   Widget _buildSuggestionCard(BuildContext context, _SuggestionData item) {
-    final isDark = Theme.of(context).brightness == Brightness.dark;
     return Material(
-      color: isDark ? AppTheme.darkSurface : AppTheme.lightSurface,
+      color: Colors.transparent,
       borderRadius: BorderRadius.circular(20),
       child: InkWell(
         borderRadius: BorderRadius.circular(20),
         onTap: item.onTap,
-        hoverColor: item.iconColor.withValues(alpha: 0.08),
+        hoverColor: Colors.white.withValues(alpha: 0.06),
         child: Container(
           padding: const EdgeInsets.all(Spacing.md),
           decoration: BoxDecoration(
+            color: Colors.black.withValues(alpha: 0.22),
             borderRadius: BorderRadius.circular(20),
             border: Border.all(
-              color: isDark ? AppTheme.darkBorder : AppTheme.lightBorder,
-              width: 1,
+              color: Colors.white.withValues(alpha: 0.38),
+              width: 1.2,
             ),
           ),
           child: Column(
@@ -427,15 +391,19 @@ class MainContentAreaState extends State<MainContentArea> {
                   Container(
                     padding: const EdgeInsets.all(8),
                     decoration: BoxDecoration(
-                      color: item.iconColor.withValues(alpha: 0.15),
+                      color: item.iconColor.withValues(alpha: 0.18),
                       borderRadius: BorderRadius.circular(12),
+                      border: Border.all(
+                        color: item.iconColor.withValues(alpha: 0.4),
+                        width: 1,
+                      ),
                     ),
-                    child: Icon(item.icon, color: item.iconColor, size: 22),
+                    child: Icon(item.icon, color: item.iconColor, size: 20),
                   ),
                   Icon(
                     Icons.arrow_forward_rounded,
                     size: 18,
-                    color: isDark ? AppTheme.darkTextSecondary : AppTheme.lightTextSecondary,
+                    color: Colors.white.withValues(alpha: 0.65),
                   ),
                 ],
               ),
@@ -444,18 +412,21 @@ class MainContentAreaState extends State<MainContentArea> {
                 children: [
                   Text(
                     item.title,
-                    style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                          fontWeight: FontWeight.w600,
-                        ),
+                    style: const TextStyle(
+                      color: AppTheme.chalkWhite,
+                      fontSize: 15,
+                      fontWeight: FontWeight.w600,
+                    ),
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                   ),
                   const SizedBox(height: 4),
                   Text(
                     item.description,
-                    style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                          color: isDark ? AppTheme.darkTextSecondary : AppTheme.lightTextSecondary,
-                        ),
+                    style: const TextStyle(
+                      color: AppTheme.chalkDust,
+                      fontSize: 12,
+                    ),
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
                   ),
@@ -468,10 +439,10 @@ class MainContentAreaState extends State<MainContentArea> {
     );
   }
 
-  /// Barre de saisie flottante en forme de capsule (Pill Input) Gemini
-  Widget _buildFloatingInputBar(BuildContext context, ColorScheme colorScheme, bool isDark) {
+  /// Barre de saisie flottante en forme de capsule (Pill Input)
+  Widget _buildFloatingInputBar(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.fromLTRB(Spacing.lg, 0, Spacing.lg, Spacing.lg),
+      padding: const EdgeInsets.fromLTRB(Spacing.lg, 0, Spacing.lg, Spacing.sm),
       child: Center(
         child: ConstrainedBox(
           constraints: const BoxConstraints(maxWidth: 860),
@@ -480,72 +451,73 @@ class MainContentAreaState extends State<MainContentArea> {
             children: [
               Container(
                 decoration: BoxDecoration(
-                  color: isDark ? AppTheme.darkSurfaceContainer : AppTheme.lightSurfaceContainer,
+                  color: Colors.black.withValues(alpha: 0.35),
                   borderRadius: BorderRadius.circular(32),
                   border: Border.all(
-                    color: isDark ? AppTheme.darkBorder : AppTheme.lightBorder,
-                    width: 1,
+                    color: Colors.white.withValues(alpha: 0.4),
+                    width: 1.2,
                   ),
                   boxShadow: [
                     BoxShadow(
-                      color: Colors.black.withValues(alpha: isDark ? 0.3 : 0.08),
-                      blurRadius: 20,
-                      offset: const Offset(0, 8),
+                      color: Colors.black.withValues(alpha: 0.4),
+                      blurRadius: 18,
+                      offset: const Offset(0, 6),
                     ),
                   ],
                 ),
-                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 6),
                 child: Row(
                   children: [
-                    // Icône Gemini Sparkle à gauche du texte
-                    ShaderMask(
-                      blendMode: BlendMode.srcIn,
-                      shaderCallback: (b) => AppTheme.geminiSparkleGradient.createShader(b),
-                      child: const Icon(Icons.auto_awesome, size: 24),
-                    ),
-                    const SizedBox(width: 12),
+                    // Logo Craie ILLIMMI à gauche
+                    const SizedBox(width: 2),
+                    IllimmiChalkIcon(size: 20),
+                    const SizedBox(width: 10),
                     // Champ de texte principal
                     Expanded(
                       child: TextField(
                         controller: _promptController,
-                        style: Theme.of(context).textTheme.bodyLarge,
-                        decoration: InputDecoration(
+                        style: const TextStyle(
+                          color: AppTheme.chalkWhite,
+                          fontSize: 15,
+                        ),
+                        decoration: const InputDecoration(
                           hintText: 'Demande à ILLIMMI de créer un cours...',
                           hintStyle: TextStyle(
-                            color: isDark ? AppTheme.darkTextSecondary : AppTheme.lightTextSecondary,
+                            color: AppTheme.chalkDustMuted,
+                            fontSize: 14,
                           ),
                           border: InputBorder.none,
                           enabledBorder: InputBorder.none,
                           focusedBorder: InputBorder.none,
                           filled: false,
-                          contentPadding: const EdgeInsets.symmetric(vertical: 12),
+                          contentPadding: EdgeInsets.symmetric(vertical: 10),
                         ),
                         onSubmitted: (_) => _startGeneration(),
                       ),
                     ),
                     const SizedBox(width: 8),
-                    // Bouton d'envoi circulaire Gemini
+                    // Bouton d'envoi circulaire en craie
                     Material(
                       color: Colors.transparent,
                       child: InkWell(
-                        borderRadius: BorderRadius.circular(24),
+                        borderRadius: BorderRadius.circular(22),
                         onTap: _startGeneration,
                         child: Container(
-                          width: 44,
-                          height: 44,
+                          width: 40,
+                          height: 40,
                           decoration: BoxDecoration(
                             shape: BoxShape.circle,
-                            gradient: _hasPromptText ? AppTheme.geminiGradient : null,
-                            color: _hasPromptText
-                                ? null
-                                : (isDark ? AppTheme.darkSurface : AppTheme.lightSurface),
+                            gradient: _hasPromptText ? AppTheme.chalkGradient : null,
+                            color: _hasPromptText ? null : Colors.white.withValues(alpha: 0.15),
+                            border: Border.all(
+                              color: Colors.white.withValues(alpha: 0.4),
+                              width: 1,
+                            ),
                           ),
                           child: Icon(
                             Icons.arrow_upward_rounded,
-                            color: _hasPromptText
-                                ? Colors.white
-                                : (isDark ? AppTheme.darkTextSecondary : AppTheme.lightTextSecondary),
-                            size: 22,
+                            color: _hasPromptText ? Colors.black87 : AppTheme.chalkWhite,
+                            size: 20,
                           ),
                         ),
                       ),
@@ -553,14 +525,14 @@ class MainContentAreaState extends State<MainContentArea> {
                   ],
                 ),
               ),
-              const SizedBox(height: 8),
-              Text(
+              const SizedBox(height: 6),
+              const Text(
                 'ILLIMMI peut générer des cours avec visuels interactifs et synthèse vocale.',
                 textAlign: TextAlign.center,
-                style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                      fontSize: 11,
-                      color: isDark ? AppTheme.darkTextSecondary : AppTheme.lightTextSecondary,
-                    ),
+                style: TextStyle(
+                  fontSize: 11,
+                  color: AppTheme.chalkDustMuted,
+                ),
               ),
             ],
           ),
@@ -570,31 +542,57 @@ class MainContentAreaState extends State<MainContentArea> {
   }
 
   Widget _buildErrorWidget(String error) {
-    final colorScheme = Theme.of(context).colorScheme;
     return Center(
       child: Padding(
-        padding: const EdgeInsets.all(20.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Icon(Icons.error_outline_rounded, size: 64, color: colorScheme.error),
-            const SizedBox(height: 20),
-            Text('Erreur de génération', style: Theme.of(context).textTheme.titleLarge),
-            const SizedBox(height: 10),
-            Text(error, textAlign: TextAlign.center, style: TextStyle(color: colorScheme.error)),
-            const SizedBox(height: 20),
-            if (_retry != null)
-              FilledButton.icon(
-                onPressed: () => setState(() => _courseFuture = _retry?.call()),
-                icon: const Icon(Icons.refresh_rounded),
-                label: const Text('Réessayer'),
-              ),
-            const SizedBox(height: 8),
-            TextButton(
-              onPressed: newCourse,
-              child: const Text('Nouveau cours'),
+        padding: const EdgeInsets.all(24.0),
+        child: Container(
+          constraints: const BoxConstraints(maxWidth: 480),
+          padding: const EdgeInsets.all(Spacing.xl),
+          decoration: BoxDecoration(
+            color: Colors.black.withValues(alpha: 0.4),
+            borderRadius: BorderRadius.circular(24),
+            border: Border.all(
+              color: AppTheme.chalkPink.withValues(alpha: 0.6),
+              width: 1.5,
             ),
-          ],
+          ),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              const Icon(Icons.error_outline_rounded, size: 56, color: AppTheme.chalkPink),
+              const SizedBox(height: 16),
+              const Text(
+                'Erreur de génération',
+                style: TextStyle(
+                  color: AppTheme.chalkWhite,
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              const SizedBox(height: 10),
+              Text(
+                error,
+                textAlign: TextAlign.center,
+                style: const TextStyle(color: AppTheme.chalkPink, fontSize: 13),
+              ),
+              const SizedBox(height: 20),
+              if (_retry != null)
+                FilledButton.icon(
+                  onPressed: () => setState(() => _courseFuture = _retry?.call()),
+                  style: FilledButton.styleFrom(
+                    backgroundColor: AppTheme.chalkBlue,
+                    foregroundColor: AppTheme.chalkboardGreenDeep,
+                  ),
+                  icon: const Icon(Icons.refresh_rounded),
+                  label: const Text('Réessayer', style: TextStyle(fontWeight: FontWeight.bold)),
+                ),
+              const SizedBox(height: 8),
+              TextButton(
+                onPressed: newCourse,
+                child: const Text('Nouveau cours', style: TextStyle(color: AppTheme.chalkWhite)),
+              ),
+            ],
+          ),
         ),
       ),
     );
@@ -616,3 +614,4 @@ class _SuggestionData {
     required this.onTap,
   });
 }
+

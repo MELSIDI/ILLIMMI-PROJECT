@@ -141,9 +141,9 @@ void main() {
     expect(job.audioUrl, isNotNull);
   });
 
-  test('startJob() retente le Layer 3 quand le premier script échoue au parsing', () async {
+  test('startJob() retente le Layer 3 via la correction de syntaxe quand le premier script échoue au parsing', () async {
     // ID 9999 dépasse toute plage de famille valide pour idgap 100
-    // (IdConfig.getFamilyIndex) → doit faire échouer le parsing.
+    // (IdConfig.getFamilyIndex) → doit faire échouer le parsing et déclencher la correction de syntaxe.
     const invalidVisuals = "text id 9999 start 1s at (0, 0) ''x'' ;";
     const validVisuals =
         "text id 1 start 1.5s at (88.89, 8) ''[bold]Les Dérivées[/bold]'' ;";

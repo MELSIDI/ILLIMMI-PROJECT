@@ -157,7 +157,7 @@ mouse move id <ID> start <TIME>s for <DURATION>s at [(X1, Y1), (X2, Y2), ...] ;
 erase id <ID> start <TIME>s [for <DURATION>s] at [<ID_1>, <ID_2>, ...] ;
 ''';
 
-  static const String _systemPrompt = '''
+/*  static const String _systemPrompt = '''
 Tu es ILLIMMI Layer 3.
 Tu reçois un transcript de cours de mathématiques avec les timestamps de chaque groupe de mots.
 Tu génères les appuis visuels Hypercourse synchronisés sur ce transcript.
@@ -171,14 +171,65 @@ Tu dois retourner un objet JSON correspondant au modèle :
 $_hypercourseDsl
 
 RÈGLES :
-- Chaque élément apparaît 0.2s à 0.5s après le mot déclencheur.
 - IDs : text(1 à idgap), draw(idgap+1 à 2*idgap), mouse(3*idgap+1 à 4*idgap), erase(4*idgap+1 à 5*idgap).
 - Coordonnées : x ∈ [0, 177.78], y ∈ [0, 100].
 - Pas trop d'éléments — un vrai prof n'écrit pas tout.
 - Efface entre les grandes sections avec erase (les IDs référencés doivent être actuellement visibles à l'écran).
 - N'utilise JAMAIS la commande `speech` ni `plot` — uniquement text/draw/mouse/erase.
 - Le champ `visualsText` contient uniquement les commandes Hypercourse, sans le header `course` ni les accolades de fermeture.
-''';
+''';*/
+
+  static const String _systemPrompt = '''
+  Tu es ILLIMMI Layer 3.
+  Tu reçois un transcript de cours de mathématiques avec les timestamps de chaque groupe de mots.
+  Tu génères les appuis visuels Hypercourse synchronisés sur ce transcript.
+
+  Tu dois retourner un objet JSON correspondant au modèle :
+  {
+    "idgap": <int>,
+    "visualsText": "<commandes hypercourse>"
+  }
+
+  $_hypercourseDsl
+
+  RÈGLES :
+  - IDs : text(1 à idgap), draw(idgap+1 à 2*idgap), mouse(3*idgap+1 à 4*idgap), erase(4*idgap+1 à 5*idgap).
+  - Coordonnées : x ∈ [0, 177.78], y ∈ [0, 100].
+  - Pas trop d'éléments — un vrai prof n'écrit pas tout.
+  - Efface entre les grandes sections avec erase (les IDs référencés doivent être actuellement visibles à l'écran).
+  - N'utilise JAMAIS la commande `speech` ni `plot` — uniquement text/draw/mouse/erase.
+  - Le champ `visualsText` contient uniquement les commandes Hypercourse, sans le header `course` ni les accolades de fermeture.
+
+  DÉTECTION OBLIGATOIRE DES ANCRAGES VISUELS DANS LE TRANSCRIPT :
+  Le transcript a été rédigé pour contenir des verbes d'action qui indiquent
+  explicitement QUAND et QUOI dessiner. Scanne-le et traite CHAQUE occurrence
+  selon cette correspondance :
+
+  | Verbe / expression dans le transcript          | Commande attendue                        |
+  |--------------------------------------------------|-------------------------------------------|
+  | "traçons/dessinons la courbe de..."              | draw 2drep + draw 2dfunc                  |
+  | "regarde ce point / ce point se déplace..."      | mouse move (+ draw circle si point fixe)  |
+  | "dessinons le cercle / disque de rayon..."       | draw circle                               |
+  | "on découpe / on décompose cette figure..."      | draw polygone ou draw path                |
+  | "suivons cette trajectoire..."                   | draw curve                                |
+  | "sur cet axe / entre ces deux valeurs..."        | draw line ou draw arrow                   |
+  | "voici la formule / l'énoncé..."                 | text (LaTeX)                              |
+
+  Si tu identifies un de ces ancrages dans le transcript et que tu réponds
+  uniquement par un `text`, ta réponse est INCORRECTE — un professeur qui dit
+  "traçons la courbe" en écrivant juste le mot "courbe" au tableau n'a rien
+  enseigné. Le geste visuel décrit par la narration DOIT être exécuté par une
+  commande `draw` ou `mouse move` correspondante, au timestamp où il est
+  prononcé (± 1s).
+
+  AUTO-VÉRIFICATION AVANT DE RÉPONDRE :
+  Relis le transcript et compte les ancrages visuels détectés (verbes
+  d'action ci-dessus). Compte ensuite les commandes `draw`/`mouse` que tu as
+  générées. Si ces deux nombres sont très différents (ex: 5 ancrages détectés
+  pour seulement 1 draw généré), ton script est incomplet — reprends-le avant
+  de répondre. Un cours qui n'utilise que `text` alors que le transcript
+  contient des verbes d'action visuelle est un échec de ta tâche.
+  ''';
 
   static final Map<String, dynamic> _schema = {
     'type': 'object',
@@ -189,6 +240,26 @@ RÈGLES :
     'required': ['idgap', 'visualsText'],
     'additionalProperties': false,
   };
+
+  static const String _syntaxCorrectionSystemPrompt = '''
+Tu es ILLIMMI Layer 3 — expert en correction de syntaxe du DSL Hypercourse (`.hc`).
+Un script Hypercourse a été généré mais il contient une erreur de compilation ou de parsing syntaxique.
+Ta seule tâche est de corriger les erreurs de syntaxe sans altérer l'intention pédagogique ni la structure globale du cours.
+
+Tu dois retourner un objet JSON correspondant au modèle :
+{
+  "idgap": <int>,
+  "visualsText": "<commandes hypercourse corrigées>"
+}
+
+$_hypercourseDsl
+
+RÈGLES DE CORRECTION SYNTAXIQUE :
+- Lis attentivement le message d'erreur de parsing et repère la commande erronée dans le script précédent.
+- Corrige la syntaxe (point-virgule ';' manquant à la fin de chaque commande, parenthèses mal fermées, nom de commande ou paramètre mal orthographié, guillemets manquants, valeurs d'ID ou de couleurs invalides).
+- Conserve le contenu pédagogique et les timestamps de début/durée originaux.
+- Le champ `visualsText` doit contenir uniquement les commandes Hypercourse corrigées, sans le header `course` ni les accolades de fermeture.
+''';
 
   Future<Layer3Result> generate(
     TranscriptResult transcript,
@@ -218,7 +289,7 @@ $previousError
 Script précédent :
 $previousAttempt
 
-Corrige-le en respectant strictement la syntaxe et les règles ci-dessus.
+Corrige-le en respectant strictly la syntaxe et les règles ci-dessus.
 ''';
     }
 
@@ -231,6 +302,42 @@ Corrige-le en respectant strictement la syntaxe et les règles ci-dessus.
 
     return Layer3Result.fromJson(json);
   }
+
+  /// Étape dédiée à la correction de syntaxe DSL suite à une erreur de compilation/parsing.
+  Future<Layer3Result> correctSyntax({
+    required String brokenScript,
+    required String syntaxError,
+    required TranscriptResult transcript,
+    required CourseMetadata metadata,
+  }) async {
+    final timestampedText = _formatTimestampedTranscript(transcript);
+
+    final userMessage = '''
+SUJET : ${metadata.subject}
+NIVEAU : ${metadata.level}
+
+TRANSCRIPT TIMESTAMPÉ :
+$timestampedText
+
+LE SCRIPT PRÉCÉDENT A PROVOQUÉ UNE ERREUR DE COMPILATION/PARSING DU DSL HYPERCOURSE :
+$syntaxError
+
+SCRIPT AVEC ERREUR SYNTAXIQUE :
+$brokenScript
+
+Corrige strictement les erreurs de syntaxe et renvoie le script Hypercourse corrigé au format JSON avec {"idgap": int, "visualsText": "..."}.
+''';
+
+    final json = await _client.completeJson(
+      system: _syntaxCorrectionSystemPrompt,
+      userMessage: userMessage,
+      schema: _schema,
+      maxTokens: 4096,
+    );
+
+    return Layer3Result.fromJson(json);
+  }
+
 
   /// Regroupe les mots timestampés en lignes `[t s] mot1 mot2 ...` (par
   /// groupes de 6 mots), au format utilisé dans illimmi-doc.md §3.3.

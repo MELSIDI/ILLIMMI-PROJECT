@@ -14,6 +14,7 @@ import '../pipeline/layer2_audio.dart';
 import '../pipeline/layer3_visual_verifier.dart';
 import '../pipeline/layer3_visuals.dart';
 import '../pipeline/llm_client.dart';
+import '../models/course.dart';
 import 'generation_job.dart';
 
 /// Registre en mémoire des jobs de génération + boucle d'orchestration
@@ -99,7 +100,7 @@ class JobStore {
           previousError: previousError,
         );
         final courseId = _calculateCourseId(job.userId, job.id);
-        final script = assembleCourseScript(
+        var script = assembleCourseScript(
           courseId: courseId,
           idGap: layer3Result.idGap,
           metadata: metadata,
@@ -107,13 +108,42 @@ class JobStore {
           visualsText: layer3Result.visualsText,
         );
 
+        Course? course;
+        const maxSyntaxRetries = 3;
+        for (var syntaxAttempt = 1; syntaxAttempt <= maxSyntaxRetries; syntaxAttempt++) {
+          try {
+            course = await HypercourseParser(script).parse();
+            break;
+          } catch (syntaxError) {
+            print('[SYNTAX CORRECTION] Tentative $syntaxAttempt/$maxSyntaxRetries : $syntaxError');
+            if (syntaxAttempt == maxSyntaxRetries) {
+              rethrow;
+            }
+            job.status = 'correcting_syntax';
+            job.message =
+                'Correction de la syntaxe DSL (tentative $syntaxAttempt/$maxSyntaxRetries)...';
+
+            final correctedResult = await _layer3.correctSyntax(
+              brokenScript: script,
+              syntaxError: syntaxError.toString(),
+              transcript: transcript,
+              metadata: metadata,
+            );
+
+            script = assembleCourseScript(
+              courseId: courseId,
+              idGap: correctedResult.idGap,
+              metadata: metadata,
+              transcript: transcript,
+              visualsText: correctedResult.visualsText,
+            );
+          }
+        }
 
         try {
-          final course = await HypercourseParser(script).parse();
-
           job.status = 'checking_visuals';
           job.message = 'Vérification visuelle du tableau...';
-          final verification = await _visualVerifier.verify(course: course, script: script);
+          final verification = await _visualVerifier.verify(course: course!, script: script);
 
           if (!verification.ok) {
             throw Exception(verification.issueDescription);

@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 
 import '../state/session_controller.dart';
 import '../theme/app_theme.dart';
+import '../widgets/illimmi_logo.dart';
 
-/// Modal d'authentification style Google Material 3 Expressive
+/// Modal d'authentification style Tableau Vert (Chalkboard)
 class AuthDialog extends StatefulWidget {
   final SessionController sessionController;
 
@@ -50,31 +51,34 @@ class _AuthDialogState extends State<AuthDialog> {
 
   @override
   Widget build(BuildContext context) {
-    final isDark = Theme.of(context).brightness == Brightness.dark;
-
     return Dialog(
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(28)),
-      backgroundColor: isDark ? AppTheme.darkSurface : AppTheme.lightSurface,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(28),
+        side: const BorderSide(color: Color(0x66FFFFFF), width: 1.2),
+      ),
+      backgroundColor: const Color(0xFF162D22),
       child: Container(
         width: 400,
         padding: const EdgeInsets.all(Spacing.xl),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(28),
+          color: const Color(0xFF162D22),
+        ),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Row(
               children: [
-                ShaderMask(
-                  blendMode: BlendMode.srcIn,
-                  shaderCallback: (b) => AppTheme.geminiSparkleGradient.createShader(b),
-                  child: const Icon(Icons.auto_awesome, size: 28),
-                ),
+                IllimmiChalkIcon(size: 24),
                 const SizedBox(width: 12),
                 Text(
                   _isSignup ? 'Créer un compte ILLIMMI' : 'Connexion à ILLIMMI',
-                  style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                        fontWeight: FontWeight.bold,
-                      ),
+                  style: const TextStyle(
+                    color: AppTheme.chalkWhite,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 20,
+                  ),
                 ),
               ],
             ),
@@ -87,25 +91,31 @@ class _AuthDialogState extends State<AuthDialog> {
               selected: {_isSignup},
               onSelectionChanged: (s) => setState(() => _isSignup = s.first),
               style: SegmentedButton.styleFrom(
-                selectedBackgroundColor: AppTheme.geminiBlue,
-                selectedForegroundColor: Colors.white,
+                selectedBackgroundColor: AppTheme.chalkBlue,
+                selectedForegroundColor: AppTheme.chalkboardGreenDeep,
+                foregroundColor: AppTheme.chalkDust,
+                side: const BorderSide(color: Color(0x4DFFFFFF)),
               ),
             ),
             const SizedBox(height: Spacing.lg),
             TextField(
               controller: _emailController,
+              style: const TextStyle(color: AppTheme.chalkWhite),
               decoration: const InputDecoration(
                 labelText: 'Adresse Email',
-                prefixIcon: Icon(Icons.email_outlined),
+                labelStyle: TextStyle(color: AppTheme.chalkDust),
+                prefixIcon: Icon(Icons.email_outlined, color: AppTheme.chalkDust),
               ),
               keyboardType: TextInputType.emailAddress,
             ),
             const SizedBox(height: Spacing.md),
             TextField(
               controller: _passwordController,
+              style: const TextStyle(color: AppTheme.chalkWhite),
               decoration: const InputDecoration(
                 labelText: 'Mot de passe',
-                prefixIcon: Icon(Icons.lock_outline),
+                labelStyle: TextStyle(color: AppTheme.chalkDust),
+                prefixIcon: Icon(Icons.lock_outline, color: AppTheme.chalkDust),
               ),
               obscureText: true,
               onSubmitted: (_) => _submit(),
@@ -115,12 +125,13 @@ class _AuthDialogState extends State<AuthDialog> {
               Container(
                 padding: const EdgeInsets.all(Spacing.sm),
                 decoration: BoxDecoration(
-                  color: Theme.of(context).colorScheme.error.withValues(alpha: 0.1),
+                  color: AppTheme.chalkPink.withValues(alpha: 0.15),
                   borderRadius: BorderRadius.circular(12),
+                  border: Border.all(color: AppTheme.chalkPink.withValues(alpha: 0.5)),
                 ),
                 child: Text(
                   _error!,
-                  style: TextStyle(color: Theme.of(context).colorScheme.error, fontSize: 13),
+                  style: const TextStyle(color: AppTheme.chalkPink, fontSize: 13),
                   textAlign: TextAlign.center,
                 ),
               ),
@@ -131,13 +142,20 @@ class _AuthDialogState extends State<AuthDialog> {
               children: [
                 TextButton(
                   onPressed: () => Navigator.of(context).pop(),
-                  child: const Text('Annuler'),
+                  child: const Text('Annuler', style: TextStyle(color: AppTheme.chalkDust)),
                 ),
                 const SizedBox(width: Spacing.sm),
                 Container(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(24),
-                    gradient: AppTheme.geminiGradient,
+                    gradient: AppTheme.chalkGradient,
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black.withValues(alpha: 0.3),
+                        blurRadius: 8,
+                        offset: const Offset(0, 3),
+                      ),
+                    ],
                   ),
                   child: ElevatedButton(
                     onPressed: _loading ? null : _submit,
@@ -151,11 +169,14 @@ class _AuthDialogState extends State<AuthDialog> {
                         ? const SizedBox(
                             width: 18,
                             height: 18,
-                            child: CircularProgressIndicator(strokeWidth: 2, color: Colors.white),
+                            child: CircularProgressIndicator(strokeWidth: 2, color: Colors.black87),
                           )
                         : Text(
                             _isSignup ? 'S\'inscrire' : 'Se connecter',
-                            style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+                            style: const TextStyle(
+                              color: Colors.black87,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
                   ),
                 ),
@@ -167,3 +188,4 @@ class _AuthDialogState extends State<AuthDialog> {
     );
   }
 }
+
