@@ -3,7 +3,6 @@ import 'dart:io';
 
 import 'package:http/http.dart' as http;
 
-import 'content_block.dart';
 import 'llm_client.dart';
 
 export 'content_block.dart';
@@ -35,6 +34,7 @@ class ClaudeClient implements LlmClient {
   };
 
   /// Complétion texte simple (pas de sortie JSON contrainte).
+  @override
   Future<String> complete({
     required String system,
     required String userMessage,
@@ -60,11 +60,12 @@ class ClaudeClient implements LlmClient {
   /// Complétion contrainte par un schéma JSON (`output_config.format`) —
   /// garantit une sortie JSON valide, pas besoin de parser une réponse texte
   /// à l'aveugle.
+  @override
   Future<Map<String, dynamic>> completeJson({
     required String system,
     required String userMessage,
     required Map<String, dynamic> schema,
-    int maxTokens = 2048,
+    int maxTokens = 8192,
   }) async {
     final response = await http.post(
       Uri.parse(_endpoint),
@@ -84,18 +85,19 @@ class ClaudeClient implements LlmClient {
 
     final body = _decodeOrThrow(response);
     final text = _extractText(body);
-    return jsonDecode(text) as Map<String, dynamic>;
+    return _parseJson(text);
   }
 
   /// Complétion multimodale (texte + images) contrainte par un schéma JSON —
   /// même contrat que [completeJson], sauf que `content` est un tableau de
   /// [ContentBlock] au lieu d'une string, pour pouvoir joindre des captures
   /// du tableau à vérifier au script Hypercourse correspondant.
+  @override
   Future<Map<String, dynamic>> completeMultimodalJson({
     required String system,
     required List<ContentBlock> content,
     required Map<String, dynamic> schema,
-    int maxTokens = 4096,
+    int maxTokens = 8192,
   }) async {
     final response = await http.post(
       Uri.parse(_endpoint),
@@ -115,7 +117,27 @@ class ClaudeClient implements LlmClient {
 
     final body = _decodeOrThrow(response);
     final text = _extractText(body);
-    return jsonDecode(text) as Map<String, dynamic>;
+    return _parseJson(text);
+  }
+
+  Map<String, dynamic> _parseJson(String rawText) {
+    var cleaned = rawText.trim();
+    if (cleaned.startsWith('```json')) {
+      cleaned = cleaned.substring(7);
+    } else if (cleaned.startsWith('```')) {
+      cleaned = cleaned.substring(3);
+    }
+    if (cleaned.endsWith('```')) {
+      cleaned = cleaned.substring(0, cleaned.length - 3);
+    }
+    cleaned = cleaned.trim();
+    try {
+      return jsonDecode(cleaned) as Map<String, dynamic>;
+    } catch (e) {
+      throw FormatException(
+        'JSON invalide renvoyé par Claude ($e). Texte reçu: $cleaned',
+      );
+    }
   }
 
   Map<String, dynamic> _decodeOrThrow(http.Response response) {

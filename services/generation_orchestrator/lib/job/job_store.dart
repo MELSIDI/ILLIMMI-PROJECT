@@ -86,6 +86,8 @@ class JobStore {
 
       String? previousAttempt;
       String? previousError;
+      String? currentVisualsText;
+      int currentIdGap = 100;
 
       for (var attempt = 1; attempt <= _maxAttempts; attempt++) {
         job.status = attempt == 1 ? 'generating_visuals' : 'correcting_visuals';
@@ -93,19 +95,25 @@ class JobStore {
             ? 'Génération des appuis visuels...'
             : 'Correction des appuis visuels (tentative $attempt/$_maxAttempts)...';
 
-        final layer3Result = await _layer3.generate(
-          transcript,
-          metadata,
-          previousAttempt: previousAttempt,
-          previousError: previousError,
-        );
         final courseId = _calculateCourseId(job.userId, job.id);
+
+        if (currentVisualsText == null) {
+          final layer3Result = await _layer3.generate(
+            transcript,
+            metadata,
+            previousAttempt: previousAttempt,
+            previousError: previousError,
+          );
+          currentVisualsText = layer3Result.visualsText;
+          currentIdGap = layer3Result.idGap;
+        }
+
         var script = assembleCourseScript(
           courseId: courseId,
-          idGap: layer3Result.idGap,
+          idGap: currentIdGap,
           metadata: metadata,
           transcript: transcript,
-          visualsText: layer3Result.visualsText,
+          visualsText: currentVisualsText!,
         );
 
         Course? course;
@@ -130,12 +138,14 @@ class JobStore {
               metadata: metadata,
             );
 
+            currentVisualsText = correctedResult.visualsText;
+            currentIdGap = correctedResult.idGap;
             script = assembleCourseScript(
               courseId: courseId,
-              idGap: correctedResult.idGap,
+              idGap: currentIdGap,
               metadata: metadata,
               transcript: transcript,
-              visualsText: correctedResult.visualsText,
+              visualsText: currentVisualsText,
             );
           }
         }
@@ -146,7 +156,14 @@ class JobStore {
           final verification = await _visualVerifier.verify(course: course!, script: script);
 
           if (!verification.ok) {
-            throw Exception(verification.issueDescription);
+            if (verification.correctedVisualsText != null &&
+                verification.correctedVisualsText!.trim().isNotEmpty) {
+              currentVisualsText = verification.correctedVisualsText;
+              currentIdGap = verification.idGap ?? currentIdGap;
+            } else {
+              currentVisualsText = null;
+            }
+            throw Exception(verification.issueDescription ?? 'Anomalie visuelle détectée');
           }
 
           job.status = 'done';

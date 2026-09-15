@@ -3,15 +3,16 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:audioplayers/audioplayers.dart';
 import '../models/hyper_element.dart';
-import '../models/basic_elements/draw_element.dart';
 import '../models/basic_elements/text_element.dart';
 import '../models/basic_elements/plot_element.dart';
 import '../models/basic_elements/mouse_event_element.dart';
-import '../models/basic_elements/erase_element.dart';
 import '../board_painter/board_painter.dart';
 import '../board_writter/latex_widget.dart';
 import '../board_plotter/plot_widget.dart';
 import '../models/course.dart';
+import '../theme/app_theme.dart';
+import '../theme/board_theme.dart';
+import '../widgets/chalkboard_frame.dart';
 
 class CoursePlayer extends StatefulWidget {
   final Course course;
@@ -36,6 +37,7 @@ class CoursePlayerState extends State<CoursePlayer>
   late AnimationController _controller;
   final AudioPlayer _audioPlayer = AudioPlayer();
   final TextEditingController _questionController = TextEditingController();
+  final FocusNode _questionFocusNode = FocusNode();
 
   List<HyperElement> _dynamicElements = [];
   List<HyperElement> _staticElements = [];
@@ -49,6 +51,13 @@ class CoursePlayerState extends State<CoursePlayer>
   bool _isPlaying = false;
   bool _isCompleted = false;
 
+  // Thème actif du tableau
+  BoardTheme _boardTheme = BoardTheme.green;
+
+  // Contrôles en overlay (style YouTube)
+  bool _controlsVisible = true;
+  Timer? _hideControlsTimer;
+
   StreamSubscription<Duration>? _durationSub;
   StreamSubscription<Duration>? _positionSub;
   StreamSubscription<void>? _completeSub;
@@ -61,6 +70,12 @@ class CoursePlayerState extends State<CoursePlayer>
   @override
   void initState() {
     super.initState();
+
+    _questionFocusNode.addListener(() {
+      if (_questionFocusNode.hasFocus) {
+        _onUserActivity();
+      }
+    });
 
     _hasCourseAudio =
         widget.course.config.audioPath != null &&
@@ -102,6 +117,7 @@ class CoursePlayerState extends State<CoursePlayer>
       _wireAudioListeners();
       _playCourseAudio();
       _isPlaying = true;
+      _resetHideTimer();
     } else {
       // Mode legacy sans audio externe : comportement inchangé.
       _controller.addListener(() {
@@ -111,6 +127,7 @@ class CoursePlayerState extends State<CoursePlayer>
       });
       _controller.forward();
       _isPlaying = true;
+      _resetHideTimer();
     }
   }
 
@@ -187,6 +204,24 @@ class CoursePlayerState extends State<CoursePlayer>
     _staticElements = activeElement.staticElement;
   }
 
+  void _onUserActivity() {
+    if (!_controlsVisible) {
+      setState(() => _controlsVisible = true);
+    }
+    _resetHideTimer();
+  }
+
+  void _resetHideTimer() {
+    _hideControlsTimer?.cancel();
+    if (_isPlaying && !_questionFocusNode.hasFocus) {
+      _hideControlsTimer = Timer(const Duration(seconds: 4), () {
+        if (mounted && _isPlaying && !_questionFocusNode.hasFocus) {
+          setState(() => _controlsVisible = false);
+        }
+      });
+    }
+  }
+
   void _togglePlayPause() {
     if (_hasCourseAudio) {
       _toggleAudioPlayPause();
@@ -198,7 +233,11 @@ class CoursePlayerState extends State<CoursePlayer>
   void _toggleAudioPlayPause() {
     if (_isPlaying) {
       _audioPlayer.pause();
-      setState(() => _isPlaying = false);
+      _hideControlsTimer?.cancel();
+      setState(() {
+        _isPlaying = false;
+        _controlsVisible = true;
+      });
     } else {
       if (_isCompleted) {
         setState(() {
@@ -211,6 +250,7 @@ class CoursePlayerState extends State<CoursePlayer>
         _audioPlayer.resume();
       }
       setState(() => _isPlaying = true);
+      _resetHideTimer();
     }
   }
 
@@ -219,12 +259,15 @@ class CoursePlayerState extends State<CoursePlayer>
       if (_controller.isAnimating) {
         _controller.stop();
         _isPlaying = false;
+        _controlsVisible = true;
+        _hideControlsTimer?.cancel();
       } else {
         if (_controller.isCompleted) {
           _controller.reset();
         }
         _controller.forward();
         _isPlaying = true;
+        _resetHideTimer();
       }
     });
   }
@@ -302,6 +345,8 @@ class CoursePlayerState extends State<CoursePlayer>
 
   @override
   void dispose() {
+    _hideControlsTimer?.cancel();
+    _questionFocusNode.dispose();
     _durationSub?.cancel();
     _positionSub?.cancel();
     _completeSub?.cancel();
@@ -314,24 +359,101 @@ class CoursePlayerState extends State<CoursePlayer>
 
   @override
   Widget build(BuildContext context) {
-    const defaultDrawColor = Color(0xFFF2F6F3);
+    final defaultDrawColor = _boardTheme.defaultDrawColor;
 
     return Scaffold(
-      backgroundColor: Colors.transparent,
-      body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-          child: Column(
+      backgroundColor: const Color(0xFF0A1610),
+      body: MouseRegion(
+        onHover: (_) => _onUserActivity(),
+        child: GestureDetector(
+          behavior: HitTestBehavior.opaque,
+          onTap: () {
+            _onUserActivity();
+            if (!_controlsVisible) {
+              setState(() => _controlsVisible = true);
+            }
+          },
+          child: Stack(
+            fit: StackFit.expand,
             children: [
-              // En-tête du lecteur : Bouton Retour / Titre du cours en craie / Profil
-              _buildPlayerHeader(),
-              const SizedBox(height: 8),
-              // Zone de dessin directe sur le tableau vert
-              Expanded(
-                child: _buildWhiteboardContent(defaultDrawColor),
+              // 1. Tableau 16:9 immersif maximisé avec letterboxing cinématique (Style YouTube)
+              Center(
+                child: AspectRatio(
+                  aspectRatio: 16.0 / 9.0,
+                  child: Container(
+                    clipBehavior: Clip.antiAlias,
+                    decoration: BoxDecoration(
+                      color: _boardTheme.backgroundColor,
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withValues(alpha: 0.65),
+                          blurRadius: 30,
+                          spreadRadius: 2,
+                        ),
+                      ],
+                      border: Border.all(
+                        color: _boardTheme.borderColor,
+                        width: 1.5,
+                      ),
+                    ),
+                    child: Stack(
+                      fit: StackFit.expand,
+                      children: [
+                        // Texture d'ardoise d'école dans le tableau 16:9
+                        Positioned.fill(
+                          child: ChalkboardBackground(theme: _boardTheme),
+                        ),
+                        // Contenu géométrique et texte du cours
+                        Positioned.fill(
+                          child: _buildWhiteboardContent(defaultDrawColor),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
               ),
-              const SizedBox(height: 12),
-              _buildControlBar(),
+
+              // 2. Overlay Haut : En-tête avec titre du cours en craie (flottant)
+              Positioned(
+                top: 0,
+                left: 0,
+                right: 0,
+                child: SafeArea(
+                  child: AnimatedOpacity(
+                    opacity: _controlsVisible ? 1.0 : 0.0,
+                    duration: const Duration(milliseconds: 250),
+                    child: IgnorePointer(
+                      ignoring: !_controlsVisible,
+                      child: _buildPlayerHeader(),
+                    ),
+                  ),
+                ),
+              ),
+
+              // 3. Overlay Bas : Barre de contrôle flottante (flottante)
+              Positioned(
+                bottom: 0,
+                left: 0,
+                right: 0,
+                child: SafeArea(
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 12.0),
+                    child: Center(
+                      child: ConstrainedBox(
+                        constraints: const BoxConstraints(maxWidth: 960),
+                        child: AnimatedOpacity(
+                          opacity: _controlsVisible ? 1.0 : 0.0,
+                          duration: const Duration(milliseconds: 250),
+                          child: IgnorePointer(
+                            ignoring: !_controlsVisible,
+                            child: _buildControlBar(),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
             ],
           ),
         ),
@@ -339,20 +461,33 @@ class CoursePlayerState extends State<CoursePlayer>
     );
   }
 
-  /// En-tête avec titre du cours en craie centré (laissant la place au bouton Sidebar global à gauche)
+  /// En-tête flottant avec dégradé doux et titre du cours
   Widget _buildPlayerHeader() {
     final title = widget.course.name.isNotEmpty
         ? widget.course.name
         : 'Cours interactif ILLIMMI';
 
     return Container(
-      height: 48,
-      padding: const EdgeInsets.symmetric(horizontal: 8),
+      height: 56,
+      padding: const EdgeInsets.symmetric(horizontal: 16),
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+          colors: [
+            Colors.black.withValues(alpha: 0.7),
+            Colors.transparent,
+          ],
+        ),
+      ),
       child: Row(
         children: [
-          // Espace réservé pour le bouton Sidebar global à gauche
-          const SizedBox(width: 140),
-          // Titre du cours en typographie craie
+          IconButton(
+            icon: const Icon(Icons.arrow_back_rounded, color: Color(0xFFF2F6F3)),
+            onPressed: widget.onBack,
+            tooltip: 'Retour',
+          ),
+          const SizedBox(width: 16),
           Expanded(
             child: Text(
               title,
@@ -364,11 +499,60 @@ class CoursePlayerState extends State<CoursePlayer>
                 fontSize: 18,
                 fontWeight: FontWeight.w600,
                 letterSpacing: 0.3,
+                shadows: [
+                  Shadow(
+                    color: Colors.black54,
+                    blurRadius: 6,
+                  ),
+                ],
               ),
             ),
           ),
-          // Espace d'équilibrage à droite pour un centrage parfait
-          const SizedBox(width: 140),
+          const SizedBox(width: 16),
+          PopupMenuButton<BoardTheme>(
+            icon: const Icon(Icons.palette_outlined, color: Color(0xFFF2F6F3)),
+            tooltip: 'Thème du tableau',
+            color: const Color(0xFF1B382B),
+            elevation: 8,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(16),
+              side: const BorderSide(color: Color(0x33FFFFFF)),
+            ),
+            initialValue: _boardTheme,
+            onSelected: (theme) {
+              setState(() => _boardTheme = theme);
+            },
+            itemBuilder: (context) => BoardTheme.all.map((t) {
+              final isSelected = _boardTheme.type == t.type;
+              return PopupMenuItem<BoardTheme>(
+                value: t,
+                child: Row(
+                  children: [
+                    Container(
+                      width: 18,
+                      height: 18,
+                      decoration: BoxDecoration(
+                        color: t.backgroundColor,
+                        shape: BoxShape.circle,
+                        border: Border.all(
+                          color: isSelected ? AppTheme.chalkBlue : Colors.white60,
+                          width: isSelected ? 2.0 : 1.2,
+                        ),
+                      ),
+                    ),
+                    const SizedBox(width: 12),
+                    Text(
+                      t.label,
+                      style: TextStyle(
+                        color: isSelected ? AppTheme.chalkBlue : const Color(0xFFF2F6F3),
+                        fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
+                      ),
+                    ),
+                  ],
+                ),
+              );
+            }).toList(),
+          ),
         ],
       ),
     );
@@ -392,6 +576,12 @@ class CoursePlayerState extends State<CoursePlayer>
             (constraints.maxWidth - referenceWidth * uniformScale) / 2;
         final offsetY =
             (constraints.maxHeight - referenceHeight * uniformScale) / 2;
+
+        // Typographie adaptative proportionnelle à l'écran réel (Modèle YouTube)
+        // À 720p (scale ≈ 7.2) -> 24px, à 1080p (scale ≈ 10.8) -> 36px, sur mobile (scale ≈ 2.5) -> 9-10px
+        final scaledFontSize = (uniformScale * 3.333).clamp(9.0, 72.0);
+        final cursorSize = (24.0 * (uniformScale / 7.2)).clamp(12.0, 48.0);
+        final cursorHalf = cursorSize / 2;
 
         return Stack(
           children: [
@@ -445,6 +635,7 @@ class CoursePlayerState extends State<CoursePlayer>
                       top: y,
                       child: LatexWidget(
                         content: element.content,
+                        fontSize: scaledFontSize,
                         color: defaultDrawColor,
                         progress: progress,
                       ),
@@ -502,6 +693,7 @@ class CoursePlayerState extends State<CoursePlayer>
                     top: y,
                     child: LatexWidget(
                       content: element.content,
+                      fontSize: scaledFontSize,
                       color: defaultDrawColor,
                       progress: progress,
                     ),
@@ -525,12 +717,12 @@ class CoursePlayerState extends State<CoursePlayer>
                   final y = currentPosition.dy * uniformScale + offsetY;
 
                   return Positioned(
-                    left: x - 12,
-                    top: y - 12,
-                    child: const Icon(
+                    left: x - cursorHalf,
+                    top: y - cursorHalf,
+                    child: Icon(
                       Icons.circle,
-                      color: Color(0xFFFA89A4),
-                      size: 24,
+                      color: const Color(0xFFFA89A4),
+                      size: cursorSize,
                     ),
                   );
                 }),
@@ -621,18 +813,18 @@ class CoursePlayerState extends State<CoursePlayer>
     final current = _currentTimeSeconds.clamp(0.0, total > 0 ? total : 0.0);
 
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+      padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
       decoration: BoxDecoration(
-        color: Colors.black.withValues(alpha: 0.35),
-        borderRadius: BorderRadius.circular(30),
+        color: Colors.black.withValues(alpha: 0.65),
+        borderRadius: BorderRadius.circular(24),
         border: Border.all(
-          color: Colors.white.withValues(alpha: 0.38),
+          color: Colors.white.withValues(alpha: 0.35),
           width: 1.2,
         ),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withValues(alpha: 0.35),
-            blurRadius: 16,
+            color: Colors.black.withValues(alpha: 0.45),
+            blurRadius: 20,
             offset: const Offset(0, 6),
           ),
         ],
@@ -643,11 +835,6 @@ class CoursePlayerState extends State<CoursePlayer>
           // Rangée 1 : contrôles de lecture + slide de progression en blanc
           Row(
             children: [
-              IconButton(
-                icon: const Icon(Icons.arrow_back_rounded, color: Color(0xFFF2F6F3)),
-                onPressed: widget.onBack,
-                tooltip: 'Retour',
-              ),
               IconButton(
                 icon: const Icon(Icons.replay_10_rounded, color: Color(0xFFF2F6F3)),
                 onPressed: () => _skip(-_skipSeconds),
@@ -729,6 +916,7 @@ class CoursePlayerState extends State<CoursePlayer>
               Expanded(
                 child: TextField(
                   controller: _questionController,
+                  focusNode: _questionFocusNode,
                   style: const TextStyle(
                     color: Color(0xFFF2F6F3),
                     fontSize: 14,

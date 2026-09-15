@@ -30,6 +30,7 @@ import 'package:illimmi_app/models/hyper_element.dart';
 import 'package:illimmi_app/render_harness/board_capture_deserializer.dart';
 import 'package:illimmi_app/render_harness/board_capture_widget.dart';
 import 'package:illimmi_app/render_harness/load_bundled_fonts.dart';
+import 'package:illimmi_app/theme/board_theme.dart';
 
 const double _renderWidth = 1600;
 const double _renderHeight = 900;
@@ -58,6 +59,7 @@ void main() {
     addTearDown(tester.view.resetPhysicalSize);
     addTearDown(tester.view.resetDevicePixelRatio);
 
+    final globalTheme = requestJson['theme'] as String?;
     final manifest = <Map<String, dynamic>>[];
 
     for (var index = 0; index < points.length; index++) {
@@ -67,6 +69,9 @@ void main() {
           .whereType<HyperElement>()
           .toList();
 
+      final pointTheme = (point['theme'] as String?) ?? globalTheme;
+      final boardTheme = BoardTheme.fromString(pointTheme);
+
       final boundaryKey = GlobalKey();
       await tester.pumpWidget(
         buildCaptureWidget(
@@ -74,6 +79,7 @@ void main() {
           renderWidth: _renderWidth,
           renderHeight: _renderHeight,
           repaintBoundaryKey: boundaryKey,
+          theme: boardTheme,
         ),
       );
       // Laisse `flutter_math_fork` construire les formules LaTeX et le

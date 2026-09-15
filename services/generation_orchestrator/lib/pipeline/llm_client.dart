@@ -8,7 +8,7 @@ abstract class LlmClient {
   Future<String> complete({
     required String system,
     required String userMessage,
-    int maxTokens = 4096,
+    int maxTokens = 16384,
   });
 
   /// Complétion contrainte par un schéma JSON.
@@ -16,7 +16,7 @@ abstract class LlmClient {
     required String system,
     required String userMessage,
     required Map<String, dynamic> schema,
-    int maxTokens = 2048,
+    int maxTokens = 16384,
   });
 
   /// Complétion multimodale (texte + images) contrainte par un schéma JSON.
@@ -24,6 +24,6 @@ abstract class LlmClient {
     required String system,
     required List<ContentBlock> content,
     required Map<String, dynamic> schema,
-    int maxTokens = 4096,
+    int maxTokens = 16384,
   });
 }

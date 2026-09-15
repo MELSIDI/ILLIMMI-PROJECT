@@ -3,7 +3,6 @@ import 'dart:io';
 
 import 'package:http/http.dart' as http;
 
-import 'content_block.dart';
 import 'llm_client.dart';
 
 /// Client HTTP brut pour l'API Generative Language de Google (Gemini) —
@@ -41,7 +40,7 @@ class GeminiClient implements LlmClient {
   Future<String> complete({
     required String system,
     required String userMessage,
-    int maxTokens = 4096,
+    int maxTokens = 16384,
   }) async {
     final response = await http.post(
       Uri.parse(_endpoint),
@@ -73,7 +72,7 @@ class GeminiClient implements LlmClient {
     required String system,
     required String userMessage,
     required Map<String, dynamic> schema,
-    int maxTokens = 2048,
+    int maxTokens = 16384,
   }) async {
     final sanitizedSchema = _sanitizeSchema(schema);
     final response = await http.post(
@@ -103,7 +102,7 @@ class GeminiClient implements LlmClient {
 
     final body = _decodeOrThrow(response);
     final text = _extractText(body);
-    return jsonDecode(text) as Map<String, dynamic>;
+    return _parseJson(text);
   }
 
   @override
@@ -111,7 +110,7 @@ class GeminiClient implements LlmClient {
     required String system,
     required List<ContentBlock> content,
     required Map<String, dynamic> schema,
-    int maxTokens = 4096,
+    int maxTokens = 16384,
   }) async {
     final sanitizedSchema = _sanitizeSchema(schema);
     final response = await http.post(
@@ -136,7 +135,27 @@ class GeminiClient implements LlmClient {
 
     final body = _decodeOrThrow(response);
     final text = _extractText(body);
-    return jsonDecode(text) as Map<String, dynamic>;
+    return _parseJson(text);
+  }
+
+  Map<String, dynamic> _parseJson(String rawText) {
+    var cleaned = rawText.trim();
+    if (cleaned.startsWith('```json')) {
+      cleaned = cleaned.substring(7);
+    } else if (cleaned.startsWith('```')) {
+      cleaned = cleaned.substring(3);
+    }
+    if (cleaned.endsWith('```')) {
+      cleaned = cleaned.substring(0, cleaned.length - 3);
+    }
+    cleaned = cleaned.trim();
+    try {
+      return jsonDecode(cleaned) as Map<String, dynamic>;
+    } catch (e) {
+      throw FormatException(
+        'JSON invalide renvoyé par Gemini ($e). Texte reçu: $cleaned',
+      );
+    }
   }
 
   Map<String, dynamic> _sanitizeSchema(Map<String, dynamic> rawSchema) {
@@ -180,9 +199,20 @@ class GeminiClient implements LlmClient {
   String _extractText(Map<String, dynamic> body) {
     final candidates = body['candidates'] as List?;
     if (candidates == null || candidates.isEmpty) {
-      throw Exception('Aucun candidat dans la réponse Gemini: $body');
+      final promptFeedback = body['promptFeedback'];
+      throw Exception('Aucun candidat dans la réponse Gemini (feedback: $promptFeedback): $body');
     }
-    final parts = (candidates.first as Map<String, dynamic>)['content']?['parts'] as List?;
+    final candidate = candidates.first as Map<String, dynamic>;
+    final finishReason = candidate['finishReason'] as String?;
+    if (finishReason == 'MAX_TOKENS') {
+      throw Exception(
+        'La réponse de Gemini a été tronquée (limite de tokens atteinte: MAX_TOKENS).',
+      );
+    } else if (finishReason == 'SAFETY') {
+      throw Exception('La réponse de Gemini a été bloquée pour raisons de sécurité (SAFETY).');
+    }
+
+    final parts = candidate['content']?['parts'] as List?;
     if (parts == null || parts.isEmpty) {
       throw Exception('Aucune partie de contenu dans la réponse Gemini: $body');
     }

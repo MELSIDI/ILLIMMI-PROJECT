@@ -15,14 +15,25 @@ import 'package:generation_orchestrator/pipeline/models.dart';
 class FakeClaudeClient extends ClaudeClient {
   final Map<String, dynamic> jsonResponse;
   final List<String> textResponses;
-  final Map<String, dynamic> visualVerificationResponse;
+  final List<Map<String, dynamic>> visualVerificationResponses;
   int _textCallIndex = 0;
+  int _visualCallIndex = 0;
 
   FakeClaudeClient({
     required this.jsonResponse,
     required this.textResponses,
-    this.visualVerificationResponse = const {'ok': true, 'issues': []},
-  });
+    Map<String, dynamic>? visualVerificationResponse,
+    List<Map<String, dynamic>>? visualVerificationResponses,
+  }) : visualVerificationResponses = visualVerificationResponses ??
+            [
+              visualVerificationResponse ??
+                  const {
+                    'ok': true,
+                    'issueDescription': 'OK',
+                    'idgap': 100,
+                    'correctedVisualsText': '',
+                  }
+            ];
 
   @override
   Future<Map<String, dynamic>> completeJson({
@@ -43,7 +54,6 @@ class FakeClaudeClient extends ClaudeClient {
     return jsonResponse;
   }
 
-
   @override
   Future<String> complete({
     required String system,
@@ -61,7 +71,11 @@ class FakeClaudeClient extends ClaudeClient {
     required List<ContentBlock> content,
     required Map<String, dynamic> schema,
     int maxTokens = 4096,
-  }) async => visualVerificationResponse;
+  }) async {
+    final response = visualVerificationResponses[_visualCallIndex];
+    if (_visualCallIndex < visualVerificationResponses.length - 1) _visualCallIndex++;
+    return response;
+  }
 }
 
 /// Évite tout appel HTTP réel à `board-render-service` : renvoie des PNG
@@ -142,8 +156,6 @@ void main() {
   });
 
   test('startJob() retente le Layer 3 via la correction de syntaxe quand le premier script échoue au parsing', () async {
-    // ID 9999 dépasse toute plage de famille valide pour idgap 100
-    // (IdConfig.getFamilyIndex) → doit faire échouer le parsing et déclencher la correction de syntaxe.
     const invalidVisuals = "text id 9999 start 1s at (0, 0) ''x'' ;";
     const validVisuals =
         "text id 1 start 1.5s at (88.89, 8) ''[bold]Les Dérivées[/bold]'' ;";
@@ -170,7 +182,50 @@ void main() {
   });
 
   test(
-    'startJob() retente le Layer 3 quand la vérification visuelle détecte un problème',
+    'startJob() applique directement la correction visuelle produite par le modèle multimodal',
+    () async {
+      const initialVisuals =
+          "text id 1 start 1.5s at (180, 8) ''[bold]Débordement[/bold]'' ;";
+      const correctedVisuals =
+          "text id 1 start 1.5s at (88.89, 8) ''[bold]Corrigé Directement[/bold]'' ;";
+
+      final jobStore = JobStore(
+        claudeClient: FakeClaudeClient(
+          jsonResponse: _metadataJson,
+          textResponses: [
+            'Bonjour, ceci est le transcript.',
+            initialVisuals,
+          ],
+          visualVerificationResponses: [
+            {
+              'ok': false,
+              'issueDescription': 'Le texte déborde du cadre du tableau.',
+              'idgap': 100,
+              'correctedVisualsText': correctedVisuals,
+            },
+            {
+              'ok': true,
+              'issueDescription': 'Parfait',
+              'idgap': 100,
+              'correctedVisualsText': '',
+            },
+          ],
+        ),
+        audioServiceClient: FakeAudioServiceClient(),
+        boardRenderServiceClient: FakeBoardRenderServiceClient(),
+      );
+
+      final jobId = jobStore.startJob('Explique-moi les dérivées');
+      final job = await _waitForCompletion(jobStore, jobId);
+
+      expect(job.status, 'done');
+      expect(job.script, contains(correctedVisuals));
+      expect(job.script, isNot(contains('Débordement')));
+    },
+  );
+
+  test(
+    'startJob() échoue après max attempts quand la vérification visuelle détecte continuellement des anomalies sans correction',
     () async {
       const validVisuals =
           "text id 1 start 1.5s at (88.89, 8) ''[bold]Les Dérivées[/bold]'' ;";
@@ -178,18 +233,17 @@ void main() {
       final jobStore = JobStore(
         claudeClient: FakeClaudeClient(
           jsonResponse: _metadataJson,
-          // Le script parse correctement les deux fois : seule la
-          // vérification visuelle échoue à la première tentative.
           textResponses: [
             'Bonjour, ceci est le transcript.',
+            validVisuals,
             validVisuals,
             validVisuals,
           ],
           visualVerificationResponse: {
             'ok': false,
-            'issues': [
-              {'elementId': 1, 'description': 'Le texte déborde du cadre du tableau.'},
-            ],
+            'issueDescription': 'Le texte déborde du cadre du tableau.',
+            'idgap': 100,
+            'correctedVisualsText': '',
           },
         ),
         audioServiceClient: FakeAudioServiceClient(),
@@ -231,6 +285,7 @@ class FakeGeminiClient extends FakeClaudeClient {
     required super.jsonResponse,
     required super.textResponses,
     super.visualVerificationResponse,
+    super.visualVerificationResponses,
   });
 }
 

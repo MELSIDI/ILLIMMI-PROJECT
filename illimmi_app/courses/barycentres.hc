@@ -1,4 +1,4 @@
-course "Les Barycentres" id 1000 idgap 100 for 390.8s audio "C:\Users\pc elqods\Desktop\ILLIMMI-CLAUDE\services\audio-service\speaker\audios\barycentres\barycentres.wav" {
+course "Les Barycentres" id 1000 idgap 100 for 390.8s audio "C:\Users\pc elqods\Desktop\ILLIMMI-PROJECT\services\audio_service\speaker\audios\barycentres\barycentres.wav" {
     # ═══════════════════════════════════════
     # SEGMENT 1 : INTRODUCTION
     # ═══════════════════════════════════════
@@ -46,7 +46,7 @@ course "Les Barycentres" id 1000 idgap 100 for 390.8s audio "C:\Users\pc elqods\
     text id 8 start 78.4s at (88.89, 20)
          ''[bold]Propriété d'homogénéité[/bold]'' ;
 
-    text id 9 start 85.7s at (88.89, 68) ''$$k \neq 0$$'' ;
+    text id 9 start 85.7s for 3s at (88.89, 68) ''$$k \neq 0$$'' ;
 
     # ═══════════════════════════════════════
     # SEGMENT 4 : CAS PARTICULIER (MILIEU / ISOBARYCENTRE)
@@ -137,10 +137,10 @@ course "Les Barycentres" id 1000 idgap 100 for 390.8s audio "C:\Users\pc elqods\
     text id 21 start 271.1s at (88.89, 8)
          ''[bold][color=#2980B9]Coordonnées du barycentre[/color][/bold]'' ;
 
-    text id 22 start 287.2s at (88.89, 45)
+    text id 22 start 287.2s for 5s at (88.89, 45)
          ''$$x_G = \dfrac{a x_A + b x_B}{a+b}$$'' ;
 
-    text id 23 start 294.3s at (88.89, 62)
+    text id 23 start 294.3s for 5s at (88.89, 62)
          ''$$y_G = \dfrac{a y_A + b y_B}{a+b}$$'' ;
 
     # ═══════════════════════════════════════

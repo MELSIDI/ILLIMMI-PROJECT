@@ -3,7 +3,6 @@ import 'dart:io';
 
 import 'package:http/http.dart' as http;
 
-import 'content_block.dart';
 import 'llm_client.dart';
 
 /// Client HTTP brut pour l'API DeepSeek — implémente [LlmClient].
@@ -31,6 +30,7 @@ class DeepSeekClient implements LlmClient {
   };
 
   /// Complétion texte simple (pas de sortie JSON contrainte).
+  @override
   Future<String> complete({
     required String system,
     required String userMessage,
@@ -56,11 +56,12 @@ class DeepSeekClient implements LlmClient {
   /// Complétion JSON — mode `json_object` (syntaxe garantie) + schéma injecté
   /// dans le prompt système (pas de validation stricte côté serveur, voir la
   /// limite documentée en tête de fichier).
+  @override
   Future<Map<String, dynamic>> completeJson({
     required String system,
     required String userMessage,
     required Map<String, dynamic> schema,
-    int maxTokens = 2048,
+    int maxTokens = 8192,
   }) async {
     final systemWithSchema =
         '$system\n\n'
@@ -83,13 +84,34 @@ class DeepSeekClient implements LlmClient {
 
     final body = _decodeOrThrow(response);
     final text = _extractText(body);
-    return jsonDecode(text) as Map<String, dynamic>;
+    return _parseJson(text);
+  }
+
+  Map<String, dynamic> _parseJson(String rawText) {
+    var cleaned = rawText.trim();
+    if (cleaned.startsWith('```json')) {
+      cleaned = cleaned.substring(7);
+    } else if (cleaned.startsWith('```')) {
+      cleaned = cleaned.substring(3);
+    }
+    if (cleaned.endsWith('```')) {
+      cleaned = cleaned.substring(0, cleaned.length - 3);
+    }
+    cleaned = cleaned.trim();
+    try {
+      return jsonDecode(cleaned) as Map<String, dynamic>;
+    } catch (e) {
+      throw FormatException(
+        'JSON invalide renvoyé par DeepSeek ($e). Texte reçu: $cleaned',
+      );
+    }
   }
 
   /// Non supporté : l'API DeepSeek n'accepte pas d'images en entrée. Existe
   /// pour garder le même contrat que [ClaudeClient]/`GeminiClient`/
   /// `OpenAiClient`, mais échoue explicitement plutôt que d'ignorer les
   /// images passées dans [content].
+  @override
   Future<Map<String, dynamic>> completeMultimodalJson({
     required String system,
     required List<ContentBlock> content,

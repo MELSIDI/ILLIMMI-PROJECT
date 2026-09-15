@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_math_fork/flutter_math.dart';
+import 'smart_math_clipper.dart';
 
 /// Widget avancé pour afficher du texte enrichi avec support LaTeX
-/// Animation progressive sur le CONTENU VISIBLE uniquement (sans les tags)
+/// Animation progressive sur le CONTENU VISIBLE et les FORMULES MATHÉMATIQUES
 class AdvancedTextWidget extends StatelessWidget {
   final String content;
   final double fontSize;
@@ -28,17 +29,17 @@ class AdvancedTextWidget extends StatelessWidget {
     // 1. Parser TOUT le contenu pour extraire la structure complète
     final fullStructure = _parseContentStructure(content);
     
-    // 2. Calculer la longueur du texte VISIBLE (sans les tags)
+    // 2. Calculer le poids total d'écriture (texte + maths)
     final totalVisibleLength = _calculateVisibleLength(fullStructure);
     
-    // 3. Calculer combien de caractères visibles afficher selon progress
+    // 3. Calculer combien de pas d'écriture afficher selon progress
     final visibleCharsToShow = (totalVisibleLength * progress).round().clamp(0, totalVisibleLength);
     
     if (visibleCharsToShow <= 0) {
       return const SizedBox.shrink();
     }
     
-    // 4. Générer les spans en limitant au nombre de caractères visibles
+    // 4. Générer les spans animés progressivement
     final textSpans = _buildSpansWithLimit(fullStructure, visibleCharsToShow);
     
     return Row(
@@ -174,27 +175,34 @@ class AdvancedTextWidget extends StatelessWidget {
     return segments;
   }
 
-  /// Calcule la longueur totale du texte visible (sans compter les formules comme 1 char)
+  /// Calcule la longueur totale du texte visible et le poids des formules mathématiques
   int _calculateVisibleLength(List<_ContentSegment> segments) {
     int total = 0;
     for (var segment in segments) {
       if (segment.type == _SegmentType.text) {
         total += segment.content.length;
       } else {
-        // Les formules mathématiques comptent comme 1 caractère pour l'animation
-        total += 1;
+        final zone = MathZoneAnalyzer.buildZone(segment.content);
+        total += zone.weight.round().clamp(3, 300);
       }
     }
     return total;
   }
 
-  /// Construit les spans en limitant au nombre de caractères visibles
+  /// Construit les spans en animant progressivement le texte et le LaTeX
   List<InlineSpan> _buildSpansWithLimit(List<_ContentSegment> segments, int maxVisibleChars) {
     List<InlineSpan> spans = [];
     int currentVisibleCount = 0;
     
     for (var segment in segments) {
       if (currentVisibleCount >= maxVisibleChars) break;
+      
+      final zone = segment.type != _SegmentType.text
+          ? MathZoneAnalyzer.buildZone(segment.content)
+          : null;
+      final int segWeight = segment.type == _SegmentType.text
+          ? segment.content.length
+          : zone!.weight.round().clamp(3, 300);
       
       if (segment.type == _SegmentType.text) {
         // Texte normal
@@ -206,14 +214,29 @@ class AdvancedTextWidget extends StatelessWidget {
         spans.add(_buildTextSpan(textToShow, segment.style));
         currentVisibleCount += textToShow.length;
       } else {
-        // Formule mathématique (affichée entièrement ou pas du tout)
-        if (currentVisibleCount < maxVisibleChars) {
+        // Formule mathématique animée progressivement avec SmartMathClipper
+        int remaining = maxVisibleChars - currentVisibleCount;
+        if (remaining >= segWeight) {
+          // Entièrement écrit
           spans.add(_buildMathSpan(
             segment.content,
             segment.type == _SegmentType.mathDisplay,
             segment.style,
+            1.0,
+            zone!,
           ));
-          currentVisibleCount += 1; // Les maths comptent comme 1 char
+          currentVisibleCount += segWeight;
+        } else if (remaining > 0) {
+          // En cours d'écriture progressive (Numérateur -> Barre -> Dénominateur, Matrices, etc.)
+          final localProgress = (remaining / segWeight).clamp(0.001, 1.0);
+          spans.add(_buildMathSpan(
+            segment.content,
+            segment.type == _SegmentType.mathDisplay,
+            segment.style,
+            localProgress,
+            zone!,
+          ));
+          currentVisibleCount += remaining;
         }
       }
     }
@@ -234,24 +257,40 @@ class AdvancedTextWidget extends StatelessWidget {
     );
   }
 
-  WidgetSpan _buildMathSpan(String latex, bool isDisplay, _StyleContext style) {
+  WidgetSpan _buildMathSpan(
+    String latex,
+    bool isDisplay,
+    _StyleContext style, [
+    double progress = 1.0,
+    MathZone? zone,
+  ]) {
     try {
+      final mathChild = Padding(
+        padding: EdgeInsets.symmetric(
+          horizontal: isDisplay ? 8.0 : 2.0,
+          vertical: isDisplay ? 4.0 : 0.0,
+        ),
+        child: Math.tex(
+          latex,
+          textStyle: TextStyle(
+            fontSize: isDisplay ? fontSize * 1.2 : fontSize,
+            color: style.color ?? defaultColor,
+          ),
+          mathStyle: isDisplay ? MathStyle.display : MathStyle.text,
+        ),
+      );
+
+      final mathZone = zone ?? MathZoneAnalyzer.buildZone(latex);
+      final Widget animatedChild = progress >= 1.0
+          ? mathChild
+          : ClipPath(
+              clipper: SmartMathClipper(rootZone: mathZone, progress: progress),
+              child: mathChild,
+            );
+
       return WidgetSpan(
         alignment: PlaceholderAlignment.middle,
-        child: Padding(
-          padding: EdgeInsets.symmetric(
-            horizontal: isDisplay ? 8.0 : 2.0,
-            vertical: isDisplay ? 4.0 : 0.0,
-          ),
-          child: Math.tex(
-            latex,
-            textStyle: TextStyle(
-              fontSize: isDisplay ? fontSize * 1.2 : fontSize,
-              color: style.color ?? defaultColor,
-            ),
-            mathStyle: isDisplay ? MathStyle.display : MathStyle.text,
-          ),
-        ),
+        child: animatedChild,
       );
     } catch (e) {
       // Fallback si le LaTeX est invalide

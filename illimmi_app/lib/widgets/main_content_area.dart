@@ -205,47 +205,40 @@ class MainContentAreaState extends State<MainContentArea> {
     return Container(
       height: 56,
       padding: const EdgeInsets.symmetric(horizontal: Spacing.md),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          // Espace réservé pour le bouton sidebar à gauche
-          const SizedBox(width: 140),
-          // Badge modèle style ardoise
-          Container(
-            padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 6),
-            decoration: BoxDecoration(
-              color: Colors.black.withValues(alpha: 0.25),
-              borderRadius: BorderRadius.circular(20),
-              border: Border.all(
-                color: Colors.white.withValues(alpha: 0.35),
-                width: 1,
-              ),
-            ),
-            child: Row(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                IllimmiChalkIcon(size: 16),
-                const SizedBox(width: 8),
-                const Text(
-                  'ILLIMMI 1.5 Flash',
-                  style: TextStyle(
-                    color: AppTheme.chalkWhite,
-                    fontWeight: FontWeight.w600,
-                    fontSize: 13,
-                    letterSpacing: 0.2,
-                  ),
-                ),
-                const SizedBox(width: 4),
-                const Icon(
-                  Icons.arrow_drop_down,
-                  size: 18,
-                  color: AppTheme.chalkDust,
-                ),
-              ],
+      child: Center(
+        child: Container(
+          padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 6),
+          decoration: BoxDecoration(
+            color: Colors.black.withValues(alpha: 0.25),
+            borderRadius: BorderRadius.circular(20),
+            border: Border.all(
+              color: Colors.white.withValues(alpha: 0.35),
+              width: 1,
             ),
           ),
-          const SizedBox(width: 48),
-        ],
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              IllimmiChalkIcon(size: 16),
+              const SizedBox(width: 8),
+              const Text(
+                'ILLIMMI 1.5 Flash',
+                style: TextStyle(
+                  color: AppTheme.chalkWhite,
+                  fontWeight: FontWeight.w600,
+                  fontSize: 13,
+                  letterSpacing: 0.2,
+                ),
+              ),
+              const SizedBox(width: 4),
+              const Icon(
+                Icons.arrow_drop_down,
+                size: 18,
+                color: AppTheme.chalkDust,
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }
@@ -543,13 +536,13 @@ class MainContentAreaState extends State<MainContentArea> {
 
   Widget _buildErrorWidget(String error) {
     return Center(
-      child: Padding(
+      child: SingleChildScrollView(
         padding: const EdgeInsets.all(24.0),
         child: Container(
-          constraints: const BoxConstraints(maxWidth: 480),
+          constraints: const BoxConstraints(maxWidth: 520),
           padding: const EdgeInsets.all(Spacing.xl),
           decoration: BoxDecoration(
-            color: Colors.black.withValues(alpha: 0.4),
+            color: Colors.black.withValues(alpha: 0.5),
             borderRadius: BorderRadius.circular(24),
             border: Border.all(
               color: AppTheme.chalkPink.withValues(alpha: 0.6),
@@ -569,11 +562,19 @@ class MainContentAreaState extends State<MainContentArea> {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              const SizedBox(height: 10),
-              Text(
-                error,
-                textAlign: TextAlign.center,
-                style: const TextStyle(color: AppTheme.chalkPink, fontSize: 13),
+              const SizedBox(height: 12),
+              Container(
+                width: double.infinity,
+                padding: const EdgeInsets.all(12),
+                decoration: BoxDecoration(
+                  color: Colors.black.withValues(alpha: 0.3),
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                child: SelectableText(
+                  error,
+                  textAlign: TextAlign.center,
+                  style: const TextStyle(color: AppTheme.chalkPink, fontSize: 13, height: 1.4),
+                ),
               ),
               const SizedBox(height: 20),
               if (_retry != null)
@@ -582,11 +583,12 @@ class MainContentAreaState extends State<MainContentArea> {
                   style: FilledButton.styleFrom(
                     backgroundColor: AppTheme.chalkBlue,
                     foregroundColor: AppTheme.chalkboardGreenDeep,
+                    padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
                   ),
                   icon: const Icon(Icons.refresh_rounded),
                   label: const Text('Réessayer', style: TextStyle(fontWeight: FontWeight.bold)),
                 ),
-              const SizedBox(height: 8),
+              const SizedBox(height: 10),
               TextButton(
                 onPressed: newCourse,
                 child: const Text('Nouveau cours', style: TextStyle(color: AppTheme.chalkWhite)),

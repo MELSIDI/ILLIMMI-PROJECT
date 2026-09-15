@@ -71,7 +71,7 @@ class GcpVertexGeminiClient implements LlmClient {
   Future<String> complete({
     required String system,
     required String userMessage,
-    int maxTokens = 4096,
+    int maxTokens = 8192,
   }) async {
     if (_useBigQuerySql) {
       return _completeViaBigQuerySql(system: system, userMessage: userMessage, maxTokens: maxTokens);
@@ -107,7 +107,7 @@ class GcpVertexGeminiClient implements LlmClient {
     required String system,
     required String userMessage,
     required Map<String, dynamic> schema,
-    int maxTokens = 2048,
+    int maxTokens = 8192,
   }) async {
     final sanitizedSchema = _sanitizeSchema(schema);
 
@@ -156,7 +156,7 @@ class GcpVertexGeminiClient implements LlmClient {
     required String system,
     required List<ContentBlock> content,
     required Map<String, dynamic> schema,
-    int maxTokens = 4096,
+    int maxTokens = 8192,
   }) async {
     final sanitizedSchema = _sanitizeSchema(schema);
     final response = await http.post(

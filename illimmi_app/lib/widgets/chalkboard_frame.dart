@@ -1,23 +1,26 @@
 import 'package:flutter/material.dart';
 import '../theme/app_theme.dart';
+import '../theme/board_theme.dart';
 
 /// Arrière-plan tableau vert (Chalkboard) immersif et sans bordure en bois :
 /// Texture d'ardoise verte réaliste avec poussière de craie, dégradé doux et traces d'effacement.
 class ChalkboardFrame extends StatelessWidget {
   final Widget child;
+  final BoardTheme theme;
 
   const ChalkboardFrame({
     super.key,
     required this.child,
+    this.theme = BoardTheme.green,
   });
 
   @override
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        // 1. Texture de fond ardoise verte plein écran
-        const Positioned.fill(
-          child: ChalkboardBackground(),
+        // 1. Texture de fond ardoise plein écran
+        Positioned.fill(
+          child: ChalkboardBackground(theme: theme),
         ),
 
         // 2. Contenu principal fluide
@@ -29,25 +32,26 @@ class ChalkboardFrame extends StatelessWidget {
   }
 }
 
-/// Arrière-plan ardoise verte avec texture de poussière et traces de craie
+/// Arrière-plan ardoise avec texture de poussière et traces de craie, adaptable au thème choisi.
 class ChalkboardBackground extends StatelessWidget {
-  const ChalkboardBackground({super.key});
+  final BoardTheme theme;
+
+  const ChalkboardBackground({
+    super.key,
+    this.theme = BoardTheme.green,
+  });
 
   @override
   Widget build(BuildContext context) {
     return CustomPaint(
-      painter: const ChalkboardTexturePainter(),
+      painter: theme.hasTexture ? ChalkboardTexturePainter(smudgeColor: theme.smudgeColor) : null,
       child: Container(
-        decoration: const BoxDecoration(
+        decoration: BoxDecoration(
           gradient: RadialGradient(
-            center: Alignment(0.0, -0.1),
+            center: const Alignment(0.0, -0.1),
             radius: 1.1,
-            colors: [
-              AppTheme.chalkboardGreenLight,
-              AppTheme.chalkboardGreenMedium,
-              AppTheme.chalkboardGreenDeep,
-            ],
-            stops: [0.0, 0.65, 1.0],
+            colors: theme.gradientColors,
+            stops: const [0.0, 0.65, 1.0],
           ),
         ),
       ),
@@ -57,7 +61,11 @@ class ChalkboardBackground extends StatelessWidget {
 
 /// Peintre de la texture organique d'ardoise et de traces d'effaceur
 class ChalkboardTexturePainter extends CustomPainter {
-  const ChalkboardTexturePainter();
+  final Color smudgeColor;
+
+  const ChalkboardTexturePainter({
+    this.smudgeColor = Colors.white,
+  });
 
   @override
   void paint(Canvas canvas, Size size) {
@@ -69,7 +77,7 @@ class ChalkboardTexturePainter extends CustomPainter {
       ..maskFilter = const MaskFilter.blur(BlurStyle.normal, 28);
 
     // Smudge 1 - Centre gauche
-    smudgePaint.color = Colors.white.withValues(alpha: 0.035);
+    smudgePaint.color = smudgeColor.withValues(alpha: 0.035);
     canvas.drawOval(
       Rect.fromCenter(
         center: Offset(size.width * 0.35, size.height * 0.45),
@@ -80,7 +88,7 @@ class ChalkboardTexturePainter extends CustomPainter {
     );
 
     // Smudge 2 - Haut droite
-    smudgePaint.color = Colors.white.withValues(alpha: 0.025);
+    smudgePaint.color = smudgeColor.withValues(alpha: 0.025);
     canvas.drawOval(
       Rect.fromCenter(
         center: Offset(size.width * 0.7, size.height * 0.3),
@@ -91,7 +99,7 @@ class ChalkboardTexturePainter extends CustomPainter {
     );
 
     // Smudge 3 - Bas
-    smudgePaint.color = Colors.white.withValues(alpha: 0.03);
+    smudgePaint.color = smudgeColor.withValues(alpha: 0.03);
     canvas.drawOval(
       Rect.fromCenter(
         center: Offset(size.width * 0.5, size.height * 0.75),
@@ -106,7 +114,7 @@ class ChalkboardTexturePainter extends CustomPainter {
       ..style = PaintingStyle.stroke
       ..strokeWidth = 35
       ..maskFilter = const MaskFilter.blur(BlurStyle.normal, 18)
-      ..color = Colors.white.withValues(alpha: 0.02);
+      ..color = smudgeColor.withValues(alpha: 0.02);
 
     final path1 = Path()
       ..moveTo(size.width * 0.1, size.height * 0.25)

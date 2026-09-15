@@ -1,62 +1,7 @@
-/*import 'gemini_client.dart';
-import 'llm_client.dart';
-import 'models.dart';
-
-/// Layer 1 : planification pédagogique (illimmi-doc.md §2.2).
-///
-/// Entrée : le prompt de l'utilisateur ("Explique-moi les dérivées").
-/// Sortie : les métadonnées qui guident les Layers suivants.
-class Layer1Planner {
-  final LlmClient _client;
-
-  Layer1Planner({LlmClient? client}) : _client = client ?? GeminiClient();
-
-  static const String _systemPrompt = '''
-Tu es ILLIMMI Layer 1, un planificateur pédagogique.
-Analyse la demande de l'utilisateur et produis les métadonnées qui guideront
-la génération d'un cours interactif : sujet précis, niveau scolaire estimé,
-durée cible en secondes (entre 60 et 180 pour un cours court), concepts clés
-à couvrir, ton pédagogique, et langue de l'utilisateur (code ISO, ex: "fr").
-''';
-
-  static final Map<String, dynamic> _schema = {
-    'type': 'object',
-    'properties': {
-      'subject': {'type': 'string'},
-      'level': {'type': 'string'},
-      'duration_target': {'type': 'integer'},
-      'concepts_cles': {
-        'type': 'array',
-        'items': {'type': 'string'},
-      },
-      'ton': {'type': 'string'},
-      'langue': {'type': 'string'},
-    },
-    'required': [
-      'subject',
-      'level',
-      'duration_target',
-      'concepts_cles',
-      'ton',
-      'langue',
-    ],
-    'additionalProperties': false,
-  };
-
-  Future<CourseMetadata> plan(String userPrompt) async {
-    final json = await _client.completeJson(
-      system: _systemPrompt,
-      userMessage: userPrompt,
-      schema: _schema,
-    );
-    return CourseMetadata.fromJson(json);
-  }
-}*/
-
-
 import 'gemini_client.dart';
 import 'llm_client.dart';
 import 'models.dart';
+import 'prompt_loader.dart';
 
 /// Layer 1 : planification pédagogique (illimmi-doc.md §2.2).
 ///
@@ -69,51 +14,7 @@ class Layer1Planner {
 
   Layer1Planner({LlmClient? client}) : _client = client ?? GeminiClient();
 
-  static const String _visualToolkit = r'''
-OUTILS VISUELS DISPONIBLES EN AVAL (Layer 3, DSL Hypercourse) :
-- text : texte, titres, formules LaTeX inline/display
-- draw line / arrow / path : segments, flèches, décompositions étape par étape
-- draw curve : courbes lissées (idéal pour tracer une fonction "à la main", une trajectoire)
-- draw circle / ellipse / arc / elliptic_arc : cercles, disques, secteurs angulaires
-- draw polygone : figures géométriques à N côtés
-- draw 2drep + draw 2dfunc : repère cartésien ET tracé automatique d'une fonction mathématique dessus
-- mouse move : curseur qui pointe/suit un élément pendant l'explication
-- erase : nettoyage du tableau entre deux sections
-
-Un cours qui ne fait QUE du texte gâche 90% de ce système. Ton rôle est
-d'identifier, pour chaque section, si le concept est représentable
-géométriquement/graphiquement, et de le signaler explicitement.
-''';
-
-  static const String _systemPrompt = '''
-Tu es ILLIMMI Layer 1, un ingénieur pédagogique — pas un simple extracteur
-de mots-clés. Ta sortie structure tout le reste de la pipeline : si ton plan
-est plat, le cours final sera plat.
-
-$_visualToolkit
-
-MÉTHODE OBLIGATOIRE :
-1. Détermine le sujet précis, le niveau, la langue, le ton.
-2. Découpe le cours en un plan_pedagogique de 4 à 7 sections, dans cet ordre
-   pédagogique strict (tu peux fusionner mais jamais sauter une étape sans
-   justification) :
-   - accroche       : pourquoi ce concept, motivation concrète
-   - prerequis       : ce que l'élève doit déjà savoir (rappel bref)
-   - exemple_concret : un cas particulier simple AVANT toute généralisation
-   - definition_formelle : l'énoncé rigoureux, appuyé sur l'exemple précédent
-   - decomposition   : le concept démonté étape par étape (calcul, preuve, mécanisme)
-   - erreur_frequente : un piège ou une confusion classique, explicitement nommé
-   - synthese        : récapitulatif + lien vers la suite
-3. Pour CHAQUE section, choisis un support_visuel_suggere PRÉCIS parmi la
-   liste d'outils ci-dessus (pas juste "text" par défaut — justifie si text
-   est vraiment le bon choix, ex: définition formelle en LaTeX).
-4. Le duration_target doit être réaliste : compte environ 2.2 secondes de
-   narration par idée exposée, jamais un chiffre arbitraire.
-5. concepts_cles doit lister les notions, pas des phrases.
-
-Sois exigeant avec toi-même : un plan où 5 sections sur 7 disent "text" est
-un plan raté, retravaille-le avant de répondre.
-''';
+  static String get systemPrompt => PromptLoader.load('layer1_planner_system.md');
 
   static final Map<String, dynamic> _schema = {
     'type': 'object',
@@ -172,10 +73,12 @@ un plan raté, retravaille-le avant de répondre.
 
   Future<CourseMetadata> plan(String userPrompt) async {
     final json = await _client.completeJson(
-      system: _systemPrompt,
+      system: systemPrompt,
       userMessage: userPrompt,
       schema: _schema,
+      maxTokens: 16384,
     );
     return CourseMetadata.fromJson(json);
   }
 }
+
