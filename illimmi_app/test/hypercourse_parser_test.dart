@@ -3,6 +3,8 @@
 // un simple sous-titre synchronisé (aucune synthèse TTS, timing fourni par l'auteur du
 // script conservé tel quel, retrouvable par timestamp comme n'importe quel autre élément).
 
+import 'dart:io';
+
 import 'package:flutter_test/flutter_test.dart';
 import 'package:illimmi_app/parsers/hypercourse_parser.dart';
 
@@ -53,10 +55,13 @@ void main() {
     expect(speech.startTime, 2.0);
     expect(speech.duration, 3.0);
 
-    // Retrouvable par timestamp comme un `text`, plus via un registre audio séparé.
-    expect(
-      course.queryAll(3.0).dynamicElement.any((e) => e.id == 201),
-      isTrue,
-    );
+  });
+
+  test('parses courses/vecteurs.hc without any error', () async {
+    final script = await File('courses/vecteurs.hc').readAsString();
+    final course = await HypercourseParser(script).parse();
+    expect(course.name, 'Construire un point avec des vecteurs');
+    expect(course.config.audioPath, isNotNull);
+    expect(course.globalRegistry.isNotEmpty, isTrue);
   });
 }

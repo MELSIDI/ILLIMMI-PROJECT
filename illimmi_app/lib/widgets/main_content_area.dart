@@ -11,7 +11,6 @@ import '../parsers/hypercourse_parser.dart';
 import '../player/course_player.dart';
 import '../state/session_controller.dart';
 import '../theme/app_theme.dart';
-import 'gemini_gradient_text.dart';
 import 'generation_progress_view.dart';
 import 'illimmi_logo.dart';
 
@@ -267,13 +266,14 @@ class MainContentAreaState extends State<MainContentArea> {
           ],
         ),
         const SizedBox(height: 10),
-        const GeminiGradientText(
+        const Text(
           'Que veux-tu apprendre aujourd\'hui ?',
           style: TextStyle(
             fontSize: 38,
             fontWeight: FontWeight.bold,
             letterSpacing: -0.5,
             height: 1.2,
+            color: AppTheme.chalkWhite,
           ),
         ),
         const SizedBox(height: 12),
@@ -298,9 +298,9 @@ class MainContentAreaState extends State<MainContentArea> {
           _SuggestionData(
             icon: Icons.square_foot_rounded,
             iconColor: AppTheme.chalkBlue,
-            title: 'Géométrie dans l\'espace',
-            description: 'Introduction aux figures, théorèmes et constructions visuelles',
-            onTap: () => _startExample('introduction_geometrie.hc'),
+            title: 'Construire avec des vecteurs',
+            description: 'Construire les points E, F et G à partir d\'égalités vectorielles',
+            onTap: () => _startExample('vecteurs.hc'),
           ),
           _SuggestionData(
             icon: Icons.balance_rounded,

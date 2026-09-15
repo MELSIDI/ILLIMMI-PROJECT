@@ -205,10 +205,21 @@ class CoursePlayerState extends State<CoursePlayer>
   }
 
   void _onUserActivity() {
-    if (!_controlsVisible) {
-      setState(() => _controlsVisible = true);
+    if (_controlsVisible) {
+      _resetHideTimer();
     }
-    _resetHideTimer();
+  }
+
+  void _toggleControls() {
+    FocusScope.of(context).unfocus();
+    setState(() {
+      _controlsVisible = !_controlsVisible;
+    });
+    if (_controlsVisible) {
+      _resetHideTimer();
+    } else {
+      _hideControlsTimer?.cancel();
+    }
   }
 
   void _resetHideTimer() {
@@ -367,12 +378,7 @@ class CoursePlayerState extends State<CoursePlayer>
         onHover: (_) => _onUserActivity(),
         child: GestureDetector(
           behavior: HitTestBehavior.opaque,
-          onTap: () {
-            _onUserActivity();
-            if (!_controlsVisible) {
-              setState(() => _controlsVisible = true);
-            }
-          },
+          onTap: _toggleControls,
           child: Stack(
             fit: StackFit.expand,
             children: [
@@ -424,7 +430,11 @@ class CoursePlayerState extends State<CoursePlayer>
                     duration: const Duration(milliseconds: 250),
                     child: IgnorePointer(
                       ignoring: !_controlsVisible,
-                      child: _buildPlayerHeader(),
+                      child: GestureDetector(
+                        behavior: HitTestBehavior.opaque,
+                        onTap: () {},
+                        child: _buildPlayerHeader(),
+                      ),
                     ),
                   ),
                 ),
@@ -446,7 +456,11 @@ class CoursePlayerState extends State<CoursePlayer>
                           duration: const Duration(milliseconds: 250),
                           child: IgnorePointer(
                             ignoring: !_controlsVisible,
-                            child: _buildControlBar(),
+                            child: GestureDetector(
+                              behavior: HitTestBehavior.opaque,
+                              onTap: () {},
+                              child: _buildControlBar(),
+                            ),
                           ),
                         ),
                       ),
