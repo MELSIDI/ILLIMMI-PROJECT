@@ -1,32 +1,32 @@
 Bonjour ! Dans ce cours, tu vas apprendre à construire des points définis à partir d'égalités vectorielles.
-Ici, nous allons construire trois points : E, F et G, définis à partir de trois égalités vectorielles, en partant d'une figure de base : ABCD est un parallélogramme.
+Ici, nous allons construire trois points : E, F, et G, définis à partir de trois égalités vectorielles, en partant d'une figure de base : A B C D est un parallélogramme.
 Pour commencer, rappelons ce que signifie que deux vecteurs sont égaux.
 Deux vecteurs, par exemple le vecteur u et le vecteur v, sont égaux à condition qu'ils aient la même direction, c'est-à-dire que leurs droites soient parallèles, le même sens, c'est-à-dire la même orientation de flèche, et la même norme, c'est-à-dire la même longueur.
-Sur notre parallélogramme ABCD, nous avons déjà des couples de vecteurs égaux.
-Par exemple, le vecteur AB est égal au vecteur DC : même direction, même sens de gauche à droite, et même longueur.
-De même, le vecteur AD est égal au vecteur BC.
+Sur notre parallélogramme A B C D, nous avons déjà des couples de vecteurs égaux.
+Par exemple, le vecteur A B est égal au vecteur D C : même direction, même sens de gauche à droite, et même longueur.
+De même, le vecteur A D est égal au vecteur B C.
 
-Première question : construire le point E tel que le vecteur DE soit égal au vecteur BC.
-Avec le vecteur DE, nous ne connaissons pas encore le point E.
-En revanche, le vecteur BC est parfaitement défini sur notre figure : c'est le vecteur qui va de B vers C.
-Pour construire le vecteur DE égal à BC, regardons l'écriture DE : D est la première lettre, c'est donc l'origine du vecteur !
-Nous partons donc du point D, et nous traçons un vecteur ayant la même direction que BC, le même sens vers le bas à droite, et la même longueur que BC.
-L'extrémité de cette flèche nous donne précisément la position du point E. Nous avons bien le vecteur DE égal au vecteur BC !
+Première question : construire le point E tel que le vecteur D E soit égal au vecteur B C.
+Avec le vecteur D E, nous ne connaissons pas encore le point E.
+En revanche, le vecteur B C est parfaitement défini sur notre figure : c'est le vecteur qui va de B vers C.
+Pour construire le vecteur D E égal à B C, regardons l'écriture D E : D est la première lettre, c'est donc l'origine du vecteur !
+Nous partons donc du point D, et nous traçons un vecteur ayant la même direction que B C, le même sens vers le bas à droite, et la même longueur que B C.
+L'extrémité de cette flèche nous donne précisément la position du point E. Nous avons bien le vecteur D E égal au vecteur B C !
 
-Deuxième question : construire le point F tel que le vecteur CF soit égal au vecteur DC.
-Regardons notre figure : le vecteur DC est déjà bien connu, il va de D vers C horizontalement vers la droite.
-Pour construire le vecteur CF, son origine est le point C.
-Nous partons donc du point C, et nous prolongeons dans la même direction, dans le même sens vers la droite, et avec la même longueur que DC.
-L'extrémité de cette flèche définit le point F. Nous avons ainsi construit le point F avec le vecteur CF égal au vecteur DC !
+Deuxième question : construire le point F tel que le vecteur C F soit égal au vecteur D C.
+Regardons notre figure : le vecteur D C est déjà bien connu, il va de D vers C horizontalement vers la droite.
+Pour construire le vecteur C F, son origine est le point C.
+Nous partons donc du point C, et nous prolongeons dans la même direction, dans le même sens vers la droite, et avec la même longueur que D C.
+L'extrémité de cette flèche définit le point F. Nous avons ainsi construit le point F avec le vecteur C F égal au vecteur D C !
 
-Troisième question : construire le point G tel que le vecteur GA soit égal au vecteur BC.
-Nous retrouvons le vecteur BC.
-Mais attention : dans le vecteur GA, l'origine est le point G que nous cherchons !
+Troisième question : construire le point G tel que le vecteur G A soit égal au vecteur B C.
+Nous retrouvons le vecteur B C.
+Mais attention : dans le vecteur G A, l'origine est le point G que nous cherchons !
 Nous ne savons donc pas d'où partir. En revanche, nous connaissons son extrémité : c'est le point A !
 La pointe de la flèche doit impérativement arriver en A.
-Puisque le vecteur GA doit être égal au vecteur BC, il doit avoir la même direction et le même sens que BC, en se terminant en A.
+Puisque le vecteur G A doit être égal au vecteur B C, il doit avoir la même direction et le même sens que B C, en se terminant en A.
 L'origine de cette flèche nous donne donc la position exacte du point G !
-Le vecteur GA est bien égal au vecteur BC.
+Le vecteur G A est bien égal au vecteur B C.
 
-Nous avons ainsi construit avec succès nos trois points E, F et G grâce aux propriétés de l'égalité vectorielle.
+Nous avons ainsi construit avec succès nos trois points E, F, et G grâce aux propriétés de l'égalité vectorielle.
 Bravo, la séquence est maintenant terminée !
