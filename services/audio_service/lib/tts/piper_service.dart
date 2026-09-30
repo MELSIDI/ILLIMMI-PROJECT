@@ -1,14 +1,10 @@
 import 'dart:convert';
 import 'dart:io';
-import 'dart:typed_data';
 
 import 'package:path/path.dart' as p;
 
-class TtsResults {
-  File? file;
-  double duration;
-  TtsResults({this.file, this.duration = -1});
-}
+import 'tts_engine.dart';
+export 'tts_engine.dart';
 
 /// Enveloppe le binaire Piper TTS (subprocess Windows natif).
 ///
@@ -16,9 +12,10 @@ class TtsResults {
 /// codés en dur, puisque ce service tourne indépendamment du client Flutter :
 /// `PIPER_EXE_PATH`, `PIPER_MODEL_PATH`, `AUDIO_OUTPUT_DIR` (par défaut,
 /// relatifs à `Directory.current.path`, la racine de ce service).
-class PiperServices {
+class PiperServices implements TtsEngine {
   late final String piperPath;
   late final String modelPath;
+  @override
   late final String outputDir;
 
   PiperServices() {
@@ -34,10 +31,12 @@ class PiperServices {
     Directory(outputDir).createSync(recursive: true);
   }
 
+  @override
   Future<TtsResults?> tts({
     required String text,
     required String dirName,
     required String fileName,
+    String? preferredProvider,
   }) async {
     if (!File(piperPath).existsSync()) {
       print('❌ ERREUR : Exécutable introuvable à : $piperPath');
@@ -49,7 +48,7 @@ class PiperServices {
 
     final file = File(fullFilePath);
     if (await file.exists()) {
-      return TtsResults(file: file, duration: await _wavDurationSeconds(file));
+      return TtsResults(file: file, duration: await readWavDurationSeconds(file));
     }
 
     await Directory(fullDirectoryPath).create(recursive: true);
@@ -76,48 +75,14 @@ class PiperServices {
       process.stdin.write(text);
       await process.stdin.close();
 
-      if (await process.exitCode == 0 && extractedDuration != null) {
-        return TtsResults(file: File(fullFilePath), duration: extractedDuration!);
+      if (await process.exitCode == 0) {
+        final wavFile = File(fullFilePath);
+        final dur = extractedDuration ?? await readWavDurationSeconds(wavFile);
+        return TtsResults(file: wavFile, duration: dur);
       }
     } catch (e) {
       print('❌ Erreur lors du lancement du processus : $e');
     }
     return null;
-  }
-
-  /// Lit la durée d'un WAV PCM directement depuis son en-tête (chunks `fmt `
-  /// et `data`) — remplace la sonde `audioplayers` de la version monolithe,
-  /// qui dépend du moteur Flutter et n'est pas utilisable dans ce serveur
-  /// Dart pur.
-  Future<double> _wavDurationSeconds(File file) async {
-    final bytes = await file.readAsBytes();
-    final data = ByteData.view(bytes.buffer, bytes.offsetInBytes, bytes.length);
-
-    int sampleRate = 0;
-    int channels = 0;
-    int bitsPerSample = 0;
-    int dataSize = 0;
-
-    var offset = 12; // après "RIFF"<size>"WAVE"
-    while (offset + 8 <= bytes.length) {
-      final chunkId = ascii.decode(bytes.sublist(offset, offset + 4));
-      final chunkSize = data.getUint32(offset + 4, Endian.little);
-      final chunkStart = offset + 8;
-
-      if (chunkId == 'fmt ') {
-        channels = data.getUint16(chunkStart + 2, Endian.little);
-        sampleRate = data.getUint32(chunkStart + 4, Endian.little);
-        bitsPerSample = data.getUint16(chunkStart + 14, Endian.little);
-      } else if (chunkId == 'data') {
-        dataSize = chunkSize;
-      }
-
-      offset = chunkStart + chunkSize + (chunkSize.isOdd ? 1 : 0);
-    }
-
-    if (sampleRate == 0 || channels == 0 || bitsPerSample == 0) return -1;
-    final bytesPerSecond = sampleRate * channels * (bitsPerSample ~/ 8);
-    if (bytesPerSecond == 0) return -1;
-    return dataSize / bytesPerSecond;
   }
 }

@@ -19,7 +19,11 @@ class LocalSherpaAligner implements WordAligner {
   static bool _bindingsInitialized = false;
 
   @override
-  Future<List<WordTimestamp>> align({required String wavPath}) async {
+  Future<List<WordTimestamp>> align({
+    required String wavPath,
+    String? narrationText,
+    String? narrationPath,
+  }) async {
     if (!_bindingsInitialized) {
       sherpa.initBindings();
       _bindingsInitialized = true;

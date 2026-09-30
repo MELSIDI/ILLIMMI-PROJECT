@@ -49,10 +49,10 @@ graph TD
   - `JobStore` : Gestionnaire de tâches asynchrones en mémoire.
 
 ### 2.3 Service Audio & TTS — `services/audio-service`
-- **Rôle** : Synthèse vocale de haute qualité et alignement mot-à-mot.
+- **Rôle** : Synthèse vocale de haute qualité et alignement mot-à-mot certifié.
 - **Port** : `8082` (Dart / Process natif Windows).
-- **Moteur TTS** : Piper TTS natif (`speaker/piper/piper.exe` avec modèle vocal `fr_FR-siwis-medium.onnx`).
-- **Alignement** : Calcul des timestamps exacts de chaque mot de la narration.
+- **Moteur TTS** : Piper TTS natif (`speaker/piper/piper.exe` avec modèle vocal `fr_FR-siwis-medium.onnx`) ou OpenRouter TTS (`deepgram/aura-2`).
+- **Alignement** : Algorithme monotonique hybride (`NarrationSttAligner`) mariant `narration.txt` (vérité textuelle, ponctuation) et Whisper STT (vérité temporelle). Produit la chronologie compacte `<base>_words.txt` (`<start>mot<end>`). Voir [AUDIO_ALIGNMENT_TIMELINE.md](file:///c:/Users/pc%20elqods/Desktop/ILLIMMI-PROJECT/docs/AUDIO_ALIGNMENT_TIMELINE.md).
 
 ### 2.4 Service de rendu graphique — `services/plot-service`
 - **Rôle** : Génération des graphiques et courbes de fonctions mathématiques interactives.
@@ -97,13 +97,13 @@ sequenceDiagram
         Orch->>Gemini: generateTranscript(metadata)
         Gemini-->>Orch: Transcript textuel
         Orch->>Audio: POST /narrate { text, dirName, fileName }
-        Audio-->>Orch: { audioUrl, duration, wordTimestamps }
+        Audio-->>Orch: { audioUrl, duration, compactTimeline, wordTimestamps }
     end
 
     rect rgb(240, 255, 240)
         Note over Orch,Render: Layer 3 - Génération & Auto-Correction Visuelle
         loop Max 3 tentatives
-            Orch->>Gemini: generateVisuals(transcriptTimestamped)
+            Orch->>Gemini: generateVisuals(compactTimeline mot-à-mot)
             Gemini-->>Orch: Script Hypercourse (.hc)
             Orch->>Orch: Parse script -> Course
             Orch->>Orch: planCaptures(Course) (Pre-Erase, N = count(erase) + 1)

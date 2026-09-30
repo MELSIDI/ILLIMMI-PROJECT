@@ -111,20 +111,22 @@ Corrige strictement les erreurs de syntaxe et renvoie le script Hypercourse corr
   }
 
 
-  /// Regroupe les mots timestampés en lignes `[t s] mot1 mot2 ...` (par
-  /// groupes de 6 mots), au format utilisé dans illimmi-doc.md §3.3.
+  /// Transmet la timeline compacte directement au prompt LLM (<START>TEXT<END>)
+  /// sans regroupement arbitraire de mots, préservant la résolution temporelle fine.
   String _formatTimestampedTranscript(TranscriptResult transcript) {
-    const groupSize = 6;
-    final words = transcript.transcriptTimestamped;
-    if (words.isEmpty) return transcript.transcript;
-
-    final buffer = StringBuffer();
-    for (var i = 0; i < words.length; i += groupSize) {
-      final chunk = words.skip(i).take(groupSize).toList();
-      final start = chunk.first.start.toStringAsFixed(1);
-      final text = chunk.map((w) => w.word).join(' ');
-      buffer.writeln('[${start}s] $text');
+    final compact = transcript.compactTimeline;
+    if (compact != null && compact.trim().isNotEmpty) {
+      return compact.trim();
     }
-    return buffer.toString();
+
+    // Fallback si compactTimeline n'est pas renseignée (ex: mocks de test)
+    if (transcript.transcriptTimestamped.isNotEmpty) {
+      return transcript.transcriptTimestamped
+          .map((w) => w.toCompact())
+          .join('\n');
+    }
+
+    return transcript.transcript;
   }
 }
+

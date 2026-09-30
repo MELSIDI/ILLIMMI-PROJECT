@@ -28,7 +28,11 @@ class RemoteWhisperAligner implements WordAligner {
   }
 
   @override
-  Future<List<WordTimestamp>> align({required String wavPath}) async {
+  Future<List<WordTimestamp>> align({
+    required String wavPath,
+    String? narrationText,
+    String? narrationPath,
+  }) async {
     final request = http.MultipartRequest('POST', Uri.parse(_endpoint))
       ..headers['Authorization'] = 'Bearer $_apiKey'
       ..fields['model'] = 'whisper-1'

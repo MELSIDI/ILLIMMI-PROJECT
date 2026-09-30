@@ -9,11 +9,15 @@ class NarrateResult {
   final String audioUrl;
   final double duration;
   final List<WordTimestamp> wordTimestamps;
+  final String? compactTimeline;
+  final String? wordsUrl;
 
   NarrateResult({
     required this.audioUrl,
     required this.duration,
     required this.wordTimestamps,
+    this.compactTimeline,
+    this.wordsUrl,
   });
 }
 
@@ -46,14 +50,31 @@ class AudioServiceClient {
     }
 
     final body = jsonDecode(response.body) as Map<String, dynamic>;
-    final words = (body['wordTimestamps'] as List)
-        .map((w) => WordTimestamp.fromJson(w as Map<String, dynamic>))
-        .toList();
+    final compactTimeline = body['compactTimeline'] as String?;
+    final wordsUrl = body['wordsUrl'] as String?;
+
+    List<WordTimestamp> words;
+    if (body['wordTimestamps'] is List) {
+      words = (body['wordTimestamps'] as List)
+          .map((w) => WordTimestamp.fromJson(w as Map<String, dynamic>))
+          .toList();
+    } else if (compactTimeline != null && compactTimeline.isNotEmpty) {
+      words = compactTimeline
+          .split('\n')
+          .map((l) => l.trim())
+          .where((l) => l.isNotEmpty)
+          .map((l) => WordTimestamp.fromCompact(l))
+          .toList();
+    } else {
+      words = [];
+    }
 
     return NarrateResult(
       audioUrl: body['audioUrl'] as String,
       duration: (body['duration'] as num).toDouble(),
       wordTimestamps: words,
+      compactTimeline: compactTimeline,
+      wordsUrl: wordsUrl,
     );
   }
 }

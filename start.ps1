@@ -43,7 +43,14 @@ if (Get-Command gcloud -ErrorAction SilentlyContinue) {
     }
 }
 
-if ($env:GCP_PROJECT_ID -and $env:GCP_ACCESS_TOKEN) {
+if ($env:OPENROUTER_API_KEY -and ($env:LLM_PROVIDER -eq 'openrouter' -or -not $env:LLM_PROVIDER)) {
+    Write-Host "[OK] Mode OpenRouter LLM actif (Modele: $env:OPENROUTER_MODEL)" -ForegroundColor Green
+    if ($env:TTS_PROVIDER -ne 'local' -and $env:TTS_PROVIDER -ne 'piper') {
+        Write-Host "[OK] Mode OpenRouter Voix actif (Modele: $env:OPENROUTER_TTS_MODEL, Voix: $env:OPENROUTER_TTS_VOICE, Fallback: Piper local)" -ForegroundColor Green
+    } else {
+        Write-Host "[OK] Mode Voix locale actif (Piper TTS)" -ForegroundColor Green
+    }
+} elseif ($env:GCP_PROJECT_ID -and $env:GCP_ACCESS_TOKEN) {
     Write-Host "[OK] Mode Credits GCP / BigQuery actif (Projet: $env:GCP_PROJECT_ID)" -ForegroundColor Green
 } elseif ($env:GEMINI_API_KEY) {
     Write-Host "[OK] Mode Cle API Gemini directe actif (Modele: $env:GEMINI_MODEL)" -ForegroundColor Green
@@ -112,10 +119,26 @@ try {
         Write-Host "[...] Attente de 3 secondes le temps que les services s'initialisent..." -ForegroundColor Yellow
         Start-Sleep -Seconds 3
 
+        $llmBanner = if ($env:OPENROUTER_API_KEY -and ($env:LLM_PROVIDER -eq 'openrouter' -or -not $env:LLM_PROVIDER)) {
+            "OpenRouter: $env:OPENROUTER_MODEL"
+        } elseif ($env:GCP_PROJECT_ID -and $env:GCP_ACCESS_TOKEN) {
+            "GCP BigQuery ($env:GCP_PROJECT_ID)"
+        } elseif ($env:GEMINI_API_KEY) {
+            "Gemini: $env:GEMINI_MODEL"
+        } else {
+            "Local Demo"
+        }
+
+        $ttsBanner = if ($env:OPENROUTER_API_KEY -and $env:TTS_PROVIDER -ne 'local' -and $env:TTS_PROVIDER -ne 'piper') {
+            "OpenRouter TTS ($env:OPENROUTER_TTS_MODEL) + Fallback Piper"
+        } else {
+            "Piper TTS local"
+        }
+
         Write-Host "[OK] Tous les services ILLIMMI tournent en mode natif :" -ForegroundColor Green
-        Write-Host "     - generation-orchestrator : http://localhost:8080 ($env:GEMINI_MODEL)" -ForegroundColor Green
+        Write-Host "     - generation-orchestrator : http://localhost:8080 ($llmBanner)" -ForegroundColor Green
         Write-Host "     - user-service            : http://localhost:8081" -ForegroundColor Green
-        Write-Host "     - audio-service           : http://localhost:8082" -ForegroundColor Green
+        Write-Host "     - audio-service           : http://localhost:8082 ($ttsBanner)" -ForegroundColor Green
         Write-Host "     - board-render-service    : http://localhost:5001" -ForegroundColor Green
         Write-Host ""
         Write-Host "[UI] Pour lancer l'application Flutter UI :" -ForegroundColor Green

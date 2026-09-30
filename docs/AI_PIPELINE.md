@@ -46,16 +46,19 @@ La génération d'un cours ILLIMMI s'effectue en 3 étapes successives orchestr�
 - **IA** : `GeminiClient` génère le texte brut intégral parlé par le professeur (sans balises ni titres).
 - **Service Audio** : Le texte est envoyé à `audio-service` (`POST /narrate`), qui :
   1. Génère la voix off via Piper TTS (`fr_FR-siwis-medium.onnx`).
-  2. Calcule les timestamps exacts de chaque mot (`WordTimestamp`).
-- **Sortie** : `TranscriptResult` (transcript horodaté + fichier audio `.wav`).
+  2. Aligne les timestamps acoustiques de Whisper sur le texte officiel de narration (`NarrationSttAligner`), en utilisant `narration.txt` comme source de vérité textuelle et Whisper comme source temporelle.
+  3. Produit la chronologie compacte `<base>_words.txt` (`<start>mot<end>`), réduisant l'empreinte de plus de 90% par rapport aux exports JSON.
+- **Sortie** : `TranscriptResult` (transcript horodaté, fichier audio `.wav`, et `compactTimeline`).
+- **Documentation détaillée** : voir [AUDIO_ALIGNMENT_TIMELINE.md](file:///c:/Users/pc%20elqods/Desktop/ILLIMMI-PROJECT/docs/AUDIO_ALIGNMENT_TIMELINE.md).
 
 ---
 
 ### Layer 3 : Génération Visuelle Hypercourse (`Layer3VisualGenerator`)
-- **Entrée** : `TranscriptResult` + `CourseMetadata`.
+- **Entrée** : `TranscriptResult` (avec `compactTimeline` mot-à-mot injectée directement sans regroupement arbitraire) + `CourseMetadata`.
 - **IA** : `GeminiClient` génère les instructions déclaratives Hypercourse (`text`, `draw`, `mouse`, `erase`).
+- **Synchronisation fine** : Le LLM dispose des timestamps précis mot-à-mot (`<3.160>construire<3.600>`) pour caler les animations visuelles exactement à la seconde où chaque notion est prononcée.
 - **Règles imposées au modèle** :
-  - Déclenchement visuel 0.2s à 0.5s après la parole.
+  - Déclenchement visuel synchronisé (±1s de la parole).
   - Respect strict de la plage des IDs par famille (`idgap`).
   - Positionnement dans le repère 16:9 (`x ∈ [0, 177.78], y ∈ [0, 100]`).
   - Insertion de commandes `erase` entre les grandes sections du cours.

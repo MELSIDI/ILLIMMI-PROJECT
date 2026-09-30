@@ -29,6 +29,7 @@ class Layer2AudioGenerator {
       duration: narration.duration,
       audioFile: narration.audioUrl,
       language: metadata.langue,
+      compactTimeline: narration.compactTimeline,
     );
   }
 

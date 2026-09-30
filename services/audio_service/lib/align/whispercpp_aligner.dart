@@ -6,6 +6,11 @@ import 'package:path/path.dart' as p;
 import '../models.dart';
 import 'word_aligner.dart';
 
+import 'compact_timeline.dart';
+import 'narration_parser.dart';
+import 'narration_stt_aligner.dart';
+import 'stt_parser.dart';
+
 /// Alignement mot-par-mot local via `whisper.cpp` (CLI), en subprocess.
 ///
 /// Contrairement à [LocalSherpaAligner] (l'export ONNX officiel
@@ -21,6 +26,11 @@ class WhisperCppAligner implements WordAligner {
   late final String modelPath;
   late final String ffmpegPath;
 
+  final NarrationParser _narrationParser = NarrationParser();
+  final SttParser _sttParser = SttParser();
+  final NarrationSttAligner _narrationAligner = NarrationSttAligner();
+  final CompactTimelineWriter _timelineWriter = const CompactTimelineWriter();
+
   WhisperCppAligner() {
     final root = Directory.current.path;
     final env = Platform.environment;
@@ -35,7 +45,11 @@ class WhisperCppAligner implements WordAligner {
   }
 
   @override
-  Future<List<WordTimestamp>> align({required String wavPath}) async {
+  Future<List<WordTimestamp>> align({
+    required String wavPath,
+    String? narrationText,
+    String? narrationPath,
+  }) async {
     final wav16k = '${p.withoutExtension(wavPath)}_16k.wav';
     final ffmpegResult = await Process.run(ffmpegPath, [
       '-y',
@@ -66,7 +80,56 @@ class WhisperCppAligner implements WordAligner {
         jsonDecode(await File('$outBase.json').readAsString())
             as Map<String, dynamic>;
     final tokens = (data['transcription'] as List).cast<Map<String, dynamic>>();
-    return _mergeTokensIntoWords(tokens);
+
+    // 1. Résolution de la narration (source de vérité textuelle)
+    var resolvedNarration = narrationText;
+    if (resolvedNarration == null || resolvedNarration.trim().isEmpty) {
+      if (narrationPath != null && await File(narrationPath).exists()) {
+        resolvedNarration = await File(narrationPath).readAsString();
+      } else {
+        final dir = p.dirname(wavPath);
+        final defaultNarration = File(p.join(dir, 'narration.txt'));
+        final siblingTxt = File('${p.withoutExtension(wavPath)}.txt');
+        if (await defaultNarration.exists()) {
+          resolvedNarration = await defaultNarration.readAsString();
+        } else if (await siblingTxt.exists()) {
+          resolvedNarration = await siblingTxt.readAsString();
+        }
+      }
+    }
+
+    List<WordTimestamp> resultWords;
+
+    if (resolvedNarration != null && resolvedNarration.trim().isNotEmpty) {
+      // 2. Alignement structuré : Narration (texte) ↔ Whisper (temps)
+      final narrationWords = _narrationParser.parse(resolvedNarration);
+      final sttTokens = _sttParser.parseTokens(tokens);
+      resultWords = _narrationAligner.align(
+        narrationWords: narrationWords,
+        sttTokens: sttTokens,
+      );
+    } else {
+      // Fallback si aucune narration n'est fournie
+      resultWords = _mergeTokensIntoWords(tokens);
+    }
+
+    // 3. Sauvegarde de la timeline compacte
+    final compactFile = File('$outBase.txt');
+    await _timelineWriter.writeToFile(compactFile, resultWords);
+
+    // Si on est dans le dossier vecteurs, assure la présence de vecteur_words.txt et vecteurs_words.txt
+    if (p.basenameWithoutExtension(wavPath).toLowerCase().contains('vecteur')) {
+      final altFile = File(p.join(p.dirname(wavPath), 'vecteur_words.txt'));
+      if (altFile.path != compactFile.path) {
+        await _timelineWriter.writeToFile(altFile, resultWords);
+      }
+      final altFilePlural = File(p.join(p.dirname(wavPath), 'vecteurs_words.txt'));
+      if (altFilePlural.path != compactFile.path) {
+        await _timelineWriter.writeToFile(altFilePlural, resultWords);
+      }
+    }
+
+    return resultWords;
   }
 
   /// whisper.cpp découpe en tokens de sous-mots : un token qui commence par

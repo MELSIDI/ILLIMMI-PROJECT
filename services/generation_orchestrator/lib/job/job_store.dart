@@ -14,6 +14,7 @@ import '../pipeline/layer2_audio.dart';
 import '../pipeline/layer3_visual_verifier.dart';
 import '../pipeline/layer3_visuals.dart';
 import '../pipeline/llm_client.dart';
+import '../pipeline/openrouter_client.dart';
 import '../models/course.dart';
 import 'generation_job.dart';
 
@@ -32,6 +33,13 @@ class JobStore {
   final UserServiceClient _userServiceClient;
 
   static LlmClient _resolveDefaultClient() {
+    final provider = Platform.environment['LLM_PROVIDER']?.toLowerCase();
+    final hasOpenRouter = (Platform.environment['OPENROUTER_API_KEY'] ?? '').isNotEmpty;
+
+    if (provider == 'openrouter' || (hasOpenRouter && provider != 'gemini' && provider != 'gcp')) {
+      return OpenRouterClient();
+    }
+
     final hasGcp = Platform.environment.containsKey('GCP_PROJECT_ID') ||
         Platform.environment.containsKey('BIGQUERY_PROJECT_ID');
     return hasGcp ? GcpVertexGeminiClient() : GeminiClient();
