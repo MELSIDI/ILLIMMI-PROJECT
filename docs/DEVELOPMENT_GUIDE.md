@@ -10,8 +10,10 @@
 | :--- | :--- |
 | **OS** | Windows 10/11 (Recommandé pour `audio-service` natif) ou Linux/macOS |
 | **SDK Dart / Flutter** | Flutter 3.x / Dart 3.x |
-| **Docker** | Docker Desktop & Docker Compose v2+ |
-| **Clé API IA** | `GEMINI_API_KEY` (Google Generative Language API) |
+| **FFmpeg** | `ffmpeg` dans le PATH (requis pour la conversion audio Whisper) |
+| **TTS & Whisper Locaux** | Piper TTS + whisper.cpp (voir [Guide d'installation locale](LOCAL_AUDIO_SETUP.md)) |
+| **Docker** | Docker Desktop & Docker Compose v2+ (optionnel si lancement en local) |
+| **Clé API IA** | `GEMINI_API_KEY` ou `OPENROUTER_API_KEY` |
 
 ---
 
@@ -41,9 +43,12 @@ BOARD_RENDER_SERVICE_URL="http://localhost:5001"
 
 ## 3. Procédure de Démarrage pas à pas
 
-En raison de la présence du binaire natif Windows Piper TTS (`audio-service`), la stack s'exécute en combinant des services natifs et des conteneurs Docker.
+En raison de la présence du binaire natif Windows Piper TTS (`audio-service`), la stack s'exécute en combinant des services natifs et des conteneurs Docker (ou via le script d'automatisation `.\start.ps1`).
 
 ### Étape 1 : Démarrer `audio-service` (Process Natif)
+
+> 💡 **Prérequis Audio :** Assurez-vous d'avoir téléchargé les binaires et modèles locaux Piper et Whisper en suivant le **[Guide d'installation locale de Piper & Whisper](LOCAL_AUDIO_SETUP.md)**.
+
 ```powershell
 cd services/audio-service
 dart pub get
