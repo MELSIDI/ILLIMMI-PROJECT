@@ -1,0 +1,58 @@
+{
+  "subject": "Physique-Chimie",
+  "level": "Terminale Spécialité",
+  "duration_target": 130,
+  "concepts_cles": [
+    "deuxième loi de Newton",
+    "bilan des forces extérieures",
+    "vecteur accélération",
+    "chute libre",
+    "équations horaires"
+  ],
+  "ton": "scientifique, dynamique et visuel",
+  "langue": "français",
+  "plan_pedagogique": [
+    {
+      "section": "accroche",
+      "objectif": "Poser le problème de la trajectoire d'une balle de tennis en plein vol.",
+      "contenu_attendu": "Pourquoi un projectile suit-il toujours une parabole ? Le lien fondamental entre forces subies et accélération.",
+      "support_visuel_suggere": "draw 2drep"
+    },
+    {
+      "section": "prerequis",
+      "objectif": "Définir le système, le référentiel galiléen et le repère cartésien d'étude.",
+      "contenu_attendu": "Système = projectile de masse m. Référentiel = terrestre supposé galiléen. Repère (O, i, j).",
+      "support_visuel_suggere": "draw arrow"
+    },
+    {
+      "section": "exemple_concret",
+      "objectif": "Faire le bilan des forces extérieures (poids uniquement en chute libre sans frottement).",
+      "contenu_attendu": "Vecteur Poids P = m * g vertical vers le bas. Projection des coordonnées sur Ox et Oy.",
+      "support_visuel_suggere": "draw polygone"
+    },
+    {
+      "section": "definition_formelle",
+      "objectif": "Énoncer la 2ème loi de Newton : somme des forces = m * a.",
+      "contenu_attendu": "P = m * a_G, d'où m * g = m * a_G, et simplification fondamentale : a_G = g, indépendant de la masse !",
+      "support_visuel_suggere": "text"
+    },
+    {
+      "section": "decomposition",
+      "objectif": "Intégrer les équations horaires pour obtenir la vitesse et la position parabolique.",
+      "contenu_attendu": "a_x = 0 -> v_x = v_0 * cos(alpha) -> x(t) = v_0 * cos(alpha) * t. a_y = -g -> y(t) = -0.5 * g * t^2 + v_0 * sin(alpha) * t.",
+      "support_visuel_suggere": "draw curve"
+    },
+    {
+      "section": "erreur_frequente",
+      "objectif": "Démentir l'idée fausse qu'un corps plus lourd tombe plus vite dans le vide.",
+      "contenu_attendu": "La masse s'élimine de chaque côté de l'égalité : l'accélération ne dépend aucunement de la masse du solide.",
+      "support_visuel_suggere": "draw polygone"
+    },
+    {
+      "section": "synthese",
+      "objectif": "Mémoriser la méthodologie universelle de résolution en mécanique de Newton.",
+      "contenu_attendu": "1. Système & Référentiel, 2. Bilan des forces, 3. Deuxième loi de Newton, 4. Projections et intégrations.",
+      "support_visuel_suggere": "draw arrow"
+    }
+  ]
+}

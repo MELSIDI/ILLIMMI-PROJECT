@@ -1,0 +1,100 @@
+{
+  "completed_ids": {
+    "MATH_006": {
+      "video_id": "c-akR4NJhh0",
+      "words": 1667
+    },
+    "MATH_007": {
+      "video_id": "mvJy4LVCmRI",
+      "words": 3084
+    },
+    "MATH_008": {
+      "video_id": "mvJy4LVCmRI",
+      "words": 3084
+    },
+    "MATH_009": {
+      "video_id": "mvJy4LVCmRI",
+      "words": 3084
+    },
+    "MATH_010": {
+      "video_id": "8b-0LrjhA6s",
+      "words": 1123
+    },
+    "MATH_012": {
+      "video_id": "c-akR4NJhh0",
+      "words": 1667
+    },
+    "MATH_011": {
+      "video_id": "hzINDVy0dgg",
+      "words": 545
+    },
+    "MATH_013": {
+      "video_id": "mvJy4LVCmRI",
+      "words": 3084
+    },
+    "MATH_014": {
+      "video_id": "mvJy4LVCmRI",
+      "words": 3084
+    },
+    "MATH_015": {
+      "video_id": "5-rUuceEgAE",
+      "words": 2894
+    },
+    "LANG_FR_003": {
+      "video_id": "pGQ1nFbzfmY",
+      "words": 940
+    },
+    "LANG_FR_005": {
+      "video_id": "LK8e1Sr05yA",
+      "words": 1058
+    },
+    "LANG_FR_001": {
+      "video_id": "pGQ1nFbzfmY",
+      "words": 940
+    },
+    "LANG_FR_002": {
+      "video_id": "pGQ1nFbzfmY",
+      "words": 940
+    },
+    "LANG_FR_006": {
+      "video_id": "pGQ1nFbzfmY",
+      "words": 940
+    },
+    "LANG_FR_004": {
+      "video_id": "pGQ1nFbzfmY",
+      "words": 940
+    },
+    "LANG_FR_007": {
+      "video_id": "pGQ1nFbzfmY",
+      "words": 940
+    },
+    "LANG_EN_002": {
+      "video_id": "TVVn9MddtmM",
+      "words": 1668
+    },
+    "LANG_EN_001": {
+      "video_id": "7NGLHYVmr00",
+      "words": 1741
+    },
+    "LANG_EN_004": {
+      "video_id": "TVVn9MddtmM",
+      "words": 1668
+    },
+    "LANG_EN_003": {
+      "video_id": "XySNOXSiBMo",
+      "words": 1111
+    },
+    "LANG_EN_005": {
+      "video_id": "7NGLHYVmr00",
+      "words": 1741
+    }
+  },
+  "failed_ids": {
+    "LANG_FR_002": "[LANG_FR_002] Aucune vidéo trouvée pour 'Medusaces bac francais Les propositions subordonnées relatives et complétives conjonctive complétive'",
+    "LANG_FR_001": "[LANG_FR_001] Aucun sous-titre disponible parmi les 5 premières vidéos",
+    "LANG_FR_004": "[LANG_FR_004] Aucune vidéo trouvée pour 'Medusaces bac francais Les propositions subordonnées relatives et complétives mode indicatif/subjonctif'",
+    "LANG_FR_005": "[LANG_FR_005] Aucun sous-titre disponible parmi les 5 premières vidéos",
+    "LANG_FR_006": "[LANG_FR_006] Aucune vidéo trouvée pour 'Medusaces bac francais Les propositions subordonnées relatives et complétives conjonctive complétive'",
+    "MATH_016": "[MATH_016] Aucun sous-titre disponible parmi les 5 premières vidéos"
+  }
+}

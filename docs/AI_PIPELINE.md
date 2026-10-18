@@ -1,60 +1,54 @@
 # Pipeline IA & Feedback Visuel Multimodal (World Model)
 
-> **Documentation complète du pipeline de génération IA à 3 couches et du système de feedback visuel pré-erase basés sur Google Gemini.**
+> **Documentation complète du pipeline de génération IA à 2 couches et du système de feedback visuel pré-erase basés sur Google Gemini.**
 
 ---
 
-## 1. Vue d'ensemble du Pipeline 3-Layers
+## 1. Vue d'ensemble du Pipeline 2-Layers
 
-La génération d'un cours ILLIMMI s'effectue en 3 étapes successives orchestrées par `services/generation-orchestrator` :
+La génération d'un cours ILLIMMI s'effectue en 2 étapes successives orchestrées par `services/generation-orchestrator` :
 
 ```
-[Prompt Utilisateur]
-        │
-        ▼
-   ┌─────────┐
-   │ Layer 1 │ ──► Métadonnées Pédagogiques (Sujet, Niveau, Langue, Concepts)
-   └─────────┘
-        │
-        ▼
-   ┌─────────┐
-   │ Layer 2 │ ──► Narration Audio (Piper TTS) + Timestamps mots (Whisper/Aligner)
-   └─────────┘
-        │
-        ▼
-   ┌─────────┐
-   │ Layer 3 │ ──► Script Hypercourse (.hc) + Boucle d'Auto-Correction Visuelle (Gemini Multimodal)
-   └─────────┘
-        │
-        ▼
- [Cours (.hc + .wav) Validé & Prêt]
+[Prompt Utilisateur (ex: "explique la dérivée", niveau optionnel)]
+                               │
+                               ▼
+        ┌──────────────────────────────────────────────┐
+        │ Layer 1 : Voix & Narration Orale             │
+        │ • Rédige le discours oral complet du prof    │
+        │ • Liberté pédagogique & durée totale         │
+        │ • Voix Piper TTS + Timestamps Whisper        │
+        └──────────────────────────────────────────────┘
+                               │
+                               ▼
+        ┌──────────────────────────────────────────────┐
+        │ Layer 2 : Tableau Blanc Hypercourse (.hc)    │
+        │ • Reçoit la timeline compacte mot-à-mot      │
+        │ • Commandes vectorielles synchronisées       │
+        │ • Boucle d'auto-correction visuelle          │
+        └──────────────────────────────────────────────┘
+                               │
+                               ▼
+              [Cours (.hc + .wav) Validé & Prêt]
 ```
 
 ---
 
 ## 2. Détaillé des Couches (Layers)
 
-### Layer 1 : Planification Pédagogique (`Layer1Planner`)
-- **Entrée** : Prompt de l'utilisateur (ex: *"Explique-moi les matrices"*).
-- **IA** : `GeminiClient` (`gemini-2.5-flash`).
-- **Sortie** : `CourseMetadata` au format JSON contraint (sujet, niveau estimé, durée cible 60-180s, concepts clés, ton, langue).
-
----
-
-### Layer 2 : Narration Audio & Alignement Mot-à-Mot (`Layer2AudioGenerator`)
-- **Entrée** : `CourseMetadata`.
-- **IA** : `GeminiClient` génère le texte brut intégral parlé par le professeur (sans balises ni titres).
+### Layer 1 : Narration Audio & Alignement Mot-à-Mot (`Layer1AudioGenerator`)
+- **Entrée** : Prompt utilisateur brut, niveau scolaire optionnel, langue.
+- **IA** : `GeminiClient` génère le texte brut intégral parlé par le professeur (sans balises, avec phonétique mathématique pour le TTS).
 - **Service Audio** : Le texte est envoyé à `audio-service` (`POST /narrate`), qui :
   1. Génère la voix off via Piper TTS (`fr_FR-siwis-medium.onnx`).
-  2. Aligne les timestamps acoustiques de Whisper sur le texte officiel de narration (`NarrationSttAligner`), en utilisant `narration.txt` comme source de vérité textuelle et Whisper comme source temporelle.
-  3. Produit la chronologie compacte `<base>_words.txt` (`<start>mot<end>`), réduisant l'empreinte de plus de 90% par rapport aux exports JSON.
+  2. Aligne les timestamps acoustiques de Whisper sur le texte officiel de narration (`NarrationSttAligner`).
+  3. Produit la chronologie compacte `<base>_words.txt` (`<start>mot<end>`).
 - **Sortie** : `TranscriptResult` (transcript horodaté, fichier audio `.wav`, et `compactTimeline`).
 - **Documentation détaillée** : voir [AUDIO_ALIGNMENT_TIMELINE.md](file:///c:/Users/pc%20elqods/Desktop/ILLIMMI-PROJECT/docs/AUDIO_ALIGNMENT_TIMELINE.md).
 
 ---
 
-### Layer 3 : Génération Visuelle Hypercourse (`Layer3VisualGenerator`)
-- **Entrée** : `TranscriptResult` (avec `compactTimeline` mot-à-mot injectée directement sans regroupement arbitraire) + `CourseMetadata`.
+### Layer 2 : Génération Visuelle Hypercourse (`Layer2VisualGenerator`)
+- **Entrée** : `TranscriptResult` (avec `compactTimeline` mot-à-mot injectée directement sans regroupement arbitraire).
 - **IA** : `GeminiClient` génère les instructions déclaratives Hypercourse (`text`, `draw`, `mouse`, `erase`).
 - **Synchronisation fine** : Le LLM dispose des timestamps précis mot-à-mot (`<3.160>construire<3.600>`) pour caler les animations visuelles exactement à la seconde où chaque notion est prononcée.
 - **Règles imposées au modèle** :
@@ -90,9 +84,9 @@ Scène 1 (0s - 15s)          Erase 401 (15s)       Scène 2 (15s - 40s)         
 ### Règle d'Immutabilité & Persistance
 Si un élément survit à un effacement (non ciblé par `erase`), il passe du statut **Mutable** (nouvel élément à vérifier/corriger) au statut **Immutable** (déjà validé lors d'une scène précédente). 
 
-Dans le prompt adressé à Gemini :
-- **Éléments mutables** : Gemini peut modifier leurs coordonnées `(x, y)` pour corriger un chevauchement ou un mauvais pointage.
-- **Éléments immutables** : Gemini a l'interdiction stricte d'altérer leur position afin de garantir la cohérence spatiale tout au long de la leçon.
+Dans le prompt adressé au modèle multimodal (World Model Feedback) :
+- **Éléments mutables (Liberté totale hors timing start)** : L'IA a le droit de modifier **absolument tous les paramètres** de l'élément pour résoudre tout défaut visuel (coordonnées `at (x, y)`, sommets `[(x, y), ...]`, durée `for`, épaisseur de trait `width`, rayon, couleurs `color` / `fillcolor`, balises de police/style `[bold]`, `[color=...]`, notation KaTeX `$$...$$` et retours à la ligne) **à l'exception stricte du timestamp `start`** qui demeure intangible pour garantir la parfaite synchronisation acoustique mot-à-mot avec la voix du cours.
+- **Éléments immutables** : L'IA préserve leur ancrage spatial et leurs attributs afin de garantir la cohérence continue de la démonstration au fil des scènes.
 
 ---
 

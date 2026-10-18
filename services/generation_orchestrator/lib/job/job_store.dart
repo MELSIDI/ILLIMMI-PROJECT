@@ -9,27 +9,25 @@ import '../pipeline/claude_client.dart';
 import '../pipeline/course_assembler.dart';
 import '../pipeline/gcp_vertex_gemini_client.dart';
 import '../pipeline/gemini_client.dart';
-import '../pipeline/layer1_planner.dart';
-import '../pipeline/layer2_audio.dart';
-import '../pipeline/layer3_visual_verifier.dart';
-import '../pipeline/layer3_visuals.dart';
+import '../pipeline/layer1_audio.dart';
+import '../pipeline/layer2_visual_verifier.dart';
+import '../pipeline/layer2_visuals.dart';
 import '../pipeline/llm_client.dart';
 import '../pipeline/openrouter_client.dart';
 import '../models/course.dart';
 import 'generation_job.dart';
 
 /// Registre en mémoire des jobs de génération + boucle d'orchestration
-/// Layer1 → Layer2 → Layer3 → assemblage → validation.
+/// pure 2-Couches : Layer 1 (Audio / Voix) → Layer 2 (Visuals / Tableau) → validation.
 class JobStore {
   static const int _maxAttempts = 3;
 
   final Map<String, GenerationJob> _jobs = {};
   int _nextId = 1;
 
-  final Layer1Planner _layer1;
-  final Layer2AudioGenerator _layer2;
-  final Layer3VisualGenerator _layer3;
-  final Layer3VisualVerifier _visualVerifier;
+  final Layer1AudioGenerator _layer1;
+  final Layer2VisualGenerator _layer2;
+  final Layer2VisualVerifier _visualVerifier;
   final UserServiceClient _userServiceClient;
 
   static LlmClient _resolveDefaultClient() {
@@ -51,13 +49,14 @@ class JobStore {
     AudioServiceClient? audioServiceClient,
     UserServiceClient? userServiceClient,
     BoardRenderServiceClient? boardRenderServiceClient,
-  })  : _layer1 = Layer1Planner(client: llmClient ?? claudeClient ?? _resolveDefaultClient()),
-        _layer2 = Layer2AudioGenerator(
+  })  : _layer1 = Layer1AudioGenerator(
           client: llmClient ?? claudeClient ?? _resolveDefaultClient(),
           audioClient: audioServiceClient,
         ),
-        _layer3 = Layer3VisualGenerator(client: llmClient ?? claudeClient ?? _resolveDefaultClient()),
-        _visualVerifier = Layer3VisualVerifier(
+        _layer2 = Layer2VisualGenerator(
+          client: llmClient ?? claudeClient ?? _resolveDefaultClient(),
+        ),
+        _visualVerifier = Layer2VisualVerifier(
           client: llmClient ?? claudeClient ?? _resolveDefaultClient(),
           renderClient: boardRenderServiceClient,
         ),
@@ -68,29 +67,40 @@ class JobStore {
   /// [userId]/[authToken] sont renseignés uniquement si `courses_routes.dart`
   /// a pu vérifier un token Bearer valide — sinon le job tourne en mode
   /// invité exactement comme avant (pas de persistance d'historique).
-  String startJob(String prompt, {String? userId, String? authToken}) {
+  String startJob(
+    String prompt, {
+    String? level,
+    String? language,
+    String? userId,
+    String? authToken,
+  }) {
     final job = GenerationJob(
       id: 'job_${_nextId++}',
-      message: 'Planification du cours...',
+      message: 'Génération de la narration et de l\'audio...',
       userId: userId,
       authToken: authToken,
     );
     _jobs[job.id] = job;
     // Fire-and-forget : le job avance en tâche de fond, le statut est
     // consultable via GET /courses/<jobId>/status.
-    _run(job, prompt);
+    _run(job, prompt, level: level, language: language);
     return job.id;
   }
 
-  Future<void> _run(GenerationJob job, String prompt) async {
+  Future<void> _run(
+    GenerationJob job,
+    String prompt, {
+    String? level,
+    String? language,
+  }) async {
     try {
-      job.status = 'planning';
-      job.message = 'Planification du cours...';
-      final metadata = await _layer1.plan(prompt);
-
       job.status = 'narrating';
       job.message = 'Génération de la narration et de l\'audio...';
-      final transcript = await _layer2.generate(metadata);
+      final transcript = await _layer1.generate(
+        prompt,
+        level: level,
+        language: language ?? 'français',
+      );
 
       String? previousAttempt;
       String? previousError;
@@ -106,20 +116,21 @@ class JobStore {
         final courseId = _calculateCourseId(job.userId, job.id);
 
         if (currentVisualsText == null) {
-          final layer3Result = await _layer3.generate(
+          final layer2Result = await _layer2.generate(
             transcript,
-            metadata,
+            subject: prompt,
+            level: level,
             previousAttempt: previousAttempt,
             previousError: previousError,
           );
-          currentVisualsText = layer3Result.visualsText;
-          currentIdGap = layer3Result.idGap;
+          currentVisualsText = layer2Result.visualsText;
+          currentIdGap = layer2Result.idGap;
         }
 
         var script = assembleCourseScript(
           courseId: courseId,
           idGap: currentIdGap,
-          metadata: metadata,
+          subject: prompt,
           transcript: transcript,
           visualsText: currentVisualsText!,
         );
@@ -139,11 +150,12 @@ class JobStore {
             job.message =
                 'Correction de la syntaxe DSL (tentative $syntaxAttempt/$maxSyntaxRetries)...';
 
-            final correctedResult = await _layer3.correctSyntax(
+            final correctedResult = await _layer2.correctSyntax(
               brokenScript: script,
               syntaxError: syntaxError.toString(),
               transcript: transcript,
-              metadata: metadata,
+              subject: prompt,
+              level: level,
             );
 
             currentVisualsText = correctedResult.visualsText;
@@ -151,7 +163,7 @@ class JobStore {
             script = assembleCourseScript(
               courseId: courseId,
               idGap: currentIdGap,
-              metadata: metadata,
+              subject: prompt,
               transcript: transcript,
               visualsText: currentVisualsText,
             );
@@ -181,7 +193,7 @@ class JobStore {
           job.duration = transcript.duration;
 
           if (job.userId != null && job.authToken != null) {
-            unawaited(_persistHistory(job, prompt, metadata.subject));
+            unawaited(_persistHistory(job, prompt, transcript.subject));
           }
           return;
         } catch (e) {

@@ -1,0 +1,52 @@
+{
+  "subject": "Mathématiques",
+  "level": "Terminale Spécialité",
+  "duration_target": 140,
+  "concepts_cles": [
+    "suite arithmético-géométrique",
+    "raisonnement par récurrence",
+    "suite auxiliaire géométrique",
+    "terme général un",
+    "limite de suite"
+  ],
+  "ton": "méthodique, encourageant et structuré",
+  "langue": "français",
+  "plan_pedagogique": [
+    {
+      "section": "accroche",
+      "objectif": "Présenter l'exercice type Bac sur une suite récurrente u_{n+1} = a*u_n + b.",
+      "contenu_attendu": "Énoncé : soit la suite définie par u_0 = 1 et u_{n+1} = 0.5 * u_n + 3. Conjecturer la limite et définir la stratégie.",
+      "support_visuel_suggere": "text"
+    },
+    {
+      "section": "prerequis",
+      "objectif": "Rappeler le principe de la suite auxiliaire géométrique v_n = u_n - alpha.",
+      "contenu_attendu": "Point fixe alpha tel que alpha = 0.5 * alpha + 3, d'où alpha = 6.",
+      "support_visuel_suggere": "draw line"
+    },
+    {
+      "section": "decomposition",
+      "objectif": "Démontrer que v_n est géométrique et exprimer v_n puis u_n en fonction de n.",
+      "contenu_attendu": "v_{n+1} = u_{n+1} - 6 = 0.5*(u_n - 6) = 0.5*v_n. v_0 = 1 - 6 = -5. Terme général : u_n = 6 - 5 * (0.5)^n.",
+      "support_visuel_suggere": "text"
+    },
+    {
+      "section": "exemple_concret",
+      "objectif": "Calculer la limite de la suite lorsque n tend vers l'infini.",
+      "contenu_attendu": "Comme -1 < 0.5 < 1, lim (0.5)^n = 0. Par somme et produit, lim u_n = 6.",
+      "support_visuel_suggere": "draw 2drep"
+    },
+    {
+      "section": "erreur_frequente",
+      "objectif": "Avertir sur l'oubli de justifier que la raison q est strictement comprise entre -1 et 1.",
+      "contenu_attendu": "Tout correcteur au Bac enlève des points si la condition |q| < 1 n'est pas explicitement écrite.",
+      "support_visuel_suggere": "draw polygone"
+    },
+    {
+      "section": "synthese",
+      "objectif": "Récapituler l'algorithme universel de résolution en 4 étapes pour les épreuves du Bac.",
+      "contenu_attendu": "1. Point fixe, 2. Suite auxiliaire géométrique, 3. Expression de u_n, 4. Limite finale.",
+      "support_visuel_suggere": "draw arrow"
+    }
+  ]
+}

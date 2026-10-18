@@ -101,9 +101,18 @@ class HypercourseParser {
               '✅ Commande parsée: ${element.runtimeType} id=${element.id} start=${element.startTime}s end=${element.endTime}s content=${element is TextElement ? element.content : 'N/A'}',
             );
             if (element is EraseElement) {
-              for (int targetId in element.idsToErase) {
-                elements[targetId]?.endTime = element
-                    .startTime; // On ferme la fenêtre de vie de l'élément ciblé
+              if (element.idsToErase.isEmpty) {
+                // Effacement global du tableau : tous les éléments visuels précédents se terminent ici
+                for (final prev in elements.values) {
+                  if (prev is! EraseElement && prev.startTime <= element.startTime && prev.endTime > element.startTime) {
+                    prev.endTime = element.startTime;
+                  }
+                }
+              } else {
+                for (int targetId in element.idsToErase) {
+                  elements[targetId]?.endTime = element
+                      .startTime; // On ferme la fenêtre de vie de l'élément ciblé
+                }
               }
             }
             if (element.startTime + element.duration > Maxduration) {

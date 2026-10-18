@@ -1,0 +1,27 @@
+Bonjour à tous et bienvenue dans ce cours de chimie de Terminale Spécialité !
+Aujourd'hui, nous allons maîtriser la méthode incontournable du titrage acido-basique avec suivi pH-métrique et la détermination précise du volume équivalent par la méthode des tangentes.
+
+Imagine que tu travailles dans un laboratoire de contrôle qualité : comment s'assurer que le vinaigre ou le médicament contient exactement la dose d'acide indiquée sur l'étiquette ? On réalise un titrage !
+
+Visualisons le dispositif expérimental. 
+Dans la burette graduée au-dessus, nous plaçons la solution titrante de soude dont la concentration est parfaitement connue. 
+Dans le bécher en dessous, nous versons un volume précis de notre acide inconnu, et nous plongeons l'électrode du pH-mètre. 
+La réaction chimique doit remplir trois critères impératifs : elle doit être totale, rapide et unique.
+
+Qu'appelle-t-on l'équivalence ? 
+C'est le moment précis où les réactifs titré et titrant ont été mélangés dans les proportions stœchiométriques. 
+À cet instant magique, il n'y a plus aucun réactif limitant : tout a réagi ! 
+La quantité de matière d'acide initiale est égale à la quantité de soude versée, c'est-à-dire c acide fois v acide égal c base fois v équivalent.
+
+Regarde maintenant la courbe pH en fonction du volume versé qui s'affiche sur le repère. 
+Elle a une forme caractéristique en S avec une brusque élévation verticale : c'est le saut de pH ! 
+Pour trouver le point d'équivalence avec une précision chirurgicale, utilisons la méthode géométrique des tangentes.
+Traçons une première tangente T1 en vert au point d'inflexion juste avant le saut.
+Traçons une seconde tangente T2 en vert, strictement parallèle à la première, juste après le saut.
+Traçons ensuite la droite perpendiculaire commune, puis la droite médiane équidistante située exactement à mi-chemin entre nos deux tangentes.
+Le point d'intersection de cette droite médiane avec la courbe de titrage nous donne le point équivalent E !
+En projetant E sur l'axe horizontal, nous lisons directement le volume équivalent v E sur la burette graduée.
+
+Attention au piège fréquent en TP et aux épreuves écrites : ne confonds pas le volume d'acide v A prélevé dans le bécher et le volume v E coulé depuis la burette.
+Il ne te reste plus qu'à appliquer la formule finale : c acide égale c base fois v équivalent, le tout divisé par v acide.
+Retiens bien cette construction géométrique et à très bientôt sur ILLIMMI !

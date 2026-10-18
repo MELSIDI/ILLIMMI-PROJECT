@@ -1,0 +1,66 @@
+{
+  "course_id": "MATH_002",
+  "title": "Méthode pas à pas : Comment résoudre un problème de Intervalles et encadrements de réels",
+  "domain": "Nombres & Calculs",
+  "level": "Seconde",
+  "pedagogical_type": "methode_resolution",
+  "total_duration_seconds": 113.1,
+  "target_audience": "Lycée - Seconde",
+  "sections": [
+    {
+      "section_id": "sec_1",
+      "title": "1. Accroche & Problématique Concrète",
+      "start_time": 0.0,
+      "end_time": 22.6,
+      "summary": "[Musique] bonjour dans cette vidéo tu vas apprendre à déterminer l'intersection de deux intervalles alors on nous demande ici de déterminer l'intersection des i...",
+      "support_visuel_suggere": "text_and_diagram",
+      "concepts_cles": [
+        "Méthode pas à pas : Comment résoudre un problème de Intervalles et encadrements de réels"
+      ]
+    },
+    {
+      "section_id": "sec_2",
+      "title": "2. Définition Formelle & Propriété Clé",
+      "start_time": 22.6,
+      "end_time": 45.2,
+      "summary": "axe gradué bien voilà un axe gradué on va commencer par représenter l'intervalle I interval I qui commence à 1 et qui s'arrête à 3 voilà l'intervalle I en ver l...",
+      "support_visuel_suggere": "formula_card",
+      "concepts_cles": [
+        "Méthode pas à pas : Comment résoudre un problème de Intervalles et encadrements de réels"
+      ]
+    },
+    {
+      "section_id": "sec_3",
+      "title": "3. Décomposition du Raisonnement Pas à Pas",
+      "start_time": 45.2,
+      "end_time": 67.9,
+      "summary": "ver l'ensemble des nombres qui se trouve dans I et en rouge l'ensemble des nombres qui se trouve dans J ainsi l'intersection de I et J est l'intervalle allant d...",
+      "support_visuel_suggere": "step_solution",
+      "concepts_cles": [
+        "Méthode pas à pas : Comment résoudre un problème de Intervalles et encadrements de réels"
+      ]
+    },
+    {
+      "section_id": "sec_4",
+      "title": "4. Exemple d'Application Concrète Type Bac",
+      "start_time": 67.9,
+      "end_time": 90.5,
+      "summary": "aussi tout à l'heure la borne est fermée est-ce qu'il est dans J oui il est même carrément dans J puisque est à l'intérieur de J donc 3 est à la fois dans I et ...",
+      "support_visuel_suggere": "drawing_board",
+      "concepts_cles": [
+        "Méthode pas à pas : Comment résoudre un problème de Intervalles et encadrements de réels"
+      ]
+    },
+    {
+      "section_id": "sec_5",
+      "title": "5. Erreurs Fréquentes & Réflexe de Synthèse",
+      "start_time": 90.5,
+      "end_time": 113.1,
+      "summary": "En résumé, retenez bien cette méthode fondamentale pour vos épreuves. Entraînez-vous régulièrement et à très vite sur ILLIMMI !",
+      "support_visuel_suggere": "synthesis_card",
+      "concepts_cles": [
+        "Méthode pas à pas : Comment résoudre un problème de Intervalles et encadrements de réels"
+      ]
+    }
+  ]
+}

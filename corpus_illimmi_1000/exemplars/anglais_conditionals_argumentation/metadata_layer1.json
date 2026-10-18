@@ -1,0 +1,52 @@
+{
+  "subject": "Anglais",
+  "level": "Terminale Tronc Commun",
+  "duration_target": 130,
+  "concepts_cles": [
+    "conditionals 1st 2nd 3rd",
+    "unreal past",
+    "PEEL essay writing method",
+    "topic sentence",
+    "discourse markers"
+  ],
+  "ton": "engaging, clear and structured",
+  "langue": "anglais",
+  "plan_pedagogique": [
+    {
+      "section": "accroche",
+      "objectif": "Explain why conditionals and structured paragraphs are essential to score B2/C1 in high school essays.",
+      "contenu_attendu": "How to move beyond simple opinions to articulate nuanced hypotheses and well-supported arguments.",
+      "support_visuel_suggere": "text"
+    },
+    {
+      "section": "prerequis",
+      "objectif": "Contrast 1st conditional (real future), 2nd conditional (imaginary present), and 3rd conditional (regret in the past).",
+      "contenu_attendu": "Structures : If + present, will / If + preterit, would / If + had + past participle, would have + past participle.",
+      "support_visuel_suggere": "draw polygone"
+    },
+    {
+      "section": "decomposition",
+      "objectif": "Introduce the PEEL method for bulletproof body paragraphs.",
+      "contenu_attendu": "Point (Topic sentence), Evidence (Concrete fact/quote), Explanation (Why it matters), Link (Connecting back to the main thesis).",
+      "support_visuel_suggere": "draw polygone"
+    },
+    {
+      "section": "exemple_concret",
+      "objectif": "Demonstrate a complete high-school argumentative paragraph on Artificial Intelligence and ethics.",
+      "contenu_attendu": "Writing model incorporating a second conditional hypothesis and sophisticated linking words.",
+      "support_visuel_suggere": "draw arrow"
+    },
+    {
+      "section": "erreur_frequente",
+      "objectif": "Warn against the classic error 'If I would have' instead of 'If I had'.",
+      "contenu_attendu": "Never put 'would' inside the 'if' clause : 'If I had known' (correct) vs 'If I would have known' (incorrect).",
+      "support_visuel_suggere": "draw polygone"
+    },
+    {
+      "section": "synthese",
+      "objectif": "Summarize the grammar matrix and PEEL essay checklist.",
+      "contenu_attendu": "Quick recap table for exam day revision.",
+      "support_visuel_suggere": "text"
+    }
+  ]
+}

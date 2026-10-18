@@ -1,0 +1,66 @@
+{
+  "course_id": "MATH_005",
+  "title": "Problème type Bac : Intervalles et encadrements de réels — Raisonnement en plusieurs étapes",
+  "domain": "Nombres & Calculs",
+  "level": "Seconde",
+  "pedagogical_type": "probleme_complexe",
+  "total_duration_seconds": 115.8,
+  "target_audience": "Lycée - Seconde",
+  "sections": [
+    {
+      "section_id": "sec_1",
+      "title": "1. Accroche & Problématique Concrète",
+      "start_time": 0.0,
+      "end_time": 23.2,
+      "summary": "bonjour dans cette séquence tu vas apprendre à déterminer la réunion de deux intervalles ici donc on nous demande de déterminer la réunion des intervalles i et ...",
+      "support_visuel_suggere": "text_and_diagram",
+      "concepts_cles": [
+        "Problème type Bac : Intervalles et encadrements de réels — Raisonnement en plusieurs étapes"
+      ]
+    },
+    {
+      "section_id": "sec_2",
+      "title": "2. Définition Formelle & Propriété Clé",
+      "start_time": 23.2,
+      "end_time": 46.3,
+      "summary": "l'intervalle I interval i donc qui va de 0 à 2 voilà représenté en vers puis l'intervalle j je vais décaler ma lettre i va me gêner voilà l'intervalle j donc l'...",
+      "support_visuel_suggere": "formula_card",
+      "concepts_cles": [
+        "Problème type Bac : Intervalles et encadrements de réels — Raisonnement en plusieurs étapes"
+      ]
+    },
+    {
+      "section_id": "sec_3",
+      "title": "3. Décomposition du Raisonnement Pas à Pas",
+      "start_time": 46.3,
+      "end_time": 69.5,
+      "summary": "vert marqué par les de 1 2 3 marqué en rouge marqué en rouge jusqu'à 4 ainsi la réunion de I et de J c'est l'intervalle 0 4 pour les bornes qu'est-ce qu'on peut...",
+      "support_visuel_suggere": "step_solution",
+      "concepts_cles": [
+        "Problème type Bac : Intervalles et encadrements de réels — Raisonnement en plusieurs étapes"
+      ]
+    },
+    {
+      "section_id": "sec_4",
+      "title": "4. Exemple d'Application Concrète Type Bac",
+      "start_time": 69.5,
+      "end_time": 92.6,
+      "summary": "dans le prier cas dans le deème cas dans le deuxième cas on a donc un intervalle I qui va de 3 jusqu'à l'infini 3 n'appartient pas à I et un intervalle j donc u...",
+      "support_visuel_suggere": "drawing_board",
+      "concepts_cles": [
+        "Problème type Bac : Intervalles et encadrements de réels — Raisonnement en plusieurs étapes"
+      ]
+    },
+    {
+      "section_id": "sec_5",
+      "title": "5. Erreurs Fréquentes & Réflexe de Synthèse",
+      "start_time": 92.6,
+      "end_time": 115.8,
+      "summary": "En résumé, retenez bien cette méthode fondamentale pour vos épreuves. Entraînez-vous régulièrement et à très vite sur ILLIMMI !",
+      "support_visuel_suggere": "synthesis_card",
+      "concepts_cles": [
+        "Problème type Bac : Intervalles et encadrements de réels — Raisonnement en plusieurs étapes"
+      ]
+    }
+  ]
+}

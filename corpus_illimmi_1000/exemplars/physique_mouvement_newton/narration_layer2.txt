@@ -1,0 +1,30 @@
+Bonjour à tous ! Aujourd'hui en physique, nous nous attaquons au pilier de la mécanique de Terminale : la deuxième loi de Newton et le mouvement dans un champ de pesanteur uniforme.
+
+Regarde ce repère qui s'affiche à l'écran : un axe horizontal des abscisses x et un axe vertical des ordonnées y. 
+Imaginons qu'un joueur de tennis frappe une balle depuis l'origine avec une vitesse initiale v zéro inclinée d'un angle alpha. 
+Pourquoi cette balle retombe-t-elle selon une élégante parabole ? La réponse tient dans une équation découverte il y a plus de trois siècles.
+
+Commençons toujours par la rigueur méthodologique imposée par les correcteurs : 
+Premier réflexe : définissons le système, c'est la balle de masse m. 
+Deuxième réflexe : le référentiel, c'est le référentiel terrestre supposé galiléen. 
+Troisième réflexe : faisons le bilan des forces extérieures. Si l'on néglige les frottements de l'air, la balle n'est soumise qu'à une seule force : son poids ! 
+Dessinons ce vecteur poids en rouge, vertical et orienté vers le bas, appliqué au centre d'inertie de la balle.
+
+Appliquons maintenant la deuxième loi de Newton : la somme des forces extérieures est égale à la masse m fois le vecteur accélération a. 
+Ici, nous écrivons donc : vecteur P égal m fois vecteur a. 
+Or, le poids s'écrit m fois vecteur g. 
+Regarde bien ce qui se produit : la masse m apparaît à gauche et à droite de l'égalité ! 
+Nous pouvons la simplifier immédiatement. 
+Il nous reste : le vecteur accélération a est tout simplement égal au vecteur champ de pesanteur g !
+
+C'est un résultat spectaculaire : l'accélération d'un corps en chute libre ne dépend absolument pas de sa masse ! 
+Qu'il s'agisse d'une plume ou d'un boulet de canon, dans le vide, ils tombent avec la même accélération de 9,81 mètres par seconde carrée.
+
+Projetons maintenant cette accélération sur nos axes. 
+Sur l'axe x, l'accélération est nulle, donc la vitesse horizontale reste constante. 
+Sur l'axe vertical y, l'accélération vaut moins g, dirigée vers le bas. 
+En intégrant deux fois de suite, nous obtenons l'équation de la trajectoire : y en fonction de x est un polynôme du second degré avec un terme en x au carré négatif. 
+Et voilà pourquoi la courbe bleue qui se dessine sous tes yeux est une splendide parabole inversée !
+
+En résumé, retiens la méthode reine en quatre étapes : Système, Référentiel, Bilan des forces, et Deuxième loi de Newton. 
+Mémorise cette démarche et tu décrocheras tous les points le jour du Bac !

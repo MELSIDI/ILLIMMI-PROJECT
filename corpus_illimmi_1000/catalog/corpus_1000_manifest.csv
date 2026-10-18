@@ -1,0 +1,1001 @@
+id,domain,level,title,creator,video_id,duration,words,status
+MATH_001,Nombres & Calculs,Seconde,Intervalles et encadrements de réels — Cours fondamental et définitions,Yvan Monka,raw,123.52,439,COMPLETED
+MATH_002,Nombres & Calculs,Seconde,Méthode pas à pas : Comment résoudre un problème de Intervalles et encadrements de réels,Yvan Monka,8WJG_QHQs1Y,113.1,439,COMPLETED
+MATH_003,Nombres & Calculs,Seconde,Exemple guidé et calcul détaillé : Intervalles et encadrements de réels en pratique,Yvan Monka,5-rUuceEgAE,115.74,439,COMPLETED
+MATH_004,Nombres & Calculs,Seconde,Correction d'exercice classique : Intervalles et encadrements de réels (Entraînement Lycée),Yvan Monka,raw,14.65,43,COMPLETED
+MATH_005,Nombres & Calculs,Seconde,Problème type Bac : Intervalles et encadrements de réels — Raisonnement en plusieurs étapes,Yvan Monka,raw,115.8,439,COMPLETED
+MATH_006,Nombres & Calculs,Seconde,Révision express & Fiche de synthèse : Tout retenir sur Intervalles et encadrements de réels,,c-akR4NJhh0,10,,pending
+MATH_007,Nombres & Calculs,Seconde,Intervalles et encadrements de réels — Cours fondamental et définitions,,mvJy4LVCmRI,10,,pending
+MATH_008,Nombres & Calculs,Seconde,Méthode pas à pas : Comment résoudre un problème de Intervalles et encadrements de réels,,mvJy4LVCmRI,10,,pending
+MATH_009,Nombres & Calculs,Seconde,Exemple guidé et calcul détaillé : Intervalles et encadrements de réels en pratique,,mvJy4LVCmRI,10,,pending
+MATH_010,Nombres & Calculs,Seconde,Correction d'exercice classique : Intervalles et encadrements de réels (Entraînement Lycée),,8b-0LrjhA6s,10,,pending
+MATH_011,Nombres & Calculs,Seconde,Problème type Bac : Intervalles et encadrements de réels — Raisonnement en plusieurs étapes,,hzINDVy0dgg,10,,pending
+MATH_012,Nombres & Calculs,Seconde,Révision express & Fiche de synthèse : Tout retenir sur Intervalles et encadrements de réels,,c-akR4NJhh0,10,,pending
+MATH_013,Nombres & Calculs,Seconde,Intervalles et encadrements de réels — Cours fondamental et définitions,,mvJy4LVCmRI,10,,pending
+MATH_014,Nombres & Calculs,Seconde,Méthode pas à pas : Comment résoudre un problème de Valeur absolue et distance sur la droite réelle,,mvJy4LVCmRI,10,,pending
+MATH_015,Nombres & Calculs,Seconde,Exemple guidé et calcul détaillé : Valeur absolue et distance sur la droite réelle en pratique,,5-rUuceEgAE,10,,pending
+MATH_016,Nombres & Calculs,Seconde,Correction d'exercice classique : Valeur absolue et distance sur la droite réelle (Entraînement Lycée),,,10,,pending
+MATH_017,Nombres & Calculs,Seconde,Problème type Bac : Valeur absolue et distance sur la droite réelle — Raisonnement en plusieurs étapes,,,10,,pending
+MATH_018,Nombres & Calculs,Seconde,Révision express & Fiche de synthèse : Tout retenir sur Valeur absolue et distance sur la droite réelle,,,10,,pending
+MATH_019,Nombres & Calculs,Seconde,Valeur absolue et distance sur la droite réelle — Cours fondamental et définitions,,,10,,pending
+MATH_020,Nombres & Calculs,Seconde,Méthode pas à pas : Comment résoudre un problème de Valeur absolue et distance sur la droite réelle,,,10,,pending
+MATH_021,Nombres & Calculs,Seconde,Exemple guidé et calcul détaillé : Valeur absolue et distance sur la droite réelle en pratique,,,10,,pending
+MATH_022,Nombres & Calculs,Seconde,Correction d'exercice classique : Valeur absolue et distance sur la droite réelle (Entraînement Lycée),,,10,,pending
+MATH_023,Nombres & Calculs,Seconde,Problème type Bac : Valeur absolue et distance sur la droite réelle — Raisonnement en plusieurs étapes,,,10,,pending
+MATH_024,Nombres & Calculs,Seconde,Révision express & Fiche de synthèse : Tout retenir sur Valeur absolue et distance sur la droite réelle,,,10,,pending
+MATH_025,Nombres & Calculs,Seconde,Valeur absolue et distance sur la droite réelle — Cours fondamental et définitions,,,10,,pending
+MATH_026,Nombres & Calculs,Seconde,Méthode pas à pas : Comment résoudre un problème de Valeur absolue et distance sur la droite réelle,,,10,,pending
+MATH_027,Fonctions,Seconde,Exemple guidé et calcul détaillé : Généralités sur les fonctions et lecture graphique en pratique,,,10,,pending
+MATH_028,Fonctions,Seconde,Correction d'exercice classique : Généralités sur les fonctions et lecture graphique (Entraînement Lycée),,,10,,pending
+MATH_029,Fonctions,Seconde,Problème type Bac : Généralités sur les fonctions et lecture graphique — Raisonnement en plusieurs étapes,,,10,,pending
+MATH_030,Fonctions,Seconde,Révision express & Fiche de synthèse : Tout retenir sur Généralités sur les fonctions et lecture graphique,,,10,,pending
+MATH_031,Fonctions,Seconde,Généralités sur les fonctions et lecture graphique — Cours fondamental et définitions,,,10,,pending
+MATH_032,Fonctions,Seconde,Méthode pas à pas : Comment résoudre un problème de Généralités sur les fonctions et lecture graphique,,,10,,pending
+MATH_033,Fonctions,Seconde,Exemple guidé et calcul détaillé : Généralités sur les fonctions et lecture graphique en pratique,,,10,,pending
+MATH_034,Fonctions,Seconde,Correction d'exercice classique : Généralités sur les fonctions et lecture graphique (Entraînement Lycée),,,10,,pending
+MATH_035,Fonctions,Seconde,Problème type Bac : Généralités sur les fonctions et lecture graphique — Raisonnement en plusieurs étapes,,,10,,pending
+MATH_036,Fonctions,Seconde,Révision express & Fiche de synthèse : Tout retenir sur Généralités sur les fonctions et lecture graphique,,,10,,pending
+MATH_037,Fonctions,Seconde,Généralités sur les fonctions et lecture graphique — Cours fondamental et définitions,,,10,,pending
+MATH_038,Fonctions,Seconde,Méthode pas à pas : Comment résoudre un problème de Généralités sur les fonctions et lecture graphique,,,10,,pending
+MATH_039,Fonctions,Seconde,Exemple guidé et calcul détaillé : Généralités sur les fonctions et lecture graphique en pratique,,,10,,pending
+MATH_040,Fonctions,Seconde,Correction d'exercice classique : Variations de fonctions et extrema (Entraînement Lycée),,,10,,pending
+MATH_041,Fonctions,Seconde,Problème type Bac : Variations de fonctions et extrema — Raisonnement en plusieurs étapes,,,10,,pending
+MATH_042,Fonctions,Seconde,Révision express & Fiche de synthèse : Tout retenir sur Variations de fonctions et extrema,,,10,,pending
+MATH_043,Fonctions,Seconde,Variations de fonctions et extrema — Cours fondamental et définitions,,,10,,pending
+MATH_044,Fonctions,Seconde,Méthode pas à pas : Comment résoudre un problème de Variations de fonctions et extrema,,,10,,pending
+MATH_045,Fonctions,Seconde,Exemple guidé et calcul détaillé : Variations de fonctions et extrema en pratique,,,10,,pending
+MATH_046,Fonctions,Seconde,Correction d'exercice classique : Variations de fonctions et extrema (Entraînement Lycée),,,10,,pending
+MATH_047,Fonctions,Seconde,Problème type Bac : Variations de fonctions et extrema — Raisonnement en plusieurs étapes,,,10,,pending
+MATH_048,Fonctions,Seconde,Révision express & Fiche de synthèse : Tout retenir sur Variations de fonctions et extrema,,,10,,pending
+MATH_049,Fonctions,Seconde,Variations de fonctions et extrema — Cours fondamental et définitions,,,10,,pending
+MATH_050,Fonctions,Seconde,Méthode pas à pas : Comment résoudre un problème de Variations de fonctions et extrema,,,10,,pending
+MATH_051,Fonctions,Seconde,Exemple guidé et calcul détaillé : Variations de fonctions et extrema en pratique,,,10,,pending
+MATH_052,Fonctions,Seconde,Correction d'exercice classique : Variations de fonctions et extrema (Entraînement Lycée),,,10,,pending
+MATH_053,Fonctions,Seconde,Problème type Bac : Fonctions affines et droites du plan — Raisonnement en plusieurs étapes,,,10,,pending
+MATH_054,Fonctions,Seconde,Révision express & Fiche de synthèse : Tout retenir sur Fonctions affines et droites du plan,,,10,,pending
+MATH_055,Fonctions,Seconde,Fonctions affines et droites du plan — Cours fondamental et définitions,,,10,,pending
+MATH_056,Fonctions,Seconde,Méthode pas à pas : Comment résoudre un problème de Fonctions affines et droites du plan,,,10,,pending
+MATH_057,Fonctions,Seconde,Exemple guidé et calcul détaillé : Fonctions affines et droites du plan en pratique,,,10,,pending
+MATH_058,Fonctions,Seconde,Correction d'exercice classique : Fonctions affines et droites du plan (Entraînement Lycée),,,10,,pending
+MATH_059,Fonctions,Seconde,Problème type Bac : Fonctions affines et droites du plan — Raisonnement en plusieurs étapes,,,10,,pending
+MATH_060,Fonctions,Seconde,Révision express & Fiche de synthèse : Tout retenir sur Fonctions affines et droites du plan,,,10,,pending
+MATH_061,Fonctions,Seconde,Fonctions affines et droites du plan — Cours fondamental et définitions,,,10,,pending
+MATH_062,Fonctions,Seconde,Méthode pas à pas : Comment résoudre un problème de Fonctions affines et droites du plan,,,10,,pending
+MATH_063,Fonctions,Seconde,Exemple guidé et calcul détaillé : Fonctions affines et droites du plan en pratique,,,10,,pending
+MATH_064,Fonctions,Seconde,Correction d'exercice classique : Fonctions affines et droites du plan (Entraînement Lycée),,,10,,pending
+MATH_065,Fonctions,Seconde,Problème type Bac : Fonctions affines et droites du plan — Raisonnement en plusieurs étapes,,,10,,pending
+MATH_066,Algèbre & Équations,Seconde,Révision express & Fiche de synthèse : Tout retenir sur Résolution d'inéquations et tableaux de signes,,,10,,pending
+MATH_067,Algèbre & Équations,Seconde,Résolution d'inéquations et tableaux de signes — Cours fondamental et définitions,,,10,,pending
+MATH_068,Algèbre & Équations,Seconde,Méthode pas à pas : Comment résoudre un problème de Résolution d'inéquations et tableaux de signes,,,10,,pending
+MATH_069,Algèbre & Équations,Seconde,Exemple guidé et calcul détaillé : Résolution d'inéquations et tableaux de signes en pratique,,,10,,pending
+MATH_070,Algèbre & Équations,Seconde,Correction d'exercice classique : Résolution d'inéquations et tableaux de signes (Entraînement Lycée),,,10,,pending
+MATH_071,Algèbre & Équations,Seconde,Problème type Bac : Résolution d'inéquations et tableaux de signes — Raisonnement en plusieurs étapes,,,10,,pending
+MATH_072,Algèbre & Équations,Seconde,Révision express & Fiche de synthèse : Tout retenir sur Résolution d'inéquations et tableaux de signes,,,10,,pending
+MATH_073,Algèbre & Équations,Seconde,Résolution d'inéquations et tableaux de signes — Cours fondamental et définitions,,,10,,pending
+MATH_074,Algèbre & Équations,Seconde,Méthode pas à pas : Comment résoudre un problème de Résolution d'inéquations et tableaux de signes,,,10,,pending
+MATH_075,Algèbre & Équations,Seconde,Exemple guidé et calcul détaillé : Résolution d'inéquations et tableaux de signes en pratique,,,10,,pending
+MATH_076,Algèbre & Équations,Seconde,Correction d'exercice classique : Résolution d'inéquations et tableaux de signes (Entraînement Lycée),,,10,,pending
+MATH_077,Algèbre & Équations,Seconde,Problème type Bac : Résolution d'inéquations et tableaux de signes — Raisonnement en plusieurs étapes,,,10,,pending
+MATH_078,Algèbre & Équations,Seconde,Révision express & Fiche de synthèse : Tout retenir sur Résolution d'inéquations et tableaux de signes,,,10,,pending
+MATH_079,Géométrie,Seconde,Vecteurs du plan et translation — Cours fondamental et définitions,,,10,,pending
+MATH_080,Géométrie,Seconde,Méthode pas à pas : Comment résoudre un problème de Vecteurs du plan et translation,,,10,,pending
+MATH_081,Géométrie,Seconde,Exemple guidé et calcul détaillé : Vecteurs du plan et translation en pratique,,,10,,pending
+MATH_082,Géométrie,Seconde,Correction d'exercice classique : Vecteurs du plan et translation (Entraînement Lycée),,,10,,pending
+MATH_083,Géométrie,Seconde,Problème type Bac : Vecteurs du plan et translation — Raisonnement en plusieurs étapes,,,10,,pending
+MATH_084,Géométrie,Seconde,Révision express & Fiche de synthèse : Tout retenir sur Vecteurs du plan et translation,,,10,,pending
+MATH_085,Géométrie,Seconde,Vecteurs du plan et translation — Cours fondamental et définitions,,,10,,pending
+MATH_086,Géométrie,Seconde,Méthode pas à pas : Comment résoudre un problème de Vecteurs du plan et translation,,,10,,pending
+MATH_087,Géométrie,Seconde,Exemple guidé et calcul détaillé : Vecteurs du plan et translation en pratique,,,10,,pending
+MATH_088,Géométrie,Seconde,Correction d'exercice classique : Vecteurs du plan et translation (Entraînement Lycée),,,10,,pending
+MATH_089,Géométrie,Seconde,Problème type Bac : Vecteurs du plan et translation — Raisonnement en plusieurs étapes,,,10,,pending
+MATH_090,Géométrie,Seconde,Révision express & Fiche de synthèse : Tout retenir sur Vecteurs du plan et translation,,,10,,pending
+MATH_091,Géométrie,Seconde,Vecteurs du plan et translation — Cours fondamental et définitions,,,10,,pending
+MATH_092,Géométrie,Seconde,Méthode pas à pas : Comment résoudre un problème de Colinéarité de vecteurs et déterminant,,,10,,pending
+MATH_093,Géométrie,Seconde,Exemple guidé et calcul détaillé : Colinéarité de vecteurs et déterminant en pratique,,,10,,pending
+MATH_094,Géométrie,Seconde,Correction d'exercice classique : Colinéarité de vecteurs et déterminant (Entraînement Lycée),,,10,,pending
+MATH_095,Géométrie,Seconde,Problème type Bac : Colinéarité de vecteurs et déterminant — Raisonnement en plusieurs étapes,,,10,,pending
+MATH_096,Géométrie,Seconde,Révision express & Fiche de synthèse : Tout retenir sur Colinéarité de vecteurs et déterminant,,,10,,pending
+MATH_097,Géométrie,Seconde,Colinéarité de vecteurs et déterminant — Cours fondamental et définitions,,,10,,pending
+MATH_098,Géométrie,Seconde,Méthode pas à pas : Comment résoudre un problème de Colinéarité de vecteurs et déterminant,,,10,,pending
+MATH_099,Géométrie,Seconde,Exemple guidé et calcul détaillé : Colinéarité de vecteurs et déterminant en pratique,,,10,,pending
+MATH_100,Géométrie,Seconde,Correction d'exercice classique : Colinéarité de vecteurs et déterminant (Entraînement Lycée),,,10,,pending
+MATH_101,Géométrie,Seconde,Problème type Bac : Colinéarité de vecteurs et déterminant — Raisonnement en plusieurs étapes,,,10,,pending
+MATH_102,Géométrie,Seconde,Révision express & Fiche de synthèse : Tout retenir sur Colinéarité de vecteurs et déterminant,,,10,,pending
+MATH_103,Géométrie,Seconde,Colinéarité de vecteurs et déterminant — Cours fondamental et définitions,,,10,,pending
+MATH_104,Géométrie,Seconde,Méthode pas à pas : Comment résoudre un problème de Colinéarité de vecteurs et déterminant,,,10,,pending
+MATH_105,Statistiques & Probabilités,Seconde,Exemple guidé et calcul détaillé : Statistiques descriptives et dispersion en pratique,,,10,,pending
+MATH_106,Statistiques & Probabilités,Seconde,Correction d'exercice classique : Statistiques descriptives et dispersion (Entraînement Lycée),,,10,,pending
+MATH_107,Statistiques & Probabilités,Seconde,Problème type Bac : Statistiques descriptives et dispersion — Raisonnement en plusieurs étapes,,,10,,pending
+MATH_108,Statistiques & Probabilités,Seconde,Révision express & Fiche de synthèse : Tout retenir sur Statistiques descriptives et dispersion,,,10,,pending
+MATH_109,Statistiques & Probabilités,Seconde,Statistiques descriptives et dispersion — Cours fondamental et définitions,,,10,,pending
+MATH_110,Statistiques & Probabilités,Seconde,Méthode pas à pas : Comment résoudre un problème de Statistiques descriptives et dispersion,,,10,,pending
+MATH_111,Statistiques & Probabilités,Seconde,Exemple guidé et calcul détaillé : Statistiques descriptives et dispersion en pratique,,,10,,pending
+MATH_112,Statistiques & Probabilités,Seconde,Correction d'exercice classique : Statistiques descriptives et dispersion (Entraînement Lycée),,,10,,pending
+MATH_113,Statistiques & Probabilités,Seconde,Problème type Bac : Statistiques descriptives et dispersion — Raisonnement en plusieurs étapes,,,10,,pending
+MATH_114,Statistiques & Probabilités,Seconde,Révision express & Fiche de synthèse : Tout retenir sur Statistiques descriptives et dispersion,,,10,,pending
+MATH_115,Statistiques & Probabilités,Seconde,Statistiques descriptives et dispersion — Cours fondamental et définitions,,,10,,pending
+MATH_116,Statistiques & Probabilités,Seconde,Méthode pas à pas : Comment résoudre un problème de Statistiques descriptives et dispersion,,,10,,pending
+MATH_117,Statistiques & Probabilités,Seconde,Exemple guidé et calcul détaillé : Statistiques descriptives et dispersion en pratique,,,10,,pending
+MATH_118,Statistiques & Probabilités,Seconde,Correction d'exercice classique : Probabilités sur un univers fini (Entraînement Lycée),,,10,,pending
+MATH_119,Statistiques & Probabilités,Seconde,Problème type Bac : Probabilités sur un univers fini — Raisonnement en plusieurs étapes,,,10,,pending
+MATH_120,Statistiques & Probabilités,Seconde,Révision express & Fiche de synthèse : Tout retenir sur Probabilités sur un univers fini,,,10,,pending
+MATH_121,Statistiques & Probabilités,Seconde,Probabilités sur un univers fini — Cours fondamental et définitions,,,10,,pending
+MATH_122,Statistiques & Probabilités,Seconde,Méthode pas à pas : Comment résoudre un problème de Probabilités sur un univers fini,,,10,,pending
+MATH_123,Statistiques & Probabilités,Seconde,Exemple guidé et calcul détaillé : Probabilités sur un univers fini en pratique,,,10,,pending
+MATH_124,Statistiques & Probabilités,Seconde,Correction d'exercice classique : Probabilités sur un univers fini (Entraînement Lycée),,,10,,pending
+MATH_125,Statistiques & Probabilités,Seconde,Problème type Bac : Probabilités sur un univers fini — Raisonnement en plusieurs étapes,,,10,,pending
+MATH_126,Statistiques & Probabilités,Seconde,Révision express & Fiche de synthèse : Tout retenir sur Probabilités sur un univers fini,,,10,,pending
+MATH_127,Statistiques & Probabilités,Seconde,Probabilités sur un univers fini — Cours fondamental et définitions,,,10,,pending
+MATH_128,Statistiques & Probabilités,Seconde,Méthode pas à pas : Comment résoudre un problème de Probabilités sur un univers fini,,,10,,pending
+MATH_129,Statistiques & Probabilités,Seconde,Exemple guidé et calcul détaillé : Probabilités sur un univers fini en pratique,,,10,,pending
+MATH_130,Statistiques & Probabilités,Seconde,Correction d'exercice classique : Probabilités sur un univers fini (Entraînement Lycée),,,10,,pending
+MATH_131,Algèbre,Première Spécialité,Problème type Bac : Second degré et forme canonique — Raisonnement en plusieurs étapes,,,10,,pending
+MATH_132,Algèbre,Première Spécialité,Révision express & Fiche de synthèse : Tout retenir sur Second degré et forme canonique,,,10,,pending
+MATH_133,Algèbre,Première Spécialité,Second degré et forme canonique — Cours fondamental et définitions,,,10,,pending
+MATH_134,Algèbre,Première Spécialité,Méthode pas à pas : Comment résoudre un problème de Second degré et forme canonique,,,10,,pending
+MATH_135,Algèbre,Première Spécialité,Exemple guidé et calcul détaillé : Second degré et forme canonique en pratique,,,10,,pending
+MATH_136,Algèbre,Première Spécialité,Correction d'exercice classique : Second degré et forme canonique (Entraînement Lycée),,,10,,pending
+MATH_137,Algèbre,Première Spécialité,Problème type Bac : Second degré et forme canonique — Raisonnement en plusieurs étapes,,,10,,pending
+MATH_138,Algèbre,Première Spécialité,Révision express & Fiche de synthèse : Tout retenir sur Second degré et forme canonique,,,10,,pending
+MATH_139,Algèbre,Première Spécialité,Second degré et forme canonique — Cours fondamental et définitions,,,10,,pending
+MATH_140,Algèbre,Première Spécialité,Méthode pas à pas : Comment résoudre un problème de Second degré et forme canonique,,,10,,pending
+MATH_141,Algèbre,Première Spécialité,Exemple guidé et calcul détaillé : Second degré et forme canonique en pratique,,,10,,pending
+MATH_142,Algèbre,Première Spécialité,Correction d'exercice classique : Second degré et forme canonique (Entraînement Lycée),,,10,,pending
+MATH_143,Algèbre,Première Spécialité,Problème type Bac : Second degré et forme canonique — Raisonnement en plusieurs étapes,,,10,,pending
+MATH_144,Algèbre,Première Spécialité,Révision express & Fiche de synthèse : Tout retenir sur Discriminant delta et factorisation,,,10,,pending
+MATH_145,Algèbre,Première Spécialité,Discriminant delta et factorisation — Cours fondamental et définitions,,,10,,pending
+MATH_146,Algèbre,Première Spécialité,Méthode pas à pas : Comment résoudre un problème de Discriminant delta et factorisation,,,10,,pending
+MATH_147,Algèbre,Première Spécialité,Exemple guidé et calcul détaillé : Discriminant delta et factorisation en pratique,,,10,,pending
+MATH_148,Algèbre,Première Spécialité,Correction d'exercice classique : Discriminant delta et factorisation (Entraînement Lycée),,,10,,pending
+MATH_149,Algèbre,Première Spécialité,Problème type Bac : Discriminant delta et factorisation — Raisonnement en plusieurs étapes,,,10,,pending
+MATH_150,Algèbre,Première Spécialité,Révision express & Fiche de synthèse : Tout retenir sur Discriminant delta et factorisation,,,10,,pending
+MATH_151,Algèbre,Première Spécialité,Discriminant delta et factorisation — Cours fondamental et définitions,,,10,,pending
+MATH_152,Algèbre,Première Spécialité,Méthode pas à pas : Comment résoudre un problème de Discriminant delta et factorisation,,,10,,pending
+MATH_153,Algèbre,Première Spécialité,Exemple guidé et calcul détaillé : Discriminant delta et factorisation en pratique,,,10,,pending
+MATH_154,Algèbre,Première Spécialité,Correction d'exercice classique : Discriminant delta et factorisation (Entraînement Lycée),,,10,,pending
+MATH_155,Algèbre,Première Spécialité,Problème type Bac : Discriminant delta et factorisation — Raisonnement en plusieurs étapes,,,10,,pending
+MATH_156,Algèbre,Première Spécialité,Révision express & Fiche de synthèse : Tout retenir sur Discriminant delta et factorisation,,,10,,pending
+MATH_157,Analyse,Première Spécialité,Nombre dérivé et taux de variation — Cours fondamental et définitions,,,10,,pending
+MATH_158,Analyse,Première Spécialité,Méthode pas à pas : Comment résoudre un problème de Nombre dérivé et taux de variation,,,10,,pending
+MATH_159,Analyse,Première Spécialité,Exemple guidé et calcul détaillé : Nombre dérivé et taux de variation en pratique,,,10,,pending
+MATH_160,Analyse,Première Spécialité,Correction d'exercice classique : Nombre dérivé et taux de variation (Entraînement Lycée),,,10,,pending
+MATH_161,Analyse,Première Spécialité,Problème type Bac : Nombre dérivé et taux de variation — Raisonnement en plusieurs étapes,,,10,,pending
+MATH_162,Analyse,Première Spécialité,Révision express & Fiche de synthèse : Tout retenir sur Nombre dérivé et taux de variation,,,10,,pending
+MATH_163,Analyse,Première Spécialité,Nombre dérivé et taux de variation — Cours fondamental et définitions,,,10,,pending
+MATH_164,Analyse,Première Spécialité,Méthode pas à pas : Comment résoudre un problème de Nombre dérivé et taux de variation,,,10,,pending
+MATH_165,Analyse,Première Spécialité,Exemple guidé et calcul détaillé : Nombre dérivé et taux de variation en pratique,,,10,,pending
+MATH_166,Analyse,Première Spécialité,Correction d'exercice classique : Nombre dérivé et taux de variation (Entraînement Lycée),,,10,,pending
+MATH_167,Analyse,Première Spécialité,Problème type Bac : Nombre dérivé et taux de variation — Raisonnement en plusieurs étapes,,,10,,pending
+MATH_168,Analyse,Première Spécialité,Révision express & Fiche de synthèse : Tout retenir sur Nombre dérivé et taux de variation,,,10,,pending
+MATH_169,Analyse,Première Spécialité,Nombre dérivé et taux de variation — Cours fondamental et définitions,,,10,,pending
+MATH_170,Analyse,Première Spécialité,Méthode pas à pas : Comment résoudre un problème de Équation de la tangente à une courbe,,,10,,pending
+MATH_171,Analyse,Première Spécialité,Exemple guidé et calcul détaillé : Équation de la tangente à une courbe en pratique,,,10,,pending
+MATH_172,Analyse,Première Spécialité,Correction d'exercice classique : Équation de la tangente à une courbe (Entraînement Lycée),,,10,,pending
+MATH_173,Analyse,Première Spécialité,Problème type Bac : Équation de la tangente à une courbe — Raisonnement en plusieurs étapes,,,10,,pending
+MATH_174,Analyse,Première Spécialité,Révision express & Fiche de synthèse : Tout retenir sur Équation de la tangente à une courbe,,,10,,pending
+MATH_175,Analyse,Première Spécialité,Équation de la tangente à une courbe — Cours fondamental et définitions,,,10,,pending
+MATH_176,Analyse,Première Spécialité,Méthode pas à pas : Comment résoudre un problème de Équation de la tangente à une courbe,,,10,,pending
+MATH_177,Analyse,Première Spécialité,Exemple guidé et calcul détaillé : Équation de la tangente à une courbe en pratique,,,10,,pending
+MATH_178,Analyse,Première Spécialité,Correction d'exercice classique : Équation de la tangente à une courbe (Entraînement Lycée),,,10,,pending
+MATH_179,Analyse,Première Spécialité,Problème type Bac : Équation de la tangente à une courbe — Raisonnement en plusieurs étapes,,,10,,pending
+MATH_180,Analyse,Première Spécialité,Révision express & Fiche de synthèse : Tout retenir sur Équation de la tangente à une courbe,,,10,,pending
+MATH_181,Analyse,Première Spécialité,Équation de la tangente à une courbe — Cours fondamental et définitions,,,10,,pending
+MATH_182,Analyse,Première Spécialité,Méthode pas à pas : Comment résoudre un problème de Équation de la tangente à une courbe,,,10,,pending
+MATH_183,Analyse,Première Spécialité,Exemple guidé et calcul détaillé : Calcul de dérivées usuelles et règles de dérivation en pratique,,,10,,pending
+MATH_184,Analyse,Première Spécialité,Correction d'exercice classique : Calcul de dérivées usuelles et règles de dérivation (Entraînement Lycée),,,10,,pending
+MATH_185,Analyse,Première Spécialité,Problème type Bac : Calcul de dérivées usuelles et règles de dérivation — Raisonnement en plusieurs étapes,,,10,,pending
+MATH_186,Analyse,Première Spécialité,Révision express & Fiche de synthèse : Tout retenir sur Calcul de dérivées usuelles et règles de dérivation,,,10,,pending
+MATH_187,Analyse,Première Spécialité,Calcul de dérivées usuelles et règles de dérivation — Cours fondamental et définitions,,,10,,pending
+MATH_188,Analyse,Première Spécialité,Méthode pas à pas : Comment résoudre un problème de Calcul de dérivées usuelles et règles de dérivation,,,10,,pending
+MATH_189,Analyse,Première Spécialité,Exemple guidé et calcul détaillé : Calcul de dérivées usuelles et règles de dérivation en pratique,,,10,,pending
+MATH_190,Analyse,Première Spécialité,Correction d'exercice classique : Calcul de dérivées usuelles et règles de dérivation (Entraînement Lycée),,,10,,pending
+MATH_191,Analyse,Première Spécialité,Problème type Bac : Calcul de dérivées usuelles et règles de dérivation — Raisonnement en plusieurs étapes,,,10,,pending
+MATH_192,Analyse,Première Spécialité,Révision express & Fiche de synthèse : Tout retenir sur Calcul de dérivées usuelles et règles de dérivation,,,10,,pending
+MATH_193,Analyse,Première Spécialité,Calcul de dérivées usuelles et règles de dérivation — Cours fondamental et définitions,,,10,,pending
+MATH_194,Analyse,Première Spécialité,Méthode pas à pas : Comment résoudre un problème de Calcul de dérivées usuelles et règles de dérivation,,,10,,pending
+MATH_195,Analyse,Première Spécialité,Exemple guidé et calcul détaillé : Calcul de dérivées usuelles et règles de dérivation en pratique,,,10,,pending
+MATH_196,Analyse,Première Spécialité,Correction d'exercice classique : Lien entre signe de la dérivée et variations (Entraînement Lycée),,,10,,pending
+MATH_197,Analyse,Première Spécialité,Problème type Bac : Lien entre signe de la dérivée et variations — Raisonnement en plusieurs étapes,,,10,,pending
+MATH_198,Analyse,Première Spécialité,Révision express & Fiche de synthèse : Tout retenir sur Lien entre signe de la dérivée et variations,,,10,,pending
+MATH_199,Analyse,Première Spécialité,Lien entre signe de la dérivée et variations — Cours fondamental et définitions,,,10,,pending
+MATH_200,Analyse,Première Spécialité,Méthode pas à pas : Comment résoudre un problème de Lien entre signe de la dérivée et variations,,,10,,pending
+MATH_201,Analyse,Première Spécialité,Exemple guidé et calcul détaillé : Lien entre signe de la dérivée et variations en pratique,,,10,,pending
+MATH_202,Analyse,Première Spécialité,Correction d'exercice classique : Lien entre signe de la dérivée et variations (Entraînement Lycée),,,10,,pending
+MATH_203,Analyse,Première Spécialité,Problème type Bac : Lien entre signe de la dérivée et variations — Raisonnement en plusieurs étapes,,,10,,pending
+MATH_204,Analyse,Première Spécialité,Révision express & Fiche de synthèse : Tout retenir sur Lien entre signe de la dérivée et variations,,,10,,pending
+MATH_205,Analyse,Première Spécialité,Lien entre signe de la dérivée et variations — Cours fondamental et définitions,,,10,,pending
+MATH_206,Analyse,Première Spécialité,Méthode pas à pas : Comment résoudre un problème de Lien entre signe de la dérivée et variations,,,10,,pending
+MATH_207,Analyse,Première Spécialité,Exemple guidé et calcul détaillé : Lien entre signe de la dérivée et variations en pratique,,,10,,pending
+MATH_208,Analyse,Première Spécialité,Correction d'exercice classique : Lien entre signe de la dérivée et variations (Entraînement Lycée),,,10,,pending
+MATH_209,Analyse,Première Spécialité,Problème type Bac : Suites arithmétiques — Raisonnement en plusieurs étapes,,,10,,pending
+MATH_210,Analyse,Première Spécialité,Révision express & Fiche de synthèse : Tout retenir sur Suites arithmétiques,,,10,,pending
+MATH_211,Analyse,Première Spécialité,Suites arithmétiques — Cours fondamental et définitions,,,10,,pending
+MATH_212,Analyse,Première Spécialité,Méthode pas à pas : Comment résoudre un problème de Suites arithmétiques,,,10,,pending
+MATH_213,Analyse,Première Spécialité,Exemple guidé et calcul détaillé : Suites arithmétiques en pratique,,,10,,pending
+MATH_214,Analyse,Première Spécialité,Correction d'exercice classique : Suites arithmétiques (Entraînement Lycée),,,10,,pending
+MATH_215,Analyse,Première Spécialité,Problème type Bac : Suites arithmétiques — Raisonnement en plusieurs étapes,,,10,,pending
+MATH_216,Analyse,Première Spécialité,Révision express & Fiche de synthèse : Tout retenir sur Suites arithmétiques,,,10,,pending
+MATH_217,Analyse,Première Spécialité,Suites arithmétiques — Cours fondamental et définitions,,,10,,pending
+MATH_218,Analyse,Première Spécialité,Méthode pas à pas : Comment résoudre un problème de Suites arithmétiques,,,10,,pending
+MATH_219,Analyse,Première Spécialité,Exemple guidé et calcul détaillé : Suites arithmétiques en pratique,,,10,,pending
+MATH_220,Analyse,Première Spécialité,Correction d'exercice classique : Suites arithmétiques (Entraînement Lycée),,,10,,pending
+MATH_221,Analyse,Première Spécialité,Problème type Bac : Suites arithmétiques — Raisonnement en plusieurs étapes,,,10,,pending
+MATH_222,Analyse,Première Spécialité,Révision express & Fiche de synthèse : Tout retenir sur Suites géométriques,,,10,,pending
+MATH_223,Analyse,Première Spécialité,Suites géométriques — Cours fondamental et définitions,,,10,,pending
+MATH_224,Analyse,Première Spécialité,Méthode pas à pas : Comment résoudre un problème de Suites géométriques,,,10,,pending
+MATH_225,Analyse,Première Spécialité,Exemple guidé et calcul détaillé : Suites géométriques en pratique,,,10,,pending
+MATH_226,Analyse,Première Spécialité,Correction d'exercice classique : Suites géométriques (Entraînement Lycée),,,10,,pending
+MATH_227,Analyse,Première Spécialité,Problème type Bac : Suites géométriques — Raisonnement en plusieurs étapes,,,10,,pending
+MATH_228,Analyse,Première Spécialité,Révision express & Fiche de synthèse : Tout retenir sur Suites géométriques,,,10,,pending
+MATH_229,Analyse,Première Spécialité,Suites géométriques — Cours fondamental et définitions,,,10,,pending
+MATH_230,Analyse,Première Spécialité,Méthode pas à pas : Comment résoudre un problème de Suites géométriques,,,10,,pending
+MATH_231,Analyse,Première Spécialité,Exemple guidé et calcul détaillé : Suites géométriques en pratique,,,10,,pending
+MATH_232,Analyse,Première Spécialité,Correction d'exercice classique : Suites géométriques (Entraînement Lycée),,,10,,pending
+MATH_233,Analyse,Première Spécialité,Problème type Bac : Suites géométriques — Raisonnement en plusieurs étapes,,,10,,pending
+MATH_234,Analyse,Première Spécialité,Révision express & Fiche de synthèse : Tout retenir sur Suites géométriques,,,10,,pending
+MATH_235,Analyse,Première Spécialité,Fonction exponentielle : définition et propriétés — Cours fondamental et définitions,,,10,,pending
+MATH_236,Analyse,Première Spécialité,Méthode pas à pas : Comment résoudre un problème de Fonction exponentielle : définition et propriétés,,,10,,pending
+MATH_237,Analyse,Première Spécialité,Exemple guidé et calcul détaillé : Fonction exponentielle : définition et propriétés en pratique,,,10,,pending
+MATH_238,Analyse,Première Spécialité,Correction d'exercice classique : Fonction exponentielle : définition et propriétés (Entraînement Lycée),,,10,,pending
+MATH_239,Analyse,Première Spécialité,Problème type Bac : Fonction exponentielle : définition et propriétés — Raisonnement en plusieurs étapes,,,10,,pending
+MATH_240,Analyse,Première Spécialité,Révision express & Fiche de synthèse : Tout retenir sur Fonction exponentielle : définition et propriétés,,,10,,pending
+MATH_241,Analyse,Première Spécialité,Fonction exponentielle : définition et propriétés — Cours fondamental et définitions,,,10,,pending
+MATH_242,Analyse,Première Spécialité,Méthode pas à pas : Comment résoudre un problème de Fonction exponentielle : définition et propriétés,,,10,,pending
+MATH_243,Analyse,Première Spécialité,Exemple guidé et calcul détaillé : Fonction exponentielle : définition et propriétés en pratique,,,10,,pending
+MATH_244,Analyse,Première Spécialité,Correction d'exercice classique : Fonction exponentielle : définition et propriétés (Entraînement Lycée),,,10,,pending
+MATH_245,Analyse,Première Spécialité,Problème type Bac : Fonction exponentielle : définition et propriétés — Raisonnement en plusieurs étapes,,,10,,pending
+MATH_246,Analyse,Première Spécialité,Révision express & Fiche de synthèse : Tout retenir sur Fonction exponentielle : définition et propriétés,,,10,,pending
+MATH_247,Analyse,Première Spécialité,Fonction exponentielle : définition et propriétés — Cours fondamental et définitions,,,10,,pending
+MATH_248,Trigonométrie,Première Spécialité,Méthode pas à pas : Comment résoudre un problème de Cercle trigonométrique et radian,,,10,,pending
+MATH_249,Trigonométrie,Première Spécialité,Exemple guidé et calcul détaillé : Cercle trigonométrique et radian en pratique,,,10,,pending
+MATH_250,Trigonométrie,Première Spécialité,Correction d'exercice classique : Cercle trigonométrique et radian (Entraînement Lycée),,,10,,pending
+MATH_251,Trigonométrie,Première Spécialité,Problème type Bac : Cercle trigonométrique et radian — Raisonnement en plusieurs étapes,,,10,,pending
+MATH_252,Trigonométrie,Première Spécialité,Révision express & Fiche de synthèse : Tout retenir sur Cercle trigonométrique et radian,,,10,,pending
+MATH_253,Trigonométrie,Première Spécialité,Cercle trigonométrique et radian — Cours fondamental et définitions,,,10,,pending
+MATH_254,Trigonométrie,Première Spécialité,Méthode pas à pas : Comment résoudre un problème de Cercle trigonométrique et radian,,,10,,pending
+MATH_255,Trigonométrie,Première Spécialité,Exemple guidé et calcul détaillé : Cercle trigonométrique et radian en pratique,,,10,,pending
+MATH_256,Trigonométrie,Première Spécialité,Correction d'exercice classique : Cercle trigonométrique et radian (Entraînement Lycée),,,10,,pending
+MATH_257,Trigonométrie,Première Spécialité,Problème type Bac : Cercle trigonométrique et radian — Raisonnement en plusieurs étapes,,,10,,pending
+MATH_258,Trigonométrie,Première Spécialité,Révision express & Fiche de synthèse : Tout retenir sur Cercle trigonométrique et radian,,,10,,pending
+MATH_259,Trigonométrie,Première Spécialité,Cercle trigonométrique et radian — Cours fondamental et définitions,,,10,,pending
+MATH_260,Trigonométrie,Première Spécialité,Méthode pas à pas : Comment résoudre un problème de Cercle trigonométrique et radian,,,10,,pending
+MATH_261,Trigonométrie,Première Spécialité,Exemple guidé et calcul détaillé : Valeurs remarquables et équations trigonométriques en pratique,,,10,,pending
+MATH_262,Trigonométrie,Première Spécialité,Correction d'exercice classique : Valeurs remarquables et équations trigonométriques (Entraînement Lycée),,,10,,pending
+MATH_263,Trigonométrie,Première Spécialité,Problème type Bac : Valeurs remarquables et équations trigonométriques — Raisonnement en plusieurs étapes,,,10,,pending
+MATH_264,Trigonométrie,Première Spécialité,Révision express & Fiche de synthèse : Tout retenir sur Valeurs remarquables et équations trigonométriques,,,10,,pending
+MATH_265,Trigonométrie,Première Spécialité,Valeurs remarquables et équations trigonométriques — Cours fondamental et définitions,,,10,,pending
+MATH_266,Trigonométrie,Première Spécialité,Méthode pas à pas : Comment résoudre un problème de Valeurs remarquables et équations trigonométriques,,,10,,pending
+MATH_267,Trigonométrie,Première Spécialité,Exemple guidé et calcul détaillé : Valeurs remarquables et équations trigonométriques en pratique,,,10,,pending
+MATH_268,Trigonométrie,Première Spécialité,Correction d'exercice classique : Valeurs remarquables et équations trigonométriques (Entraînement Lycée),,,10,,pending
+MATH_269,Trigonométrie,Première Spécialité,Problème type Bac : Valeurs remarquables et équations trigonométriques — Raisonnement en plusieurs étapes,,,10,,pending
+MATH_270,Trigonométrie,Première Spécialité,Révision express & Fiche de synthèse : Tout retenir sur Valeurs remarquables et équations trigonométriques,,,10,,pending
+MATH_271,Trigonométrie,Première Spécialité,Valeurs remarquables et équations trigonométriques — Cours fondamental et définitions,,,10,,pending
+MATH_272,Trigonométrie,Première Spécialité,Méthode pas à pas : Comment résoudre un problème de Valeurs remarquables et équations trigonométriques,,,10,,pending
+MATH_273,Géométrie,Première Spécialité,Correction d'exercice classique : Produit scalaire dans le plan (Entraînement Lycée),,,10,,pending
+MATH_274,Géométrie,Première Spécialité,Problème type Bac : Produit scalaire dans le plan — Raisonnement en plusieurs étapes,,,10,,pending
+MATH_275,Géométrie,Première Spécialité,Révision express & Fiche de synthèse : Tout retenir sur Produit scalaire dans le plan,,,10,,pending
+MATH_276,Géométrie,Première Spécialité,Produit scalaire dans le plan — Cours fondamental et définitions,,,10,,pending
+MATH_277,Géométrie,Première Spécialité,Méthode pas à pas : Comment résoudre un problème de Produit scalaire dans le plan,,,10,,pending
+MATH_278,Géométrie,Première Spécialité,Exemple guidé et calcul détaillé : Produit scalaire dans le plan en pratique,,,10,,pending
+MATH_279,Géométrie,Première Spécialité,Correction d'exercice classique : Produit scalaire dans le plan (Entraînement Lycée),,,10,,pending
+MATH_280,Géométrie,Première Spécialité,Problème type Bac : Produit scalaire dans le plan — Raisonnement en plusieurs étapes,,,10,,pending
+MATH_281,Géométrie,Première Spécialité,Révision express & Fiche de synthèse : Tout retenir sur Produit scalaire dans le plan,,,10,,pending
+MATH_282,Géométrie,Première Spécialité,Produit scalaire dans le plan — Cours fondamental et définitions,,,10,,pending
+MATH_283,Géométrie,Première Spécialité,Méthode pas à pas : Comment résoudre un problème de Produit scalaire dans le plan,,,10,,pending
+MATH_284,Géométrie,Première Spécialité,Exemple guidé et calcul détaillé : Produit scalaire dans le plan en pratique,,,10,,pending
+MATH_285,Géométrie,Première Spécialité,Problème type Bac : Applications du produit scalaire et théorème d'Al-Kashi — Raisonnement en plusieurs étapes,,,10,,pending
+MATH_286,Géométrie,Première Spécialité,Révision express & Fiche de synthèse : Tout retenir sur Applications du produit scalaire et théorème d'Al-Kashi,,,10,,pending
+MATH_287,Géométrie,Première Spécialité,Applications du produit scalaire et théorème d'Al-Kashi — Cours fondamental et définitions,,,10,,pending
+MATH_288,Géométrie,Première Spécialité,Méthode pas à pas : Comment résoudre un problème de Applications du produit scalaire et théorème d'Al-Kashi,,,10,,pending
+MATH_289,Géométrie,Première Spécialité,Exemple guidé et calcul détaillé : Applications du produit scalaire et théorème d'Al-Kashi en pratique,,,10,,pending
+MATH_290,Géométrie,Première Spécialité,Correction d'exercice classique : Applications du produit scalaire et théorème d'Al-Kashi (Entraînement Lycée),,,10,,pending
+MATH_291,Géométrie,Première Spécialité,Problème type Bac : Applications du produit scalaire et théorème d'Al-Kashi — Raisonnement en plusieurs étapes,,,10,,pending
+MATH_292,Géométrie,Première Spécialité,Révision express & Fiche de synthèse : Tout retenir sur Applications du produit scalaire et théorème d'Al-Kashi,,,10,,pending
+MATH_293,Géométrie,Première Spécialité,Applications du produit scalaire et théorème d'Al-Kashi — Cours fondamental et définitions,,,10,,pending
+MATH_294,Géométrie,Première Spécialité,Méthode pas à pas : Comment résoudre un problème de Applications du produit scalaire et théorème d'Al-Kashi,,,10,,pending
+MATH_295,Géométrie,Première Spécialité,Exemple guidé et calcul détaillé : Applications du produit scalaire et théorème d'Al-Kashi en pratique,,,10,,pending
+MATH_296,Géométrie,Première Spécialité,Correction d'exercice classique : Applications du produit scalaire et théorème d'Al-Kashi (Entraînement Lycée),,,10,,pending
+MATH_297,Probabilités,Première Spécialité,Révision express & Fiche de synthèse : Tout retenir sur Probabilités conditionnelles et indépendance,,,10,,pending
+MATH_298,Probabilités,Première Spécialité,Probabilités conditionnelles et indépendance — Cours fondamental et définitions,,,10,,pending
+MATH_299,Probabilités,Première Spécialité,Méthode pas à pas : Comment résoudre un problème de Probabilités conditionnelles et indépendance,,,10,,pending
+MATH_300,Probabilités,Première Spécialité,Exemple guidé et calcul détaillé : Probabilités conditionnelles et indépendance en pratique,,,10,,pending
+MATH_301,Probabilités,Première Spécialité,Correction d'exercice classique : Probabilités conditionnelles et indépendance (Entraînement Lycée),,,10,,pending
+MATH_302,Probabilités,Première Spécialité,Problème type Bac : Probabilités conditionnelles et indépendance — Raisonnement en plusieurs étapes,,,10,,pending
+MATH_303,Probabilités,Première Spécialité,Révision express & Fiche de synthèse : Tout retenir sur Probabilités conditionnelles et indépendance,,,10,,pending
+MATH_304,Probabilités,Première Spécialité,Probabilités conditionnelles et indépendance — Cours fondamental et définitions,,,10,,pending
+MATH_305,Probabilités,Première Spécialité,Méthode pas à pas : Comment résoudre un problème de Probabilités conditionnelles et indépendance,,,10,,pending
+MATH_306,Probabilités,Première Spécialité,Exemple guidé et calcul détaillé : Probabilités conditionnelles et indépendance en pratique,,,10,,pending
+MATH_307,Probabilités,Première Spécialité,Correction d'exercice classique : Probabilités conditionnelles et indépendance (Entraînement Lycée),,,10,,pending
+MATH_308,Probabilités,Première Spécialité,Problème type Bac : Probabilités conditionnelles et indépendance — Raisonnement en plusieurs étapes,,,10,,pending
+MATH_309,Probabilités,Première Spécialité,Variables aléatoires et loi binomiale — Cours fondamental et définitions,,,10,,pending
+MATH_310,Probabilités,Première Spécialité,Méthode pas à pas : Comment résoudre un problème de Variables aléatoires et loi binomiale,,,10,,pending
+MATH_311,Probabilités,Première Spécialité,Exemple guidé et calcul détaillé : Variables aléatoires et loi binomiale en pratique,,,10,,pending
+MATH_312,Probabilités,Première Spécialité,Correction d'exercice classique : Variables aléatoires et loi binomiale (Entraînement Lycée),,,10,,pending
+MATH_313,Probabilités,Première Spécialité,Problème type Bac : Variables aléatoires et loi binomiale — Raisonnement en plusieurs étapes,,,10,,pending
+MATH_314,Probabilités,Première Spécialité,Révision express & Fiche de synthèse : Tout retenir sur Variables aléatoires et loi binomiale,,,10,,pending
+MATH_315,Probabilités,Première Spécialité,Variables aléatoires et loi binomiale — Cours fondamental et définitions,,,10,,pending
+MATH_316,Probabilités,Première Spécialité,Méthode pas à pas : Comment résoudre un problème de Variables aléatoires et loi binomiale,,,10,,pending
+MATH_317,Probabilités,Première Spécialité,Exemple guidé et calcul détaillé : Variables aléatoires et loi binomiale en pratique,,,10,,pending
+MATH_318,Probabilités,Première Spécialité,Correction d'exercice classique : Variables aléatoires et loi binomiale (Entraînement Lycée),,,10,,pending
+MATH_319,Probabilités,Première Spécialité,Problème type Bac : Variables aléatoires et loi binomiale — Raisonnement en plusieurs étapes,,,10,,pending
+MATH_320,Probabilités,Première Spécialité,Révision express & Fiche de synthèse : Tout retenir sur Variables aléatoires et loi binomiale,,,10,,pending
+MATH_321,Analyse,Terminale Spécialité,Méthode pas à pas : Comment résoudre un problème de Raisonnement par récurrence,,,10,,pending
+MATH_322,Analyse,Terminale Spécialité,Exemple guidé et calcul détaillé : Raisonnement par récurrence en pratique,,,10,,pending
+MATH_323,Analyse,Terminale Spécialité,Correction d'exercice classique : Raisonnement par récurrence (Entraînement Lycée),,,10,,pending
+MATH_324,Analyse,Terminale Spécialité,Problème type Bac : Raisonnement par récurrence — Raisonnement en plusieurs étapes,,,10,,pending
+MATH_325,Analyse,Terminale Spécialité,Révision express & Fiche de synthèse : Tout retenir sur Raisonnement par récurrence,,,10,,pending
+MATH_326,Analyse,Terminale Spécialité,Raisonnement par récurrence — Cours fondamental et définitions,,,10,,pending
+MATH_327,Analyse,Terminale Spécialité,Méthode pas à pas : Comment résoudre un problème de Raisonnement par récurrence,,,10,,pending
+MATH_328,Analyse,Terminale Spécialité,Exemple guidé et calcul détaillé : Raisonnement par récurrence en pratique,,,10,,pending
+MATH_329,Analyse,Terminale Spécialité,Correction d'exercice classique : Raisonnement par récurrence (Entraînement Lycée),,,10,,pending
+MATH_330,Analyse,Terminale Spécialité,Problème type Bac : Raisonnement par récurrence — Raisonnement en plusieurs étapes,,,10,,pending
+MATH_331,Analyse,Terminale Spécialité,Révision express & Fiche de synthèse : Tout retenir sur Raisonnement par récurrence,,,10,,pending
+MATH_332,Analyse,Terminale Spécialité,Raisonnement par récurrence — Cours fondamental et définitions,,,10,,pending
+MATH_333,Analyse,Terminale Spécialité,Exemple guidé et calcul détaillé : Limites de suites et théorèmes de comparaison en pratique,,,10,,pending
+MATH_334,Analyse,Terminale Spécialité,Correction d'exercice classique : Limites de suites et théorèmes de comparaison (Entraînement Lycée),,,10,,pending
+MATH_335,Analyse,Terminale Spécialité,Problème type Bac : Limites de suites et théorèmes de comparaison — Raisonnement en plusieurs étapes,,,10,,pending
+MATH_336,Analyse,Terminale Spécialité,Révision express & Fiche de synthèse : Tout retenir sur Limites de suites et théorèmes de comparaison,,,10,,pending
+MATH_337,Analyse,Terminale Spécialité,Limites de suites et théorèmes de comparaison — Cours fondamental et définitions,,,10,,pending
+MATH_338,Analyse,Terminale Spécialité,Méthode pas à pas : Comment résoudre un problème de Limites de suites et théorèmes de comparaison,,,10,,pending
+MATH_339,Analyse,Terminale Spécialité,Exemple guidé et calcul détaillé : Limites de suites et théorèmes de comparaison en pratique,,,10,,pending
+MATH_340,Analyse,Terminale Spécialité,Correction d'exercice classique : Limites de suites et théorèmes de comparaison (Entraînement Lycée),,,10,,pending
+MATH_341,Analyse,Terminale Spécialité,Problème type Bac : Limites de suites et théorèmes de comparaison — Raisonnement en plusieurs étapes,,,10,,pending
+MATH_342,Analyse,Terminale Spécialité,Révision express & Fiche de synthèse : Tout retenir sur Limites de suites et théorèmes de comparaison,,,10,,pending
+MATH_343,Analyse,Terminale Spécialité,Limites de suites et théorèmes de comparaison — Cours fondamental et définitions,,,10,,pending
+MATH_344,Analyse,Terminale Spécialité,Méthode pas à pas : Comment résoudre un problème de Limites de suites et théorèmes de comparaison,,,10,,pending
+MATH_345,Analyse,Terminale Spécialité,Correction d'exercice classique : Limites de fonctions et asymptotes (Entraînement Lycée),,,10,,pending
+MATH_346,Analyse,Terminale Spécialité,Problème type Bac : Limites de fonctions et asymptotes — Raisonnement en plusieurs étapes,,,10,,pending
+MATH_347,Analyse,Terminale Spécialité,Révision express & Fiche de synthèse : Tout retenir sur Limites de fonctions et asymptotes,,,10,,pending
+MATH_348,Analyse,Terminale Spécialité,Limites de fonctions et asymptotes — Cours fondamental et définitions,,,10,,pending
+MATH_349,Analyse,Terminale Spécialité,Méthode pas à pas : Comment résoudre un problème de Limites de fonctions et asymptotes,,,10,,pending
+MATH_350,Analyse,Terminale Spécialité,Exemple guidé et calcul détaillé : Limites de fonctions et asymptotes en pratique,,,10,,pending
+MATH_351,Analyse,Terminale Spécialité,Correction d'exercice classique : Limites de fonctions et asymptotes (Entraînement Lycée),,,10,,pending
+MATH_352,Analyse,Terminale Spécialité,Problème type Bac : Limites de fonctions et asymptotes — Raisonnement en plusieurs étapes,,,10,,pending
+MATH_353,Analyse,Terminale Spécialité,Révision express & Fiche de synthèse : Tout retenir sur Limites de fonctions et asymptotes,,,10,,pending
+MATH_354,Analyse,Terminale Spécialité,Limites de fonctions et asymptotes — Cours fondamental et définitions,,,10,,pending
+MATH_355,Analyse,Terminale Spécialité,Méthode pas à pas : Comment résoudre un problème de Limites de fonctions et asymptotes,,,10,,pending
+MATH_356,Analyse,Terminale Spécialité,Exemple guidé et calcul détaillé : Limites de fonctions et asymptotes en pratique,,,10,,pending
+MATH_357,Analyse,Terminale Spécialité,Problème type Bac : Continuité et Théorème des Valeurs Intermédiaires (TVI) — Raisonnement en plusieurs étapes,,,10,,pending
+MATH_358,Analyse,Terminale Spécialité,Révision express & Fiche de synthèse : Tout retenir sur Continuité et Théorème des Valeurs Intermédiaires (TVI),,,10,,pending
+MATH_359,Analyse,Terminale Spécialité,Continuité et Théorème des Valeurs Intermédiaires (TVI) — Cours fondamental et définitions,,,10,,pending
+MATH_360,Analyse,Terminale Spécialité,Méthode pas à pas : Comment résoudre un problème de Continuité et Théorème des Valeurs Intermédiaires (TVI),,,10,,pending
+MATH_361,Analyse,Terminale Spécialité,Exemple guidé et calcul détaillé : Continuité et Théorème des Valeurs Intermédiaires (TVI) en pratique,,,10,,pending
+MATH_362,Analyse,Terminale Spécialité,Correction d'exercice classique : Continuité et Théorème des Valeurs Intermédiaires (TVI) (Entraînement Lycée),,,10,,pending
+MATH_363,Analyse,Terminale Spécialité,Problème type Bac : Continuité et Théorème des Valeurs Intermédiaires (TVI) — Raisonnement en plusieurs étapes,,,10,,pending
+MATH_364,Analyse,Terminale Spécialité,Révision express & Fiche de synthèse : Tout retenir sur Continuité et Théorème des Valeurs Intermédiaires (TVI),,,10,,pending
+MATH_365,Analyse,Terminale Spécialité,Continuité et Théorème des Valeurs Intermédiaires (TVI) — Cours fondamental et définitions,,,10,,pending
+MATH_366,Analyse,Terminale Spécialité,Méthode pas à pas : Comment résoudre un problème de Continuité et Théorème des Valeurs Intermédiaires (TVI),,,10,,pending
+MATH_367,Analyse,Terminale Spécialité,Exemple guidé et calcul détaillé : Continuité et Théorème des Valeurs Intermédiaires (TVI) en pratique,,,10,,pending
+MATH_368,Analyse,Terminale Spécialité,Correction d'exercice classique : Continuité et Théorème des Valeurs Intermédiaires (TVI) (Entraînement Lycée),,,10,,pending
+MATH_369,Analyse,Terminale Spécialité,Révision express & Fiche de synthèse : Tout retenir sur Dérivation de fonctions composées f(g(x)),,,10,,pending
+MATH_370,Analyse,Terminale Spécialité,Dérivation de fonctions composées f(g(x)) — Cours fondamental et définitions,,,10,,pending
+MATH_371,Analyse,Terminale Spécialité,Méthode pas à pas : Comment résoudre un problème de Dérivation de fonctions composées f(g(x)),,,10,,pending
+MATH_372,Analyse,Terminale Spécialité,Exemple guidé et calcul détaillé : Dérivation de fonctions composées f(g(x)) en pratique,,,10,,pending
+MATH_373,Analyse,Terminale Spécialité,Correction d'exercice classique : Dérivation de fonctions composées f(g(x)) (Entraînement Lycée),,,10,,pending
+MATH_374,Analyse,Terminale Spécialité,Problème type Bac : Dérivation de fonctions composées f(g(x)) — Raisonnement en plusieurs étapes,,,10,,pending
+MATH_375,Analyse,Terminale Spécialité,Révision express & Fiche de synthèse : Tout retenir sur Dérivation de fonctions composées f(g(x)),,,10,,pending
+MATH_376,Analyse,Terminale Spécialité,Dérivation de fonctions composées f(g(x)) — Cours fondamental et définitions,,,10,,pending
+MATH_377,Analyse,Terminale Spécialité,Méthode pas à pas : Comment résoudre un problème de Dérivation de fonctions composées f(g(x)),,,10,,pending
+MATH_378,Analyse,Terminale Spécialité,Exemple guidé et calcul détaillé : Dérivation de fonctions composées f(g(x)) en pratique,,,10,,pending
+MATH_379,Analyse,Terminale Spécialité,Correction d'exercice classique : Dérivation de fonctions composées f(g(x)) (Entraînement Lycée),,,10,,pending
+MATH_380,Analyse,Terminale Spécialité,Problème type Bac : Dérivation de fonctions composées f(g(x)) — Raisonnement en plusieurs étapes,,,10,,pending
+MATH_381,Analyse,Terminale Spécialité,Convexité et points d'inflexion — Cours fondamental et définitions,,,10,,pending
+MATH_382,Analyse,Terminale Spécialité,Méthode pas à pas : Comment résoudre un problème de Convexité et points d'inflexion,,,10,,pending
+MATH_383,Analyse,Terminale Spécialité,Exemple guidé et calcul détaillé : Convexité et points d'inflexion en pratique,,,10,,pending
+MATH_384,Analyse,Terminale Spécialité,Correction d'exercice classique : Convexité et points d'inflexion (Entraînement Lycée),,,10,,pending
+MATH_385,Analyse,Terminale Spécialité,Problème type Bac : Convexité et points d'inflexion — Raisonnement en plusieurs étapes,,,10,,pending
+MATH_386,Analyse,Terminale Spécialité,Révision express & Fiche de synthèse : Tout retenir sur Convexité et points d'inflexion,,,10,,pending
+MATH_387,Analyse,Terminale Spécialité,Convexité et points d'inflexion — Cours fondamental et définitions,,,10,,pending
+MATH_388,Analyse,Terminale Spécialité,Méthode pas à pas : Comment résoudre un problème de Convexité et points d'inflexion,,,10,,pending
+MATH_389,Analyse,Terminale Spécialité,Exemple guidé et calcul détaillé : Convexité et points d'inflexion en pratique,,,10,,pending
+MATH_390,Analyse,Terminale Spécialité,Correction d'exercice classique : Convexité et points d'inflexion (Entraînement Lycée),,,10,,pending
+MATH_391,Analyse,Terminale Spécialité,Problème type Bac : Convexité et points d'inflexion — Raisonnement en plusieurs étapes,,,10,,pending
+MATH_392,Analyse,Terminale Spécialité,Révision express & Fiche de synthèse : Tout retenir sur Convexité et points d'inflexion,,,10,,pending
+MATH_393,Analyse,Terminale Spécialité,Méthode pas à pas : Comment résoudre un problème de Fonction logarithme népérien,,,10,,pending
+MATH_394,Analyse,Terminale Spécialité,Exemple guidé et calcul détaillé : Fonction logarithme népérien en pratique,,,10,,pending
+MATH_395,Analyse,Terminale Spécialité,Correction d'exercice classique : Fonction logarithme népérien (Entraînement Lycée),,,10,,pending
+MATH_396,Analyse,Terminale Spécialité,Problème type Bac : Fonction logarithme népérien — Raisonnement en plusieurs étapes,,,10,,pending
+MATH_397,Analyse,Terminale Spécialité,Révision express & Fiche de synthèse : Tout retenir sur Fonction logarithme népérien,,,10,,pending
+MATH_398,Analyse,Terminale Spécialité,Fonction logarithme népérien — Cours fondamental et définitions,,,10,,pending
+MATH_399,Analyse,Terminale Spécialité,Méthode pas à pas : Comment résoudre un problème de Fonction logarithme népérien,,,10,,pending
+MATH_400,Analyse,Terminale Spécialité,Exemple guidé et calcul détaillé : Fonction logarithme népérien en pratique,,,10,,pending
+MATH_401,Analyse,Terminale Spécialité,Correction d'exercice classique : Fonction logarithme népérien (Entraînement Lycée),,,10,,pending
+MATH_402,Analyse,Terminale Spécialité,Problème type Bac : Fonction logarithme népérien — Raisonnement en plusieurs étapes,,,10,,pending
+MATH_403,Analyse,Terminale Spécialité,Révision express & Fiche de synthèse : Tout retenir sur Fonction logarithme népérien,,,10,,pending
+MATH_404,Analyse,Terminale Spécialité,Fonction logarithme népérien — Cours fondamental et définitions,,,10,,pending
+MATH_405,Analyse,Terminale Spécialité,Exemple guidé et calcul détaillé : Primitives et calcul intégral en pratique,,,10,,pending
+MATH_406,Analyse,Terminale Spécialité,Correction d'exercice classique : Primitives et calcul intégral (Entraînement Lycée),,,10,,pending
+MATH_407,Analyse,Terminale Spécialité,Problème type Bac : Primitives et calcul intégral — Raisonnement en plusieurs étapes,,,10,,pending
+MATH_408,Analyse,Terminale Spécialité,Révision express & Fiche de synthèse : Tout retenir sur Primitives et calcul intégral,,,10,,pending
+MATH_409,Analyse,Terminale Spécialité,Primitives et calcul intégral — Cours fondamental et définitions,,,10,,pending
+MATH_410,Analyse,Terminale Spécialité,Méthode pas à pas : Comment résoudre un problème de Primitives et calcul intégral,,,10,,pending
+MATH_411,Analyse,Terminale Spécialité,Exemple guidé et calcul détaillé : Primitives et calcul intégral en pratique,,,10,,pending
+MATH_412,Analyse,Terminale Spécialité,Correction d'exercice classique : Primitives et calcul intégral (Entraînement Lycée),,,10,,pending
+MATH_413,Analyse,Terminale Spécialité,Problème type Bac : Primitives et calcul intégral — Raisonnement en plusieurs étapes,,,10,,pending
+MATH_414,Analyse,Terminale Spécialité,Révision express & Fiche de synthèse : Tout retenir sur Primitives et calcul intégral,,,10,,pending
+MATH_415,Analyse,Terminale Spécialité,Primitives et calcul intégral — Cours fondamental et définitions,,,10,,pending
+MATH_416,Analyse,Terminale Spécialité,Méthode pas à pas : Comment résoudre un problème de Primitives et calcul intégral,,,10,,pending
+MATH_417,Analyse,Terminale Spécialité,Correction d'exercice classique : Intégration par parties et calcul d'aires (Entraînement Lycée),,,10,,pending
+MATH_418,Analyse,Terminale Spécialité,Problème type Bac : Intégration par parties et calcul d'aires — Raisonnement en plusieurs étapes,,,10,,pending
+MATH_419,Analyse,Terminale Spécialité,Révision express & Fiche de synthèse : Tout retenir sur Intégration par parties et calcul d'aires,,,10,,pending
+MATH_420,Analyse,Terminale Spécialité,Intégration par parties et calcul d'aires — Cours fondamental et définitions,,,10,,pending
+MATH_421,Analyse,Terminale Spécialité,Méthode pas à pas : Comment résoudre un problème de Intégration par parties et calcul d'aires,,,10,,pending
+MATH_422,Analyse,Terminale Spécialité,Exemple guidé et calcul détaillé : Intégration par parties et calcul d'aires en pratique,,,10,,pending
+MATH_423,Analyse,Terminale Spécialité,Correction d'exercice classique : Intégration par parties et calcul d'aires (Entraînement Lycée),,,10,,pending
+MATH_424,Analyse,Terminale Spécialité,Problème type Bac : Intégration par parties et calcul d'aires — Raisonnement en plusieurs étapes,,,10,,pending
+MATH_425,Analyse,Terminale Spécialité,Révision express & Fiche de synthèse : Tout retenir sur Intégration par parties et calcul d'aires,,,10,,pending
+MATH_426,Analyse,Terminale Spécialité,Intégration par parties et calcul d'aires — Cours fondamental et définitions,,,10,,pending
+MATH_427,Analyse,Terminale Spécialité,Méthode pas à pas : Comment résoudre un problème de Intégration par parties et calcul d'aires,,,10,,pending
+MATH_428,Analyse,Terminale Spécialité,Exemple guidé et calcul détaillé : Intégration par parties et calcul d'aires en pratique,,,10,,pending
+MATH_429,Analyse,Terminale Spécialité,Problème type Bac : Équations différentielles linéaires y' = ay + b — Raisonnement en plusieurs étapes,,,10,,pending
+MATH_430,Analyse,Terminale Spécialité,Révision express & Fiche de synthèse : Tout retenir sur Équations différentielles linéaires y' = ay + b,,,10,,pending
+MATH_431,Analyse,Terminale Spécialité,Équations différentielles linéaires y' = ay + b — Cours fondamental et définitions,,,10,,pending
+MATH_432,Analyse,Terminale Spécialité,Méthode pas à pas : Comment résoudre un problème de Équations différentielles linéaires y' = ay + b,,,10,,pending
+MATH_433,Analyse,Terminale Spécialité,Exemple guidé et calcul détaillé : Équations différentielles linéaires y' = ay + b en pratique,,,10,,pending
+MATH_434,Analyse,Terminale Spécialité,Correction d'exercice classique : Équations différentielles linéaires y' = ay + b (Entraînement Lycée),,,10,,pending
+MATH_435,Analyse,Terminale Spécialité,Problème type Bac : Équations différentielles linéaires y' = ay + b — Raisonnement en plusieurs étapes,,,10,,pending
+MATH_436,Analyse,Terminale Spécialité,Révision express & Fiche de synthèse : Tout retenir sur Équations différentielles linéaires y' = ay + b,,,10,,pending
+MATH_437,Analyse,Terminale Spécialité,Équations différentielles linéaires y' = ay + b — Cours fondamental et définitions,,,10,,pending
+MATH_438,Analyse,Terminale Spécialité,Méthode pas à pas : Comment résoudre un problème de Équations différentielles linéaires y' = ay + b,,,10,,pending
+MATH_439,Analyse,Terminale Spécialité,Exemple guidé et calcul détaillé : Équations différentielles linéaires y' = ay + b en pratique,,,10,,pending
+MATH_440,Analyse,Terminale Spécialité,Correction d'exercice classique : Équations différentielles linéaires y' = ay + b (Entraînement Lycée),,,10,,pending
+MATH_441,Géométrie dans l'espace,Terminale Spécialité,"Révision express & Fiche de synthèse : Tout retenir sur Vecteurs, droites et plans de l'espace",,,10,,pending
+MATH_442,Géométrie dans l'espace,Terminale Spécialité,"Vecteurs, droites et plans de l'espace — Cours fondamental et définitions",,,10,,pending
+MATH_443,Géométrie dans l'espace,Terminale Spécialité,"Méthode pas à pas : Comment résoudre un problème de Vecteurs, droites et plans de l'espace",,,10,,pending
+MATH_444,Géométrie dans l'espace,Terminale Spécialité,"Exemple guidé et calcul détaillé : Vecteurs, droites et plans de l'espace en pratique",,,10,,pending
+MATH_445,Géométrie dans l'espace,Terminale Spécialité,"Correction d'exercice classique : Vecteurs, droites et plans de l'espace (Entraînement Lycée)",,,10,,pending
+MATH_446,Géométrie dans l'espace,Terminale Spécialité,"Problème type Bac : Vecteurs, droites et plans de l'espace — Raisonnement en plusieurs étapes",,,10,,pending
+MATH_447,Géométrie dans l'espace,Terminale Spécialité,"Révision express & Fiche de synthèse : Tout retenir sur Vecteurs, droites et plans de l'espace",,,10,,pending
+MATH_448,Géométrie dans l'espace,Terminale Spécialité,"Vecteurs, droites et plans de l'espace — Cours fondamental et définitions",,,10,,pending
+MATH_449,Géométrie dans l'espace,Terminale Spécialité,"Méthode pas à pas : Comment résoudre un problème de Vecteurs, droites et plans de l'espace",,,10,,pending
+MATH_450,Géométrie dans l'espace,Terminale Spécialité,"Exemple guidé et calcul détaillé : Vecteurs, droites et plans de l'espace en pratique",,,10,,pending
+MATH_451,Géométrie dans l'espace,Terminale Spécialité,"Correction d'exercice classique : Vecteurs, droites et plans de l'espace (Entraînement Lycée)",,,10,,pending
+MATH_452,Géométrie dans l'espace,Terminale Spécialité,"Problème type Bac : Vecteurs, droites et plans de l'espace — Raisonnement en plusieurs étapes",,,10,,pending
+MATH_453,Géométrie dans l'espace,Terminale Spécialité,Produit scalaire dans l'espace et orthogonalité — Cours fondamental et définitions,,,10,,pending
+MATH_454,Géométrie dans l'espace,Terminale Spécialité,Méthode pas à pas : Comment résoudre un problème de Produit scalaire dans l'espace et orthogonalité,,,10,,pending
+MATH_455,Géométrie dans l'espace,Terminale Spécialité,Exemple guidé et calcul détaillé : Produit scalaire dans l'espace et orthogonalité en pratique,,,10,,pending
+MATH_456,Géométrie dans l'espace,Terminale Spécialité,Correction d'exercice classique : Produit scalaire dans l'espace et orthogonalité (Entraînement Lycée),,,10,,pending
+MATH_457,Géométrie dans l'espace,Terminale Spécialité,Problème type Bac : Produit scalaire dans l'espace et orthogonalité — Raisonnement en plusieurs étapes,,,10,,pending
+MATH_458,Géométrie dans l'espace,Terminale Spécialité,Révision express & Fiche de synthèse : Tout retenir sur Produit scalaire dans l'espace et orthogonalité,,,10,,pending
+MATH_459,Géométrie dans l'espace,Terminale Spécialité,Produit scalaire dans l'espace et orthogonalité — Cours fondamental et définitions,,,10,,pending
+MATH_460,Géométrie dans l'espace,Terminale Spécialité,Méthode pas à pas : Comment résoudre un problème de Produit scalaire dans l'espace et orthogonalité,,,10,,pending
+MATH_461,Géométrie dans l'espace,Terminale Spécialité,Exemple guidé et calcul détaillé : Produit scalaire dans l'espace et orthogonalité en pratique,,,10,,pending
+MATH_462,Géométrie dans l'espace,Terminale Spécialité,Correction d'exercice classique : Produit scalaire dans l'espace et orthogonalité (Entraînement Lycée),,,10,,pending
+MATH_463,Géométrie dans l'espace,Terminale Spécialité,Problème type Bac : Produit scalaire dans l'espace et orthogonalité — Raisonnement en plusieurs étapes,,,10,,pending
+MATH_464,Géométrie dans l'espace,Terminale Spécialité,Révision express & Fiche de synthèse : Tout retenir sur Produit scalaire dans l'espace et orthogonalité,,,10,,pending
+MATH_465,Probabilités,Terminale Spécialité,Méthode pas à pas : Comment résoudre un problème de Loi binomiale et approximation,,,10,,pending
+MATH_466,Probabilités,Terminale Spécialité,Exemple guidé et calcul détaillé : Loi binomiale et approximation en pratique,,,10,,pending
+MATH_467,Probabilités,Terminale Spécialité,Correction d'exercice classique : Loi binomiale et approximation (Entraînement Lycée),,,10,,pending
+MATH_468,Probabilités,Terminale Spécialité,Problème type Bac : Loi binomiale et approximation — Raisonnement en plusieurs étapes,,,10,,pending
+MATH_469,Probabilités,Terminale Spécialité,Révision express & Fiche de synthèse : Tout retenir sur Loi binomiale et approximation,,,10,,pending
+MATH_470,Probabilités,Terminale Spécialité,Loi binomiale et approximation — Cours fondamental et définitions,,,10,,pending
+MATH_471,Probabilités,Terminale Spécialité,Méthode pas à pas : Comment résoudre un problème de Loi binomiale et approximation,,,10,,pending
+MATH_472,Probabilités,Terminale Spécialité,Exemple guidé et calcul détaillé : Loi binomiale et approximation en pratique,,,10,,pending
+MATH_473,Probabilités,Terminale Spécialité,Correction d'exercice classique : Loi binomiale et approximation (Entraînement Lycée),,,10,,pending
+MATH_474,Probabilités,Terminale Spécialité,Problème type Bac : Loi binomiale et approximation — Raisonnement en plusieurs étapes,,,10,,pending
+MATH_475,Probabilités,Terminale Spécialité,Révision express & Fiche de synthèse : Tout retenir sur Loi binomiale et approximation,,,10,,pending
+MATH_476,Probabilités,Terminale Spécialité,Loi binomiale et approximation — Cours fondamental et définitions,,,10,,pending
+MATH_477,Algèbre,Terminale Maths Expertes,Exemple guidé et calcul détaillé : Nombres complexes : forme algébrique et géométrie en pratique,,,10,,pending
+MATH_478,Algèbre,Terminale Maths Expertes,Correction d'exercice classique : Nombres complexes : forme algébrique et géométrie (Entraînement Lycée),,,10,,pending
+MATH_479,Algèbre,Terminale Maths Expertes,Problème type Bac : Nombres complexes : forme algébrique et géométrie — Raisonnement en plusieurs étapes,,,10,,pending
+MATH_480,Algèbre,Terminale Maths Expertes,Révision express & Fiche de synthèse : Tout retenir sur Nombres complexes : forme algébrique et géométrie,,,10,,pending
+MATH_481,Algèbre,Terminale Maths Expertes,Nombres complexes : forme algébrique et géométrie — Cours fondamental et définitions,,,10,,pending
+MATH_482,Algèbre,Terminale Maths Expertes,Méthode pas à pas : Comment résoudre un problème de Nombres complexes : forme algébrique et géométrie,,,10,,pending
+MATH_483,Algèbre,Terminale Maths Expertes,Exemple guidé et calcul détaillé : Nombres complexes : forme algébrique et géométrie en pratique,,,10,,pending
+MATH_484,Algèbre,Terminale Maths Expertes,Correction d'exercice classique : Nombres complexes : forme algébrique et géométrie (Entraînement Lycée),,,10,,pending
+MATH_485,Algèbre,Terminale Maths Expertes,Problème type Bac : Nombres complexes : forme algébrique et géométrie — Raisonnement en plusieurs étapes,,,10,,pending
+MATH_486,Algèbre,Terminale Maths Expertes,Révision express & Fiche de synthèse : Tout retenir sur Nombres complexes : forme algébrique et géométrie,,,10,,pending
+MATH_487,Algèbre,Terminale Maths Expertes,Nombres complexes : forme algébrique et géométrie — Cours fondamental et définitions,,,10,,pending
+MATH_488,Algèbre,Terminale Maths Expertes,Méthode pas à pas : Comment résoudre un problème de Nombres complexes : forme algébrique et géométrie,,,10,,pending
+MATH_489,Arithmétique,Terminale Maths Expertes,"Correction d'exercice classique : Divisibilité, congruences et théorèmes de Gauss/Bézout (Entraînement Lycée)",,,10,,pending
+MATH_490,Arithmétique,Terminale Maths Expertes,"Problème type Bac : Divisibilité, congruences et théorèmes de Gauss/Bézout — Raisonnement en plusieurs étapes",,,10,,pending
+MATH_491,Arithmétique,Terminale Maths Expertes,"Révision express & Fiche de synthèse : Tout retenir sur Divisibilité, congruences et théorèmes de Gauss/Bézout",,,10,,pending
+MATH_492,Arithmétique,Terminale Maths Expertes,"Divisibilité, congruences et théorèmes de Gauss/Bézout — Cours fondamental et définitions",,,10,,pending
+MATH_493,Arithmétique,Terminale Maths Expertes,"Méthode pas à pas : Comment résoudre un problème de Divisibilité, congruences et théorèmes de Gauss/Bézout",,,10,,pending
+MATH_494,Arithmétique,Terminale Maths Expertes,"Exemple guidé et calcul détaillé : Divisibilité, congruences et théorèmes de Gauss/Bézout en pratique",,,10,,pending
+MATH_495,Arithmétique,Terminale Maths Expertes,"Correction d'exercice classique : Divisibilité, congruences et théorèmes de Gauss/Bézout (Entraînement Lycée)",,,10,,pending
+MATH_496,Arithmétique,Terminale Maths Expertes,"Problème type Bac : Divisibilité, congruences et théorèmes de Gauss/Bézout — Raisonnement en plusieurs étapes",,,10,,pending
+MATH_497,Arithmétique,Terminale Maths Expertes,"Révision express & Fiche de synthèse : Tout retenir sur Divisibilité, congruences et théorèmes de Gauss/Bézout",,,10,,pending
+MATH_498,Arithmétique,Terminale Maths Expertes,"Divisibilité, congruences et théorèmes de Gauss/Bézout — Cours fondamental et définitions",,,10,,pending
+MATH_499,Arithmétique,Terminale Maths Expertes,"Méthode pas à pas : Comment résoudre un problème de Divisibilité, congruences et théorèmes de Gauss/Bézout",,,10,,pending
+MATH_500,Arithmétique,Terminale Maths Expertes,"Exemple guidé et calcul détaillé : Divisibilité, congruences et théorèmes de Gauss/Bézout en pratique",,,10,,pending
+PHYS_001,Physique - Mécanique,Seconde,"Mouvements, trajectoires et vitesse moyenne — Cours & Lois fondamentales",,,10,,pending
+PHYS_002,Physique - Mécanique,Seconde,"Méthode guidée : Comment modéliser et résoudre en Mouvements, trajectoires et vitesse moyenne",,,10,,pending
+PHYS_003,Physique - Mécanique,Seconde,"Étude de cas pas à pas : Mouvements, trajectoires et vitesse moyenne (Exemple d'application)",,,10,,pending
+PHYS_004,Physique - Mécanique,Seconde,"Exercice classique corrigé : Mouvements, trajectoires et vitesse moyenne (Niveau Seconde)",,,10,,pending
+PHYS_005,Physique - Mécanique,Seconde,"Problème type Bac : Mouvements, trajectoires et vitesse moyenne — Résolution multi-notions",,,10,,pending
+PHYS_006,Physique - Mécanique,Seconde,"Fiche de synthèse & Formules indispensables : Mouvements, trajectoires et vitesse moyenne",,,10,,pending
+PHYS_007,Physique - Mécanique,Seconde,"Mouvements, trajectoires et vitesse moyenne — Cours & Lois fondamentales",,,10,,pending
+PHYS_008,Physique - Mécanique,Seconde,"Méthode guidée : Comment modéliser et résoudre en Mouvements, trajectoires et vitesse moyenne",,,10,,pending
+PHYS_009,Physique - Mécanique,Seconde,"Étude de cas pas à pas : Mouvements, trajectoires et vitesse moyenne (Exemple d'application)",,,10,,pending
+PHYS_010,Physique - Mécanique,Seconde,"Exercice classique corrigé : Mouvements, trajectoires et vitesse moyenne (Niveau Seconde)",,,10,,pending
+PHYS_011,Physique - Mécanique,Seconde,"Problème type Bac : Mouvements, trajectoires et vitesse moyenne — Résolution multi-notions",,,10,,pending
+PHYS_012,Physique - Mécanique,Seconde,"Fiche de synthèse & Formules indispensables : Mouvements, trajectoires et vitesse moyenne",,,10,,pending
+PHYS_013,Physique - Mécanique,Seconde,Méthode guidée : Comment modéliser et résoudre en Forces et principe d'inertie,,,10,,pending
+PHYS_014,Physique - Mécanique,Seconde,Étude de cas pas à pas : Forces et principe d'inertie (Exemple d'application),,,10,,pending
+PHYS_015,Physique - Mécanique,Seconde,Exercice classique corrigé : Forces et principe d'inertie (Niveau Seconde),,,10,,pending
+PHYS_016,Physique - Mécanique,Seconde,Problème type Bac : Forces et principe d'inertie — Résolution multi-notions,,,10,,pending
+PHYS_017,Physique - Mécanique,Seconde,Fiche de synthèse & Formules indispensables : Forces et principe d'inertie,,,10,,pending
+PHYS_018,Physique - Mécanique,Seconde,Forces et principe d'inertie — Cours & Lois fondamentales,,,10,,pending
+PHYS_019,Physique - Mécanique,Seconde,Méthode guidée : Comment modéliser et résoudre en Forces et principe d'inertie,,,10,,pending
+PHYS_020,Physique - Mécanique,Seconde,Étude de cas pas à pas : Forces et principe d'inertie (Exemple d'application),,,10,,pending
+PHYS_021,Physique - Mécanique,Seconde,Exercice classique corrigé : Forces et principe d'inertie (Niveau Seconde),,,10,,pending
+PHYS_022,Physique - Mécanique,Seconde,Problème type Bac : Forces et principe d'inertie — Résolution multi-notions,,ysDfX9nt6aU,10,,pending
+PHYS_023,Physique - Mécanique,Seconde,Fiche de synthèse & Formules indispensables : Forces et principe d'inertie,,,10,,pending
+PHYS_024,Physique - Mécanique,Seconde,Forces et principe d'inertie — Cours & Lois fondamentales,,,10,,pending
+PHYS_025,Physique - Ondes & Signaux,Seconde,Étude de cas pas à pas : Émission et propagation de la lumière : lois de Snell-Descartes (Exemple d'application),,,10,,pending
+PHYS_026,Physique - Ondes & Signaux,Seconde,Exercice classique corrigé : Émission et propagation de la lumière : lois de Snell-Descartes (Niveau Seconde),,,10,,pending
+PHYS_027,Physique - Ondes & Signaux,Seconde,Problème type Bac : Émission et propagation de la lumière : lois de Snell-Descartes — Résolution multi-notions,,,10,,pending
+PHYS_028,Physique - Ondes & Signaux,Seconde,Fiche de synthèse & Formules indispensables : Émission et propagation de la lumière : lois de Snell-Descartes,,,10,,pending
+PHYS_029,Physique - Ondes & Signaux,Seconde,Émission et propagation de la lumière : lois de Snell-Descartes — Cours & Lois fondamentales,,,10,,pending
+PHYS_030,Physique - Ondes & Signaux,Seconde,Méthode guidée : Comment modéliser et résoudre en Émission et propagation de la lumière : lois de Snell-Descartes,,,10,,pending
+PHYS_031,Physique - Ondes & Signaux,Seconde,Étude de cas pas à pas : Émission et propagation de la lumière : lois de Snell-Descartes (Exemple d'application),,,10,,pending
+PHYS_032,Physique - Ondes & Signaux,Seconde,Exercice classique corrigé : Émission et propagation de la lumière : lois de Snell-Descartes (Niveau Seconde),,,10,,pending
+PHYS_033,Physique - Ondes & Signaux,Seconde,Problème type Bac : Émission et propagation de la lumière : lois de Snell-Descartes — Résolution multi-notions,,,10,,pending
+PHYS_034,Physique - Ondes & Signaux,Seconde,Fiche de synthèse & Formules indispensables : Émission et propagation de la lumière : lois de Snell-Descartes,,,10,,pending
+PHYS_035,Physique - Ondes & Signaux,Seconde,Émission et propagation de la lumière : lois de Snell-Descartes — Cours & Lois fondamentales,,,10,,pending
+PHYS_036,Physique - Ondes & Signaux,Seconde,Méthode guidée : Comment modéliser et résoudre en Émission et propagation de la lumière : lois de Snell-Descartes,,,10,,pending
+PHYS_037,Physique - Électricité,Seconde,"Exercice classique corrigé : Tension, intensité et loi d'Ohm dans un circuit (Niveau Seconde)",,,10,,pending
+PHYS_038,Physique - Électricité,Seconde,"Problème type Bac : Tension, intensité et loi d'Ohm dans un circuit — Résolution multi-notions",,,10,,pending
+PHYS_039,Physique - Électricité,Seconde,"Fiche de synthèse & Formules indispensables : Tension, intensité et loi d'Ohm dans un circuit",,,10,,pending
+PHYS_040,Physique - Électricité,Seconde,"Tension, intensité et loi d'Ohm dans un circuit — Cours & Lois fondamentales",,,10,,pending
+PHYS_041,Physique - Électricité,Seconde,"Méthode guidée : Comment modéliser et résoudre en Tension, intensité et loi d'Ohm dans un circuit",,,10,,pending
+PHYS_042,Physique - Électricité,Seconde,"Étude de cas pas à pas : Tension, intensité et loi d'Ohm dans un circuit (Exemple d'application)",,,10,,pending
+PHYS_043,Physique - Électricité,Seconde,"Exercice classique corrigé : Tension, intensité et loi d'Ohm dans un circuit (Niveau Seconde)",,,10,,pending
+PHYS_044,Physique - Électricité,Seconde,"Problème type Bac : Tension, intensité et loi d'Ohm dans un circuit — Résolution multi-notions",,,10,,pending
+PHYS_045,Physique - Électricité,Seconde,"Fiche de synthèse & Formules indispensables : Tension, intensité et loi d'Ohm dans un circuit",,,10,,pending
+PHYS_046,Physique - Électricité,Seconde,"Tension, intensité et loi d'Ohm dans un circuit — Cours & Lois fondamentales",,,10,,pending
+PHYS_047,Physique - Électricité,Seconde,"Méthode guidée : Comment modéliser et résoudre en Tension, intensité et loi d'Ohm dans un circuit",,,10,,pending
+PHYS_048,Physique - Électricité,Seconde,"Étude de cas pas à pas : Tension, intensité et loi d'Ohm dans un circuit (Exemple d'application)",,,10,,pending
+PHYS_049,Chimie,Seconde,"Problème type Bac : Solutions aqueuses, concentration et dissolution — Résolution multi-notions",,,10,,pending
+PHYS_050,Chimie,Seconde,"Fiche de synthèse & Formules indispensables : Solutions aqueuses, concentration et dissolution",,,10,,pending
+PHYS_051,Chimie,Seconde,"Solutions aqueuses, concentration et dissolution — Cours & Lois fondamentales",,,10,,pending
+PHYS_052,Chimie,Seconde,"Méthode guidée : Comment modéliser et résoudre en Solutions aqueuses, concentration et dissolution",,,10,,pending
+PHYS_053,Chimie,Seconde,"Étude de cas pas à pas : Solutions aqueuses, concentration et dissolution (Exemple d'application)",,,10,,pending
+PHYS_054,Chimie,Seconde,"Exercice classique corrigé : Solutions aqueuses, concentration et dissolution (Niveau Seconde)",,,10,,pending
+PHYS_055,Chimie,Seconde,"Problème type Bac : Solutions aqueuses, concentration et dissolution — Résolution multi-notions",,,10,,pending
+PHYS_056,Chimie,Seconde,"Fiche de synthèse & Formules indispensables : Solutions aqueuses, concentration et dissolution",,,10,,pending
+PHYS_057,Chimie,Seconde,"Solutions aqueuses, concentration et dissolution — Cours & Lois fondamentales",,,10,,pending
+PHYS_058,Chimie,Seconde,"Méthode guidée : Comment modéliser et résoudre en Solutions aqueuses, concentration et dissolution",,,10,,pending
+PHYS_059,Chimie,Seconde,"Étude de cas pas à pas : Solutions aqueuses, concentration et dissolution (Exemple d'application)",,,10,,pending
+PHYS_060,Chimie,Seconde,"Exercice classique corrigé : Solutions aqueuses, concentration et dissolution (Niveau Seconde)",,,10,,pending
+PHYS_061,Physique - Mécanique,Première Spécialité,Fiche de synthèse & Formules indispensables : Vecteur vitesse et vecteur accélération,,,10,,pending
+PHYS_062,Physique - Mécanique,Première Spécialité,Vecteur vitesse et vecteur accélération — Cours & Lois fondamentales,,,10,,pending
+PHYS_063,Physique - Mécanique,Première Spécialité,Méthode guidée : Comment modéliser et résoudre en Vecteur vitesse et vecteur accélération,,,10,,pending
+PHYS_064,Physique - Mécanique,Première Spécialité,Étude de cas pas à pas : Vecteur vitesse et vecteur accélération (Exemple d'application),,,10,,pending
+PHYS_065,Physique - Mécanique,Première Spécialité,Exercice classique corrigé : Vecteur vitesse et vecteur accélération (Niveau Première Spécialité),,,10,,pending
+PHYS_066,Physique - Mécanique,Première Spécialité,Problème type Bac : Vecteur vitesse et vecteur accélération — Résolution multi-notions,,,10,,pending
+PHYS_067,Physique - Mécanique,Première Spécialité,Fiche de synthèse & Formules indispensables : Vecteur vitesse et vecteur accélération,,,10,,pending
+PHYS_068,Physique - Mécanique,Première Spécialité,Vecteur vitesse et vecteur accélération — Cours & Lois fondamentales,,,10,,pending
+PHYS_069,Physique - Mécanique,Première Spécialité,Méthode guidée : Comment modéliser et résoudre en Vecteur vitesse et vecteur accélération,,,10,,pending
+PHYS_070,Physique - Mécanique,Première Spécialité,Étude de cas pas à pas : Vecteur vitesse et vecteur accélération (Exemple d'application),,,10,,pending
+PHYS_071,Physique - Mécanique,Première Spécialité,Exercice classique corrigé : Vecteur vitesse et vecteur accélération (Niveau Première Spécialité),,,10,,pending
+PHYS_072,Physique - Mécanique,Première Spécialité,Problème type Bac : Vecteur vitesse et vecteur accélération — Résolution multi-notions,,,10,,pending
+PHYS_073,Physique - Mécanique,Première Spécialité,Deuxième loi de Newton : bilan de forces et masse — Cours & Lois fondamentales,,,10,,pending
+PHYS_074,Physique - Mécanique,Première Spécialité,Méthode guidée : Comment modéliser et résoudre en Deuxième loi de Newton : bilan de forces et masse,,,10,,pending
+PHYS_075,Physique - Mécanique,Première Spécialité,Étude de cas pas à pas : Deuxième loi de Newton : bilan de forces et masse (Exemple d'application),,,10,,pending
+PHYS_076,Physique - Mécanique,Première Spécialité,Exercice classique corrigé : Deuxième loi de Newton : bilan de forces et masse (Niveau Première Spécialité),,,10,,pending
+PHYS_077,Physique - Mécanique,Première Spécialité,Problème type Bac : Deuxième loi de Newton : bilan de forces et masse — Résolution multi-notions,,,10,,pending
+PHYS_078,Physique - Mécanique,Première Spécialité,Fiche de synthèse & Formules indispensables : Deuxième loi de Newton : bilan de forces et masse,,,10,,pending
+PHYS_079,Physique - Mécanique,Première Spécialité,Deuxième loi de Newton : bilan de forces et masse — Cours & Lois fondamentales,,,10,,pending
+PHYS_080,Physique - Mécanique,Première Spécialité,Méthode guidée : Comment modéliser et résoudre en Deuxième loi de Newton : bilan de forces et masse,,,10,,pending
+PHYS_081,Physique - Mécanique,Première Spécialité,Étude de cas pas à pas : Deuxième loi de Newton : bilan de forces et masse (Exemple d'application),,,10,,pending
+PHYS_082,Physique - Mécanique,Première Spécialité,Exercice classique corrigé : Deuxième loi de Newton : bilan de forces et masse (Niveau Première Spécialité),,,10,,pending
+PHYS_083,Physique - Mécanique,Première Spécialité,Problème type Bac : Deuxième loi de Newton : bilan de forces et masse — Résolution multi-notions,,,10,,pending
+PHYS_084,Physique - Mécanique,Première Spécialité,Fiche de synthèse & Formules indispensables : Deuxième loi de Newton : bilan de forces et masse,,,10,,pending
+PHYS_085,Physique - Énergie,Première Spécialité,Méthode guidée : Comment modéliser et résoudre en Énergie cinétique et travail d'une force,,,10,,pending
+PHYS_086,Physique - Énergie,Première Spécialité,Étude de cas pas à pas : Énergie cinétique et travail d'une force (Exemple d'application),,,10,,pending
+PHYS_087,Physique - Énergie,Première Spécialité,Exercice classique corrigé : Énergie cinétique et travail d'une force (Niveau Première Spécialité),,,10,,pending
+PHYS_088,Physique - Énergie,Première Spécialité,Problème type Bac : Énergie cinétique et travail d'une force — Résolution multi-notions,,,10,,pending
+PHYS_089,Physique - Énergie,Première Spécialité,Fiche de synthèse & Formules indispensables : Énergie cinétique et travail d'une force,,,10,,pending
+PHYS_090,Physique - Énergie,Première Spécialité,Énergie cinétique et travail d'une force — Cours & Lois fondamentales,,,10,,pending
+PHYS_091,Physique - Énergie,Première Spécialité,Méthode guidée : Comment modéliser et résoudre en Énergie cinétique et travail d'une force,,,10,,pending
+PHYS_092,Physique - Énergie,Première Spécialité,Étude de cas pas à pas : Énergie cinétique et travail d'une force (Exemple d'application),,,10,,pending
+PHYS_093,Physique - Énergie,Première Spécialité,Exercice classique corrigé : Énergie cinétique et travail d'une force (Niveau Première Spécialité),,,10,,pending
+PHYS_094,Physique - Énergie,Première Spécialité,Problème type Bac : Énergie cinétique et travail d'une force — Résolution multi-notions,,,10,,pending
+PHYS_095,Physique - Énergie,Première Spécialité,Fiche de synthèse & Formules indispensables : Énergie cinétique et travail d'une force,,,10,,pending
+PHYS_096,Physique - Énergie,Première Spécialité,Énergie cinétique et travail d'une force — Cours & Lois fondamentales,,,10,,pending
+PHYS_097,Physique - Énergie,Première Spécialité,Étude de cas pas à pas : Énergie potentielle et conservation de l'énergie mécanique (Exemple d'application),,,10,,pending
+PHYS_098,Physique - Énergie,Première Spécialité,Exercice classique corrigé : Énergie potentielle et conservation de l'énergie mécanique (Niveau Première Spécialité),,,10,,pending
+PHYS_099,Physique - Énergie,Première Spécialité,Problème type Bac : Énergie potentielle et conservation de l'énergie mécanique — Résolution multi-notions,,,10,,pending
+PHYS_100,Physique - Énergie,Première Spécialité,Fiche de synthèse & Formules indispensables : Énergie potentielle et conservation de l'énergie mécanique,,,10,,pending
+PHYS_101,Physique - Énergie,Première Spécialité,Énergie potentielle et conservation de l'énergie mécanique — Cours & Lois fondamentales,,,10,,pending
+PHYS_102,Physique - Énergie,Première Spécialité,Méthode guidée : Comment modéliser et résoudre en Énergie potentielle et conservation de l'énergie mécanique,,,10,,pending
+PHYS_103,Physique - Énergie,Première Spécialité,Étude de cas pas à pas : Énergie potentielle et conservation de l'énergie mécanique (Exemple d'application),,,10,,pending
+PHYS_104,Physique - Énergie,Première Spécialité,Exercice classique corrigé : Énergie potentielle et conservation de l'énergie mécanique (Niveau Première Spécialité),,,10,,pending
+PHYS_105,Physique - Énergie,Première Spécialité,Problème type Bac : Énergie potentielle et conservation de l'énergie mécanique — Résolution multi-notions,,,10,,pending
+PHYS_106,Physique - Énergie,Première Spécialité,Fiche de synthèse & Formules indispensables : Énergie potentielle et conservation de l'énergie mécanique,,,10,,pending
+PHYS_107,Physique - Énergie,Première Spécialité,Énergie potentielle et conservation de l'énergie mécanique — Cours & Lois fondamentales,,,10,,pending
+PHYS_108,Physique - Énergie,Première Spécialité,Méthode guidée : Comment modéliser et résoudre en Énergie potentielle et conservation de l'énergie mécanique,,,10,,pending
+PHYS_109,Physique - Ondes,Première Spécialité,Exercice classique corrigé : Ondes mécaniques progressives et périodiques (Niveau Première Spécialité),,,10,,pending
+PHYS_110,Physique - Ondes,Première Spécialité,Problème type Bac : Ondes mécaniques progressives et périodiques — Résolution multi-notions,,,10,,pending
+PHYS_111,Physique - Ondes,Première Spécialité,Fiche de synthèse & Formules indispensables : Ondes mécaniques progressives et périodiques,,,10,,pending
+PHYS_112,Physique - Ondes,Première Spécialité,Ondes mécaniques progressives et périodiques — Cours & Lois fondamentales,,,10,,pending
+PHYS_113,Physique - Ondes,Première Spécialité,Méthode guidée : Comment modéliser et résoudre en Ondes mécaniques progressives et périodiques,,,10,,pending
+PHYS_114,Physique - Ondes,Première Spécialité,Étude de cas pas à pas : Ondes mécaniques progressives et périodiques (Exemple d'application),,,10,,pending
+PHYS_115,Physique - Ondes,Première Spécialité,Exercice classique corrigé : Ondes mécaniques progressives et périodiques (Niveau Première Spécialité),,,10,,pending
+PHYS_116,Physique - Ondes,Première Spécialité,Problème type Bac : Ondes mécaniques progressives et périodiques — Résolution multi-notions,,,10,,pending
+PHYS_117,Physique - Ondes,Première Spécialité,Fiche de synthèse & Formules indispensables : Ondes mécaniques progressives et périodiques,,,10,,pending
+PHYS_118,Physique - Ondes,Première Spécialité,Ondes mécaniques progressives et périodiques — Cours & Lois fondamentales,,,10,,pending
+PHYS_119,Physique - Ondes,Première Spécialité,Méthode guidée : Comment modéliser et résoudre en Ondes mécaniques progressives et périodiques,,,10,,pending
+PHYS_120,Physique - Ondes,Première Spécialité,Étude de cas pas à pas : Ondes mécaniques progressives et périodiques (Exemple d'application),,,10,,pending
+PHYS_121,Chimie,Première Spécialité,Problème type Bac : Réactions d'oxydoréduction et demi-équations — Résolution multi-notions,,,10,,pending
+PHYS_122,Chimie,Première Spécialité,Fiche de synthèse & Formules indispensables : Réactions d'oxydoréduction et demi-équations,,,10,,pending
+PHYS_123,Chimie,Première Spécialité,Réactions d'oxydoréduction et demi-équations — Cours & Lois fondamentales,,,10,,pending
+PHYS_124,Chimie,Première Spécialité,Méthode guidée : Comment modéliser et résoudre en Réactions d'oxydoréduction et demi-équations,,,10,,pending
+PHYS_125,Chimie,Première Spécialité,Étude de cas pas à pas : Réactions d'oxydoréduction et demi-équations (Exemple d'application),,,10,,pending
+PHYS_126,Chimie,Première Spécialité,Exercice classique corrigé : Réactions d'oxydoréduction et demi-équations (Niveau Première Spécialité),,,10,,pending
+PHYS_127,Chimie,Première Spécialité,Problème type Bac : Réactions d'oxydoréduction et demi-équations — Résolution multi-notions,,,10,,pending
+PHYS_128,Chimie,Première Spécialité,Fiche de synthèse & Formules indispensables : Réactions d'oxydoréduction et demi-équations,,,10,,pending
+PHYS_129,Chimie,Première Spécialité,Réactions d'oxydoréduction et demi-équations — Cours & Lois fondamentales,,,10,,pending
+PHYS_130,Chimie,Première Spécialité,Méthode guidée : Comment modéliser et résoudre en Réactions d'oxydoréduction et demi-équations,,,10,,pending
+PHYS_131,Chimie,Première Spécialité,Étude de cas pas à pas : Réactions d'oxydoréduction et demi-équations (Exemple d'application),,,10,,pending
+PHYS_132,Chimie,Première Spécialité,Exercice classique corrigé : Réactions d'oxydoréduction et demi-équations (Niveau Première Spécialité),,,10,,pending
+PHYS_133,Chimie,Première Spécialité,Fiche de synthèse & Formules indispensables : Titrage colorimétrique et équivalence,,,10,,pending
+PHYS_134,Chimie,Première Spécialité,Titrage colorimétrique et équivalence — Cours & Lois fondamentales,,,10,,pending
+PHYS_135,Chimie,Première Spécialité,Méthode guidée : Comment modéliser et résoudre en Titrage colorimétrique et équivalence,,,10,,pending
+PHYS_136,Chimie,Première Spécialité,Étude de cas pas à pas : Titrage colorimétrique et équivalence (Exemple d'application),,,10,,pending
+PHYS_137,Chimie,Première Spécialité,Exercice classique corrigé : Titrage colorimétrique et équivalence (Niveau Première Spécialité),,,10,,pending
+PHYS_138,Chimie,Première Spécialité,Problème type Bac : Titrage colorimétrique et équivalence — Résolution multi-notions,,,10,,pending
+PHYS_139,Chimie,Première Spécialité,Fiche de synthèse & Formules indispensables : Titrage colorimétrique et équivalence,,,10,,pending
+PHYS_140,Chimie,Première Spécialité,Titrage colorimétrique et équivalence — Cours & Lois fondamentales,,,10,,pending
+PHYS_141,Chimie,Première Spécialité,Méthode guidée : Comment modéliser et résoudre en Titrage colorimétrique et équivalence,,,10,,pending
+PHYS_142,Chimie,Première Spécialité,Étude de cas pas à pas : Titrage colorimétrique et équivalence (Exemple d'application),,,10,,pending
+PHYS_143,Chimie,Première Spécialité,Exercice classique corrigé : Titrage colorimétrique et équivalence (Niveau Première Spécialité),,,10,,pending
+PHYS_144,Chimie,Première Spécialité,Problème type Bac : Titrage colorimétrique et équivalence — Résolution multi-notions,,,10,,pending
+PHYS_145,Chimie,Première Spécialité,Structure des molécules et cohésion de la matière — Cours & Lois fondamentales,,,10,,pending
+PHYS_146,Chimie,Première Spécialité,Méthode guidée : Comment modéliser et résoudre en Structure des molécules et cohésion de la matière,,,10,,pending
+PHYS_147,Chimie,Première Spécialité,Étude de cas pas à pas : Structure des molécules et cohésion de la matière (Exemple d'application),,,10,,pending
+PHYS_148,Chimie,Première Spécialité,Exercice classique corrigé : Structure des molécules et cohésion de la matière (Niveau Première Spécialité),,,10,,pending
+PHYS_149,Chimie,Première Spécialité,Problème type Bac : Structure des molécules et cohésion de la matière — Résolution multi-notions,,,10,,pending
+PHYS_150,Chimie,Première Spécialité,Fiche de synthèse & Formules indispensables : Structure des molécules et cohésion de la matière,,,10,,pending
+PHYS_151,Chimie,Première Spécialité,Structure des molécules et cohésion de la matière — Cours & Lois fondamentales,,,10,,pending
+PHYS_152,Chimie,Première Spécialité,Méthode guidée : Comment modéliser et résoudre en Structure des molécules et cohésion de la matière,,,10,,pending
+PHYS_153,Chimie,Première Spécialité,Étude de cas pas à pas : Structure des molécules et cohésion de la matière (Exemple d'application),,,10,,pending
+PHYS_154,Chimie,Première Spécialité,Exercice classique corrigé : Structure des molécules et cohésion de la matière (Niveau Première Spécialité),,,10,,pending
+PHYS_155,Chimie,Première Spécialité,Problème type Bac : Structure des molécules et cohésion de la matière — Résolution multi-notions,,,10,,pending
+PHYS_156,Chimie,Première Spécialité,Fiche de synthèse & Formules indispensables : Structure des molécules et cohésion de la matière,,,10,,pending
+PHYS_157,Chimie,Première Spécialité,Méthode guidée : Comment modéliser et résoudre en Chimie organique et groupes caractéristiques,,,10,,pending
+PHYS_158,Chimie,Première Spécialité,Étude de cas pas à pas : Chimie organique et groupes caractéristiques (Exemple d'application),,,10,,pending
+PHYS_159,Chimie,Première Spécialité,Exercice classique corrigé : Chimie organique et groupes caractéristiques (Niveau Première Spécialité),,,10,,pending
+PHYS_160,Chimie,Première Spécialité,Problème type Bac : Chimie organique et groupes caractéristiques — Résolution multi-notions,,,10,,pending
+PHYS_161,Chimie,Première Spécialité,Fiche de synthèse & Formules indispensables : Chimie organique et groupes caractéristiques,,,10,,pending
+PHYS_162,Chimie,Première Spécialité,Chimie organique et groupes caractéristiques — Cours & Lois fondamentales,,,10,,pending
+PHYS_163,Chimie,Première Spécialité,Méthode guidée : Comment modéliser et résoudre en Chimie organique et groupes caractéristiques,,,10,,pending
+PHYS_164,Chimie,Première Spécialité,Étude de cas pas à pas : Chimie organique et groupes caractéristiques (Exemple d'application),,,10,,pending
+PHYS_165,Chimie,Première Spécialité,Exercice classique corrigé : Chimie organique et groupes caractéristiques (Niveau Première Spécialité),,,10,,pending
+PHYS_166,Chimie,Première Spécialité,Problème type Bac : Chimie organique et groupes caractéristiques — Résolution multi-notions,,,10,,pending
+PHYS_167,Chimie,Première Spécialité,Fiche de synthèse & Formules indispensables : Chimie organique et groupes caractéristiques,,,10,,pending
+PHYS_168,Chimie,Première Spécialité,Chimie organique et groupes caractéristiques — Cours & Lois fondamentales,,,10,,pending
+PHYS_169,Physique - Optique,Première Spécialité,Étude de cas pas à pas : Lentilles minces convergentes et grandissement (Exemple d'application),,,10,,pending
+PHYS_170,Physique - Optique,Première Spécialité,Exercice classique corrigé : Lentilles minces convergentes et grandissement (Niveau Première Spécialité),,,10,,pending
+PHYS_171,Physique - Optique,Première Spécialité,Problème type Bac : Lentilles minces convergentes et grandissement — Résolution multi-notions,,,10,,pending
+PHYS_172,Physique - Optique,Première Spécialité,Fiche de synthèse & Formules indispensables : Lentilles minces convergentes et grandissement,,,10,,pending
+PHYS_173,Physique - Optique,Première Spécialité,Lentilles minces convergentes et grandissement — Cours & Lois fondamentales,,,10,,pending
+PHYS_174,Physique - Optique,Première Spécialité,Méthode guidée : Comment modéliser et résoudre en Lentilles minces convergentes et grandissement,,,10,,pending
+PHYS_175,Physique - Optique,Première Spécialité,Étude de cas pas à pas : Lentilles minces convergentes et grandissement (Exemple d'application),,,10,,pending
+PHYS_176,Physique - Optique,Première Spécialité,Exercice classique corrigé : Lentilles minces convergentes et grandissement (Niveau Première Spécialité),,,10,,pending
+PHYS_177,Physique - Optique,Première Spécialité,Problème type Bac : Lentilles minces convergentes et grandissement — Résolution multi-notions,,,10,,pending
+PHYS_178,Physique - Optique,Première Spécialité,Fiche de synthèse & Formules indispensables : Lentilles minces convergentes et grandissement,,,10,,pending
+PHYS_179,Physique - Optique,Première Spécialité,Lentilles minces convergentes et grandissement — Cours & Lois fondamentales,,,10,,pending
+PHYS_180,Physique - Optique,Première Spécialité,Méthode guidée : Comment modéliser et résoudre en Lentilles minces convergentes et grandissement,,,10,,pending
+PHYS_181,Physique - Mécanique,Terminale Spécialité,Exercice classique corrigé : Mouvement dans un champ de pesanteur uniforme (Niveau Terminale Spécialité),,,10,,pending
+PHYS_182,Physique - Mécanique,Terminale Spécialité,Problème type Bac : Mouvement dans un champ de pesanteur uniforme — Résolution multi-notions,,,10,,pending
+PHYS_183,Physique - Mécanique,Terminale Spécialité,Fiche de synthèse & Formules indispensables : Mouvement dans un champ de pesanteur uniforme,,,10,,pending
+PHYS_184,Physique - Mécanique,Terminale Spécialité,Mouvement dans un champ de pesanteur uniforme — Cours & Lois fondamentales,,,10,,pending
+PHYS_185,Physique - Mécanique,Terminale Spécialité,Méthode guidée : Comment modéliser et résoudre en Mouvement dans un champ de pesanteur uniforme,,,10,,pending
+PHYS_186,Physique - Mécanique,Terminale Spécialité,Étude de cas pas à pas : Mouvement dans un champ de pesanteur uniforme (Exemple d'application),,,10,,pending
+PHYS_187,Physique - Mécanique,Terminale Spécialité,Exercice classique corrigé : Mouvement dans un champ de pesanteur uniforme (Niveau Terminale Spécialité),,,10,,pending
+PHYS_188,Physique - Mécanique,Terminale Spécialité,Problème type Bac : Mouvement dans un champ de pesanteur uniforme — Résolution multi-notions,,,10,,pending
+PHYS_189,Physique - Mécanique,Terminale Spécialité,Fiche de synthèse & Formules indispensables : Mouvement dans un champ de pesanteur uniforme,,,10,,pending
+PHYS_190,Physique - Mécanique,Terminale Spécialité,Mouvement dans un champ de pesanteur uniforme — Cours & Lois fondamentales,,,10,,pending
+PHYS_191,Physique - Mécanique,Terminale Spécialité,Méthode guidée : Comment modéliser et résoudre en Mouvement dans un champ de pesanteur uniforme,,,10,,pending
+PHYS_192,Physique - Mécanique,Terminale Spécialité,Étude de cas pas à pas : Mouvement dans un champ de pesanteur uniforme (Exemple d'application),,,10,,pending
+PHYS_193,Physique - Mécanique,Terminale Spécialité,Problème type Bac : Mouvement des planètes et satellites : Lois de Kepler — Résolution multi-notions,,,10,,pending
+PHYS_194,Physique - Mécanique,Terminale Spécialité,Fiche de synthèse & Formules indispensables : Mouvement des planètes et satellites : Lois de Kepler,,,10,,pending
+PHYS_195,Physique - Mécanique,Terminale Spécialité,Mouvement des planètes et satellites : Lois de Kepler — Cours & Lois fondamentales,,,10,,pending
+PHYS_196,Physique - Mécanique,Terminale Spécialité,Méthode guidée : Comment modéliser et résoudre en Mouvement des planètes et satellites : Lois de Kepler,,,10,,pending
+PHYS_197,Physique - Mécanique,Terminale Spécialité,Étude de cas pas à pas : Mouvement des planètes et satellites : Lois de Kepler (Exemple d'application),,,10,,pending
+PHYS_198,Physique - Mécanique,Terminale Spécialité,Exercice classique corrigé : Mouvement des planètes et satellites : Lois de Kepler (Niveau Terminale Spécialité),,,10,,pending
+PHYS_199,Physique - Mécanique,Terminale Spécialité,Problème type Bac : Mouvement des planètes et satellites : Lois de Kepler — Résolution multi-notions,,,10,,pending
+PHYS_200,Physique - Mécanique,Terminale Spécialité,Fiche de synthèse & Formules indispensables : Mouvement des planètes et satellites : Lois de Kepler,,,10,,pending
+PHYS_201,Physique - Mécanique,Terminale Spécialité,Mouvement des planètes et satellites : Lois de Kepler — Cours & Lois fondamentales,,,10,,pending
+PHYS_202,Physique - Mécanique,Terminale Spécialité,Méthode guidée : Comment modéliser et résoudre en Mouvement des planètes et satellites : Lois de Kepler,,,10,,pending
+PHYS_203,Physique - Mécanique,Terminale Spécialité,Étude de cas pas à pas : Mouvement des planètes et satellites : Lois de Kepler (Exemple d'application),,,10,,pending
+PHYS_204,Physique - Mécanique,Terminale Spécialité,Exercice classique corrigé : Mouvement des planètes et satellites : Lois de Kepler (Niveau Terminale Spécialité),,,10,,pending
+PHYS_205,Physique - Électricité,Terminale Spécialité,Fiche de synthèse & Formules indispensables : Dipôle RC : charge et décharge d'un condensateur,,,10,,pending
+PHYS_206,Physique - Électricité,Terminale Spécialité,Dipôle RC : charge et décharge d'un condensateur — Cours & Lois fondamentales,,,10,,pending
+PHYS_207,Physique - Électricité,Terminale Spécialité,Méthode guidée : Comment modéliser et résoudre en Dipôle RC : charge et décharge d'un condensateur,,,10,,pending
+PHYS_208,Physique - Électricité,Terminale Spécialité,Étude de cas pas à pas : Dipôle RC : charge et décharge d'un condensateur (Exemple d'application),,,10,,pending
+PHYS_209,Physique - Électricité,Terminale Spécialité,Exercice classique corrigé : Dipôle RC : charge et décharge d'un condensateur (Niveau Terminale Spécialité),,,10,,pending
+PHYS_210,Physique - Électricité,Terminale Spécialité,Problème type Bac : Dipôle RC : charge et décharge d'un condensateur — Résolution multi-notions,,,10,,pending
+PHYS_211,Physique - Électricité,Terminale Spécialité,Fiche de synthèse & Formules indispensables : Dipôle RC : charge et décharge d'un condensateur,,,10,,pending
+PHYS_212,Physique - Électricité,Terminale Spécialité,Dipôle RC : charge et décharge d'un condensateur — Cours & Lois fondamentales,,,10,,pending
+PHYS_213,Physique - Électricité,Terminale Spécialité,Méthode guidée : Comment modéliser et résoudre en Dipôle RC : charge et décharge d'un condensateur,,,10,,pending
+PHYS_214,Physique - Électricité,Terminale Spécialité,Étude de cas pas à pas : Dipôle RC : charge et décharge d'un condensateur (Exemple d'application),,,10,,pending
+PHYS_215,Physique - Électricité,Terminale Spécialité,Exercice classique corrigé : Dipôle RC : charge et décharge d'un condensateur (Niveau Terminale Spécialité),,,10,,pending
+PHYS_216,Physique - Électricité,Terminale Spécialité,Problème type Bac : Dipôle RC : charge et décharge d'un condensateur — Résolution multi-notions,,,10,,pending
+PHYS_217,Physique - Thermodynamique,Terminale Spécialité,Premier principe et transferts thermiques — Cours & Lois fondamentales,,,10,,pending
+PHYS_218,Physique - Thermodynamique,Terminale Spécialité,Méthode guidée : Comment modéliser et résoudre en Premier principe et transferts thermiques,,,10,,pending
+PHYS_219,Physique - Thermodynamique,Terminale Spécialité,Étude de cas pas à pas : Premier principe et transferts thermiques (Exemple d'application),,,10,,pending
+PHYS_220,Physique - Thermodynamique,Terminale Spécialité,Exercice classique corrigé : Premier principe et transferts thermiques (Niveau Terminale Spécialité),,,10,,pending
+PHYS_221,Physique - Thermodynamique,Terminale Spécialité,Problème type Bac : Premier principe et transferts thermiques — Résolution multi-notions,,,10,,pending
+PHYS_222,Physique - Thermodynamique,Terminale Spécialité,Fiche de synthèse & Formules indispensables : Premier principe et transferts thermiques,,,10,,pending
+PHYS_223,Physique - Thermodynamique,Terminale Spécialité,Premier principe et transferts thermiques — Cours & Lois fondamentales,,,10,,pending
+PHYS_224,Physique - Thermodynamique,Terminale Spécialité,Méthode guidée : Comment modéliser et résoudre en Premier principe et transferts thermiques,,,10,,pending
+PHYS_225,Physique - Thermodynamique,Terminale Spécialité,Étude de cas pas à pas : Premier principe et transferts thermiques (Exemple d'application),,,10,,pending
+PHYS_226,Physique - Thermodynamique,Terminale Spécialité,Exercice classique corrigé : Premier principe et transferts thermiques (Niveau Terminale Spécialité),,,10,,pending
+PHYS_227,Physique - Thermodynamique,Terminale Spécialité,Problème type Bac : Premier principe et transferts thermiques — Résolution multi-notions,,,10,,pending
+PHYS_228,Physique - Thermodynamique,Terminale Spécialité,Fiche de synthèse & Formules indispensables : Premier principe et transferts thermiques,,,10,,pending
+PHYS_229,Physique - Ondes,Terminale Spécialité,Méthode guidée : Comment modéliser et résoudre en Diffraction et interférences lumineuses,,,10,,pending
+PHYS_230,Physique - Ondes,Terminale Spécialité,Étude de cas pas à pas : Diffraction et interférences lumineuses (Exemple d'application),,,10,,pending
+PHYS_231,Physique - Ondes,Terminale Spécialité,Exercice classique corrigé : Diffraction et interférences lumineuses (Niveau Terminale Spécialité),,,10,,pending
+PHYS_232,Physique - Ondes,Terminale Spécialité,Problème type Bac : Diffraction et interférences lumineuses — Résolution multi-notions,,,10,,pending
+PHYS_233,Physique - Ondes,Terminale Spécialité,Fiche de synthèse & Formules indispensables : Diffraction et interférences lumineuses,,,10,,pending
+PHYS_234,Physique - Ondes,Terminale Spécialité,Diffraction et interférences lumineuses — Cours & Lois fondamentales,,,10,,pending
+PHYS_235,Physique - Ondes,Terminale Spécialité,Méthode guidée : Comment modéliser et résoudre en Diffraction et interférences lumineuses,,,10,,pending
+PHYS_236,Physique - Ondes,Terminale Spécialité,Étude de cas pas à pas : Diffraction et interférences lumineuses (Exemple d'application),,,10,,pending
+PHYS_237,Physique - Ondes,Terminale Spécialité,Exercice classique corrigé : Diffraction et interférences lumineuses (Niveau Terminale Spécialité),,,10,,pending
+PHYS_238,Physique - Ondes,Terminale Spécialité,Problème type Bac : Diffraction et interférences lumineuses — Résolution multi-notions,,,10,,pending
+PHYS_239,Physique - Ondes,Terminale Spécialité,Fiche de synthèse & Formules indispensables : Diffraction et interférences lumineuses,,,10,,pending
+PHYS_240,Physique - Ondes,Terminale Spécialité,Diffraction et interférences lumineuses — Cours & Lois fondamentales,,,10,,pending
+PHYS_241,Physique - Ondes,Terminale Spécialité,Étude de cas pas à pas : Effet Doppler sonore et astrophysique (Exemple d'application),,,10,,pending
+PHYS_242,Physique - Ondes,Terminale Spécialité,Exercice classique corrigé : Effet Doppler sonore et astrophysique (Niveau Terminale Spécialité),,,10,,pending
+PHYS_243,Physique - Ondes,Terminale Spécialité,Problème type Bac : Effet Doppler sonore et astrophysique — Résolution multi-notions,,,10,,pending
+PHYS_244,Physique - Ondes,Terminale Spécialité,Fiche de synthèse & Formules indispensables : Effet Doppler sonore et astrophysique,,,10,,pending
+PHYS_245,Physique - Ondes,Terminale Spécialité,Effet Doppler sonore et astrophysique — Cours & Lois fondamentales,,,10,,pending
+PHYS_246,Physique - Ondes,Terminale Spécialité,Méthode guidée : Comment modéliser et résoudre en Effet Doppler sonore et astrophysique,,,10,,pending
+PHYS_247,Physique - Ondes,Terminale Spécialité,Étude de cas pas à pas : Effet Doppler sonore et astrophysique (Exemple d'application),,,10,,pending
+PHYS_248,Physique - Ondes,Terminale Spécialité,Exercice classique corrigé : Effet Doppler sonore et astrophysique (Niveau Terminale Spécialité),,,10,,pending
+PHYS_249,Physique - Ondes,Terminale Spécialité,Problème type Bac : Effet Doppler sonore et astrophysique — Résolution multi-notions,,,10,,pending
+PHYS_250,Physique - Ondes,Terminale Spécialité,Fiche de synthèse & Formules indispensables : Effet Doppler sonore et astrophysique,,,10,,pending
+PHYS_251,Physique - Ondes,Terminale Spécialité,Effet Doppler sonore et astrophysique — Cours & Lois fondamentales,,,10,,pending
+PHYS_252,Physique - Ondes,Terminale Spécialité,Méthode guidée : Comment modéliser et résoudre en Effet Doppler sonore et astrophysique,,,10,,pending
+PHYS_253,Chimie,Terminale Spécialité,Exercice classique corrigé : Transformations acido-basiques et pH (Niveau Terminale Spécialité),,,10,,pending
+PHYS_254,Chimie,Terminale Spécialité,Problème type Bac : Transformations acido-basiques et pH — Résolution multi-notions,,,10,,pending
+PHYS_255,Chimie,Terminale Spécialité,Fiche de synthèse & Formules indispensables : Transformations acido-basiques et pH,,,10,,pending
+PHYS_256,Chimie,Terminale Spécialité,Transformations acido-basiques et pH — Cours & Lois fondamentales,,,10,,pending
+PHYS_257,Chimie,Terminale Spécialité,Méthode guidée : Comment modéliser et résoudre en Transformations acido-basiques et pH,,,10,,pending
+PHYS_258,Chimie,Terminale Spécialité,Étude de cas pas à pas : Transformations acido-basiques et pH (Exemple d'application),,,10,,pending
+PHYS_259,Chimie,Terminale Spécialité,Exercice classique corrigé : Transformations acido-basiques et pH (Niveau Terminale Spécialité),,,10,,pending
+PHYS_260,Chimie,Terminale Spécialité,Problème type Bac : Transformations acido-basiques et pH — Résolution multi-notions,,,10,,pending
+PHYS_261,Chimie,Terminale Spécialité,Fiche de synthèse & Formules indispensables : Transformations acido-basiques et pH,,,10,,pending
+PHYS_262,Chimie,Terminale Spécialité,Transformations acido-basiques et pH — Cours & Lois fondamentales,,,10,,pending
+PHYS_263,Chimie,Terminale Spécialité,Méthode guidée : Comment modéliser et résoudre en Transformations acido-basiques et pH,,,10,,pending
+PHYS_264,Chimie,Terminale Spécialité,Étude de cas pas à pas : Transformations acido-basiques et pH (Exemple d'application),,,10,,pending
+PHYS_265,Chimie,Terminale Spécialité,Problème type Bac : Titrage pH-métrique et méthode des tangentes — Résolution multi-notions,,,10,,pending
+PHYS_266,Chimie,Terminale Spécialité,Fiche de synthèse & Formules indispensables : Titrage pH-métrique et méthode des tangentes,,,10,,pending
+PHYS_267,Chimie,Terminale Spécialité,Titrage pH-métrique et méthode des tangentes — Cours & Lois fondamentales,,,10,,pending
+PHYS_268,Chimie,Terminale Spécialité,Méthode guidée : Comment modéliser et résoudre en Titrage pH-métrique et méthode des tangentes,,,10,,pending
+PHYS_269,Chimie,Terminale Spécialité,Étude de cas pas à pas : Titrage pH-métrique et méthode des tangentes (Exemple d'application),,,10,,pending
+PHYS_270,Chimie,Terminale Spécialité,Exercice classique corrigé : Titrage pH-métrique et méthode des tangentes (Niveau Terminale Spécialité),,,10,,pending
+PHYS_271,Chimie,Terminale Spécialité,Problème type Bac : Titrage pH-métrique et méthode des tangentes — Résolution multi-notions,,,10,,pending
+PHYS_272,Chimie,Terminale Spécialité,Fiche de synthèse & Formules indispensables : Titrage pH-métrique et méthode des tangentes,,,10,,pending
+PHYS_273,Chimie,Terminale Spécialité,Titrage pH-métrique et méthode des tangentes — Cours & Lois fondamentales,,,10,,pending
+PHYS_274,Chimie,Terminale Spécialité,Méthode guidée : Comment modéliser et résoudre en Titrage pH-métrique et méthode des tangentes,,,10,,pending
+PHYS_275,Chimie,Terminale Spécialité,Étude de cas pas à pas : Titrage pH-métrique et méthode des tangentes (Exemple d'application),,,10,,pending
+PHYS_276,Chimie,Terminale Spécialité,Exercice classique corrigé : Titrage pH-métrique et méthode des tangentes (Niveau Terminale Spécialité),,,10,,pending
+PHYS_277,Chimie,Terminale Spécialité,Fiche de synthèse & Formules indispensables : Cinétique chimique et temps de demi-réaction,,,10,,pending
+PHYS_278,Chimie,Terminale Spécialité,Cinétique chimique et temps de demi-réaction — Cours & Lois fondamentales,,,10,,pending
+PHYS_279,Chimie,Terminale Spécialité,Méthode guidée : Comment modéliser et résoudre en Cinétique chimique et temps de demi-réaction,,,10,,pending
+PHYS_280,Chimie,Terminale Spécialité,Étude de cas pas à pas : Cinétique chimique et temps de demi-réaction (Exemple d'application),,,10,,pending
+PHYS_281,Chimie,Terminale Spécialité,Exercice classique corrigé : Cinétique chimique et temps de demi-réaction (Niveau Terminale Spécialité),,,10,,pending
+PHYS_282,Chimie,Terminale Spécialité,Problème type Bac : Cinétique chimique et temps de demi-réaction — Résolution multi-notions,,,10,,pending
+PHYS_283,Chimie,Terminale Spécialité,Fiche de synthèse & Formules indispensables : Cinétique chimique et temps de demi-réaction,,,10,,pending
+PHYS_284,Chimie,Terminale Spécialité,Cinétique chimique et temps de demi-réaction — Cours & Lois fondamentales,,,10,,pending
+PHYS_285,Chimie,Terminale Spécialité,Méthode guidée : Comment modéliser et résoudre en Cinétique chimique et temps de demi-réaction,,,10,,pending
+PHYS_286,Chimie,Terminale Spécialité,Étude de cas pas à pas : Cinétique chimique et temps de demi-réaction (Exemple d'application),,,10,,pending
+PHYS_287,Chimie,Terminale Spécialité,Exercice classique corrigé : Cinétique chimique et temps de demi-réaction (Niveau Terminale Spécialité),,,10,,pending
+PHYS_288,Chimie,Terminale Spécialité,Problème type Bac : Cinétique chimique et temps de demi-réaction — Résolution multi-notions,,,10,,pending
+PHYS_289,Chimie,Terminale Spécialité,Spectroscopie RMN du proton et Infrarouge — Cours & Lois fondamentales,,,10,,pending
+PHYS_290,Chimie,Terminale Spécialité,Méthode guidée : Comment modéliser et résoudre en Spectroscopie RMN du proton et Infrarouge,,,10,,pending
+PHYS_291,Chimie,Terminale Spécialité,Étude de cas pas à pas : Spectroscopie RMN du proton et Infrarouge (Exemple d'application),,,10,,pending
+PHYS_292,Chimie,Terminale Spécialité,Exercice classique corrigé : Spectroscopie RMN du proton et Infrarouge (Niveau Terminale Spécialité),,,10,,pending
+PHYS_293,Chimie,Terminale Spécialité,Problème type Bac : Spectroscopie RMN du proton et Infrarouge — Résolution multi-notions,,,10,,pending
+PHYS_294,Chimie,Terminale Spécialité,Fiche de synthèse & Formules indispensables : Spectroscopie RMN du proton et Infrarouge,,,10,,pending
+PHYS_295,Chimie,Terminale Spécialité,Spectroscopie RMN du proton et Infrarouge — Cours & Lois fondamentales,,,10,,pending
+PHYS_296,Chimie,Terminale Spécialité,Méthode guidée : Comment modéliser et résoudre en Spectroscopie RMN du proton et Infrarouge,,,10,,pending
+PHYS_297,Chimie,Terminale Spécialité,Étude de cas pas à pas : Spectroscopie RMN du proton et Infrarouge (Exemple d'application),,,10,,pending
+PHYS_298,Chimie,Terminale Spécialité,Exercice classique corrigé : Spectroscopie RMN du proton et Infrarouge (Niveau Terminale Spécialité),,,10,,pending
+PHYS_299,Chimie,Terminale Spécialité,Problème type Bac : Spectroscopie RMN du proton et Infrarouge — Résolution multi-notions,,,10,,pending
+PHYS_300,Chimie,Terminale Spécialité,Fiche de synthèse & Formules indispensables : Spectroscopie RMN du proton et Infrarouge,,,10,,pending
+LANG_FR_001,Grammaire Bac,Première Générale,Les propositions subordonnées relatives et complétives — Notions clés & Règles fondamentales,,pGQ1nFbzfmY,10,,pending
+LANG_FR_002,Grammaire Bac,Première Générale,Méthode Bac pas à pas : Les propositions subordonnées relatives et complétives,,pGQ1nFbzfmY,10,,pending
+LANG_FR_003,Grammaire Bac,Première Générale,Exemple rédigé et décrypté : Les propositions subordonnées relatives et complétives,,pGQ1nFbzfmY,10,,pending
+LANG_FR_004,Grammaire Bac,Première Générale,Exercice & Sujet corrigé : Les propositions subordonnées relatives et complétives (Entraînement Bac),,pGQ1nFbzfmY,10,,pending
+LANG_FR_005,Grammaire Bac,Première Générale,Fiche mémo & Synthèse express : Les propositions subordonnées relatives et complétives,,LK8e1Sr05yA,10,,pending
+LANG_FR_006,Grammaire Bac,Première Générale,Les propositions subordonnées relatives et complétives — Notions clés & Règles fondamentales,,pGQ1nFbzfmY,10,,pending
+LANG_FR_007,Grammaire Bac,Première Générale,Méthode Bac pas à pas : Les propositions subordonnées relatives et complétives,,pGQ1nFbzfmY,10,,pending
+LANG_FR_008,Grammaire Bac,Première Générale,Exemple rédigé et décrypté : Les propositions subordonnées relatives et complétives,,,10,,pending
+LANG_FR_009,Grammaire Bac,Première Générale,Exercice & Sujet corrigé : Les propositions subordonnées relatives et complétives (Entraînement Bac),,,10,,pending
+LANG_FR_010,Grammaire Bac,Première Générale,Fiche mémo & Synthèse express : Les propositions subordonnées relatives et complétives,,,10,,pending
+LANG_FR_011,Grammaire Bac,Première Générale,"Méthode Bac pas à pas : L'expression de la négation (totale, partielle, restrictive)",,,10,,pending
+LANG_FR_012,Grammaire Bac,Première Générale,"Exemple rédigé et décrypté : L'expression de la négation (totale, partielle, restrictive)",,,10,,pending
+LANG_FR_013,Grammaire Bac,Première Générale,"Exercice & Sujet corrigé : L'expression de la négation (totale, partielle, restrictive) (Entraînement Bac)",,,10,,pending
+LANG_FR_014,Grammaire Bac,Première Générale,"Fiche mémo & Synthèse express : L'expression de la négation (totale, partielle, restrictive)",,,10,,pending
+LANG_FR_015,Grammaire Bac,Première Générale,"L'expression de la négation (totale, partielle, restrictive) — Notions clés & Règles fondamentales",,,10,,pending
+LANG_FR_016,Grammaire Bac,Première Générale,"Méthode Bac pas à pas : L'expression de la négation (totale, partielle, restrictive)",,,10,,pending
+LANG_FR_017,Grammaire Bac,Première Générale,"Exemple rédigé et décrypté : L'expression de la négation (totale, partielle, restrictive)",,,10,,pending
+LANG_FR_018,Grammaire Bac,Première Générale,"Exercice & Sujet corrigé : L'expression de la négation (totale, partielle, restrictive) (Entraînement Bac)",,,10,,pending
+LANG_FR_019,Grammaire Bac,Première Générale,"Fiche mémo & Synthèse express : L'expression de la négation (totale, partielle, restrictive)",,,10,,pending
+LANG_FR_020,Grammaire Bac,Première Générale,"L'expression de la négation (totale, partielle, restrictive) — Notions clés & Règles fondamentales",,,10,,pending
+LANG_FR_021,Grammaire Bac,Première Générale,"Exemple rédigé et décrypté : L'interrogation : directe, indirecte, totale et partielle",,,10,,pending
+LANG_FR_022,Grammaire Bac,Première Générale,"Exercice & Sujet corrigé : L'interrogation : directe, indirecte, totale et partielle (Entraînement Bac)",,,10,,pending
+LANG_FR_023,Grammaire Bac,Première Générale,"Fiche mémo & Synthèse express : L'interrogation : directe, indirecte, totale et partielle",,,10,,pending
+LANG_FR_024,Grammaire Bac,Première Générale,"L'interrogation : directe, indirecte, totale et partielle — Notions clés & Règles fondamentales",,,10,,pending
+LANG_FR_025,Grammaire Bac,Première Générale,"Méthode Bac pas à pas : L'interrogation : directe, indirecte, totale et partielle",,,10,,pending
+LANG_FR_026,Grammaire Bac,Première Générale,"Exemple rédigé et décrypté : L'interrogation : directe, indirecte, totale et partielle",,,10,,pending
+LANG_FR_027,Grammaire Bac,Première Générale,"Exercice & Sujet corrigé : L'interrogation : directe, indirecte, totale et partielle (Entraînement Bac)",,,10,,pending
+LANG_FR_028,Grammaire Bac,Première Générale,"Fiche mémo & Synthèse express : L'interrogation : directe, indirecte, totale et partielle",,,10,,pending
+LANG_FR_029,Grammaire Bac,Première Générale,"L'interrogation : directe, indirecte, totale et partielle — Notions clés & Règles fondamentales",,,10,,pending
+LANG_FR_030,Grammaire Bac,Première Générale,"Méthode Bac pas à pas : L'interrogation : directe, indirecte, totale et partielle",,,10,,pending
+LANG_FR_031,Stylistique & Rhétorique,Première Générale,"Exercice & Sujet corrigé : Les figures d'analogie et d'image : métaphore, comparaison, allégorie (Entraînement Bac)",,,10,,pending
+LANG_FR_032,Stylistique & Rhétorique,Première Générale,"Fiche mémo & Synthèse express : Les figures d'analogie et d'image : métaphore, comparaison, allégorie",,,10,,pending
+LANG_FR_033,Stylistique & Rhétorique,Première Générale,"Les figures d'analogie et d'image : métaphore, comparaison, allégorie — Notions clés & Règles fondamentales",,,10,,pending
+LANG_FR_034,Stylistique & Rhétorique,Première Générale,"Méthode Bac pas à pas : Les figures d'analogie et d'image : métaphore, comparaison, allégorie",,,10,,pending
+LANG_FR_035,Stylistique & Rhétorique,Première Générale,"Exemple rédigé et décrypté : Les figures d'analogie et d'image : métaphore, comparaison, allégorie",,,10,,pending
+LANG_FR_036,Stylistique & Rhétorique,Première Générale,"Exercice & Sujet corrigé : Les figures d'analogie et d'image : métaphore, comparaison, allégorie (Entraînement Bac)",,,10,,pending
+LANG_FR_037,Stylistique & Rhétorique,Première Générale,"Fiche mémo & Synthèse express : Les figures d'analogie et d'image : métaphore, comparaison, allégorie",,,10,,pending
+LANG_FR_038,Stylistique & Rhétorique,Première Générale,"Les figures d'analogie et d'image : métaphore, comparaison, allégorie — Notions clés & Règles fondamentales",,,10,,pending
+LANG_FR_039,Stylistique & Rhétorique,Première Générale,"Méthode Bac pas à pas : Les figures d'analogie et d'image : métaphore, comparaison, allégorie",,,10,,pending
+LANG_FR_040,Stylistique & Rhétorique,Première Générale,"Exemple rédigé et décrypté : Les figures d'analogie et d'image : métaphore, comparaison, allégorie",,,10,,pending
+LANG_FR_041,Stylistique & Rhétorique,Première Générale,"Fiche mémo & Synthèse express : Les figures d'opposition et d'amplification : oxymore, antithèse, hyperbole",,,10,,pending
+LANG_FR_042,Stylistique & Rhétorique,Première Générale,"Les figures d'opposition et d'amplification : oxymore, antithèse, hyperbole — Notions clés & Règles fondamentales",,,10,,pending
+LANG_FR_043,Stylistique & Rhétorique,Première Générale,"Méthode Bac pas à pas : Les figures d'opposition et d'amplification : oxymore, antithèse, hyperbole",,,10,,pending
+LANG_FR_044,Stylistique & Rhétorique,Première Générale,"Exemple rédigé et décrypté : Les figures d'opposition et d'amplification : oxymore, antithèse, hyperbole",,,10,,pending
+LANG_FR_045,Stylistique & Rhétorique,Première Générale,"Exercice & Sujet corrigé : Les figures d'opposition et d'amplification : oxymore, antithèse, hyperbole (Entraînement Bac)",,,10,,pending
+LANG_FR_046,Stylistique & Rhétorique,Première Générale,"Fiche mémo & Synthèse express : Les figures d'opposition et d'amplification : oxymore, antithèse, hyperbole",,,10,,pending
+LANG_FR_047,Stylistique & Rhétorique,Première Générale,"Les figures d'opposition et d'amplification : oxymore, antithèse, hyperbole — Notions clés & Règles fondamentales",,,10,,pending
+LANG_FR_048,Stylistique & Rhétorique,Première Générale,"Méthode Bac pas à pas : Les figures d'opposition et d'amplification : oxymore, antithèse, hyperbole",,,10,,pending
+LANG_FR_049,Stylistique & Rhétorique,Première Générale,"Exemple rédigé et décrypté : Les figures d'opposition et d'amplification : oxymore, antithèse, hyperbole",,,10,,pending
+LANG_FR_050,Stylistique & Rhétorique,Première Générale,"Exercice & Sujet corrigé : Les figures d'opposition et d'amplification : oxymore, antithèse, hyperbole (Entraînement Bac)",,,10,,pending
+LANG_FR_051,Méthode du Commentaire,Première Spécialité,Construire une problématique et bâtir un plan en 2 ou 3 parties — Notions clés & Règles fondamentales,,,10,,pending
+LANG_FR_052,Méthode du Commentaire,Première Spécialité,Méthode Bac pas à pas : Construire une problématique et bâtir un plan en 2 ou 3 parties,,,10,,pending
+LANG_FR_053,Méthode du Commentaire,Première Spécialité,Exemple rédigé et décrypté : Construire une problématique et bâtir un plan en 2 ou 3 parties,,,10,,pending
+LANG_FR_054,Méthode du Commentaire,Première Spécialité,Exercice & Sujet corrigé : Construire une problématique et bâtir un plan en 2 ou 3 parties (Entraînement Bac),,,10,,pending
+LANG_FR_055,Méthode du Commentaire,Première Spécialité,Fiche mémo & Synthèse express : Construire une problématique et bâtir un plan en 2 ou 3 parties,,,10,,pending
+LANG_FR_056,Méthode du Commentaire,Première Spécialité,Construire une problématique et bâtir un plan en 2 ou 3 parties — Notions clés & Règles fondamentales,,,10,,pending
+LANG_FR_057,Méthode du Commentaire,Première Spécialité,Méthode Bac pas à pas : Construire une problématique et bâtir un plan en 2 ou 3 parties,,,10,,pending
+LANG_FR_058,Méthode du Commentaire,Première Spécialité,Exemple rédigé et décrypté : Construire une problématique et bâtir un plan en 2 ou 3 parties,,,10,,pending
+LANG_FR_059,Méthode du Commentaire,Première Spécialité,Exercice & Sujet corrigé : Construire une problématique et bâtir un plan en 2 ou 3 parties (Entraînement Bac),,,10,,pending
+LANG_FR_060,Méthode du Commentaire,Première Spécialité,Fiche mémo & Synthèse express : Construire une problématique et bâtir un plan en 2 ou 3 parties,,,10,,pending
+LANG_FR_061,Méthode du Commentaire,Première Spécialité,Méthode Bac pas à pas : L'analyse stylistique au service du sens (Procédé + Citation + Effet),,,10,,pending
+LANG_FR_062,Méthode du Commentaire,Première Spécialité,Exemple rédigé et décrypté : L'analyse stylistique au service du sens (Procédé + Citation + Effet),,,10,,pending
+LANG_FR_063,Méthode du Commentaire,Première Spécialité,Exercice & Sujet corrigé : L'analyse stylistique au service du sens (Procédé + Citation + Effet) (Entraînement Bac),,,10,,pending
+LANG_FR_064,Méthode du Commentaire,Première Spécialité,Fiche mémo & Synthèse express : L'analyse stylistique au service du sens (Procédé + Citation + Effet),,,10,,pending
+LANG_FR_065,Méthode du Commentaire,Première Spécialité,L'analyse stylistique au service du sens (Procédé + Citation + Effet) — Notions clés & Règles fondamentales,,,10,,pending
+LANG_FR_066,Méthode du Commentaire,Première Spécialité,Méthode Bac pas à pas : L'analyse stylistique au service du sens (Procédé + Citation + Effet),,,10,,pending
+LANG_FR_067,Méthode du Commentaire,Première Spécialité,Exemple rédigé et décrypté : L'analyse stylistique au service du sens (Procédé + Citation + Effet),,,10,,pending
+LANG_FR_068,Méthode du Commentaire,Première Spécialité,Exercice & Sujet corrigé : L'analyse stylistique au service du sens (Procédé + Citation + Effet) (Entraînement Bac),,,10,,pending
+LANG_FR_069,Méthode du Commentaire,Première Spécialité,Fiche mémo & Synthèse express : L'analyse stylistique au service du sens (Procédé + Citation + Effet),,,10,,pending
+LANG_FR_070,Méthode du Commentaire,Première Spécialité,L'analyse stylistique au service du sens (Procédé + Citation + Effet) — Notions clés & Règles fondamentales,,,10,,pending
+LANG_FR_071,Méthode de la Dissertation,Première Spécialité,Exemple rédigé et décrypté : Analyser le sujet de dissertation et formuler le paradoxe,,,10,,pending
+LANG_FR_072,Méthode de la Dissertation,Première Spécialité,Exercice & Sujet corrigé : Analyser le sujet de dissertation et formuler le paradoxe (Entraînement Bac),,,10,,pending
+LANG_FR_073,Méthode de la Dissertation,Première Spécialité,Fiche mémo & Synthèse express : Analyser le sujet de dissertation et formuler le paradoxe,,,10,,pending
+LANG_FR_074,Méthode de la Dissertation,Première Spécialité,Analyser le sujet de dissertation et formuler le paradoxe — Notions clés & Règles fondamentales,,,10,,pending
+LANG_FR_075,Méthode de la Dissertation,Première Spécialité,Méthode Bac pas à pas : Analyser le sujet de dissertation et formuler le paradoxe,,,10,,pending
+LANG_FR_076,Méthode de la Dissertation,Première Spécialité,Exemple rédigé et décrypté : Analyser le sujet de dissertation et formuler le paradoxe,,,10,,pending
+LANG_FR_077,Méthode de la Dissertation,Première Spécialité,Exercice & Sujet corrigé : Analyser le sujet de dissertation et formuler le paradoxe (Entraînement Bac),,,10,,pending
+LANG_FR_078,Méthode de la Dissertation,Première Spécialité,Fiche mémo & Synthèse express : Analyser le sujet de dissertation et formuler le paradoxe,,,10,,pending
+LANG_FR_079,Méthode de la Dissertation,Première Spécialité,Analyser le sujet de dissertation et formuler le paradoxe — Notions clés & Règles fondamentales,,,10,,pending
+LANG_FR_080,Méthode de la Dissertation,Première Spécialité,Méthode Bac pas à pas : Analyser le sujet de dissertation et formuler le paradoxe,,,10,,pending
+LANG_FR_081,Oral du Bac de Français,Première Spécialité,Exercice & Sujet corrigé : L'explication linéaire pas à pas (Mouvements du texte et analyse mot à mot) (Entraînement Bac),,,10,,pending
+LANG_FR_082,Oral du Bac de Français,Première Spécialité,Fiche mémo & Synthèse express : L'explication linéaire pas à pas (Mouvements du texte et analyse mot à mot),,,10,,pending
+LANG_FR_083,Oral du Bac de Français,Première Spécialité,L'explication linéaire pas à pas (Mouvements du texte et analyse mot à mot) — Notions clés & Règles fondamentales,,,10,,pending
+LANG_FR_084,Oral du Bac de Français,Première Spécialité,Méthode Bac pas à pas : L'explication linéaire pas à pas (Mouvements du texte et analyse mot à mot),,,10,,pending
+LANG_FR_085,Oral du Bac de Français,Première Spécialité,Exemple rédigé et décrypté : L'explication linéaire pas à pas (Mouvements du texte et analyse mot à mot),,,10,,pending
+LANG_FR_086,Oral du Bac de Français,Première Spécialité,Exercice & Sujet corrigé : L'explication linéaire pas à pas (Mouvements du texte et analyse mot à mot) (Entraînement Bac),,,10,,pending
+LANG_FR_087,Oral du Bac de Français,Première Spécialité,Fiche mémo & Synthèse express : L'explication linéaire pas à pas (Mouvements du texte et analyse mot à mot),,,10,,pending
+LANG_FR_088,Oral du Bac de Français,Première Spécialité,L'explication linéaire pas à pas (Mouvements du texte et analyse mot à mot) — Notions clés & Règles fondamentales,,,10,,pending
+LANG_FR_089,Oral du Bac de Français,Première Spécialité,Méthode Bac pas à pas : L'explication linéaire pas à pas (Mouvements du texte et analyse mot à mot),,,10,,pending
+LANG_FR_090,Oral du Bac de Français,Première Spécialité,Exemple rédigé et décrypté : L'explication linéaire pas à pas (Mouvements du texte et analyse mot à mot),,,10,,pending
+LANG_FR_091,Œuvres au Programme,Première Spécialité,Fiche mémo & Synthèse express : Analyse linéaire d'un extrait de Baudelaire (Les Fleurs du Mal),,,10,,pending
+LANG_FR_092,Œuvres au Programme,Première Spécialité,Analyse linéaire d'un extrait de Baudelaire (Les Fleurs du Mal) — Notions clés & Règles fondamentales,,,10,,pending
+LANG_FR_093,Œuvres au Programme,Première Spécialité,Méthode Bac pas à pas : Analyse linéaire d'un extrait de Baudelaire (Les Fleurs du Mal),,,10,,pending
+LANG_FR_094,Œuvres au Programme,Première Spécialité,Exemple rédigé et décrypté : Analyse linéaire d'un extrait de Baudelaire (Les Fleurs du Mal),,,10,,pending
+LANG_FR_095,Œuvres au Programme,Première Spécialité,Exercice & Sujet corrigé : Analyse linéaire d'un extrait de Baudelaire (Les Fleurs du Mal) (Entraînement Bac),,,10,,pending
+LANG_FR_096,Œuvres au Programme,Première Spécialité,Fiche mémo & Synthèse express : Analyse linéaire d'un extrait de Baudelaire (Les Fleurs du Mal),,,10,,pending
+LANG_FR_097,Œuvres au Programme,Première Spécialité,Analyse linéaire d'un extrait de Baudelaire (Les Fleurs du Mal) — Notions clés & Règles fondamentales,,,10,,pending
+LANG_FR_098,Œuvres au Programme,Première Spécialité,Méthode Bac pas à pas : Analyse linéaire d'un extrait de Baudelaire (Les Fleurs du Mal),,,10,,pending
+LANG_FR_099,Œuvres au Programme,Première Spécialité,Exemple rédigé et décrypté : Analyse linéaire d'un extrait de Baudelaire (Les Fleurs du Mal),,,10,,pending
+LANG_FR_100,Œuvres au Programme,Première Spécialité,Exercice & Sujet corrigé : Analyse linéaire d'un extrait de Baudelaire (Les Fleurs du Mal) (Entraînement Bac),,,10,,pending
+LANG_EN_001,Grammar & Tenses,Terminale Tronc Commun,Mastering the Present Perfect (Simple vs Continuous) — Comprehensive Grammar & Concepts,,7NGLHYVmr00,10,,pending
+LANG_EN_002,Grammar & Tenses,Terminale Tronc Commun,Step-by-Step Method: How to Master Mastering the Present Perfect (Simple vs Continuous),,TVVn9MddtmM,10,,pending
+LANG_EN_003,Grammar & Tenses,Terminale Tronc Commun,In-Depth Example & Full Breakdown: Mastering the Present Perfect (Simple vs Continuous),,XySNOXSiBMo,10,,pending
+LANG_EN_004,Grammar & Tenses,Terminale Tronc Commun,Practice Exercise & Guided Correction: Mastering the Present Perfect (Simple vs Continuous),,TVVn9MddtmM,10,,pending
+LANG_EN_005,Grammar & Tenses,Terminale Tronc Commun,Revision Sheet & Key Takeaways: Mastering the Present Perfect (Simple vs Continuous),,7NGLHYVmr00,10,,pending
+LANG_EN_006,Grammar & Tenses,Terminale Tronc Commun,Mastering the Present Perfect (Simple vs Continuous) — Comprehensive Grammar & Concepts,,,10,,pending
+LANG_EN_007,Grammar & Tenses,Terminale Tronc Commun,Step-by-Step Method: How to Master Mastering the Present Perfect (Simple vs Continuous),,,10,,pending
+LANG_EN_008,Grammar & Tenses,Terminale Tronc Commun,In-Depth Example & Full Breakdown: Mastering the Present Perfect (Simple vs Continuous),,,10,,pending
+LANG_EN_009,Grammar & Tenses,Terminale Tronc Commun,Practice Exercise & Guided Correction: Mastering the Present Perfect (Simple vs Continuous),,,10,,pending
+LANG_EN_010,Grammar & Tenses,Terminale Tronc Commun,Revision Sheet & Key Takeaways: Mastering the Present Perfect (Simple vs Continuous),,,10,,pending
+LANG_EN_011,Grammar & Tenses,Terminale Tronc Commun,Step-by-Step Method: How to Master Past Perfect vs Simple Past in Narrative Chronology,,,10,,pending
+LANG_EN_012,Grammar & Tenses,Terminale Tronc Commun,In-Depth Example & Full Breakdown: Past Perfect vs Simple Past in Narrative Chronology,,,10,,pending
+LANG_EN_013,Grammar & Tenses,Terminale Tronc Commun,Practice Exercise & Guided Correction: Past Perfect vs Simple Past in Narrative Chronology,,,10,,pending
+LANG_EN_014,Grammar & Tenses,Terminale Tronc Commun,Revision Sheet & Key Takeaways: Past Perfect vs Simple Past in Narrative Chronology,,,10,,pending
+LANG_EN_015,Grammar & Tenses,Terminale Tronc Commun,Past Perfect vs Simple Past in Narrative Chronology — Comprehensive Grammar & Concepts,,,10,,pending
+LANG_EN_016,Grammar & Tenses,Terminale Tronc Commun,Step-by-Step Method: How to Master Past Perfect vs Simple Past in Narrative Chronology,,,10,,pending
+LANG_EN_017,Grammar & Tenses,Terminale Tronc Commun,In-Depth Example & Full Breakdown: Past Perfect vs Simple Past in Narrative Chronology,,,10,,pending
+LANG_EN_018,Grammar & Tenses,Terminale Tronc Commun,Practice Exercise & Guided Correction: Past Perfect vs Simple Past in Narrative Chronology,,,10,,pending
+LANG_EN_019,Grammar & Tenses,Terminale Tronc Commun,Revision Sheet & Key Takeaways: Past Perfect vs Simple Past in Narrative Chronology,,,10,,pending
+LANG_EN_020,Grammar & Tenses,Terminale Tronc Commun,Past Perfect vs Simple Past in Narrative Chronology — Comprehensive Grammar & Concepts,,,10,,pending
+LANG_EN_021,Grammar & Conditionals,Terminale Tronc Commun,"In-Depth Example & Full Breakdown: Conditionals Mastery: 1st, 2nd, 3rd and Mixed Conditionals",,,10,,pending
+LANG_EN_022,Grammar & Conditionals,Terminale Tronc Commun,"Practice Exercise & Guided Correction: Conditionals Mastery: 1st, 2nd, 3rd and Mixed Conditionals",,,10,,pending
+LANG_EN_023,Grammar & Conditionals,Terminale Tronc Commun,"Revision Sheet & Key Takeaways: Conditionals Mastery: 1st, 2nd, 3rd and Mixed Conditionals",,,10,,pending
+LANG_EN_024,Grammar & Conditionals,Terminale Tronc Commun,"Conditionals Mastery: 1st, 2nd, 3rd and Mixed Conditionals — Comprehensive Grammar & Concepts",,,10,,pending
+LANG_EN_025,Grammar & Conditionals,Terminale Tronc Commun,"Step-by-Step Method: How to Master Conditionals Mastery: 1st, 2nd, 3rd and Mixed Conditionals",,,10,,pending
+LANG_EN_026,Grammar & Conditionals,Terminale Tronc Commun,"In-Depth Example & Full Breakdown: Conditionals Mastery: 1st, 2nd, 3rd and Mixed Conditionals",,,10,,pending
+LANG_EN_027,Grammar & Conditionals,Terminale Tronc Commun,"Practice Exercise & Guided Correction: Conditionals Mastery: 1st, 2nd, 3rd and Mixed Conditionals",,,10,,pending
+LANG_EN_028,Grammar & Conditionals,Terminale Tronc Commun,"Revision Sheet & Key Takeaways: Conditionals Mastery: 1st, 2nd, 3rd and Mixed Conditionals",,,10,,pending
+LANG_EN_029,Grammar & Conditionals,Terminale Tronc Commun,"Conditionals Mastery: 1st, 2nd, 3rd and Mixed Conditionals — Comprehensive Grammar & Concepts",,,10,,pending
+LANG_EN_030,Grammar & Conditionals,Terminale Tronc Commun,"Step-by-Step Method: How to Master Conditionals Mastery: 1st, 2nd, 3rd and Mixed Conditionals",,,10,,pending
+LANG_EN_031,Grammar & Voice,Terminale Tronc Commun,Practice Exercise & Guided Correction: The Passive Voice and Impersonal Structures,,,10,,pending
+LANG_EN_032,Grammar & Voice,Terminale Tronc Commun,Revision Sheet & Key Takeaways: The Passive Voice and Impersonal Structures,,,10,,pending
+LANG_EN_033,Grammar & Voice,Terminale Tronc Commun,The Passive Voice and Impersonal Structures — Comprehensive Grammar & Concepts,,,10,,pending
+LANG_EN_034,Grammar & Voice,Terminale Tronc Commun,Step-by-Step Method: How to Master The Passive Voice and Impersonal Structures,,,10,,pending
+LANG_EN_035,Grammar & Voice,Terminale Tronc Commun,In-Depth Example & Full Breakdown: The Passive Voice and Impersonal Structures,,,10,,pending
+LANG_EN_036,Grammar & Voice,Terminale Tronc Commun,Practice Exercise & Guided Correction: The Passive Voice and Impersonal Structures,,,10,,pending
+LANG_EN_037,Grammar & Voice,Terminale Tronc Commun,Revision Sheet & Key Takeaways: The Passive Voice and Impersonal Structures,,,10,,pending
+LANG_EN_038,Grammar & Voice,Terminale Tronc Commun,The Passive Voice and Impersonal Structures — Comprehensive Grammar & Concepts,,,10,,pending
+LANG_EN_039,Grammar & Voice,Terminale Tronc Commun,Step-by-Step Method: How to Master The Passive Voice and Impersonal Structures,,,10,,pending
+LANG_EN_040,Grammar & Voice,Terminale Tronc Commun,In-Depth Example & Full Breakdown: The Passive Voice and Impersonal Structures,,,10,,pending
+LANG_EN_041,Grammar & Modals,Terminale Tronc Commun,"Revision Sheet & Key Takeaways: Modal Verbs of Deduction and Probability (Must, Can't, Might)",,,10,,pending
+LANG_EN_042,Grammar & Modals,Terminale Tronc Commun,"Modal Verbs of Deduction and Probability (Must, Can't, Might) — Comprehensive Grammar & Concepts",,,10,,pending
+LANG_EN_043,Grammar & Modals,Terminale Tronc Commun,"Step-by-Step Method: How to Master Modal Verbs of Deduction and Probability (Must, Can't, Might)",,,10,,pending
+LANG_EN_044,Grammar & Modals,Terminale Tronc Commun,"In-Depth Example & Full Breakdown: Modal Verbs of Deduction and Probability (Must, Can't, Might)",,,10,,pending
+LANG_EN_045,Grammar & Modals,Terminale Tronc Commun,"Practice Exercise & Guided Correction: Modal Verbs of Deduction and Probability (Must, Can't, Might)",,,10,,pending
+LANG_EN_046,Grammar & Modals,Terminale Tronc Commun,"Revision Sheet & Key Takeaways: Modal Verbs of Deduction and Probability (Must, Can't, Might)",,,10,,pending
+LANG_EN_047,Grammar & Modals,Terminale Tronc Commun,"Modal Verbs of Deduction and Probability (Must, Can't, Might) — Comprehensive Grammar & Concepts",,,10,,pending
+LANG_EN_048,Grammar & Modals,Terminale Tronc Commun,"Step-by-Step Method: How to Master Modal Verbs of Deduction and Probability (Must, Can't, Might)",,,10,,pending
+LANG_EN_049,Grammar & Modals,Terminale Tronc Commun,"In-Depth Example & Full Breakdown: Modal Verbs of Deduction and Probability (Must, Can't, Might)",,,10,,pending
+LANG_EN_050,Grammar & Modals,Terminale Tronc Commun,"Practice Exercise & Guided Correction: Modal Verbs of Deduction and Probability (Must, Can't, Might)",,,10,,pending
+LANG_EN_051,Writing Skills,Terminale Tronc Commun,Structuring an Argumentative Essay (PEEL Method) — Comprehensive Grammar & Concepts,,,10,,pending
+LANG_EN_052,Writing Skills,Terminale Tronc Commun,Step-by-Step Method: How to Master Structuring an Argumentative Essay (PEEL Method),,,10,,pending
+LANG_EN_053,Writing Skills,Terminale Tronc Commun,In-Depth Example & Full Breakdown: Structuring an Argumentative Essay (PEEL Method),,,10,,pending
+LANG_EN_054,Writing Skills,Terminale Tronc Commun,Practice Exercise & Guided Correction: Structuring an Argumentative Essay (PEEL Method),,,10,,pending
+LANG_EN_055,Writing Skills,Terminale Tronc Commun,Revision Sheet & Key Takeaways: Structuring an Argumentative Essay (PEEL Method),,,10,,pending
+LANG_EN_056,Writing Skills,Terminale Tronc Commun,Structuring an Argumentative Essay (PEEL Method) — Comprehensive Grammar & Concepts,,,10,,pending
+LANG_EN_057,Writing Skills,Terminale Tronc Commun,Step-by-Step Method: How to Master Structuring an Argumentative Essay (PEEL Method),,,10,,pending
+LANG_EN_058,Writing Skills,Terminale Tronc Commun,In-Depth Example & Full Breakdown: Structuring an Argumentative Essay (PEEL Method),,,10,,pending
+LANG_EN_059,Writing Skills,Terminale Tronc Commun,Practice Exercise & Guided Correction: Structuring an Argumentative Essay (PEEL Method),,,10,,pending
+LANG_EN_060,Writing Skills,Terminale Tronc Commun,Revision Sheet & Key Takeaways: Structuring an Argumentative Essay (PEEL Method),,,10,,pending
+LANG_EN_061,Writing Skills,Terminale Tronc Commun,Step-by-Step Method: How to Master Advanced Linking Words and Discourse Markers,,,10,,pending
+LANG_EN_062,Writing Skills,Terminale Tronc Commun,In-Depth Example & Full Breakdown: Advanced Linking Words and Discourse Markers,,,10,,pending
+LANG_EN_063,Writing Skills,Terminale Tronc Commun,Practice Exercise & Guided Correction: Advanced Linking Words and Discourse Markers,,,10,,pending
+LANG_EN_064,Writing Skills,Terminale Tronc Commun,Revision Sheet & Key Takeaways: Advanced Linking Words and Discourse Markers,,,10,,pending
+LANG_EN_065,Writing Skills,Terminale Tronc Commun,Advanced Linking Words and Discourse Markers — Comprehensive Grammar & Concepts,,,10,,pending
+LANG_EN_066,Writing Skills,Terminale Tronc Commun,Step-by-Step Method: How to Master Advanced Linking Words and Discourse Markers,,,10,,pending
+LANG_EN_067,Writing Skills,Terminale Tronc Commun,In-Depth Example & Full Breakdown: Advanced Linking Words and Discourse Markers,,,10,,pending
+LANG_EN_068,Writing Skills,Terminale Tronc Commun,Practice Exercise & Guided Correction: Advanced Linking Words and Discourse Markers,,,10,,pending
+LANG_EN_069,Writing Skills,Terminale Tronc Commun,Revision Sheet & Key Takeaways: Advanced Linking Words and Discourse Markers,,,10,,pending
+LANG_EN_070,Writing Skills,Terminale Tronc Commun,Advanced Linking Words and Discourse Markers — Comprehensive Grammar & Concepts,,,10,,pending
+LANG_EN_071,Oral Skills & Debate,Terminale Tronc Commun,In-Depth Example & Full Breakdown: Structuring a Spontaneous 5-Minute Oral Presentation,,,10,,pending
+LANG_EN_072,Oral Skills & Debate,Terminale Tronc Commun,Practice Exercise & Guided Correction: Structuring a Spontaneous 5-Minute Oral Presentation,,,10,,pending
+LANG_EN_073,Oral Skills & Debate,Terminale Tronc Commun,Revision Sheet & Key Takeaways: Structuring a Spontaneous 5-Minute Oral Presentation,,,10,,pending
+LANG_EN_074,Oral Skills & Debate,Terminale Tronc Commun,Structuring a Spontaneous 5-Minute Oral Presentation — Comprehensive Grammar & Concepts,,,10,,pending
+LANG_EN_075,Oral Skills & Debate,Terminale Tronc Commun,Step-by-Step Method: How to Master Structuring a Spontaneous 5-Minute Oral Presentation,,,10,,pending
+LANG_EN_076,Oral Skills & Debate,Terminale Tronc Commun,In-Depth Example & Full Breakdown: Structuring a Spontaneous 5-Minute Oral Presentation,,,10,,pending
+LANG_EN_077,Oral Skills & Debate,Terminale Tronc Commun,Practice Exercise & Guided Correction: Structuring a Spontaneous 5-Minute Oral Presentation,,,10,,pending
+LANG_EN_078,Oral Skills & Debate,Terminale Tronc Commun,Revision Sheet & Key Takeaways: Structuring a Spontaneous 5-Minute Oral Presentation,,,10,,pending
+LANG_EN_079,Oral Skills & Debate,Terminale Tronc Commun,Structuring a Spontaneous 5-Minute Oral Presentation — Comprehensive Grammar & Concepts,,,10,,pending
+LANG_EN_080,Oral Skills & Debate,Terminale Tronc Commun,Step-by-Step Method: How to Master Structuring a Spontaneous 5-Minute Oral Presentation,,,10,,pending
+LANG_EN_081,Thematic Studies,Terminale Tronc Commun,"Practice Exercise & Guided Correction: Innovations, Artificial Intelligence and Ethical Responsibility",,,10,,pending
+LANG_EN_082,Thematic Studies,Terminale Tronc Commun,"Revision Sheet & Key Takeaways: Innovations, Artificial Intelligence and Ethical Responsibility",,,10,,pending
+LANG_EN_083,Thematic Studies,Terminale Tronc Commun,"Innovations, Artificial Intelligence and Ethical Responsibility — Comprehensive Grammar & Concepts",,,10,,pending
+LANG_EN_084,Thematic Studies,Terminale Tronc Commun,"Step-by-Step Method: How to Master Innovations, Artificial Intelligence and Ethical Responsibility",,,10,,pending
+LANG_EN_085,Thematic Studies,Terminale Tronc Commun,"In-Depth Example & Full Breakdown: Innovations, Artificial Intelligence and Ethical Responsibility",,,10,,pending
+LANG_EN_086,Thematic Studies,Terminale Tronc Commun,"Practice Exercise & Guided Correction: Innovations, Artificial Intelligence and Ethical Responsibility",,,10,,pending
+LANG_EN_087,Thematic Studies,Terminale Tronc Commun,"Revision Sheet & Key Takeaways: Innovations, Artificial Intelligence and Ethical Responsibility",,,10,,pending
+LANG_EN_088,Thematic Studies,Terminale Tronc Commun,"Innovations, Artificial Intelligence and Ethical Responsibility — Comprehensive Grammar & Concepts",,,10,,pending
+LANG_EN_089,Thematic Studies,Terminale Tronc Commun,"Step-by-Step Method: How to Master Innovations, Artificial Intelligence and Ethical Responsibility",,,10,,pending
+LANG_EN_090,Thematic Studies,Terminale Tronc Commun,"In-Depth Example & Full Breakdown: Innovations, Artificial Intelligence and Ethical Responsibility",,,10,,pending
+LANG_EN_091,Thematic Studies,Terminale Tronc Commun,"Revision Sheet & Key Takeaways: Art, Culture and Power: Propaganda vs Dissent",,,10,,pending
+LANG_EN_092,Thematic Studies,Terminale Tronc Commun,"Art, Culture and Power: Propaganda vs Dissent — Comprehensive Grammar & Concepts",,,10,,pending
+LANG_EN_093,Thematic Studies,Terminale Tronc Commun,"Step-by-Step Method: How to Master Art, Culture and Power: Propaganda vs Dissent",,,10,,pending
+LANG_EN_094,Thematic Studies,Terminale Tronc Commun,"In-Depth Example & Full Breakdown: Art, Culture and Power: Propaganda vs Dissent",,,10,,pending
+LANG_EN_095,Thematic Studies,Terminale Tronc Commun,"Practice Exercise & Guided Correction: Art, Culture and Power: Propaganda vs Dissent",,,10,,pending
+LANG_EN_096,Thematic Studies,Terminale Tronc Commun,"Revision Sheet & Key Takeaways: Art, Culture and Power: Propaganda vs Dissent",,,10,,pending
+LANG_EN_097,Thematic Studies,Terminale Tronc Commun,"Art, Culture and Power: Propaganda vs Dissent — Comprehensive Grammar & Concepts",,,10,,pending
+LANG_EN_098,Thematic Studies,Terminale Tronc Commun,"Step-by-Step Method: How to Master Art, Culture and Power: Propaganda vs Dissent",,,10,,pending
+LANG_EN_099,Thematic Studies,Terminale Tronc Commun,"In-Depth Example & Full Breakdown: Art, Culture and Power: Propaganda vs Dissent",,,10,,pending
+LANG_EN_100,Thematic Studies,Terminale Tronc Commun,"Practice Exercise & Guided Correction: Art, Culture and Power: Propaganda vs Dissent",,,10,,pending

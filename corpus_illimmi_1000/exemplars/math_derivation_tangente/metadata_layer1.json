@@ -1,0 +1,58 @@
+{
+  "subject": "Mathématiques",
+  "level": "Première Spécialité",
+  "duration_target": 120,
+  "concepts_cles": [
+    "taux de variation",
+    "sécante",
+    "nombre dérivé",
+    "tangente à la courbe",
+    "coefficient directeur"
+  ],
+  "ton": "bienveillant, rigoureux et stimulant",
+  "langue": "français",
+  "plan_pedagogique": [
+    {
+      "section": "accroche",
+      "objectif": "Comprendre pourquoi la vitesse instantanée nécessite la notion de dérivée.",
+      "contenu_attendu": "Analogie avec le compteur de vitesse d'une voiture : comment mesurer la vitesse en un instant t précis et non pas seulement en moyenne.",
+      "support_visuel_suggere": "draw 2drep"
+    },
+    {
+      "section": "prerequis",
+      "objectif": "Rappeler le coefficient directeur d'une droite sécante passant par deux points.",
+      "contenu_attendu": "Rappel de la formule (yB - yA) / (xB - xA) pour la droite passant par A(a, f(a)) et M(a+h, f(a+h)).",
+      "support_visuel_suggere": "draw line"
+    },
+    {
+      "section": "exemple_concret",
+      "objectif": "Faire glisser le point M le long de la courbe vers A en réduisant l'écart h.",
+      "contenu_attendu": "Visualisation dynamique : lorsque h tend vers zéro, la sécante pivote et devient la tangente.",
+      "support_visuel_suggere": "draw curve"
+    },
+    {
+      "section": "definition_formelle",
+      "objectif": "Poser la limite du taux d'accroissement et la notation f'(a).",
+      "contenu_attendu": "f'(a) = lim_{h -> 0} (f(a+h) - f(a)) / h et l'équation de la tangente y = f'(a)(x-a) + f(a).",
+      "support_visuel_suggere": "text"
+    },
+    {
+      "section": "decomposition",
+      "objectif": "Calculer pas à pas le nombre dérivé de la fonction carré en x = 2.",
+      "contenu_attendu": "f(2+h) = (2+h)^2 = 4 + 4h + h^2. Taux = (4 + 4h + h^2 - 4)/h = 4 + h. Quand h tend vers 0, f'(2) = 4.",
+      "support_visuel_suggere": "draw 2dfunc"
+    },
+    {
+      "section": "erreur_frequente",
+      "objectif": "Alerter sur la confusion entre le nombre dérivé f'(a) et l'image f(a).",
+      "contenu_attendu": "f(a) donne l'altitude du point sur la courbe, alors que f'(a) donne la pente de la trajectoire à cet instant.",
+      "support_visuel_suggere": "draw arrow"
+    },
+    {
+      "section": "synthese",
+      "objectif": "Récapituler le lien inséparable entre calcul algébrique et géométrie de la tangente.",
+      "contenu_attendu": "Fiche mémo : pente = nombre dérivé = limite du taux d'accroissement.",
+      "support_visuel_suggere": "draw 2drep"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+[Source vidéo originale : Florence Raffin - Chimie Lycée : "Titrage pH-métrique et méthode des tangentes parallèles"]
+
+Bonjour à tous ! Dans cette vidéo, nous allons apprendre à exploiter une courbe de titrage acido-basique avec suivi pH-métrique.
+
+Pour doser un acide inconnu dans un bécher, on verse goutte à goutte une base forte comme la soude depuis une burette graduée. 
+La réaction est totale, rapide et unique.
+
+Qu'est-ce que l'équivalence ? 
+À l'équivalence, la quantité de matière d'acide initialement présente est égale à la quantité de base versée : nA = nB.
+C'est-à-dire cA * VA = cB * VE.
+
+Sur la courbe de titrage pH en fonction du volume VB, on observe un saut brusque de pH. 
+Pour déterminer précisément le volume équivalent VE, on utilise la méthode des tangentes :
+1. On trace une tangente T1 avant le virage.
+2. On trace une deuxième tangente T2 strictement parallèle à la première, après le virage.
+3. On trace la droite perpendiculaire, puis la droite médiane située exactement au milieu.
+4. L'intersection de cette droite médiane avec la courbe donne le point équivalent E (VE, pHE).
+
+Il ne vous reste plus qu'à lire la valeur de VE sur l'axe des abscisses et à appliquer la formule : cA = (cB * VE) / VA. 
+Faites bien attention aux unités : si les volumes sont tous en millilitres, ils se simplifient directement.
+Bon travail et à bientôt en TP !

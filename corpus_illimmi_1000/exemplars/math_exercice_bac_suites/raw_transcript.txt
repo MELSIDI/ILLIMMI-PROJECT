@@ -1,0 +1,22 @@
+[Source vidéo originale : Yvan Monka - M@ths et Tiques : "Suites arithmético-géométriques - Exercice type Bac"]
+
+Bonjour à tous, dans cet exercice nous allons voir comment traiter une suite récurrente du type u(n+1) = a*u(n) + b. C'est un exercice classique qui tombe très souvent au Baccalauréat.
+
+On a la suite u définie par u(0) = 1 et u(n+1) = 0,5 u(n) + 3. 
+La question classique est : déterminer le terme général u(n) en fonction de n, puis en déduire la limite de la suite.
+
+Pour cela, on introduit une suite auxiliaire v(n) = u(n) - alpha, où alpha est la solution de l'équation de point fixe alpha = 0,5 alpha + 3. 
+On résout : 0,5 alpha = 3, donc alpha = 6. 
+On pose v(n) = u(n) - 6.
+
+On calcule v(n+1) :
+v(n+1) = u(n+1) - 6 = (0,5 u(n) + 3) - 6 = 0,5 u(n) - 3 = 0,5(u(n) - 6) = 0,5 v(n).
+On prouve ainsi que v est une suite géométrique de raison q = 0,5 et de premier terme v(0) = u(0) - 6 = 1 - 6 = -5.
+
+Par conséquent, v(n) = -5 * (0,5)^n. 
+Comme u(n) = v(n) + 6, on trouve u(n) = 6 - 5 * (0,5)^n.
+
+Pour la limite : n'oubliez surtout pas de justifier sur votre copie que -1 < 0,5 < 1. 
+Comme -1 < 0,5 < 1, la limite de (0,5)^n est égale à 0. 
+Par conséquent, la limite de u(n) vaut 6 - 0 = 6. La suite converge vers 6.
+Voilà la rédaction type exigée au Bac !

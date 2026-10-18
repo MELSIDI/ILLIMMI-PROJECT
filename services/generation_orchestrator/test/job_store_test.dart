@@ -150,7 +150,7 @@ void main() {
     final job = await _waitForCompletion(jobStore, jobId);
 
     expect(job.status, 'done');
-    expect(job.script, contains('course "Les Dérivées"'));
+    expect(job.script, contains('course "Explique-moi les dérivées"'));
     expect(job.script, contains(validVisuals));
     expect(job.audioUrl, isNotNull);
   });
@@ -275,7 +275,7 @@ void main() {
     final job = await _waitForCompletion(jobStore, jobId);
 
     expect(job.status, 'done');
-    expect(job.script, contains('course "Les Dérivées"'));
+    expect(job.script, contains('course "Explique-moi les dérivées"'));
     expect(job.script, contains(validVisuals));
   });
 }

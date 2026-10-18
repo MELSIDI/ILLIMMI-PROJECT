@@ -1,0 +1,2307 @@
+{
+  "item_id": "MATH_002",
+  "title": "Méthode pas à pas : Comment résoudre un problème de Intervalles et encadrements de réels",
+  "subject": "Mathématiques",
+  "level": "Seconde",
+  "youtube_video_id": "mvJy4LVCmRI",
+  "youtube_video_title": "LE COURS : Les intervalles - Seconde",
+  "youtube_channel": "Yvan Monka",
+  "youtube_url": "https://www.youtube.com/watch?v=mvJy4LVCmRI",
+  "full_text": "bonjour dans cette vidéo je te propose de revoir tout le cours sur le chapitre des intervalles l'objet de cette séquence est de te rappeler et de t'expliquer les éléments les plus importants de ce chapitre plus précisément on parlera de la notion d'intervalle de cette notation nouvelles qui l'accompagnent on parlera d'intervalle fermé d'intervalle ouvert et on finira par la réunion et l'intersection de deux intervalles pour préparer un contrôle ou même un examen ceci ne suffira pas évidemment il te faudra encore faire de nombreux exercices pour le court c'est parti alors avant de parler de notation parlons déjà de la définition qu'est ce que c'est qu'un intervalle alors on connaît l'ensemble des réelles qu'on pourrait d'ailleurs représenté sur une droite un axe là que des abscisses mais parfois on n'a pas besoin de travailler avec l'ensemble de tous les réelles par exemple si je considère tous les nombres que je vais appeler x qui sont compris entre 2 et 4 cela comprend donc 3 mais également 3.538 285 3,999 enfin compris il y à là dedans une infinité de nombre qui sont compris entre 2 et 4 et bien qu'est ce que c'est que tous ces nombres c'est un intervalle c'est un intervalle de r c'est l'ensemble des nombres qui sont compris entre 2 et 4 et cet intervalle là je peux le représenter sur ma droite graduée celle qui représente l'ensemble des réelles préparant une droite voilà on a représenté donc sur cet axe axe infinie l'ensemble de tous les nombres réels j'ai marqué ici une graduation régulières toutes les unités mais c'est bien tout les réels qui sont représentés ici et on a dit que on ne s'intéresse finalement corps et elles qui sont compris entre 2 et 4 alors comme je les dis on peut visualiser ses réels se trouve ici dans cette zone là et cette zone là eh bien ça s'appelle un ensemble pourquoi parce que c'est tout simplement un ensemble de nom l'a vu tout à l'heure on a trouvé plein noms qui sont dans cet ensemble et pour des nombres cet ensemble s'appelle un intervalle et on peut même le noter cet intervalle eh bien on va le noter à l'aide de ses extrémités qui sont 2 et 4 j'écris donc deux points 1,4 mais c'est pas fini car il faudrait maintenant parler justement de ces extrémités qu'on appelle également ses bornes ici on a dit que x est supérieure ou égale à 2 ce qui veut dire que x peut être égal à 2 ce qui veut dire que le nombre de fait partie de l'intervalle donc il faut l'inclure avec l'ensemble donc qu'ils aient marqué en rouge pour cela on va mettre un crochet dont les extrémités du crochet vont vers l'ensemble voilà donc sur l' axe on met le crochet de façon à bien faire comprendre que le 2 va avec l'ensemble il est donc dans l'intervalle on l'acceptent et ont fait de même lorsqu'on quitte notre axe et qu'on veut simplement noter l'ensemble à part du coup pour le quatre camps et il a bien c'est pareil x est inférieur ou égal à 4 ce qui veut dire que quatre fait partie de notre intervalles donc je vais mettre un crochet qui emmène le 4 avec dans l'ensemble et ont fait de même pour la notation est bien là on vient de noter notre première intervalle cet intervalle ce lit 2,4 et il comprend l'ensemble des nombres qui sont compris entre 2 et 4 et il faut savoir passer d'une écriture à l'autre ou d'une représentation alors qu'il faut savoir passer de cette écriture ici sous forme algébrique à la représentation sur un axe à la notation en termes d'intervalle est également comprendre ce que cela signifie alors on peut rappeler quelques exemples et voir également comment les notes on avait dit on avait dit tout à l'heure que trois il est dans l'ensemble considéré il est donc dans notre intervalles on dit et on écrit trois appartient à l'intervalle 2,4 on a vu que 2 et 4 font partie de cet intervalle donc on peut par exemple écrire que quatre appartient également à l'intervalle de 4 et si on en prend un qui est extérieur à cet intervalle par exemple 5 et bien dans ce cas là on écrit que cinq n'appartient pas donc barre à l'intervalle 2,4 alors cette notation convient lorsque les bornes les extrémités font partie de l'ensemble considéré mais qu'arrive-t-il si on exclut une des deux bornes eh bien c'est la suite du court on considère maintenant l'ensemble des nombres x compris entre 0 et 1 mais attention on exclut zéro c'est à dire que là dedans on peut accepter 0,1 on peut accepter 0,01 on peut accepter n'importe quel nombre aussi près de zéro que l'on souhaite mais on n'exclut 0 comment l'indiqué alors déjà on peut préparer la zone qui va entre 0 et 1 sur la représentation graphique parce que ça c'est comme avant elle se trouve ici et on peut déjà représenté la borne supérieure parce que ça ça ne change pas par rapport à avant puisque 1 ici est accepté un fait partie de l'ensemble donc je peux l'emmener avec moi dans l'ensemble et pour la suite j'imagine que tu as compris cette fois ci on ne veut pas zéro dans notre ensemble puisqu'il est exclu donc il faudrait l'a indiqué avec un crochet qui exclut 0 on va tout simplement écrire le crochet dans l'autre sens pour indiquer que le zéro se trouve à l'extérieur de cet ensemble et ça donne ceci avec le crochet tourner dans l'autre sens du coup si on veut noté cet intervalle eh bien on va tout simplement recopier ce qui est écrit ici en commençant par les nombres 0 point virgule 1 et les crochets bien on va également les recopier 0 exclu un un cru et là on comprend très bien ce que cela signifie là dedans dans cet intervalle on a tous les nombres compris entre 0 et 1 1 oui je le prends mes 0 je n'en veux pas poursuivons maintenant encore avec un autre type d'intervalle alors il est un peu bizarre 7 cet ensemble parce que il n'a qu'une seule borne qui est roi on voudrait l'ensemble des x supérieure à 3 alors attention strictement supérieur ce qui veut dire qu'on va exclure 3 comme tout à l'heure on a exclu 0 mais il n'y a pas de borne supérieure parce que là dedans qu'est-ce que j'ai bon on a dit qu'on a tous les nombres qui sont un peu plus grandes 3 donc 3,1 3 0 1 alors on a quatre également on a 5 6 10 100 1000 1 million 1 milliard des centaines de et cetera etc on sent bien ici qu'on peut poursuivre avec des valeurs de plus en plus grande sans jamais s'arrêter qu'est ce que cela veut dire au niveau de la représentation graphique mais ça veut dire qu'on va ici commencer par trois et qu'on va poursuivre ici sans jamais s'arrêter alors évidemment on s'arrête au niveau de la flèche mais on comprend bien ici vu que la zone rouge elle va jusqu'à la flèche que ça se poursuit après six jusqu'à l'infini au départ ici qu'est ce qu'on a dit on a dit que 3 et exclut donc là également je vais mettre un crochet tourné vers l'extérieur 2 3 voilà donc la représentation graphique de l'ensemble des réelles x qui sont strictement plus grand que trois mais qu'est-ce que j'en fais comment je note ça en termes d'intervalle alors si on reprend ce qu'on a dit jusque là on écrit les deux nombres les deux nombres c'est à dire les deux bourdes donc la première c'est 3 mai la deuxième je ne la connais pas je ne la connais pas parce que je n'arrive pas à la teinte c'est l'infini alors comme c'est l'infini eh bien on écrit l'un fini et l'infini se note comme 1,8 coucher et comme c'est l'infini des positif parce qu'il existe également l'infini des négatifs je le précise en mettant un petit plus de vent donc ceci signifie que je commence à 3 et que je ne m'arrête pas puisque je vais vers plus infinie ensuite au niveau des crochets alors le 3 pas de problème je le vaux copie et de l'autre côté je mets quoi alors la question est simplement est-ce que l'infini fait partie de l'ensemble ou pas alors comme ça on aurait envie de dire oui l'infini fait partie de l'ensemble mais l'infini vaut combien c'était passé l'infini on ne peut pas atteindre l'infini d'ailleurs c'est même pas un an c'est plus un concept donc par là ne soyons pas prétentieux ne disons pas qu'on va atteindre l'infini le toucher on n'y arrivera jamais et c'est pour cette raison qu'on met un crochet qui exclut l'infini de l'ensemble même si on a bien compris l'idée est de poursuivre vers l'infini alors du coup si on le faisait dans l'autre sens et que je te donnais cet ensemble la moins l'infini - 1 comment ceux ci se représenterait eh bien on comprend que la bande supérieure c'est moins 1 elle n'est pas atteinte et on veut quoi on veut tous les noms qui sont avant - 1 donc si je devais le représenter je partirai ici de -1 et j'écrirai montrer vers la gauche cette fois-ci faisons le voilà et on a dit qu'on ne veut pas moins un voilà du coup j'ai rajouté la valeur qui vient avant - c'est à dire moins deux pour bien faire comprendre que cet ensemble cet intervalle est l'intervalle qui part de moi l'infini qui s'arrête en moins un en excluant -1 et si on voulait noté cet intervalle sous forme d'une inégalité comme ici eh bien on écrirait que c'est l'ensemble des x strictement plus petit que -1 alors parlons maintenant d'intervalle fermé et d'intervalle ouvert on dit qu'un intervalle est fermée lorsque ces extrémités ces bornes appartiennent à l'intervalle alors on en a vu quelques-uns des intervalles fermé on a vu par exemple 2 4 ceci est un intervalle fermé et puis on peut en avoir un autre par exemple - 3 5 est également un intervalle fermé on le reconnaît les crochets sont tournés vers l'intervalle ceci c'est l'ensemble des nombres compris entre -3 et 5 - 3 et 5 compris donc dès qu'on a les crochets tourner dans ce sens vers l'intervalle un peu comment quand on lorsqu'on est à un segment eh bien il s'agit d'un intervalle fermé intervalle ouvert on dit qu'un intervalle est ouvert dans le cas contraire c'est à dire lorsque ces extraits lité n'appartiennent pas à l'intervalle et bien prenons un intervalle ouvert on avait tout à l'heure l'intervalle 0,1 alors je crois que 1 étaient inclus donc là on va à l'exclure ceci est net est un intervalle ouvert puisque les bornes n'appartiennent pas à l'intervalle ceci c'est l'ensemble des nombres qui sont compris entre 0 et 1 mais on ne veut ni de zéro nid de 1 alors du coup est-ce que cet intervalle 3 + l'infini est considéré comme un intervalle ouvert oui absolument déjà parce que 3 est exclu est ensuite parce que comme je l'aï dit tout à l'heure on ne peut pas atteindre l'infini c'est l'infini du coup on considère que l'infini quelque part est exclu de l'intervalle et ceci est bien considéré comme un intervalle ouvert celui ci également ceux ci et l'ensemble des nombres strictement inférieure à 6 et pour qu'il soit ouvert il faut qu'il soit ouvert des deux côtés c'est ici j'inclus 6 et que je mets le crochet dans l'autre sens ce ne sera pas considéré comme un intervalle ouvert et à un dernier intervalle ouvert à l'intervalle un peu particulier qui est également un intervalle ouvert c'est l'ensemble des nombres et l air c'est à dire tous les nombres parce que il peut se doter de la façon suivante alors en général on ne note pas comme ça mais c'est pas fou d'écrire r comme l'intervalle ouvert qui va de moins l'infini à puce l'infini on est d'accord qu'en allant de - la fille est à + l'infini on a bien là dedans l'ensemble des nombres réels parlons maintenant d'intersection et de réunion ou d'union on va avant de commencer de parler d'intersection et de réunions d'intervalle avait déjà on va déjà essayer de comprendre la notion d'intersection et de réunions sur des ensembles sont des ensembles quelconque j'ai donc la représenter deux ensembles a et b alors ce sont des ensembles pas forcément de nom et contiennent des éléments donc à contient plein d'éléments pouvant représenter quelques-uns et b contient également plein d'éléments gens représentent encore quelques-uns voilà et un ici alors on remarque que il ya des éléments qui n'a pas jahnke à ce sont ces quatre là ils n'appartiennent pas à b puisqu'ils sont à l'extérieur ici alors ça ça s'appelle une patate de cet ensemble il ya des éléments qui appartiennent que 1 b ce sont ces quatre là ils n'appartiennent pas à acquis ce qu'ils sont à l'extérieur de notre ensemble par contre j'ai des éléments qui appartiennent aux deux c 3 celui ci par exemple il appartient à parce que il est dans la patate bleus et il appartient à b parce que il est dans la patate verte et y en a 3 comme ça qu'ils appartiennent à la fois à l'un et à la fois à l'autre et bien là on est où on est en fait à l'intersection de ces deux ensembles je crois que tout est dit l'intersection de deux ensembles a et b et bien c'est l'ensemble des éléments qu'ils appartiennent à a et à b et cet ensemble on peut le noter il est donc ici on va là jurés ont écrit à inter b avec comme ça un petit pont c'est un sûrs tournée et ça se lit à inter b ou l'intersection 2a et 2b donc on retient bien le est écrit en gras ici parce que c'est très important ce sont l'ensemble des éléments qu'ils appartiennent à un et ab aux deux à la fois mais alors du coup qu'est ce que c'est que la réunion la réunion c'est quand on réunit c'est quand on met tous ensemble et bien la définition nous dit que la réunion de deux ensembles à ep c'est l'ensemble des éléments qu'ils appartiennent à aa ou ab c'est à dire celui ci il appartient à ou ab puisqu'il appartient même aaa et ab mais celui-ci il appartient à ou avaient pourquoi parce qu'il appartient à donc comme c'est l'un ou l'autre du coup celui ci en fait partie ce qui fait que celui ci aussi puisqu'il appartient à b il appartient à ou ab celui ci aussi celui ci aussi mais finalement c'est quoi la réunion et bien c'est l'ensemble de ces deux ensembles là qu'on peut donc totalement hachuré voilà c'est le tout à une ion b et ça se note comment eh bien ça se note à on se bien un hub comme union d ceux-ci se lie à union b où la réunion 2 1 et 2 b voilà donc deux intervalles a et b l'intervalle à qui est égal à -3 4 qui est donc un intervalle fermé et l'intervalle b qui est donc égale à 2,5 également fermés alors on va donc rechercher pour ces deux intervalles leur intersection et leur réunion l'exercice va être assez facile tu vas voir tout simplement parce que j'ai pas ici me de bourdin fini et je n'ai pas non plus jouer sur la nature des bordels sont toutes fermées donc par là voilà l'exercice sera pas compliqué si tu veux quelque chose de plus compliqué photo rentrer dans la playlist j'ai mis un exemple alors la première des choses à faire lorsqu'on à ce travail donc c'est à dire la recherche d'eux à un terreau b et 2 à union b et bien si de représenter ces intervalles a et b sur la droite gratuit ça permet de visualiser les choses et du coup ça devient très facile voilà on va commencer par représenter l'intervalle à on va utiliser la couleur rouge voilà donc intervalle -3 4 les bornes sont fermés on poursuit avec l'intervalle b on va utiliser la couleur verte voilà j'ai un tout petit peu décalé sur le dessus pour qu'on arrive bien à distinguer l'intervalle rouge de l'intervalle vert en tous les cas nous ce qui nous intéresse c'est d'abord de déterminer l'intersection de ces deux intervalles c'est à dire on va chercher tous les éléments qui appartiennent à a et à b c'est à dire tous les nombres qui sont dans l'intervalle à et dans l'intervalle b et bien il suffit juste de regarder là où on a tracé deux fois une fois en rouge une fois en verre ça se trouve dans cette zone dans la zone qui va de 2 à 4 maintenant la question est de savoir est-ce que je prends les bornes ou pas pour cela il faut juste s'assurer que à la fois 2 appartient à a et à b et en même temps qu'à t'appartient également arabe est alors vérifions est ce que 2 appartient à aa oui dans -3 4 est ce que 2 appartient ab oui puisque la borne est fermé donc je peux écrire ici 2 et je l'emmène avec moi qu'en est-il de 4 et bien de même qu'à appartient à 4 appartient b donc je prends 4 également à un terreau bc l'intervalle fermé 2 4 et à lyon b eh bien ce sont tous les nombres qui appartiennent à aa ou ap il suffit juste de regarder partout où j'ai tracé quelque chose c'est-à-dire là où j'ai représenté à et là où j'ai représenté b eh bien on voit que ça démarre en moins 3 on poursuit on poursuit la ses rouges lacets rouges et vertes donc ça fait partie la sévère aussi puisque c ou b et ça s'arrête 1,5 est-ce que je prends les bornes ou pas balle assez claire ferme et fermé je prends donc moins 3 et 5 à union b et l'intervalle moins 3,5 fermé voilà mais je le répète encore il est important de faire des exercices sur cette notion là en tout cas cette séquence est terminée",
+  "snippets_count": 458,
+  "total_words_count": 3084,
+  "duration_approx_sec": 1118.46,
+  "entries": [
+    {
+      "text": "bonjour",
+      "start": 3.29,
+      "duration": 3.19
+    },
+    {
+      "text": "dans cette vidéo je te propose de revoir",
+      "start": 4.41,
+      "duration": 4.05
+    },
+    {
+      "text": "tout le cours sur le chapitre des",
+      "start": 6.48,
+      "duration": 4.079
+    },
+    {
+      "text": "intervalles l'objet de cette séquence",
+      "start": 8.46,
+      "duration": 4.679
+    },
+    {
+      "text": "est de te rappeler et de t'expliquer les",
+      "start": 10.559,
+      "duration": 4.111
+    },
+    {
+      "text": "éléments les plus importants de ce",
+      "start": 13.139,
+      "duration": 4.201
+    },
+    {
+      "text": "chapitre plus précisément on parlera de",
+      "start": 14.67,
+      "duration": 5.16
+    },
+    {
+      "text": "la notion d'intervalle de cette notation",
+      "start": 17.34,
+      "duration": 4.23
+    },
+    {
+      "text": "nouvelles qui l'accompagnent",
+      "start": 19.83,
+      "duration": 3.93
+    },
+    {
+      "text": "on parlera d'intervalle fermé",
+      "start": 21.57,
+      "duration": 5.01
+    },
+    {
+      "text": "d'intervalle ouvert et on finira par la",
+      "start": 23.76,
+      "duration": 4.38
+    },
+    {
+      "text": "réunion et l'intersection de deux",
+      "start": 26.58,
+      "duration": 4.019
+    },
+    {
+      "text": "intervalles pour préparer un contrôle ou",
+      "start": 28.14,
+      "duration": 4.619
+    },
+    {
+      "text": "même un examen ceci ne suffira pas",
+      "start": 30.599,
+      "duration": 4.861
+    },
+    {
+      "text": "évidemment il te faudra encore faire de",
+      "start": 32.759,
+      "duration": 4.831
+    },
+    {
+      "text": "nombreux exercices pour le court c'est",
+      "start": 35.46,
+      "duration": 5.49
+    },
+    {
+      "text": "parti alors avant de parler de notation",
+      "start": 37.59,
+      "duration": 6.0
+    },
+    {
+      "text": "parlons déjà de la définition qu'est ce",
+      "start": 40.95,
+      "duration": 4.379
+    },
+    {
+      "text": "que c'est qu'un intervalle alors on",
+      "start": 43.59,
+      "duration": 3.96
+    },
+    {
+      "text": "connaît l'ensemble des réelles qu'on",
+      "start": 45.329,
+      "duration": 3.931
+    },
+    {
+      "text": "pourrait d'ailleurs représenté sur une",
+      "start": 47.55,
+      "duration": 4.47
+    },
+    {
+      "text": "droite un axe là que des abscisses mais",
+      "start": 49.26,
+      "duration": 5.16
+    },
+    {
+      "text": "parfois on n'a pas besoin de travailler",
+      "start": 52.02,
+      "duration": 4.89
+    },
+    {
+      "text": "avec l'ensemble de tous les réelles par",
+      "start": 54.42,
+      "duration": 4.799
+    },
+    {
+      "text": "exemple si je considère tous les nombres",
+      "start": 56.91,
+      "duration": 4.949
+    },
+    {
+      "text": "que je vais appeler x qui sont compris",
+      "start": 59.219,
+      "duration": 9.481
+    },
+    {
+      "text": "entre 2 et 4 cela comprend donc 3 mais",
+      "start": 61.859,
+      "duration": 13.861
+    },
+    {
+      "text": "également 3.538 285 3,999 enfin compris",
+      "start": 68.7,
+      "duration": 9.959
+    },
+    {
+      "text": "il y à là dedans une infinité de nombre",
+      "start": 75.72,
+      "duration": 6.36
+    },
+    {
+      "text": "qui sont compris entre 2 et 4 et bien",
+      "start": 78.659,
+      "duration": 5.791
+    },
+    {
+      "text": "qu'est ce que c'est que tous ces nombres",
+      "start": 82.08,
+      "duration": 4.38
+    },
+    {
+      "text": "c'est un intervalle c'est un intervalle",
+      "start": 84.45,
+      "duration": 4.83
+    },
+    {
+      "text": "de r c'est l'ensemble des nombres qui",
+      "start": 86.46,
+      "duration": 5.519
+    },
+    {
+      "text": "sont compris entre 2 et 4 et cet",
+      "start": 89.28,
+      "duration": 5.97
+    },
+    {
+      "text": "intervalle là je peux le représenter sur",
+      "start": 91.979,
+      "duration": 5.46
+    },
+    {
+      "text": "ma droite graduée celle qui représente",
+      "start": 95.25,
+      "duration": 3.78
+    },
+    {
+      "text": "l'ensemble des réelles préparant une",
+      "start": 97.439,
+      "duration": 5.131
+    },
+    {
+      "text": "droite voilà on a représenté donc sur",
+      "start": 99.03,
+      "duration": 6.36
+    },
+    {
+      "text": "cet axe axe infinie l'ensemble de tous",
+      "start": 102.57,
+      "duration": 3.659
+    },
+    {
+      "text": "les nombres réels",
+      "start": 105.39,
+      "duration": 2.159
+    },
+    {
+      "text": "j'ai marqué ici une graduation",
+      "start": 106.229,
+      "duration": 3.631
+    },
+    {
+      "text": "régulières toutes les unités mais c'est",
+      "start": 107.549,
+      "duration": 4.11
+    },
+    {
+      "text": "bien tout les réels qui sont représentés",
+      "start": 109.86,
+      "duration": 4.77
+    },
+    {
+      "text": "ici et on a dit que on ne s'intéresse",
+      "start": 111.659,
+      "duration": 5.731
+    },
+    {
+      "text": "finalement corps et elles qui sont",
+      "start": 114.63,
+      "duration": 5.58
+    },
+    {
+      "text": "compris entre 2 et 4 alors comme je les",
+      "start": 117.39,
+      "duration": 4.95
+    },
+    {
+      "text": "dis on peut visualiser ses réels se",
+      "start": 120.21,
+      "duration": 6.119
+    },
+    {
+      "text": "trouve ici dans cette zone là et cette",
+      "start": 122.34,
+      "duration": 6.36
+    },
+    {
+      "text": "zone là eh bien ça s'appelle un ensemble",
+      "start": 126.329,
+      "duration": 3.391
+    },
+    {
+      "text": "pourquoi parce que c'est tout simplement",
+      "start": 128.7,
+      "duration": 2.89
+    },
+    {
+      "text": "un ensemble de nom",
+      "start": 129.72,
+      "duration": 3.129
+    },
+    {
+      "text": "l'a vu tout à l'heure on a trouvé plein",
+      "start": 131.59,
+      "duration": 4.259
+    },
+    {
+      "text": "noms qui sont dans cet ensemble et pour",
+      "start": 132.849,
+      "duration": 5.881
+    },
+    {
+      "text": "des nombres cet ensemble s'appelle un",
+      "start": 135.849,
+      "duration": 5.61
+    },
+    {
+      "text": "intervalle et on peut même le noter cet",
+      "start": 138.73,
+      "duration": 4.979
+    },
+    {
+      "text": "intervalle eh bien on va le noter à",
+      "start": 141.459,
+      "duration": 6.381
+    },
+    {
+      "text": "l'aide de ses extrémités qui sont 2 et 4",
+      "start": 143.709,
+      "duration": 7.53
+    },
+    {
+      "text": "j'écris donc deux points 1,4 mais c'est",
+      "start": 147.84,
+      "duration": 5.38
+    },
+    {
+      "text": "pas fini car il faudrait maintenant",
+      "start": 151.239,
+      "duration": 5.011
+    },
+    {
+      "text": "parler justement de ces extrémités qu'on",
+      "start": 153.22,
+      "duration": 4.65
+    },
+    {
+      "text": "appelle également ses bornes",
+      "start": 156.25,
+      "duration": 4.86
+    },
+    {
+      "text": "ici on a dit que x est supérieure ou",
+      "start": 157.87,
+      "duration": 6.75
+    },
+    {
+      "text": "égale à 2 ce qui veut dire que x peut",
+      "start": 161.11,
+      "duration": 5.219
+    },
+    {
+      "text": "être égal à 2 ce qui veut dire que le",
+      "start": 164.62,
+      "duration": 4.709
+    },
+    {
+      "text": "nombre de fait partie de l'intervalle",
+      "start": 166.329,
+      "duration": 7.231
+    },
+    {
+      "text": "donc il faut l'inclure avec l'ensemble",
+      "start": 169.329,
+      "duration": 5.431
+    },
+    {
+      "text": "donc qu'ils aient marqué en rouge",
+      "start": 173.56,
+      "duration": 3.75
+    },
+    {
+      "text": "pour cela on va mettre un crochet dont",
+      "start": 174.76,
+      "duration": 5.009
+    },
+    {
+      "text": "les extrémités du crochet vont vers",
+      "start": 177.31,
+      "duration": 3.56
+    },
+    {
+      "text": "l'ensemble",
+      "start": 179.769,
+      "duration": 3.78
+    },
+    {
+      "text": "voilà donc sur l' axe on met le crochet",
+      "start": 180.87,
+      "duration": 5.259
+    },
+    {
+      "text": "de façon à bien faire comprendre que le",
+      "start": 183.549,
+      "duration": 4.861
+    },
+    {
+      "text": "2 va avec l'ensemble il est donc dans",
+      "start": 186.129,
+      "duration": 4.381
+    },
+    {
+      "text": "l'intervalle on l'acceptent et ont fait",
+      "start": 188.41,
+      "duration": 3.21
+    },
+    {
+      "text": "de même",
+      "start": 190.51,
+      "duration": 3.449
+    },
+    {
+      "text": "lorsqu'on quitte notre axe et qu'on veut",
+      "start": 191.62,
+      "duration": 4.98
+    },
+    {
+      "text": "simplement noter l'ensemble à part du",
+      "start": 193.959,
+      "duration": 4.081
+    },
+    {
+      "text": "coup pour le quatre camps et il a bien",
+      "start": 196.6,
+      "duration": 2.07
+    },
+    {
+      "text": "c'est pareil",
+      "start": 198.04,
+      "duration": 3.21
+    },
+    {
+      "text": "x est inférieur ou égal à 4 ce qui veut",
+      "start": 198.67,
+      "duration": 4.349
+    },
+    {
+      "text": "dire que quatre fait partie de notre",
+      "start": 201.25,
+      "duration": 3.81
+    },
+    {
+      "text": "intervalles donc je vais mettre un",
+      "start": 203.019,
+      "duration": 5.071
+    },
+    {
+      "text": "crochet qui emmène le 4 avec dans",
+      "start": 205.06,
+      "duration": 6.299
+    },
+    {
+      "text": "l'ensemble et ont fait de même pour la",
+      "start": 208.09,
+      "duration": 5.25
+    },
+    {
+      "text": "notation est bien là on vient de noter",
+      "start": 211.359,
+      "duration": 4.621
+    },
+    {
+      "text": "notre première intervalle cet intervalle",
+      "start": 213.34,
+      "duration": 7.229
+    },
+    {
+      "text": "ce lit 2,4 et il comprend l'ensemble des",
+      "start": 215.98,
+      "duration": 8.4
+    },
+    {
+      "text": "nombres qui sont compris entre 2 et 4 et",
+      "start": 220.569,
+      "duration": 5.911
+    },
+    {
+      "text": "il faut savoir passer d'une écriture à",
+      "start": 224.38,
+      "duration": 3.66
+    },
+    {
+      "text": "l'autre ou d'une représentation alors",
+      "start": 226.48,
+      "duration": 3.24
+    },
+    {
+      "text": "qu'il faut savoir passer de cette",
+      "start": 228.04,
+      "duration": 4.289
+    },
+    {
+      "text": "écriture ici sous forme algébrique à la",
+      "start": 229.72,
+      "duration": 5.519
+    },
+    {
+      "text": "représentation sur un axe à la notation",
+      "start": 232.329,
+      "duration": 4.921
+    },
+    {
+      "text": "en termes d'intervalle est également",
+      "start": 235.239,
+      "duration": 3.661
+    },
+    {
+      "text": "comprendre ce que cela signifie",
+      "start": 237.25,
+      "duration": 3.66
+    },
+    {
+      "text": "alors on peut rappeler quelques exemples",
+      "start": 238.9,
+      "duration": 3.839
+    },
+    {
+      "text": "et voir également comment les notes on",
+      "start": 240.91,
+      "duration": 3.15
+    },
+    {
+      "text": "avait dit on avait dit tout à l'heure",
+      "start": 242.739,
+      "duration": 3.951
+    },
+    {
+      "text": "que trois il est dans l'ensemble",
+      "start": 244.06,
+      "duration": 4.44
+    },
+    {
+      "text": "considéré il est donc dans notre",
+      "start": 246.69,
+      "duration": 5.07
+    },
+    {
+      "text": "intervalles on dit et on écrit trois",
+      "start": 248.5,
+      "duration": 8.729
+    },
+    {
+      "text": "appartient à l'intervalle 2,4 on a vu",
+      "start": 251.76,
+      "duration": 8.02
+    },
+    {
+      "text": "que 2 et 4 font partie de cet intervalle",
+      "start": 257.229,
+      "duration": 4.051
+    },
+    {
+      "text": "donc on peut par exemple écrire que",
+      "start": 259.78,
+      "duration": 3.93
+    },
+    {
+      "text": "quatre appartient également à",
+      "start": 261.28,
+      "duration": 3.81
+    },
+    {
+      "text": "l'intervalle de",
+      "start": 263.71,
+      "duration": 3.959
+    },
+    {
+      "text": "4 et si on en prend un qui est extérieur",
+      "start": 265.09,
+      "duration": 5.4
+    },
+    {
+      "text": "à cet intervalle par exemple 5 et bien",
+      "start": 267.669,
+      "duration": 4.441
+    },
+    {
+      "text": "dans ce cas là on écrit que cinq",
+      "start": 270.49,
+      "duration": 4.56
+    },
+    {
+      "text": "n'appartient pas donc barre à",
+      "start": 272.11,
+      "duration": 7.559
+    },
+    {
+      "text": "l'intervalle 2,4 alors cette notation",
+      "start": 275.05,
+      "duration": 7.17
+    },
+    {
+      "text": "convient lorsque les bornes les",
+      "start": 279.669,
+      "duration": 4.321
+    },
+    {
+      "text": "extrémités font partie de l'ensemble",
+      "start": 282.22,
+      "duration": 4.59
+    },
+    {
+      "text": "considéré mais qu'arrive-t-il si on",
+      "start": 283.99,
+      "duration": 4.649
+    },
+    {
+      "text": "exclut une des deux bornes",
+      "start": 286.81,
+      "duration": 5.04
+    },
+    {
+      "text": "eh bien c'est la suite du court on",
+      "start": 288.639,
+      "duration": 5.461
+    },
+    {
+      "text": "considère maintenant l'ensemble des",
+      "start": 291.85,
+      "duration": 5.67
+    },
+    {
+      "text": "nombres x compris entre 0 et 1",
+      "start": 294.1,
+      "duration": 6.51
+    },
+    {
+      "text": "mais attention on exclut zéro c'est à",
+      "start": 297.52,
+      "duration": 5.97
+    },
+    {
+      "text": "dire que là dedans on peut accepter 0,1",
+      "start": 300.61,
+      "duration": 6.029
+    },
+    {
+      "text": "on peut accepter 0,01 on peut accepter",
+      "start": 303.49,
+      "duration": 5.52
+    },
+    {
+      "text": "n'importe quel nombre aussi près de zéro",
+      "start": 306.639,
+      "duration": 4.651
+    },
+    {
+      "text": "que l'on souhaite mais on n'exclut 0",
+      "start": 309.01,
+      "duration": 4.29
+    },
+    {
+      "text": "comment l'indiqué alors déjà on peut",
+      "start": 311.29,
+      "duration": 4.89
+    },
+    {
+      "text": "préparer la zone qui va entre 0 et 1 sur",
+      "start": 313.3,
+      "duration": 4.47
+    },
+    {
+      "text": "la représentation graphique parce que ça",
+      "start": 316.18,
+      "duration": 4.32
+    },
+    {
+      "text": "c'est comme avant elle se trouve ici et",
+      "start": 317.77,
+      "duration": 4.5
+    },
+    {
+      "text": "on peut déjà représenté la borne",
+      "start": 320.5,
+      "duration": 3.51
+    },
+    {
+      "text": "supérieure parce que ça ça ne change pas",
+      "start": 322.27,
+      "duration": 4.619
+    },
+    {
+      "text": "par rapport à avant puisque 1 ici est",
+      "start": 324.01,
+      "duration": 5.25
+    },
+    {
+      "text": "accepté un fait partie de l'ensemble",
+      "start": 326.889,
+      "duration": 4.231
+    },
+    {
+      "text": "donc je peux l'emmener avec moi dans",
+      "start": 329.26,
+      "duration": 4.77
+    },
+    {
+      "text": "l'ensemble et pour la suite j'imagine",
+      "start": 331.12,
+      "duration": 4.919
+    },
+    {
+      "text": "que tu as compris cette fois ci on ne",
+      "start": 334.03,
+      "duration": 4.02
+    },
+    {
+      "text": "veut pas zéro dans notre ensemble",
+      "start": 336.039,
+      "duration": 3.0
+    },
+    {
+      "text": "puisqu'il est exclu",
+      "start": 338.05,
+      "duration": 3.239
+    },
+    {
+      "text": "donc il faudrait l'a indiqué avec un",
+      "start": 339.039,
+      "duration": 4.44
+    },
+    {
+      "text": "crochet qui exclut 0 on va tout",
+      "start": 341.289,
+      "duration": 3.75
+    },
+    {
+      "text": "simplement écrire le crochet dans",
+      "start": 343.479,
+      "duration": 3.81
+    },
+    {
+      "text": "l'autre sens pour indiquer que le zéro",
+      "start": 345.039,
+      "duration": 4.411
+    },
+    {
+      "text": "se trouve à l'extérieur de cet ensemble",
+      "start": 347.289,
+      "duration": 5.371
+    },
+    {
+      "text": "et ça donne ceci avec le crochet tourner",
+      "start": 349.45,
+      "duration": 4.98
+    },
+    {
+      "text": "dans l'autre sens du coup si on veut",
+      "start": 352.66,
+      "duration": 3.45
+    },
+    {
+      "text": "noté cet intervalle eh bien on va tout",
+      "start": 354.43,
+      "duration": 3.27
+    },
+    {
+      "text": "simplement recopier ce qui est écrit ici",
+      "start": 356.11,
+      "duration": 4.559
+    },
+    {
+      "text": "en commençant par les nombres 0 point",
+      "start": 357.7,
+      "duration": 5.7
+    },
+    {
+      "text": "virgule 1 et les crochets bien on va",
+      "start": 360.669,
+      "duration": 7.25
+    },
+    {
+      "text": "également les recopier 0 exclu un un cru",
+      "start": 363.4,
+      "duration": 7.019
+    },
+    {
+      "text": "et là on comprend très bien ce que cela",
+      "start": 367.919,
+      "duration": 5.261
+    },
+    {
+      "text": "signifie là dedans dans cet intervalle",
+      "start": 370.419,
+      "duration": 4.951
+    },
+    {
+      "text": "on a tous les nombres compris entre 0 et",
+      "start": 373.18,
+      "duration": 6.15
+    },
+    {
+      "text": "1 1 oui je le prends mes 0 je n'en veux",
+      "start": 375.37,
+      "duration": 6.299
+    },
+    {
+      "text": "pas poursuivons maintenant encore avec",
+      "start": 379.33,
+      "duration": 5.25
+    },
+    {
+      "text": "un autre type d'intervalle alors il est",
+      "start": 381.669,
+      "duration": 3.571
+    },
+    {
+      "text": "un peu bizarre",
+      "start": 384.58,
+      "duration": 2.04
+    },
+    {
+      "text": "7",
+      "start": 385.24,
+      "duration": 4.11
+    },
+    {
+      "text": "cet ensemble parce que il n'a qu'une",
+      "start": 386.62,
+      "duration": 5.82
+    },
+    {
+      "text": "seule borne qui est roi on voudrait",
+      "start": 389.35,
+      "duration": 6.72
+    },
+    {
+      "text": "l'ensemble des x supérieure à 3 alors",
+      "start": 392.44,
+      "duration": 5.61
+    },
+    {
+      "text": "attention strictement supérieur ce qui",
+      "start": 396.07,
+      "duration": 3.99
+    },
+    {
+      "text": "veut dire qu'on va exclure 3 comme tout",
+      "start": 398.05,
+      "duration": 4.56
+    },
+    {
+      "text": "à l'heure on a exclu 0 mais il n'y a pas",
+      "start": 400.06,
+      "duration": 4.95
+    },
+    {
+      "text": "de borne supérieure parce que là dedans",
+      "start": 402.61,
+      "duration": 3.96
+    },
+    {
+      "text": "qu'est-ce que j'ai bon on a dit qu'on a",
+      "start": 405.01,
+      "duration": 3.15
+    },
+    {
+      "text": "tous les nombres qui sont un peu plus",
+      "start": 406.57,
+      "duration": 4.05
+    },
+    {
+      "text": "grandes 3 donc 3,1 3 0 1",
+      "start": 408.16,
+      "duration": 6.0
+    },
+    {
+      "text": "alors on a quatre également on a 5 6 10",
+      "start": 410.62,
+      "duration": 6.87
+    },
+    {
+      "text": "100 1000 1 million 1 milliard des",
+      "start": 414.16,
+      "duration": 4.86
+    },
+    {
+      "text": "centaines de et cetera etc",
+      "start": 417.49,
+      "duration": 4.14
+    },
+    {
+      "text": "on sent bien ici qu'on peut poursuivre",
+      "start": 419.02,
+      "duration": 4.44
+    },
+    {
+      "text": "avec des valeurs de plus en plus grande",
+      "start": 421.63,
+      "duration": 2.97
+    },
+    {
+      "text": "sans jamais s'arrêter",
+      "start": 423.46,
+      "duration": 2.7
+    },
+    {
+      "text": "qu'est ce que cela veut dire au niveau",
+      "start": 424.6,
+      "duration": 3.45
+    },
+    {
+      "text": "de la représentation graphique mais ça",
+      "start": 426.16,
+      "duration": 3.6
+    },
+    {
+      "text": "veut dire qu'on va ici commencer par",
+      "start": 428.05,
+      "duration": 4.17
+    },
+    {
+      "text": "trois et qu'on va poursuivre ici sans",
+      "start": 429.76,
+      "duration": 3.92
+    },
+    {
+      "text": "jamais s'arrêter",
+      "start": 432.22,
+      "duration": 4.41
+    },
+    {
+      "text": "alors évidemment on s'arrête au niveau",
+      "start": 433.68,
+      "duration": 4.84
+    },
+    {
+      "text": "de la flèche mais on comprend bien ici",
+      "start": 436.63,
+      "duration": 3.12
+    },
+    {
+      "text": "vu que la zone rouge",
+      "start": 438.52,
+      "duration": 3.84
+    },
+    {
+      "text": "elle va jusqu'à la flèche que ça se",
+      "start": 439.75,
+      "duration": 6.03
+    },
+    {
+      "text": "poursuit après six jusqu'à l'infini au",
+      "start": 442.36,
+      "duration": 5.13
+    },
+    {
+      "text": "départ ici qu'est ce qu'on a dit on a",
+      "start": 445.78,
+      "duration": 4.41
+    },
+    {
+      "text": "dit que 3 et exclut donc là également je",
+      "start": 447.49,
+      "duration": 4.679
+    },
+    {
+      "text": "vais mettre un crochet tourné vers",
+      "start": 450.19,
+      "duration": 5.039
+    },
+    {
+      "text": "l'extérieur 2 3 voilà donc la",
+      "start": 452.169,
+      "duration": 5.031
+    },
+    {
+      "text": "représentation graphique de l'ensemble",
+      "start": 455.229,
+      "duration": 5.431
+    },
+    {
+      "text": "des réelles x qui sont strictement plus",
+      "start": 457.2,
+      "duration": 5.08
+    },
+    {
+      "text": "grand que trois mais qu'est-ce que j'en",
+      "start": 460.66,
+      "duration": 2.729
+    },
+    {
+      "text": "fais comment je note ça en termes",
+      "start": 462.28,
+      "duration": 3.6
+    },
+    {
+      "text": "d'intervalle alors si on reprend ce",
+      "start": 463.389,
+      "duration": 4.71
+    },
+    {
+      "text": "qu'on a dit jusque là on écrit les deux",
+      "start": 465.88,
+      "duration": 3.719
+    },
+    {
+      "text": "nombres les deux nombres c'est à dire",
+      "start": 468.099,
+      "duration": 3.121
+    },
+    {
+      "text": "les deux bourdes donc la première c'est",
+      "start": 469.599,
+      "duration": 4.591
+    },
+    {
+      "text": "3 mai la deuxième je ne la connais pas",
+      "start": 471.22,
+      "duration": 5.22
+    },
+    {
+      "text": "je ne la connais pas parce que je",
+      "start": 474.19,
+      "duration": 3.539
+    },
+    {
+      "text": "n'arrive pas à la teinte c'est l'infini",
+      "start": 476.44,
+      "duration": 3.33
+    },
+    {
+      "text": "alors comme c'est l'infini eh bien on",
+      "start": 477.729,
+      "duration": 3.991
+    },
+    {
+      "text": "écrit l'un fini et l'infini se note",
+      "start": 479.77,
+      "duration": 5.84
+    },
+    {
+      "text": "comme 1,8 coucher et comme c'est",
+      "start": 481.72,
+      "duration": 6.69
+    },
+    {
+      "text": "l'infini des positif parce qu'il existe",
+      "start": 485.61,
+      "duration": 4.66
+    },
+    {
+      "text": "également l'infini des négatifs je le",
+      "start": 488.41,
+      "duration": 3.81
+    },
+    {
+      "text": "précise en mettant un petit plus de vent",
+      "start": 490.27,
+      "duration": 4.89
+    },
+    {
+      "text": "donc ceci signifie que je commence à 3",
+      "start": 492.22,
+      "duration": 4.62
+    },
+    {
+      "text": "et que je ne m'arrête pas puisque je",
+      "start": 495.16,
+      "duration": 4.11
+    },
+    {
+      "text": "vais vers plus infinie ensuite au niveau",
+      "start": 496.84,
+      "duration": 4.32
+    },
+    {
+      "text": "des crochets alors le 3 pas de problème",
+      "start": 499.27,
+      "duration": 5.16
+    },
+    {
+      "text": "je le vaux copie et de l'autre côté je",
+      "start": 501.16,
+      "duration": 4.979
+    },
+    {
+      "text": "mets quoi alors la question est",
+      "start": 504.43,
+      "duration": 3.93
+    },
+    {
+      "text": "simplement est-ce que l'infini fait",
+      "start": 506.139,
+      "duration": 4.741
+    },
+    {
+      "text": "partie de l'ensemble ou pas alors comme",
+      "start": 508.36,
+      "duration": 4.169
+    },
+    {
+      "text": "ça on aurait envie de dire oui l'infini",
+      "start": 510.88,
+      "duration": 3.48
+    },
+    {
+      "text": "fait partie de l'ensemble mais l'infini",
+      "start": 512.529,
+      "duration": 4.26
+    },
+    {
+      "text": "vaut combien c'était passé l'infini on",
+      "start": 514.36,
+      "duration": 3.96
+    },
+    {
+      "text": "ne peut pas atteindre l'infini",
+      "start": 516.789,
+      "duration": 3.011
+    },
+    {
+      "text": "d'ailleurs c'est même pas un an",
+      "start": 518.32,
+      "duration": 4.089
+    },
+    {
+      "text": "c'est plus un concept donc par là ne",
+      "start": 519.8,
+      "duration": 5.099
+    },
+    {
+      "text": "soyons pas prétentieux ne disons pas",
+      "start": 522.409,
+      "duration": 4.531
+    },
+    {
+      "text": "qu'on va atteindre l'infini le toucher",
+      "start": 524.899,
+      "duration": 4.291
+    },
+    {
+      "text": "on n'y arrivera jamais et c'est pour",
+      "start": 526.94,
+      "duration": 4.19
+    },
+    {
+      "text": "cette raison qu'on met un crochet qui",
+      "start": 529.19,
+      "duration": 5.31
+    },
+    {
+      "text": "exclut l'infini de l'ensemble même si on",
+      "start": 531.13,
+      "duration": 4.09
+    },
+    {
+      "text": "a bien compris",
+      "start": 534.5,
+      "duration": 3.89
+    },
+    {
+      "text": "l'idée est de poursuivre vers l'infini",
+      "start": 535.22,
+      "duration": 5.64
+    },
+    {
+      "text": "alors du coup si on le faisait dans",
+      "start": 538.39,
+      "duration": 5.319
+    },
+    {
+      "text": "l'autre sens et que je te donnais cet",
+      "start": 540.86,
+      "duration": 6.45
+    },
+    {
+      "text": "ensemble la moins l'infini",
+      "start": 543.709,
+      "duration": 8.19
+    },
+    {
+      "text": "- 1 comment ceux ci se représenterait eh",
+      "start": 547.31,
+      "duration": 6.959
+    },
+    {
+      "text": "bien on comprend que la bande supérieure",
+      "start": 551.899,
+      "duration": 3.541
+    },
+    {
+      "text": "c'est moins 1",
+      "start": 554.269,
+      "duration": 3.541
+    },
+    {
+      "text": "elle n'est pas atteinte et on veut quoi",
+      "start": 555.44,
+      "duration": 4.92
+    },
+    {
+      "text": "on veut tous les noms qui sont avant - 1",
+      "start": 557.81,
+      "duration": 4.68
+    },
+    {
+      "text": "donc si je devais le représenter je",
+      "start": 560.36,
+      "duration": 6.0
+    },
+    {
+      "text": "partirai ici de -1 et j'écrirai montrer",
+      "start": 562.49,
+      "duration": 5.93
+    },
+    {
+      "text": "vers la gauche cette fois-ci faisons le",
+      "start": 566.36,
+      "duration": 4.38
+    },
+    {
+      "text": "voilà et on a dit qu'on ne veut pas",
+      "start": 568.42,
+      "duration": 3.03
+    },
+    {
+      "text": "moins un",
+      "start": 570.74,
+      "duration": 2.969
+    },
+    {
+      "text": "voilà du coup j'ai rajouté la valeur qui",
+      "start": 571.45,
+      "duration": 4.09
+    },
+    {
+      "text": "vient avant - c'est à dire moins deux",
+      "start": 573.709,
+      "duration": 3.57
+    },
+    {
+      "text": "pour bien faire comprendre que cet",
+      "start": 575.54,
+      "duration": 3.93
+    },
+    {
+      "text": "ensemble cet intervalle est l'intervalle",
+      "start": 577.279,
+      "duration": 4.861
+    },
+    {
+      "text": "qui part de moi l'infini qui s'arrête en",
+      "start": 579.47,
+      "duration": 5.85
+    },
+    {
+      "text": "moins un en excluant -1 et si on voulait",
+      "start": 582.14,
+      "duration": 6.18
+    },
+    {
+      "text": "noté cet intervalle sous forme d'une",
+      "start": 585.32,
+      "duration": 5.22
+    },
+    {
+      "text": "inégalité comme ici eh bien on écrirait",
+      "start": 588.32,
+      "duration": 5.16
+    },
+    {
+      "text": "que c'est l'ensemble des x strictement",
+      "start": 590.54,
+      "duration": 5.66
+    },
+    {
+      "text": "plus petit que -1",
+      "start": 593.48,
+      "duration": 5.37
+    },
+    {
+      "text": "alors parlons maintenant d'intervalle",
+      "start": 596.2,
+      "duration": 5.29
+    },
+    {
+      "text": "fermé et d'intervalle ouvert on dit",
+      "start": 598.85,
+      "duration": 5.52
+    },
+    {
+      "text": "qu'un intervalle est fermée lorsque ces",
+      "start": 601.49,
+      "duration": 5.64
+    },
+    {
+      "text": "extrémités ces bornes appartiennent à",
+      "start": 604.37,
+      "duration": 3.959
+    },
+    {
+      "text": "l'intervalle alors on en a vu",
+      "start": 607.13,
+      "duration": 3.149
+    },
+    {
+      "text": "quelques-uns des intervalles fermé on a",
+      "start": 608.329,
+      "duration": 7.741
+    },
+    {
+      "text": "vu par exemple 2 4 ceci est un",
+      "start": 610.279,
+      "duration": 9.0
+    },
+    {
+      "text": "intervalle fermé et puis on peut en",
+      "start": 616.07,
+      "duration": 8.7
+    },
+    {
+      "text": "avoir un autre par exemple - 3 5 est",
+      "start": 619.279,
+      "duration": 7.56
+    },
+    {
+      "text": "également un intervalle fermé on le",
+      "start": 624.77,
+      "duration": 4.58
+    },
+    {
+      "text": "reconnaît les crochets sont tournés vers",
+      "start": 626.839,
+      "duration": 3.631
+    },
+    {
+      "text": "l'intervalle",
+      "start": 629.35,
+      "duration": 2.95
+    },
+    {
+      "text": "ceci c'est l'ensemble des nombres",
+      "start": 630.47,
+      "duration": 6.27
+    },
+    {
+      "text": "compris entre -3 et 5 - 3 et 5 compris",
+      "start": 632.3,
+      "duration": 6.27
+    },
+    {
+      "text": "donc dès qu'on a les crochets tourner",
+      "start": 636.74,
+      "duration": 4.26
+    },
+    {
+      "text": "dans ce sens vers l'intervalle un peu",
+      "start": 638.57,
+      "duration": 3.81
+    },
+    {
+      "text": "comment quand on lorsqu'on est à un",
+      "start": 641.0,
+      "duration": 1.86
+    },
+    {
+      "text": "segment",
+      "start": 642.38,
+      "duration": 2.459
+    },
+    {
+      "text": "eh bien il s'agit d'un intervalle fermé",
+      "start": 642.86,
+      "duration": 5.19
+    },
+    {
+      "text": "intervalle ouvert on dit qu'un",
+      "start": 644.839,
+      "duration": 5.431
+    },
+    {
+      "text": "intervalle est ouvert dans le cas",
+      "start": 648.05,
+      "duration": 4.47
+    },
+    {
+      "text": "contraire c'est à dire lorsque ces",
+      "start": 650.27,
+      "duration": 2.819
+    },
+    {
+      "text": "extraits",
+      "start": 652.52,
+      "duration": 2.999
+    },
+    {
+      "text": "lité n'appartiennent pas à l'intervalle",
+      "start": 653.089,
+      "duration": 4.68
+    },
+    {
+      "text": "et bien prenons un intervalle ouvert on",
+      "start": 655.519,
+      "duration": 5.641
+    },
+    {
+      "text": "avait tout à l'heure l'intervalle 0,1",
+      "start": 657.769,
+      "duration": 5.461
+    },
+    {
+      "text": "alors je crois que 1 étaient inclus donc",
+      "start": 661.16,
+      "duration": 4.739
+    },
+    {
+      "text": "là on va à l'exclure ceci est net est un",
+      "start": 663.23,
+      "duration": 5.0
+    },
+    {
+      "text": "intervalle ouvert puisque les bornes",
+      "start": 665.899,
+      "duration": 5.25
+    },
+    {
+      "text": "n'appartiennent pas à l'intervalle ceci",
+      "start": 668.23,
+      "duration": 4.81
+    },
+    {
+      "text": "c'est l'ensemble des nombres qui sont",
+      "start": 671.149,
+      "duration": 3.36
+    },
+    {
+      "text": "compris entre 0 et 1",
+      "start": 673.04,
+      "duration": 4.349
+    },
+    {
+      "text": "mais on ne veut ni de zéro nid de 1",
+      "start": 674.509,
+      "duration": 5.81
+    },
+    {
+      "text": "alors du coup est-ce que cet intervalle",
+      "start": 677.389,
+      "duration": 8.01
+    },
+    {
+      "text": "3 + l'infini est considéré comme un",
+      "start": 680.319,
+      "duration": 7.69
+    },
+    {
+      "text": "intervalle ouvert oui absolument",
+      "start": 685.399,
+      "duration": 5.61
+    },
+    {
+      "text": "déjà parce que 3 est exclu est ensuite",
+      "start": 688.009,
+      "duration": 4.95
+    },
+    {
+      "text": "parce que comme je l'aï dit tout à",
+      "start": 691.009,
+      "duration": 3.27
+    },
+    {
+      "text": "l'heure on ne peut pas atteindre",
+      "start": 692.959,
+      "duration": 3.451
+    },
+    {
+      "text": "l'infini c'est l'infini du coup on",
+      "start": 694.279,
+      "duration": 5.071
+    },
+    {
+      "text": "considère que l'infini quelque part est",
+      "start": 696.41,
+      "duration": 5.339
+    },
+    {
+      "text": "exclu de l'intervalle et ceci est bien",
+      "start": 699.35,
+      "duration": 4.109
+    },
+    {
+      "text": "considéré comme un intervalle ouvert",
+      "start": 701.749,
+      "duration": 4.5
+    },
+    {
+      "text": "celui ci également ceux ci et l'ensemble",
+      "start": 703.459,
+      "duration": 6.151
+    },
+    {
+      "text": "des nombres strictement inférieure à 6",
+      "start": 706.249,
+      "duration": 5.34
+    },
+    {
+      "text": "et pour qu'il soit ouvert il faut qu'il",
+      "start": 709.61,
+      "duration": 3.51
+    },
+    {
+      "text": "soit ouvert des deux côtés",
+      "start": 711.589,
+      "duration": 4.11
+    },
+    {
+      "text": "c'est ici j'inclus 6 et que je mets le",
+      "start": 713.12,
+      "duration": 4.409
+    },
+    {
+      "text": "crochet dans l'autre sens ce ne sera pas",
+      "start": 715.699,
+      "duration": 4.05
+    },
+    {
+      "text": "considéré comme un intervalle ouvert et",
+      "start": 717.529,
+      "duration": 3.54
+    },
+    {
+      "text": "à un dernier intervalle ouvert à",
+      "start": 719.749,
+      "duration": 3.51
+    },
+    {
+      "text": "l'intervalle un peu particulier qui est",
+      "start": 721.069,
+      "duration": 4.531
+    },
+    {
+      "text": "également un intervalle ouvert c'est",
+      "start": 723.259,
+      "duration": 5.041
+    },
+    {
+      "text": "l'ensemble des nombres et l air c'est à",
+      "start": 725.6,
+      "duration": 4.5
+    },
+    {
+      "text": "dire tous les nombres parce que il peut",
+      "start": 728.3,
+      "duration": 4.17
+    },
+    {
+      "text": "se doter de la façon suivante alors en",
+      "start": 730.1,
+      "duration": 5.609
+    },
+    {
+      "text": "général on ne note pas comme ça mais",
+      "start": 732.47,
+      "duration": 7.919
+    },
+    {
+      "text": "c'est pas fou d'écrire r comme",
+      "start": 735.709,
+      "duration": 6.511
+    },
+    {
+      "text": "l'intervalle ouvert qui va de moins",
+      "start": 740.389,
+      "duration": 3.99
+    },
+    {
+      "text": "l'infini à puce l'infini on est d'accord",
+      "start": 742.22,
+      "duration": 4.02
+    },
+    {
+      "text": "qu'en allant de - la fille est à +",
+      "start": 744.379,
+      "duration": 3.361
+    },
+    {
+      "text": "l'infini on a bien là dedans",
+      "start": 746.24,
+      "duration": 4.23
+    },
+    {
+      "text": "l'ensemble des nombres réels parlons",
+      "start": 747.74,
+      "duration": 5.25
+    },
+    {
+      "text": "maintenant d'intersection et de réunion",
+      "start": 750.47,
+      "duration": 5.549
+    },
+    {
+      "text": "ou d'union on va avant de commencer de",
+      "start": 752.99,
+      "duration": 4.889
+    },
+    {
+      "text": "parler d'intersection et de réunions",
+      "start": 756.019,
+      "duration": 4.021
+    },
+    {
+      "text": "d'intervalle avait déjà on va déjà",
+      "start": 757.879,
+      "duration": 3.89
+    },
+    {
+      "text": "essayer de comprendre la notion",
+      "start": 760.04,
+      "duration": 3.479
+    },
+    {
+      "text": "d'intersection et de réunions sur des",
+      "start": 761.769,
+      "duration": 3.341
+    },
+    {
+      "text": "ensembles sont des ensembles quelconque",
+      "start": 763.519,
+      "duration": 3.721
+    },
+    {
+      "text": "j'ai donc la représenter deux ensembles",
+      "start": 765.11,
+      "duration": 5.31
+    },
+    {
+      "text": "a et b alors ce sont des ensembles pas",
+      "start": 767.24,
+      "duration": 4.92
+    },
+    {
+      "text": "forcément de nom et contiennent des",
+      "start": 770.42,
+      "duration": 3.479
+    },
+    {
+      "text": "éléments donc à contient plein",
+      "start": 772.16,
+      "duration": 2.729
+    },
+    {
+      "text": "d'éléments pouvant représenter",
+      "start": 773.899,
+      "duration": 3.42
+    },
+    {
+      "text": "quelques-uns et b contient également",
+      "start": 774.889,
+      "duration": 4.021
+    },
+    {
+      "text": "plein d'éléments gens représentent",
+      "start": 777.319,
+      "duration": 4.431
+    },
+    {
+      "text": "encore quelques-uns voilà et un ici",
+      "start": 778.91,
+      "duration": 6.719
+    },
+    {
+      "text": "alors on remarque que il ya des éléments",
+      "start": 781.75,
+      "duration": 4.96
+    },
+    {
+      "text": "qui n'a pas",
+      "start": 785.629,
+      "duration": 4.381
+    },
+    {
+      "text": "jahnke à ce sont ces quatre là ils",
+      "start": 786.71,
+      "duration": 4.89
+    },
+    {
+      "text": "n'appartiennent pas à b puisqu'ils sont",
+      "start": 790.01,
+      "duration": 3.84
+    },
+    {
+      "text": "à l'extérieur ici alors ça ça s'appelle",
+      "start": 791.6,
+      "duration": 5.31
+    },
+    {
+      "text": "une patate de cet ensemble il ya des",
+      "start": 793.85,
+      "duration": 4.89
+    },
+    {
+      "text": "éléments qui appartiennent que 1 b ce",
+      "start": 796.91,
+      "duration": 3.96
+    },
+    {
+      "text": "sont ces quatre là ils n'appartiennent",
+      "start": 798.74,
+      "duration": 3.33
+    },
+    {
+      "text": "pas à acquis ce qu'ils sont à",
+      "start": 800.87,
+      "duration": 2.85
+    },
+    {
+      "text": "l'extérieur de notre ensemble",
+      "start": 802.07,
+      "duration": 3.48
+    },
+    {
+      "text": "par contre j'ai des éléments qui",
+      "start": 803.72,
+      "duration": 4.89
+    },
+    {
+      "text": "appartiennent aux deux c 3 celui ci par",
+      "start": 805.55,
+      "duration": 5.55
+    },
+    {
+      "text": "exemple il appartient à parce que il est",
+      "start": 808.61,
+      "duration": 4.8
+    },
+    {
+      "text": "dans la patate bleus et il appartient à",
+      "start": 811.1,
+      "duration": 4.26
+    },
+    {
+      "text": "b parce que il est dans la patate verte",
+      "start": 813.41,
+      "duration": 3.93
+    },
+    {
+      "text": "et y en a 3 comme ça qu'ils",
+      "start": 815.36,
+      "duration": 4.44
+    },
+    {
+      "text": "appartiennent à la fois à l'un et à la",
+      "start": 817.34,
+      "duration": 5.16
+    },
+    {
+      "text": "fois à l'autre et bien là on est où on",
+      "start": 819.8,
+      "duration": 4.83
+    },
+    {
+      "text": "est en fait à l'intersection de ces deux",
+      "start": 822.5,
+      "duration": 4.26
+    },
+    {
+      "text": "ensembles je crois que tout est dit",
+      "start": 824.63,
+      "duration": 5.78
+    },
+    {
+      "text": "l'intersection de deux ensembles a et b",
+      "start": 826.76,
+      "duration": 5.88
+    },
+    {
+      "text": "et bien c'est l'ensemble des éléments",
+      "start": 830.41,
+      "duration": 6.64
+    },
+    {
+      "text": "qu'ils appartiennent à a et à b et cet",
+      "start": 832.64,
+      "duration": 6.72
+    },
+    {
+      "text": "ensemble on peut le noter il est donc",
+      "start": 837.05,
+      "duration": 8.04
+    },
+    {
+      "text": "ici on va là jurés ont écrit à inter b",
+      "start": 839.36,
+      "duration": 7.74
+    },
+    {
+      "text": "avec comme ça un petit pont c'est un",
+      "start": 845.09,
+      "duration": 5.45
+    },
+    {
+      "text": "sûrs tournée et ça se lit à inter b ou",
+      "start": 847.1,
+      "duration": 6.0
+    },
+    {
+      "text": "l'intersection 2a et 2b",
+      "start": 850.54,
+      "duration": 5.41
+    },
+    {
+      "text": "donc on retient bien le est écrit en",
+      "start": 853.1,
+      "duration": 4.49
+    },
+    {
+      "text": "gras ici parce que c'est très important",
+      "start": 855.95,
+      "duration": 4.2
+    },
+    {
+      "text": "ce sont l'ensemble des éléments qu'ils",
+      "start": 857.59,
+      "duration": 6.31
+    },
+    {
+      "text": "appartiennent à un et ab aux deux à la",
+      "start": 860.15,
+      "duration": 4.1
+    },
+    {
+      "text": "fois",
+      "start": 863.9,
+      "duration": 2.97
+    },
+    {
+      "text": "mais alors du coup qu'est ce que c'est",
+      "start": 864.25,
+      "duration": 5.44
+    },
+    {
+      "text": "que la réunion la réunion c'est quand on",
+      "start": 866.87,
+      "duration": 5.21
+    },
+    {
+      "text": "réunit c'est quand on met tous ensemble",
+      "start": 869.69,
+      "duration": 5.46
+    },
+    {
+      "text": "et bien la définition nous dit que la",
+      "start": 872.08,
+      "duration": 6.79
+    },
+    {
+      "text": "réunion de deux ensembles à ep c'est",
+      "start": 875.15,
+      "duration": 5.01
+    },
+    {
+      "text": "l'ensemble des éléments qu'ils",
+      "start": 878.87,
+      "duration": 5.24
+    },
+    {
+      "text": "appartiennent à aa ou ab c'est à dire",
+      "start": 880.16,
+      "duration": 7.47
+    },
+    {
+      "text": "celui ci il appartient à ou ab puisqu'il",
+      "start": 884.11,
+      "duration": 6.09
+    },
+    {
+      "text": "appartient même aaa et ab mais celui-ci",
+      "start": 887.63,
+      "duration": 6.18
+    },
+    {
+      "text": "il appartient à ou avaient pourquoi",
+      "start": 890.2,
+      "duration": 5.44
+    },
+    {
+      "text": "parce qu'il appartient à donc comme",
+      "start": 893.81,
+      "duration": 3.09
+    },
+    {
+      "text": "c'est l'un ou l'autre",
+      "start": 895.64,
+      "duration": 4.5
+    },
+    {
+      "text": "du coup celui ci en fait partie ce qui",
+      "start": 896.9,
+      "duration": 4.77
+    },
+    {
+      "text": "fait que celui ci aussi puisqu'il",
+      "start": 900.14,
+      "duration": 3.48
+    },
+    {
+      "text": "appartient à b il appartient à ou ab",
+      "start": 901.67,
+      "duration": 3.96
+    },
+    {
+      "text": "celui ci aussi celui ci aussi mais",
+      "start": 903.62,
+      "duration": 4.11
+    },
+    {
+      "text": "finalement c'est quoi la réunion et bien",
+      "start": 905.63,
+      "duration": 4.98
+    },
+    {
+      "text": "c'est l'ensemble de ces deux ensembles",
+      "start": 907.73,
+      "duration": 6.26
+    },
+    {
+      "text": "là qu'on peut donc totalement hachuré",
+      "start": 910.61,
+      "duration": 6.69
+    },
+    {
+      "text": "voilà c'est le tout à une ion b et ça se",
+      "start": 913.99,
+      "duration": 5.32
+    },
+    {
+      "text": "note comment eh bien ça se note à",
+      "start": 917.3,
+      "duration": 2.65
+    },
+    {
+      "text": "on se",
+      "start": 919.31,
+      "duration": 4.15
+    },
+    {
+      "text": "bien un hub comme union d ceux-ci se lie",
+      "start": 919.95,
+      "duration": 9.03
+    },
+    {
+      "text": "à union b où la réunion 2 1 et 2 b voilà",
+      "start": 923.46,
+      "duration": 7.23
+    },
+    {
+      "text": "donc deux intervalles a et b",
+      "start": 928.98,
+      "duration": 4.47
+    },
+    {
+      "text": "l'intervalle à qui est égal à -3 4 qui",
+      "start": 930.69,
+      "duration": 4.53
+    },
+    {
+      "text": "est donc un intervalle fermé et",
+      "start": 933.45,
+      "duration": 4.23
+    },
+    {
+      "text": "l'intervalle b qui est donc égale à 2,5",
+      "start": 935.22,
+      "duration": 4.98
+    },
+    {
+      "text": "également fermés alors on va donc",
+      "start": 937.68,
+      "duration": 5.25
+    },
+    {
+      "text": "rechercher pour ces deux intervalles",
+      "start": 940.2,
+      "duration": 4.83
+    },
+    {
+      "text": "leur intersection et leur réunion",
+      "start": 942.93,
+      "duration": 3.75
+    },
+    {
+      "text": "l'exercice va être assez facile tu vas",
+      "start": 945.03,
+      "duration": 3.99
+    },
+    {
+      "text": "voir tout simplement parce que j'ai pas",
+      "start": 946.68,
+      "duration": 5.58
+    },
+    {
+      "text": "ici me de bourdin fini et je n'ai pas",
+      "start": 949.02,
+      "duration": 5.31
+    },
+    {
+      "text": "non plus jouer sur la nature des bordels",
+      "start": 952.26,
+      "duration": 4.77
+    },
+    {
+      "text": "sont toutes fermées donc par là voilà",
+      "start": 954.33,
+      "duration": 4.05
+    },
+    {
+      "text": "l'exercice sera pas compliqué si tu veux",
+      "start": 957.03,
+      "duration": 2.82
+    },
+    {
+      "text": "quelque chose de plus compliqué photo",
+      "start": 958.38,
+      "duration": 2.28
+    },
+    {
+      "text": "rentrer dans la playlist",
+      "start": 959.85,
+      "duration": 3.69
+    },
+    {
+      "text": "j'ai mis un exemple alors la première",
+      "start": 960.66,
+      "duration": 4.29
+    },
+    {
+      "text": "des choses à faire lorsqu'on à ce",
+      "start": 963.54,
+      "duration": 3.03
+    },
+    {
+      "text": "travail donc c'est à dire la recherche",
+      "start": 964.95,
+      "duration": 7.77
+    },
+    {
+      "text": "d'eux à un terreau b et 2 à union b et",
+      "start": 966.57,
+      "duration": 8.7
+    },
+    {
+      "text": "bien si de représenter ces intervalles a",
+      "start": 972.72,
+      "duration": 5.19
+    },
+    {
+      "text": "et b sur la droite gratuit ça permet de",
+      "start": 975.27,
+      "duration": 4.17
+    },
+    {
+      "text": "visualiser les choses et du coup ça",
+      "start": 977.91,
+      "duration": 3.14
+    },
+    {
+      "text": "devient très facile",
+      "start": 979.44,
+      "duration": 3.75
+    },
+    {
+      "text": "voilà on va commencer par représenter",
+      "start": 981.05,
+      "duration": 3.67
+    },
+    {
+      "text": "l'intervalle à on va utiliser la couleur",
+      "start": 983.19,
+      "duration": 2.0
+    },
+    {
+      "text": "rouge",
+      "start": 984.72,
+      "duration": 3.72
+    },
+    {
+      "text": "voilà donc intervalle -3 4",
+      "start": 985.19,
+      "duration": 5.49
+    },
+    {
+      "text": "les bornes sont fermés on poursuit avec",
+      "start": 988.44,
+      "duration": 4.32
+    },
+    {
+      "text": "l'intervalle b on va utiliser la couleur",
+      "start": 990.68,
+      "duration": 2.73
+    },
+    {
+      "text": "verte",
+      "start": 992.76,
+      "duration": 3.03
+    },
+    {
+      "text": "voilà j'ai un tout petit peu décalé sur",
+      "start": 993.41,
+      "duration": 4.15
+    },
+    {
+      "text": "le dessus pour qu'on arrive bien à",
+      "start": 995.79,
+      "duration": 3.99
+    },
+    {
+      "text": "distinguer l'intervalle rouge de",
+      "start": 997.56,
+      "duration": 4.71
+    },
+    {
+      "text": "l'intervalle vert en tous les cas nous",
+      "start": 999.78,
+      "duration": 4.62
+    },
+    {
+      "text": "ce qui nous intéresse c'est d'abord de",
+      "start": 1002.27,
+      "duration": 4.26
+    },
+    {
+      "text": "déterminer l'intersection de ces deux",
+      "start": 1004.4,
+      "duration": 3.69
+    },
+    {
+      "text": "intervalles c'est à dire on va chercher",
+      "start": 1006.53,
+      "duration": 4.31
+    },
+    {
+      "text": "tous les éléments qui appartiennent à a",
+      "start": 1008.09,
+      "duration": 6.24
+    },
+    {
+      "text": "et à b c'est à dire tous les nombres qui",
+      "start": 1010.84,
+      "duration": 5.53
+    },
+    {
+      "text": "sont dans l'intervalle à et dans",
+      "start": 1014.33,
+      "duration": 3.51
+    },
+    {
+      "text": "l'intervalle b et bien il suffit juste",
+      "start": 1016.37,
+      "duration": 5.25
+    },
+    {
+      "text": "de regarder là où on a tracé deux fois",
+      "start": 1017.84,
+      "duration": 5.85
+    },
+    {
+      "text": "une fois en rouge une fois en verre ça",
+      "start": 1021.62,
+      "duration": 3.99
+    },
+    {
+      "text": "se trouve dans cette zone dans la zone",
+      "start": 1023.69,
+      "duration": 6.69
+    },
+    {
+      "text": "qui va de 2 à 4 maintenant la question",
+      "start": 1025.61,
+      "duration": 6.87
+    },
+    {
+      "text": "est de savoir est-ce que je prends les",
+      "start": 1030.38,
+      "duration": 4.77
+    },
+    {
+      "text": "bornes ou pas pour cela il faut juste",
+      "start": 1032.48,
+      "duration": 5.28
+    },
+    {
+      "text": "s'assurer que à la fois 2 appartient à a",
+      "start": 1035.15,
+      "duration": 4.65
+    },
+    {
+      "text": "et à b et en même temps qu'à",
+      "start": 1037.76,
+      "duration": 3.72
+    },
+    {
+      "text": "t'appartient également arabe est alors",
+      "start": 1039.8,
+      "duration": 4.77
+    },
+    {
+      "text": "vérifions est ce que 2 appartient à aa",
+      "start": 1041.48,
+      "duration": 6.63
+    },
+    {
+      "text": "oui dans -3 4 est ce que 2 appartient ab",
+      "start": 1044.57,
+      "duration": 6.69
+    },
+    {
+      "text": "oui puisque la borne est fermé donc je",
+      "start": 1048.11,
+      "duration": 4.3
+    },
+    {
+      "text": "peux écrire ici",
+      "start": 1051.26,
+      "duration": 3.37
+    },
+    {
+      "text": "2 et je l'emmène avec moi qu'en est-il",
+      "start": 1052.41,
+      "duration": 6.12
+    },
+    {
+      "text": "de 4 et bien de même qu'à appartient à 4",
+      "start": 1054.63,
+      "duration": 7.56
+    },
+    {
+      "text": "appartient b donc je prends 4 également",
+      "start": 1058.53,
+      "duration": 7.58
+    },
+    {
+      "text": "à un terreau bc l'intervalle fermé 2 4",
+      "start": 1062.19,
+      "duration": 7.71
+    },
+    {
+      "text": "et à lyon b eh bien ce sont tous les",
+      "start": 1066.11,
+      "duration": 7.6
+    },
+    {
+      "text": "nombres qui appartiennent à aa ou ap il",
+      "start": 1069.9,
+      "duration": 7.95
+    },
+    {
+      "text": "suffit juste de regarder partout où j'ai",
+      "start": 1073.71,
+      "duration": 6.39
+    },
+    {
+      "text": "tracé quelque chose c'est-à-dire là où",
+      "start": 1077.85,
+      "duration": 4.29
+    },
+    {
+      "text": "j'ai représenté à et là où j'ai",
+      "start": 1080.1,
+      "duration": 3.99
+    },
+    {
+      "text": "représenté b eh bien on voit que ça",
+      "start": 1082.14,
+      "duration": 6.87
+    },
+    {
+      "text": "démarre en moins 3 on poursuit on",
+      "start": 1084.09,
+      "duration": 6.84
+    },
+    {
+      "text": "poursuit la ses rouges lacets rouges et",
+      "start": 1089.01,
+      "duration": 3.9
+    },
+    {
+      "text": "vertes donc ça fait partie la sévère",
+      "start": 1090.93,
+      "duration": 6.53
+    },
+    {
+      "text": "aussi puisque c ou b et ça s'arrête 1,5",
+      "start": 1092.91,
+      "duration": 6.66
+    },
+    {
+      "text": "est-ce que je prends les bornes ou pas",
+      "start": 1097.46,
+      "duration": 4.81
+    },
+    {
+      "text": "balle assez claire ferme et fermé je",
+      "start": 1099.57,
+      "duration": 6.6
+    },
+    {
+      "text": "prends donc moins 3 et 5 à union b et",
+      "start": 1102.27,
+      "duration": 7.32
+    },
+    {
+      "text": "l'intervalle moins 3,5 fermé voilà",
+      "start": 1106.17,
+      "duration": 4.95
+    },
+    {
+      "text": "mais je le répète encore il est",
+      "start": 1109.59,
+      "duration": 3.93
+    },
+    {
+      "text": "important de faire des exercices sur",
+      "start": 1111.12,
+      "duration": 3.18
+    },
+    {
+      "text": "cette notion là",
+      "start": 1113.52,
+      "duration": 4.94
+    },
+    {
+      "text": "en tout cas cette séquence est terminée",
+      "start": 1114.3,
+      "duration": 4.16
+    }
+  ],
+  "source": "youtube_official_or_auto_caption"
+}

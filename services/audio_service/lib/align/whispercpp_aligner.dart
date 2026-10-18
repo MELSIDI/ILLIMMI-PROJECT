@@ -49,6 +49,7 @@ class WhisperCppAligner implements WordAligner {
     required String wavPath,
     String? narrationText,
     String? narrationPath,
+    String language = 'fr',
   }) async {
     final wav16k = '${p.withoutExtension(wavPath)}_16k.wav';
     final ffmpegResult = await Process.run(ffmpegPath, [
@@ -67,7 +68,7 @@ class WhisperCppAligner implements WordAligner {
     final whisperResult = await Process.run(whisperCliPath, [
       '-m', modelPath,
       '-f', wav16k,
-      '-l', 'fr',
+      '-l', language,
       '-ml', '1',
       '-oj',
       '-of', outBase,

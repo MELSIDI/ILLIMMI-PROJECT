@@ -1,0 +1,28 @@
+Bonjour à tous ! Aujourd'hui, nous traitons ensemble un grand classique de l'épreuve de spécialité mathématiques au Bac : la résolution complète d'une suite arithmético-géométrique.
+
+Regardons l'énoncé qui s'affiche : on considère la suite u définie par son premier terme u zéro égal 1, et pour tout entier naturel n, la relation u indice n plus 1 égale 0,5 fois u indice n plus 3.
+La question typique du Bac te demande : comment exprimer u indice n directement en fonction de n, et quelle est sa limite quand n tend vers plus l'infini ?
+
+Pour débloquer ce genre de problème, l'astuce fondamentale consiste à introduire une suite auxiliaire v indice n. 
+Calculons d'abord le point fixe alpha qui vérifie alpha égale 0,5 fois alpha plus 3. 
+En isolant alpha, on trouve immédiatement alpha égal 6. 
+Posons donc la suite v indice n égale à u indice n moins 6.
+
+Démontrons que v est une suite géométrique. 
+Calculons v indice n plus 1 : c'est u indice n plus 1 moins 6. 
+Remplaçons u indice n plus 1 par son expression : cela nous donne 0,5 fois u indice n plus 3 moins 6, ce qui fait 0,5 fois u indice n moins 3. 
+Mettons 0,5 en facteur : nous obtenons 0,5 facteur de u indice n moins 6. 
+Et regarde bien ce qui apparaît dans la parenthèse : c'est exactement v indice n ! 
+Nous avons prouvé que v indice n plus 1 est égal à 0,5 fois v indice n. 
+V est donc une suite géométrique de raison 0,5 et de premier terme v zéro égal à 1 moins 6, c'est-à-dire moins 5.
+
+Nous pouvons maintenant exprimer v indice n : c'est moins 5 fois 0,5 à la puissance n. 
+Et comme u indice n est égal à v indice n plus 6, nous trouvons enfin la formule explicite : u indice n égale 6 moins 5 fois 0,5 à la puissance n !
+
+Passons à la limite. 
+Attention au piège classique du correcteur au Bac ! Il ne suffit pas d'écrire le résultat final : tu dois obligatoirement justifier que la raison 0,5 est strictement comprise entre moins 1 et 1. 
+Comme 0,5 est compris entre moins 1 et 1, la limite de 0,5 à la puissance n est égale à 0. 
+Par produit et addition, le terme moins 5 fois 0,5 à la puissance n tend vers 0, et la suite u indice n converge donc tout simplement vers 6.
+
+En résumé, retiens ce réflexe d'or pour le Bac : trouve le point fixe, démontre que la suite auxiliaire est géométrique, bascule sur u indice n, et conclus proprement avec la limite. 
+À toi de jouer sur d'autres sujets d'annales et à très vite sur ILLIMMI !

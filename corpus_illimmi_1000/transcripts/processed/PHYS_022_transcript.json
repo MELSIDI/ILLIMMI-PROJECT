@@ -1,0 +1,417 @@
+{
+  "item_id": "PHYS_022",
+  "title": "Problème type Bac : Forces et principe d'inertie — Résolution multi-notions",
+  "subject": "Physique-Chimie",
+  "level": "Seconde",
+  "youtube_video_id": "ysDfX9nt6aU",
+  "youtube_video_title": "VECTOR PROJECTION ✅ Simple Method | 1st Year | Final Year",
+  "youtube_channel": "Paul Olivier",
+  "youtube_url": "https://www.youtube.com/watch?v=ysDfX9nt6aU",
+  "full_text": "Bonjour, Dans cette vidéo, je vais t’expliquer \ncomment projeter facilement des vecteurs sur un axe. C’est un savoir-faire dont tu auras \nsouvent besoin dans des exercices de mécanique, notamment pour appliquer la 2e loi de Newton.\nJe vais prendre un cas classique avec un mobile, sur un plan incliné d’un certain angle, mais \nça pourrait tout aussi bien être un skieur sur une piste, une voiture, ou n’importe quel \nautre système qu’on modélise ici par un point. Tu seras confronté à cette situation après avoir, \ncomme souvent, commencé par faire le bilan des forces extérieurs s’appliquant sur le système :\n- on retrouveras évidemment toujours le poids, force verticale orientée vers le bas.\n- la réaction normale du support, perpendiculaire au plan incliné, et orientée vers le haut.\n- Et à la réaction tangentielle au support, qui correspond aux forces de \nfrottement et que je note ici f, qui est donc parallèle au plan incliné \net orienté vers le haut de la pente. Une fois qu’on a fait le bilan des forces \nil faut définir un système d’axe pour les étudier. D’ailleurs, souvent, il te sera \ndirectement donné dans tes exercices. Ces axes doivent être adaptés à la \nsituation étudiée et choisis de tel sorte qu’ils minimisent justement le nombre \nde projections pour nous faciliter la tâche ! D’où ce choix, avec un axe Ox // au plan incliné, \ncomme f, et un axe Oy perpendiculaire, comme R. Il ne restera donc plus que cette force-là \nà projeter, le poids P, puisqu’elle n’est pas directement sur l’un des axes ! C’est \npour ça qu’on dit qu’il faut la projeter ! Reprenons tranquillement tout \nça ensemble pour les 3 vecteurs, et cherchons à déterminer leurs coordonnées :\nJe commence avec R : on voit bien qu’il est dirigé selon l’axe Oy, et dans le même sens. C’est important de bien regarder le sens \nà chaque fois, puisque c’est lui qui va te donner le signe de la coordonné sur cet axe.\nIci, la coordonnée du vecteur R selon y, qu’on note habituellement Ry, c’est donc +R. \nPositive, puisqu’ordonnée dans le même sens. Pour avoir Rx, il faut donc projeter ce même \nvecteur R sur l’axe Ox, et là on trouve que sa coordonnée est nulle, =0. Tout simplement \npuisque ce vecteur est perpendiculaire à l’axe Ox. C’est à peu près la même chose pour \nf, mais on va le reprendre ensemble pour que tu comprennes bien :\nSa coordonnée sur l’axe Ox = f, puisque ce vecteur est bien // à cet axe et \nqu’il est dans le même sens, donc positif. Et comme le vecteur f est perpendiculaire à \nOy, sa projection sur Oy est nulle : fy = 0. Allez, maintenant on rentre dans le vif du sujet \net on va s’intéresser aux coordonnées du vecteur P : et là, dès que tu vois qu’un vecteur n’est pas \nporté sur l’un des axes, alors il va falloir le projeter et s’intéresser à cet angle alpha.\nFinalement, le projeter, qu’est-ce que ça veut dire ?\nEt bien on va tout simplement le décomposer, pour faire apparaitre sur le \nschéma Px, sa coordonnée sur l’axe des x, et Py, sa coordonnée selon l’axe des y.\nPour faire ça, on va tout simplement faire le projeter orthogonal sur les 2 axes, \nexactement comment tu le ferais pour lire les coordonnées d’un point qui serait située \nà l’extrémité de la flèche du vecteur. Du coup si on projette sur Ox, on obtient Px ici.\nEt si on projette sur Oy, on obtient Py ici ! Avant d’aller plus loin, on peut déjà se rendre \ncompte à ce stade que ces deux coordonnées seront négatives : la projection sur l’axe des \nx est bien dans ce sens, opposé à celle de Ox. Et celle sur l’axe des y est dans ce \nsens, sens opposé à l’axe Oy : les coordonnées de ce vecteurs \nseront donc bien négatives. Mais pour déterminer les valeurs de \nPx et de Py il va falloir faire un peu de trigonométrie et repérer ou se situe \nl’angle alpha sur le schéma par rapport au vecteur que l’on souhaite projeter. C’est \nsouvent là la difficulté pour les élèves alors on se concentre et je vais te proposer \n2 méthodes différentes pour bien le retrouver. 1ère méthode :\nIl faut repérer que tu auras toujours ici un triangle rectangle, avec cet \nun angle droit puisque P est toujours verticale. Et comme tu sais que la somme \ndes angles d’un triangle = 180°, cet angle-là est bien égale à 90° - alpha. Et ici on a aussi un triangle \nrectangle, avec cet angle droit = 90°. Comme la mesure de cet angle est de 90° - alpha, \ncela implique bien que celui-ci est égale à alpha. La somme de ces deux angles, violet et orange, \nest bien égale = 90°, l’angle droit qu’on a ici. 2e méthode, un peu plus rapide si tu es \nà l’aise avec la vision dans l’espace. Elle consiste tout simplement à refaire rapidement \nle schéma de la situation, au brouillon par exemple, faisant volontairement varier alpha : \npar exemple en prenant un angle bien plus petit. Et là on va remarquer que cet angle là varie de \nla même manière, il est de plus en plus petit ! Tu peux avoir un raisonnement similaire \nsi tu augmentes alpha, c’est bien cet angle-là qui varie de la même manière tout \nsimplement puisqu’il s’agit du même angle ! Une fois que tu as repéré où se situe alpha, \non peut maintenant tout simplement utiliser la trigonométrie pour exprimer les longueur de Px \net Py, dans ce triangle rectangle dans lequel on retrouve Py, le côté adjacent, et le côté \nopposé ici, correspond bien à cette longueur-là, donc à Px : les deux inconnus qu’on cherche.\nL’hypoténuse on la connait, on sait que cette longueur correspond à la norme du \nvecteur P, qu’on notera simplement P. Allé, on y est presque : on pose les formules de \ntrigonométrie, avec le moyen mnémotechnique que tu préfères, pour moi c’est SOH CAH TOA, et qui \nfont intervenir les côtés recherchés : opposé et adjacent, et le côté connu, l’hypoténuse. \nOn ne se servira donc pas de la tangente. On retrouve la longueur du \ncôté Px dans ce triangle, le côté opposé, en utilisant le \nproduit en croix, = P (l’hypoténuse, la norme du vecteur P) x sin (a)\nComme on l’a dit tout à l’heure, la coordonnée est bien négative puisque cette composante du \nvecteur P est dans le sens opposé à l’axe Ox. De la même manière on retrouve la \nlongueur du côté Py dans ce triangle, c’est le côté adjacent : = P × cos (a)\nEt on en déduit la composante Py qui est elle aussi négative, : - P × cos (a) Voilà pour cette présentation qui je l’espère \nt’a permis d’y voir un peu plus clair sur cette projection de vecteur. N’hésite pas à bien \nt’entrainer et éventuellement à revoir cette vidéo puisque qu’une fois la méthode bien comprise, elle \ns’appliquera parfaitement dans les différentes situations que tu vas rencontrer. Je te souhaite \nbon courage pour tes révisions et à bientôt !",
+  "snippets_count": 80,
+  "total_words_count": 1194,
+  "duration_approx_sec": 425.62,
+  "entries": [
+    {
+      "text": "Bonjour,",
+      "start": 0.24,
+      "duration": 0.96
+    },
+    {
+      "text": "Dans cette vidéo, je vais t’expliquer \ncomment projeter facilement des vecteurs",
+      "start": 1.2,
+      "duration": 3.4
+    },
+    {
+      "text": "sur un axe. C’est un savoir-faire dont tu auras \nsouvent besoin dans des exercices de mécanique,",
+      "start": 4.6,
+      "duration": 4.6
+    },
+    {
+      "text": "notamment pour appliquer la 2e loi de Newton.\nJe vais prendre un cas classique avec un mobile,",
+      "start": 9.2,
+      "duration": 4.72
+    },
+    {
+      "text": "sur un plan incliné d’un certain angle, mais \nça pourrait tout aussi bien être un skieur",
+      "start": 13.92,
+      "duration": 3.84
+    },
+    {
+      "text": "sur une piste, une voiture, ou n’importe quel \nautre système qu’on modélise ici par un point.",
+      "start": 17.76,
+      "duration": 5.4
+    },
+    {
+      "text": "Tu seras confronté à cette situation après avoir, \ncomme souvent, commencé par faire le bilan des",
+      "start": 23.16,
+      "duration": 4.84
+    },
+    {
+      "text": "forces extérieurs s’appliquant sur le système :\n- on retrouveras évidemment toujours le poids,",
+      "start": 28.0,
+      "duration": 5.32
+    },
+    {
+      "text": "force verticale orientée vers le bas.\n- la réaction normale du support, perpendiculaire",
+      "start": 33.32,
+      "duration": 5.4
+    },
+    {
+      "text": "au plan incliné, et orientée vers le haut.\n- Et à la réaction tangentielle au support,",
+      "start": 38.72,
+      "duration": 4.96
+    },
+    {
+      "text": "qui correspond aux forces de \nfrottement et que je note ici f,",
+      "start": 43.68,
+      "duration": 3.56
+    },
+    {
+      "text": "qui est donc parallèle au plan incliné \net orienté vers le haut de la pente.",
+      "start": 47.24,
+      "duration": 4.52
+    },
+    {
+      "text": "Une fois qu’on a fait le bilan des forces \nil faut définir un système d’axe pour les",
+      "start": 51.76,
+      "duration": 4.08
+    },
+    {
+      "text": "étudier. D’ailleurs, souvent, il te sera \ndirectement donné dans tes exercices.",
+      "start": 55.84,
+      "duration": 5.28
+    },
+    {
+      "text": "Ces axes doivent être adaptés à la \nsituation étudiée et choisis de tel",
+      "start": 61.12,
+      "duration": 4.12
+    },
+    {
+      "text": "sorte qu’ils minimisent justement le nombre \nde projections pour nous faciliter la tâche !",
+      "start": 65.24,
+      "duration": 5.04
+    },
+    {
+      "text": "D’où ce choix, avec un axe Ox // au plan incliné, \ncomme f, et un axe Oy perpendiculaire, comme R.",
+      "start": 70.28,
+      "duration": 8.24
+    },
+    {
+      "text": "Il ne restera donc plus que cette force-là \nà projeter, le poids P, puisqu’elle n’est",
+      "start": 78.52,
+      "duration": 4.56
+    },
+    {
+      "text": "pas directement sur l’un des axes ! C’est \npour ça qu’on dit qu’il faut la projeter !",
+      "start": 83.08,
+      "duration": 3.56
+    },
+    {
+      "text": "Reprenons tranquillement tout \nça ensemble pour les 3 vecteurs,",
+      "start": 86.64,
+      "duration": 3.28
+    },
+    {
+      "text": "et cherchons à déterminer leurs coordonnées :\nJe commence avec R : on voit bien qu’il est",
+      "start": 89.92,
+      "duration": 5.08
+    },
+    {
+      "text": "dirigé selon l’axe Oy, et dans le même sens.",
+      "start": 95.0,
+      "duration": 3.48
+    },
+    {
+      "text": "C’est important de bien regarder le sens \nà chaque fois, puisque c’est lui qui va te",
+      "start": 98.48,
+      "duration": 3.76
+    },
+    {
+      "text": "donner le signe de la coordonné sur cet axe.\nIci, la coordonnée du vecteur R selon y,",
+      "start": 102.24,
+      "duration": 5.76
+    },
+    {
+      "text": "qu’on note habituellement Ry, c’est donc +R. \nPositive, puisqu’ordonnée dans le même sens.",
+      "start": 108.0,
+      "duration": 7.12
+    },
+    {
+      "text": "Pour avoir Rx, il faut donc projeter ce même \nvecteur R sur l’axe Ox, et là on trouve que",
+      "start": 115.12,
+      "duration": 5.64
+    },
+    {
+      "text": "sa coordonnée est nulle, =0. Tout simplement \npuisque ce vecteur est perpendiculaire à l’axe Ox.",
+      "start": 120.76,
+      "duration": 6.24
+    },
+    {
+      "text": "C’est à peu près la même chose pour \nf, mais on va le reprendre ensemble",
+      "start": 127.0,
+      "duration": 3.2
+    },
+    {
+      "text": "pour que tu comprennes bien :\nSa coordonnée sur l’axe Ox = f,",
+      "start": 130.2,
+      "duration": 4.12
+    },
+    {
+      "text": "puisque ce vecteur est bien // à cet axe et \nqu’il est dans le même sens, donc positif.",
+      "start": 134.32,
+      "duration": 5.2
+    },
+    {
+      "text": "Et comme le vecteur f est perpendiculaire à \nOy, sa projection sur Oy est nulle : fy = 0.",
+      "start": 139.52,
+      "duration": 7.92
+    },
+    {
+      "text": "Allez, maintenant on rentre dans le vif du sujet \net on va s’intéresser aux coordonnées du vecteur",
+      "start": 147.44,
+      "duration": 4.6
+    },
+    {
+      "text": "P : et là, dès que tu vois qu’un vecteur n’est pas \nporté sur l’un des axes, alors il va falloir le",
+      "start": 152.04,
+      "duration": 5.32
+    },
+    {
+      "text": "projeter et s’intéresser à cet angle alpha.\nFinalement, le projeter,",
+      "start": 157.36,
+      "duration": 4.48
+    },
+    {
+      "text": "qu’est-ce que ça veut dire ?\nEt bien on va tout simplement",
+      "start": 161.84,
+      "duration": 2.88
+    },
+    {
+      "text": "le décomposer, pour faire apparaitre sur le \nschéma Px, sa coordonnée sur l’axe des x,",
+      "start": 164.72,
+      "duration": 5.0
+    },
+    {
+      "text": "et Py, sa coordonnée selon l’axe des y.\nPour faire ça, on va tout simplement faire",
+      "start": 169.72,
+      "duration": 5.52
+    },
+    {
+      "text": "le projeter orthogonal sur les 2 axes, \nexactement comment tu le ferais pour lire",
+      "start": 175.24,
+      "duration": 4.68
+    },
+    {
+      "text": "les coordonnées d’un point qui serait située \nà l’extrémité de la flèche du vecteur.",
+      "start": 179.92,
+      "duration": 5.52
+    },
+    {
+      "text": "Du coup si on projette sur Ox, on obtient Px ici.\nEt si on projette sur Oy, on obtient Py ici !",
+      "start": 185.44,
+      "duration": 7.88
+    },
+    {
+      "text": "Avant d’aller plus loin, on peut déjà se rendre \ncompte à ce stade que ces deux coordonnées",
+      "start": 193.32,
+      "duration": 4.88
+    },
+    {
+      "text": "seront négatives : la projection sur l’axe des \nx est bien dans ce sens, opposé à celle de Ox.",
+      "start": 198.2,
+      "duration": 6.44
+    },
+    {
+      "text": "Et celle sur l’axe des y est dans ce \nsens, sens opposé à l’axe Oy : les",
+      "start": 204.64,
+      "duration": 5.88
+    },
+    {
+      "text": "coordonnées de ce vecteurs \nseront donc bien négatives.",
+      "start": 210.52,
+      "duration": 4.32
+    },
+    {
+      "text": "Mais pour déterminer les valeurs de \nPx et de Py il va falloir faire un",
+      "start": 214.84,
+      "duration": 3.72
+    },
+    {
+      "text": "peu de trigonométrie et repérer ou se situe \nl’angle alpha sur le schéma par rapport au",
+      "start": 218.56,
+      "duration": 4.96
+    },
+    {
+      "text": "vecteur que l’on souhaite projeter. C’est \nsouvent là la difficulté pour les élèves",
+      "start": 223.52,
+      "duration": 5.4
+    },
+    {
+      "text": "alors on se concentre et je vais te proposer \n2 méthodes différentes pour bien le retrouver.",
+      "start": 228.92,
+      "duration": 5.0
+    },
+    {
+      "text": "1ère méthode :\nIl faut repérer que tu",
+      "start": 233.92,
+      "duration": 2.28
+    },
+    {
+      "text": "auras toujours ici un triangle rectangle, avec cet \nun angle droit puisque P est toujours verticale.",
+      "start": 236.2,
+      "duration": 6.24
+    },
+    {
+      "text": "Et comme tu sais que la somme \ndes angles d’un triangle = 180°,",
+      "start": 242.44,
+      "duration": 4.48
+    },
+    {
+      "text": "cet angle-là est bien égale à 90° - alpha.",
+      "start": 246.92,
+      "duration": 6.0
+    },
+    {
+      "text": "Et ici on a aussi un triangle \nrectangle, avec cet angle droit = 90°.",
+      "start": 252.92,
+      "duration": 5.44
+    },
+    {
+      "text": "Comme la mesure de cet angle est de 90° - alpha, \ncela implique bien que celui-ci est égale à alpha.",
+      "start": 258.36,
+      "duration": 7.48
+    },
+    {
+      "text": "La somme de ces deux angles, violet et orange, \nest bien égale = 90°, l’angle droit qu’on a ici.",
+      "start": 265.84,
+      "duration": 6.72
+    },
+    {
+      "text": "2e méthode, un peu plus rapide si tu es \nà l’aise avec la vision dans l’espace.",
+      "start": 272.56,
+      "duration": 4.44
+    },
+    {
+      "text": "Elle consiste tout simplement à refaire rapidement \nle schéma de la situation, au brouillon par",
+      "start": 277.0,
+      "duration": 4.68
+    },
+    {
+      "text": "exemple, faisant volontairement varier alpha : \npar exemple en prenant un angle bien plus petit.",
+      "start": 281.68,
+      "duration": 6.16
+    },
+    {
+      "text": "Et là on va remarquer que cet angle là varie de \nla même manière, il est de plus en plus petit !",
+      "start": 287.84,
+      "duration": 6.6
+    },
+    {
+      "text": "Tu peux avoir un raisonnement similaire \nsi tu augmentes alpha, c’est bien cet",
+      "start": 294.44,
+      "duration": 5.12
+    },
+    {
+      "text": "angle-là qui varie de la même manière tout \nsimplement puisqu’il s’agit du même angle !",
+      "start": 299.56,
+      "duration": 6.12
+    },
+    {
+      "text": "Une fois que tu as repéré où se situe alpha, \non peut maintenant tout simplement utiliser la",
+      "start": 307.52,
+      "duration": 4.4
+    },
+    {
+      "text": "trigonométrie pour exprimer les longueur de Px \net Py, dans ce triangle rectangle dans lequel",
+      "start": 311.92,
+      "duration": 6.6
+    },
+    {
+      "text": "on retrouve Py, le côté adjacent, et le côté \nopposé ici, correspond bien à cette longueur-là,",
+      "start": 318.52,
+      "duration": 6.84
+    },
+    {
+      "text": "donc à Px : les deux inconnus qu’on cherche.\nL’hypoténuse on la connait, on sait que",
+      "start": 325.36,
+      "duration": 8.88
+    },
+    {
+      "text": "cette longueur correspond à la norme du \nvecteur P, qu’on notera simplement P.",
+      "start": 334.24,
+      "duration": 5.04
+    },
+    {
+      "text": "Allé, on y est presque : on pose les formules de \ntrigonométrie, avec le moyen mnémotechnique que",
+      "start": 339.28,
+      "duration": 5.24
+    },
+    {
+      "text": "tu préfères, pour moi c’est SOH CAH TOA, et qui \nfont intervenir les côtés recherchés : opposé et",
+      "start": 344.52,
+      "duration": 6.12
+    },
+    {
+      "text": "adjacent, et le côté connu, l’hypoténuse. \nOn ne se servira donc pas de la tangente.",
+      "start": 350.64,
+      "duration": 5.76
+    },
+    {
+      "text": "On retrouve la longueur du \ncôté Px dans ce triangle,",
+      "start": 356.4,
+      "duration": 3.4
+    },
+    {
+      "text": "le côté opposé, en utilisant le \nproduit en croix, = P (l’hypoténuse,",
+      "start": 359.8,
+      "duration": 7.08
+    },
+    {
+      "text": "la norme du vecteur P) x sin (a)\nComme on l’a dit tout à l’heure, la coordonnée",
+      "start": 366.88,
+      "duration": 7.28
+    },
+    {
+      "text": "est bien négative puisque cette composante du \nvecteur P est dans le sens opposé à l’axe Ox.",
+      "start": 374.16,
+      "duration": 6.92
+    },
+    {
+      "text": "De la même manière on retrouve la \nlongueur du côté Py dans ce triangle,",
+      "start": 381.08,
+      "duration": 4.56
+    },
+    {
+      "text": "c’est le côté adjacent : = P × cos (a)\nEt on en déduit la composante Py qui",
+      "start": 385.64,
+      "duration": 11.88
+    },
+    {
+      "text": "est elle aussi négative, : - P × cos (a)",
+      "start": 397.52,
+      "duration": 4.76
+    },
+    {
+      "text": "Voilà pour cette présentation qui je l’espère \nt’a permis d’y voir un peu plus clair sur",
+      "start": 402.28,
+      "duration": 4.4
+    },
+    {
+      "text": "cette projection de vecteur. N’hésite pas à bien \nt’entrainer et éventuellement à revoir cette vidéo",
+      "start": 406.68,
+      "duration": 4.96
+    },
+    {
+      "text": "puisque qu’une fois la méthode bien comprise, elle \ns’appliquera parfaitement dans les différentes",
+      "start": 411.64,
+      "duration": 4.6
+    },
+    {
+      "text": "situations que tu vas rencontrer. Je te souhaite \nbon courage pour tes révisions et à bientôt !",
+      "start": 416.24,
+      "duration": 9.38
+    }
+  ],
+  "source": "youtube_official_or_auto_caption"
+}

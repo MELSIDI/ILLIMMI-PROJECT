@@ -1,0 +1,23 @@
+[Source vidéo originale : Florence Raffin / Romain Bourdel - Physique Lycée : "Mouvement dans un champ de pesanteur uniforme - 2ème loi de Newton"]
+
+Bonjour à tous, dans cette vidéo nous étudions le mouvement d'un projectile dans un champ de pesanteur uniforme, un grand classique de Terminale Spécialité.
+
+On étudie une balle lancée avec une vitesse initiale v0 faisant un angle alpha avec l'horizontale. 
+Première étape incontournable : la rédaction. 
+Le système : la balle de masse m. 
+Le référentiel : terrestre, supposé galiléen. 
+Le bilan des forces : on néglige les frottements de l'air, donc la balle n'est soumise qu'à son poids P = m*g.
+
+Deuxième loi de Newton : somme des forces extérieures = m * a. 
+Ici, P = m * a, donc m * g = m * a. 
+On simplifie par la masse m des deux côtés : a = g ! 
+L'accélération est égale au champ de pesanteur g, dirigée vers le bas. Elle est totalement indépendante de la masse du solide.
+
+On projette ensuite l'accélération sur les axes Ox et Oy :
+ax = 0 et ay = -g.
+En intégrant par rapport au temps :
+vx(t) = v0*cos(alpha) et vy(t) = -g*t + v0*sin(alpha).
+En intégrant une seconde fois, on trouve les équations horaires de position x(t) et y(t).
+En éliminant le temps t, on obtient l'équation cartésienne de la trajectoire y = f(x), qui est une équation de parabole.
+
+Retenez bien les quatre étapes de la méthode : Système, Référentiel, Forces, et Deuxième loi de Newton !

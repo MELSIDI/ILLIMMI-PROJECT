@@ -1,0 +1,2007 @@
+{
+  "item_id": "MATH_015",
+  "title": "Exemple guidé et calcul détaillé : Valeur absolue et distance sur la droite réelle en pratique",
+  "subject": "Mathématiques",
+  "level": "Seconde",
+  "youtube_video_id": "5-rUuceEgAE",
+  "youtube_video_title": "LE COURS : Valeur absolue - Seconde",
+  "youtube_channel": "Yvan Monka",
+  "youtube_url": "https://www.youtube.com/watch?v=5-rUuceEgAE",
+  "full_text": "bonjour dans cette vidéo je te propose de revoir tout le cours sur le chapitre des valeurs absolues l'objet de cette séquence est de te rappeler et de t'expliquer les éléments les plus importants de ce chapitre plus précisément on parlera de la notion de base sur la valeur absolue il n'ya pas d'approfondissement ici pas de résolution d'équations non plus avec les valeurs absolues donc on parlera de on définira ce que c'est qu'une valeur absolue on verra les propriétés élémentaires sur la valeur absolue et enfin la relation qui lie à entre distance et valeur absolue pour préparer un contrôle ou un examen ceci ne suffira évidemment pas il te faudra encore t'entraîner et pour cela faire de nombreux exercices n'hésite pas à te rendre sur la playlist pour pouvoir les faire voilà en tout cas pour le court c'est parti alors pour comprendre ce que c'est au départ une valeur absolue il faut comprendre c'est un peu une notation on va le voir très rapidement mais quand même il y a une notion qui se cache derrière pour bien comprendre le mieux c'est partir de quelques exemples si je dis quelle est la valeur absolue du nombre - 5 et bien c'est 5 ok ça nous dit pas trop ce que c'est qu'une valeur absolue pour l'instant prend un deuxième exemple la valeur absolue de -9 et bien c'est neuf ok on dirait qu'on retrouve à chaque fois le nombre mais sans son signe alors quelle est la valeur absolue de cette nuit là il a pas de signe au départ enfin il est positif et bien sa valeur absolue c'est 7 à un autre exemple avec un positif quelle est la valeur absolue de neuf tout alors on avait la valeur absolue de -9 et bien la valeur absolue de neuf c'est neuf également un dernier petit exemple avec un nombre décimal quelle est la valeur absolue de moins 0,1 et bien c'est 0,1 observons maintenant la colonne de gauche et comparons avec la colonne de droite eh bien on remarque qu'on retrouve à chaque fois la même valeur du rick 5,5 9,9 et c'est à 0 1 0 1 mais sans le signe bien on pourrait dire donc sans la définir encore proprement qu' un nombre en valeur absolue c'est un non sens on signe c'est à dire c'est un nom qu'on ramène toujours à sont positifs et on le remarque ici à chaque fois que j'ai un - il s'en va et quand j'ai un plus où j'ai rien eh bien ça reste pareil et bien c'est ça la valeur absolue d'un nombre la valeur absolue d'un nombre à est égal au nombre à 6 ha est positif on voit si haye positif ça change pas donc à la valeur absolue de à ses seins mais c'est égal à son opposé c'est à dire moins à 6 ha est négatif alors là ça paraît bizarre parce que je dis que si à est négatif sa valeur absolue c'est moins 1 ça c'est la définition il faut pas le prendre comme je rajoute 1 - ils font le prendre comme je passe à son opposé regarder si -5 ici est négatif enfin - 5 est négatif du coup je prends sont opposés et l'opposé de -5 c5 alors si on va appliquer strictement la définition comme elle est donnée et bien comme a ici on va l'écrire est négatif et bien la valeur absolue de à ça sera moins à mai - ah c'est quoi c'est moins -5 bien ça - nous avons au moins cinq donc moins avons moins moins 5 et moins -5 ça donne quoi ça donne plus 5 alors on voit la queue on part d'une notion très simple la valeur absolue d'un nombre c'est le nombre sans le signe et on arrive finalement à djibril mans à quelque chose qui est pas si simple que ça et pour ne pas être assurée ça va se compliquer encore un tout petit peu mais je comme je les dis ce cours là ne traite que des notions de base sur la valeur absolue donc on va pas aller très loin on va pas aller très loin en approfondissement par contre on a une notation pour la valeur absolue et cette notation c'est le nombre entre deux bars ça donne quoi alors à l'instant on vient de parler de la valeur absolue de -5 si je veux noter la valeur absolue de -5 j'écris donc bien sûr -5 et je l'en cadre de deux barres verticales ça ça se lit la valeur absolue de -5 et on a vu que la valeur absolue de -5 c'est donc 5 on avait eu également que la valeur absolue de -9 et bien c'était neuf et on avait vu que la valeur absolue de neuf ou de +9 c9 également donc on retrouve exactement le même principe seulement là on a maintenant une notation qui nous permet d'écrire qui nous évite décrire la valeur absolue de - 5 et 5 la valeur absolue de - 5 et 5 c'est quand même beaucoup plus simple à écrire et surtout à lire alors là où ça peut être intéressant c'est quand on a des notations avec des nombres inconnue donc en calcul algébrique lorsqu'il ya des x d y voir tout de suite un exemple qui va montrer que grâce à cette notation nouvelle cette valeur absolue on peut avoir une double information qui est concentré dans une même écriture c'est extrêmement pratique je pars par exemple 2x moins 5 et je mets entre deux barres donc tu as compris maintenant que ceci ça se lit la valeur absolue de x - 5 c'est donc le nombre sans le signe là le problème c'est que je ne connais pas x x et n'importe quel réel alors si j'applique la définition qui est écrit ici cela signifie que ceux ci est égal à x - 5 quand ça lorsque x - 5 est positif c ce qui est écrit la valeur absolue de à est égal à à 6 ha est positif et c'est égal à moins à c'est-à-dire moins x moins simple dans le cas contraire c'est à dire si x - 5 est négatif c'est bien ce que dit la valeur absolue la valeur absolue de à est égal à - a donc moins le nombre qui est là dedans 6 - 5 est négatif alors ceci on peut encore l'écrire un tout petit peu plus simplement je remets mes deux accolades je recopie x -5 6 mai au lieu d'écrire si x - 5 est positif je vais r-siic c'est plus grand que 5 c est strictement la même chose et mon 1 6 mois ça je vais l'écrire - x + 5 alors moins x + 5 je peux l'écrire juste en dessous là pour détailler le calcul juste le temps que tu le vois voilà donc j'ai distribué mon moi ça me donne moins 6,5 que je peux également écrire dans l'autre sens 5 - 6 et ceci qu en 6x -5 et négatifs autrement dit si x est inférieur à 5 et voilà la double information que j'avais annoncé au départ on a ici une expression qui vaut x - cinq dans le cas où on habite ce qui est plus grand que cinq équivaut autre chose qui vaut donc 5 - x dans le cas où x est plus petit que 5 alors on voit que ça c'est quand même assez lourds à écrire et bien tous assez concentrés là dedans donc on imagine si on a par exemple une fonction qui est défini de cette façon là eh bien on pourra simplement la définir de cette façon là ça sera quand même un peu plus lisible alors parlons maintenant de quelques propriétés de la valeur absolue je vais illustrer quelques unes par un exemple mais pas toutes la première la première elle est assez simple à comprendre on nous dit que la valeur absolue d'un nombre est toujours positive bah oui on le comprend bien vu que on a dit qu'une valeur absolue fait quoi elle prend le nombre bien lui enlève le signe donc si elle lui enlève le signe elle ramène toujours un positif la deuxième nous dit que la valeur absolue de moins-16 c'est pareil que la valeur absolue de x ça c'est intéressant et peut-être que tu le comprends bien mais on peut l'illustrer par un exemple si je prends x égale trois aces gouaille que la valeur absolue de moins x est égal à la valeur absolue de x alors je vais déjà prendre la valeur absolue de moins x c'est-à-dire la valeur absolue de -3 la valeur absolue de -3 bien ça donne trois ans suite à valeur absolue de x bien que du coup la valeur absolue de x ça sera la valeur absolue de 3 et la valeur absolue de 3 ça fait 3 donc on voit bien qu'on trouve dans les deux cas en partant de moins x ou en partant de x on trouve toujours 3 ce qui signifie que ces deux valeurs absolues sont bien égal c'est ce que nous dit la propriété alors la suivante nous dit que la racine carrée 2x au carré est égal à la valeur absolue de x alors ça ça pourrait étonner parce que on se souvient par le passé qu'on avait plutôt cette formule à la racine carrée 2x local est égal à x et on disait vulgairement on va en gros la racine élimine le car et c'est pour ça qu'on retrouve knicks alors oui c'est vrai on avait cette formule-là par le passé mais il y avait un petit quelque chose qui était marquée soit avant soit après 6 x positif oui ceci c'est vrai mais que oryx positif 6 x est négatif c'est plus vrai et de façon générale et bien c'est ça qu'il faut écrire c'est que la racine de x au carré est égal à valeur absolue dit pour comprendre et bien on va juste prendre un exemple avec un mix négatif je prends un hic ces gars-là -5 et donc je vais chercher la racine carrée de -5 au carreau et ensuite je vais regarder ce qu'il en est de la valeur absolue de -5 normalement d'après notre formule ça doit être la même chose alors racines de -5 au carré moins cinq fois moins 5 ça fait vingt-cinq donc ça fera signe de 25 aux racines de 25 ça fait 5 qu'en est il de la valeur absolue de -5 bras ça on a compris maintenant que ça fait 5 on retrouve bien à 5 pour le premier et 5 pour le deuxième cela signifie que les deux sont égaux on a bien racines de -5 au carré qui est égal à valeur absolue de -5 et si on écrivait juste x eh bien ça marcherait pas parce que dans ce cas là on aurait ça et on dirait bien est-ce que 5 est égal à moins 5 non certainement pas donc là ça ne marcherait pas donc c'est bien la valeur absolue qui nous donne la racine de xo carrés dans le cas général alors on n'a pas parlé de zéro et en particulier de la valeur absolue de 0 bon du coup on a cette propriété qui nous dit que valeur absolue de x égal à zéro équivaut à x égal à zéro c'est tout simplement dû au fait que la valeur absolue de zéro et bien c'est zéro ces rôles sans aux cimes qui n'a pas de signe donc c'est zéro la suivante nous dit que la valeur absolue de x pardon que la valeur absolue de x égale valeur absolue de y c'est pareil que x égale y ou x égales - y alors oui parce que tout simplement valeur absolue de x valeur absolue de y vont nous renvoyer du jitsu du moins x dû y ou du moins y suivant le signe de l'un et l'autre ce qui veut dire qu'on pourra pas savoir si x égale y ou x égale l'opposé de y c'est pour ça qu'on est obligé d'avoir les deux situations ensuite la valeur absolue 2 x y et bien on peut couper c'est égal à valeur absolue de x fois la valeur absolue du y est il en est de même pour le quotient à condition d'avoir un y non nul bien évidemment la valeur absolue du quotient x ou y ces valeurs absolues de x / valeur absolue y alors poursuivre maintenant pour parler de distance et valeur absolue on a une propriété qui nous dit que des comprend de nombreux réel à épée et que l'on considère sur la droite graduée les points a et b d'abc ce petit à petit b et bien la distance entre ces deux points entre a et b c'est la valeur absolue de la différence de à - b pourquoi ça alors là encore prenons un exemple on va placez un point à qui a pour abscisse 1,5 et un point b qui lui importe 6 4 alors on voudrait la distance entre a et b c'est à dire on voudrait en fait la longueur ab bon sortons du chapitre des valeurs absolues sans réfléchir comme ça comment on ferait on voit que b il est encarté que à il y en a cinq bon bah si je veux la distance qu'il y a entre a et b je ferai tout simplement 4 - 1 5 c'est bien ça c'est à dire de grisou 5 c'est à dire je ferai le point de plus grandes apsys - le point le plus petit à petit c'est bien ce que j'ai fait j'ai pris 4 qui est le plus éloigné sur l'axé des abscisses j'ai fait moins 1,5 bon donc il faudrait l'écrire ça mais j'ai pas envie de l'écrire en fait je voudrais quelque chose d'un peu plus simple à écrire et ce truc un peu plus simple en fait c'est la notation avec la valeur absolue parce que en fin de compte j'ai envie de pouvoir écrire que six as et l'abc se petite taille la pulga a et que petit belabbes 6 2 b eh bien j'ai juste à faire à moins b ou b - à ce que je m'embête pas à savoir lequel est le plus grand des deux parce que si je le fais dans l'autre sens si j'écris que la longueur ab est égal à 1,5 - 4 qu'est ce qui va se passer je vais trouver moins de 0,5 c'est à dire juste sont opposés c'est quand même un petit peu embêtant quoi alors on a résolu le problème on dit oui ok tu fais la différence entre les deux abscisse donc l'abscisse de à eilat 6 2 b où la piste de v lab 6 2 1 mais tu mets des valeurs absolues autour comme ça tu es tranquille parce que si on met des valeurs absolues autour qu'est ce qui se passe à ça donne ça qui donne valeur absolue de 2,5 qui donne de 25 bon là ça change pas mais si on le fait dans le mauvais sens qui en fait est le bon sens je mets des valeurs absolues au tour donc là du coup j'ai des valeurs absolues aussi et la valeur absolue de moins de vingt-cinq bien c'est quoi passer de 25 tout court et là il ya plus de problème on se pose plus la question est ce que ces bébés qu'ils plus loin ou c1 on prend tout simplement l'abscisse de l'ain - la prise de l'autre et on soustrait bien c'est ce que dit la définition en fin de compte ne dis pas que a est plus grand qu'eux mais elle dit simplement t'adorer elle a et b 1 point à qui a pour habitude petit à un point b kapoor abscisse petit b et quand tu fais la valeur absolue de à - b ou de b - à d'ailleurs ça plus d'importance eh bien tu trouves la longueur à d on voit donc là encore une fois tout l'intérêt de cette notation nouvelle enfin nouvelle si on peut dire sur les valeurs absolues et pour finir une propriété on va aller assez vite tu vas comprendre rapidement pourquoi une propriété qui nous dit que dès qu'on a un réel et bien dire que x est tel que valeur absolue de x - za est inférieur ou égal à r cela signifie que x se trouve dans un intervalle et cet intervalle c'est à - r 1 + r autrement dit on arrive à grâce à cette inégalité valeur à sucre 2 x - hazard plus petit qu air on arrive à situer x autour d'un intervalle et cet intervalle il se trouve qu'il est centrée en mai je vais pas en dire plus tout simplement parce que j'ai déjà fait une vidéo qui explique ceci en détail et là je risquerais simplement de me répéter alors je t'invite à regarder la suite en cliquant sur le lien en haut à droite de cette vidéo ou alors à regarder dans la description j'ai également mis le lien du coup et bien cette séquence est terminée",
+  "snippets_count": 398,
+  "total_words_count": 2894,
+  "duration_approx_sec": 988.72,
+  "entries": [
+    {
+      "text": "bonjour",
+      "start": 3.2,
+      "duration": 3.22
+    },
+    {
+      "text": "dans cette vidéo je te propose de revoir",
+      "start": 4.319,
+      "duration": 3.961
+    },
+    {
+      "text": "tout le cours sur le chapitre des",
+      "start": 6.42,
+      "duration": 2.82
+    },
+    {
+      "text": "valeurs absolues",
+      "start": 8.28,
+      "duration": 2.97
+    },
+    {
+      "text": "l'objet de cette séquence est de te",
+      "start": 9.24,
+      "duration": 4.229
+    },
+    {
+      "text": "rappeler et de t'expliquer les éléments",
+      "start": 11.25,
+      "duration": 4.41
+    },
+    {
+      "text": "les plus importants de ce chapitre plus",
+      "start": 13.469,
+      "duration": 4.831
+    },
+    {
+      "text": "précisément on parlera de la notion de",
+      "start": 15.66,
+      "duration": 4.5
+    },
+    {
+      "text": "base sur la valeur absolue il n'ya pas",
+      "start": 18.3,
+      "duration": 3.51
+    },
+    {
+      "text": "d'approfondissement ici pas de",
+      "start": 20.16,
+      "duration": 3.48
+    },
+    {
+      "text": "résolution d'équations non plus avec les",
+      "start": 21.81,
+      "duration": 2.549
+    },
+    {
+      "text": "valeurs absolues",
+      "start": 23.64,
+      "duration": 3.54
+    },
+    {
+      "text": "donc on parlera de on définira ce que",
+      "start": 24.359,
+      "duration": 4.74
+    },
+    {
+      "text": "c'est qu'une valeur absolue on verra les",
+      "start": 27.18,
+      "duration": 4.08
+    },
+    {
+      "text": "propriétés élémentaires sur la valeur",
+      "start": 29.099,
+      "duration": 3.991
+    },
+    {
+      "text": "absolue et enfin la relation qui lie à",
+      "start": 31.26,
+      "duration": 4.44
+    },
+    {
+      "text": "entre distance et valeur absolue pour",
+      "start": 33.09,
+      "duration": 4.62
+    },
+    {
+      "text": "préparer un contrôle ou un examen ceci",
+      "start": 35.7,
+      "duration": 4.41
+    },
+    {
+      "text": "ne suffira évidemment pas il te faudra",
+      "start": 37.71,
+      "duration": 4.5
+    },
+    {
+      "text": "encore t'entraîner et pour cela faire de",
+      "start": 40.11,
+      "duration": 3.93
+    },
+    {
+      "text": "nombreux exercices n'hésite pas à te",
+      "start": 42.21,
+      "duration": 4.71
+    },
+    {
+      "text": "rendre sur la playlist pour pouvoir les",
+      "start": 44.04,
+      "duration": 3.089
+    },
+    {
+      "text": "faire",
+      "start": 46.92,
+      "duration": 2.31
+    },
+    {
+      "text": "voilà en tout cas pour le court c'est",
+      "start": 47.129,
+      "duration": 4.471
+    },
+    {
+      "text": "parti alors pour comprendre ce que c'est",
+      "start": 49.23,
+      "duration": 4.95
+    },
+    {
+      "text": "au départ une valeur absolue il faut",
+      "start": 51.6,
+      "duration": 4.68
+    },
+    {
+      "text": "comprendre c'est un peu une notation on",
+      "start": 54.18,
+      "duration": 3.48
+    },
+    {
+      "text": "va le voir très rapidement",
+      "start": 56.28,
+      "duration": 3.45
+    },
+    {
+      "text": "mais quand même il y a une notion qui se",
+      "start": 57.66,
+      "duration": 4.11
+    },
+    {
+      "text": "cache derrière pour bien comprendre le",
+      "start": 59.73,
+      "duration": 3.719
+    },
+    {
+      "text": "mieux c'est partir de quelques exemples",
+      "start": 61.77,
+      "duration": 4.08
+    },
+    {
+      "text": "si je dis quelle est la valeur absolue",
+      "start": 63.449,
+      "duration": 5.811
+    },
+    {
+      "text": "du nombre - 5",
+      "start": 65.85,
+      "duration": 3.41
+    },
+    {
+      "text": "et bien c'est 5",
+      "start": 69.409,
+      "duration": 8.111
+    },
+    {
+      "text": "ok ça nous dit pas trop ce que c'est",
+      "start": 73.61,
+      "duration": 5.259
+    },
+    {
+      "text": "qu'une valeur absolue pour l'instant",
+      "start": 77.52,
+      "duration": 3.57
+    },
+    {
+      "text": "prend un deuxième exemple la valeur",
+      "start": 78.869,
+      "duration": 7.04
+    },
+    {
+      "text": "absolue de -9 et bien c'est neuf",
+      "start": 81.09,
+      "duration": 7.38
+    },
+    {
+      "text": "ok on dirait qu'on retrouve à chaque",
+      "start": 85.909,
+      "duration": 5.201
+    },
+    {
+      "text": "fois le nombre mais sans son signe alors",
+      "start": 88.47,
+      "duration": 4.939
+    },
+    {
+      "text": "quelle est la valeur absolue de cette",
+      "start": 91.11,
+      "duration": 4.74
+    },
+    {
+      "text": "nuit là il a pas de signe au départ",
+      "start": 93.409,
+      "duration": 5.17
+    },
+    {
+      "text": "enfin il est positif et bien sa valeur",
+      "start": 95.85,
+      "duration": 6.839
+    },
+    {
+      "text": "absolue c'est 7 à un autre exemple avec",
+      "start": 98.579,
+      "duration": 5.911
+    },
+    {
+      "text": "un positif quelle est la valeur absolue",
+      "start": 102.689,
+      "duration": 4.741
+    },
+    {
+      "text": "de neuf tout alors on avait la valeur",
+      "start": 104.49,
+      "duration": 5.76
+    },
+    {
+      "text": "absolue de -9 et bien la valeur absolue",
+      "start": 107.43,
+      "duration": 5.399
+    },
+    {
+      "text": "de neuf c'est neuf également un dernier",
+      "start": 110.25,
+      "duration": 5.759
+    },
+    {
+      "text": "petit exemple avec un nombre décimal",
+      "start": 112.829,
+      "duration": 5.64
+    },
+    {
+      "text": "quelle est la valeur absolue de moins",
+      "start": 116.009,
+      "duration": 8.881
+    },
+    {
+      "text": "0,1 et bien c'est 0,1 observons",
+      "start": 118.469,
+      "duration": 8.461
+    },
+    {
+      "text": "maintenant la colonne de gauche et",
+      "start": 124.89,
+      "duration": 3.78
+    },
+    {
+      "text": "comparons avec la colonne de droite",
+      "start": 126.93,
+      "duration": 3.96
+    },
+    {
+      "text": "eh bien on remarque qu'on retrouve à",
+      "start": 128.67,
+      "duration": 4.32
+    },
+    {
+      "text": "chaque fois la même valeur du",
+      "start": 130.89,
+      "duration": 6.36
+    },
+    {
+      "text": "rick 5,5 9,9 et c'est à 0 1 0 1 mais",
+      "start": 132.99,
+      "duration": 8.16
+    },
+    {
+      "text": "sans le signe bien on pourrait dire donc",
+      "start": 137.25,
+      "duration": 7.26
+    },
+    {
+      "text": "sans la définir encore proprement qu' un",
+      "start": 141.15,
+      "duration": 5.37
+    },
+    {
+      "text": "nombre en valeur absolue c'est un non",
+      "start": 144.51,
+      "duration": 4.05
+    },
+    {
+      "text": "sens on signe c'est à dire c'est un nom",
+      "start": 146.52,
+      "duration": 5.61
+    },
+    {
+      "text": "qu'on ramène toujours à sont positifs et",
+      "start": 148.56,
+      "duration": 5.07
+    },
+    {
+      "text": "on le remarque ici à chaque fois que",
+      "start": 152.13,
+      "duration": 4.41
+    },
+    {
+      "text": "j'ai un - il s'en va et quand j'ai un",
+      "start": 153.63,
+      "duration": 4.77
+    },
+    {
+      "text": "plus où j'ai rien eh bien ça reste",
+      "start": 156.54,
+      "duration": 4.2
+    },
+    {
+      "text": "pareil et bien c'est ça la valeur",
+      "start": 158.4,
+      "duration": 4.38
+    },
+    {
+      "text": "absolue d'un nombre la valeur absolue",
+      "start": 160.74,
+      "duration": 5.97
+    },
+    {
+      "text": "d'un nombre à est égal au nombre à 6 ha",
+      "start": 162.78,
+      "duration": 7.02
+    },
+    {
+      "text": "est positif on voit si haye positif ça",
+      "start": 166.71,
+      "duration": 5.43
+    },
+    {
+      "text": "change pas donc à la valeur absolue de à",
+      "start": 169.8,
+      "duration": 5.76
+    },
+    {
+      "text": "ses seins mais c'est égal à son opposé",
+      "start": 172.14,
+      "duration": 6.63
+    },
+    {
+      "text": "c'est à dire moins à 6 ha est négatif",
+      "start": 175.56,
+      "duration": 5.22
+    },
+    {
+      "text": "alors là ça paraît bizarre parce que je",
+      "start": 178.77,
+      "duration": 4.29
+    },
+    {
+      "text": "dis que si à est négatif sa valeur",
+      "start": 180.78,
+      "duration": 3.51
+    },
+    {
+      "text": "absolue c'est moins 1",
+      "start": 183.06,
+      "duration": 3.96
+    },
+    {
+      "text": "ça c'est la définition il faut pas le",
+      "start": 184.29,
+      "duration": 5.61
+    },
+    {
+      "text": "prendre comme je rajoute 1 - ils font le",
+      "start": 187.02,
+      "duration": 5.52
+    },
+    {
+      "text": "prendre comme je passe à son opposé",
+      "start": 189.9,
+      "duration": 6.99
+    },
+    {
+      "text": "regarder si -5 ici est négatif enfin - 5",
+      "start": 192.54,
+      "duration": 6.54
+    },
+    {
+      "text": "est négatif du coup je prends sont",
+      "start": 196.89,
+      "duration": 6.15
+    },
+    {
+      "text": "opposés et l'opposé de -5 c5",
+      "start": 199.08,
+      "duration": 5.94
+    },
+    {
+      "text": "alors si on va appliquer strictement la",
+      "start": 203.04,
+      "duration": 4.11
+    },
+    {
+      "text": "définition comme elle est donnée et bien",
+      "start": 205.02,
+      "duration": 8.79
+    },
+    {
+      "text": "comme a ici on va l'écrire est négatif",
+      "start": 207.15,
+      "duration": 10.68
+    },
+    {
+      "text": "et bien la valeur absolue de à ça sera",
+      "start": 213.81,
+      "duration": 10.07
+    },
+    {
+      "text": "moins à mai - ah c'est quoi c'est moins",
+      "start": 217.83,
+      "duration": 10.74
+    },
+    {
+      "text": "-5 bien ça - nous avons au moins cinq",
+      "start": 223.88,
+      "duration": 7.29
+    },
+    {
+      "text": "donc moins avons moins moins 5 et moins",
+      "start": 228.57,
+      "duration": 4.71
+    },
+    {
+      "text": "-5 ça donne quoi",
+      "start": 231.17,
+      "duration": 7.09
+    },
+    {
+      "text": "ça donne plus 5 alors on voit la queue",
+      "start": 233.28,
+      "duration": 7.5
+    },
+    {
+      "text": "on part d'une notion très simple la",
+      "start": 238.26,
+      "duration": 3.75
+    },
+    {
+      "text": "valeur absolue d'un nombre c'est le",
+      "start": 240.78,
+      "duration": 2.67
+    },
+    {
+      "text": "nombre sans le signe et on arrive",
+      "start": 242.01,
+      "duration": 3.09
+    },
+    {
+      "text": "finalement à djibril mans à quelque",
+      "start": 243.45,
+      "duration": 3.57
+    },
+    {
+      "text": "chose qui est pas si simple que ça et",
+      "start": 245.1,
+      "duration": 3.57
+    },
+    {
+      "text": "pour ne pas être assurée",
+      "start": 247.02,
+      "duration": 3.15
+    },
+    {
+      "text": "ça va se compliquer encore un tout petit",
+      "start": 248.67,
+      "duration": 4.289
+    },
+    {
+      "text": "peu mais je comme je les dis ce cours là",
+      "start": 250.17,
+      "duration": 5.46
+    },
+    {
+      "text": "ne traite que des notions de base sur la",
+      "start": 252.959,
+      "duration": 4.171
+    },
+    {
+      "text": "valeur absolue donc on va pas aller très",
+      "start": 255.63,
+      "duration": 2.91
+    },
+    {
+      "text": "loin on va pas aller très loin en",
+      "start": 257.13,
+      "duration": 2.7
+    },
+    {
+      "text": "approfondissement",
+      "start": 258.54,
+      "duration": 3.449
+    },
+    {
+      "text": "par contre on a une notation pour la",
+      "start": 259.83,
+      "duration": 4.47
+    },
+    {
+      "text": "valeur absolue et cette notation",
+      "start": 261.989,
+      "duration": 4.271
+    },
+    {
+      "text": "c'est le nombre entre",
+      "start": 264.3,
+      "duration": 4.6
+    },
+    {
+      "text": "deux bars ça donne quoi alors à",
+      "start": 266.26,
+      "duration": 4.29
+    },
+    {
+      "text": "l'instant on vient de parler de la",
+      "start": 268.9,
+      "duration": 3.27
+    },
+    {
+      "text": "valeur absolue de -5",
+      "start": 270.55,
+      "duration": 4.59
+    },
+    {
+      "text": "si je veux noter la valeur absolue de -5",
+      "start": 272.17,
+      "duration": 6.3
+    },
+    {
+      "text": "j'écris donc bien sûr -5 et je l'en",
+      "start": 275.14,
+      "duration": 6.9
+    },
+    {
+      "text": "cadre de deux barres verticales ça ça se",
+      "start": 278.47,
+      "duration": 7.02
+    },
+    {
+      "text": "lit la valeur absolue de -5 et on a vu",
+      "start": 282.04,
+      "duration": 5.88
+    },
+    {
+      "text": "que la valeur absolue de -5",
+      "start": 285.49,
+      "duration": 6.66
+    },
+    {
+      "text": "c'est donc 5 on avait eu également que",
+      "start": 287.92,
+      "duration": 8.1
+    },
+    {
+      "text": "la valeur absolue de -9 et bien c'était",
+      "start": 292.15,
+      "duration": 6.57
+    },
+    {
+      "text": "neuf et on avait vu que la valeur",
+      "start": 296.02,
+      "duration": 7.38
+    },
+    {
+      "text": "absolue de neuf ou de +9 c9 également",
+      "start": 298.72,
+      "duration": 6.93
+    },
+    {
+      "text": "donc on retrouve exactement le même",
+      "start": 303.4,
+      "duration": 2.88
+    },
+    {
+      "text": "principe",
+      "start": 305.65,
+      "duration": 2.64
+    },
+    {
+      "text": "seulement là on a maintenant une",
+      "start": 306.28,
+      "duration": 4.47
+    },
+    {
+      "text": "notation qui nous permet d'écrire qui",
+      "start": 308.29,
+      "duration": 4.74
+    },
+    {
+      "text": "nous évite décrire la valeur absolue de",
+      "start": 310.75,
+      "duration": 6.27
+    },
+    {
+      "text": "- 5 et 5 la valeur absolue de - 5 et 5",
+      "start": 313.03,
+      "duration": 5.7
+    },
+    {
+      "text": "c'est quand même beaucoup plus simple à",
+      "start": 317.02,
+      "duration": 4.83
+    },
+    {
+      "text": "écrire et surtout à lire alors là où ça",
+      "start": 318.73,
+      "duration": 5.13
+    },
+    {
+      "text": "peut être intéressant c'est quand on a",
+      "start": 321.85,
+      "duration": 4.05
+    },
+    {
+      "text": "des notations avec des nombres inconnue",
+      "start": 323.86,
+      "duration": 4.44
+    },
+    {
+      "text": "donc en calcul algébrique lorsqu'il ya",
+      "start": 325.9,
+      "duration": 5.04
+    },
+    {
+      "text": "des x d y voir tout de suite un exemple",
+      "start": 328.3,
+      "duration": 4.77
+    },
+    {
+      "text": "qui va montrer que grâce à cette",
+      "start": 330.94,
+      "duration": 4.29
+    },
+    {
+      "text": "notation nouvelle cette valeur absolue",
+      "start": 333.07,
+      "duration": 4.35
+    },
+    {
+      "text": "on peut avoir une double information qui",
+      "start": 335.23,
+      "duration": 4.29
+    },
+    {
+      "text": "est concentré dans une même écriture",
+      "start": 337.42,
+      "duration": 4.26
+    },
+    {
+      "text": "c'est extrêmement pratique je pars par",
+      "start": 339.52,
+      "duration": 6.18
+    },
+    {
+      "text": "exemple 2x moins 5 et je mets entre deux",
+      "start": 341.68,
+      "duration": 6.03
+    },
+    {
+      "text": "barres donc tu as compris maintenant que",
+      "start": 345.7,
+      "duration": 4.95
+    },
+    {
+      "text": "ceci ça se lit la valeur absolue de x -",
+      "start": 347.71,
+      "duration": 3.39
+    },
+    {
+      "text": "5",
+      "start": 350.65,
+      "duration": 2.91
+    },
+    {
+      "text": "c'est donc le nombre sans le signe là le",
+      "start": 351.1,
+      "duration": 4.89
+    },
+    {
+      "text": "problème c'est que je ne connais pas x x",
+      "start": 353.56,
+      "duration": 3.45
+    },
+    {
+      "text": "et n'importe quel réel",
+      "start": 355.99,
+      "duration": 3.33
+    },
+    {
+      "text": "alors si j'applique la définition qui",
+      "start": 357.01,
+      "duration": 5.58
+    },
+    {
+      "text": "est écrit ici cela signifie que ceux ci",
+      "start": 359.32,
+      "duration": 6.35
+    },
+    {
+      "text": "est égal à x - 5",
+      "start": 362.59,
+      "duration": 11.15
+    },
+    {
+      "text": "quand ça lorsque x - 5 est positif c",
+      "start": 365.67,
+      "duration": 10.26
+    },
+    {
+      "text": "ce qui est écrit la valeur absolue de à",
+      "start": 373.74,
+      "duration": 7.17
+    },
+    {
+      "text": "est égal à à 6 ha est positif et c'est",
+      "start": 375.93,
+      "duration": 8.19
+    },
+    {
+      "text": "égal à moins à c'est-à-dire moins x",
+      "start": 380.91,
+      "duration": 6.36
+    },
+    {
+      "text": "moins simple dans le cas contraire c'est",
+      "start": 384.12,
+      "duration": 8.16
+    },
+    {
+      "text": "à dire si x - 5 est négatif c'est bien",
+      "start": 387.27,
+      "duration": 7.59
+    },
+    {
+      "text": "ce que dit la valeur absolue la valeur",
+      "start": 392.28,
+      "duration": 5.37
+    },
+    {
+      "text": "absolue de à est égal à - a donc moins",
+      "start": 394.86,
+      "duration": 4.05
+    },
+    {
+      "text": "le nombre qui est là dedans",
+      "start": 397.65,
+      "duration": 4.62
+    },
+    {
+      "text": "6 - 5 est négatif alors ceci on peut",
+      "start": 398.91,
+      "duration": 4.95
+    },
+    {
+      "text": "encore l'écrire un tout petit peu plus",
+      "start": 402.27,
+      "duration": 4.76
+    },
+    {
+      "text": "simplement je remets mes deux accolades",
+      "start": 403.86,
+      "duration": 8.79
+    },
+    {
+      "text": "je recopie x -5 6 mai au lieu d'écrire",
+      "start": 407.03,
+      "duration": 7.27
+    },
+    {
+      "text": "si x - 5 est positif",
+      "start": 412.65,
+      "duration": 3.81
+    },
+    {
+      "text": "je vais r-siic c'est plus grand que 5 c",
+      "start": 414.3,
+      "duration": 8.58
+    },
+    {
+      "text": "est strictement la même chose et mon 1 6",
+      "start": 416.46,
+      "duration": 9.78
+    },
+    {
+      "text": "mois ça je vais l'écrire - x + 5 alors",
+      "start": 422.88,
+      "duration": 5.49
+    },
+    {
+      "text": "moins x + 5 je peux l'écrire juste en",
+      "start": 426.24,
+      "duration": 3.63
+    },
+    {
+      "text": "dessous là pour détailler le calcul",
+      "start": 428.37,
+      "duration": 5.34
+    },
+    {
+      "text": "juste le temps que tu le vois voilà donc",
+      "start": 429.87,
+      "duration": 6.06
+    },
+    {
+      "text": "j'ai distribué mon moi ça me donne moins",
+      "start": 433.71,
+      "duration": 4.38
+    },
+    {
+      "text": "6,5 que je peux également écrire dans",
+      "start": 435.93,
+      "duration": 4.729
+    },
+    {
+      "text": "l'autre sens 5 - 6",
+      "start": 438.09,
+      "duration": 7.379
+    },
+    {
+      "text": "et ceci qu en 6x -5 et négatifs",
+      "start": 440.659,
+      "duration": 9.69
+    },
+    {
+      "text": "autrement dit si x est inférieur à 5",
+      "start": 445.469,
+      "duration": 4.88
+    },
+    {
+      "text": "et voilà la double information que",
+      "start": 451.639,
+      "duration": 4.84
+    },
+    {
+      "text": "j'avais annoncé au départ on a ici une",
+      "start": 454.199,
+      "duration": 4.981
+    },
+    {
+      "text": "expression qui vaut x - cinq dans le cas",
+      "start": 456.479,
+      "duration": 3.901
+    },
+    {
+      "text": "où on habite ce qui est plus grand que",
+      "start": 459.18,
+      "duration": 3.9
+    },
+    {
+      "text": "cinq équivaut autre chose qui vaut donc",
+      "start": 460.38,
+      "duration": 5.7
+    },
+    {
+      "text": "5 - x dans le cas où x est plus petit",
+      "start": 463.08,
+      "duration": 3.54
+    },
+    {
+      "text": "que 5",
+      "start": 466.08,
+      "duration": 2.489
+    },
+    {
+      "text": "alors on voit que ça c'est quand même",
+      "start": 466.62,
+      "duration": 5.099
+    },
+    {
+      "text": "assez lourds à écrire et bien tous assez",
+      "start": 468.569,
+      "duration": 3.991
+    },
+    {
+      "text": "concentrés là dedans",
+      "start": 471.719,
+      "duration": 3.181
+    },
+    {
+      "text": "donc on imagine si on a par exemple une",
+      "start": 472.56,
+      "duration": 3.81
+    },
+    {
+      "text": "fonction qui est défini de cette façon",
+      "start": 474.9,
+      "duration": 4.29
+    },
+    {
+      "text": "là eh bien on pourra simplement la",
+      "start": 476.37,
+      "duration": 4.65
+    },
+    {
+      "text": "définir de cette façon là ça sera quand",
+      "start": 479.19,
+      "duration": 4.86
+    },
+    {
+      "text": "même un peu plus lisible alors parlons",
+      "start": 481.02,
+      "duration": 5.31
+    },
+    {
+      "text": "maintenant de quelques propriétés de la",
+      "start": 484.05,
+      "duration": 3.929
+    },
+    {
+      "text": "valeur absolue je vais illustrer",
+      "start": 486.33,
+      "duration": 3.839
+    },
+    {
+      "text": "quelques unes par un exemple mais pas",
+      "start": 487.979,
+      "duration": 2.551
+    },
+    {
+      "text": "toutes",
+      "start": 490.169,
+      "duration": 2.191
+    },
+    {
+      "text": "la première la première elle est assez",
+      "start": 490.53,
+      "duration": 4.02
+    },
+    {
+      "text": "simple à comprendre on nous dit que la",
+      "start": 492.36,
+      "duration": 4.38
+    },
+    {
+      "text": "valeur absolue d'un nombre est toujours",
+      "start": 494.55,
+      "duration": 4.41
+    },
+    {
+      "text": "positive bah oui on le comprend bien vu",
+      "start": 496.74,
+      "duration": 4.229
+    },
+    {
+      "text": "que on a dit qu'une valeur absolue fait",
+      "start": 498.96,
+      "duration": 3.87
+    },
+    {
+      "text": "quoi elle prend le nombre bien lui",
+      "start": 500.969,
+      "duration": 3.331
+    },
+    {
+      "text": "enlève le signe donc si elle lui enlève",
+      "start": 502.83,
+      "duration": 2.25
+    },
+    {
+      "text": "le signe elle",
+      "start": 504.3,
+      "duration": 3.299
+    },
+    {
+      "text": "ramène toujours un positif la deuxième",
+      "start": 505.08,
+      "duration": 4.47
+    },
+    {
+      "text": "nous dit que la valeur absolue de",
+      "start": 507.599,
+      "duration": 4.29
+    },
+    {
+      "text": "moins-16 c'est pareil que la valeur",
+      "start": 509.55,
+      "duration": 5.13
+    },
+    {
+      "text": "absolue de x ça c'est intéressant et",
+      "start": 511.889,
+      "duration": 5.101
+    },
+    {
+      "text": "peut-être que tu le comprends bien mais",
+      "start": 514.68,
+      "duration": 4.409
+    },
+    {
+      "text": "on peut l'illustrer par un exemple si je",
+      "start": 516.99,
+      "duration": 6.15
+    },
+    {
+      "text": "prends x égale trois aces gouaille que",
+      "start": 519.089,
+      "duration": 6.0
+    },
+    {
+      "text": "la valeur absolue de moins x est égal à",
+      "start": 523.14,
+      "duration": 3.689
+    },
+    {
+      "text": "la valeur absolue de x alors je vais",
+      "start": 525.089,
+      "duration": 3.24
+    },
+    {
+      "text": "déjà prendre la valeur absolue de moins",
+      "start": 526.829,
+      "duration": 4.491
+    },
+    {
+      "text": "x c'est-à-dire la valeur absolue de -3",
+      "start": 528.329,
+      "duration": 6.211
+    },
+    {
+      "text": "la valeur absolue de -3 bien ça donne",
+      "start": 531.32,
+      "duration": 6.34
+    },
+    {
+      "text": "trois ans suite à valeur absolue de x",
+      "start": 534.54,
+      "duration": 5.46
+    },
+    {
+      "text": "bien que du coup la valeur absolue de x",
+      "start": 537.66,
+      "duration": 5.16
+    },
+    {
+      "text": "ça sera la valeur absolue de 3 et la",
+      "start": 540.0,
+      "duration": 5.73
+    },
+    {
+      "text": "valeur absolue de 3 ça fait 3 donc on",
+      "start": 542.82,
+      "duration": 4.35
+    },
+    {
+      "text": "voit bien qu'on trouve dans les deux cas",
+      "start": 545.73,
+      "duration": 3.78
+    },
+    {
+      "text": "en partant de moins x ou en partant de x",
+      "start": 547.17,
+      "duration": 4.47
+    },
+    {
+      "text": "on trouve toujours 3 ce qui signifie que",
+      "start": 549.51,
+      "duration": 4.98
+    },
+    {
+      "text": "ces deux valeurs absolues sont bien égal",
+      "start": 551.64,
+      "duration": 5.639
+    },
+    {
+      "text": "c'est ce que nous dit la propriété alors",
+      "start": 554.49,
+      "duration": 5.279
+    },
+    {
+      "text": "la suivante nous dit que la racine",
+      "start": 557.279,
+      "duration": 5.221
+    },
+    {
+      "text": "carrée 2x au carré est égal à la valeur",
+      "start": 559.769,
+      "duration": 5.31
+    },
+    {
+      "text": "absolue de x alors ça ça pourrait",
+      "start": 562.5,
+      "duration": 3.149
+    },
+    {
+      "text": "étonner",
+      "start": 565.079,
+      "duration": 3.211
+    },
+    {
+      "text": "parce que on se souvient par le passé",
+      "start": 565.649,
+      "duration": 5.281
+    },
+    {
+      "text": "qu'on avait plutôt cette formule à la",
+      "start": 568.29,
+      "duration": 6.81
+    },
+    {
+      "text": "racine carrée 2x local est égal à x et",
+      "start": 570.93,
+      "duration": 7.23
+    },
+    {
+      "text": "on disait vulgairement on va en gros la",
+      "start": 575.1,
+      "duration": 4.65
+    },
+    {
+      "text": "racine élimine le car et c'est pour ça",
+      "start": 578.16,
+      "duration": 3.63
+    },
+    {
+      "text": "qu'on retrouve knicks alors oui c'est",
+      "start": 579.75,
+      "duration": 3.72
+    },
+    {
+      "text": "vrai on avait cette formule-là par le",
+      "start": 581.79,
+      "duration": 2.909
+    },
+    {
+      "text": "passé mais il y avait un petit quelque",
+      "start": 583.47,
+      "duration": 3.059
+    },
+    {
+      "text": "chose qui était marquée soit avant soit",
+      "start": 584.699,
+      "duration": 7.14
+    },
+    {
+      "text": "après 6 x positif oui ceci c'est vrai",
+      "start": 586.529,
+      "duration": 8.071
+    },
+    {
+      "text": "mais que oryx positif 6 x est négatif",
+      "start": 591.839,
+      "duration": 5.131
+    },
+    {
+      "text": "c'est plus vrai et de façon générale",
+      "start": 594.6,
+      "duration": 4.71
+    },
+    {
+      "text": "et bien c'est ça qu'il faut écrire c'est",
+      "start": 596.97,
+      "duration": 5.19
+    },
+    {
+      "text": "que la racine de x au carré est égal à",
+      "start": 599.31,
+      "duration": 3.779
+    },
+    {
+      "text": "valeur absolue dit",
+      "start": 602.16,
+      "duration": 2.91
+    },
+    {
+      "text": "pour comprendre et bien on va juste",
+      "start": 603.089,
+      "duration": 4.31
+    },
+    {
+      "text": "prendre un exemple avec un mix négatif",
+      "start": 605.07,
+      "duration": 5.37
+    },
+    {
+      "text": "je prends un hic ces gars-là -5 et donc",
+      "start": 607.399,
+      "duration": 7.091
+    },
+    {
+      "text": "je vais chercher la racine carrée de -5",
+      "start": 610.44,
+      "duration": 7.05
+    },
+    {
+      "text": "au carreau et ensuite je vais regarder",
+      "start": 614.49,
+      "duration": 5.55
+    },
+    {
+      "text": "ce qu'il en est de la valeur absolue de",
+      "start": 617.49,
+      "duration": 5.159
+    },
+    {
+      "text": "-5 normalement d'après notre formule ça",
+      "start": 620.04,
+      "duration": 5.28
+    },
+    {
+      "text": "doit être la même chose alors racines de",
+      "start": 622.649,
+      "duration": 5.101
+    },
+    {
+      "text": "-5 au carré moins cinq fois moins 5 ça",
+      "start": 625.32,
+      "duration": 4.85
+    },
+    {
+      "text": "fait vingt-cinq donc ça fera signe de 25",
+      "start": 627.75,
+      "duration": 6.8
+    },
+    {
+      "text": "aux racines de 25 ça fait 5",
+      "start": 630.17,
+      "duration": 4.38
+    },
+    {
+      "text": "qu'en est il de la valeur absolue de -5",
+      "start": 635.11,
+      "duration": 4.05
+    },
+    {
+      "text": "bras ça on a compris maintenant que ça",
+      "start": 637.029,
+      "duration": 4.201
+    },
+    {
+      "text": "fait 5 on retrouve bien à 5 pour le",
+      "start": 639.16,
+      "duration": 3.63
+    },
+    {
+      "text": "premier et 5 pour le deuxième cela",
+      "start": 641.23,
+      "duration": 3.9
+    },
+    {
+      "text": "signifie que les deux sont égaux on a",
+      "start": 642.79,
+      "duration": 5.13
+    },
+    {
+      "text": "bien racines de -5 au carré qui est égal",
+      "start": 645.13,
+      "duration": 5.82
+    },
+    {
+      "text": "à valeur absolue de -5 et si on écrivait",
+      "start": 647.92,
+      "duration": 5.43
+    },
+    {
+      "text": "juste x eh bien ça marcherait pas parce",
+      "start": 650.95,
+      "duration": 5.4
+    },
+    {
+      "text": "que dans ce cas là on aurait ça et on",
+      "start": 653.35,
+      "duration": 4.62
+    },
+    {
+      "text": "dirait bien est-ce que 5 est égal à",
+      "start": 656.35,
+      "duration": 2.22
+    },
+    {
+      "text": "moins 5",
+      "start": 657.97,
+      "duration": 2.549
+    },
+    {
+      "text": "non certainement pas donc là ça ne",
+      "start": 658.57,
+      "duration": 4.38
+    },
+    {
+      "text": "marcherait pas donc c'est bien la valeur",
+      "start": 660.519,
+      "duration": 5.101
+    },
+    {
+      "text": "absolue qui nous donne la racine de xo",
+      "start": 662.95,
+      "duration": 4.819
+    },
+    {
+      "text": "carrés dans le cas général",
+      "start": 665.62,
+      "duration": 4.649
+    },
+    {
+      "text": "alors on n'a pas parlé de zéro et en",
+      "start": 667.769,
+      "duration": 5.021
+    },
+    {
+      "text": "particulier de la valeur absolue de 0",
+      "start": 670.269,
+      "duration": 5.31
+    },
+    {
+      "text": "bon du coup on a cette propriété qui",
+      "start": 672.79,
+      "duration": 5.669
+    },
+    {
+      "text": "nous dit que valeur absolue de x égal à",
+      "start": 675.579,
+      "duration": 6.361
+    },
+    {
+      "text": "zéro équivaut à x égal à zéro c'est tout",
+      "start": 678.459,
+      "duration": 5.641
+    },
+    {
+      "text": "simplement dû au fait que la valeur",
+      "start": 681.94,
+      "duration": 5.31
+    },
+    {
+      "text": "absolue de zéro et bien c'est zéro ces",
+      "start": 684.1,
+      "duration": 4.5
+    },
+    {
+      "text": "rôles sans aux cimes qui n'a pas de",
+      "start": 687.25,
+      "duration": 4.29
+    },
+    {
+      "text": "signe donc c'est zéro la suivante nous",
+      "start": 688.6,
+      "duration": 5.609
+    },
+    {
+      "text": "dit que la valeur absolue de x pardon",
+      "start": 691.54,
+      "duration": 4.44
+    },
+    {
+      "text": "que la valeur absolue de x égale valeur",
+      "start": 694.209,
+      "duration": 2.94
+    },
+    {
+      "text": "absolue de y",
+      "start": 695.98,
+      "duration": 5.76
+    },
+    {
+      "text": "c'est pareil que x égale y ou x égales -",
+      "start": 697.149,
+      "duration": 5.161
+    },
+    {
+      "text": "y",
+      "start": 701.74,
+      "duration": 2.01
+    },
+    {
+      "text": "alors oui parce que tout simplement",
+      "start": 702.31,
+      "duration": 4.17
+    },
+    {
+      "text": "valeur absolue de x valeur absolue de y",
+      "start": 703.75,
+      "duration": 5.579
+    },
+    {
+      "text": "vont nous renvoyer du jitsu du moins x",
+      "start": 706.48,
+      "duration": 5.219
+    },
+    {
+      "text": "dû y ou du moins y suivant le signe de",
+      "start": 709.329,
+      "duration": 3.841
+    },
+    {
+      "text": "l'un et l'autre ce qui veut dire qu'on",
+      "start": 711.699,
+      "duration": 4.32
+    },
+    {
+      "text": "pourra pas savoir si x égale y ou x",
+      "start": 713.17,
+      "duration": 5.19
+    },
+    {
+      "text": "égale l'opposé de y c'est pour ça qu'on",
+      "start": 716.019,
+      "duration": 4.76
+    },
+    {
+      "text": "est obligé d'avoir les deux situations",
+      "start": 718.36,
+      "duration": 5.909
+    },
+    {
+      "text": "ensuite la valeur absolue 2 x y et bien",
+      "start": 720.779,
+      "duration": 5.321
+    },
+    {
+      "text": "on peut couper c'est égal à valeur",
+      "start": 724.269,
+      "duration": 3.781
+    },
+    {
+      "text": "absolue de x fois la valeur absolue du y",
+      "start": 726.1,
+      "duration": 4.14
+    },
+    {
+      "text": "est il en est de même pour le quotient à",
+      "start": 728.05,
+      "duration": 3.93
+    },
+    {
+      "text": "condition d'avoir un y non nul bien",
+      "start": 730.24,
+      "duration": 4.2
+    },
+    {
+      "text": "évidemment la valeur absolue du quotient",
+      "start": 731.98,
+      "duration": 3.51
+    },
+    {
+      "text": "x ou y",
+      "start": 734.44,
+      "duration": 3.87
+    },
+    {
+      "text": "ces valeurs absolues de x / valeur",
+      "start": 735.49,
+      "duration": 5.94
+    },
+    {
+      "text": "absolue y alors poursuivre maintenant",
+      "start": 738.31,
+      "duration": 5.88
+    },
+    {
+      "text": "pour parler de distance et valeur",
+      "start": 741.43,
+      "duration": 5.76
+    },
+    {
+      "text": "absolue on a une propriété qui nous dit",
+      "start": 744.19,
+      "duration": 5.459
+    },
+    {
+      "text": "que des comprend de nombreux réel à épée",
+      "start": 747.19,
+      "duration": 5.73
+    },
+    {
+      "text": "et que l'on considère sur la droite",
+      "start": 749.649,
+      "duration": 6.721
+    },
+    {
+      "text": "graduée les points a et b d'abc ce petit",
+      "start": 752.92,
+      "duration": 6.69
+    },
+    {
+      "text": "à petit b et bien la distance entre ces",
+      "start": 756.37,
+      "duration": 6.51
+    },
+    {
+      "text": "deux points entre a et b c'est la valeur",
+      "start": 759.61,
+      "duration": 5.16
+    },
+    {
+      "text": "absolue de la différence de à - b",
+      "start": 762.88,
+      "duration": 4.5
+    },
+    {
+      "text": "pourquoi ça alors là encore prenons un",
+      "start": 764.77,
+      "duration": 3.54
+    },
+    {
+      "text": "exemple on va",
+      "start": 767.38,
+      "duration": 2.85
+    },
+    {
+      "text": "placez un point à qui a pour abscisse",
+      "start": 768.31,
+      "duration": 4.88
+    },
+    {
+      "text": "1,5",
+      "start": 770.23,
+      "duration": 2.96
+    },
+    {
+      "text": "et un point b qui lui importe 6 4 alors",
+      "start": 774.56,
+      "duration": 9.69
+    },
+    {
+      "text": "on voudrait la distance entre a et b",
+      "start": 780.86,
+      "duration": 5.669
+    },
+    {
+      "text": "c'est à dire on voudrait en fait la",
+      "start": 784.25,
+      "duration": 6.72
+    },
+    {
+      "text": "longueur ab bon sortons du chapitre des",
+      "start": 786.529,
+      "duration": 5.191
+    },
+    {
+      "text": "valeurs absolues",
+      "start": 790.97,
+      "duration": 2.309
+    },
+    {
+      "text": "sans réfléchir comme ça comment on",
+      "start": 791.72,
+      "duration": 3.99
+    },
+    {
+      "text": "ferait on voit que b il est encarté que",
+      "start": 793.279,
+      "duration": 3.991
+    },
+    {
+      "text": "à il y en a cinq",
+      "start": 795.71,
+      "duration": 3.75
+    },
+    {
+      "text": "bon bah si je veux la distance qu'il y a",
+      "start": 797.27,
+      "duration": 5.46
+    },
+    {
+      "text": "entre a et b je ferai tout simplement 4",
+      "start": 799.46,
+      "duration": 6.09
+    },
+    {
+      "text": "- 1 5 c'est bien ça c'est à dire de",
+      "start": 802.73,
+      "duration": 7.68
+    },
+    {
+      "text": "grisou 5 c'est à dire je ferai le point",
+      "start": 805.55,
+      "duration": 7.44
+    },
+    {
+      "text": "de plus grandes apsys - le point le plus",
+      "start": 810.41,
+      "duration": 3.69
+    },
+    {
+      "text": "petit à petit c'est bien ce que j'ai",
+      "start": 812.99,
+      "duration": 3.51
+    },
+    {
+      "text": "fait j'ai pris 4 qui est le plus éloigné",
+      "start": 814.1,
+      "duration": 4.41
+    },
+    {
+      "text": "sur l'axé des abscisses j'ai fait moins",
+      "start": 816.5,
+      "duration": 2.88
+    },
+    {
+      "text": "1,5",
+      "start": 818.51,
+      "duration": 3.81
+    },
+    {
+      "text": "bon donc il faudrait l'écrire ça mais",
+      "start": 819.38,
+      "duration": 3.899
+    },
+    {
+      "text": "j'ai pas envie de l'écrire",
+      "start": 822.32,
+      "duration": 2.49
+    },
+    {
+      "text": "en fait je voudrais quelque chose d'un",
+      "start": 823.279,
+      "duration": 3.961
+    },
+    {
+      "text": "peu plus simple à écrire et ce truc un",
+      "start": 824.81,
+      "duration": 3.51
+    },
+    {
+      "text": "peu plus simple en fait c'est la",
+      "start": 827.24,
+      "duration": 4.41
+    },
+    {
+      "text": "notation avec la valeur absolue parce",
+      "start": 828.32,
+      "duration": 5.07
+    },
+    {
+      "text": "que en fin de compte j'ai envie de",
+      "start": 831.65,
+      "duration": 5.55
+    },
+    {
+      "text": "pouvoir écrire que six as et l'abc se",
+      "start": 833.39,
+      "duration": 6.15
+    },
+    {
+      "text": "petite taille la pulga a et que petit",
+      "start": 837.2,
+      "duration": 4.53
+    },
+    {
+      "text": "belabbes 6 2 b eh bien j'ai juste à",
+      "start": 839.54,
+      "duration": 4.23
+    },
+    {
+      "text": "faire à moins b ou b - à ce que je",
+      "start": 841.73,
+      "duration": 3.51
+    },
+    {
+      "text": "m'embête pas à savoir lequel est le plus",
+      "start": 843.77,
+      "duration": 3.03
+    },
+    {
+      "text": "grand des deux parce que si je le fais",
+      "start": 845.24,
+      "duration": 4.38
+    },
+    {
+      "text": "dans l'autre sens si j'écris que la",
+      "start": 846.8,
+      "duration": 4.95
+    },
+    {
+      "text": "longueur ab est égal à 1,5",
+      "start": 849.62,
+      "duration": 4.2
+    },
+    {
+      "text": "- 4 qu'est ce qui va se passer je vais",
+      "start": 851.75,
+      "duration": 3.48
+    },
+    {
+      "text": "trouver moins de 0,5",
+      "start": 853.82,
+      "duration": 3.39
+    },
+    {
+      "text": "c'est à dire juste sont opposés c'est",
+      "start": 855.23,
+      "duration": 3.39
+    },
+    {
+      "text": "quand même un petit peu embêtant quoi",
+      "start": 857.21,
+      "duration": 3.57
+    },
+    {
+      "text": "alors on a résolu le problème",
+      "start": 858.62,
+      "duration": 4.74
+    },
+    {
+      "text": "on dit oui ok tu fais la différence",
+      "start": 860.78,
+      "duration": 4.68
+    },
+    {
+      "text": "entre les deux abscisse donc l'abscisse",
+      "start": 863.36,
+      "duration": 4.14
+    },
+    {
+      "text": "de à eilat 6 2 b où la piste de v lab 6",
+      "start": 865.46,
+      "duration": 4.02
+    },
+    {
+      "text": "2 1 mais tu mets des valeurs absolues",
+      "start": 867.5,
+      "duration": 3.81
+    },
+    {
+      "text": "autour comme ça tu es tranquille parce",
+      "start": 869.48,
+      "duration": 3.09
+    },
+    {
+      "text": "que si on met des valeurs absolues",
+      "start": 871.31,
+      "duration": 3.36
+    },
+    {
+      "text": "autour qu'est ce qui se passe à ça donne",
+      "start": 872.57,
+      "duration": 4.92
+    },
+    {
+      "text": "ça qui donne valeur absolue de 2,5 qui",
+      "start": 874.67,
+      "duration": 3.75
+    },
+    {
+      "text": "donne de 25",
+      "start": 877.49,
+      "duration": 3.09
+    },
+    {
+      "text": "bon là ça change pas mais si on le fait",
+      "start": 878.42,
+      "duration": 3.84
+    },
+    {
+      "text": "dans le mauvais sens qui en fait est le",
+      "start": 880.58,
+      "duration": 4.62
+    },
+    {
+      "text": "bon sens je mets des valeurs absolues au",
+      "start": 882.26,
+      "duration": 4.68
+    },
+    {
+      "text": "tour donc là du coup j'ai des valeurs",
+      "start": 885.2,
+      "duration": 3.99
+    },
+    {
+      "text": "absolues aussi et la valeur absolue de",
+      "start": 886.94,
+      "duration": 3.54
+    },
+    {
+      "text": "moins de vingt-cinq bien c'est quoi",
+      "start": 889.19,
+      "duration": 3.6
+    },
+    {
+      "text": "passer de 25 tout court et là il ya plus",
+      "start": 890.48,
+      "duration": 4.46
+    },
+    {
+      "text": "de problème on se pose plus la question",
+      "start": 892.79,
+      "duration": 5.16
+    },
+    {
+      "text": "est ce que ces bébés qu'ils plus loin ou",
+      "start": 894.94,
+      "duration": 3.73
+    },
+    {
+      "text": "c1",
+      "start": 897.95,
+      "duration": 3.36
+    },
+    {
+      "text": "on prend tout simplement l'abscisse de",
+      "start": 898.67,
+      "duration": 4.47
+    },
+    {
+      "text": "l'ain - la prise de l'autre et on",
+      "start": 901.31,
+      "duration": 3.63
+    },
+    {
+      "text": "soustrait bien c'est ce que dit la",
+      "start": 903.14,
+      "duration": 3.359
+    },
+    {
+      "text": "définition en fin de compte",
+      "start": 904.94,
+      "duration": 2.729
+    },
+    {
+      "text": "ne dis pas que a est plus grand qu'eux",
+      "start": 906.499,
+      "duration": 3.54
+    },
+    {
+      "text": "mais elle dit simplement t'adorer elle a",
+      "start": 907.669,
+      "duration": 5.07
+    },
+    {
+      "text": "et b 1 point à qui a pour habitude petit",
+      "start": 910.039,
+      "duration": 4.92
+    },
+    {
+      "text": "à un point b kapoor abscisse petit b et",
+      "start": 912.739,
+      "duration": 4.65
+    },
+    {
+      "text": "quand tu fais la valeur absolue de à - b",
+      "start": 914.959,
+      "duration": 4.17
+    },
+    {
+      "text": "ou de b - à d'ailleurs ça plus",
+      "start": 917.389,
+      "duration": 3.6
+    },
+    {
+      "text": "d'importance eh bien tu trouves la",
+      "start": 919.129,
+      "duration": 4.8
+    },
+    {
+      "text": "longueur à d on voit donc là encore une",
+      "start": 920.989,
+      "duration": 4.71
+    },
+    {
+      "text": "fois tout l'intérêt de cette notation",
+      "start": 923.929,
+      "duration": 3.48
+    },
+    {
+      "text": "nouvelle enfin nouvelle si on peut dire",
+      "start": 925.699,
+      "duration": 4.26
+    },
+    {
+      "text": "sur les valeurs absolues et pour finir",
+      "start": 927.409,
+      "duration": 4.23
+    },
+    {
+      "text": "une propriété on va aller assez vite tu",
+      "start": 929.959,
+      "duration": 3.84
+    },
+    {
+      "text": "vas comprendre rapidement pourquoi une",
+      "start": 931.639,
+      "duration": 5.16
+    },
+    {
+      "text": "propriété qui nous dit que dès qu'on a",
+      "start": 933.799,
+      "duration": 7.05
+    },
+    {
+      "text": "un réel et bien dire que x est tel que",
+      "start": 936.799,
+      "duration": 6.96
+    },
+    {
+      "text": "valeur absolue de x - za est inférieur",
+      "start": 940.849,
+      "duration": 6.42
+    },
+    {
+      "text": "ou égal à r cela signifie que x se",
+      "start": 943.759,
+      "duration": 6.0
+    },
+    {
+      "text": "trouve dans un intervalle et cet",
+      "start": 947.269,
+      "duration": 6.6
+    },
+    {
+      "text": "intervalle c'est à - r 1 + r autrement",
+      "start": 949.759,
+      "duration": 7.32
+    },
+    {
+      "text": "dit on arrive à grâce à cette inégalité",
+      "start": 953.869,
+      "duration": 5.25
+    },
+    {
+      "text": "valeur à sucre 2 x - hazard plus petit",
+      "start": 957.079,
+      "duration": 5.46
+    },
+    {
+      "text": "qu air on arrive à situer x autour d'un",
+      "start": 959.119,
+      "duration": 5.04
+    },
+    {
+      "text": "intervalle et cet intervalle il se",
+      "start": 962.539,
+      "duration": 3.51
+    },
+    {
+      "text": "trouve qu'il est centrée en mai je vais",
+      "start": 964.159,
+      "duration": 3.6
+    },
+    {
+      "text": "pas en dire plus tout simplement parce",
+      "start": 966.049,
+      "duration": 3.54
+    },
+    {
+      "text": "que j'ai déjà fait une vidéo qui",
+      "start": 967.759,
+      "duration": 3.03
+    },
+    {
+      "text": "explique ceci en détail",
+      "start": 969.589,
+      "duration": 3.24
+    },
+    {
+      "text": "et là je risquerais simplement de me",
+      "start": 970.789,
+      "duration": 4.65
+    },
+    {
+      "text": "répéter alors je t'invite à regarder la",
+      "start": 972.829,
+      "duration": 4.65
+    },
+    {
+      "text": "suite en cliquant sur le lien en haut à",
+      "start": 975.439,
+      "duration": 4.44
+    },
+    {
+      "text": "droite de cette vidéo",
+      "start": 977.479,
+      "duration": 5.07
+    },
+    {
+      "text": "ou alors à regarder dans la description",
+      "start": 979.879,
+      "duration": 4.98
+    },
+    {
+      "text": "j'ai également mis le lien du coup et",
+      "start": 982.549,
+      "duration": 6.171
+    },
+    {
+      "text": "bien cette séquence est terminée",
+      "start": 984.859,
+      "duration": 3.861
+    }
+  ],
+  "source": "youtube_official_or_auto_caption"
+}

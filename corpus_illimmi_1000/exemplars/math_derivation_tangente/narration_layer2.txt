@@ -1,0 +1,32 @@
+Bonjour et bienvenue dans cette leçon fondamentale de Première Spécialité !
+Aujourd'hui, nous allons percer le secret du nombre dérivé et de la tangente à une courbe.
+
+Imagine que tu es en voiture. La vitesse moyenne sur tout un trajet est facile à calculer : c'est la distance totale divisée par le temps. Mais comment ton compteur de vitesse connaît-il ta vitesse exacte à la seconde près, en un instant précis ? En mathématiques, c'est exactement le rôle de la dérivation.
+
+Regarde ce repère cartésien qui s'affiche à l'écran. 
+Traçons la courbe représentative de notre fonction en bleu, et plaçons un point fixe A d'abscisse a et d'ordonnée f de a.
+Plaçons maintenant un second point M, un peu plus loin, d'abscisse a plus h.
+Traçons la droite sécante qui relie A et M en rouge. La pente de cette sécante est le taux de variation : f de a plus h moins f de a, le tout divisé par h.
+
+Maintenant, observe bien le mouvement magique. Faisons glisser le point M le long de la courbe en rapprochant h vers zéro. 
+L'écart h diminue, diminue encore, et la sécante pivote jusqu'à venir épouser parfaitement la courbe en un seul point de contact. 
+Cette droite finale, tracée en vert vif, c'est la tangente à la courbe au point A !
+Et la pente de cette tangente, c'est précisément le nombre dérivé, noté f prime de a. 
+C'est la limite du taux de variation quand h tend vers zéro.
+
+Appliquons cette idée sur un calcul concret avec la fonction carré. 
+Nous voulons calculer le nombre dérivé en x égale 2. 
+L'image de 2 plus h est égale à 2 plus h au carré, ce qui donne 4 plus 4h plus h au carré. 
+Soustrayons l'image de 2, qui vaut 4 : il nous reste 4h plus h au carré. 
+En divisant le tout par h, nous trouvons 4 plus h. 
+Quand h tend vers zéro, ce terme h disparaît, et il reste exactement 4 ! 
+Nous venons de prouver que f prime de 2 est égal à 4. 
+Cela signifie que sur la parabole au point d'abscisse 2, la tangente monte très vite avec une pente égale à 4.
+
+Attention à un piège très fréquent que l'on rencontre en contrôle ! 
+Ne confonds jamais f de a et f prime de a. 
+F de a te donne la hauteur, l'altitude du point sur l'axe vertical. 
+Alors que f prime de a te donne l'inclinaison, la pente de la trajectoire à cet instant précis.
+
+En résumé, retiens bien ce trio inséparable : le taux de variation nous donne la sécante, la limite quand h tend vers zéro nous donne le nombre dérivé, et graphiquement, cela correspond toujours au coefficient directeur de la droite tangente.
+Entraîne-toi à refaire ce calcul et à très vite sur ILLIMMI !

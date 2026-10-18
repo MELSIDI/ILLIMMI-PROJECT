@@ -1,0 +1,131 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "IllimmiCourseCatalogItem",
+  "description": "Schéma de validation pour une entrée du corpus de 1 000 cours Lycée pour ILLIMMI (Fine-Tuning Gemma).",
+  "type": "object",
+  "required": [
+    "id",
+    "subject",
+    "level",
+    "domain",
+    "title",
+    "pedagogical_type",
+    "creator",
+    "search_query",
+    "pedagogical_target",
+    "layer1_spec",
+    "layer2_spec",
+    "layer3_spec"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^(MATH|PHYS|LANG_FR|LANG_EN)_[0-9]{3}$",
+      "description": "Identifiant unique normalisé du cours."
+    },
+    "subject": {
+      "type": "string",
+      "enum": ["Mathématiques", "Physique-Chimie", "Français", "Anglais"],
+      "description": "Discipline d'enseignement."
+    },
+    "level": {
+      "type": "string",
+      "description": "Niveau scolaire conforme au programme du lycée français."
+    },
+    "domain": {
+      "type": "string",
+      "description": "Sous-domaine ou module d'apprentissage du programme."
+    },
+    "title": {
+      "type": "string",
+      "minLength": 10,
+      "description": "Titre explicite et pédagogique de la ressource."
+    },
+    "pedagogical_type": {
+      "type": "string",
+      "enum": [
+        "cours_notion",
+        "methode_resolution",
+        "exemple_detaille",
+        "correction_exercice",
+        "probleme_complexe",
+        "synthese_revision"
+      ],
+      "description": "Typologie pédagogique du contenu pour guider le style d'enseignement."
+    },
+    "creator": {
+      "type": "string",
+      "description": "Créateur pédagogique de référence ou chaîne YouTube ciblée."
+    },
+    "search_query": {
+      "type": "string",
+      "description": "Requête de recherche textuelle pour récupération automatisée."
+    },
+    "pedagogical_target": {
+      "type": "string",
+      "minLength": 15,
+      "description": "Objectif pédagogique précis transmis au modèle Gemma."
+    },
+    "layer1_spec": {
+      "type": "object",
+      "required": ["duration_target", "concepts_cles", "ton", "plan_pedagogique"],
+      "properties": {
+        "duration_target": {
+          "type": "integer",
+          "minimum": 60,
+          "maximum": 300,
+          "description": "Durée cible en secondes pour la narration."
+        },
+        "concepts_cles": {
+          "type": "array",
+          "items": { "type": "string" },
+          "minItems": 2,
+          "description": "Concepts clés abordés."
+        },
+        "ton": {
+          "type": "string",
+          "description": "Tonalité d'enseignement."
+        },
+        "plan_pedagogique": {
+          "type": "array",
+          "minItems": 3,
+          "items": {
+            "type": "object",
+            "required": ["section", "role", "support_visuel_suggere"],
+            "properties": {
+              "section": { "type": "string" },
+              "role": { "type": "string" },
+              "support_visuel_suggere": { "type": "string" }
+            }
+          }
+        }
+      }
+    },
+    "layer2_spec": {
+      "type": "object",
+      "required": ["style_guidance", "spoken_math_rule", "visual_anchor_verbalization"],
+      "properties": {
+        "style_guidance": { "type": "string" },
+        "spoken_math_rule": { "type": "string" },
+        "visual_anchor_verbalization": {
+          "type": "string",
+          "description": "Phrase clé prononcée guidant l'œil et synchronisée avec le dessin."
+        }
+      }
+    },
+    "layer3_spec": {
+      "type": "object",
+      "required": ["hypercourse_primitives", "recommended_scene_count", "viewport", "pre_erase_validation"],
+      "properties": {
+        "hypercourse_primitives": {
+          "type": "array",
+          "items": { "type": "string" },
+          "minItems": 1
+        },
+        "recommended_scene_count": { "type": "integer", "minimum": 2 },
+        "viewport": { "type": "string" },
+        "pre_erase_validation": { "type": "boolean" }
+      }
+    }
+  }
+}

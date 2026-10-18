@@ -22,6 +22,9 @@ Router createCoursesRouter(JobStore jobStore) {
       return Response(400, body: jsonEncode({'error': 'Champ requis: prompt'}));
     }
 
+    final level = body['level'] as String?;
+    final language = body['language'] as String?;
+
     // Auth optionnelle : un token absent, invalide ou expiré ne bloque
     // jamais la génération — on retombe simplement en mode invité.
     String? userId;
@@ -37,7 +40,13 @@ Router createCoursesRouter(JobStore jobStore) {
       }
     }
 
-    final jobId = jobStore.startJob(prompt, userId: userId, authToken: token);
+    final jobId = jobStore.startJob(
+      prompt,
+      level: level,
+      language: language,
+      userId: userId,
+      authToken: token,
+    );
     return Response(
       202,
       body: jsonEncode({'jobId': jobId}),

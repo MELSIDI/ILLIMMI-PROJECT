@@ -231,8 +231,9 @@ class WordTimestamp {
   };
 }
 
-/// Sortie du Layer 2 (transcript + audio + timestamps).
+/// Sortie du Layer 1 (transcript + audio + timestamps).
 class TranscriptResult {
+  final String subject;
   final String transcript;
   final List<WordTimestamp> transcriptTimestamped;
   final double duration;
@@ -241,6 +242,7 @@ class TranscriptResult {
   final String? compactTimeline;
 
   TranscriptResult({
+    this.subject = 'Cours',
     required this.transcript,
     required this.transcriptTimestamped,
     required this.duration,
@@ -250,7 +252,10 @@ class TranscriptResult {
   });
 }
 
-/// Sortie du Layer 3 (idgap + visuels Hypercourse).
+/// Sortie du Layer 2 (idgap + visuels Hypercourse).
+typedef Layer2Result = Layer3Result;
+
+/// Sortie visuelle Hypercourse (Layer 2 dans la nouvelle architecture, Layer 3 en legacy).
 class Layer3Result {
   final int idGap;
   final String visualsText;

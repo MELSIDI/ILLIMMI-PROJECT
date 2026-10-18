@@ -97,8 +97,8 @@ class Layer3VisualVerifier {
           TextBlock('SCRIPT HYPERCOURSE COMPLET :\n$script'),
           TextBlock(
             'Capture de Scène pré-erase à t=${point.time.toStringAsFixed(2)}s :\n'
-            '- Éléments à vérifier / corriger (IDs): $mutableStr\n'
-            '- Éléments immutables déjà validés (à NE PAS déplacer) (IDs): $immutableStr',
+            '- Éléments mutables à vérifier / corriger (IDs: $mutableStr) : Tu as le droit de modifier SANS RESTRICTION tous leurs paramètres (position/coordonnées, durée for, épaisseur width, couleur/fillcolor, police/style/KaTeX, rayon) SAUF le timing start qui doit RESTER STRICTEMENT INTACT pour préserver la synchronisation vocale.\n'
+            '- Éléments immutables déjà validés des scènes antérieures (IDs: $immutableStr) : À NE PAS modifier pour préserver la continuité spatiale.',
           ),
           ImageBlock(image.bytes),
         ];

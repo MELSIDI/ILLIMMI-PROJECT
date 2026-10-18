@@ -1,0 +1,52 @@
+{
+  "subject": "Français",
+  "level": "Première Générale",
+  "duration_target": 135,
+  "concepts_cles": [
+    "explication linéaire du Bac",
+    "mouvements du texte",
+    "procédé stylistique",
+    "interprétation littéraire",
+    "Baudelaire Les Fleurs du Mal"
+  ],
+  "ton": "littéraire, sensible et méthodologique",
+  "langue": "français",
+  "plan_pedagogique": [
+    {
+      "section": "accroche",
+      "objectif": "Présenter l'enjeu de l'épreuve orale du Bac de français sur un poème de Baudelaire.",
+      "contenu_attendu": "Pourquoi Baudelaire compare-t-il le poète à un oiseau des mers capturé ? La dialectique du Spleen et de l'Idéal.",
+      "support_visuel_suggere": "text"
+    },
+    {
+      "section": "prerequis",
+      "objectif": "Rappeler le déroulé officiel des 12 minutes de l'épreuve orale de Première.",
+      "contenu_attendu": "1. Introduction et lecture expressive, 2. Découpage en mouvements, 3. Analyse linéaire continue, 4. Conclusion.",
+      "support_visuel_suggere": "draw polygone"
+    },
+    {
+      "section": "decomposition",
+      "objectif": "Découper le poème en trois mouvements structurants.",
+      "contenu_attendu": "Mouvement 1 : La capture de l'oiseau roi. Mouvement 2 : La déchéance ridicule au sol. Mouvement 3 : L'allégorie explicite du poète exilé.",
+      "support_visuel_suggere": "draw line"
+    },
+    {
+      "section": "exemple_concret",
+      "objectif": "Appliquer la formule d'or de l'analyse linéaire : Procédé + Citation + Effet de sens.",
+      "contenu_attendu": "Analyse de l'antithèse 'rois de l'azur' vs 'maladroits et honteux', et de la métaphore des 'grandes ailes blanches comme des avirons'.",
+      "support_visuel_suggere": "draw arrow"
+    },
+    {
+      "section": "erreur_frequente",
+      "objectif": "Éviter la paraphrase plate qui ne fait que raconter le texte sans nommer les figures de style.",
+      "contenu_attendu": "Le correcteur pénalise lourdement le candidat qui dit 'Baudelaire dit que...' sans analyser la syntaxe ni le lexique.",
+      "support_visuel_suggere": "draw polygone"
+    },
+    {
+      "section": "synthese",
+      "objectif": "Récapituler les réflexes clés pour obtenir la note maximale à l'oral.",
+      "contenu_attendu": "Fiche de synthèse orale : clarté des transitions, citations précises entre guillemets, et réponse rigoureuse à la question de grammaire.",
+      "support_visuel_suggere": "text"
+    }
+  ]
+}

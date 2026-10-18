@@ -39,13 +39,12 @@ graph TD
   - Joue la boucle d'animation (`CoursePlayer`) à 60 FPS en calculant à chaque frame les éléments vivants (`queryAll(currentTime)`).
 
 ### 2.2 Orchestrateur de génération — `services/generation-orchestrator`
-- **Rôle** : Cerveau du système. Orchestre les 3 Layers du pipeline IA et la boucle d'auto-correction visuelle.
+- **Rôle** : Cerveau du système. Orchestre les 2 Layers du pipeline IA (Audio/Voix → Visuels/Tableau) et la boucle d'auto-correction visuelle.
 - **Port** : `8080` (Dart HTTP avec `shelf`).
 - **Composants internes** :
-  - `Layer1Planner` : Analyse le prompt utilisateur et produit le plan pédagogique.
-  - `Layer2AudioGenerator` : Génère le transcript et sollicite `audio-service`.
-  - `Layer3VisualGenerator` : Génère le script Hypercourse `.hc`.
-  - `Layer3VisualVerifier` : Effectue la vérification visuelle multimodale (Gemini).
+  - `Layer1AudioGenerator` : Rédige la narration orale libre et sollicite `audio-service` (Piper TTS + Whisper).
+  - `Layer2VisualGenerator` : Génère le script d'animation Hypercourse `.hc` synchronisé sur la timeline compacte mot-à-mot.
+  - `Layer2VisualVerifier` : Effectue la vérification visuelle multimodale sur capture d'ardoise.
   - `JobStore` : Gestionnaire de tâches asynchrones en mémoire.
 
 ### 2.3 Service Audio & TTS — `services/audio-service`
@@ -83,25 +82,19 @@ sequenceDiagram
     participant Render as board-render-service (:5001)
 
     User->>App: Entre un prompt ("Explique-moi les dérivées")
-    App->>Orch: POST /courses/generate { prompt }
-    Orch-->>App: { jobId: "job_1", status: "planning" }
-    
-    rect rgb(240, 248, 255)
-        Note over Orch,Gemini: Layer 1 - Planification
-        Orch->>Gemini: plan(userPrompt)
-        Gemini-->>Orch: CourseMetadata (Sujet, Niveau, Concepts, Langue)
-    end
+    App->>Orch: POST /courses/generate { prompt, level? }
+    Orch-->>App: { jobId: "job_1", status: "narrating" }
 
     rect rgb(255, 245, 238)
-        Note over Orch,Audio: Layer 2 - Audio & Timestamps
-        Orch->>Gemini: generateTranscript(metadata)
-        Gemini-->>Orch: Transcript textuel
+        Note over Orch,Audio: Layer 1 - Voix & Audio (Piper + Whisper)
+        Orch->>Gemini: generateTranscript(prompt, level?)
+        Gemini-->>Orch: Narration orale fluide (phonétique mathématique)
         Orch->>Audio: POST /narrate { text, dirName, fileName }
         Audio-->>Orch: { audioUrl, duration, compactTimeline, wordTimestamps }
     end
 
     rect rgb(240, 255, 240)
-        Note over Orch,Render: Layer 3 - Génération & Auto-Correction Visuelle
+        Note over Orch,Render: Layer 2 - Tableau Blanc Hypercourse & Vérification Visuelle
         loop Max 3 tentatives
             Orch->>Gemini: generateVisuals(compactTimeline mot-à-mot)
             Gemini-->>Orch: Script Hypercourse (.hc)

@@ -1,0 +1,52 @@
+{
+  "subject": "Physique-Chimie",
+  "level": "Terminale Spécialité",
+  "duration_target": 125,
+  "concepts_cles": [
+    "titrage pH-métrique",
+    "équivalence chimique",
+    "méthode des tangentes parallèles",
+    "volume équivalent VE",
+    "réaction support de titrage"
+  ],
+  "ton": "pratique, rigoureux et didactique",
+  "langue": "français",
+  "plan_pedagogique": [
+    {
+      "section": "accroche",
+      "objectif": "Comprendre l'objectif d'un titrage : doser avec précision la concentration d'une espèce inconnue.",
+      "contenu_attendu": "Analogie avec le contrôle qualité en industrie pharmaceutique ou agroalimentaire pour vérifier la conformité d'une solution.",
+      "support_visuel_suggere": "draw polygone"
+    },
+    {
+      "section": "prerequis",
+      "objectif": "Rappeler le dispositif expérimental et les caractéristiques de la réaction de titrage.",
+      "contenu_attendu": "Burette graduée (titrant de concentration connue), bécher (titré), pH-mètre. Réaction totale, rapide et univoque.",
+      "support_visuel_suggere": "draw line"
+    },
+    {
+      "section": "definition_formelle",
+      "objectif": "Définir l'équivalence stœchiométrique nA / a = nB / b.",
+      "contenu_attendu": "À l'équivalence, les réactifs ont été introduits dans les proportions stœchiométriques et sont totalement consommés.",
+      "support_visuel_suggere": "text"
+    },
+    {
+      "section": "decomposition",
+      "objectif": "Construire pas à pas la méthode des tangentes parallèles pour trouver (VE, pHE).",
+      "contenu_attendu": "Tracé de deux tangentes parallèles avant et après le saut de pH, puis de la droite médiane équidistante.",
+      "support_visuel_suggere": "draw 2drep"
+    },
+    {
+      "section": "erreur_frequente",
+      "objectif": "Mettre en garde sur la confusion entre volume équivalent VE et volume initial prélevé V0.",
+      "contenu_attendu": "Ne pas confondre le volume V_titré prélevé avec la fiole jaugée et le volume VE lu sur la burette graduée.",
+      "support_visuel_suggere": "draw arrow"
+    },
+    {
+      "section": "synthese",
+      "objectif": "Récapituler la formule de calcul de concentration finale cA = (cB * VE) / VA.",
+      "contenu_attendu": "Fiche de synthèse : tracé géométrique + relation à l'équivalence + calcul d'incertitude.",
+      "support_visuel_suggere": "text"
+    }
+  ]
+}

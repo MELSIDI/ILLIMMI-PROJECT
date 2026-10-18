@@ -6,11 +6,13 @@ import 'models.dart';
 String assembleCourseScript({
   required int courseId,
   required int idGap,
-  required CourseMetadata metadata,
+  String? subject,
+  CourseMetadata? metadata,
   required TranscriptResult transcript,
   required String visualsText,
 }) {
-  final safeSubject = metadata.subject.replaceAll('"', "'");
+  final rawSubject = subject ?? metadata?.subject ?? transcript.subject;
+  final safeSubject = rawSubject.replaceAll('"', "'");
   final duration = transcript.duration.toStringAsFixed(1);
 
   return '''

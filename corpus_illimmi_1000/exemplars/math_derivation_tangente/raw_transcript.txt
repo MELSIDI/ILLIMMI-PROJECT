@@ -1,0 +1,17 @@
+[Source vidéo originale : Yvan Monka - M@ths et Tiques : "Nombre dérivé et tangente à une courbe (Première)"]
+
+Bonjour, dans cette vidéo nous allons aborder une notion centrale du programme de Première Spécialité : le nombre dérivé et l'équation de la tangente. 
+
+Très souvent, les élèves apprennent par cœur la formule de la dérivée sans visualiser géométriquement ce qu'elle représente. Si vous prenez deux points A et M sur la courbe d'une fonction f, la droite qui passe par ces deux points s'appelle une sécante. Sa pente, ou coefficient directeur, est le taux d'accroissement : f(a+h) - f(a) divisé par h.
+
+Que se passe-t-il si vous faites tendre h vers zéro ? Le point M va se rapprocher indéfiniment du point A en suivant la courbe. À la limite, les deux points se superposent presque, et la droite sécante pivote jusqu'à une position d'équilibre : c'est la droite tangente à la courbe en A. Le nombre dérivé f'(a) est exactement le coefficient directeur de cette droite tangente !
+
+Faisons un exemple classique ensemble : prenons f(x) = x^2 et calculons f'(2). 
+On pose f(2+h) = (2+h)^2 = 4 + 4h + h^2. 
+En soustrayant f(2) = 4, il reste 4h + h^2. 
+On divise par h : (4h + h^2)/h = 4 + h.
+Quand h tend vers zéro, 4 + h tend vers 4. Donc f'(2) = 4 !
+La tangente à la parabole au point d'abscisse 2 a donc un coefficient directeur de 4.
+
+Attention à l'erreur classique : ne confondez jamais f(a), qui est l'image du point sur l'axe des ordonnées, et f'(a), qui est la pente de la tangente. 
+Voilà, revoyez bien cette vidéo et entraînez-vous sur les exercices de la fiche d'exercices !

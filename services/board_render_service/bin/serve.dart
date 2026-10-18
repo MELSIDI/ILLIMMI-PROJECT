@@ -31,7 +31,7 @@ Future<Response> _render(Request request) async {
 
     final result = await Process.run(
       'flutter',
-      ['test', 'integration_test/board_render_harness_test.dart'],
+      ['test', 'test/board_render_harness_test.dart'],
       workingDirectory: _illimmiAppDir,
       environment: {
         'BOARD_RENDER_REQUEST_FILE': requestFile.path,
