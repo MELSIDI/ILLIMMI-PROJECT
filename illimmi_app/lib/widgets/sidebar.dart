@@ -62,7 +62,7 @@ class _SidebarState extends State<Sidebar> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  _buildLogoButton(context),
+                  _buildTopNavigationGroup(context),
                   Expanded(
                     child: _menuOpen ? _buildMenuCard(context) : const SizedBox.shrink(),
                   ),
@@ -75,15 +75,91 @@ class _SidebarState extends State<Sidebar> {
     );
   }
 
-  /// Bouton Logo "ILLIMMI" style pilule ardoise avec icône de craie
-  Widget _buildLogoButton(BuildContext context) {
+  /// Groupe de navigation supérieur :
+  /// - En mode cours actif : Bouton [← Retour] et Bouton [ILLIMMI ⌄] disposés élégamment côte à côte
+  /// - En mode accueil : Bouton [ILLIMMI ⌄] seul
+  Widget _buildTopNavigationGroup(BuildContext context) {
     return ValueListenableBuilder<bool>(
       valueListenable: widget.courseActive,
-      builder: (context, active, child) => AnimatedOpacity(
-        duration: const Duration(milliseconds: 200),
-        opacity: active ? 0.8 : 1.0,
-        child: child,
+      builder: (context, active, _) {
+        return AnimatedOpacity(
+          duration: const Duration(milliseconds: 200),
+          opacity: active ? 0.9 : 1.0,
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              if (active) ...[
+                _buildBackButton(context),
+                const SizedBox(width: 8),
+              ],
+              _buildLogoButton(context),
+            ],
+          ),
+        );
+      },
+    );
+  }
+
+  /// Bouton [← Retour] style ardoise/craie pour quitter le cours sans superposition
+  Widget _buildBackButton(BuildContext context) {
+    return Tooltip(
+      message: 'Quitter le cours et retourner à l\'accueil',
+      child: Material(
+        color: Colors.transparent,
+        borderRadius: BorderRadius.circular(24),
+        child: InkWell(
+          borderRadius: BorderRadius.circular(24),
+          onTap: () {
+            _closeMenu();
+            widget.onNewCourse();
+          },
+          child: Container(
+            padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
+            decoration: BoxDecoration(
+              color: Colors.black.withValues(alpha: 0.35),
+              borderRadius: BorderRadius.circular(24),
+              border: Border.all(
+                color: Colors.white.withValues(alpha: 0.38),
+                width: 1.2,
+              ),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withValues(alpha: 0.3),
+                  blurRadius: 10,
+                  offset: const Offset(0, 4),
+                ),
+              ],
+            ),
+            child: const Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Icon(
+                  Icons.arrow_back_rounded,
+                  color: AppTheme.chalkWhite,
+                  size: 18,
+                ),
+                SizedBox(width: 6),
+                Text(
+                  'Retour',
+                  style: TextStyle(
+                    color: AppTheme.chalkWhite,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 14,
+                    letterSpacing: 0.3,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
       ),
+    );
+  }
+
+  /// Bouton Logo "ILLIMMI" style pilule ardoise avec icône de craie et menu déroulant
+  Widget _buildLogoButton(BuildContext context) {
+    return Tooltip(
+      message: 'Historique des cours et menu',
       child: Material(
         color: Colors.transparent,
         borderRadius: BorderRadius.circular(24),

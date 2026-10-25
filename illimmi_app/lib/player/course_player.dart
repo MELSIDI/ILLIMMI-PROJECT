@@ -493,120 +493,126 @@ class CoursePlayerState extends State<CoursePlayer>
         ? widget.course.name
         : 'Cours interactif ILLIMMI';
 
-    return Container(
-      height: 56,
-      padding: const EdgeInsets.symmetric(horizontal: 16),
-      decoration: BoxDecoration(
-        gradient: LinearGradient(
-          begin: Alignment.topCenter,
-          end: Alignment.bottomCenter,
-          colors: [
-            Colors.black.withValues(alpha: 0.7),
-            Colors.transparent,
-          ],
-        ),
-      ),
-      child: Row(
-        children: [
-          IconButton(
-            icon: const Icon(Icons.arrow_back_rounded, color: Color(0xFFF2F6F3)),
-            onPressed: widget.onBack,
-            tooltip: 'Retour',
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        // Espace réservé à gauche pour les boutons [← Retour] et [ILLIMMI ⌄] de la Sidebar
+        final isCompact = constraints.maxWidth < 900;
+        final leftReservedWidth = isCompact ? 220.0 : 255.0;
+        final rightBalanceWidth = isCompact ? 70.0 : 105.0;
+
+        return Container(
+          height: 56,
+          padding: const EdgeInsets.symmetric(horizontal: 16),
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+              colors: [
+                Colors.black.withValues(alpha: 0.7),
+                Colors.transparent,
+              ],
+            ),
           ),
-          const SizedBox(width: 16),
-          Expanded(
-            child: Text(
-              title,
-              textAlign: TextAlign.center,
-              maxLines: 1,
-              overflow: TextOverflow.ellipsis,
-              style: const TextStyle(
-                color: Color(0xFFF2F6F3),
-                fontSize: 18,
-                fontWeight: FontWeight.w600,
-                letterSpacing: 0.3,
-                shadows: [
-                  Shadow(
-                    color: Colors.black54,
-                    blurRadius: 6,
+          child: Row(
+            children: [
+              // Espace réservé pour éviter toute superposition avec la navigation Sidebar
+              SizedBox(width: leftReservedWidth),
+              Expanded(
+                child: Text(
+                  title,
+                  textAlign: TextAlign.center,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: const TextStyle(
+                    color: Color(0xFFF2F6F3),
+                    fontSize: 18,
+                    fontWeight: FontWeight.w600,
+                    letterSpacing: 0.3,
+                    shadows: [
+                      Shadow(
+                        color: Colors.black54,
+                        blurRadius: 6,
+                      ),
+                    ],
                   ),
-                ],
+                ),
               ),
-            ),
-          ),
-          const SizedBox(width: 16),
-          IconButton(
-            icon: const Icon(Icons.restart_alt_rounded, color: Color(0xFFF2F6F3)),
-            tooltip: 'Recommencer le cours',
-            onPressed: () {
-              setState(() {
-                _isCompleted = false;
-                _audioPosition = Duration.zero;
-              });
-              _seekTo(0);
-              if (!_isPlaying) _togglePlayPause();
-            },
-          ),
-          IconButton(
-            icon: const Icon(Icons.copy_rounded, color: Color(0xFFF2F6F3), size: 19),
-            tooltip: 'Copier le titre du cours',
-            onPressed: () {
-              Clipboard.setData(ClipboardData(text: title));
-              ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(
-                  content: Text('Titre du cours copié !'),
-                  duration: Duration(seconds: 2),
+              IconButton(
+                icon: const Icon(Icons.restart_alt_rounded, color: Color(0xFFF2F6F3)),
+                tooltip: 'Recommencer le cours',
+                onPressed: () {
+                  setState(() {
+                    _isCompleted = false;
+                    _audioPosition = Duration.zero;
+                  });
+                  _seekTo(0);
+                  if (!_isPlaying) _togglePlayPause();
+                },
+              ),
+              IconButton(
+                icon: const Icon(Icons.copy_rounded, color: Color(0xFFF2F6F3), size: 19),
+                tooltip: 'Copier le titre du cours',
+                onPressed: () {
+                  Clipboard.setData(ClipboardData(text: title));
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(
+                      content: Text('Titre du cours copié !'),
+                      duration: Duration(seconds: 2),
+                    ),
+                  );
+                },
+              ),
+              const SizedBox(width: 8),
+              PopupMenuButton<BoardTheme>(
+                icon: const Icon(Icons.palette_outlined, color: Color(0xFFF2F6F3)),
+                tooltip: 'Thème du tableau',
+                color: const Color(0xFF1B382B),
+                elevation: 8,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(16),
+                  side: const BorderSide(color: Color(0x33FFFFFF)),
                 ),
-              );
-            },
-          ),
-          const SizedBox(width: 8),
-          PopupMenuButton<BoardTheme>(
-            icon: const Icon(Icons.palette_outlined, color: Color(0xFFF2F6F3)),
-            tooltip: 'Thème du tableau',
-            color: const Color(0xFF1B382B),
-            elevation: 8,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(16),
-              side: const BorderSide(color: Color(0x33FFFFFF)),
-            ),
-            initialValue: _boardTheme,
-            onSelected: (theme) {
-              setState(() => _boardTheme = theme);
-            },
-            itemBuilder: (context) => BoardTheme.all.map((t) {
-              final isSelected = _boardTheme.type == t.type;
-              return PopupMenuItem<BoardTheme>(
-                value: t,
-                child: Row(
-                  children: [
-                    Container(
-                      width: 18,
-                      height: 18,
-                      decoration: BoxDecoration(
-                        color: t.backgroundColor,
-                        shape: BoxShape.circle,
-                        border: Border.all(
-                          color: isSelected ? AppTheme.chalkBlue : Colors.white60,
-                          width: isSelected ? 2.0 : 1.2,
+                initialValue: _boardTheme,
+                onSelected: (theme) {
+                  setState(() => _boardTheme = theme);
+                },
+                itemBuilder: (context) => BoardTheme.all.map((t) {
+                  final isSelected = _boardTheme.type == t.type;
+                  return PopupMenuItem<BoardTheme>(
+                    value: t,
+                    child: Row(
+                      children: [
+                        Container(
+                          width: 18,
+                          height: 18,
+                          decoration: BoxDecoration(
+                            color: t.backgroundColor,
+                            shape: BoxShape.circle,
+                            border: Border.all(
+                              color: isSelected ? AppTheme.chalkBlue : Colors.white60,
+                              width: isSelected ? 2.0 : 1.2,
+                            ),
+                          ),
                         ),
-                      ),
+                        const SizedBox(width: 12),
+                        Text(
+                          t.label,
+                          style: TextStyle(
+                            color: isSelected ? AppTheme.chalkBlue : const Color(0xFFF2F6F3),
+                            fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
+                          ),
+                        ),
+                      ],
                     ),
-                    const SizedBox(width: 12),
-                    Text(
-                      t.label,
-                      style: TextStyle(
-                        color: isSelected ? AppTheme.chalkBlue : const Color(0xFFF2F6F3),
-                        fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
-                      ),
-                    ),
-                  ],
-                ),
-              );
-            }).toList(),
+                  );
+                }).toList(),
+              ),
+              // Équilibrage visuel pour que le titre reste centré sur l'écran
+              SizedBox(width: rightBalanceWidth),
+            ],
           ),
-        ],
-      ),
+        );
+      },
     );
   }
 
