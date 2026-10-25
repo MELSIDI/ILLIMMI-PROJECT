@@ -32,14 +32,14 @@ class JobStore {
 
   static LlmClient _resolveDefaultClient() {
     final provider = Platform.environment['LLM_PROVIDER']?.toLowerCase();
-    final hasOpenRouter = (Platform.environment['OPENROUTER_API_KEY'] ?? '').isNotEmpty;
 
-    if (provider == 'openrouter' || (hasOpenRouter && provider != 'gemini' && provider != 'gcp')) {
+    if (provider == 'openrouter') {
       return OpenRouterClient();
     }
 
-    final hasGcp = Platform.environment.containsKey('GCP_PROJECT_ID') ||
-        Platform.environment.containsKey('BIGQUERY_PROJECT_ID');
+    final hasGcp = (Platform.environment.containsKey('GCP_PROJECT_ID') ||
+            Platform.environment.containsKey('BIGQUERY_PROJECT_ID')) &&
+        provider != 'gemini';
     return hasGcp ? GcpVertexGeminiClient() : GeminiClient();
   }
 

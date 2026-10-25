@@ -1,0 +1,55 @@
+Imaginez que vous êtes au volant d'une voiture sur l'autoroute. Vous jetez un coup d'œil à votre tableau de bord, et l'aiguille indique exactement cent kilomètres par heure. Mais qu'est-ce que cela signifie vraiment, à cet instant précis ? 
+
+Une vitesse, c'est une distance divisée par un temps. Pourtant, à un instant donné, le temps ne s'écoule pas, et la voiture ne parcourt aucune distance. Comment peut-on alors mesurer une vitesse en un instant figé, où rien ne bouge ? C'est précisément pour résoudre ce paradoxe qu'au dix-septième siècle, deux géants des sciences, Isaac Newton et Gottfried Wilhelm Leibniz, ont inventé l'un des outils les plus puissants de toute l'histoire des mathématiques : le calcul différentiel, et plus particulièrement la notion de dérivée.
+
+Pour comprendre ce mystère, venons-en au tableau et donnons-lui une forme visuelle.
+
+Traçons un grand repère avec un axe horizontal pour le temps et un axe vertical pour la distance parcourue. Dessinons maintenant une courbe fluide qui monte de gauche à droite. Cette courbe représente la trajectoire de notre voiture, et nous allons l'appeler f de t. 
+
+Si la courbe était une simple ligne droite, tout serait facile : la vitesse serait constante, et la pente de la droite nous donnerait directement cette vitesse. Mais ici, la voiture accélère, ralentit, la courbe s'incurve. Sa pente change à chaque instant.
+
+Plaçons un premier point sur cette courbe, que nous appelons le point A, correspondant à un instant précis noté petit a. Sur l'axe vertical, son altitude est f de a. 
+
+Maintenant, laissons passer un tout petit instant, une durée que nous notons h. Nous arrivons à un nouvel instant, a plus h. Plaçons sur la courbe le point B correspondant à cet instant. Son altitude est f de a plus h.
+
+Relions maintenant ces deux points par une ligne droite. Traçons cette droite qui traverse la courbe : c'est ce qu'on appelle une sécante. 
+
+Quelle est la pente de cette droite ? C'est très simple, c'est la variation verticale divisée par la variation horizontale. Autrement dit, la distance parcourue entre ces deux moments, divisée par le temps écoulé. Notons cette formule au tableau : f de a plus h, moins f de a, le tout divisé par h. C'est ce qu'on appelle le taux de variation. Physiquement, ce n'est rien d'autre que la vitesse moyenne de la voiture entre l'instant a et l'instant a plus h.
+
+Mais nous, nous ne voulons pas une vitesse moyenne sur tout un trajet. Nous voulons la vitesse exacte, instantanée, au point A. 
+
+C'est là qu'opère la magie du calcul différentiel. Regardez bien ce qui se passe si nous faisons rétrécir cet intervalle de temps h. Rapprochons h de zéro. 
+
+Sur notre graphique, le point B commence à glisser le long de la courbe et se rapproche de plus en plus du point A. La droite sécante pivote lentement. Plus h devient minuscule, plus le point B se fond dans le point A. Et à l'extrême limite, lorsque h devient infiniment petit, notre droite ne coupe plus la courbe en deux points distincts : elle vient délicatement l'effleurer en un point unique, le point A. Cette droite s'appelle la tangente à la courbe en ce point.
+
+La pente de cette tangente, c'est la dérivée de notre fonction au point a. On la note f prime de a. 
+
+Écrivons la formule maîtresse au tableau : f prime de a égale la limite, quand h tend vers zéro, de f de a plus h moins f de a, divisé par h. 
+
+Cette formule est le cœur battant du calcul différentiel. Elle transforme une division impossible, zéro divisé par zéro, en un taux de variation instantané parfaitement défini.
+
+Faisons un exemple concret pour voir comment cela fonctionne algébriquement. 
+
+Prenons la fonction la plus simple qui s'incurve : f de x égale x au carré. Traçons cette parabole au tableau. Cherchons la pente de sa tangente en n'importe quel point x.
+
+Appliquons notre formule. Nous devons calculer f de x plus h, moins f de x, divisé par h. 
+Remplaçons avec notre fonction : cela donne x plus h au carré, moins x au carré, le tout sur h.
+Développons l'expression au numérateur : x plus h au carré devient x au carré, plus deux fois x fois h, plus h au carré.
+Soustrayons maintenant x au carré : les deux termes x au carré s'annulent ! Il nous reste au numérateur : deux fois x fois h, plus h au carré.
+Divisons maintenant chaque terme par h. Deux fois x fois h divisé par h donne deux x. Et h au carré divisé par h donne simplement h. Notre fraction est devenue : deux x plus h.
+
+Et maintenant, faisons ce passage à la limite : faisons tendre h vers zéro. Le terme h disparaît tout simplement, et que reste-t-il ? Deux x. 
+
+Écrivons le résultat : la dérivée de x au carré est égale à deux x. 
+
+Regardez comme c'est élégant : au point d'abscisse trois, par exemple, la pente de la tangente vaut deux fois trois, c'est-à-dire six. Au point zéro, tout en bas de la parabole, la dérivée vaut deux fois zéro, donc zéro. La tangente est parfaitement horizontale !
+
+Et c'est précisément cela qui rend la dérivée si révolutionnaire dans toutes les sciences. 
+
+Quand la dérivée d'une fonction est positive, la tangente monte, ce qui signifie que la grandeur étudiée est en train d'augmenter. 
+Quand la dérivée est négative, la pente descend, la grandeur diminue. 
+Et quand la dérivée s'annule, quand la pente devient plate et égale à zéro, nous venons de trouver un sommet ou un creux, c'est-à-dire un maximum ou un minimum. 
+
+Que vous vouliez calculer la trajectoire d'une fusée, maximiser le profit d'une entreprise, déterminer le point culminant d'une vague ou modéliser la propagation d'une épidémie, le calcul différentiel vous permet de regarder le monde non pas comme une succession d'images statiques, mais comme une dynamique continue en plein mouvement. 
+
+La dérivée, c'est tout simplement la loupe mathématique qui révèle la vitesse et la direction du changement à chaque instant précis.

@@ -1,13 +1,13 @@
-import 'dart:math' as math;
-
 import 'package:flutter/material.dart';
 import '../theme/app_theme.dart';
-import 'illimmi_logo.dart';
+import 'thinking_orb.dart';
 
-/// Animation de génération style Tableau Vert (Chalkboard) :
-/// Un orbe lumineux aux couleurs pastel de craie avec anneau tournant,
-/// pulsation fluide et statut d'avancement mis à jour avec élégance.
-class GenerationProgressView extends StatefulWidget {
+/// Vue de chargement et de progression de génération ILLIMMI
+/// utilisant le moteur 3D pointillé "Thinking Orb" (Jakub Antalik / MIT).
+///
+/// L'orbe adapte son état géométrique (Orbits, Wave, Ribbon, Rubik, Globe)
+/// dynamiquement selon l'étape courante de génération (Voix, Visuels, etc.).
+class GenerationProgressView extends StatelessWidget {
   final double progress;
   final String statusText;
   final VoidCallback? onCancel;
@@ -20,147 +20,111 @@ class GenerationProgressView extends StatefulWidget {
     this.onCancel,
   }) : statusText = statusText ?? message ?? 'Génération en cours...';
 
-  @override
-  State<GenerationProgressView> createState() => _GenerationProgressViewState();
-}
-
-class _GenerationProgressViewState extends State<GenerationProgressView>
-    with SingleTickerProviderStateMixin {
-  late final AnimationController _controller;
-
-  @override
-  void initState() {
-    super.initState();
-    _controller = AnimationController(
-      vsync: this,
-      duration: const Duration(seconds: 4),
-    )..repeat();
-  }
-
-  @override
-  void dispose() {
-    _controller.dispose();
-    super.dispose();
+  /// Déduit l'état d'animation 3D de l'orbe selon la sémantique de l'étape courante
+  ThinkingOrbState _resolveOrbState(String text) {
+    final lower = text.toLowerCase();
+    if (lower.contains('audio') ||
+        lower.contains('voix') ||
+        lower.contains('narration') ||
+        lower.contains('parole') ||
+        lower.contains('écoute')) {
+      // Waveform 3D ondulant à travers les anneaux
+      return ThinkingOrbState.listening;
+    }
+    if (lower.contains('visuel') ||
+        lower.contains('tableau') ||
+        lower.contains('scène') ||
+        lower.contains('dessin')) {
+      // Écharpe multi-bandes fluide et ondulante
+      return ThinkingOrbState.composing;
+    }
+    if (lower.contains('vérif') ||
+        lower.contains('correct') ||
+        lower.contains('world model') ||
+        lower.contains('résol')) {
+      // Bandes cubiques dynamiques qui se résolvent
+      return ThinkingOrbState.solving;
+    }
+    if (lower.contains('planif') ||
+        lower.contains('recherche') ||
+        lower.contains('prépar')) {
+      // Globe avec balayage méridien
+      return ThinkingOrbState.searching;
+    }
+    if (lower.contains('connect') ||
+        lower.contains('assembl') ||
+        lower.contains('orchestr')) {
+      // Constellation de nœuds et paquets
+      return ThinkingOrbState.connecting;
+    }
+    // Par défaut : particules rapides en révolution sur orbites inclinées
+    return ThinkingOrbState.working;
   }
 
   @override
   Widget build(BuildContext context) {
+    final orbState = _resolveOrbState(statusText);
+
     return Center(
       child: ConstrainedBox(
-        constraints: const BoxConstraints(maxWidth: 500),
+        constraints: const BoxConstraints(maxWidth: 520),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            // Orbe lumineux central en craie
+            // Orbe 3D principal Thinking Orb (Taille d'avatar / Hero : 140px)
             SizedBox(
-              width: 140,
-              height: 140,
-              child: AnimatedBuilder(
-                animation: _controller,
-                builder: (context, _) {
-                  final angle = _controller.value * 2 * math.pi;
-                  final pulse = 0.88 + 0.12 * math.sin(angle * 2);
-
-                  return Stack(
-                    alignment: Alignment.center,
-                    children: [
-                      // Halo lumineux externe
-                      Transform.scale(
-                        scale: pulse * 1.15,
-                        child: Container(
-                          width: 130,
-                          height: 130,
-                          decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            gradient: RadialGradient(
-                              colors: [
-                                AppTheme.chalkBlue.withValues(alpha: 0.25),
-                                AppTheme.chalkPurple.withValues(alpha: 0.15),
-                                Colors.transparent,
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),
-                      // Anneau rotatif dégradé craie
-                      Transform.rotate(
-                        angle: angle,
-                        child: Container(
-                          width: 120,
-                          height: 120,
-                          decoration: const BoxDecoration(
-                            shape: BoxShape.circle,
-                            gradient: SweepGradient(
-                              colors: [
-                                Colors.transparent,
-                                AppTheme.chalkCyan,
-                                AppTheme.chalkBlue,
-                                AppTheme.chalkPurple,
-                                AppTheme.chalkPink,
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),
-                      // Masque central
-                      Container(
-                        width: 104,
-                        height: 104,
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          color: Colors.black.withValues(alpha: 0.4),
-                          border: Border.all(
-                            color: Colors.white.withValues(alpha: 0.2),
-                            width: 1,
-                          ),
-                        ),
-                      ),
-                      // Logo Craie ILLIMMI au centre
-                      Transform.scale(
-                        scale: pulse,
-                        child: IllimmiChalkLogo(
-                          height: 34,
-                          borderRadius: BorderRadius.circular(6),
-                        ),
-                      ),
-                    ],
-                  );
-                },
+              width: 150,
+              height: 150,
+              child: Center(
+                child: ThinkingOrb(
+                  state: orbState,
+                  size: 140,
+                  speed: 1.0,
+                  colorStyle: OrbColorStyle.chalk,
+                ),
               ),
             ),
             const SizedBox(height: Spacing.xl),
-            // Message de progression
+
+            // Pilule d'état avec Thinking Orb miniature inline (20px)
             AnimatedSwitcher(
-              duration: const Duration(milliseconds: 350),
+              duration: const Duration(milliseconds: 300),
               child: Container(
-                key: ValueKey(widget.statusText),
-                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                key: ValueKey(statusText),
+                padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 8),
                 decoration: BoxDecoration(
-                  color: Colors.black.withValues(alpha: 0.35),
-                  borderRadius: BorderRadius.circular(20),
+                  color: Colors.black.withValues(alpha: 0.4),
+                  borderRadius: BorderRadius.circular(24),
                   border: Border.all(
-                    color: Colors.white.withValues(alpha: 0.38),
+                    color: Colors.white.withValues(alpha: 0.28),
                     width: 1.2,
                   ),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withValues(alpha: 0.2),
+                      blurRadius: 10,
+                      offset: const Offset(0, 4),
+                    ),
+                  ],
                 ),
                 child: Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    const SizedBox(
-                      width: 14,
-                      height: 14,
-                      child: CircularProgressIndicator(
-                        strokeWidth: 2,
-                        valueColor: AlwaysStoppedAnimation<Color>(AppTheme.chalkBlue),
-                      ),
+                    // Mini Thinking Orb inline remplaçant le spinner classique
+                    ThinkingOrb(
+                      state: orbState,
+                      size: 20,
+                      speed: 1.35,
+                      colorStyle: OrbColorStyle.chalk,
                     ),
                     const SizedBox(width: 12),
                     Text(
-                      widget.statusText,
+                      statusText,
                       style: const TextStyle(
                         color: AppTheme.chalkWhite,
                         fontWeight: FontWeight.w600,
-                        fontSize: 14,
+                        fontSize: 13.5,
+                        letterSpacing: 0.2,
                       ),
                     ),
                   ],
@@ -168,24 +132,29 @@ class _GenerationProgressViewState extends State<GenerationProgressView>
               ),
             ),
             const SizedBox(height: Spacing.lg),
-            // Barre de progression dégradée
+
+            // Barre de progression dégradée craie cyan
             SizedBox(
               width: 220,
               height: 4,
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(4),
                 child: LinearProgressIndicator(
-                  value: widget.progress > 0 ? widget.progress : null,
-                  backgroundColor: Colors.white.withValues(alpha: 0.15),
-                  valueColor: const AlwaysStoppedAnimation<Color>(AppTheme.chalkBlue),
+                  value: progress > 0 ? progress : null,
+                  backgroundColor: Colors.white.withValues(alpha: 0.12),
+                  valueColor: const AlwaysStoppedAnimation<Color>(AppTheme.chalkCyan),
                 ),
               ),
             ),
-            if (widget.onCancel != null) ...[
+
+            if (onCancel != null) ...[
               const SizedBox(height: Spacing.md),
               TextButton(
-                onPressed: widget.onCancel,
-                child: const Text('Annuler', style: TextStyle(color: AppTheme.chalkDust)),
+                onPressed: onCancel,
+                child: const Text(
+                  'Annuler',
+                  style: TextStyle(color: AppTheme.chalkDust),
+                ),
               ),
             ],
           ],
@@ -194,4 +163,3 @@ class _GenerationProgressViewState extends State<GenerationProgressView>
     );
   }
 }
-

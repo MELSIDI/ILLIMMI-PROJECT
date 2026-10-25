@@ -5,7 +5,7 @@ services:
       - "8080:8080"
     environment:
       - GEMINI_API_KEY=${GEMINI_API_KEY}
-      - GEMINI_MODEL=${GEMINI_MODEL:-gemini-2.5-flash}
+      - GEMINI_MODEL=${GEMINI_MODEL:-gemini-3.8-flash}
       - GCP_PROJECT_ID=${GCP_PROJECT_ID}
       - GCP_ACCESS_TOKEN=${GCP_ACCESS_TOKEN}
       - GCP_LOCATION=${GCP_LOCATION:-us-central1}

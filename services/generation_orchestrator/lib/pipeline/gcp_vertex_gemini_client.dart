@@ -14,10 +14,10 @@ import 'llm_client.dart';
 /// - `GCP_PROJECT_ID` ou `BIGQUERY_PROJECT_ID` : ID du projet Google Cloud (Obligatoire).
 /// - `GCP_ACCESS_TOKEN` ou `BIGQUERY_ACCESS_TOKEN` : Jeton OAuth2 Bearer (`gcloud auth print-access-token`) (Obligatoire).
 /// - `GCP_LOCATION` : Région GCP (défaut : `us-central1`).
-/// - `GEMINI_MODEL` : Modèle Gemini (défaut : `gemini-2.5-flash`).
+/// - `GEMINI_MODEL` : Modèle Gemini (défaut : `gemini-3.8-flash`).
 /// - `USE_BIGQUERY_SQL` : `true` pour exécuter la requête via SQL BigQuery `ML.GENERATE_TEXT`, `false` (défaut) pour l'API Vertex AI.
 class GcpVertexGeminiClient implements LlmClient {
-  static const String _defaultModel = 'gemini-flash-latest';
+  static const String _defaultModel = 'gemini-3.8-flash';
   static const String _defaultLocation = 'us-central1';
 
 

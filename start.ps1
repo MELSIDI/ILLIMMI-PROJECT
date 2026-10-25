@@ -43,17 +43,19 @@ if (Get-Command gcloud -ErrorAction SilentlyContinue) {
     }
 }
 
-if ($env:OPENROUTER_API_KEY -and ($env:LLM_PROVIDER -eq 'openrouter' -or -not $env:LLM_PROVIDER)) {
+if ($env:LLM_PROVIDER -eq 'openrouter' -and $env:OPENROUTER_API_KEY) {
     Write-Host "[OK] Mode OpenRouter LLM actif (Modele: $env:OPENROUTER_MODEL)" -ForegroundColor Green
-    if ($env:TTS_PROVIDER -ne 'local' -and $env:TTS_PROVIDER -ne 'piper') {
+    if ($env:TTS_PROVIDER -eq 'openrouter') {
         Write-Host "[OK] Mode OpenRouter Voix actif (Modele: $env:OPENROUTER_TTS_MODEL, Voix: $env:OPENROUTER_TTS_VOICE, Fallback: Piper local)" -ForegroundColor Green
     } else {
         Write-Host "[OK] Mode Voix locale actif (Piper TTS)" -ForegroundColor Green
     }
-} elseif ($env:GCP_PROJECT_ID -and $env:GCP_ACCESS_TOKEN) {
+} elseif ($env:LLM_PROVIDER -eq 'gcp' -or ($env:GCP_PROJECT_ID -and $env:GCP_ACCESS_TOKEN -and $env:LLM_PROVIDER -ne 'gemini')) {
     Write-Host "[OK] Mode Credits GCP / BigQuery actif (Projet: $env:GCP_PROJECT_ID)" -ForegroundColor Green
-} elseif ($env:GEMINI_API_KEY) {
-    Write-Host "[OK] Mode Cle API Gemini directe actif (Modele: $env:GEMINI_MODEL)" -ForegroundColor Green
+} elseif ($env:GEMINI_API_KEY -or $env:LLM_PROVIDER -eq 'gemini' -or -not $env:LLM_PROVIDER) {
+    $modelName = if ($env:GEMINI_MODEL) { $env:GEMINI_MODEL } else { "gemini-3.8-flash" }
+    Write-Host "[OK] Mode Gemini actif par defaut (Modele: $modelName)" -ForegroundColor Green
+    Write-Host "[OK] Mode Voix locale actif (Piper TTS)" -ForegroundColor Green
 } else {
     Write-Host "[!] Information: Aucune cle API configuree." -ForegroundColor Yellow
     Write-Host "    L'application Flutter peut fonctionner en mode demo autonome (exemples inclus)." -ForegroundColor Yellow
@@ -119,17 +121,18 @@ try {
         Write-Host "[...] Attente de 3 secondes le temps que les services s'initialisent..." -ForegroundColor Yellow
         Start-Sleep -Seconds 3
 
-        $llmBanner = if ($env:OPENROUTER_API_KEY -and ($env:LLM_PROVIDER -eq 'openrouter' -or -not $env:LLM_PROVIDER)) {
+        $llmBanner = if ($env:LLM_PROVIDER -eq 'openrouter' -and $env:OPENROUTER_API_KEY) {
             "OpenRouter: $env:OPENROUTER_MODEL"
-        } elseif ($env:GCP_PROJECT_ID -and $env:GCP_ACCESS_TOKEN) {
+        } elseif ($env:LLM_PROVIDER -eq 'gcp' -or ($env:GCP_PROJECT_ID -and $env:GCP_ACCESS_TOKEN -and $env:LLM_PROVIDER -ne 'gemini')) {
             "GCP BigQuery ($env:GCP_PROJECT_ID)"
-        } elseif ($env:GEMINI_API_KEY) {
-            "Gemini: $env:GEMINI_MODEL"
+        } elseif ($env:GEMINI_API_KEY -or $env:LLM_PROVIDER -eq 'gemini' -or -not $env:LLM_PROVIDER) {
+            $m = if ($env:GEMINI_MODEL) { $env:GEMINI_MODEL } else { "gemini-3.8-flash" }
+            "Gemini: $m (Defaut)"
         } else {
             "Local Demo"
         }
 
-        $ttsBanner = if ($env:OPENROUTER_API_KEY -and $env:TTS_PROVIDER -ne 'local' -and $env:TTS_PROVIDER -ne 'piper') {
+        $ttsBanner = if ($env:TTS_PROVIDER -eq 'openrouter' -and $env:OPENROUTER_API_KEY) {
             "OpenRouter TTS ($env:OPENROUTER_TTS_MODEL) + Fallback Piper"
         } else {
             "Piper TTS local"

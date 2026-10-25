@@ -18,7 +18,7 @@ class CompositeTtsService implements TtsEngine {
   String get outputDir => localPiper.outputDir;
 
   String get configuredProvider {
-    return Platform.environment['TTS_PROVIDER']?.toLowerCase() ?? 'auto';
+    return Platform.environment['TTS_PROVIDER']?.toLowerCase() ?? 'piper';
   }
 
   @override

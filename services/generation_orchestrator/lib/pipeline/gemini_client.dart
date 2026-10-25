@@ -10,9 +10,9 @@ import 'llm_client.dart';
 ///
 /// La clé est lue depuis la variable d'environnement `GEMINI_API_KEY` —
 /// jamais en dur dans le code. Le modèle est surchargeable via `GEMINI_MODEL`
-/// (défaut `gemini-2.5-flash`).
+/// (défaut `gemini-3.8-flash`).
 class GeminiClient implements LlmClient {
-  static const String _defaultModel = 'gemini-flash-latest';
+  static const String _defaultModel = 'gemini-3.8-flash';
   static const String _apiVersion = 'v1beta';
 
 
