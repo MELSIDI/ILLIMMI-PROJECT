@@ -15,12 +15,13 @@ Future<GenerationResult> runGenerationInBackground(
   String prompt, {
   required String baseUrl,
   String? token,
+  String? level,
   required void Function(String status, String message) onProgress,
 }) async {
   final receivePort = ReceivePort();
   await Isolate.spawn(
     _generationIsolateEntry,
-    (sendPort: receivePort.sendPort, prompt: prompt, baseUrl: baseUrl, token: token),
+    (sendPort: receivePort.sendPort, prompt: prompt, baseUrl: baseUrl, token: token, level: level),
   );
 
   final completer = Completer<GenerationResult>();
@@ -53,11 +54,11 @@ Future<GenerationResult> runGenerationInBackground(
 /// Point d'entrée exécuté dans l'isolate de fond : démarre le job puis poll
 /// son statut, en renvoyant chaque mise à jour à l'isolate UI via [SendPort].
 void _generationIsolateEntry(
-  ({SendPort sendPort, String prompt, String baseUrl, String? token}) args,
+  ({SendPort sendPort, String prompt, String baseUrl, String? token, String? level}) args,
 ) async {
   final client = GenerationClient(baseUrl: args.baseUrl);
   try {
-    final jobId = await client.startGeneration(args.prompt, token: args.token);
+    final jobId = await client.startGeneration(args.prompt, token: args.token, level: args.level);
 
     while (true) {
       final status = await client.getStatus(jobId);

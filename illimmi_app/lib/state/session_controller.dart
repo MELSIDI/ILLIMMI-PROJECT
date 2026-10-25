@@ -4,11 +4,10 @@ import '../api/auth_client.dart';
 import '../api/history_client.dart';
 import '../storage/token_storage.dart';
 
-/// État de session unique (auth + historique, l'historique dérivant du
-/// token) partagé par la sidebar, le dialogue de connexion et la zone de
-/// contenu principale. Un simple [ChangeNotifier] suffit à cette échelle
-/// (3 consommateurs, tous frères sous `AppShell`) — pas besoin d'un package
-/// de state management supplémentaire.
+/// État de session unique (auth + historique) partagé par la sidebar,
+/// le dialogue de connexion et la zone de contenu principale.
+/// L'historique des cours est préservé et visible à la fois en mode connecté
+/// et en mode invité.
 class SessionController extends ChangeNotifier {
   final AuthClient _authClient;
   final HistoryClient _historyClient;
@@ -28,15 +27,16 @@ class SessionController extends ChangeNotifier {
 
   bool get isLoggedIn => token != null;
 
-  /// À appeler une fois au démarrage de l'app, avant `runApp`.
+  /// Initialise la session et charge l'historique des cours sauvegardés.
   Future<void> restoreSession() async {
     final savedToken = await _tokenStorage.readToken();
     final savedEmail = await _tokenStorage.readEmail();
-    if (savedToken == null) return;
-
-    token = savedToken;
-    email = savedEmail;
-    notifyListeners();
+    if (savedToken != null) {
+      token = savedToken;
+      email = savedEmail;
+      notifyListeners();
+    }
+    // Chargement de l'historique dans tous les cas (mode connecté ou invité)
     await refreshHistory();
   }
 
@@ -61,20 +61,27 @@ class SessionController extends ChangeNotifier {
   Future<void> logout() async {
     token = null;
     email = null;
-    history = [];
     await _tokenStorage.clear();
+    await refreshHistory();
     notifyListeners();
   }
 
+  /// Rafraîchit l'historique depuis la base de données.
   Future<void> refreshHistory() async {
-    final currentToken = token;
-    if (currentToken == null) return;
     try {
-      history = await _historyClient.getHistory(currentToken);
+      history = await _historyClient.getHistory(token);
       notifyListeners();
-    } catch (_) {
-      // user-service injoignable : l'historique reste tel quel, ce n'est
-      // jamais bloquant pour le reste de l'app.
+    } catch (e) {
+      // user-service temporairement injoignable, l'historique existant reste affiché
     }
+  }
+
+  /// Supprime un cours de l'historique
+  Future<void> deleteHistoryEntry(String id) async {
+    try {
+      await _historyClient.deleteHistory(id, token);
+      history.removeWhere((e) => e.id == id);
+      notifyListeners();
+    } catch (_) {}
   }
 }

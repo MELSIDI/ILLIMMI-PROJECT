@@ -13,6 +13,8 @@ import '../models/course.dart';
 import '../theme/app_theme.dart';
 import '../theme/board_theme.dart';
 import '../widgets/chalkboard_frame.dart';
+import 'package:flutter/services.dart';
+import '../widgets/interactive_qa_dialog.dart';
 
 class CoursePlayer extends StatefulWidget {
   final Course course;
@@ -66,6 +68,9 @@ class CoursePlayerState extends State<CoursePlayer>
   // Volume
   double _volume = 1.0;
   bool _showVolumeSlider = false;
+
+  // Vitesse de lecture
+  double _playbackSpeed = 1.0;
 
   @override
   void initState() {
@@ -335,23 +340,26 @@ class CoursePlayerState extends State<CoursePlayer>
     final question = _questionController.text.trim();
     if (question.isEmpty) return;
 
-    // TODO: Implémenter l'interaction avec l'IA
-    print('❓ Question posée: $question');
-
-    // Pause du cours pour permettre la réponse
+    // Pause du cours pour permettre l'interaction avec le professeur
     if (_isPlaying) {
       _togglePlayPause();
     }
+    _questionController.clear();
 
-    // Afficher un message temporaire
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text('Question reçue: $question'),
-        duration: const Duration(seconds: 2),
+    showDialog(
+      context: context,
+      builder: (ctx) => InteractiveQaDialog(
+        courseTitle: widget.course.name.isNotEmpty ? widget.course.name : 'Ce cours',
+        question: question,
+        currentTimeFormatted: _formatDuration(_currentTimeSeconds),
+        onResumeCourse: () {
+          Navigator.of(ctx).pop();
+          if (!_isPlaying) {
+            _togglePlayPause();
+          }
+        },
       ),
     );
-
-    _questionController.clear();
   }
 
   @override
@@ -412,6 +420,10 @@ class CoursePlayerState extends State<CoursePlayer>
                         // Contenu géométrique et texte du cours
                         Positioned.fill(
                           child: _buildWhiteboardContent(defaultDrawColor),
+                        ),
+                        // Overlay célébration de fin de cours
+                        Positioned.fill(
+                          child: _buildCompletionOverlay(),
                         ),
                       ],
                     ),
@@ -523,6 +535,32 @@ class CoursePlayerState extends State<CoursePlayer>
             ),
           ),
           const SizedBox(width: 16),
+          IconButton(
+            icon: const Icon(Icons.restart_alt_rounded, color: Color(0xFFF2F6F3)),
+            tooltip: 'Recommencer le cours',
+            onPressed: () {
+              setState(() {
+                _isCompleted = false;
+                _audioPosition = Duration.zero;
+              });
+              _seekTo(0);
+              if (!_isPlaying) _togglePlayPause();
+            },
+          ),
+          IconButton(
+            icon: const Icon(Icons.copy_rounded, color: Color(0xFFF2F6F3), size: 19),
+            tooltip: 'Copier le titre du cours',
+            onPressed: () {
+              Clipboard.setData(ClipboardData(text: title));
+              ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(
+                  content: Text('Titre du cours copié !'),
+                  duration: Duration(seconds: 2),
+                ),
+              );
+            },
+          ),
+          const SizedBox(width: 8),
           PopupMenuButton<BoardTheme>(
             icon: const Icon(Icons.palette_outlined, color: Color(0xFFF2F6F3)),
             tooltip: 'Thème du tableau',
@@ -822,6 +860,127 @@ class CoursePlayerState extends State<CoursePlayer>
     );
   }
 
+  Widget _buildSpeedControl() {
+    final speeds = [0.75, 1.0, 1.25, 1.5, 2.0];
+    return PopupMenuButton<double>(
+      initialValue: _playbackSpeed,
+      tooltip: 'Vitesse de lecture',
+      color: const Color(0xFF1B382B),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(16),
+        side: const BorderSide(color: Color(0x33FFFFFF)),
+      ),
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(12),
+          border: Border.all(color: Colors.white.withValues(alpha: 0.3)),
+          color: Colors.white.withValues(alpha: 0.08),
+        ),
+        child: Text(
+          '${_playbackSpeed == 1.0 ? '1' : _playbackSpeed}x',
+          style: const TextStyle(
+            color: Color(0xFFF2F6F3),
+            fontSize: 12,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+      ),
+      onSelected: (speed) {
+        setState(() => _playbackSpeed = speed);
+        _audioPlayer.setPlaybackRate(speed);
+      },
+      itemBuilder: (context) => speeds.map((s) => PopupMenuItem<double>(
+        value: s,
+        child: Text(
+          '${s}x',
+          style: TextStyle(
+            color: _playbackSpeed == s ? AppTheme.chalkBlue : const Color(0xFFF2F6F3),
+            fontWeight: _playbackSpeed == s ? FontWeight.bold : FontWeight.normal,
+          ),
+        ),
+      )).toList(),
+    );
+  }
+
+  Widget _buildCompletionOverlay() {
+    if (!_isCompleted) return const SizedBox.shrink();
+
+    return Center(
+      child: Container(
+        margin: const EdgeInsets.all(24),
+        padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 24),
+        decoration: BoxDecoration(
+          color: const Color(0xFF142B20).withValues(alpha: 0.95),
+          borderRadius: BorderRadius.circular(24),
+          border: Border.all(
+            color: AppTheme.chalkBlue.withValues(alpha: 0.6),
+            width: 1.5,
+          ),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withValues(alpha: 0.6),
+              blurRadius: 30,
+              offset: const Offset(0, 10),
+            ),
+          ],
+        ),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            const Icon(Icons.check_circle_outline_rounded, color: AppTheme.chalkGreen, size: 56),
+            const SizedBox(height: 12),
+            const Text(
+              'Cours terminé !',
+              style: TextStyle(
+                color: AppTheme.chalkWhite,
+                fontSize: 22,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            const SizedBox(height: 6),
+            Text(
+              'Durée totale : ${_formatDuration(_totalTimeSeconds)}',
+              style: const TextStyle(color: AppTheme.chalkDust, fontSize: 13),
+            ),
+            const SizedBox(height: 20),
+            Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                FilledButton.icon(
+                  onPressed: () {
+                    setState(() {
+                      _isCompleted = false;
+                      _audioPosition = Duration.zero;
+                    });
+                    _seekTo(0);
+                    if (!_isPlaying) _togglePlayPause();
+                  },
+                  icon: const Icon(Icons.replay_rounded),
+                  label: const Text('Revoir le cours'),
+                  style: FilledButton.styleFrom(
+                    backgroundColor: AppTheme.chalkBlue,
+                    foregroundColor: AppTheme.chalkboardGreenDeep,
+                  ),
+                ),
+                const SizedBox(width: 12),
+                OutlinedButton.icon(
+                  onPressed: widget.onBack,
+                  icon: const Icon(Icons.home_rounded),
+                  label: const Text('Nouveau cours'),
+                  style: OutlinedButton.styleFrom(
+                    foregroundColor: AppTheme.chalkWhite,
+                    side: const BorderSide(color: Colors.white38),
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
   Widget _buildControlBar() {
     final total = _totalTimeSeconds;
     final current = _currentTimeSeconds.clamp(0.0, total > 0 ? total : 0.0);
@@ -906,6 +1065,8 @@ class CoursePlayerState extends State<CoursePlayer>
               ),
               const SizedBox(width: 8),
               _buildVolumeControl(),
+              const SizedBox(width: 6),
+              _buildSpeedControl(),
             ],
           ),
           Divider(

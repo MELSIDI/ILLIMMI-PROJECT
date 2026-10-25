@@ -1,7 +1,6 @@
 // helpers/text_pattern_finder.dart (Solution optimale avec TextPainter)
 import 'package:flutter/material.dart';
 import '../../models/basic_elements/text_element.dart';
-import '../../board_writter/latex_widget.dart';
 
 /// Classe utilitaire pour trouver des patterns dans les TextElement
 /// Utilise TextPainter.getBoxesForSelection() pour une précision parfaite

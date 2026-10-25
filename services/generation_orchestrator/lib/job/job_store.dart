@@ -132,7 +132,7 @@ class JobStore {
           idGap: currentIdGap,
           subject: prompt,
           transcript: transcript,
-          visualsText: currentVisualsText!,
+          visualsText: currentVisualsText,
         );
 
         Course? course;
@@ -192,9 +192,8 @@ class JobStore {
           job.audioUrl = transcript.audioFile;
           job.duration = transcript.duration;
 
-          if (job.userId != null && job.authToken != null) {
-            unawaited(_persistHistory(job, prompt, transcript.subject));
-          }
+          // Sauvegarde automatique et inconditionnelle en base de données (SQLite / SQL Server)
+          unawaited(_persistHistory(job, prompt, transcript.subject));
           return;
         } catch (e) {
           if (attempt == _maxAttempts) {
@@ -211,24 +210,24 @@ class JobStore {
     }
   }
 
-  /// Persistance best-effort de l'historique auprès de `user-service` :
-  /// n'importe quelle erreur (service injoignable, timeout...) est
-  /// uniquement journalisée — jamais propagée, jamais de repli du job déjà
-  /// marqué `done` (dégradation équivalente au mode invité).
+  /// Persistance de l'historique auprès de `user-service` (sauvegarde SQLite + SQL Server).
+  /// Fonctionne pour les utilisateurs connectés ainsi que pour le mode invité.
   Future<void> _persistHistory(GenerationJob job, String prompt, String subject) async {
     try {
       await _userServiceClient
           .postHistory(
-            token: job.authToken!,
+            token: job.authToken,
+            userId: job.userId ?? 'guest',
             prompt: prompt,
             subject: subject,
             script: job.script!,
             audioUrl: job.audioUrl!,
             duration: job.duration!,
           )
-          .timeout(const Duration(seconds: 5));
+          .timeout(const Duration(seconds: 10));
+      print('Cours ${job.id} sauvegardé avec succès dans la base de données (user: ${job.userId ?? "guest"})');
     } catch (e) {
-      print('user-service injoignable, historique non persisté pour ${job.id}: $e');
+      print('user-service persistance warning pour ${job.id}: $e');
     }
   }
 

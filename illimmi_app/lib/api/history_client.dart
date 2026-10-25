@@ -27,7 +27,7 @@ class HistoryEntry {
     id: json['id'] as String,
     prompt: json['prompt'] as String,
     subject: json['subject'] as String?,
-    createdAt: DateTime.parse(json['createdAt'] as String),
+    createdAt: DateTime.tryParse(json['createdAt'] as String? ?? '') ?? DateTime.now(),
     result: GenerationResult(
       script: json['script'] as String,
       audioUrl: json['audioUrl'] as String,
@@ -37,22 +37,43 @@ class HistoryEntry {
 }
 
 /// Client HTTP vers `user-service` pour l'historique des cours générés.
+/// Supporte à la fois les utilisateurs connectés et le mode invité.
 class HistoryClient {
   final String baseUrl;
 
   HistoryClient({this.baseUrl = 'http://localhost:8081'});
 
-  Future<List<HistoryEntry>> getHistory(String token) async {
+  Future<List<HistoryEntry>> getHistory([String? token]) async {
+    final uri = (token != null && token.isNotEmpty)
+        ? Uri.parse('$baseUrl/history')
+        : Uri.parse('$baseUrl/history?guest=true');
+
     final response = await http.get(
-      Uri.parse('$baseUrl/history'),
-      headers: {'Authorization': 'Bearer $token'},
+      uri,
+      headers: {
+        if (token != null && token.isNotEmpty) 'Authorization': 'Bearer $token',
+      },
     );
+
     if (response.statusCode != 200) {
       throw Exception(
         'Échec de récupération de l\'historique (${response.statusCode}): ${response.body}',
       );
     }
+
     final list = jsonDecode(response.body) as List;
     return list.map((e) => HistoryEntry.fromJson(e as Map<String, dynamic>)).toList();
+  }
+
+  Future<void> deleteHistory(String id, [String? token]) async {
+    final response = await http.delete(
+      Uri.parse('$baseUrl/history/$id'),
+      headers: {
+        if (token != null && token.isNotEmpty) 'Authorization': 'Bearer $token',
+      },
+    );
+    if (response.statusCode != 200) {
+      throw Exception('Échec de suppression (${response.statusCode}): ${response.body}');
+    }
   }
 }

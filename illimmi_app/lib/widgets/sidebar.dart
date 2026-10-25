@@ -249,7 +249,8 @@ class _SidebarState extends State<Sidebar> {
     return ListenableBuilder(
       listenable: widget.sessionController,
       builder: (context, _) {
-        if (!widget.sessionController.isLoggedIn) {
+        final history = widget.sessionController.history;
+        if (history.isEmpty) {
           return Center(
             child: Padding(
               padding: const EdgeInsets.all(Spacing.md),
@@ -257,16 +258,17 @@ class _SidebarState extends State<Sidebar> {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Icon(
-                    Icons.history_toggle_off_rounded,
-                    size: 36,
-                    color: Colors.white.withValues(alpha: 0.4),
+                    Icons.auto_stories_outlined,
+                    size: 32,
+                    color: Colors.white.withValues(alpha: 0.35),
                   ),
-                  const SizedBox(height: 12),
+                  const SizedBox(height: 10),
                   const Text(
-                    'Connecte-toi pour sauvegarder et retrouver tes cours ici.',
+                    'Aucun cours sauvegardé pour l\'instant.\nGénère un cours pour le retrouver ici !',
                     style: TextStyle(
                       color: AppTheme.chalkDustMuted,
                       fontSize: 12,
+                      height: 1.3,
                     ),
                     textAlign: TextAlign.center,
                   ),
@@ -275,30 +277,16 @@ class _SidebarState extends State<Sidebar> {
             ),
           );
         }
-        if (widget.sessionController.history.isEmpty) {
-          return const Center(
-            child: Padding(
-              padding: EdgeInsets.all(Spacing.md),
-              child: Text(
-                'Aucun cours généré pour l\'instant.',
-                style: TextStyle(
-                  color: AppTheme.chalkDustMuted,
-                  fontSize: 12,
-                ),
-                textAlign: TextAlign.center,
-              ),
-            ),
-          );
-        }
         return ListView(
           physics: const BouncingScrollPhysics(),
-          children: widget.sessionController.history
+          children: history
               .map((entry) => HistoryListTile(
                     entry: entry,
                     onTap: () {
                       _closeMenu();
                       widget.onSelectHistory(entry);
                     },
+                    onDelete: () => widget.sessionController.deleteHistoryEntry(entry.id),
                   ))
               .toList(),
         );

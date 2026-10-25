@@ -41,14 +41,17 @@ class GenerationClient {
 
   GenerationClient({this.baseUrl = 'http://localhost:8080'});
 
-  Future<String> startGeneration(String prompt, {String? token}) async {
+  Future<String> startGeneration(String prompt, {String? token, String? level}) async {
     final response = await http.post(
       Uri.parse('$baseUrl/courses/generate'),
       headers: {
         'Content-Type': 'application/json',
         if (token != null) 'Authorization': 'Bearer $token',
       },
-      body: jsonEncode({'prompt': prompt}),
+      body: jsonEncode({
+        'prompt': prompt,
+        if (level != null && level.isNotEmpty) 'level': level,
+      }),
     );
     if (response.statusCode != 202) {
       throw Exception(

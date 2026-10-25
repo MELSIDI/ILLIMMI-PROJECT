@@ -4,8 +4,7 @@ import 'dart:io';
 import 'package:http/http.dart' as http;
 
 /// Client HTTP vers le microservice `user-service`, pour persister
-/// l'historique d'un cours une fois généré. Appelé serveur-à-serveur par
-/// `JobStore`, jamais par le client Flutter directement.
+/// l'historique d'un cours une fois généré (pour utilisateur connecté ou invité).
 class UserServiceClient {
   final String baseUrl;
 
@@ -16,7 +15,8 @@ class UserServiceClient {
           'http://localhost:8081';
 
   Future<void> postHistory({
-    required String token,
+    String? token,
+    String? userId,
     required String prompt,
     required String subject,
     required String script,
@@ -27,9 +27,10 @@ class UserServiceClient {
       Uri.parse('$baseUrl/history'),
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': 'Bearer $token',
+        if (token != null && token.trim().isNotEmpty) 'Authorization': 'Bearer $token',
       },
       body: jsonEncode({
+        if (userId != null && userId.trim().isNotEmpty) 'userId': userId.trim(),
         'prompt': prompt,
         'subject': subject,
         'script': script,
@@ -38,7 +39,7 @@ class UserServiceClient {
       }),
     );
 
-    if (response.statusCode != 201) {
+    if (response.statusCode != 200 && response.statusCode != 201) {
       throw Exception(
         'user-service /history a échoué (${response.statusCode}): ${response.body}',
       );

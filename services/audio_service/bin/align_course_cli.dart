@@ -2,12 +2,8 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:path/path.dart' as p;
-import '../lib/align/compact_timeline.dart';
-import '../lib/align/narration_parser.dart';
-import '../lib/align/narration_stt_aligner.dart';
-import '../lib/align/stt_parser.dart';
-import '../lib/align/whispercpp_aligner.dart';
-import '../lib/tts/piper_service.dart';
+import 'package:audio_service/align/compact_timeline.dart';
+import 'package:audio_service/align/whispercpp_aligner.dart';
 
 /// CLI pour générer l'audio d'un cours via Piper TTS et aligner mot-par-mot
 /// de façon acoustique et déterministe avec Whisper.cpp + NarrationSttAligner.

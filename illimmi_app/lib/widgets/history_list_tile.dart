@@ -7,8 +7,14 @@ import '../theme/app_theme.dart';
 class HistoryListTile extends StatelessWidget {
   final HistoryEntry entry;
   final VoidCallback onTap;
+  final VoidCallback? onDelete;
 
-  const HistoryListTile({super.key, required this.entry, required this.onTap});
+  const HistoryListTile({
+    super.key,
+    required this.entry,
+    required this.onTap,
+    this.onDelete,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -28,9 +34,9 @@ class HistoryListTile extends StatelessWidget {
             child: Row(
               children: [
                 Icon(
-                  Icons.chat_bubble_outline_rounded,
+                  Icons.school_outlined,
                   size: 16,
-                  color: Colors.white.withValues(alpha: 0.5),
+                  color: AppTheme.chalkBlue.withValues(alpha: 0.8),
                 ),
                 const SizedBox(width: 10),
                 Expanded(
@@ -47,16 +53,43 @@ class HistoryListTile extends StatelessWidget {
                           fontWeight: FontWeight.w500,
                         ),
                       ),
-                      Text(
-                        _relativeDate(entry.createdAt),
-                        style: const TextStyle(
-                          fontSize: 10,
-                          color: AppTheme.chalkDustMuted,
-                        ),
+                      const SizedBox(height: 2),
+                      Row(
+                        children: [
+                          Text(
+                            _relativeDate(entry.createdAt),
+                            style: const TextStyle(
+                              fontSize: 10,
+                              color: AppTheme.chalkDustMuted,
+                            ),
+                          ),
+                          if (entry.result.duration > 0) ...[
+                            const SizedBox(width: 6),
+                            Text(
+                              '•  ${(entry.result.duration / 60).toStringAsFixed(1)} min',
+                              style: const TextStyle(
+                                fontSize: 10,
+                                color: AppTheme.chalkDustMuted,
+                              ),
+                            ),
+                          ],
+                        ],
                       ),
                     ],
                   ),
                 ),
+                if (onDelete != null)
+                  IconButton(
+                    icon: Icon(
+                      Icons.close_rounded,
+                      size: 14,
+                      color: Colors.white.withValues(alpha: 0.35),
+                    ),
+                    padding: EdgeInsets.zero,
+                    constraints: const BoxConstraints(minWidth: 24, minHeight: 24),
+                    tooltip: 'Supprimer ce cours',
+                    onPressed: onDelete,
+                  ),
               ],
             ),
           ),
@@ -73,4 +106,3 @@ class HistoryListTile extends StatelessWidget {
     return 'Il y a ${diff.inDays} j';
   }
 }
-

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import '../theme/app_theme.dart';
 import '../theme/board_theme.dart';
 
 /// Arrière-plan tableau vert (Chalkboard) immersif et sans bordure en bois :

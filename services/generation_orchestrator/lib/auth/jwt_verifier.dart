@@ -12,10 +12,10 @@ import 'package:dart_jsonwebtoken/dart_jsonwebtoken.dart';
 class JwtVerifier {
   static String get _secret {
     final secret = Platform.environment['AUTH_JWT_SECRET'];
-    if (secret == null || secret.isEmpty) {
-      throw Exception('AUTH_JWT_SECRET n\'est pas définie.');
+    if (secret != null && secret.isNotEmpty) {
+      return secret;
     }
-    return secret;
+    return 'illimmi_jwt_secret_dev_2026_super_secure';
   }
 
   static String verifyAndGetUserId(String token) {

@@ -5,7 +5,6 @@ import '../board_writter/latex_widget.dart';
 import '../models/basic_elements/mouse_event_element.dart';
 import '../models/basic_elements/text_element.dart';
 import '../models/hyper_element.dart';
-import '../theme/app_theme.dart';
 import '../theme/board_theme.dart';
 import '../widgets/chalkboard_frame.dart';
 

@@ -40,6 +40,8 @@ class MainContentAreaState extends State<MainContentArea> {
   Future<Course> Function()? _retry;
   String _progressStatus = '';
   bool _hasPromptText = false;
+  String _selectedModel = 'ILLIMMI 1.5 Flash';
+  String _selectedLevel = 'Lycée';
 
   @override
   void initState() {
@@ -59,12 +61,20 @@ class MainContentAreaState extends State<MainContentArea> {
   }
 
   Future<String> _readScriptFile(String fileName) async {
-    final path = p.join(Directory.current.path, 'courses', fileName);
-    final file = File(path);
-    if (!await file.exists()) {
-      throw Exception('Fichier de script introuvable : $path');
+    final candidates = [
+      p.join(Directory.current.path, 'courses', fileName),
+      p.join(Directory.current.path, 'illimmi_app', 'courses', fileName),
+      p.join(Directory.current.path, '..', 'courses', fileName),
+      p.join(Directory.current.path, '..', 'illimmi_app', 'courses', fileName),
+      p.join(Directory.current.path, 'corpus_illimmi_1000', 'exemplars', fileName),
+    ];
+    for (final candidate in candidates) {
+      final file = File(candidate);
+      if (file.existsSync()) {
+        return await file.readAsString();
+      }
     }
-    return await file.readAsString();
+    throw Exception('Fichier de script introuvable : $fileName (cherché dans ${candidates.take(2).toList()})');
   }
 
   /// Génère un cours à partir d'un sujet libre
@@ -73,15 +83,15 @@ class MainContentAreaState extends State<MainContentArea> {
       prompt,
       baseUrl: _orchestratorBaseUrl,
       token: widget.sessionController.token,
+      level: _selectedLevel,
       onProgress: (status, message) {
         if (mounted) setState(() => _progressStatus = message);
       },
     );
 
     final course = await HypercourseParser(result.script).parse();
-    if (widget.sessionController.isLoggedIn) {
-      unawaited(widget.sessionController.refreshHistory());
-    }
+    // Rafraîchissement automatique de l'historique (mode connecté et invité)
+    unawaited(widget.sessionController.refreshHistory());
     return course;
   }
 
@@ -205,37 +215,81 @@ class MainContentAreaState extends State<MainContentArea> {
       height: 56,
       padding: const EdgeInsets.symmetric(horizontal: Spacing.md),
       child: Center(
-        child: Container(
-          padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 6),
-          decoration: BoxDecoration(
-            color: Colors.black.withValues(alpha: 0.25),
-            borderRadius: BorderRadius.circular(20),
-            border: Border.all(
-              color: Colors.white.withValues(alpha: 0.35),
-              width: 1,
-            ),
+        child: PopupMenuButton<String>(
+          tooltip: 'Changer de moteur IA',
+          initialValue: _selectedModel,
+          color: const Color(0xFF1E2824),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(16),
+            side: BorderSide(color: Colors.white.withValues(alpha: 0.2)),
           ),
-          child: Row(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              IllimmiChalkIcon(size: 16),
-              const SizedBox(width: 8),
-              const Text(
-                'ILLIMMI 1.5 Flash',
-                style: TextStyle(
-                  color: AppTheme.chalkWhite,
-                  fontWeight: FontWeight.w600,
-                  fontSize: 13,
-                  letterSpacing: 0.2,
+          onSelected: (model) {
+            setState(() => _selectedModel = model);
+          },
+          itemBuilder: (context) => const [
+            PopupMenuItem(
+              value: 'ILLIMMI 1.5 Flash',
+              child: Row(
+                children: [
+                  Icon(Icons.bolt, color: AppTheme.chalkYellow, size: 18),
+                  SizedBox(width: 8),
+                  Text('ILLIMMI 1.5 Flash (Rapide)', style: TextStyle(color: AppTheme.chalkWhite, fontSize: 13)),
+                ],
+              ),
+            ),
+            PopupMenuItem(
+              value: 'ILLIMMI 2.5 Pro',
+              child: Row(
+                children: [
+                  Icon(Icons.psychology, color: AppTheme.chalkCyan, size: 18),
+                  SizedBox(width: 8),
+                  Text('ILLIMMI 2.5 Pro (Raisonnement)', style: TextStyle(color: AppTheme.chalkWhite, fontSize: 13)),
+                ],
+              ),
+            ),
+            PopupMenuItem(
+              value: 'ILLIMMI Audio-First',
+              child: Row(
+                children: [
+                  Icon(Icons.record_voice_over, color: AppTheme.chalkPink, size: 18),
+                  SizedBox(width: 8),
+                  Text('ILLIMMI Audio-First (Piper TTS)', style: TextStyle(color: AppTheme.chalkWhite, fontSize: 13)),
+                ],
+              ),
+            ),
+          ],
+          child: Container(
+            padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 6),
+            decoration: BoxDecoration(
+              color: Colors.black.withValues(alpha: 0.25),
+              borderRadius: BorderRadius.circular(20),
+              border: Border.all(
+                color: Colors.white.withValues(alpha: 0.35),
+                width: 1,
+              ),
+            ),
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                IllimmiChalkIcon(size: 16),
+                const SizedBox(width: 8),
+                Text(
+                  _selectedModel,
+                  style: const TextStyle(
+                    color: AppTheme.chalkWhite,
+                    fontWeight: FontWeight.w600,
+                    fontSize: 13,
+                    letterSpacing: 0.2,
+                  ),
                 ),
-              ),
-              const SizedBox(width: 4),
-              const Icon(
-                Icons.arrow_drop_down,
-                size: 18,
-                color: AppTheme.chalkDust,
-              ),
-            ],
+                const SizedBox(width: 4),
+                const Icon(
+                  Icons.arrow_drop_down,
+                  size: 18,
+                  color: AppTheme.chalkDust,
+                ),
+              ],
+            ),
           ),
         ),
       ),
@@ -442,6 +496,62 @@ class MainContentAreaState extends State<MainContentArea> {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
+              // Sélecteur de niveau d'enseignement
+              Padding(
+                padding: const EdgeInsets.only(bottom: 8.0),
+                child: SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const Icon(Icons.school, size: 14, color: AppTheme.chalkDustMuted),
+                      const SizedBox(width: 6),
+                      const Text(
+                        'Niveau :',
+                        style: TextStyle(
+                          color: AppTheme.chalkDustMuted,
+                          fontSize: 12,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                      const SizedBox(width: 8),
+                      for (final lvl in ['Collège', 'Lycée', 'Supérieur', 'Tout public']) ...[
+                        Padding(
+                          padding: const EdgeInsets.only(right: 6),
+                          child: InkWell(
+                            borderRadius: BorderRadius.circular(14),
+                            onTap: () => setState(() => _selectedLevel = lvl),
+                            child: AnimatedContainer(
+                              duration: const Duration(milliseconds: 200),
+                              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+                              decoration: BoxDecoration(
+                                color: _selectedLevel == lvl
+                                    ? AppTheme.chalkGreen.withValues(alpha: 0.3)
+                                    : Colors.black.withValues(alpha: 0.2),
+                                borderRadius: BorderRadius.circular(14),
+                                border: Border.all(
+                                  color: _selectedLevel == lvl
+                                      ? AppTheme.chalkGreen
+                                      : Colors.white.withValues(alpha: 0.2),
+                                  width: 1,
+                                ),
+                              ),
+                              child: Text(
+                                lvl,
+                                style: TextStyle(
+                                  fontSize: 11,
+                                  fontWeight: _selectedLevel == lvl ? FontWeight.w600 : FontWeight.normal,
+                                  color: _selectedLevel == lvl ? AppTheme.chalkWhite : AppTheme.chalkDust,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ],
+                  ),
+                ),
+              ),
               Container(
                 decoration: BoxDecoration(
                   color: Colors.black.withValues(alpha: 0.35),

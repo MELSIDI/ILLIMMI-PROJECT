@@ -37,9 +37,11 @@ Router createAuthRouter(AppDatabase database) {
 
     final id = 'user_${_uuid.v4()}';
     final passwordHash = PasswordHasher.hash(password);
-    database.db.execute(
-      'INSERT INTO users (id, email, password_hash, created_at) VALUES (?, ?, ?, ?)',
-      [id, email, passwordHash, DateTime.now().toIso8601String()],
+    await database.saveUser(
+      id: id,
+      email: email,
+      passwordHash: passwordHash,
+      createdAt: DateTime.now().toIso8601String(),
     );
 
     final token = JwtService.issue(id, email);
