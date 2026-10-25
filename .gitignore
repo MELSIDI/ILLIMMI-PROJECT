@@ -1,6 +1,39 @@
+# Environnement et secrets
+.env
+.env.*
+!.env.example
+
+# Flutter & Dart builds
+.dart_tool/
+*/.dart_tool/
+build/
+*/build/
 illimmi_app/.dart_tool/
 illimmi_app/build/
 illimmi_app/windows/flutter/ephemeral/
-.env
-services/user_service/illimmi_users.db
+
+# Fichiers audio générés (cours oraux, narration)
+services/audio_service/speaker/audios/
+services/audio_service/speaker/audios/**
+*.wav
+*.mp3
+*.ogg
+*.m4a
+
+# Fichiers de cours générés à la volée
+illimmi_app/courses/generated_*.hc
+courses/generated/
+**/generated_*.hc
+
+# Bases de données SQLite locales
 *.db
+*.db-shm
+*.db-wal
+*.sqlite
+*.sqlite3
+services/user_service/illimmi_users.db
+services/generation_orchestrator/illimmi_jobs.db
+
+# Binaires compilés Dart
+services/audio_service/audio_service.exe
+denial_report.txt
