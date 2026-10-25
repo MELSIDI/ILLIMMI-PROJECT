@@ -366,5 +366,35 @@ void main() {
       expect(readBack[0].start, 0.110);
       expect(readBack[0].end, 1.300);
     });
+
+    test('résilience aux désynchronisations et acronymes (resynchronisation sans blocage temporel)', () async {
+      final dir = Directory('speaker/audios/expliquer_moi_comment_le_triggers_en_fonction_dans_pl_sql');
+      final narrationFile = File(p.join(dir.path, 'narration.txt'));
+      final jsonFile = File(p.join(dir.path, 'narration_words.json'));
+
+      if (narrationFile.existsSync() && jsonFile.existsSync()) {
+        final narrationText = await narrationFile.readAsString();
+        final narrationWords = narrationParser.parse(narrationText);
+        final sttTokens = await sttParser.parseJsonFile(jsonFile);
+
+        final aligned = aligner.align(
+          narrationWords: narrationWords,
+          sttTokens: sttTokens,
+        );
+
+        expect(aligned.length, narrationWords.length);
+        expect(aligned.length, 820);
+
+        // Vérifie qu'aucun blocage à 19.270 ne persiste sur l'ensemble du cours
+        int lockedAt19 = 0;
+        for (final w in aligned) {
+          if ((w.start - 19.270).abs() < 0.001) lockedAt19++;
+        }
+        expect(lockedAt19 <= 1, isTrue); // Au plus 1 seul mot à ce timestamp exact, pas des centaines
+
+        // Vérifie que le dernier mot atteint bien la fin de l'audio (> 250s)
+        expect(aligned.last.end > 250.0, isTrue);
+      }
+    });
   });
 }

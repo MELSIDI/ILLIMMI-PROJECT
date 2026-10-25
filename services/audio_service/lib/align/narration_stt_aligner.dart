@@ -6,6 +6,10 @@ import 'stt_parser.dart';
 
 /// Aligne de manière déterministe et algorithmique la narration (vérité textuelle)
 /// avec les tokens Whisper (vérité temporelle).
+///
+/// Intègre une recherche d'ancre dynamique (Anchor Recovery) garantissant qu'en cas
+/// de désynchronisation ponctuelle (ex. acronymes comme P L S Q L, formules, bruits),
+/// l'aligneur ne se bloque JAMAIS sur un timestamp unique et se resynchronise automatiquement.
 class NarrationSttAligner {
   static const Map<String, String> _frenchNumberWords = {
     'zero': '0',
@@ -57,10 +61,144 @@ class NarrationSttAligner {
 
   /// Vérifie si deux clés correspondent (égalité directe ou nombre écrit en lettres vs chiffre).
   static bool keysMatch(String narrationKey, String sttKey) {
+    if (narrationKey.isEmpty || sttKey.isEmpty) return false;
     if (narrationKey == sttKey) return true;
     if (_frenchNumberWords[narrationKey] == sttKey) return true;
     if (narrationKey == _frenchNumberWords[sttKey]) return true;
     return false;
+  }
+
+  /// Tente de faire correspondre un mot (ou groupe de mots) localement
+  _MatchResult? _tryMatchLocal({
+    required List<NarrationWord> narrationWords,
+    required List<SttToken> sttTokens,
+    required int wIdx,
+    required int sttIdx,
+    int maxLookahead = 3,
+  }) {
+    final nw = narrationWords[wIdx];
+    final target = nw.matchKey;
+
+    // CAS 1 : Plusieurs mots consécutifs de la narration sont regroupés dans UN token STT (ex. " AB")
+    if (wIdx + 1 < narrationWords.length && sttIdx < sttTokens.length) {
+      final currentStt = sttTokens[sttIdx];
+      final nextNw = narrationWords[wIdx + 1];
+      final combined2 = target + nextNw.matchKey;
+
+      if (keysMatch(combined2, currentStt.matchKey)) {
+        final dur = currentStt.end - currentStt.start;
+        final len1 = target.length;
+        final len2 = nextNw.matchKey.length;
+        final totalLen = max(1, len1 + len2).toDouble();
+        final mid = currentStt.start + (dur * (len1 / totalLen));
+
+        return _MatchResult(
+          narrationWordsConsumed: 2,
+          sttTokensConsumed: 1,
+          producedTimestamps: [
+            WordTimestamp(
+              word: nw.text,
+              start: currentStt.start,
+              end: mid,
+              confidence: 'SPLIT_FROM_STT',
+            ),
+            WordTimestamp(
+              word: nextNw.text,
+              start: mid,
+              end: currentStt.end,
+              confidence: 'SPLIT_FROM_STT',
+            ),
+          ],
+        );
+      }
+    }
+
+    // CAS 2 : Recherche d'un match exact ou fusionné (subwords) dans une fenêtre d'anticipation
+    const maxTokensToMerge = 7;
+    for (var lookahead = 0;
+        lookahead <= maxLookahead && sttIdx + lookahead < sttTokens.length;
+        lookahead++) {
+      final startIdx = sttIdx + lookahead;
+      if (sttTokens[startIdx].isPunctuation) continue;
+
+      for (var k = 1;
+          k <= maxTokensToMerge && startIdx + k <= sttTokens.length;
+          k++) {
+        final slice = sttTokens.sublist(startIdx, startIdx + k);
+        final buf = slice.map((s) => s.matchKey).join('');
+
+        if (keysMatch(target, buf)) {
+          final start = slice.first.start;
+          var end = slice.last.end;
+          var nextStt = startIdx + k;
+
+          // Si le mot termine une phrase et que Whisper a produit un token de ponctuation finale
+          // (ex. "." après "Bonjour"), on absorbe ce temps de pause dans le mot terminal.
+          if (_sentenceEndRegex.hasMatch(nw.text.trim()) &&
+              nextStt < sttTokens.length &&
+              sttTokens[nextStt].isPunctuation) {
+            end = sttTokens[nextStt].end;
+            nextStt++;
+          }
+
+          final type = (k == 1 && lookahead == 0) ? 'EXACT' : 'MERGED';
+          return _MatchResult(
+            narrationWordsConsumed: 1,
+            sttTokensConsumed: nextStt - sttIdx,
+            producedTimestamps: [
+              WordTimestamp(
+                word: nw.text,
+                start: start,
+                end: max(start, end),
+                confidence: type,
+              ),
+            ],
+          );
+        }
+      }
+    }
+
+    // CAS 3 : Fuzzy matching pour absorber les petites fautes de transcription
+    double bestSim = 0.0;
+    int bestK = 1;
+    for (var k = 1; k <= 3 && sttIdx + k <= sttTokens.length; k++) {
+      final slice = sttTokens.sublist(sttIdx, sttIdx + k);
+      final buf = slice.map((s) => s.matchKey).join('');
+      final sim = similarity(target, buf);
+      if (sim > bestSim) {
+        bestSim = sim;
+        bestK = k;
+      }
+    }
+
+    if (bestSim >= 0.65) {
+      final slice = sttTokens.sublist(sttIdx, sttIdx + bestK);
+      final start = slice.first.start;
+      var end = slice.last.end;
+      var nextStt = sttIdx + bestK;
+
+      if (_sentenceEndRegex.hasMatch(nw.text.trim()) &&
+          nextStt < sttTokens.length &&
+          sttTokens[nextStt].isPunctuation) {
+        end = sttTokens[nextStt].end;
+        nextStt++;
+      }
+
+      return _MatchResult(
+        narrationWordsConsumed: 1,
+        sttTokensConsumed: nextStt - sttIdx,
+        producedTimestamps: [
+          WordTimestamp(
+            word: nw.text,
+            start: start,
+            end: max(start, end),
+            confidence: 'FUZZY',
+          ),
+        ],
+      );
+    }
+
+    return null;
   }
 
   /// Aligne une séquence de mots issus de [NarrationParser] avec les tokens de [SttParser].
@@ -84,170 +222,157 @@ class NarrationSttAligner {
 
     var sttIdx = 0;
     final results = <WordTimestamp>[];
-
     var wIdx = 0;
-    while (wIdx < narrationWords.length) {
-      final nw = narrationWords[wIdx];
-      final target = nw.matchKey;
 
+    while (wIdx < narrationWords.length) {
       // Ignore la ponctuation STT pure en tête avant de chercher un mot
       while (sttIdx < sttTokens.length && sttTokens[sttIdx].isPunctuation) {
         sttIdx++;
       }
 
+      // Si la fin des tokens STT est atteinte, on interpole le reste
       if (sttIdx >= sttTokens.length) {
-        // Fin des tokens STT atteinte : prolonge le dernier timestamp connu
         final lastEnd = results.isNotEmpty ? results.last.end : 0.0;
-        results.add(WordTimestamp(
-          word: nw.text,
-          start: lastEnd,
-          end: lastEnd,
-          confidence: 'UNMATCHED',
-        ));
-        wIdx++;
+        final missingCount = narrationWords.length - wIdx;
+        const fallbackWordDuration = 0.30;
+
+        for (var step = 0; step < missingCount; step++) {
+          final currentWIdx = wIdx + step;
+          final wStart = lastEnd + (step * fallbackWordDuration);
+          final wEnd = wStart + (fallbackWordDuration * 0.90);
+          results.add(WordTimestamp(
+            word: narrationWords[currentWIdx].text,
+            start: double.parse(wStart.toStringAsFixed(3)),
+            end: double.parse(wEnd.toStringAsFixed(3)),
+            confidence: 'UNMATCHED',
+          ));
+        }
+        break;
+      }
+
+      // 1. Tente un match local direct
+      final localMatch = _tryMatchLocal(
+        narrationWords: narrationWords,
+        sttTokens: sttTokens,
+        wIdx: wIdx,
+        sttIdx: sttIdx,
+        maxLookahead: 3,
+      );
+
+      if (localMatch != null) {
+        results.addAll(localMatch.producedTimestamps);
+        wIdx += localMatch.narrationWordsConsumed;
+        sttIdx += localMatch.sttTokensConsumed;
         continue;
       }
 
-      final currentStt = sttTokens[sttIdx];
-      final currentSttNorm = currentStt.matchKey;
+      // 2. Échec du match local : Recherche d'une ancre de resynchronisation (Anchor Recovery)
+      // Analyse les prochains mots de la narration (jusqu'à 12 mots) pour trouver un match solide
+      // parmi les prochains tokens STT (jusqu'à 50 tokens).
+      int? foundAheadWIdx;
+      int? foundAheadSttIdx;
+      _MatchResult? aheadMatch;
 
-      // CAS 1 : Plusieurs mots consécutifs de la narration sont regroupés dans UN token STT
-      // Exemple : narration a "A" et "B", Whisper a produit un token unique " AB"
-      if (wIdx + 1 < narrationWords.length) {
-        final nextNw = narrationWords[wIdx + 1];
-        final combined2 = target + nextNw.matchKey;
+      const maxNarrationSearchAhead = 12;
+      const maxSttSearchAhead = 50;
 
-        if (keysMatch(combined2, currentSttNorm)) {
-          final dur = currentStt.end - currentStt.start;
-          final len1 = target.length;
-          final len2 = nextNw.matchKey.length;
-          final totalLen = max(1, len1 + len2).toDouble();
-          final mid = currentStt.start + (dur * (len1 / totalLen));
+      for (var nwAhead = 1; nwAhead <= maxNarrationSearchAhead && wIdx + nwAhead < narrationWords.length; nwAhead++) {
+        final candidateWIdx = wIdx + nwAhead;
+        if (narrationWords[candidateWIdx].matchKey.length < 2) continue;
 
-          results.add(WordTimestamp(
-            word: nw.text,
-            start: currentStt.start,
-            end: mid,
-            confidence: 'SPLIT_FROM_STT',
-          ));
-          results.add(WordTimestamp(
-            word: nextNw.text,
-            start: mid,
-            end: currentStt.end,
-            confidence: 'SPLIT_FROM_STT',
-          ));
+        for (var sttAhead = 1; sttAhead <= maxSttSearchAhead && sttIdx + sttAhead < sttTokens.length; sttAhead++) {
+          final candidateSttIdx = sttIdx + sttAhead;
+          if (sttTokens[candidateSttIdx].isPunctuation) continue;
 
-          sttIdx++;
-          wIdx += 2;
-          continue;
-        }
-      }
+          final testMatch = _tryMatchLocal(
+            narrationWords: narrationWords,
+            sttTokens: sttTokens,
+            wIdx: candidateWIdx,
+            sttIdx: candidateSttIdx,
+            maxLookahead: 0,
+          );
 
-      // CAS 2 : Recherche d'un match exact ou fusionné (subwords) dans une fenêtre d'anticipation
-      bool matched = false;
-      const maxLookahead = 3;
-      const maxTokensToMerge = 7;
+          if (testMatch != null) {
+            final isLongWord = narrationWords[candidateWIdx].matchKey.length >= 4;
+            bool confirmed = isLongWord;
 
-      for (var lookahead = 0;
-          lookahead <= maxLookahead && sttIdx + lookahead < sttTokens.length;
-          lookahead++) {
-        final startIdx = sttIdx + lookahead;
-        if (sttTokens[startIdx].isPunctuation) continue;
-
-        var buf = '';
-        for (var k = 1;
-            k <= maxTokensToMerge && startIdx + k <= sttTokens.length;
-            k++) {
-          final slice = sttTokens.sublist(startIdx, startIdx + k);
-          buf = slice.map((s) => s.matchKey).join('');
-
-          if (keysMatch(target, buf)) {
-            final start = slice.first.start;
-            var end = slice.last.end;
-            sttIdx = startIdx + k;
-
-            // Si le mot termine une phrase et que Whisper a produit un token de ponctuation finale
-            // (ex. "." après "Bonjour"), on absorbe ce temps de pause dans le mot terminal.
-            if (_sentenceEndRegex.hasMatch(nw.text.trim()) &&
-                sttIdx < sttTokens.length &&
-                sttTokens[sttIdx].isPunctuation) {
-              end = sttTokens[sttIdx].end;
-              sttIdx++;
+            if (!confirmed && candidateWIdx + 1 < narrationWords.length) {
+              final nextSttCandidate = candidateSttIdx + testMatch.sttTokensConsumed;
+              if (nextSttCandidate < sttTokens.length) {
+                final confirmMatch = _tryMatchLocal(
+                  narrationWords: narrationWords,
+                  sttTokens: sttTokens,
+                  wIdx: candidateWIdx + 1,
+                  sttIdx: nextSttCandidate,
+                  maxLookahead: 1,
+                );
+                if (confirmMatch != null) {
+                  confirmed = true;
+                }
+              }
             }
 
-            final type = (k == 1 && lookahead == 0) ? 'EXACT' : 'MERGED';
-            results.add(WordTimestamp(
-              word: nw.text,
-              start: start,
-              end: max(start, end),
-              confidence: type,
-            ));
-            matched = true;
-            break;
+            if (confirmed) {
+              foundAheadWIdx = candidateWIdx;
+              foundAheadSttIdx = candidateSttIdx;
+              aheadMatch = testMatch;
+              break;
+            }
           }
         }
-        if (matched) break;
+        if (foundAheadWIdx != null) break;
       }
 
-      if (matched) {
-        wIdx++;
+      if (foundAheadWIdx != null && foundAheadSttIdx != null && aheadMatch != null) {
+        // Point d'ancrage trouvé : interpolation linéaire fluide et strictement croissante
+        // pour tous les mots non appariés entre le dernier mot validé et cette ancre.
+        final spanStart = results.isNotEmpty ? results.last.end : (sttIdx < sttTokens.length ? sttTokens[sttIdx].start : 0.0);
+        final spanEnd = aheadMatch.producedTimestamps.first.start;
+        final unanchoredCount = foundAheadWIdx - wIdx;
+
+        final safeSpanEnd = spanEnd > spanStart ? spanEnd : (spanStart + (0.15 * unanchoredCount));
+        final dt = (safeSpanEnd - spanStart) / unanchoredCount;
+
+        for (var step = 0; step < unanchoredCount; step++) {
+          final missingWIdx = wIdx + step;
+          final wStart = spanStart + (step * dt);
+          final wEnd = min(safeSpanEnd, wStart + (dt * 0.90));
+          results.add(WordTimestamp(
+            word: narrationWords[missingWIdx].text,
+            start: double.parse(wStart.toStringAsFixed(3)),
+            end: double.parse(wEnd.toStringAsFixed(3)),
+            confidence: 'RECOVERED_INTERPOLATION',
+          ));
+        }
+
+        results.addAll(aheadMatch.producedTimestamps);
+        wIdx = foundAheadWIdx + aheadMatch.narrationWordsConsumed;
+        sttIdx = foundAheadSttIdx + aheadMatch.sttTokensConsumed;
         continue;
       }
 
-      // CAS 3 : Fuzzy matching pour absorber les petites fautes de transcription
-      // (ex. "leurs droites soient parallèles" transcrit au singulier "leur droite soit parallèle")
-      double bestSim = 0.0;
-      int bestK = 1;
-      for (var k = 1; k <= 3 && sttIdx + k <= sttTokens.length; k++) {
-        final slice = sttTokens.sublist(sttIdx, sttIdx + k);
-        final buf = slice.map((s) => s.matchKey).join('');
-        final sim = similarity(target, buf);
-        if (sim > bestSim) {
-          bestSim = sim;
-          bestK = k;
-        }
-      }
-
-      if (bestSim >= 0.60) {
-        final slice = sttTokens.sublist(sttIdx, sttIdx + bestK);
-        final start = slice.first.start;
-        var end = slice.last.end;
-        sttIdx += bestK;
-
-        if (_sentenceEndRegex.hasMatch(nw.text.trim()) &&
-            sttIdx < sttTokens.length &&
-            sttTokens[sttIdx].isPunctuation) {
-          end = sttTokens[sttIdx].end;
-          sttIdx++;
-        }
-
-        results.add(WordTimestamp(
-          word: nw.text,
-          start: start,
-          end: max(start, end),
-          confidence: 'FUZZY',
-        ));
-        wIdx++;
-        continue;
-      }
-
-      // CAS 4 : Mot non trouvé (UNMATCHED) — Ne pas casser la chaîne
-      // Interpolation sécurisée pour garantir la monotonie
-      final prevEnd = results.isNotEmpty ? results.last.end : sttTokens[sttIdx].start;
-      final nextStart = sttTokens[sttIdx].start;
-      final estTime = max(prevEnd, nextStart);
+      // 3. Fallback mot à mot avec progression temporelle (garantit qu'aucun blocage ne se produise)
+      final prevEnd = results.isNotEmpty ? results.last.end : (sttIdx < sttTokens.length ? sttTokens[sttIdx].start : 0.0);
+      const estDuration = 0.25;
+      final nextStart = prevEnd;
+      final nextEnd = (sttIdx < sttTokens.length)
+          ? max(prevEnd + estDuration, sttTokens[sttIdx].start)
+          : prevEnd + estDuration;
 
       results.add(WordTimestamp(
-        word: nw.text,
-        start: prevEnd,
-        end: estTime,
+        word: narrationWords[wIdx].text,
+        start: double.parse(nextStart.toStringAsFixed(3)),
+        end: double.parse(nextEnd.toStringAsFixed(3)),
         confidence: 'UNMATCHED',
       ));
+
       wIdx++;
+      while (sttIdx < sttTokens.length && sttTokens[sttIdx].start < nextEnd) {
+        sttIdx++;
+      }
     }
 
-    // Passe de validation et correction finale de cohérence temporelle :
-    // Garantit : start <= end et word[i].start <= word[i].end <= word[i+1].start
+    // Passe de validation et correction finale de cohérence temporelle
     _enforceStrictMonotonicity(results);
 
     return results;
@@ -269,19 +394,30 @@ class NarrationSttAligner {
         start = currentMin;
       }
       if (end < start) {
-        end = start;
+        end = start + 0.05;
       }
       currentMin = start;
 
-      // Si modifié, on remplace par un WordTimestamp propre
       if (start != words[i].start || end != words[i].end) {
         words[i] = WordTimestamp(
           word: words[i].word,
-          start: start,
-          end: end,
+          start: double.parse(start.toStringAsFixed(3)),
+          end: double.parse(end.toStringAsFixed(3)),
           confidence: words[i].confidence,
         );
       }
     }
   }
+}
+
+class _MatchResult {
+  final int narrationWordsConsumed;
+  final int sttTokensConsumed;
+  final List<WordTimestamp> producedTimestamps;
+
+  _MatchResult({
+    required this.narrationWordsConsumed,
+    required this.sttTokensConsumed,
+    required this.producedTimestamps,
+  });
 }
