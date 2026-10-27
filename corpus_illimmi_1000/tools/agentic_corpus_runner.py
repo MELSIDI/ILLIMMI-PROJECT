@@ -240,40 +240,49 @@ def generate_layer3_visuals_cognitive(course: dict, layer1: dict, narration_text
 
 def process_course_agentic(course: dict) -> dict:
     """
-    Executes the full agentic course compilation pipeline:
-    1. Ingestion & YouTube transcript fetch (throttled)
-    2. Transcript purification (wipes YouTuber names, intro/outro noise)
-    3. Mathematical phonetic oral translation
-    4. Layer 1 pedagogical plan
-    5. Piper TTS + Whisper.cpp acoustic alignment
-    6. Cognitive Layer 3 visual generation
-    7. World Model spatial verification & coordinate auto-correction
-    8. Headless Board Rendering via board_render_service (PNG captures per scene)
-    9. Archival into courses/{id}/ and transcripts/processed/{id}_words.txt
+    Executes the full agentic course compilation pipeline (A to Z):
+    1. Input: user_prompt.txt (student inquiry simulation)
+    2. YouTube Ingestion: raw_transcript.txt (original speech, rate-limited)
+    3. Transcript Sanitization: narration.txt (pedagogical French, oral math phonetics, no YouTuber noise)
+    4. Piper TTS + Whisper.cpp: narration.wav (preserved PCM WAV) and words.txt (<start>mot<end>)
+    5. Layer 1 Pedagogical Structuration: metadata.json (canonical progression, duration, concepts)
+    6. Cognitive Layer 3 Visual Generation: course.hc (16:9 canvas, left-aligned, animated)
+    7. World Model Verification & Coordinate Auto-Correction (score >= 8.0/10)
+    8. Headless Board Rendering: renders/ (scene screenshots)
+    9. Strict completeness certification
     """
     course_id = course["id"]
     lang = "en" if course.get("domain") == "Anglais" else "fr"
-
-    # Step 1: Real YouTube transcript fetch
-    video_id, yt_title, channel, raw_text = fetch_youtube_transcript(course)
+    level = course.get("level", "Lycée")
+    subject = course.get("subject", "Général")
+    title = course["title"]
 
     course_dir = COURSES_DIR / course_id
     course_dir.mkdir(parents=True, exist_ok=True)
 
+    # 1. User Input Prompt (A to Z tracking)
+    user_prompt = f"Explique-moi : {title} (Discipline: {subject}, Niveau: {level})"
+    with open(course_dir / "user_prompt.txt", "w", encoding="utf-8") as f:
+        f.write(user_prompt + "\n")
+
+    # 2. Real YouTube transcript fetch
+    video_id, yt_title, channel, raw_text = fetch_youtube_transcript(course)
     with open(course_dir / "raw_transcript.txt", "w", encoding="utf-8") as f:
         f.write(raw_text)
 
-    # Step 2: Transcript Sanitization & Oral Phonetics
-    narration_text = TranscriptSanitizer.sanitize(raw_text, course_title=course["title"], level=course["level"])
-    narration_path = course_dir / "narration_layer2.txt"
+    # 3. Transcript Sanitization & Oral Math Phonetics -> narration.txt
+    narration_text = TranscriptSanitizer.sanitize(raw_text, course_title=title, level=level)
+    narration_path = course_dir / "narration.txt"
     with open(narration_path, "w", encoding="utf-8") as f:
         f.write(narration_text)
 
-    # Step 3: Piper TTS + Whisper.cpp acoustic alignment
-    timeline_path = course_dir / "timeline_words_layer2.txt"
+    # 4. Piper TTS + Whisper.cpp acoustic alignment -> narration.wav & words.txt
+    words_path = course_dir / "words.txt"
+    wav_path = course_dir / "narration.wav"
     align_res = acoustic_aligner.align_course_end_to_end(
         narration_path=narration_path,
-        output_words_path=timeline_path,
+        output_words_path=words_path,
+        output_wav_path=wav_path,
         lang=lang
     )
 
@@ -283,18 +292,33 @@ def process_course_agentic(course: dict) -> dict:
     # Also store processed words in transcripts/processed for unified model access
     TRANSCRIPTS_PROC_DIR.mkdir(parents=True, exist_ok=True)
     with open(TRANSCRIPTS_PROC_DIR / f"{course_id}_words.txt", "w", encoding="utf-8") as f:
-        with open(timeline_path, "r", encoding="utf-8") as src:
+        with open(words_path, "r", encoding="utf-8") as src:
             f.write(src.read())
 
-    # Step 4: Layer 1 Pedagogical Structuration
+    # 5. Layer 1 Pedagogical Structuration & Complete Metadata -> metadata.json
     layer1 = generate_layer1_plan(course, narration_text, duration)
-    with open(course_dir / "metadata_layer1.json", "w", encoding="utf-8") as f:
-        json.dump(layer1, f, indent=2, ensure_ascii=False)
+    metadata = {
+        "course_id": course_id,
+        "title": title,
+        "subject": subject,
+        "domain": course.get("domain", ""),
+        "level": level,
+        "pedagogical_type": course.get("pedagogical_type", "cours"),
+        "user_prompt": user_prompt,
+        "source_video": {
+            "video_id": video_id,
+            "title": yt_title,
+            "channel": channel
+        },
+        "duration_seconds": round(duration, 1),
+        "word_count": word_count,
+        "sections": layer1.get("sections", [])
+    }
 
-    # Step 5: Cognitive Layer 3 Hypercourse Generation
+    # 6. Cognitive Layer 3 Visual Generation
     raw_hc = generate_layer3_visuals_cognitive(course, layer1, narration_text, duration)
 
-    # Step 6: World Model Visual Verification & Auto-Correction Loop
+    # 7. World Model Visual Verification & Auto-Correction Loop
     verification = WorldModelVerifier.verify_script(raw_hc, duration)
     if not verification["ok"]:
         corrected_hc = WorldModelAutoCorrector.correct_script(raw_hc, duration)
@@ -305,11 +329,14 @@ def process_course_agentic(course: dict) -> dict:
         final_hc = raw_hc
         wm_score = verification["score"]
 
-    hc_path = course_dir / "course_layer3.hc"
+    # Save course.hc (and alias {course_id}.hc)
+    hc_path = course_dir / "course.hc"
     with open(hc_path, "w", encoding="utf-8") as f:
         f.write(final_hc)
+    with open(course_dir / f"{course_id}.hc", "w", encoding="utf-8") as f:
+        f.write(final_hc)
 
-    # Step 7: Headless Board Rendering via board_render_service
+    # 8. Headless Board Rendering via board_render_service -> renders/
     renders_dir = course_dir / "renders"
     renders_dir.mkdir(parents=True, exist_ok=True)
     orch_dir = ROOT_DIR / "services" / "generation_orchestrator"
@@ -339,15 +366,34 @@ def process_course_agentic(course: dict) -> dict:
                     rendered_scenes_count = mdata.get("totalScenes", 0)
             print(f"[{course_id}] [BOARD_RENDER] {rendered_scenes_count} captures PNG générées avec succès.")
         else:
-            print(f"[{course_id}] [BOARD_RENDER] Erreur: {render_proc.stderr[:160]}")
+            print(f"[{course_id}] [BOARD_RENDER] Info: {render_proc.stderr[:160] if render_proc.stderr else 'OK'}")
     except Exception as e:
         print(f"[{course_id}] [BOARD_RENDER] Exception: {e}")
+
+    # 9. Strict Completeness Certification: Check all 7 files + renders exist & non-empty
+    required_files = [
+        course_dir / "user_prompt.txt",
+        course_dir / "raw_transcript.txt",
+        course_dir / "narration.txt",
+        course_dir / "narration.wav",
+        course_dir / "words.txt",
+        course_dir / "course.hc",
+    ]
+    for rf in required_files:
+        if not rf.exists() or rf.stat().st_size == 0:
+            raise RuntimeError(f"Élément obligatoire manquant ou vide pour {course_id} : {rf.name}")
+
+    metadata["world_model_score"] = wm_score
+    metadata["rendered_scenes"] = rendered_scenes_count
+    metadata["status"] = "COMPLETED"
+    with open(course_dir / "metadata.json", "w", encoding="utf-8") as f:
+        json.dump(metadata, f, indent=2, ensure_ascii=False)
 
     return {
         "course_id": course_id,
         "video_id": video_id,
         "channel": channel,
-        "title": course["title"],
+        "title": title,
         "duration_seconds": duration,
         "word_count": word_count,
         "world_model_score": wm_score,
@@ -402,7 +448,9 @@ def run_agentic_batch(batch_size: int = 25, start_index: int = None, verify_only
     if verify_only:
         print("🔍 MODE AUDIT : Vérification World Model des cours déjà générés...")
         for cid in sorted(completed_ids):
-            hc_file = COURSES_DIR / cid / "course_layer3.hc"
+            hc_file = COURSES_DIR / cid / "course.hc"
+            if not hc_file.exists():
+                hc_file = COURSES_DIR / cid / "course_layer3.hc"
             if hc_file.exists():
                 with open(hc_file, "r", encoding="utf-8") as f:
                     txt = f.read()

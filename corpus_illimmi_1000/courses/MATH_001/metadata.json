@@ -1,0 +1,54 @@
+{
+  "course_id": "MATH_001",
+  "title": "Intervalles et encadrements de réels — Cours fondamental et définitions",
+  "subject": "Mathématiques",
+  "domain": "Nombres & Calculs",
+  "level": "Seconde",
+  "pedagogical_type": "cours_notion",
+  "user_prompt": "Explique-moi : Intervalles et encadrements de réels — Cours fondamental et définitions (Discipline: Mathématiques, Niveau: Seconde)",
+  "source_video": {
+    "video_id": "raw",
+    "title": "Intervalles et encadrements de réels — Cours fondamental et définitions",
+    "channel": "Yvan Monka"
+  },
+  "duration_seconds": 99.2,
+  "word_count": 317,
+  "sections": [
+    {
+      "section_id": "sec_1",
+      "title": "1. Accroche & Problématique Concrète",
+      "start_time": 0.0,
+      "end_time": 33.1,
+      "summary": "Bonjour. Dans ce cours je te propose de revoir tout le cours sur le chapitre des intervalles l'objet de cette séquence est de te rappeler et de t'expliquer les ...",
+      "support_visuel_suggere": "text_and_diagram",
+      "concepts_cles": [
+        "Intervalles et encadrements de réels — Cours fondamental et définitions"
+      ]
+    },
+    {
+      "section_id": "sec_2",
+      "title": "2. Définition Formelle & Propriété Clé",
+      "start_time": 33.1,
+      "end_time": 66.1,
+      "summary": "Alors on connaît l'ensemble des réelles qu'on pourrait d'ailleurs représenté sur une droite un axe là que des abscisses. Mais parfois on n'a pas besoin de trava...",
+      "support_visuel_suggere": "formula_card",
+      "concepts_cles": [
+        "Intervalles et encadrements de réels — Cours fondamental et définitions"
+      ]
+    },
+    {
+      "section_id": "sec_3",
+      "title": "3. Décomposition du Raisonnement Pas à Pas",
+      "start_time": 66.1,
+      "end_time": 99.2,
+      "summary": "Donc 3 mais également 3.538 285 3 virgule 999 enfin compris il y à là dedans une infinité de nombre qui sont compris entre 2 et 4 et bien qu'est ce que c'est qu...",
+      "support_visuel_suggere": "step_solution",
+      "concepts_cles": [
+        "Intervalles et encadrements de réels — Cours fondamental et définitions"
+      ]
+    }
+  ],
+  "world_model_score": 10.0,
+  "rendered_scenes": 3,
+  "status": "COMPLETED"
+}

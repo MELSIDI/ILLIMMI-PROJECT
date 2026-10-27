@@ -1,9 +1,9 @@
 id,domain,level,title,creator,video_id,duration,words,status
-MATH_001,Nombres & Calculs,Seconde,Intervalles et encadrements de réels — Cours fondamental et définitions,Yvan Monka,raw,123.52,439,COMPLETED
-MATH_002,Nombres & Calculs,Seconde,Méthode pas à pas : Comment résoudre un problème de Intervalles et encadrements de réels,Yvan Monka,8WJG_QHQs1Y,113.1,439,COMPLETED
-MATH_003,Nombres & Calculs,Seconde,Exemple guidé et calcul détaillé : Intervalles et encadrements de réels en pratique,Yvan Monka,5-rUuceEgAE,115.74,439,COMPLETED
-MATH_004,Nombres & Calculs,Seconde,Correction d'exercice classique : Intervalles et encadrements de réels (Entraînement Lycée),Yvan Monka,raw,14.65,43,COMPLETED
-MATH_005,Nombres & Calculs,Seconde,Problème type Bac : Intervalles et encadrements de réels — Raisonnement en plusieurs étapes,Yvan Monka,raw,115.8,439,COMPLETED
+MATH_001,Nombres & Calculs,Seconde,Intervalles et encadrements de réels — Cours fondamental et définitions,Yvan Monka,raw,99.18,317,COMPLETED
+MATH_002,Nombres & Calculs,Seconde,Méthode pas à pas : Comment résoudre un problème de Intervalles et encadrements de réels,Yvan Monka,8WJG_QHQs1Y,97.31,362,COMPLETED
+MATH_003,Nombres & Calculs,Seconde,Exemple guidé et calcul détaillé : Intervalles et encadrements de réels en pratique,,mvJy4LVCmRI,10,,pending
+MATH_004,Nombres & Calculs,Seconde,Correction d'exercice classique : Intervalles et encadrements de réels (Entraînement Lycée),,8b-0LrjhA6s,10,,pending
+MATH_005,Nombres & Calculs,Seconde,Problème type Bac : Intervalles et encadrements de réels — Raisonnement en plusieurs étapes,,hzINDVy0dgg,10,,pending
 MATH_006,Nombres & Calculs,Seconde,Révision express & Fiche de synthèse : Tout retenir sur Intervalles et encadrements de réels,,c-akR4NJhh0,10,,pending
 MATH_007,Nombres & Calculs,Seconde,Intervalles et encadrements de réels — Cours fondamental et définitions,,mvJy4LVCmRI,10,,pending
 MATH_008,Nombres & Calculs,Seconde,Méthode pas à pas : Comment résoudre un problème de Intervalles et encadrements de réels,,mvJy4LVCmRI,10,,pending

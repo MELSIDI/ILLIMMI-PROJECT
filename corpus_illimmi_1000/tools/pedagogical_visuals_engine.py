@@ -76,11 +76,11 @@ class PedagogicalVisualsEngine:
         """Generate high-fidelity, topic-specific Hypercourse DSL (.hc)."""
         archetype = cls.detect_archetype(course, layer1, narration_text)
         c_title = course["title"].replace('"', "'")
-        c_id_num = re.sub(r'[^0-9]', '', course["id"]) or "1"
-        wav_name = f"{course['id']}.wav"
+        c_id_int = int(re.sub(r'[^0-9]', '', course["id"]) or "1")
+        wav_name = "narration.wav"
 
         lines = [
-            f'course "{c_title}" id {c_id_num} idgap 100 for {int(duration)}s audio "{wav_name}" {{',
+            f'course "{c_title}" id {c_id_int} idgap 100 for {round(duration, 1)}s audio "{wav_name}" {{',
             ""
         ]
 

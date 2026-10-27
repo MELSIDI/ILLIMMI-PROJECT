@@ -283,39 +283,61 @@ def write_compact_timeline(timings: list, out_path: Path):
             f.write(f"<{s:.3f}>{w}<{e:.3f}>\n")
 
 
-def align_course_end_to_end(narration_path: Path, output_words_path: Path, lang: str = "fr") -> dict:
-    """Full pipeline: narration text -> Piper WAV -> Whisper tokens -> Monotonic DP alignment."""
+def align_course_end_to_end(
+    narration_path: Path,
+    output_words_path: Path,
+    output_wav_path: Path = None,
+    lang: str = "fr"
+) -> dict:
+    """
+    Full pipeline:
+    1. Narration text -> Piper TTS (22.05kHz PCM WAV) saved permanently as narration.wav
+    2. Convert to 16kHz mono -> Whisper.cpp single-token acoustic extraction (-ml 1)
+    3. Banded Dynamic Programming alignment against narration.txt (source of truth)
+    4. Save certified monotonic timeline <start>word<end> to words.txt
+    """
     with open(narration_path, "r", encoding="utf-8") as f:
         narration_text = f.read().strip()
 
-    temp_wav = output_words_path.with_name(f"{output_words_path.stem}_temp.wav")
-    duration = synthesize_speech(narration_text, temp_wav, lang=lang)
-    tokens = transcribe_tokens(temp_wav, lang=lang)
+    if not narration_text:
+        raise ValueError(f"Narration file is empty: {narration_path}")
+
+    target_wav = output_wav_path or output_words_path.with_name("narration.wav")
+    target_wav.parent.mkdir(parents=True, exist_ok=True)
+
+    # 1. Synthesize high-quality Piper TTS audio
+    duration = synthesize_speech(narration_text, target_wav, lang=lang)
+
+    # 2. Extract acoustic tokens with Whisper.cpp
+    tokens = transcribe_tokens(target_wav, lang=lang)
+
+    # 3. Monotonic DP Sequence Alignment
     timings = align_narration_with_tokens(narration_text, tokens, duration)
+
+    # 4. Save compact timeline <start>word<end>
     write_compact_timeline(timings, output_words_path)
 
-    # Clean temporary WAV
-    try:
-        if temp_wav.exists():
-            temp_wav.unlink()
-    except Exception:
-        pass
+    # Note: target_wav (narration.wav) is PERMANENTLY PRESERVED for illimmi_app playback!
+    if not target_wav.exists() or target_wav.stat().st_size == 0:
+        raise RuntimeError(f"Failed to produce valid audio file at: {target_wav}")
 
     return {
         "success": True,
         "word_count": len(timings),
         "duration_seconds": round(duration, 2),
-        "output_path": str(output_words_path)
+        "words_path": str(output_words_path),
+        "audio_path": str(target_wav)
     }
 
 
 if __name__ == "__main__":
     if len(sys.argv) < 3:
-        print("Usage: python acoustic_aligner.py <narration.txt> <output_words.txt> [lang]")
+        print("Usage: python acoustic_aligner.py <narration.txt> <output_words.txt> [output_wav.wav] [lang]")
         sys.exit(1)
 
     narr = Path(sys.argv[1])
-    out = Path(sys.argv[2])
-    l = sys.argv[3] if len(sys.argv) > 3 else "fr"
-    res = align_course_end_to_end(narr, out, lang=l)
+    out_words = Path(sys.argv[2])
+    out_wav = Path(sys.argv[3]) if len(sys.argv) > 3 and sys.argv[3].endswith(".wav") else None
+    l = sys.argv[-1] if len(sys.argv) > 4 else "fr"
+    res = align_course_end_to_end(narr, out_words, output_wav_path=out_wav, lang=l)
     print(json.dumps(res, indent=2))

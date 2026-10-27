@@ -5,10 +5,10 @@
       "video_id": "raw",
       "channel": "Yvan Monka",
       "title": "Intervalles et encadrements de réels — Cours fondamental et définitions",
-      "duration_seconds": 123.52,
-      "word_count": 439,
+      "duration_seconds": 99.18,
+      "word_count": 317,
       "world_model_score": 10.0,
-      "rendered_scenes": 5,
+      "rendered_scenes": 3,
       "status": "COMPLETED"
     },
     "MATH_002": {
@@ -16,78 +16,25 @@
       "video_id": "8WJG_QHQs1Y",
       "channel": "Yvan Monka",
       "title": "Méthode pas à pas : Comment résoudre un problème de Intervalles et encadrements de réels",
-      "duration_seconds": 113.1,
-      "word_count": 439,
+      "duration_seconds": 97.31,
+      "word_count": 362,
       "world_model_score": 10.0,
-      "rendered_scenes": 5,
-      "status": "COMPLETED"
-    },
-    "MATH_003": {
-      "course_id": "MATH_003",
-      "video_id": "5-rUuceEgAE",
-      "channel": "Yvan Monka",
-      "title": "Exemple guidé et calcul détaillé : Intervalles et encadrements de réels en pratique",
-      "duration_seconds": 115.74,
-      "word_count": 439,
-      "world_model_score": 10.0,
-      "rendered_scenes": 5,
-      "status": "COMPLETED"
-    },
-    "MATH_004": {
-      "course_id": "MATH_004",
-      "video_id": "raw",
-      "channel": "Yvan Monka",
-      "title": "Correction d'exercice classique : Intervalles et encadrements de réels (Entraînement Lycée)",
-      "duration_seconds": 115.69,
-      "word_count": 439,
-      "world_model_score": 10.0,
-      "rendered_scenes": 5,
-      "status": "COMPLETED"
-    },
-    "MATH_005": {
-      "course_id": "MATH_005",
-      "video_id": "raw",
-      "channel": "Yvan Monka",
-      "title": "Problème type Bac : Intervalles et encadrements de réels — Raisonnement en plusieurs étapes",
-      "duration_seconds": 115.8,
-      "word_count": 439,
-      "world_model_score": 10.0,
-      "rendered_scenes": 5,
+      "rendered_scenes": 3,
       "status": "COMPLETED"
     }
   },
-  "total_completed": 5,
-  "last_run_timestamp": "2026-10-03T12:08:42.439835",
+  "total_completed": 2,
+  "last_run_timestamp": "2026-10-27T22:48:15.376778",
   "daily_runs": [
     {
-      "timestamp": "2026-10-02T22:25:43.344931",
-      "processed_today": 2,
-      "elapsed_seconds": 210.8
-    },
-    {
-      "timestamp": "2026-10-03T08:13:37.937606",
+      "timestamp": "2026-10-27T22:37:06.434242",
       "processed_today": 1,
-      "elapsed_seconds": 133.0
+      "elapsed_seconds": 90.2
     },
     {
-      "timestamp": "2026-10-03T09:54:45.752199",
-      "processed_today": 0,
-      "elapsed_seconds": 17.4
-    },
-    {
-      "timestamp": "2026-10-03T10:01:41.510352",
+      "timestamp": "2026-10-27T22:48:15.376778",
       "processed_today": 1,
-      "elapsed_seconds": 15.6
-    },
-    {
-      "timestamp": "2026-10-03T10:30:42.841394",
-      "processed_today": 1,
-      "elapsed_seconds": 120.1
-    },
-    {
-      "timestamp": "2026-10-03T12:08:42.439835",
-      "processed_today": 5,
-      "elapsed_seconds": 457.9
+      "elapsed_seconds": 108.2
     }
   ]
 }

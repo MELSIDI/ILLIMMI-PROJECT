@@ -314,7 +314,8 @@ void main() {
     });
 
     test('validation complète de référence sur le cours vecteurs (532 mots, 0 perte, ordre conservé)', () async {
-      final dir = Directory('speaker/audios/vecteurs');
+      final fixtureDir = Directory('test/fixtures/vecteurs');
+      final dir = fixtureDir.existsSync() ? fixtureDir : Directory('speaker/audios/vecteurs');
       final narrationFile = File(p.join(dir.path, 'narration.txt'));
       final jsonFile = File(p.join(dir.path, 'vecteurs_words.json'));
 

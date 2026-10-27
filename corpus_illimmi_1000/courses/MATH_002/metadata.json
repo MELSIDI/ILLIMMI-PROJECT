@@ -1,0 +1,54 @@
+{
+  "course_id": "MATH_002",
+  "title": "Méthode pas à pas : Comment résoudre un problème de Intervalles et encadrements de réels",
+  "subject": "Mathématiques",
+  "domain": "Nombres & Calculs",
+  "level": "Seconde",
+  "pedagogical_type": "methode_resolution",
+  "user_prompt": "Explique-moi : Méthode pas à pas : Comment résoudre un problème de Intervalles et encadrements de réels (Discipline: Mathématiques, Niveau: Seconde)",
+  "source_video": {
+    "video_id": "8WJG_QHQs1Y",
+    "title": "Méthode pas à pas : Comment résoudre un problème de Intervalles et encadrements de réels",
+    "channel": "Yvan Monka"
+  },
+  "duration_seconds": 97.3,
+  "word_count": 362,
+  "sections": [
+    {
+      "section_id": "sec_1",
+      "title": "1. Accroche & Problématique Concrète",
+      "start_time": 0.0,
+      "end_time": 32.4,
+      "summary": "[Musique] bonjour. Dans ce cours tu vas apprendre à déterminer l'intersection de deux intervalles. Alors on nous demande ici de déterminer l'intersection des in...",
+      "support_visuel_suggere": "text_and_diagram",
+      "concepts_cles": [
+        "Méthode pas à pas : Comment résoudre un problème de Intervalles et encadrements de réels"
+      ]
+    },
+    {
+      "section_id": "sec_2",
+      "title": "2. Définition Formelle & Propriété Clé",
+      "start_time": 32.4,
+      "end_time": 64.9,
+      "summary": "Alors pour déterminer l'intersection de i et j le plus simple est de représenter les intervalles i et j sur un axe gradué bien voilà un axe gradué on va commenc...",
+      "support_visuel_suggere": "formula_card",
+      "concepts_cles": [
+        "Méthode pas à pas : Comment résoudre un problème de Intervalles et encadrements de réels"
+      ]
+    },
+    {
+      "section_id": "sec_3",
+      "title": "3. Décomposition du Raisonnement Pas à Pas",
+      "start_time": 64.9,
+      "end_time": 97.3,
+      "summary": "Alors d'abord le 40 0 n'est pas dans J on l'a dit tout à l'heure si 0 n'est pas dans J il ne peut pas être dans l'intersection des deux puisquil doit être à la ...",
+      "support_visuel_suggere": "step_solution",
+      "concepts_cles": [
+        "Méthode pas à pas : Comment résoudre un problème de Intervalles et encadrements de réels"
+      ]
+    }
+  ],
+  "world_model_score": 10.0,
+  "rendered_scenes": 3,
+  "status": "COMPLETED"
+}
