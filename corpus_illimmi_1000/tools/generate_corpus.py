@@ -430,62 +430,6 @@ def generate_langues_courses() -> List[Dict[str, Any]]:
     return items
 
 
-# ---------------------------------------------------------------------------
-# SYNCHRONISATION DES VIDÉOS & TRANSCRIPTIONS RÉELLES EXISTANTES
-# ---------------------------------------------------------------------------
-
-def sync_existing_transcripts(catalog: List[Dict[str, Any]]) -> int:
-    """Rattache automatiquement les vidéos et transcriptions déjà présentes sur disque."""
-    synced = 0
-    catalog_map = {c["id"]: c for c in catalog}
-
-    # 1. Processed transcripts JSON
-    if TRANSCRIPTS_PROC_DIR.exists():
-        for file in TRANSCRIPTS_PROC_DIR.glob("*_transcript.json"):
-            try:
-                with open(file, "r", encoding="utf-8") as f:
-                    data = json.load(f)
-                item_id = data.get("item_id")
-                if item_id in catalog_map:
-                    item = catalog_map[item_id]
-                    v_id = data.get("youtube_video_id")
-                    if v_id:
-                        item["youtube_video_id"] = v_id
-                        item["youtube_url"] = data.get("youtube_url") or f"https://www.youtube.com/watch?v={v_id}"
-                        item["youtube_video_title"] = data.get("youtube_video_title", "")
-                        item["transcript_available"] = True
-                        item["transcript_words_count"] = data.get("total_words_count", 0)
-                        synced += 1
-            except Exception:
-                pass
-
-    # 2. Raw transcript files (format {course_id}_{video_id}.txt ou {course_id}_raw.txt)
-    if TRANSCRIPTS_RAW_DIR.exists():
-        for file in TRANSCRIPTS_RAW_DIR.glob("*.txt"):
-            stem = file.stem
-            for c_id in catalog_map:
-                if stem.startswith(c_id):
-                    item = catalog_map[c_id]
-                    item["transcript_available"] = True
-                    remainder = stem.replace(c_id, "").lstrip("_")
-                    if remainder and len(remainder) == 11 and remainder != "raw":
-                        item["youtube_video_id"] = remainder
-                        item["youtube_url"] = f"https://www.youtube.com/watch?v={remainder}"
-                    try:
-                        with open(file, "r", encoding="utf-8") as f:
-                            text = f.read()
-                        item["transcript_words_count"] = max(item["transcript_words_count"], len(text.split()))
-                    except Exception:
-                        pass
-                    break
-
-    return synced
-
-
-# ---------------------------------------------------------------------------
-# MAIN EXPORT
-# ---------------------------------------------------------------------------
-
 def main():
     print("=" * 70)
     print("GÉNÉRATION DU CATALOGUE ILLIMMI 1 000 COURS (LEAN SCHEMA SANS LAYERS)")
@@ -502,9 +446,7 @@ def main():
     assert len(lang_courses) == 200, f"Erreur: {len(lang_courses)} langues au lieu de 200"
     assert len(all_courses) == 1000, f"Erreur: {len(all_courses)} total au lieu de 1000"
 
-    # Synchronisation des vidéos YouTube déjà récupérées
-    synced = sync_existing_transcripts(all_courses)
-    print(f"-> Vidéos et transcriptions déjà synchronisées : {synced}")
+    print("-> Catalogue initialisé à l'état vierge : prêt pour la découverte YouTube en direct.")
 
     # Sauvegarde du catalogue principal (corpus_1000_full.json)
     full_path = CATALOG_DIR / "corpus_1000_full.json"

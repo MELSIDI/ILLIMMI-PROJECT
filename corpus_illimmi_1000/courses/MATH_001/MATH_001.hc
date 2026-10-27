@@ -1,9 +1,9 @@
-course "Intervalles et encadrements de réels — Cours fondamental et définitions" id 1 idgap 100 for 98.5s audio "narration.wav" {
+course "Intervalles et encadrements de réels — Cours fondamental et définitions" id 1 idgap 100 for 99.3s audio "narration.wav" {
 
     # ========================================================
-    # SCÈNE 1 : 1. Accroche & Problématique Concrète (0.0s - 32.8s)
+    # SCÈNE 1 : 1. Accroche & Problématique Concrète (0.0s - 33.1s)
     # ========================================================
-    text id 1 start 0.3s for 32.3s at (6.0, 8.5)
+    text id 1 start 0.3s for 32.6s at (6.0, 8.5)
          ''[bold][color=#38BDF8]1. Accroche & Problématique Concrète[/color][/bold]'' ;
     draw line id 101 start 0.5s for 0.6s
          color (56, 189, 248, 0.45) width 1.5
@@ -27,47 +27,47 @@ course "Intervalles et encadrements de réels — Cours fondamental et définiti
     text id 13 start 7.0s at (138.0, 36) ''[bold][color=#38BDF8]I = [2 ; 4][/color][/bold]'' ;
 
     # ========================================================
-    # SCÈNE 2 : 2. Définition Formelle & Propriété Clé (32.8s - 65.7s)
+    # SCÈNE 2 : 2. Définition Formelle & Propriété Clé (33.1s - 66.2s)
     # ========================================================
-    erase id 401 start 32.8s ;
+    erase id 401 start 33.1s ;
 
-    text id 6 start 33.1s for 32.4s at (6.0, 8.5)
+    text id 6 start 33.4s for 32.6s at (6.0, 8.5)
          ''[bold][color=#38BDF8]2. Définition Formelle & Propriété Clé[/color][/bold]'' ;
-    draw line id 115 start 33.3s for 0.6s
+    draw line id 115 start 33.6s for 0.6s
          color (56, 189, 248, 0.45) width 1.5
          at [(6, 14), (172, 14)] ;
-    text id 7 start 33.6s at (4, 28) ''[bold][color=#34D399]Règle des Crochets :[/color][/bold]'' ;
-    text id 8 start 35.3s at (4, 42) ''[bold][color=#34D399]Crochet fermé (inclus) :[/color][/bold] Borne incluse ($\le$ ou $\ge$)'' ;
-    text id 9 start 37.3s at (4, 58) ''[bold][color=#F87171]Crochet ouvert (exclu) :[/color][/bold] Borne exclue (< ou >)'' ;
-    text id 10 start 39.8s at (4, 74) ''$$x \in ]2 ; 4] \iff 2 < x \le 4$$'' ;
-    draw arrow id 116 start 34.3s for 0.8s color (248, 250, 252, 0.95) width 2.0 at [(96, 50), (170, 50)] ;
-    draw line id 117 start 35.8s for 0.8s color (52, 211, 153, 1) width 4.5 at [(120, 50), (155, 50)] ;
-    text id 11 start 36.6s at (116.0, 44) ''[bold][color=#F87171]][/color][/bold]'' ;
-    text id 12 start 37.0s at (154.0, 44) ''[bold][color=#34D399]][/color][/bold]'' ;
-    text id 13 start 37.6s at (118.0, 56) ''2 exclu'' ;
-    text id 14 start 38.0s at (150.0, 56) ''4 inclus'' ;
-    text id 15 start 38.8s at (126.0, 32) ''[bold][color=#34D399]]2 ; 4][/color][/bold]'' ;
+    text id 7 start 33.9s at (4, 28) ''[bold][color=#34D399]Règle des Crochets :[/color][/bold]'' ;
+    text id 8 start 35.6s at (4, 42) ''[bold][color=#34D399]Crochet fermé (inclus) :[/color][/bold] Borne incluse ($\le$ ou $\ge$)'' ;
+    text id 9 start 37.6s at (4, 58) ''[bold][color=#F87171]Crochet ouvert (exclu) :[/color][/bold] Borne exclue (< ou >)'' ;
+    text id 10 start 40.1s at (4, 74) ''$$x \in ]2 ; 4] \iff 2 < x \le 4$$'' ;
+    draw arrow id 116 start 34.6s for 0.8s color (248, 250, 252, 0.95) width 2.0 at [(96, 50), (170, 50)] ;
+    draw line id 117 start 36.1s for 0.8s color (52, 211, 153, 1) width 4.5 at [(120, 50), (155, 50)] ;
+    text id 11 start 36.9s at (116.0, 44) ''[bold][color=#F87171]][/color][/bold]'' ;
+    text id 12 start 37.3s at (154.0, 44) ''[bold][color=#34D399]][/color][/bold]'' ;
+    text id 13 start 37.9s at (118.0, 56) ''2 exclu'' ;
+    text id 14 start 38.3s at (150.0, 56) ''4 inclus'' ;
+    text id 15 start 39.1s at (126.0, 32) ''[bold][color=#34D399]]2 ; 4][/color][/bold]'' ;
 
     # ========================================================
-    # SCÈNE 3 : 3. Décomposition du Raisonnement Pas à Pas (65.7s - 98.5s)
+    # SCÈNE 3 : 3. Décomposition du Raisonnement Pas à Pas (66.2s - 99.3s)
     # ========================================================
-    erase id 402 start 65.7s ;
+    erase id 402 start 66.2s ;
 
-    text id 11 start 66.0s for 32.3s at (6.0, 8.5)
+    text id 11 start 66.5s for 32.6s at (6.0, 8.5)
          ''[bold][color=#38BDF8]3. Décomposition du Raisonnement Pas à Pas[/color][/bold]'' ;
-    draw line id 123 start 66.2s for 0.6s
+    draw line id 123 start 66.7s for 0.6s
          color (56, 189, 248, 0.45) width 1.5
          at [(6, 14), (172, 14)] ;
-    text id 12 start 66.5s at (4, 28) ''[bold][color=#FBBF24]Intervalles Non Bornés :[/color][/bold]'' ;
-    text id 13 start 68.2s at (4, 42) ''$$x \ge 3 \iff x \in [3 ; +\infty[$$'' ;
-    text id 14 start 70.7s at (4, 58) ''$$x < 0 \iff x \in ]-\infty ; 0[$$'' ;
-    text id 15 start 73.2s at (4, 74) ''Du côté de ±∞, crochet TOUJOURS ouvert !'' ;
-    draw arrow id 124 start 67.2s for 0.8s color (248, 250, 252, 0.95) width 2.0 at [(96, 56), (170, 56)] ;
-    draw line id 125 start 68.5s for 0.4s color (226, 232, 240, 0.85) width 1.5 at [(125, 52), (125, 60)] ;
-    text id 16 start 68.7s at (123.5, 63) ''[bold]3[/bold]'' ;
-    draw line id 126 start 69.5s for 1.2s color (251, 191, 36, 1) width 5.0 at [(125, 56), (168, 56)] ;
-    text id 17 start 70.2s at (122.0, 50) ''[bold][color=#FBBF24][[/color][/bold]'' ;
-    text id 18 start 70.9s at (162.0, 48) ''[bold]+∞[/bold]'' ;
-    text id 19 start 71.7s at (135.0, 36) ''[bold][color=#FBBF24][3 ; +∞[[/color][/bold]'' ;
+    text id 12 start 67.0s at (4, 28) ''[bold][color=#FBBF24]Intervalles Non Bornés :[/color][/bold]'' ;
+    text id 13 start 68.7s at (4, 42) ''$$x \ge 3 \iff x \in [3 ; +\infty[$$'' ;
+    text id 14 start 71.2s at (4, 58) ''$$x < 0 \iff x \in ]-\infty ; 0[$$'' ;
+    text id 15 start 73.7s at (4, 74) ''Du côté de ±∞, crochet TOUJOURS ouvert !'' ;
+    draw arrow id 124 start 67.7s for 0.8s color (248, 250, 252, 0.95) width 2.0 at [(96, 56), (170, 56)] ;
+    draw line id 125 start 69.0s for 0.4s color (226, 232, 240, 0.85) width 1.5 at [(125, 52), (125, 60)] ;
+    text id 16 start 69.2s at (123.5, 63) ''[bold]3[/bold]'' ;
+    draw line id 126 start 70.0s for 1.2s color (251, 191, 36, 1) width 5.0 at [(125, 56), (168, 56)] ;
+    text id 17 start 70.7s at (122.0, 50) ''[bold][color=#FBBF24][[/color][/bold]'' ;
+    text id 18 start 71.4s at (162.0, 48) ''[bold]+∞[/bold]'' ;
+    text id 19 start 72.2s at (135.0, 36) ''[bold][color=#FBBF24][3 ; +∞[[/color][/bold]'' ;
 
 }

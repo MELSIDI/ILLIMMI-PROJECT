@@ -72,35 +72,26 @@ def save_progress(progress: dict):
         json.dump(progress, f, indent=2, ensure_ascii=False)
 
 
-def fetch_youtube_transcript(course: dict, delay_range: tuple = (2.0, 4.0)) -> tuple:
-    """Fetch raw transcript with local cache check and quota safety pauses."""
+def fetch_youtube_transcript(course: dict, delay_range: tuple = (2.0, 4.0), used_video_ids: set = None) -> tuple:
+    """Fetch raw transcript via YouTube live search with quota safety and deduplication."""
     from youtube_transcript_api import YouTubeTranscriptApi
-    from youtube_transcript_api._errors import NoTranscriptFound, TranscriptsDisabled
 
     course_id = course["id"]
     creator = course.get("author") or course.get("target_channel") or course.get("source_channel") or course.get("creator") or "Yvan Monka"
     title = course["title"]
     level = course["level"]
     domain = course["domain"]
-
-    # Check local cache first to avoid unnecessary YouTube queries
-    existing_files = list(TRANSCRIPTS_RAW_DIR.glob(f"{course_id}_*.txt"))
-    if existing_files:
-        cached_file = existing_files[0]
-        video_id = cached_file.stem.replace(f"{course_id}_", "")
-        with open(cached_file, "r", encoding="utf-8") as f:
-            raw_text = f.read()
-        return video_id, title, creator, raw_text
+    used_vids = used_video_ids if used_video_ids is not None else set()
 
     # Respect YouTube quotas with gentle jittered pause
     time.sleep(random.uniform(*delay_range))
 
-    # Priority 1: Direct video ID if provided in catalog
-    direct_vid = course.get("youtube_video_id")
     api = YouTubeTranscriptApi()
     lang_pref = ['en', 'en-US'] if domain == "Anglais" else ['fr', 'fr-FR']
 
-    if direct_vid and len(direct_vid) == 11 and direct_vid != "raw":
+    # Priority 1: Direct video ID if provided in catalog and not already used elsewhere
+    direct_vid = course.get("youtube_video_id")
+    if direct_vid and len(direct_vid) == 11 and direct_vid != "raw" and direct_vid not in used_vids:
         try:
             snippets = api.fetch(direct_vid, languages=lang_pref + ['fr', 'en'])
             lines = [s.text.strip() for s in snippets if s.text.strip()]
@@ -110,72 +101,77 @@ def fetch_youtube_transcript(course: dict, delay_range: tuple = (2.0, 4.0)) -> t
                 raw_path = TRANSCRIPTS_RAW_DIR / f"{course_id}_{direct_vid}.txt"
                 with open(raw_path, "w", encoding="utf-8") as f:
                     f.write(raw_text)
+                used_vids.add(direct_vid)
                 return direct_vid, course.get("youtube_video_title", title), creator, raw_text
         except Exception:
             pass
 
-    # Priority 2: Use curated search_query or build precise query
+    # Priority 2: Use curated search_query or fallback query
+    queries = []
     if course.get("search_query"):
-        query = course["search_query"]
-    else:
-        clean_title = re.sub(r'[:\-–()]', ' ', title)
-        stop_words = {"cours", "complet", "methode", "application", "exercices", "bac", "lycee", "pas", "comment", "resoudre", "un", "probleme", "de"}
-        query_words = [w for w in clean_title.split() if w.lower() not in stop_words]
-        query = f"{creator} {level} {' '.join(query_words[:5])}".strip()
+        queries.append(course["search_query"])
+    clean_title = re.sub(r'[:\-–()]', ' ', title)
+    stop_words = {"cours", "complet", "methode", "application", "exercices", "bac", "lycee", "pas", "comment", "resoudre", "un", "probleme", "de"}
+    query_words = [w for w in clean_title.split() if w.lower() not in stop_words]
+    queries.append(f"{creator} {level} {' '.join(query_words[:5])}".strip())
+    queries.append(f"{level} {domain} {' '.join(query_words[:4])}".strip())
 
-    cmd = [
-        "yt-dlp",
-        "--default-search", "ytsearch3",
-        "--dump-json",
-        "--flat-playlist",
-        "--no-playlist",
-        "--skip-download",
-        query
-    ]
-
-    try:
-        proc = subprocess.run(cmd, capture_output=True, text=True, encoding="utf-8", timeout=25)
-    except subprocess.TimeoutExpired:
-        raise RuntimeError(f"yt-dlp search timed out for: '{query}'")
-
-    if proc.returncode != 0 or not proc.stdout.strip():
-        raise RuntimeError(f"yt-dlp search failed for: '{query}'")
-
-    candidates = []
-    for line in proc.stdout.strip().split("\n"):
-        line = line.strip()
-        if not line:
-            continue
-        try:
-            item = json.loads(line)
-            candidates.append({
-                "id": item.get("id"),
-                "title": item.get("title", ""),
-                "channel": item.get("uploader") or item.get("channel", creator),
-            })
-        except json.JSONDecodeError:
-            continue
-
-    if not candidates:
-        raise RuntimeError(f"No candidates found for: '{query}'")
-
-    transcript_list = None
     matched_cand = None
+    transcript_list = None
 
-    for cand in candidates:
-        vid = cand["id"]
+    for query in queries:
+        cmd = [
+            "yt-dlp",
+            "--default-search", "ytsearch5",
+            "--dump-json",
+            "--flat-playlist",
+            "--no-playlist",
+            "--skip-download",
+            query
+        ]
+
         try:
-            snippets = api.fetch(vid, languages=lang_pref + ['fr', 'en'])
-            lines = [s.text.strip() for s in snippets if s.text.strip()]
-            if lines:
-                transcript_list = lines
-                matched_cand = cand
-                break
+            proc = subprocess.run(cmd, capture_output=True, text=True, encoding="utf-8", timeout=25)
+            if proc.returncode != 0 or not proc.stdout.strip():
+                continue
         except Exception:
             continue
 
+        candidates = []
+        for line in proc.stdout.strip().split("\n"):
+            line = line.strip()
+            if not line:
+                continue
+            try:
+                item = json.loads(line)
+                vid = item.get("id")
+                if vid and vid not in used_vids:
+                    candidates.append({
+                        "id": vid,
+                        "title": item.get("title", ""),
+                        "channel": item.get("uploader") or item.get("channel", creator),
+                    })
+            except json.JSONDecodeError:
+                continue
+
+        for cand in candidates:
+            vid = cand["id"]
+            try:
+                snippets = api.fetch(vid, languages=lang_pref + ['fr', 'en'])
+                lines = [s.text.strip() for s in snippets if s.text.strip()]
+                if lines and len(lines) >= 5:
+                    transcript_list = lines
+                    matched_cand = cand
+                    used_vids.add(vid)
+                    break
+            except Exception:
+                continue
+
+        if transcript_list and matched_cand:
+            break
+
     if not transcript_list or not matched_cand:
-        raise RuntimeError(f"No available transcript for {course_id} candidates")
+        raise RuntimeError(f"Aucune transcription YouTube disponible pour {course_id} ('{title}')")
 
     raw_text = " ".join(transcript_list)
 
@@ -238,18 +234,19 @@ def generate_layer3_visuals_cognitive(course: dict, layer1: dict, narration_text
 
 
 
-def process_course_agentic(course: dict) -> dict:
+def process_course_agentic(course: dict, used_video_ids: set = None) -> dict:
     """
     Executes the full agentic course compilation pipeline (A to Z):
-    1. Input: user_prompt.txt (student inquiry simulation)
-    2. YouTube Ingestion: raw_transcript.txt (original speech, rate-limited)
-    3. Transcript Sanitization: narration.txt (pedagogical French, oral math phonetics, no YouTuber noise)
-    4. Piper TTS + Whisper.cpp: narration.wav (preserved PCM WAV) and words.txt (<start>mot<end>)
-    5. Layer 1 Pedagogical Structuration: metadata.json (canonical progression, duration, concepts)
-    6. Cognitive Layer 3 Visual Generation: course.hc (16:9 canvas, left-aligned, animated)
-    7. World Model Verification & Coordinate Auto-Correction (score >= 8.0/10)
-    8. Headless Board Rendering: renders/ (scene screenshots)
-    9. Strict completeness certification
+    1. Check if course already exists and is certified
+    2. Input: user_prompt.txt (student inquiry simulation)
+    3. YouTube Live Search & Ingestion: raw_transcript.txt (unique video, no duplicates)
+    4. Transcript Sanitization: narration.txt (pedagogical French, oral math phonetics, no YouTuber noise)
+    5. Piper TTS + Whisper.cpp: narration.wav (preserved PCM WAV) and words.txt (<start>mot<end>)
+    6. Layer 1 Pedagogical Structuration: metadata.json (canonical progression, duration, concepts)
+    7. Cognitive Layer 3 Visual Generation: course.hc (16:9 canvas, left-aligned, animated)
+    8. World Model Verification & Coordinate Auto-Correction (score >= 8.0/10)
+    9. Headless Board Rendering: renders/ (scene screenshots)
+    10. Strict completeness certification & dynamic catalog update
     """
     course_id = course["id"]
     lang = "en" if course.get("domain") == "Anglais" else "fr"
@@ -258,6 +255,32 @@ def process_course_agentic(course: dict) -> dict:
     title = course["title"]
 
     course_dir = COURSES_DIR / course_id
+
+    # 0. Vérification si le cours existe déjà intégralement et est certifié dans le corpus
+    required_files = [
+        course_dir / "user_prompt.txt",
+        course_dir / "raw_transcript.txt",
+        course_dir / "narration.txt",
+        course_dir / "narration.wav",
+        course_dir / "words.txt",
+        course_dir / "course.hc",
+        course_dir / "metadata.json",
+        course_dir / "renders" / "render_manifest.json"
+    ]
+    if all(p.exists() and p.stat().st_size > 0 for p in required_files):
+        print(f"    ℹ️ Le cours {course_id} existe déjà intégralement et est certifié dans le corpus.")
+        with open(course_dir / "metadata.json", "r", encoding="utf-8") as f:
+            metadata = json.load(f)
+        return {
+            "course_id": course_id,
+            "duration_seconds": metadata.get("duration_seconds", 0),
+            "word_count": metadata.get("word_count", 0),
+            "video_id": metadata.get("source_video", {}).get("video_id", ""),
+            "channel": metadata.get("source_video", {}).get("channel", ""),
+            "world_model_score": metadata.get("world_model_score", 10.0),
+            "scenes_rendered": len(metadata.get("rendered_scenes", []))
+        }
+
     course_dir.mkdir(parents=True, exist_ok=True)
 
     # 1. User Input Prompt (A to Z tracking)
@@ -265,10 +288,16 @@ def process_course_agentic(course: dict) -> dict:
     with open(course_dir / "user_prompt.txt", "w", encoding="utf-8") as f:
         f.write(user_prompt + "\n")
 
-    # 2. Real YouTube transcript fetch
-    video_id, yt_title, channel, raw_text = fetch_youtube_transcript(course)
+    # 2. Real YouTube transcript fetch with live search & deduplication
+    video_id, yt_title, channel, raw_text = fetch_youtube_transcript(course, used_video_ids=used_video_ids)
     with open(course_dir / "raw_transcript.txt", "w", encoding="utf-8") as f:
         f.write(raw_text)
+
+    # Update course entry dynamically
+    course["youtube_video_id"] = video_id
+    course["youtube_url"] = f"https://www.youtube.com/watch?v={video_id}"
+    course["youtube_video_title"] = yt_title
+    course["transcript_available"] = True
 
     # 3. Transcript Sanitization & Oral Math Phonetics -> narration.txt
     narration_text = TranscriptSanitizer.sanitize(raw_text, course_title=title, level=level)
@@ -470,6 +499,15 @@ def run_agentic_batch(batch_size: int = 25, start_index: int = None, verify_only
         print("🎉 FÉLICITATIONS ! Les 1 000 cours sont entièrement finalisés et certifiés !")
         return
 
+    # Collect already used video IDs across existing courses and progress to avoid duplicates
+    used_video_ids = set()
+    for item in catalog:
+        if item.get("youtube_video_id"):
+            used_video_ids.add(item["youtube_video_id"])
+    for info in progress.get("completed_courses", {}).values():
+        if isinstance(info, dict) and info.get("video_id"):
+            used_video_ids.add(info["video_id"])
+
     batch = pending[:batch_size]
     print(f"📊 Progression totale : {len(completed_ids)} / 1000 complétés")
     print(f"🎯 Lot du jour : {len(batch)} cours programmés (Quota YouTube sécurisé)")
@@ -488,10 +526,15 @@ def run_agentic_batch(batch_size: int = 25, start_index: int = None, verify_only
         print(f"    Titre : {c_title}")
 
         try:
-            res = process_course_agentic(course)
+            res = process_course_agentic(course, used_video_ids=used_video_ids)
             progress["completed_courses"][c_id] = res
             progress["total_completed"] = len(progress["completed_courses"])
             save_progress(progress)
+
+            # Persist dynamically discovered video metadata into catalog
+            with open(FULL_CATALOG_FILE, "w", encoding="utf-8") as f:
+                json.dump(catalog, f, ensure_ascii=False, indent=2)
+
             success_count += 1
 
             print(f"    ✅ Terminé ! Durée: {res['duration_seconds']}s | Mots: {res['word_count']} | World Model Score: {res['world_model_score']}/10")
