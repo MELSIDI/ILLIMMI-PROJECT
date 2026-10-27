@@ -5,36 +5,20 @@
       "video_id": "raw",
       "channel": "Yvan Monka",
       "title": "Intervalles et encadrements de réels — Cours fondamental et définitions",
-      "duration_seconds": 99.18,
+      "duration_seconds": 98.5,
       "word_count": 317,
-      "world_model_score": 10.0,
-      "rendered_scenes": 3,
-      "status": "COMPLETED"
-    },
-    "MATH_002": {
-      "course_id": "MATH_002",
-      "video_id": "8WJG_QHQs1Y",
-      "channel": "Yvan Monka",
-      "title": "Méthode pas à pas : Comment résoudre un problème de Intervalles et encadrements de réels",
-      "duration_seconds": 97.31,
-      "word_count": 362,
       "world_model_score": 10.0,
       "rendered_scenes": 3,
       "status": "COMPLETED"
     }
   },
-  "total_completed": 2,
-  "last_run_timestamp": "2026-10-27T22:48:15.376778",
+  "total_completed": 1,
+  "last_run_timestamp": "2026-10-27T23:26:55.593945",
   "daily_runs": [
     {
-      "timestamp": "2026-10-27T22:37:06.434242",
+      "timestamp": "2026-10-27T23:26:55.593945",
       "processed_today": 1,
-      "elapsed_seconds": 90.2
-    },
-    {
-      "timestamp": "2026-10-27T22:48:15.376778",
-      "processed_today": 1,
-      "elapsed_seconds": 108.2
+      "elapsed_seconds": 105.6
     }
   ]
 }

@@ -78,7 +78,7 @@ def fetch_youtube_transcript(course: dict, delay_range: tuple = (2.0, 4.0)) -> t
     from youtube_transcript_api._errors import NoTranscriptFound, TranscriptsDisabled
 
     course_id = course["id"]
-    creator = course.get("target_channel") or course.get("source_channel") or "Yvan Monka"
+    creator = course.get("author") or course.get("target_channel") or course.get("source_channel") or course.get("creator") or "Yvan Monka"
     title = course["title"]
     level = course["level"]
     domain = course["domain"]
@@ -411,24 +411,27 @@ def sync_manifest_csv(progress: dict, catalog: list):
     for item in catalog:
         c_id = item["id"]
         info = completed_map.get(c_id, {})
-        status = "COMPLETED" if c_id in completed_map else item.get("status", "pending")
         v_id = info.get("video_id", item.get("youtube_video_id", ""))
-        words = info.get("word_count", item.get("real_word_count", ""))
-        dur = info.get("duration_seconds", item.get("estimated_duration_min", 10))
+        v_url = f"https://www.youtube.com/watch?v={v_id}" if v_id else item.get("youtube_url", "")
+        author = item.get("author") or info.get("channel") or item.get("creator", "")
+        has_transcript = (c_id in completed_map) or item.get("transcript_available", False)
 
         rows.append({
             "id": c_id,
-            "domain": item["domain"],
-            "level": item["level"],
-            "title": item["title"],
-            "creator": info.get("channel", item.get("target_channel", "")),
-            "video_id": v_id,
-            "duration": dur,
-            "words": words,
-            "status": status
+            "subject": item.get("subject", ""),
+            "level": item.get("level", ""),
+            "domain": item.get("domain", ""),
+            "title": item.get("title", ""),
+            "author": author,
+            "youtube_video_id": v_id,
+            "youtube_url": v_url,
+            "transcript_available": has_transcript
         })
 
-    fieldnames = ["id", "domain", "level", "title", "creator", "video_id", "duration", "words", "status"]
+    fieldnames = [
+        "id", "subject", "level", "domain", "title",
+        "author", "youtube_video_id", "youtube_url", "transcript_available"
+    ]
     with open(MANIFEST_FILE, "w", encoding="utf-8", newline="") as f:
         writer = csv.DictWriter(f, fieldnames=fieldnames)
         writer.writeheader()

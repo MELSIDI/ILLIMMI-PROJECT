@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 """
-Script de validation et d'audit de conformité pour le Corpus ILLIMMI 1 000 cours.
+Script de validation et d'audit de conformité pour le Catalogue ILLIMMI 1 000 cours (Lean Schema).
 Vérifie :
 1. Les quotas stricts : 500 Maths, 300 Physique-Chimie, 200 Langues (100 FR, 100 EN).
 2. L'unicité absolue des identifiants (IDs).
-3. La complétude et la conformité au schéma de chaque entrée.
-4. La présence des types pédagogiques clés (cours, méthodes, exemples, exercices corrigés, problèmes, synthèses).
-5. La conformité de l'alignement 3-Layers (Layer 1, Layer 2, Layer 3).
+3. La complétude et la conformité au schéma épuré (id, subject, level, domain, title, author).
+4. L'absence absolue de couches artificielles (aucun layer1_spec, layer2_spec, layer3_spec).
+5. La conformité du manifeste CSV (corpus_1000_manifest.csv) et des sous-catalogues.
 """
 
 import json
@@ -18,9 +18,10 @@ from collections import Counter
 ROOT_DIR = Path(__file__).resolve().parent.parent
 CATALOG_DIR = ROOT_DIR / "catalog"
 
+
 def validate():
     print("=" * 70)
-    print("AUDIT DE CONFORMITÉ DU CORPUS ILLIMMI 1 000 COURS")
+    print("AUDIT DE CONFORMITÉ DU CATALOGUE ILLIMMI 1 000 COURS (LEAN SCHEMA)")
     print("=" * 70)
 
     full_path = CATALOG_DIR / "corpus_1000_full.json"
@@ -56,80 +57,68 @@ def validate():
     assert subject_counts["Anglais"] == 100, f"Erreur quota Anglais: {subject_counts['Anglais']} != 100"
     print("[PASS] Quotas par discipline rigoureusement respectés (500 Maths / 300 Phys / 100 FR / 100 EN).")
 
-    # 4. Vérification de la typologie pédagogique
-    type_counts = Counter(item["pedagogical_type"] for item in data)
-    print("\nRépartition par type pédagogique :")
-    for ptype, count in type_counts.items():
-        print(f"  - {ptype:22} : {count}")
-
-    mandatory_types = [
-        "cours_notion",
-        "methode_resolution",
-        "exemple_detaille",
-        "correction_exercice",
-        "probleme_complexe",
-        "synthese_revision"
-    ]
-    for mtype in mandatory_types:
-        assert type_counts[mtype] > 0, f"Type pédagogique manquant : {mtype}"
-    print("[PASS] Tous les types pédagogiques (notions, méthodes, exemples, exercices corrigés, problèmes, synthèses) sont bien représentés.")
-
-    # 5. Vérification des niveaux (Lycée)
+    # 4. Vérification des niveaux scolaires (Lycée)
     level_counts = Counter(item["level"] for item in data)
     print("\nRépartition par niveau scolaire :")
     for lvl, count in level_counts.items():
         print(f"  - {lvl:32} : {count}")
 
-    # 6. Vérification de la conformité du schéma et des 3 Layers
-    print("\nVérification de la structure interne des entrées...")
+    # 5. Vérification du schéma épuré et de l'absence de layers fictifs
+    print("\nVérification de la conformité du schéma (Lean Schema sans layers)...")
+    forbidden_keys = {"layer1_spec", "layer2_spec", "layer3_spec", "pedagogical_target"}
+    required_keys = {"id", "subject", "level", "domain", "title", "author"}
+
     for idx, item in enumerate(data):
-        assert "id" in item and item["id"]
-        assert "subject" in item and item["subject"]
-        assert "level" in item and item["level"]
-        assert "domain" in item and item["domain"]
-        assert "title" in item and len(item["title"]) >= 10
-        assert "creator" in item and item["creator"]
-        assert "search_query" in item and item["search_query"]
-        assert "pedagogical_target" in item and len(item["pedagogical_target"]) >= 15
+        item_id = item.get("id", f"index_{idx}")
+        # Champs obligatoires
+        for req in required_keys:
+            assert req in item and item[req], f"Item {item_id} manque le champ obligatoire '{req}'"
 
-        # Layer 1
-        l1 = item.get("layer1_spec")
-        assert l1 is not None, f"Item {item['id']} manque layer1_spec"
-        assert 60 <= l1["duration_target"] <= 300
-        assert len(l1["concepts_cles"]) >= 2
-        assert len(l1["plan_pedagogique"]) >= 3
-        for section in l1["plan_pedagogique"]:
-            assert "section" in section
-            assert "role" in section
-            assert "support_visuel_suggere" in section
+        # Longueurs minimales
+        assert len(item["title"]) >= 10, f"Titre trop court pour {item_id}: {item['title']}"
 
-        # Layer 2
-        l2 = item.get("layer2_spec")
-        assert l2 is not None, f"Item {item['id']} manque layer2_spec"
-        assert "style_guidance" in l2
-        assert "spoken_math_rule" in l2
-        assert "visual_anchor_verbalization" in l2 and len(l2["visual_anchor_verbalization"]) > 10
+        # Absence stricte de métadonnées de layers
+        for forbidden in forbidden_keys:
+            assert forbidden not in item, f"Violation Lean Schema : Item {item_id} contient '{forbidden}'"
 
-        # Layer 3
-        l3 = item.get("layer3_spec")
-        assert l3 is not None, f"Item {item['id']} manque layer3_spec"
-        assert len(l3["hypercourse_primitives"]) >= 1
-        assert l3["recommended_scene_count"] >= 2
-        assert l3["pre_erase_validation"] is True
+    print("[PASS] Schéma épuré validé : aucun layer1_spec, layer2_spec ou layer3_spec résiduel.")
 
-    print("[PASS] Intégrité structurelle des 1 000 entrées validée sans aucune erreur.")
+    # 6. Vérification des sous-catalogues
+    math_path = CATALOG_DIR / "math_500.json"
+    phys_path = CATALOG_DIR / "physique_300.json"
+    lang_path = CATALOG_DIR / "langues_200.json"
 
-    # 7. Vérification des fichiers annexes
+    assert math_path.exists(), "math_500.json introuvable"
+    assert phys_path.exists(), "physique_300.json introuvable"
+    assert lang_path.exists(), "langues_200.json introuvable"
+
+    with open(math_path, "r", encoding="utf-8") as f:
+        assert len(json.load(f)) == 500, "math_500.json ne contient pas 500 cours"
+    with open(phys_path, "r", encoding="utf-8") as f:
+        assert len(json.load(f)) == 300, "physique_300.json ne contient pas 300 cours"
+    with open(lang_path, "r", encoding="utf-8") as f:
+        assert len(json.load(f)) == 200, "langues_200.json ne contient pas 200 cours"
+    print("[PASS] Sous-catalogues math_500.json, physique_300.json et langues_200.json validés.")
+
+    # 7. Audit du manifeste CSV
     csv_file = CATALOG_DIR / "corpus_1000_manifest.csv"
-    assert csv_file.exists(), "Fichier manifest CSV manquant"
+    assert csv_file.exists(), f"Fichier {csv_file} manquant"
+
     with open(csv_file, "r", encoding="utf-8") as f:
         reader = list(csv.reader(f))
-        assert len(reader) == 1001, f"Lignes CSV : {len(reader)} au lieu de 1001 (en-tête inclus)"
-    print("[PASS] Fichier manifeste CSV synchronisé et complet (1 000 lignes).")
+
+    assert len(reader) == 1001, f"Le fichier CSV doit contenir 1 001 lignes (header + 1 000 cours), trouvé: {len(reader)}"
+    expected_header = [
+        "id", "subject", "level", "domain", "title",
+        "author", "youtube_video_id", "youtube_url", "transcript_available"
+    ]
+    assert reader[0] == expected_header, f"Header CSV non conforme : {reader[0]} != {expected_header}"
+    print(f"[PASS] Manifeste CSV validé avec {len(reader)-1} lignes et colonnes Lean conformes.")
 
     print("\n" + "=" * 70)
-    print("TOUS LES CONTRÔLES SONT AU VERT : LE CORPUS EST 100% VALIDE !")
+    print("CONFORMITÉ TOTALE 100% : LE CATALOGUE LEAN EST CERTIFIÉ CONFORME")
     print("=" * 70)
+
 
 if __name__ == "__main__":
     validate()

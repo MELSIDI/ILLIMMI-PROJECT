@@ -88,14 +88,13 @@ def save_catalogs_and_manifest(catalog: List[Dict[str, Any]]) -> None:
     with open(CATALOG_DIR / "langues_200.json", "w", encoding="utf-8") as f:
         json.dump(lang_courses, f, ensure_ascii=False, indent=2)
 
-    # Manifeste CSV
+    # Manifeste CSV Lean
     csv_path = CATALOG_DIR / "corpus_1000_manifest.csv"
     with open(csv_path, "w", encoding="utf-8", newline="") as f:
         writer = csv.writer(f)
         writer.writerow([
-            "id", "subject", "level", "domain", "title", "pedagogical_type",
-            "creator", "duration_target_sec", "real_words_count",
-            "youtube_video_id", "youtube_url", "search_query"
+            "id", "subject", "level", "domain", "title",
+            "author", "youtube_video_id", "youtube_url", "transcript_available"
         ])
         for c in catalog:
             writer.writerow([
@@ -104,13 +103,10 @@ def save_catalogs_and_manifest(catalog: List[Dict[str, Any]]) -> None:
                 c["level"],
                 c["domain"],
                 c["title"],
-                c["pedagogical_type"],
-                c.get("youtube_channel") or c["creator"],
-                c["layer1_spec"]["duration_target"],
-                c.get("real_transcript_words_count", 0),
+                c.get("author") or c.get("creator", ""),
                 c.get("youtube_video_id", ""),
                 c.get("youtube_url", ""),
-                c["search_query"]
+                c.get("transcript_available", False)
             ])
 
 def load_status() -> Dict[str, Any]:
