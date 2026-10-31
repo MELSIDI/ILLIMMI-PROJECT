@@ -1,0 +1,86 @@
+{
+  "id": "MATH_005",
+  "subject": "Mathématiques",
+  "level": "Seconde",
+  "domain": "Nombres & Calculs",
+  "title": "Problème type Bac : Intervalles et encadrements de réels — Raisonnement en plusieurs étapes",
+  "pedagogical_type": "methode_probleme",
+  "pedagogical_target": "Déterminer la réunion de deux intervalles dans deux configurations fondamentales : intervalles sécants avec chevauchement et intervalles disjoints non simplifiables. Maîtriser l'axe gradué et le statut des bornes.",
+  "sections": [
+    {
+      "section_id": "sec_1",
+      "title": "1. Accroche et Sens Géométrique de la Réunion d'Intervalles",
+      "summary": "Présentation du problème type Bac et définition géométrique de la réunion d'ensembles. Traduction logique du connecteur 'ou' et principe de lecture sur la droite numérique.",
+      "support_visuel_suggere": "draw line + draw path + text",
+      "concepts_cles": [
+        "réunion d'intervalles",
+        "symbole union U",
+        "connecteur ou",
+        "droite graduée"
+      ]
+    },
+    {
+      "section_id": "sec_2",
+      "title": "2. Premier Cas : Intervalles Sécants avec Chevauchement",
+      "summary": "Résolution détaillée pour I = [0 ; 2[ et J = [1 ; 4]. Représentation bicolore sur l'axe, identification de la zone continue et analyse rigoureuse des bornes 0 et 4.",
+      "support_visuel_suggere": "draw line + draw path + draw arrow",
+      "concepts_cles": [
+        "intervalles sécants",
+        "chevauchement",
+        "borne fermée",
+        "borne ouverte",
+        "fusion en un seul intervalle"
+      ]
+    },
+    {
+      "section_id": "sec_3",
+      "title": "3. Deuxième Cas : Intervalles Disjoints et Demi-Droite Infinie",
+      "summary": "Résolution pour I = ]3 ; +infini[ et J = [-1 ; 1]. Tracé d'un segment fermé et d'une demi-droite non bornée, et constat graphique de l'absence totale de zone commune.",
+      "support_visuel_suggere": "draw line + draw path + draw arrow",
+      "concepts_cles": [
+        "intervalles disjoints",
+        "demi-droite non bornée",
+        "plus l'infini",
+        "crochet ouvert en l'infini"
+      ]
+    },
+    {
+      "section_id": "sec_4",
+      "title": "4. Piège Fréquent : Ne Jamais Confondre Réunion et Intersection",
+      "summary": "Démystification de l'erreur classique : l'intersection des intervalles disjoints est l'ensemble vide, mais leur réunion est non vide et regroupe tous les réels coloriés.",
+      "support_visuel_suggere": "draw line + draw path + text",
+      "concepts_cles": [
+        "intersection vide",
+        "réunion non vide",
+        "piège d'examen",
+        "distinction et/ou"
+      ]
+    },
+    {
+      "section_id": "sec_5",
+      "title": "5. Écriture Irréductible et Synthèse Réflexe",
+      "summary": "Règle de notation obligatoire pour deux intervalles disjoints : conservation du symbole union. Récapitulatif de la méthode réflexe en trois étapes pour les épreuves.",
+      "support_visuel_suggere": "draw line + draw arrow + text",
+      "concepts_cles": [
+        "écriture irréductible",
+        "méthode graphique réflexe",
+        "gestion des bornes"
+      ]
+    }
+  ],
+  "source_video": {
+    "video_id": "hzINDVy0dgg",
+    "title": "Determine the union of intervals - Second",
+    "channel": "Yvan Monka",
+    "youtube_url": "https://www.youtube.com/watch?v=hzINDVy0dgg"
+  },
+  "course_id": "MATH_005",
+  "duration_seconds": 208.91,
+  "word_count": 665,
+  "world_model_score": 10.0,
+  "rendered_scenes": 4,
+  "visual_audit_notes": "Inspection visuelle multimodale rigoureuse des 4 scènes PNG (scene_0 à scene_3). Scene 0: diagramme de Venn bicolore I et J avec intersection et union globale limpide, formules KaTeX impeccables. Scene 1: axe gradué de -1 à 5, intervalle vert [0;2[ et rouge [1;4] avec crochets géométriques précis, zone continue cyan [0;4] et justification des bornes sans chevauchement. Scene 2: axe gradué de -2 à 6, segment rouge [-1;1], demi-droite verte ]3;+infini[ avec crochet ouvert et flèche infinie, mise en évidence de l'espace vide disjoint. Scene 3: piège d'examen intersection vide vs réunion non vide déboulonné, écriture irréductible [-1;1] U ]3;+infini[ et cadre réflexe méthodologique 4 étapes parfaitement calibré sur tableau vert 16:9.",
+  "certified_by": "antigravity-argon",
+  "certified_at": "2026-10-31T01:40:08.909732",
+  "status": "COMPLETED"
+}

@@ -5,10 +5,12 @@
       "video_id": "mvJy4LVCmRI",
       "channel": "Yvan Monka",
       "title": "Intervalles et encadrements de réels — Cours fondamental et définitions",
-      "duration_seconds": 99.27,
-      "word_count": 318,
+      "duration_seconds": 1017.97,
+      "word_count": 3018,
       "world_model_score": 10.0,
-      "rendered_scenes": 3,
+      "rendered_scenes": 7,
+      "certified_by": "antigravity-argon",
+      "certified_at": "2026-10-30T22:37:10.913933",
       "status": "COMPLETED"
     },
     "MATH_002": {
@@ -16,25 +18,55 @@
       "video_id": "8WJG_QHQs1Y",
       "channel": "Yvan Monka",
       "title": "Méthode pas à pas : Comment résoudre un problème de Intervalles et encadrements de réels",
-      "duration_seconds": 97.31,
-      "word_count": 360,
+      "duration_seconds": 302.44,
+      "word_count": 910,
       "world_model_score": 10.0,
-      "rendered_scenes": 3,
+      "rendered_scenes": 4,
+      "certified_by": "antigravity-argon",
+      "certified_at": "2026-10-30T23:18:11.361081",
+      "status": "COMPLETED"
+    },
+    "MATH_003": {
+      "course_id": "MATH_003",
+      "video_id": "6I4MbRM0pqs",
+      "channel": "Yvan Monka",
+      "title": "Exemple guidé et calcul détaillé : Intervalles et encadrements de réels en pratique",
+      "duration_seconds": 395.21,
+      "word_count": 1132,
+      "world_model_score": 10.0,
+      "rendered_scenes": 7,
+      "certified_by": "antigravity-argon",
+      "certified_at": "2026-10-31T00:03:12.972025",
+      "status": "COMPLETED"
+    },
+    "MATH_004": {
+      "course_id": "MATH_004",
+      "video_id": "c-akR4NJhh0",
+      "channel": "Hedacademy",
+      "title": "Correction d'exercice classique : Intervalles et encadrements de réels (Entraînement Lycée)",
+      "duration_seconds": 541.28,
+      "word_count": 1640,
+      "world_model_score": 10.0,
+      "rendered_scenes": 6,
+      "certified_by": "antigravity-argon",
+      "certified_at": "2026-10-31T01:10:29.304214",
+      "status": "COMPLETED"
+    },
+    "MATH_005": {
+      "course_id": "MATH_005",
+      "video_id": "hzINDVy0dgg",
+      "channel": "Yvan Monka",
+      "title": "Problème type Bac : Intervalles et encadrements de réels — Raisonnement en plusieurs étapes",
+      "duration_seconds": 208.91,
+      "word_count": 665,
+      "world_model_score": 10.0,
+      "rendered_scenes": 4,
+      "certified_by": "antigravity-argon",
+      "certified_at": "2026-10-31T01:40:08.909732",
       "status": "COMPLETED"
     }
   },
-  "total_completed": 2,
-  "last_run_timestamp": "2026-10-28T00:11:34.149636",
-  "daily_runs": [
-    {
-      "timestamp": "2026-10-28T00:09:01.316011",
-      "processed_today": 1,
-      "elapsed_seconds": 96.5
-    },
-    {
-      "timestamp": "2026-10-28T00:11:34.149636",
-      "processed_today": 1,
-      "elapsed_seconds": 96.1
-    }
-  ]
+  "total_completed": 5,
+  "last_run_timestamp": "2026-10-31T01:40:08.909732",
+  "daily_runs": []
 }

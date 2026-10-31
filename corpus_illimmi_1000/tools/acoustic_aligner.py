@@ -13,6 +13,7 @@ import re
 import unicodedata
 import subprocess
 from pathlib import Path
+from typing import Optional
 
 # Paths to native binaries
 PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent
@@ -286,7 +287,7 @@ def write_compact_timeline(timings: list, out_path: Path):
 def align_course_end_to_end(
     narration_path: Path,
     output_words_path: Path,
-    output_wav_path: Path = None,
+    output_wav_path: Optional[Path] = None,
     lang: str = "fr"
 ) -> dict:
     """

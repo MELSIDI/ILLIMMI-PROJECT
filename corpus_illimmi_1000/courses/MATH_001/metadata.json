@@ -1,54 +1,114 @@
 {
-  "course_id": "MATH_001",
-  "title": "Intervalles et encadrements de réels — Cours fondamental et définitions",
+  "id": "MATH_001",
   "subject": "Mathématiques",
-  "domain": "Nombres & Calculs",
   "level": "Seconde",
-  "pedagogical_type": "cours",
-  "user_prompt": "Explique-moi : Intervalles et encadrements de réels — Cours fondamental et définitions (Discipline: Mathématiques, Niveau: Seconde)",
-  "source_video": {
-    "video_id": "mvJy4LVCmRI",
-    "title": "LE COURS : Les intervalles - Seconde",
-    "channel": "Yvan Monka"
-  },
-  "duration_seconds": 99.3,
-  "word_count": 318,
+  "domain": "Nombres & Calculs",
+  "title": "Intervalles et encadrements de réels — Cours fondamental et définitions",
+  "pedagogical_type": "cours_notion",
+  "pedagogical_target": "Maîtriser la notion d'intervalle, la notation avec crochets, les intervalles infinis, ainsi que l'intersection et la réunion d'intervalles.",
   "sections": [
     {
       "section_id": "sec_1",
-      "title": "1. Accroche & Problématique Concrète",
-      "start_time": 0.0,
-      "end_time": 33.1,
-      "summary": "[Musique] bonjour. Dans ce cours je te propose de revoir tout le cours sur le chapitre des intervalles l'objet de cette séquence est de te rappeler et de t'expl...",
-      "support_visuel_suggere": "text_and_diagram",
+      "title": "1. Introduction et Définition Géométrique d'un Intervalle",
+      "summary": "Découverte de la notion d'intervalle à partir de l'encadrement 2 <= x <= 4. Représentation sur un axe gradué et introduction des bornes et des crochets tournés vers l'ensemble.",
+      "support_visuel_suggere": "draw line + draw path + text",
       "concepts_cles": [
-        "Intervalles et encadrements de réels — Cours fondamental et définitions"
+        "ensemble des réels",
+        "axe gradué",
+        "encadrement",
+        "intervalle fermé",
+        "crochets tournés vers l'intérieur"
       ]
     },
     {
       "section_id": "sec_2",
-      "title": "2. Définition Formelle & Propriété Clé",
-      "start_time": 33.1,
-      "end_time": 66.2,
-      "summary": "Alors on connaît l'ensemble des réelles qu'on pourrait d'ailleurs représenté sur une droite un axe là que des abscisses. Mais parfois on n'a pas besoin de trava...",
-      "support_visuel_suggere": "formula_card",
+      "title": "2. Appartenance et Exclusion d'une Borne",
+      "summary": "Symboles d'appartenance et de non-appartenance. Étude d'un intervalle semi-ouvert avec exclusion de la borne 0 et orientation du crochet vers l'extérieur.",
+      "support_visuel_suggere": "draw line + draw path + text",
       "concepts_cles": [
-        "Intervalles et encadrements de réels — Cours fondamental et définitions"
+        "symbole appartient",
+        "symbole n'appartient pas",
+        "borne exclue",
+        "inégalité stricte",
+        "crochet ouvert"
       ]
     },
     {
       "section_id": "sec_3",
-      "title": "3. Décomposition du Raisonnement Pas à Pas",
-      "start_time": 66.2,
-      "end_time": 99.3,
-      "summary": "Donc 3 mais également 3.538 285 3 virgule 999 enfin compris il y à là dedans une infinité de nombre qui sont compris entre 2 et 4 et bien qu'est ce que c'est qu...",
-      "support_visuel_suggere": "step_solution",
+      "title": "3. Intervalles Non Bornés et la Notion d'Infini",
+      "summary": "Intervalles non bornés vers plus l'infini et moins l'infini. Pourquoi le symbole infini est toujours exclu par un crochet ouvert.",
+      "support_visuel_suggere": "draw arrow + draw line + draw path",
       "concepts_cles": [
-        "Intervalles et encadrements de réels — Cours fondamental et définitions"
+        "demi-droite",
+        "plus l'infini",
+        "moins l'infini",
+        "crochet toujours exclu en l'infini"
+      ]
+    },
+    {
+      "section_id": "sec_4",
+      "title": "4. Classification : Intervalles Fermés et Intervalles Ouverts",
+      "summary": "Définition rigoureuse d'un intervalle fermé (toutes les bornes incluses) et d'un intervalle ouvert (toutes les bornes exclues). Cas de R comme intervalle ouvert.",
+      "support_visuel_suggere": "draw line + draw path + text",
+      "concepts_cles": [
+        "intervalle fermé",
+        "intervalle ouvert",
+        "intervalle semi-ouvert",
+        "ensemble R"
+      ]
+    },
+    {
+      "section_id": "sec_5",
+      "title": "5. Intersection et Réunion : Des Ensembles Généraux aux Intervalles",
+      "summary": "Compréhension intuitive de l'intersection ('et') et de la réunion ('ou') grâce aux diagrammes de Venn avec patates d'éléments.",
+      "support_visuel_suggere": "draw circle + draw polygone + text",
+      "concepts_cles": [
+        "diagramme de Venn",
+        "intersection",
+        "inter",
+        "réunion",
+        "union",
+        "conjonction et",
+        "disjonction ou"
+      ]
+    },
+    {
+      "section_id": "sec_6",
+      "title": "6. Application Concrète : Calcul de A inter B et A union B sur un Axe",
+      "summary": "Méthode pas à pas pour déterminer l'intersection et la réunion des intervalles [-3 ; 4] et [2 ; 5] en superposant deux couleurs sur une droite graduée.",
+      "support_visuel_suggere": "draw line + draw path + text",
+      "concepts_cles": [
+        "superposition de couleurs",
+        "zone commune",
+        "couverture totale",
+        "vérification des bornes"
+      ]
+    },
+    {
+      "section_id": "sec_7",
+      "title": "7. Synthèse et Réflexes pour les Exercices et Contrôles",
+      "summary": "Tableau récapitulatif des notations, sens des crochets, traduction entre inégalités et intervalles, et méthode infaillible pour l'intersection et l'union.",
+      "support_visuel_suggere": "draw line + draw arrow + text",
+      "concepts_cles": [
+        "réflexes de contrôle",
+        "règle des crochets",
+        "traduction automatique"
       ]
     }
   ],
+  "duration_seconds": 1017.97,
+  "word_count": 3018,
+  "source_video": {
+    "video_id": "mvJy4LVCmRI",
+    "title": "LE COURS : Les intervalles - Seconde",
+    "channel": "Yvan Monka",
+    "youtube_url": "https://www.youtube.com/watch?v=mvJy4LVCmRI"
+  },
+  "course_id": "MATH_001",
   "world_model_score": 10.0,
-  "rendered_scenes": 3,
+  "rendered_scenes": 7,
+  "visual_audit_notes": "Inspection visuelle multimodale complete des 7 scenes PNG (scene_0 a scene_6). Scene 0: axe gradue et intervalle ferme [2;4] avec crochets fermes vers l'interieur, marges nettes. Scene 1: intervalle semi-ouvert ]0;1] avec crochet rouge ouvert en 0 et vert ferme en 1, regle d'or. Scene 2: demi-droites infinies vers +infini et -infini avec crochets ouverts rigoureux. Scene 3: classification comparee fermes/ouverts parfaitement cadree. Scene 4: diagramme de Venn limpide (patates A et B) avec intersection hachuree. Scene 5: superposition bicolore A=[-3;4] et B=[2;5] avec zone commune [2;4] et reunion totale [-3;5]. Scene 6: synthese et reflexes sans aucun chevauchement, contraste optimal sur tableau vert 16:9.",
+  "certified_by": "antigravity-argon",
+  "certified_at": "2026-10-30T22:37:10.913933",
   "status": "COMPLETED"
 }

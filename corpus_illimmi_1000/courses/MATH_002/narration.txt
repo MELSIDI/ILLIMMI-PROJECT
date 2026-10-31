@@ -1,5 +1,37 @@
-[Musique] bonjour. Dans ce cours tu vas apprendre à déterminer l'intersection de deux intervalles. Alors on nous demande ici de déterminer l'intersection des intervalles i et j dans deux cas dans le premier cas I est l'intervalle - 1 3 intervalle fermé puisque les bornes -1 et 3 nous disent que -1 et 3 appartiennent à l'interval ce qui n'est pas le cas de l'interval j ici 0 et 4 n'appartiennent pas à l'intervalle les bornes sont ouvertes on exclut 0 et 4 voilà.
+Bonjour et bienvenue ! Dans ce cours, tu vas apprendre à déterminer pas à pas l'intersection de deux intervalles de nombres réels. C'est une compétence fondamentale en classe de seconde, indispensable pour résoudre des inéquations et des systèmes d'encadrements.
 
-Alors pour déterminer l'intersection de i et j le plus simple est de représenter les intervalles i et j sur un axe gradué bien voilà un axe gradué on va commencer par représenter l'intervalle I interval I qui commence à 1 et qui s'arrête à 3 voilà l'intervalle I en ver l'inval j l'interval j commence en 0 et s'arrête en 4 cette fois-ci 0 et 4 sont exclus en rouge l'intervalle j. Donc nous ce qu'on veut c'est déterminer l'intersection de I et et j c'est finalement déterminer tous les nombres qui appartiennent à la fois à I et à la fois à J bien ces nombres ces nombres on les trouve ici dans cette zone la zone qui est à la fois marquée de ver l'ensemble des nombres qui se trouve dans I et en rouge l'ensemble des nombres qui se trouve dans J. Ainsi l'intersection de I et J est l'intervalle allant de 0 à 3 la question est est-ce que je prends les bornes.
+On nous demande ici de déterminer l'intersection de deux intervalles notés I et J dans deux cas concrets.
 
-Alors d'abord le 40 0 n'est pas dans J on l'a dit tout à l'heure si 0 n'est pas dans J il ne peut pas être dans l'intersection des deux puisquil doit être à la fois dans l'un et dans l'autre. Donc 0 on veut pas 3 alors 3 lui il y a pas de problème il est dans I on l'a dit aussi tout à l'heure la borne est fermée est-ce qu'il est dans J oui il est même carrément dans J puisque est à l'intérieur de J. Nous avons ainsi passé en revue les points essentiels de cette notion. Entraîne-toi régulièrement et à très bientôt sur ILLIMMI !
+Commençons par le premier cas. Nous avons deux intervalles bien précis. D'abord, le premier intervalle I est l'intervalle fermé moins 1 point-virgule 3. C'est un intervalle fermé parce que les deux crochets sont tournés vers l'intérieur : cela signifie que les bornes moins 1 et 3 font partie de l'intervalle, elles appartiennent à I. En revanche, le deuxième intervalle J est l'intervalle 0 point-virgule 4, mais cette fois-ci avec les bornes ouvertes : les crochets sont tournés vers l'extérieur. Cela nous indique que 0 et 4 n'appartiennent pas à l'intervalle J, ils sont strictement exclus.
+
+Pour déterminer l'intersection de I et J, la méthode la plus simple et la plus sûre consiste à représenter ces deux intervalles sur une droite graduée. Traçons à droite un axe gradué orienté pour visualiser la situation.
+
+Commençons par représenter sur cet axe le premier intervalle I en vert. Il démarre à moins 1 et se termine à 3. Traçons ce segment vert entre moins 1 et 3, avec deux crochets verts bien orientés vers l'intérieur pour indiquer que moins 1 et 3 sont inclus.
+
+Dessinons maintenant en dessous le deuxième intervalle J en rouge. Cet intervalle commence en 0 et s'arrête en 4. Traçons le segment rouge entre 0 et 4, avec cette fois des crochets rouges tournés vers l'extérieur, car 0 et 4 sont exclus.
+
+Rappelons maintenant ce que signifie chercher l'intersection de I et J. L'intersection, c'est l'ensemble de tous les nombres réels qui appartiennent à la fois à l'intervalle I et à la fois à l'intervalle J. C'est la condition et : pour être dans l'intersection, un nombre doit être simultanément dans I et dans J.
+
+Regardons la zone de chevauchement où se superposent le vert et le rouge. Visuellement, ces nombres communs se trouvent exactement entre 0 et 3. L'intersection est donc l'intervalle allant de 0 à 3.
+
+Mais attention, la question cruciale à se poser à ce stade est : est-ce que l'on prend les bornes 0 et 3 ? Analysons chaque borne séparément.
+
+D'abord, le cas du nombre 0. Est-ce que 0 appartient à l'intervalle J ? Non, nous avons vu que le crochet rouge est ouvert en 0, donc 0 n'est pas dans J. Or, pour appartenir à l'intersection, un nombre doit obligatoirement être dans les deux ensembles à la fois. Si 0 n'est pas dans J, il ne peut absolument pas être dans l'intersection. Donc on exclut 0, le crochet en 0 sera ouvert.
+
+Examinons maintenant le cas du nombre 3. Est-ce que 3 appartient à l'intervalle I ? Oui, la borne verte est fermée en 3, donc 3 est bien dans I. Est-ce que 3 appartient aussi à l'intervalle J ? Oui, tout à fait, car 3 est strictement inférieur à 4, il est situé bien à l'intérieur du segment rouge de J. Par conséquent, 3 appartient à la fois à I et à J. On accepte donc 3 dans l'intersection : la borne 3 est incluse, le crochet sera fermé en 3.
+
+En mathématiques, le symbole de l'intersection ressemble à un pont ou à une arche. Il se lit inter. On écrit I inter J. L'intersection de I et J est donc l'intervalle ouvert en 0 et fermé en 3, c'est-à-dire l'intervalle 0 point-virgule 3 ouvert en 0 et fermé en 3. Voilà notre premier cas parfaitement résolu.
+
+Passons maintenant au deuxième cas. Nous avons cette fois-ci l'intervalle I qui va de moins l'infini jusqu'à 0 fermé en 0. Comme toujours, du côté de moins l'infini, la borne est nécessairement ouverte, car l'infini n'est pas un nombre réel que l'on peut atteindre. En revanche, en 0, la borne est fermée, le nombre 0 est inclus. Le deuxième intervalle J va de 1 à 4, avec ses deux bornes 1 et 4 incluses : c'est un intervalle fermé.
+
+Appliquons à nouveau notre méthode géométrique. Traçons à droite un nouvel axe gradué pour étudier notre deuxième exemple.
+
+Représentons le premier intervalle I. Colorons en vert la demi-droite venant de moins l'infini jusqu'à 0, et plaçons en 0 un crochet vert fermé vers la gauche.
+
+Plaçons à droite le segment rouge correspondant à l'intervalle J, qui part de 1 et s'arrête en 4, avec deux crochets rouges fermés vers l'intérieur.
+
+Cherchons à nouveau tous les nombres réels qui appartiennent à la fois à I et à J. Observons attentivement cet axe gradué. On voit immédiatement que ces deux intervalles ne se rencontrent pas du tout : ils ne se chevauchent en aucun endroit. Il n'existe donc aucun nombre réel qui appartienne simultanément à l'intervalle I et à l'intervalle J.
+
+Dans cette situation, on dit que les deux intervalles sont disjoints. Leur intersection est vide. En mathématiques, l'ensemble vide se note avec un symbole spécial : un zéro barré. On conclut donc que I inter J est égal à l'ensemble vide.
+
+Retiens bien cette méthode infaillible en trois étapes pour tes devoirs : trace toujours un axe gradué, représente chaque intervalle avec sa propre couleur et ses propres crochets, puis identifie la zone de chevauchement en testant chaque borne une par une. Tu éviteras ainsi tous les pièges d'inclusion et d'exclusion.

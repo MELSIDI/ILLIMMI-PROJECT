@@ -11,7 +11,7 @@
     "youtube_url": "https://www.youtube.com/watch?v=mvJy4LVCmRI",
     "youtube_video_title": "LE COURS : Les intervalles - Seconde",
     "transcript_available": true,
-    "transcript_words_count": 0
+    "transcript_words_count": 3018
   },
   {
     "id": "MATH_002",
@@ -25,7 +25,7 @@
     "youtube_url": "https://www.youtube.com/watch?v=8WJG_QHQs1Y",
     "youtube_video_title": "Determine the intersection of intervals - Second",
     "transcript_available": true,
-    "transcript_words_count": 0
+    "transcript_words_count": 910
   },
   {
     "id": "MATH_003",
@@ -35,11 +35,11 @@
     "title": "Exemple guidé et calcul détaillé : Intervalles et encadrements de réels en pratique",
     "author": "Yvan Monka",
     "search_query": "Yvan Monka Seconde Intervalles et encadrements de réels inégalités strictes et larges",
-    "youtube_video_id": "",
-    "youtube_url": "",
-    "youtube_video_title": "",
-    "transcript_available": false,
-    "transcript_words_count": 0
+    "youtube_video_id": "6I4MbRM0pqs",
+    "youtube_url": "https://www.youtube.com/watch?v=6I4MbRM0pqs",
+    "youtube_video_title": "Performing operations on inequalities - Second",
+    "transcript_available": true,
+    "transcript_words_count": 1132
   },
   {
     "id": "MATH_004",
@@ -49,11 +49,11 @@
     "title": "Correction d'exercice classique : Intervalles et encadrements de réels (Entraînement Lycée)",
     "author": "Yvan Monka",
     "search_query": "Yvan Monka Seconde Intervalles et encadrements de réels notion d'intervalle",
-    "youtube_video_id": "",
-    "youtube_url": "",
-    "youtube_video_title": "",
-    "transcript_available": false,
-    "transcript_words_count": 0
+    "youtube_video_id": "c-akR4NJhh0",
+    "youtube_url": "https://www.youtube.com/watch?v=c-akR4NJhh0",
+    "youtube_video_title": "COMPRENDRE les intervalles",
+    "transcript_available": true,
+    "transcript_words_count": 1640
   },
   {
     "id": "MATH_005",
@@ -63,11 +63,11 @@
     "title": "Problème type Bac : Intervalles et encadrements de réels — Raisonnement en plusieurs étapes",
     "author": "Yvan Monka",
     "search_query": "Yvan Monka Seconde Intervalles et encadrements de réels intersection et union",
-    "youtube_video_id": "",
-    "youtube_url": "",
-    "youtube_video_title": "",
-    "transcript_available": false,
-    "transcript_words_count": 0
+    "youtube_video_id": "hzINDVy0dgg",
+    "youtube_url": "https://www.youtube.com/watch?v=hzINDVy0dgg",
+    "youtube_video_title": "Determine the union of intervals - Second",
+    "transcript_available": true,
+    "transcript_words_count": 665
   },
   {
     "id": "MATH_006",

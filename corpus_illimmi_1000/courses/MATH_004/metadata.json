@@ -1,0 +1,110 @@
+{
+  "id": "MATH_004",
+  "subject": "Mathématiques",
+  "level": "Seconde",
+  "domain": "Nombres & Calculs",
+  "title": "Correction d'exercice classique : Intervalles et encadrements de réels (Entraînement Lycée)",
+  "pedagogical_type": "cours_exercice",
+  "pedagogical_target": "Comprendre la distinction fondamentale entre accolades et crochets, et maîtriser la conversion systématique entre inégalités, droites graduées et intervalles de réels avec ou sans infini.",
+  "sections": [
+    {
+      "section_id": "sec_1",
+      "title": "1. Accroche & Distinction Fondamentale : Accolades vs Crochets",
+      "summary": "Comprendre la différence essentielle entre un ensemble fini d'éléments isolés noté entre accolades et une infinité continue de nombres réels délimitée par un intervalle entre crochets.",
+      "support_visuel_suggere": "draw path + draw line + text",
+      "concepts_cles": [
+        "notation entre accolades",
+        "ensemble discret de solutions",
+        "intervalle continu de réels",
+        "infinité de nombres réels"
+      ]
+    },
+    {
+      "section_id": "sec_2",
+      "title": "2. Méthode Visuelle sur la Droite Réelle : Axe, Zone Coloriée et Crochets",
+      "summary": "Poser les bases géométriques pour traduire toute inégalité : axe orienté de moins l'infini à plus l'infini, coloriage de la zone solution, et orientation du crochet.",
+      "support_visuel_suggere": "draw line + draw arrow + draw path",
+      "concepts_cles": [
+        "droite graduée des réels",
+        "zone de solutions",
+        "crochet fermé vers les solutions",
+        "inégalité large ou égale"
+      ]
+    },
+    {
+      "section_id": "sec_3",
+      "title": "3. Cas 1 & 2 : Inégalités Supérieures vers Plus l'Infini",
+      "summary": "Étude détaillée des demi-droites orientées vers plus l'infini : inclusion de la borne pour x supérieur ou égal à 2 versus exclusion stricte pour x strictement supérieur à moins 4.",
+      "support_visuel_suggere": "draw line + draw arrow + draw path",
+      "concepts_cles": [
+        "inégalité large",
+        "inégalité stricte",
+        "borne exclue",
+        "intervalle ouvert en plus l'infini"
+      ]
+    },
+    {
+      "section_id": "sec_4",
+      "title": "4. Cas 3 & 4 : Inégalités Inférieures vers Moins l'Infini",
+      "summary": "Étude des demi-droites orientées vers moins l'infini : respect impératif de l'ordre croissant de gauche à droite, crochet fermé en zéro versus crochet ouvert en 7.",
+      "support_visuel_suggere": "draw line + draw arrow + draw path",
+      "concepts_cles": [
+        "ordre croissant de gauche à droite",
+        "ouvert en moins l'infini",
+        "demi-droite gauche",
+        "crochet ouvert tournant le dos"
+      ]
+    },
+    {
+      "section_id": "sec_5",
+      "title": "5. Cas 5 & 6 : Encadrements Bornés entre Deux Nombres Réels",
+      "summary": "Traduction des doubles inégalités sans l'infini : encadrement semi-ouvert entre moins 1 et 7, puis encadrement fermé entre 0 et 10, avec examen indépendant de chaque borne.",
+      "support_visuel_suggere": "draw line + draw path + draw polygone",
+      "concepts_cles": [
+        "encadrement de réels",
+        "intervalle borné",
+        "analyse indépendante des bornes",
+        "intervalle semi-ouvert et fermé"
+      ]
+    },
+    {
+      "section_id": "sec_6",
+      "title": "6. Erreurs Fréquentes d'Examen et Pièges à Déjouer",
+      "summary": "Démystification des 3 erreurs types : fermer le crochet en l'infini, inverser les bornes en écrivant de droite à gauche, et confondre accolades et crochets dans la rédaction.",
+      "support_visuel_suggere": "draw polygone + draw arrow + text",
+      "concepts_cles": [
+        "piège de l'infini toujours ouvert",
+        "piège de l'inversion d'ordre",
+        "confusion accolades et crochets",
+        "réflexe de relecture"
+      ]
+    },
+    {
+      "section_id": "sec_7",
+      "title": "7. Synthèse Réflexe : Le Tableau Méthodologique Inégalité-Intervalle",
+      "summary": "Synthèse méthodique complète sous forme de tableau réflexe pour convertir instantanément toute inégalité en intervalle lors des devoirs et contrôles de Seconde.",
+      "support_visuel_suggere": "draw line + draw polygone + text",
+      "concepts_cles": [
+        "tableau de correspondance",
+        "réflexe d'examen",
+        "maîtrise des intervalles",
+        "automatisation du tracé"
+      ]
+    }
+  ],
+  "source_video": {
+    "video_id": "c-akR4NJhh0",
+    "title": "COMPRENDRE les intervalles",
+    "channel": "Hedacademy",
+    "youtube_url": "https://www.youtube.com/watch?v=c-akR4NJhh0"
+  },
+  "duration_seconds": 541.28,
+  "word_count": 1640,
+  "course_id": "MATH_004",
+  "world_model_score": 10.0,
+  "rendered_scenes": 6,
+  "visual_audit_notes": "Inspection multimodale complète des 6 scènes PNG (scene_0 à scene_5). Scène 0 : distinction accolades discrètes (2 points rouges) vs intervalle continu (segment cyan), zéro collision. Scènes 1 et 2 : demi-droites supérieures et inférieures avec axes gradués, crochets géométriques fermés/ouverts orientés vers ou à l'opposé des solutions, labels des bornes et infinis positionnés sans chevauchement. Scène 3 : encadrements bornés avec segments cyan et émeraude et crochets distincts. Scène 4 : 3 pièges d'examen avec encadrements contrastés, correction des symboles KaTeX défectueux, aucune exception de rendu. Scène 5 : algorithme mental en 3 étapes à gauche et tableau récapitulatif 6 cas rigoureusement aligné en 3 colonnes à droite. World Model Score: 10.0/10.",
+  "certified_by": "antigravity-argon",
+  "certified_at": "2026-10-31T01:10:29.304214",
+  "status": "COMPLETED"
+}

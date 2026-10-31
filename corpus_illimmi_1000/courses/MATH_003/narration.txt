@@ -1,0 +1,33 @@
+Bonjour et bienvenue. Dans ce cours, tu vas apprendre à effectuer des opérations sur les inégalités et à maîtriser les encadrements de nombres réels en pratique.
+
+Dans quel but ? Prenons une situation concrète. On te donne une information sur un nombre réel inconnu x : tu sais que ce nombre x est strictement inférieur à 3. Et la question que l'on te pose est la suivante : que peux-tu en déduire pour l'expression 3x moins 4 ? En d'autres termes, sachant que ton nombre de départ est plus petit que 3, que peut-on affirmer sur trois fois ce nombre, auquel on retranche 4 ?
+
+Directement comme cela, il n'est pas évident de donner la réponse de tête sans risquer une erreur. C'est pourquoi nous allons y aller pas à pas, avec une méthode rigoureuse, en respectant scrupuleusement les priorités de calcul.
+
+Pour construire l'expression 3x moins 4, la priorité opératoire nous impose de nous occuper d'abord de la multiplication par 3, avant de faire la soustraction. Posons-nous donc la première question : que peut-on dire de 3x ?
+
+Écrivons à gauche notre hypothèse de départ : x est strictement inférieur à 3. Et traçons à droite une flèche d'opération pour visualiser notre première étape. Nous souhaitons savoir ce qu'il en est de 3 fois ce nombre x inconnu. Imagine la situation : tu as un nombre inconnu plus petit que 3, et tu multiplies ce nombre par 3. Que peux-tu en déduire ? Tu peux affirmer, sans prendre le moindre risque, que ce résultat sera au moins strictement plus petit que 3 fois 3. Si x est strictement inférieur à 3, alors 3 fois x est strictement inférieur à 3 fois 3. Cela est parfaitement clair et intuitif. En clair, nous multiplions de part et d'autre de l'inégalité par le nombre 3. Et comme 3 est un nombre strictement positif, le sens de l'inégalité est rigoureusement conservé. Nous effectuons le calcul à droite : 3 fois 3 fait 9. Nous obtenons ainsi notre premier résultat intermédiaire : 3x est strictement inférieur à 9.
+
+Nous avons maintenant encadré 3x. Mais rappelle-toi, notre objectif final est d'étudier l'expression 3x moins 4. Il nous faut donc retrancher 4 à 3x. Posons-nous la même question : sachant que 3x est strictement inférieur à 9, si j'enlève 4 à 3x, que puis-je en déduire ?
+
+Là encore, nous pouvons affirmer sans le moindre risque que 3x moins 4 sera strictement plus petit que 9 moins 4. Si une quantité est plus petite qu'une autre, en enlevant 4 de part et d'autre, l'écart reste ordonné dans le même sens. L'inégalité est conservée. Effectuons le calcul numérique : 9 moins 4 est égal à 5. Nous en déduisons avec certitude que 3x moins 4 est strictement inférieur à 5.
+
+Traçons à droite un axe gradué pour observer géométriquement ce résultat. Sur cet axe des réels, la condition 3x moins 4 strictement inférieur à 5 correspond à tous les nombres situés à gauche de 5, ce qui s'écrit sous forme d'intervalle ouvert de moins l'infini jusqu'à 5 exclu. Si au départ x est strictement plus petit que 3, voilà exactement ce que l'on peut dire de 3x moins 4. C'est le meilleur encadrement possible, et notre démarche est parfaitement justifiée.
+
+Passons maintenant à notre deuxième exemple, qui recèle un piège fondamental que tout élève de lycée doit savoir déjouer.
+
+Dans ce deuxième exemple, notre hypothèse de départ est que x est strictement supérieur à 1. Écrivons-le au tableau. Et notre but est de savoir ce que l'on peut dire de l'expression 4 moins 2x.
+
+Comme pour l'exemple précédent, nous allons avancer pas à pas, en respectant scrupuleusement les priorités opératoires. Dans 4 moins 2x, nous remarquons la multiplication de x par moins 2, puis l'ajout de 4. Commençons d'abord par chercher ce que l'on peut dire de 2x. Multiplions notre inconnue x par 2. Comme tout à l'heure, si x est strictement supérieur à 1, alors 2 fois x est strictement supérieur à 2 fois 1, car nous multiplions par 2 qui est un nombre positif. Le sens ne change pas : 2x est strictement supérieur à 2.
+
+Continuons. Mais ce n'est pas 2x que nous voulons, c'est moins 2x ! Ajoutons donc un signe moins devant 2x. Que peut-on dire de moins 2x ? Sachant que 2x est strictement supérieur à 2, serait-il tentant d'écrire que moins 2x est supérieur à moins 2 ? Eh bien non ! Absolument pas ! C'est ici que se trouve le piège classique des inégalités et de la résolution d'inéquations.
+
+Pour bien comprendre pourquoi, prenons des exemples numériques concrets. Observons à droite ce qui se passe sur la droite numérique quand nous passons aux opposés. Tout le monde est d'accord que 1 est strictement plus petit que 2. Mais si nous ajoutons un signe moins de part et d'autre pour regarder leurs opposés, qu'en est-il de moins 1 et de moins 2 ? Est-ce que moins 1 est plus petit que moins 2 ? Non, c'est exactement le contraire ! Sur l'axe gradué, moins 1 est situé à droite de moins 2, donc moins 1 est strictement plus grand que moins 2. Le sens de l'inégalité s'est inversé !
+
+Vérifions avec un deuxième exemple dans l'autre sens : 10 est bien strictement supérieur à 3. Mais si nous prenons leurs opposés, moins 10 devient strictement plus petit que moins 3, car il est situé beaucoup plus à gauche vers les négatifs. Là encore, l'inégalité s'est retournée !
+
+Retiens donc cette règle d'or fondamentale : chaque fois que l'on multiplie ou que l'on divise les deux membres d'une inégalité par un nombre négatif, le sens de l'inégalité s'inverse obligatoirement ! Par conséquent, ici, puisque 2x est supérieur à 2, en multipliant par moins 1, nous obtenons que moins 2x est strictement inférieur à moins 2.
+
+Poursuivons notre calcul : nous voulons 4 moins 2x. Pour l'instant, nous avons moins 2x. Il nous reste donc à ajouter 4 des deux côtés. Traçons à droite notre flèche d'addition avec un plus 4. Ajouter un nombre ne modifie jamais le sens de l'inégalité. Nous écrivons donc : 4 moins 2x est strictement inférieur à 4 moins 2. Calculons le membre de droite : 4 moins 2 est égal à 2. Nous en déduisons que 4 moins 2x est strictement inférieur à 2.
+
+Encadrons au tableau nos deux règles d'or pour conclure ce cours. Première règle : ajouter ou soustraire un même nombre ne change jamais le sens d'une inégalité. Deuxième règle : multiplier ou diviser par un nombre positif conserve le sens, mais multiplier ou diviser par un nombre négatif inverse toujours le sens de l'inégalité. Grâce à cette méthode pas à pas, tu pourras aborder sereinement n'importe quel calcul d'encadrement et réussir toutes tes inéquations.

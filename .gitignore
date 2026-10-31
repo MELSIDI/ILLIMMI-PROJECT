@@ -36,4 +36,8 @@ services/generation_orchestrator/illimmi_jobs.db
 
 # Binaires compilés Dart
 services/audio_service/audio_service.exe
-denial_report.txt
+denial_report.txt
+
+__pycache__/
+*.py[cod]
+*$py.class

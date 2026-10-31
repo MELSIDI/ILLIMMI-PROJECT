@@ -1,5 +1,185 @@
-[Musique] bonjour. Dans ce cours je te propose de revoir tout le cours sur le chapitre des intervalles l'objet de cette séquence est de te rappeler et de t'expliquer les éléments les plus importants de ce chapitre plus précisément on parlera de la notion d'intervalle de cette notation nouvelles qui l'accompagnent on parlera d'intervalle fermé d'intervalle ouvert et on finira par la réunion et l'intersection de deux intervalles pour préparer un contrôle ou même un examen ceci ne suffira pas évidemment il te faudra encore faire de nombreux exercices pour le court c'est parti. Alors avant de parler de notation parlons déjà de la définition qu'est ce que c'est qu'un intervalle.
+Bonjour et bienvenue dans ce cours consacré à tout le chapitre sur les intervalles en classe de seconde. L'objectif aujourd'hui est de comprendre et de maîtriser en profondeur chaque notion clé : ce qu'est véritablement un intervalle, cette notation mathématique nouvelle avec des crochets qui l'accompagne, la distinction fondamentale entre intervalle fermé et intervalle ouvert, les intervalles infinis, et enfin les opérations de réunion et d'intersection.
 
-Alors on connaît l'ensemble des réelles qu'on pourrait d'ailleurs représenté sur une droite un axe là que des abscisses. Mais parfois on n'a pas besoin de travailler avec l'ensemble de tous les réelles. Par exemple si je considère tous les nombres que je vais appeler x qui sont compris entre 2 et 4 cela comprend.
+Avant de parler de notation, posons-nous la question essentielle : qu'est-ce que c'est qu'un intervalle ?
 
-Donc 3 mais également 3.538 285 3 virgule 999 enfin compris il y à là dedans une infinité de nombre qui sont compris entre 2 et 4 et bien qu'est ce que c'est que tous ces nombres c'est un intervalle c'est un intervalle de r c'est l'ensemble des nombres qui sont compris entre 2 et 4 et cet intervalle là je peux le représenter sur ma droite graduée celle qui représente l'ensemble des réelles préparant une droite voilà on a représenté. Donc sur cet axe axe infinie l'ensemble de tous les nombres réels j'ai marqué ici une graduation régulières toutes les unités. Mais c'est bien tout les réels qui sont représentés ici et on a dit que on ne s'intéresse finalement corps et elles qui sont compris entre 2 et 4. Nous avons ainsi passé en revue les points essentiels de cette notion. Entraîne-toi régulièrement et à très bientôt sur ILLIMMI !
+Tu connais déjà l'ensemble de tous les nombres réels, que l'on note grand R. On peut représenter tous ces réels sur une droite, un axe infini que l'on appelle souvent l'axe des abscisses. Mais en mathématiques, on n'a pas toujours besoin de travailler avec l'ensemble de tous les nombres réels à la fois.
+
+Imaginons par exemple que l'on s'intéresse à tous les nombres réels, que nous allons appeler x, compris entre 2 et 4.
+
+Quels sont ces nombres ? Bien sûr, il y a le nombre 3. Mais il y a aussi 3 virgule 5, 3 virgule 8, 2 virgule 85, ou encore 3 virgule 999. Tu le comprends tout de suite : il y a là-dedans une infinité de nombres réels compris entre 2 et 4.
+
+Et bien, qu'est-ce que c'est que tous ces nombres réunis ? C'est un intervalle. C'est un intervalle de grand R : c'est l'ensemble de tous les nombres réels compris entre 2 et 4.
+
+Traçons à droite un axe gradué pour représenter l'ensemble de tous les nombres réels. Cet axe est infini, avec une flèche vers la droite, et nous y plaçons des graduations régulières d'une unité en une unité : moins 2, moins 1, 0, 1, 2, 3, 4, 5, 6.
+
+Puisque nous nous intéressons uniquement aux réels compris entre 2 et 4, nous pouvons visualiser ces nombres sur notre axe : ils occupent exactement la zone située entre la graduation 2 et la graduation 4. Colorons sur cet axe la zone comprise entre 2 et 4.
+
+Cette zone colorée représente un ensemble de nombres. En mathématiques, pour des nombres réels, cet ensemble s'appelle un intervalle.
+
+Comment allons-nous noter cet ensemble ? Nous allons utiliser ses deux extrémités, que l'on appelle aussi ses bornes : ici, ce sont les nombres 2 et 4. Nous écrivons donc à gauche : 2 point-virgule 4.
+
+Mais ce n'est pas tout. Il faut préciser le statut de ces deux extrémités. Dans notre encadrement de départ, nous avons dit que x est supérieur ou égal à 2 et inférieur ou égal à 4. Cela signifie que x peut être égal à 2. Le nombre 2 fait donc pleinement partie de notre ensemble, il doit être inclus dans l'intervalle.
+
+Pour indiquer que le nombre 2 est inclus, nous allons placer un crochet dont les extrémités vont vers l'intérieur de l'ensemble. Plaçons sur cet axe un crochet au niveau du 2 tourné vers la droite, c'est-à-dire vers notre zone colorée. Le crochet attrape le 2 et l'emmène dans l'ensemble. Et nous faisons exactement la même chose pour notre écriture entre crochets : un crochet tourné vers l'intérieur devant le 2.
+
+Regardons maintenant la borne 4. L'inégalité nous dit que x est inférieur ou égal à 4. Le nombre 4 fait donc lui aussi partie de notre intervalle. Nous plaçons donc un crochet au niveau de 4 tourné vers la gauche, c'est-à-dire vers l'intérieur de notre zone colorée. Et dans notre notation, nous fermons avec un crochet tourné vers l'intérieur après le 4.
+
+Voilà : nous venons d'écrire notre tout premier intervalle ! Cet intervalle se note crochet fermé 2 point-virgule 4 crochet fermé, et on le lit simplement l'intervalle fermé 2 point-virgule 4.
+
+En seconde, il est absolument capital de savoir passer sans hésiter d'une écriture à l'autre : de l'inégalité algébrique 2 inférieur ou égal à x inférieur ou égal à 4, à la représentation géométrique sur l'axe gradué avec les crochets, jusqu'à la notation de l'intervalle fermé 2 point-virgule 4.
+
+Voyons maintenant comment écrire mathématiquement qu'un nombre est ou n'est pas dans un intervalle.
+
+Nous avons vu que 3 se trouve dans la zone colorée : 3 est bien dans notre intervalle. En langage mathématique, on dit et on écrit que 3 appartient à l'intervalle fermé 2 point-virgule 4, à l'aide du symbole d'appartenance qui ressemble à un petit e arrondi.
+
+De même, les bornes 2 et 4 font partie de l'intervalle, donc nous pouvons écrire que 2 appartient à l'intervalle fermé 2 point-virgule 4, et que 4 appartient à l'intervalle fermé 2 point-virgule 4.
+
+En revanche, si nous prenons un nombre extérieur à notre zone, par exemple le nombre 5, nous constatons que 5 n'est pas dans l'intervalle. Nous écrivons alors que 5 n'appartient pas à l'intervalle fermé 2 point-virgule 4, en barrant le symbole d'appartenance d'un trait oblique.
+
+Cette notation convient parfaitement lorsque les deux bornes sont incluses dans l'ensemble considéré. Mais que se passe-t-il si l'on souhaite exclure une borne ?
+
+C'est ce que nous allons voir dès maintenant. Considérons l'ensemble des nombres réels x compris entre 0 et 1, mais cette fois-ci en excluant strictement la valeur 0 : c'est-à-dire 0 strictement inférieur à x, et x inférieur ou égal à 1.
+
+Qu'y a-t-il dans cet ensemble ? On peut y trouver 0 virgule 1, 0 virgule 01, ou 0 virgule 0001 : n'importe quel nombre aussi proche de 0 que l'on veut, mais on refuse le nombre 0 lui-même.
+
+Traçons à droite un second axe gradué pour représenter cet ensemble.
+
+La zone à colorer se situe toujours entre 0 et 1.
+
+Pour la borne 1, rien ne change par rapport à tout à l'heure : l'inégalité est x inférieur ou égal à 1, donc le nombre 1 est accepté, il fait partie de l'ensemble. Nous plaçons donc en 1 un crochet tourné vers l'intérieur, c'est-à-dire vers la gauche.
+
+En revanche, pour la borne 0, nous ne voulons pas du nombre 0 dans notre ensemble puisqu'il est exclu. Comment l'indiquer visuellement ? Nous allons tout simplement tourner le crochet dans l'autre sens ! Plaçons au niveau de 0 un crochet tourné vers l'extérieur de la zone colorée, c'est-à-dire vers la gauche. Ce crochet repousse le 0 vers l'extérieur.
+
+Pour noter cet intervalle, nous écrivons d'abord les deux bornes 0 point-virgule 1, puis nous reproduisons le sens des crochets : à gauche, devant le 0, un crochet tourné vers l'extérieur pour signifier que 0 est exclu ; à droite, après le 1, un crochet tourné vers l'intérieur pour signifier que 1 est inclus.
+
+Cet intervalle se note crochet ouvert 0 point-virgule 1 crochet fermé. On dit qu'il est ouvert en 0 et fermé en 1. Tous les nombres entre 0 et 1 sont acceptés, 1 est accepté, mais 0 est exclu.
+
+Poursuivons notre exploration avec un type d'intervalle un peu particulier, qui ne possède qu'une seule borne finie.
+
+Supposons que nous cherchions l'ensemble des nombres réels x strictement supérieurs à 3, c'est-à-dire x strictement supérieur à 3.
+
+Ici, attention : l'inégalité est stricte, ce qui signifie que 3 est exclu, tout comme 0 l'était tout à l'heure. Mais quelle est la borne supérieure ? Il n'y en a pas !
+
+Dans cet ensemble, nous avons 3 virgule 1, 3 virgule 01, mais aussi 4, 5, 6, 10, 100, 1000, 1 million, 1 milliard, et ainsi de suite. On sent bien que l'on peut continuer indéfiniment avec des valeurs de plus en plus grandes, sans jamais s'arrêter.
+
+Traçons à droite un troisième axe gradué pour visualiser ce comportement.
+
+Nous partons du point d'abscisse 3. Comme 3 est strictement exclu, nous plaçons en 3 un crochet tourné vers l'extérieur, c'est-à-dire vers la gauche. Puis nous traçons une demi-droite colorée qui part de 3 et file vers la droite sans jamais s'arrêter. Sur notre dessin, le trait s'arrête au niveau de la flèche de l'axe, mais nous comprenons tous que cette zone se prolonge indéfiniment vers la droite.
+
+Comment noter un tel ensemble sous forme d'intervalle ?
+
+Appliquons notre méthode : nous écrivons d'abord la première borne, qui est 3. Mais pour la seconde borne, nous ne pouvons pas donner un nombre précis, car aucune valeur finie n'est atteinte : nous allons vers l'infini.
+
+En mathématiques, l'infini se note avec le symbole d'un huit couché. Et comme il s'agit ici des nombres positifs de plus en plus grands, nous précisons plus l'infini en écrivant un petit signe plus devant le symbole infini.
+
+Qu'en est-il maintenant des crochets ? Devant le 3, aucun problème : le crochet est tourné vers l'extérieur car 3 est exclu. Mais du côté de plus l'infini, quel crochet devons-nous mettre ?
+
+Spontanément, on pourrait avoir envie de fermer le crochet en se disant que l'infini fait partie de l'ensemble. Mais réfléchissons un instant : combien vaut l'infini ? L'infini n'est pas un nombre réel que l'on pourrait atteindre ou toucher, c'est un concept, une idée de dépassement illimité.
+
+En mathématiques, on ne peut jamais atteindre l'infini. C'est pour cette raison fondamentale que l'on met toujours un crochet ouvert, c'est-à-dire tourné vers l'extérieur, du côté de l'infini !
+
+Cet intervalle se note donc crochet ouvert 3 point-virgule plus l'infini crochet ouvert. On dit que c'est un intervalle ouvert de 3 à plus l'infini.
+
+Faisons le chemin dans l'autre sens : comment représenter l'intervalle ouvert moins l'infini point-virgule moins 1 crochet ouvert ?
+
+Ici, la borne supérieure est moins 1, et elle est exclue puisque le crochet est tourné vers l'extérieur. Et nous voulons tous les nombres réels situés avant moins 1.
+
+Traçons à droite un axe gradué et colorons toute la partie gauche de l'axe jusqu'à la valeur moins 1, où nous plaçons un crochet tourné vers l'extérieur, c'est-à-dire vers la droite.
+
+Cet intervalle correspond exactement à l'inégalité x strictement inférieur à moins 1.
+
+Faisons un point précis de vocabulaire sur la classification des intervalles.
+
+On dit qu'un intervalle est un intervalle fermé lorsque toutes ses extrémités, c'est-à-dire toutes ses bornes, appartiennent à l'intervalle.
+
+Nous en avons déjà rencontré : par exemple l'intervalle fermé 2 point-virgule 4, ou encore l'intervalle fermé moins 3 point-virgule 5.
+
+On reconnaît immédiatement un intervalle fermé au fait que ses deux crochets sont tournés vers l'intérieur, vers les nombres de l'intervalle, exactement comme lorsqu'on note les extrémités d'un segment en géométrie.
+
+À l'opposé, on dit qu'un intervalle est un intervalle ouvert lorsque ses extrémités n'appartiennent pas à l'intervalle.
+
+Prenons par exemple l'intervalle ouvert 0 point-virgule 1 : les deux crochets sont tournés vers l'extérieur, ni 0 ni 1 ne font partie de l'ensemble.
+
+De même, l'intervalle ouvert 3 point-virgule plus l'infini est un intervalle ouvert, car 3 est exclu et l'infini est toujours exclu.
+
+L'intervalle ouvert moins l'infini point-virgule 6 crochet ouvert est également un intervalle ouvert. Attention : pour qu'un intervalle soit qualifié d'ouvert, il doit être ouvert des deux côtés ! Si un côté est fermé et l'autre ouvert, comme dans l'intervalle crochet ouvert 0 point-virgule 1 crochet fermé que nous avons vu plus tôt, on parle d'intervalle semi-ouvert.
+
+Enfin, il existe un intervalle ouvert très particulier : c'est l'ensemble grand R tout entier ! En effet, grand R peut s'écrire sous la forme de l'intervalle ouvert allant de moins l'infini à plus l'infini. En balayant de moins l'infini à plus l'infini, on couvre bien la totalité des nombres réels.
+
+Abordons à présent les deux opérations fondamentales de la théorie des ensembles : l'intersection et la réunion, que l'on appelle aussi l'union.
+
+Avant de les appliquer aux intervalles numériques, comprenons bien leur signification intuitive sur des ensembles quelconques.
+
+Dessinons à droite deux ensembles quelconques sous la forme de deux diagrammes de Venn, que l'on appelle familièrement des patates : un ensemble A délimité par une courbe bleue, et un ensemble B délimité par une courbe verte, qui se chevauchent.
+
+Imaginons que ces ensembles contiennent des éléments : par exemple des formes ou des objets. Certains éléments appartiennent uniquement à l'ensemble A : ils sont situés dans la partie bleue sans toucher le vert. D'autres éléments appartiennent uniquement à l'ensemble B.
+
+Mais observe bien la zone centrale où les deux patates se superposent : il y a des éléments qui se trouvent à la fois à l'intérieur de l'ensemble A et à l'intérieur de l'ensemble B.
+
+Ces éléments communs constituent ce que l'on appelle l'intersection des deux ensembles A et B.
+
+Par définition, l'intersection de deux ensembles A et B est l'ensemble des éléments qui appartiennent à A ET à B en même temps. Retiens très fort ce mot : ET.
+
+L'intersection se note A avec un petit pont, qui ressemble à un u à l'envers, suivi de B : cela s'écrit A inter B, et on le lit A inter B ou l'intersection de A et B.
+
+Hachurons au tableau cette zone commune centrale pour bien la repérer.
+
+Qu'en est-il maintenant de la réunion, que l'on appelle aussi l'union ?
+
+Réunir, c'est mettre tout ensemble, rassembler toutes les pièces du puzzle.
+
+Par définition, la réunion de deux ensembles A et B est l'ensemble des éléments qui appartiennent à A OU à B. C'est-à-dire qu'il suffit d'appartenir à l'un, ou à l'autre, ou aux deux à la fois pour être accepté dans la réunion. Retiens bien ce mot : OU.
+
+La réunion se note A avec un u majuscule, qui signifie union, suivi de B : cela s'écrit A union B, et on le lit A union B ou la réunion de A et B. Visuellement, la réunion correspond à la totalité des deux patates réunies.
+
+Appliquons maintenant ces deux notions fondamentales à des intervalles de nombres réels.
+
+Prenons un exemple concret et guidé. Considérons deux intervalles : le premier intervalle, que nous appelons A, est l'intervalle fermé moins 3 point-virgule 4. Le second intervalle, que nous appelons B, est l'intervalle fermé 2 point-virgule 5.
+
+Notre mission est de déterminer précisément leur intersection A inter B, puis leur réunion A union B.
+
+Voici la méthode infaillible que tu dois adopter systématiquement dans tes devoirs et contrôles : la première chose à faire est de représenter ces deux intervalles sur un même axe gradué. Dessiner permet de tout visualiser d'un seul coup d'œil et d'éviter les erreurs d'étourderie.
+
+Traçons à droite un axe gradué avec des graduations allant de moins 4 à plus 6.
+
+Représentons d'abord l'intervalle A : nous utilisons la couleur rouge. Nous colorons le segment entre moins 3 et 4, et nous plaçons un crochet fermé tourné vers l'intérieur en moins 3 et un crochet fermé tourné vers l'intérieur en 4.
+
+Représentons ensuite l'intervalle B : nous utilisons la couleur verte. Nous colorons le segment entre 2 et 5, et nous plaçons un crochet fermé tourné vers l'intérieur en 2 et un crochet fermé tourné vers l'intérieur en 5. Pour que tout soit parfaitement lisible, décalons légèrement le tracé vert juste au-dessus du tracé rouge.
+
+Déterminons d'abord l'intersection A inter B.
+
+Nous cherchons tous les nombres réels qui appartiennent à A ET à B à la fois. Sur notre axe gradué, cela correspond très simplement à l'endroit où nous avons tracé deux fois : là où la couleur rouge et la couleur verte se superposent !
+
+Observons l'axe : la zone bicolore commence à 2 et se termine à 4.
+
+Mais attention, il faut vérifier soigneusement les bornes : est-ce que 2 et 4 font partie de l'intersection ?
+
+Posons-nous la question pour la borne 2 : est-ce que 2 appartient à A ? Oui, car 2 est bien entre moins 3 et 4. Est-ce que 2 appartient à B ? Oui, car l'intervalle B est fermé en 2. Puisque 2 appartient à la fois à A et à B, 2 appartient bien à leur intersection, donc nous prenons 2 avec un crochet fermé.
+
+Même vérification pour la borne 4 : 4 appartient à A car la borne est fermée en 4, et 4 appartient à B car 4 est bien entre 2 et 5. Donc 4 appartient à l'intersection avec un crochet fermé.
+
+Conclusion : A inter B est l'intervalle fermé 2 point-virgule 4 !
+
+Déterminons maintenant la réunion A union B.
+
+Nous cherchons tous les nombres réels qui appartiennent à A OU à B. Sur notre axe gradué, cela correspond à tous les endroits où nous avons tracé au moins une couleur, que ce soit du rouge seul, du vert seul, ou les deux superposés.
+
+Regardons l'axe de gauche à droite : la couleur commence à la borne moins 3, se poursuit sans interruption à travers la zone rouge, la zone commune, la zone verte, et s'arrête à la borne 5.
+
+Vérifions les bornes : moins 3 est inclus dans A, et 5 est inclus dans B. Nous prenons donc les deux bornes avec des crochets fermés.
+
+Conclusion : A union B est l'intervalle fermé moins 3 point-virgule 5 !
+
+Regarde comme cette méthode graphique rend le raisonnement limpide et sécurisé.
+
+Terminons par une synthèse des réflexes essentiels à garder en tête pour réussir tes évaluations sur les intervalles.
+
+Premier réflexe : pour les crochets, un crochet tourné vers l'intérieur de l'intervalle signifie que la borne est incluse, ce qui correspond à une inégalité large avec inférieur ou égal ou supérieur ou égal. Un crochet tourné vers l'extérieur signifie que la borne est exclue, ce qui correspond à une inégalité stricte.
+
+Deuxième réflexe : du côté de l'infini, que ce soit plus l'infini ou moins l'infini, le crochet est obligatoirement et toujours tourné vers l'extérieur, car l'infini n'est pas un nombre réel.
+
+Troisième réflexe : pour l'intersection notée avec le symbole inter en pont, pense toujours au mot ET : on cherche les éléments communs, c'est-à-dire la zone de double couleur sur l'axe.
+
+Quatrième réflexe : pour la réunion notée avec le symbole union en u, pense toujours au mot OU : on rassemble tout ce qui est colorié au moins une fois, de la borne la plus à gauche à la borne la plus à droite.
+
+En appliquant systématiquement le tracé sur un axe gradué avec deux couleurs distinctes, tu seras capable de résoudre sans la moindre faute n'importe quel exercice sur les intervalles. Entraîne-toi régulièrement pour ancrer ces automatismes.

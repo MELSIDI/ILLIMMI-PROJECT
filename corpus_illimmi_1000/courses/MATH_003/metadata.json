@@ -1,0 +1,109 @@
+{
+  "id": "MATH_003",
+  "subject": "Mathématiques",
+  "level": "Seconde",
+  "domain": "Nombres & Calculs",
+  "title": "Exemple guidé et calcul détaillé : Intervalles et encadrements de réels en pratique",
+  "pedagogical_type": "cours_exercice",
+  "pedagogical_target": "Maîtriser les opérations sur les inégalités et les encadrements de réels : addition, soustraction, multiplication par un réel positif et retournement fondamental lors de la multiplication par un réel négatif.",
+  "sections": [
+    {
+      "section_id": "sec_1",
+      "title": "1. Objectif Pédagogique et Présentation du Problème",
+      "summary": "Comprendre comment déduire un encadrement d'une expression algébrique affine à partir d'une inégalité sur une inconnue x.",
+      "support_visuel_suggere": "draw line + draw arrow + text",
+      "concepts_cles": [
+        "inégalité initiale",
+        "expression affine",
+        "priorités de calcul",
+        "démarche pas à pas"
+      ]
+    },
+    {
+      "section_id": "sec_2",
+      "title": "2. Exemple 1 : Étape 1 — Multiplication par un Nombre Positif",
+      "summary": "Partant de x < 3, multiplication par 3 des deux membres de l'inégalité. Conservation rigoureuse du sens de l'inégalité car 3 est strictement positif.",
+      "support_visuel_suggere": "draw arrow + text",
+      "concepts_cles": [
+        "multiplication par un positif",
+        "conservation du sens",
+        "membres de l'inégalité",
+        "3x plus petit que 9"
+      ]
+    },
+    {
+      "section_id": "sec_3",
+      "title": "3. Exemple 1 : Étape 2 — Soustraction et Conclusion",
+      "summary": "Soustraction de 4 de part et d'autre pour obtenir 3x - 4 < 5. Représentation graphique sur l'axe gradué sous forme d'intervalle non borné.",
+      "support_visuel_suggere": "draw line + draw path + text",
+      "concepts_cles": [
+        "soustraction membre à membre",
+        "inégalité finale",
+        "axe des réels",
+        "intervalle ouvert moins l'infini 5"
+      ]
+    },
+    {
+      "section_id": "sec_4",
+      "title": "4. Exemple 2 : Départ x > 1 et Début de Décomposition",
+      "summary": "Nouvelle situation : partant de x > 1, encadrer 4 - 2x. Première multiplication par 2 en respectant les priorités opératoires.",
+      "support_visuel_suggere": "draw arrow + text",
+      "concepts_cles": [
+        "inégalité stricte",
+        "priorité de la multiplication",
+        "2x supérieur à 2"
+      ]
+    },
+    {
+      "section_id": "sec_5",
+      "title": "5. Le Piège Fondamental : Multiplication par un Nombre Négatif",
+      "summary": "Démonstration par deux exemples numériques (1 < 2 devient -1 > -2 et 10 > 3 devient -10 < -3) de la règle absolue : multiplier par un négatif inverse le sens de l'inégalité.",
+      "support_visuel_suggere": "draw line + draw arrow + text",
+      "concepts_cles": [
+        "inversion du sens",
+        "passage aux opposés",
+        "axe numérique",
+        "piège des inéquations"
+      ]
+    },
+    {
+      "section_id": "sec_6",
+      "title": "6. Exemple 2 : Application du Retournement et Addition Finale",
+      "summary": "Obtention de -2x < -2, puis ajout de 4 des deux côtés pour aboutir à 4 - 2x < 2.",
+      "support_visuel_suggere": "draw arrow + text",
+      "concepts_cles": [
+        "retournement appliqué",
+        "addition membre à membre",
+        "conservation du sens par addition",
+        "résultat final"
+      ]
+    },
+    {
+      "section_id": "sec_7",
+      "title": "7. Synthèse Méthodologique et Réflexes de Contrôle",
+      "summary": "Récapitulatif des deux règles d'or à toujours appliquer pour réussir les encadrements et la résolution d'inéquations au lycée.",
+      "support_visuel_suggere": "draw polygone + draw arrow + text",
+      "concepts_cles": [
+        "règle d'or addition soustraction",
+        "règle d'or produit positif",
+        "règle d'or produit négatif",
+        "réflexes au contrôle"
+      ]
+    }
+  ],
+  "duration_seconds": 395.21,
+  "word_count": 1132,
+  "source_video": {
+    "video_id": "6I4MbRM0pqs",
+    "title": "Performing operations on inequalities - Second",
+    "channel": "Yvan Monka",
+    "youtube_url": "https://www.youtube.com/watch?v=6I4MbRM0pqs"
+  },
+  "course_id": "MATH_003",
+  "world_model_score": 10.0,
+  "rendered_scenes": 7,
+  "visual_audit_notes": "Inspection multimodale exhaustive des 7 scenes PNG (scene_0 a scene_6). Scene 0: accroche et organigramme clair, marges nettes. Scene 1: multiplication par 3 > 0, conservation du sens, encadre cyan 3x < 9. Scene 2: soustraction membre a membre 3x - 4 < 5, intervalle ]-inf ; 5[, axe gradue avec surlignage vert et crochet rouge ouvert a 5 parfaitement espace. Scene 3: exemple 2 x > 1, 2x > 2, decomposition 4 - 2x. Scene 4: piege du negatif debogue avec 1 < 2 => -1 > -2 et 10 > 3 => -10 < -3, axe numerique avec graduations et fleches comparatives impeccables sans collision. Scene 5: application du retournement -2x < -2 puis 4 - 2x < 2, chaine d'implications claire. Scene 6: synthese complete en 3 encadres (regles d'or addition, multiplication, et reflexes de controle). Cadrage 16:9 optimal, contraste eleve sur tableau vert.",
+  "certified_by": "antigravity-argon",
+  "certified_at": "2026-10-31T00:03:12.972025",
+  "status": "COMPLETED"
+}
