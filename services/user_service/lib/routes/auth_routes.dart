@@ -37,15 +37,18 @@ Router createAuthRouter(AppDatabase database) {
 
     final id = 'user_${_uuid.v4()}';
     final passwordHash = PasswordHasher.hash(password);
+    final isDevEmail = email.endsWith('@illimmi.ai') || email.endsWith('@illimmi.dev');
+    final role = (body['role'] as String?) ?? (isDevEmail ? 'ai_engineer' : 'user');
     await database.saveUser(
       id: id,
       email: email,
       passwordHash: passwordHash,
+      role: role,
       createdAt: DateTime.now().toIso8601String(),
     );
 
-    final token = JwtService.issue(id, email);
-    return Response(201, body: jsonEncode({'token': token, 'userId': id}), headers: _jsonHeaders);
+    final token = JwtService.issue(id, email, role: role);
+    return Response(201, body: jsonEncode({'token': token, 'userId': id, 'email': email, 'role': role}), headers: _jsonHeaders);
   });
 
   router.post('/auth/login', (Request request) async {
@@ -62,7 +65,7 @@ Router createAuthRouter(AppDatabase database) {
       return _errorResponse(400, 'missing field: email/password');
     }
 
-    final rows = database.db.select('SELECT id, password_hash FROM users WHERE email = ?', [email]);
+    final rows = database.db.select('SELECT id, password_hash, role FROM users WHERE email = ?', [email]);
     if (rows.isEmpty) return _errorResponse(401, 'invalid credentials');
 
     final row = rows.first;
@@ -71,8 +74,27 @@ Router createAuthRouter(AppDatabase database) {
     }
 
     final userId = row['id'] as String;
-    final token = JwtService.issue(userId, email);
-    return Response.ok(jsonEncode({'token': token, 'userId': userId}), headers: _jsonHeaders);
+    final role = (row['role'] as String?) ?? 'user';
+    final token = JwtService.issue(userId, email, role: role);
+    return Response.ok(jsonEncode({'token': token, 'userId': userId, 'email': email, 'role': role}), headers: _jsonHeaders);
+  });
+
+  router.get('/auth/me', (Request request) async {
+    final authHeader = request.headers['Authorization'] ?? request.headers['authorization'];
+    if (authHeader == null || !authHeader.startsWith('Bearer ')) {
+      return _errorResponse(401, 'missing or invalid authorization header');
+    }
+    final token = authHeader.substring(7).trim();
+    try {
+      final claims = JwtService.verifyAndGetClaims(token);
+      return Response.ok(jsonEncode({
+        'userId': claims['sub'],
+        'email': claims['email'],
+        'role': claims['role'] ?? 'user',
+      }), headers: _jsonHeaders);
+    } catch (_) {
+      return _errorResponse(401, 'invalid token');
+    }
   });
 
   return router;

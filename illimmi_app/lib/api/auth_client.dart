@@ -5,11 +5,16 @@ import 'package:http/http.dart' as http;
 class AuthResult {
   final String token;
   final String userId;
+  final String role;
 
-  AuthResult({required this.token, required this.userId});
+  AuthResult({required this.token, required this.userId, this.role = 'user'});
 
   factory AuthResult.fromJson(Map<String, dynamic> json) =>
-      AuthResult(token: json['token'] as String, userId: json['userId'] as String);
+      AuthResult(
+        token: json['token'] as String,
+        userId: json['userId'] as String,
+        role: json['role'] as String? ?? 'user',
+      );
 }
 
 /// Client HTTP vers le microservice `user-service` (inscription/connexion).

@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'package:path/path.dart' as p;
 import 'package:sqlite3/sqlite3.dart';
+import '../auth/password_hasher.dart';
 import 'sql_server_client.dart';
 
 /// Gestionnaire de base de données universel pour `user-service` :
@@ -56,9 +57,19 @@ class AppDatabase {
         id TEXT PRIMARY KEY,
         email TEXT UNIQUE NOT NULL,
         password_hash TEXT NOT NULL,
+        role TEXT NOT NULL DEFAULT 'user',
         created_at TEXT NOT NULL
       );
     ''');
+
+    // Migration progressive si la colonne role n'existe pas encore
+    try {
+      final cols = db.select('PRAGMA table_info(users);');
+      final hasRole = cols.any((row) => row['name'] == 'role');
+      if (!hasRole) {
+        db.execute("ALTER TABLE users ADD COLUMN role TEXT NOT NULL DEFAULT 'user';");
+      }
+    } catch (_) {}
 
     db.execute('''
       CREATE TABLE IF NOT EXISTS course_history (
@@ -80,8 +91,19 @@ class AppDatabase {
     // Garantir l'existence d'un compte invité 'guest' pour que TOUT cours généré
     // sans session soit immédiatement persisté sans violation de clé étrangère
     db.execute('''
-      INSERT OR IGNORE INTO users (id, email, password_hash, created_at)
-      VALUES ('guest', 'guest@illimmi.local', 'guest_auth_bypass', '2026-01-01T00:00:00.000Z');
+      INSERT OR IGNORE INTO users (id, email, password_hash, role, created_at)
+      VALUES ('guest', 'guest@illimmi.local', 'guest_auth_bypass', 'guest', '2026-01-01T00:00:00.000Z');
+    ''');
+
+    // Comptes spéciaux pour Développeur et Ingénieur IA
+    final devPassHash = PasswordHasher.hash('illimmi-dev-2026');
+    db.execute('''
+      INSERT OR IGNORE INTO users (id, email, password_hash, role, created_at)
+      VALUES ('user_ai_engineer', 'ai.engineer@illimmi.ai', '$devPassHash', 'ai_engineer', '2026-01-01T00:00:00.000Z');
+    ''');
+    db.execute('''
+      INSERT OR IGNORE INTO users (id, email, password_hash, role, created_at)
+      VALUES ('user_dev', 'dev@illimmi.ai', '$devPassHash', 'dev', '2026-01-01T00:00:00.000Z');
     ''');
 
     final sqlServer = SqlServerClient();
@@ -102,11 +124,12 @@ class AppDatabase {
     required String id,
     required String email,
     required String passwordHash,
+    String role = 'user',
     required String createdAt,
   }) async {
     db.execute(
-      'INSERT INTO users (id, email, password_hash, created_at) VALUES (?, ?, ?, ?)',
-      [id, email, passwordHash, createdAt],
+      'INSERT INTO users (id, email, password_hash, role, created_at) VALUES (?, ?, ?, ?, ?)',
+      [id, email, passwordHash, role, createdAt],
     );
     await sqlServer.insertUser(
       id: id,

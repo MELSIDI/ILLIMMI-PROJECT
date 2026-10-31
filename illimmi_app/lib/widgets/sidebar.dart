@@ -7,6 +7,8 @@ import '../state/session_controller.dart';
 import '../theme/app_theme.dart';
 import 'history_list_tile.dart';
 import 'illimmi_logo.dart';
+import '../screens/corpus_explorer_dialog.dart';
+import '../services/corpus_service.dart';
 
 /// Menu latéral escamotable style Tableau Vert (Chalkboard) :
 /// Bouton de marque ancré en haut à gauche avec logo en craie blanche,
@@ -17,6 +19,7 @@ class Sidebar extends StatefulWidget {
   final VoidCallback onNewCourse;
   final void Function(HistoryEntry entry) onSelectHistory;
   final ValueListenable<bool> courseActive;
+  final void Function(CorpusCourse course)? onSelectCorpusCourse;
 
   const Sidebar({
     super.key,
@@ -24,6 +27,7 @@ class Sidebar extends StatefulWidget {
     required this.onNewCourse,
     required this.onSelectHistory,
     required this.courseActive,
+    this.onSelectCorpusCourse,
   });
 
   @override
@@ -34,8 +38,24 @@ class _SidebarState extends State<Sidebar> {
   static const _duration = Duration(milliseconds: 250);
 
   bool _menuOpen = false;
+  final CorpusService _corpusService = CorpusService();
 
   void _toggleMenu() => setState(() => _menuOpen = !_menuOpen);
+
+  void _openCorpusExplorer(BuildContext context) {
+    _closeMenu();
+    showDialog(
+      context: context,
+      builder: (_) => CorpusExplorerDialog(
+        corpusService: _corpusService,
+        onPlayCourse: (course) {
+          if (widget.onSelectCorpusCourse != null) {
+            widget.onSelectCorpusCourse!(course);
+          }
+        },
+      ),
+    );
+  }
 
   void _closeMenu() {
     if (_menuOpen) setState(() => _menuOpen = false);
@@ -292,6 +312,53 @@ class _SidebarState extends State<Sidebar> {
                 ),
               ),
             ),
+            if (widget.sessionController.isDev) ...[
+              const SizedBox(height: Spacing.sm),
+              Material(
+                color: Colors.transparent,
+                borderRadius: BorderRadius.circular(24),
+                child: InkWell(
+                  borderRadius: BorderRadius.circular(24),
+                  onTap: () => _openCorpusExplorer(context),
+                  child: Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+                    decoration: BoxDecoration(
+                      color: AppTheme.chalkCyan.withValues(alpha: 0.12),
+                      borderRadius: BorderRadius.circular(24),
+                      border: Border.all(
+                        color: AppTheme.chalkCyan.withValues(alpha: 0.45),
+                        width: 1,
+                      ),
+                    ),
+                    child: const Row(
+                      children: [
+                        Icon(
+                          Icons.science_rounded,
+                          color: AppTheme.chalkCyan,
+                          size: 20,
+                        ),
+                        SizedBox(width: 12),
+                        Expanded(
+                          child: Text(
+                            'Laboratoire Corpus',
+                            style: TextStyle(
+                              color: AppTheme.chalkCyan,
+                              fontSize: 14,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                        Icon(
+                          Icons.chevron_right_rounded,
+                          color: AppTheme.chalkCyan,
+                          size: 18,
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ],
             const SizedBox(height: Spacing.lg),
             // Titre section "Cours récents"
             const Padding(
@@ -397,15 +464,43 @@ class _SidebarState extends State<Sidebar> {
                   ),
                 ),
               ),
-              title: Text(
-                widget.sessionController.email ?? '',
-                maxLines: 1,
-                overflow: TextOverflow.ellipsis,
-                style: const TextStyle(
-                  color: AppTheme.chalkWhite,
-                  fontSize: 13,
-                  fontWeight: FontWeight.w500,
-                ),
+              title: Row(
+                children: [
+                  Expanded(
+                    child: Text(
+                      widget.sessionController.email ?? '',
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      style: const TextStyle(
+                        color: AppTheme.chalkWhite,
+                        fontSize: 13,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                  ),
+                  if (widget.sessionController.isDev) ...[
+                    const SizedBox(width: 4),
+                    Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 1),
+                      decoration: BoxDecoration(
+                        color: AppTheme.chalkGreen.withValues(alpha: 0.2),
+                        borderRadius: BorderRadius.circular(6),
+                        border: Border.all(
+                          color: AppTheme.chalkGreen.withValues(alpha: 0.5),
+                          width: 0.8,
+                        ),
+                      ),
+                      child: const Text(
+                        'DEV',
+                        style: TextStyle(
+                          color: AppTheme.chalkGreen,
+                          fontSize: 9,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ],
+                ],
               ),
               trailing: IconButton(
                 icon: const Icon(Icons.logout_rounded, size: 18, color: AppTheme.chalkDust),

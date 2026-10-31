@@ -46,6 +46,7 @@ class _AppShellState extends State<AppShell> {
                 sessionController: widget.sessionController,
                 onNewCourse: () => _contentKey.currentState?.newCourse(),
                 onSelectHistory: (entry) => _contentKey.currentState?.loadFromHistory(entry),
+                onSelectCorpusCourse: (course) => _contentKey.currentState?.loadCorpusCourse(course),
                 courseActive: _courseActive,
               ),
             ),

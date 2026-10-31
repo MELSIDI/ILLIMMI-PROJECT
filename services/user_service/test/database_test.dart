@@ -19,6 +19,16 @@ void main() {
       expect(user.first['email'], equals('guest@illimmi.local'));
     });
 
+    test('Seeds special Dev and AI Engineer accounts with proper roles', () {
+      final aiEngineer = db.db.select('SELECT * FROM users WHERE email = ?', ['ai.engineer@illimmi.ai']);
+      expect(aiEngineer.isNotEmpty, isTrue);
+      expect(aiEngineer.first['role'], equals('ai_engineer'));
+
+      final dev = db.db.select('SELECT * FROM users WHERE email = ?', ['dev@illimmi.ai']);
+      expect(dev.isNotEmpty, isTrue);
+      expect(dev.first['role'], equals('dev'));
+    });
+
     test('Persists course history in SQLite and SQL Server', () async {
       final testCourseId = 'test_course_${DateTime.now().millisecondsSinceEpoch}';
       

@@ -13,6 +13,8 @@ import '../state/session_controller.dart';
 import '../theme/app_theme.dart';
 import 'generation_progress_view.dart';
 import 'illimmi_logo.dart';
+import '../screens/corpus_explorer_dialog.dart';
+import '../services/corpus_service.dart';
 
 const _orchestratorBaseUrl = 'http://localhost:8080';
 
@@ -42,6 +44,7 @@ class MainContentAreaState extends State<MainContentArea> {
   bool _hasPromptText = false;
   String _selectedModel = 'ILLIMMI 1.5 Flash';
   String _selectedLevel = 'Lycée';
+  final CorpusService _corpusService = CorpusService();
 
   @override
   void initState() {
@@ -122,6 +125,26 @@ class MainContentAreaState extends State<MainContentArea> {
       _progressStatus = '';
       _courseFuture = HypercourseParser(entry.result.script).parse();
     });
+  }
+
+  /// Charge et lance la lecture synchrone d'un cours issu du corpus ILLIMMI (Dev/AI)
+  void loadCorpusCourse(CorpusCourse item) {
+    widget.courseActive.value = true;
+    setState(() {
+      _retry = () => _corpusService.loadCourse(item);
+      _progressStatus = 'Chargement du cours ${item.id}...';
+      _courseFuture = _corpusService.loadCourse(item);
+    });
+  }
+
+  void _openCorpusExplorer(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (_) => CorpusExplorerDialog(
+        corpusService: _corpusService,
+        onPlayCourse: loadCorpusCourse,
+      ),
+    );
   }
 
   void newCourse() {
@@ -214,8 +237,11 @@ class MainContentAreaState extends State<MainContentArea> {
     return Container(
       height: 56,
       padding: const EdgeInsets.symmetric(horizontal: Spacing.md),
-      child: Center(
-        child: PopupMenuButton<String>(
+      child: Stack(
+        alignment: Alignment.center,
+        children: [
+          Center(
+            child: PopupMenuButton<String>(
           tooltip: 'Changer de moteur IA',
           initialValue: _selectedModel,
           color: const Color(0xFF1E2824),
@@ -292,6 +318,46 @@ class MainContentAreaState extends State<MainContentArea> {
             ),
           ),
         ),
+          ),
+          if (widget.sessionController.isDev)
+            Positioned(
+              right: 0,
+              child: Material(
+                color: Colors.transparent,
+                borderRadius: BorderRadius.circular(20),
+                child: InkWell(
+                  borderRadius: BorderRadius.circular(20),
+                  onTap: () => _openCorpusExplorer(context),
+                  child: Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                    decoration: BoxDecoration(
+                      color: AppTheme.chalkCyan.withValues(alpha: 0.15),
+                      borderRadius: BorderRadius.circular(20),
+                      border: Border.all(
+                        color: AppTheme.chalkCyan.withValues(alpha: 0.5),
+                        width: 1.2,
+                      ),
+                    ),
+                    child: const Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Icon(Icons.science_rounded, color: AppTheme.chalkCyan, size: 16),
+                        SizedBox(width: 6),
+                        Text(
+                          'Laboratoire Corpus (AI)',
+                          style: TextStyle(
+                            color: AppTheme.chalkCyan,
+                            fontSize: 12,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ),
+        ],
       ),
     );
   }

@@ -136,7 +136,37 @@ class _AuthDialogState extends State<AuthDialog> {
                 ),
               ),
             ],
-            const SizedBox(height: Spacing.xl),
+            const SizedBox(height: Spacing.sm),
+            OutlinedButton.icon(
+              onPressed: _loading
+                  ? null
+                  : () async {
+                      setState(() => _loading = true);
+                      try {
+                        await widget.sessionController.loginAsDev();
+                        if (mounted) Navigator.of(context).pop();
+                      } catch (e) {
+                        setState(() => _error = e.toString());
+                      } finally {
+                        if (mounted) setState(() => _loading = false);
+                      }
+                    },
+              icon: const Icon(Icons.science_rounded, color: AppTheme.chalkCyan, size: 18),
+              label: const Text(
+                'Connexion Ingénieur IA / Dev (Corpus)',
+                style: TextStyle(
+                  color: AppTheme.chalkCyan,
+                  fontSize: 13,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              style: OutlinedButton.styleFrom(
+                side: BorderSide(color: AppTheme.chalkCyan.withValues(alpha: 0.4)),
+                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+                padding: const EdgeInsets.symmetric(vertical: 10),
+              ),
+            ),
+            const SizedBox(height: Spacing.md),
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [

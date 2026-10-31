@@ -20,13 +20,18 @@ class JwtService {
 
   /// Expiration longue (30 jours) : app desktop sans UI de refresh-token —
   /// se déconnecter revient simplement à effacer le token côté client.
-  static String issue(String userId, String email) {
-    final jwt = JWT({'sub': userId, 'email': email}, issuer: 'illimmi-user-service');
+  static String issue(String userId, String email, {String role = 'user'}) {
+    final jwt = JWT({'sub': userId, 'email': email, 'role': role}, issuer: 'illimmi-user-service');
     return jwt.sign(SecretKey(_secret), expiresIn: const Duration(days: 30));
   }
 
   static String verifyAndGetUserId(String token) {
     final jwt = JWT.verify(token, SecretKey(_secret));
     return (jwt.payload as Map)['sub'] as String;
+  }
+
+  static Map<String, dynamic> verifyAndGetClaims(String token) {
+    final jwt = JWT.verify(token, SecretKey(_secret));
+    return Map<String, dynamic>.from(jwt.payload as Map);
   }
 }
