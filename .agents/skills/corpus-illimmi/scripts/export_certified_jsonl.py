@@ -98,10 +98,11 @@ def main():
             ],
         })
 
+    from file_lock import atomic_write_text
+
     def dump_jsonl(path: Path, rows: list):
-        with open(path, "w", encoding="utf-8") as f:
-            for r in rows:
-                f.write(json.dumps(r, ensure_ascii=False) + "\n")
+        content = "".join(json.dumps(r, ensure_ascii=False) + "\n" for r in rows)
+        atomic_write_text(path, content)
 
     dump_jsonl(out_dir / "certified_gemma_layer1_planner.jsonl", l1_rows)
     dump_jsonl(out_dir / "certified_gemma_layer2_audio.jsonl", l2_rows)

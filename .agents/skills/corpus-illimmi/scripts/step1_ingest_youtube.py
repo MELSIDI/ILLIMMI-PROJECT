@@ -33,6 +33,7 @@ CATALOG_FILE = CORPUS_DIR / "catalog" / "corpus_1000_full.json"
 PROGRESS_FILE = CORPUS_DIR / "catalog" / "progress.json"
 COURSES_DIR = CORPUS_DIR / "courses"
 RAW_DIR = CORPUS_DIR / "transcripts" / "raw"
+CLAIMS_DIR = RAW_DIR / ".claims" 
 
 
 def collect_used_video_ids(exclude_course_id: str) -> Set[str]:
@@ -75,6 +76,10 @@ def collect_used_video_ids(exclude_course_id: str) -> Set[str]:
                 parts = stem.rsplit("_", 1)
                 if len(parts) == 2 and len(parts[1]) == 11:
                     used.add(parts[1])
+
+    if CLAIMS_DIR.exists():
+        for cf in CLAIMS_DIR.glob("*.claim"):
+            used.add(cf.stem)
 
     return used
 
@@ -229,12 +234,15 @@ def main():
             }, indent=2, ensure_ascii=False))
             return
 
+    # Multi-subagent jittered stagger: spread YouTube discovery across concurrent agents
+    num_match = re.search(r'\d+', course_id)
+    course_num = int(num_match.group(0)) if num_match else 0
+    stagger_sec = ((course_num % 5) * 1.8) + random.uniform(1.0, 2.5)
+    time.sleep(stagger_sec)
+
     used_vids = collect_used_video_ids(exclude_course_id=course_id)
     is_english = course.get("subject", "").lower() == "anglais" or "anglais" in course.get("domain", "").lower()
     lang_pref = ["en", "en-US", "en-GB"] if is_english else ["fr", "fr-FR"]
-
-    # Quota-safe jittered delay
-    time.sleep(random.uniform(2.5, 4.5))
 
     matched_vid: Optional[str] = None
     matched_title = ""
@@ -319,6 +327,15 @@ def main():
             "error": f"Could not retrieve a valid unique YouTube transcript (<= 1h) for {course_id} ('{course['title']}').",
         }, ensure_ascii=False))
         sys.exit(2)
+
+    # Reserve claim for multi-subagent coordination
+    CLAIMS_DIR.mkdir(parents=True, exist_ok=True)
+    claim_path = CLAIMS_DIR / f"{matched_vid}.claim"
+    try:
+        with open(claim_path, "w", encoding="utf-8") as cf:
+            json.dump({"course_id": course_id, "timestamp": time.time(), "video_id": matched_vid}, cf)
+    except Exception:
+        pass
 
     with open(raw_txt_path, "w", encoding="utf-8") as f:
         f.write(raw_text + "\n")

@@ -61,9 +61,19 @@ def main():
         with open(PROGRESS_FILE, "r", encoding="utf-8") as f:
             progress = json.load(f)
 
+    import time
     completed_ids = set(progress.get("completed_courses", {}).keys())
     disk_certified_ids = {c["id"] for c in catalog if is_course_certified_on_disk(c["id"])}
     effective_completed = completed_ids | disk_certified_ids
+
+    # Detect courses in progress by active subagents (active within last 3 hours)
+    in_progress_ids = set()
+    for c in catalog:
+        cid = c["id"]
+        if cid not in effective_completed:
+            raw_path = COURSES_DIR / cid / "raw_transcript.txt"
+            if raw_path.exists() and (time.time() - raw_path.stat().st_mtime) < 10800:
+                in_progress_ids.add(cid)
 
     candidates = catalog
 
@@ -72,7 +82,7 @@ def main():
         candidates = [c for c in candidates if c["id"] in requested]
     else:
         if not args.include_completed:
-            candidates = [c for c in candidates if c["id"] not in effective_completed]
+            candidates = [c for c in candidates if c["id"] not in effective_completed and c["id"] not in in_progress_ids]
         if args.subject:
             subj_norm = args.subject.strip().lower()
             candidates = [c for c in candidates if subj_norm in c.get("subject", "").lower()]
@@ -89,8 +99,10 @@ def main():
         "total_catalog": len(catalog),
         "completed_in_progress_json": len(completed_ids),
         "certified_on_disk": len(disk_certified_ids),
-        "remaining_pending": len(catalog) - len(effective_completed),
+        "in_progress_active": len(in_progress_ids),
+        "remaining_pending": len(catalog) - len(effective_completed) - len(in_progress_ids),
         "selected_count": len(selected),
+        "recommended_parallel_concurrency": min(5, len(selected)),
         "courses": [
             {
                 "id": c["id"],

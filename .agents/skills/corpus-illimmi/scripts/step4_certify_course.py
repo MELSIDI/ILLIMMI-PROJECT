@@ -42,14 +42,7 @@ if str(PROJECT_ROOT) not in sys.path:
 from corpus_illimmi_1000.tools.world_model_verifier import WorldModelVerifier  # noqa: E402
 from step2_align_audio import validate_layer1_and_layer2  # noqa: E402
 from step3_render_and_verify import deep_audit_hc  # noqa: E402
-
-
-def atomic_write_json(path: Path, data: object):
-    path.parent.mkdir(parents=True, exist_ok=True)
-    tmp_path = path.with_suffix(path.suffix + ".tmp")
-    with open(tmp_path, "w", encoding="utf-8") as f:
-        json.dump(data, f, indent=2, ensure_ascii=False)
-    os.replace(tmp_path, path)
+from file_lock import InterprocessLock, atomic_write_json  # noqa: E402
 
 
 def sync_manifest_csv(progress: Dict[str, Any], catalog: List[Dict[str, Any]]) -> None:
@@ -78,12 +71,25 @@ def sync_manifest_csv(progress: Dict[str, Any], catalog: List[Dict[str, Any]]) -
         "id", "subject", "level", "domain", "title",
         "author", "youtube_video_id", "youtube_url", "transcript_available",
     ]
-    tmp_csv = MANIFEST_FILE.with_suffix(".csv.tmp")
+    import time
+    tmp_csv = MANIFEST_FILE.with_name(f"{MANIFEST_FILE.stem}_{os.getpid()}_{time.time_ns()}.tmp")
     with open(tmp_csv, "w", encoding="utf-8", newline="") as f:
         writer = csv.DictWriter(f, fieldnames=fieldnames)
         writer.writeheader()
         writer.writerows(rows)
-    os.replace(tmp_csv, MANIFEST_FILE)
+    for attempt in range(12):
+        try:
+            os.replace(tmp_csv, MANIFEST_FILE)
+            break
+        except OSError:
+            if attempt == 11:
+                try:
+                    if MANIFEST_FILE.exists():
+                        MANIFEST_FILE.unlink()
+                    os.replace(tmp_csv, MANIFEST_FILE)
+                except Exception:
+                    raise
+            time.sleep(0.05 * (attempt + 1))
 
 
 def main():
@@ -183,75 +189,78 @@ def main():
         }, indent=2, ensure_ascii=False))
         sys.exit(6)
 
-    # Sync catalog & progress
-    catalog = json.loads(CATALOG_FILE.read_text(encoding="utf-8"))
-    cat_entry = next((c for c in catalog if c["id"] == course_id), None)
-    if not cat_entry:
-        print(json.dumps({"ok": False, "error": f"{course_id} not found in catalog"}))
-        sys.exit(7)
-
-    src_video = meta.get("source_video", {})
-    if (course_dir / "raw_source.json").exists():
-        raw_src = json.loads((course_dir / "raw_source.json").read_text(encoding="utf-8"))
-        src_video = {
-            "video_id": raw_src.get("video_id", src_video.get("video_id", "")),
-            "title": raw_src.get("title", src_video.get("title", "")),
-            "channel": raw_src.get("channel", src_video.get("channel", cat_entry.get("author", ""))),
-            "youtube_url": raw_src.get("youtube_url", ""),
-        }
-
     word_count = sum(1 for line in (course_dir / "words.txt").read_text(encoding="utf-8").splitlines() if line.strip())
     now_iso = datetime.now().isoformat()
 
-    meta["course_id"] = course_id
-    meta["title"] = cat_entry["title"]
-    meta["subject"] = cat_entry.get("subject", meta.get("subject", ""))
-    meta["domain"] = cat_entry.get("domain", meta.get("domain", ""))
-    meta["level"] = cat_entry.get("level", meta.get("level", ""))
-    meta["source_video"] = src_video
-    meta["duration_seconds"] = round(duration, 2)
-    meta["word_count"] = word_count
-    meta["world_model_score"] = wm_res["score"]
-    meta["rendered_scenes"] = len(scene_entries)
-    meta["visual_audit_notes"] = audit_notes
-    meta["certified_by"] = "antigravity-argon"
-    meta["certified_at"] = now_iso
-    meta["status"] = "COMPLETED"
-    atomic_write_json(course_dir / "metadata.json", meta)
+    # Synchronize shared catalog, progress, and manifest under exclusive lock (multi-subagent safe)
+    catalog_lock_path = CATALOG_DIR / ".catalog_lock"
+    with InterprocessLock(catalog_lock_path, timeout_sec=120.0):
+        # Read FRESH catalog directly from disk inside the lock
+        catalog = json.loads(CATALOG_FILE.read_text(encoding="utf-8"))
+        cat_entry = next((c for c in catalog if c["id"] == course_id), None)
+        if not cat_entry:
+            print(json.dumps({"ok": False, "error": f"{course_id} not found in catalog"}))
+            sys.exit(7)
 
-    # Update catalog item
-    vid = src_video.get("video_id", "")
-    if vid:
-        cat_entry["youtube_video_id"] = vid
-        cat_entry["youtube_url"] = f"https://www.youtube.com/watch?v={vid}"
-        cat_entry["youtube_video_title"] = src_video.get("title", "")
-    cat_entry["transcript_available"] = True
-    cat_entry["transcript_words_count"] = word_count
-    atomic_write_json(CATALOG_FILE, catalog)
+        src_video = meta.get("source_video", {})
+        if (course_dir / "raw_source.json").exists():
+            raw_src = json.loads((course_dir / "raw_source.json").read_text(encoding="utf-8"))
+            src_video = {
+                "video_id": raw_src.get("video_id", src_video.get("video_id", "")),
+                "title": raw_src.get("title", src_video.get("title", "")),
+                "channel": raw_src.get("channel", src_video.get("channel", cat_entry.get("author", ""))),
+                "youtube_url": raw_src.get("youtube_url", ""),
+            }
 
-    # Update progress.json
-    progress: Dict[str, Any] = {"completed_courses": {}, "total_completed": 0, "last_run_timestamp": None, "daily_runs": []}
-    if PROGRESS_FILE.exists():
-        progress = json.loads(PROGRESS_FILE.read_text(encoding="utf-8"))
+        meta["course_id"] = course_id
+        meta["title"] = cat_entry["title"]
+        meta["subject"] = cat_entry.get("subject", meta.get("subject", ""))
+        meta["domain"] = cat_entry.get("domain", meta.get("domain", ""))
+        meta["level"] = cat_entry.get("level", meta.get("level", ""))
+        meta["source_video"] = src_video
+        meta["duration_seconds"] = round(duration, 2)
+        meta["word_count"] = word_count
+        meta["world_model_score"] = wm_res["score"]
+        meta["rendered_scenes"] = len(scene_entries)
+        meta["visual_audit_notes"] = audit_notes
+        meta["certified_by"] = "antigravity-argon"
+        meta["certified_at"] = now_iso
+        meta["status"] = "COMPLETED"
+        atomic_write_json(course_dir / "metadata.json", meta)
 
-    progress.setdefault("completed_courses", {})[course_id] = {
-        "course_id": course_id,
-        "video_id": vid,
-        "channel": src_video.get("channel", cat_entry.get("author", "")),
-        "title": cat_entry["title"],
-        "duration_seconds": round(duration, 2),
-        "word_count": word_count,
-        "world_model_score": wm_res["score"],
-        "rendered_scenes": len(scene_entries),
-        "certified_by": "antigravity-argon",
-        "certified_at": now_iso,
-        "status": "COMPLETED",
-    }
-    progress["total_completed"] = len(progress["completed_courses"])
-    progress["last_run_timestamp"] = now_iso
-    atomic_write_json(PROGRESS_FILE, progress)
+        # Update catalog item
+        vid = src_video.get("video_id", "")
+        if vid:
+            cat_entry["youtube_video_id"] = vid
+            cat_entry["youtube_url"] = f"https://www.youtube.com/watch?v={vid}"
+            cat_entry["youtube_video_title"] = src_video.get("title", "")
+        cat_entry["transcript_available"] = True
+        cat_entry["transcript_words_count"] = word_count
+        atomic_write_json(CATALOG_FILE, catalog)
 
-    sync_manifest_csv(progress, catalog)
+        # Read FRESH progress.json directly from disk inside the lock
+        progress: Dict[str, Any] = {"completed_courses": {}, "total_completed": 0, "last_run_timestamp": None, "daily_runs": []}
+        if PROGRESS_FILE.exists():
+            progress = json.loads(PROGRESS_FILE.read_text(encoding="utf-8"))
+
+        progress.setdefault("completed_courses", {})[course_id] = {
+            "course_id": course_id,
+            "video_id": vid,
+            "channel": src_video.get("channel", cat_entry.get("author", "")),
+            "title": cat_entry["title"],
+            "duration_seconds": round(duration, 2),
+            "word_count": word_count,
+            "world_model_score": wm_res["score"],
+            "rendered_scenes": len(scene_entries),
+            "certified_by": "antigravity-argon",
+            "certified_at": now_iso,
+            "status": "COMPLETED",
+        }
+        progress["total_completed"] = len(progress["completed_courses"])
+        progress["last_run_timestamp"] = now_iso
+        atomic_write_json(PROGRESS_FILE, progress)
+
+        sync_manifest_csv(progress, catalog)
 
     print(json.dumps({
         "ok": True,

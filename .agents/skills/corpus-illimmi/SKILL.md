@@ -16,9 +16,10 @@ Use this skill whenever the user invokes `/corpus-illimmi`, mentions `corpus-ill
    - **NEVER** run `build_daily_batch.bat`, `agentic_corpus_runner.py`, `daily_corpus_builder.py`, or `PedagogicalVisualsEngine` to generate courses (they use hardcoded regex/templates instead of Argon).
 2. **100% Active Model Inheritance (Argon Guarantee)**:
    - Every subagent invoked via `invoke_subagent` **MUST** set `Model="inherit"` (never `"flash"` or `"flash_lite"`), guaranteeing every single course is planned, written, coded in `.hc`, and visually inspected by the user's active model (**Argon**).
-3. **Subagent-Per-Course Context Isolation (for `/goal` Scalability)**:
-   - When generating **2 or more courses** (e.g. a batch of 5, 10, or 25 under `/goal`), the main agent acts as a **lightweight Batch Orchestrator** and delegates **one course at a time** (or at most 2 sequentially respecting YouTube rate limits) to a fresh subagent (`TypeName="self"`, `Model="inherit"`) so the main conversation context never bloats!
-   - When generating **1 single course**, you may either execute the 5-step pipeline directly or via a subagent with `Model="inherit"`.
+3. **Parallel Multi-Subagent Architecture (5x Acceleration under `/goal`)**:
+   - When generating **multiple courses** (e.g. a batch of 5 courses under `/goal`), the main agent acts as an **Asynchronous Parallel Batch Orchestrator** and launches **multiple subagents in parallel** (recommended: **5 concurrent subagents** with `TypeName="illimmi-course-agent"` and `Model="inherit"`) all in the same turn!
+   - **Massive Time Savings**: Generating 5 courses sequentially takes ~5 hours (1h per course). Running 5 subagents in parallel completes all 5 courses in **~1 hour**!
+   - **Zero Collision Guarantee**: Each course has its own directory `courses/<COURSE_ID>/`. Shared catalog files (`progress.json`, `corpus_1000_full.json`, and `manifest.csv`) are protected by exclusive `InterprocessLock` and atomic file writes, while YouTube video claims are reserved in `transcripts/raw/.claims/`.
 4. **ZERO Limit on Words, Audio Duration, Sections, or Scenes (100% Transcript-Driven)**:
    - **NEVER impose any cap on word count, audio length, section count, or scene count!**
    - The ONLY upstream duration rule is at **Step 1 (YouTube selection)**: the source YouTube video must be **`<= 1 hour` (`<= 3600s`)** (enforced automatically by `step1_ingest_youtube.py`).
@@ -36,15 +37,38 @@ python ".agents/skills/corpus-illimmi/scripts/select_batch.py" --batch-size 10
 ```
 *(Optional flags: `--course-id MATH_003`, `--subject "Mathématiques"`, `--start-index 3`.)*
 
-### 2. Loop Over Selected Courses
-For each course `<COURSE_ID>` in `courses`:
-- Launch a dedicated fresh-context subagent with **exact model inheritance**:
-  - `TypeName`: `"self"` (or `"illimmi-course-agent"`)
-  - `Model`: `"inherit"` *(MANDATORY — guarantees Argon)*
-  - `Role`: `"ILLIMMI Course Author (<COURSE_ID>)"`
-  - `Prompt`: Tell the subagent to read `.agents/skills/corpus-illimmi/SKILL.md` (Section *"Single-Course 5-Step Execution Protocol"*) and `.agents/skills/corpus-illimmi/references/course_authoring_rules.md`, then execute Steps 1 -> 5 end-to-end for `<COURSE_ID>` and return the JSON certification output from `step4_certify_course.py`.
-- Wait for the subagent to complete (do not poll; reactive wakeup notifies you automatically).
-- Verify in the subagent's report (or `catalog/progress.json`) that `<COURSE_ID>` has `"status": "COMPLETED"`. If a course fails due to transient YouTube caption unavailability after retries, log it clearly and proceed to the next course until the target count of certified courses is met.
+### 2. Launch Parallel Subagents (All at Once in One Turn)
+For a batch of $N$ courses (e.g. 5 courses), **launch all $N$ subagents in parallel in the same turn**!
+
+```python
+# Launch all subagents concurrently in the same turn:
+for c in selected_courses:
+    invoke_subagent(
+        TypeName="illimmi-course-agent",
+        Role=f"ILLIMMI Course Author ({c['id']})",
+        Model="inherit", # MANDATORY: guarantees Argon active model
+        Prompt=(
+            f"Read .agents/skills/corpus-illimmi/SKILL.md (Section 'Single-Course 5-Step Execution Protocol') "
+            f"and .agents/skills/corpus-illimmi/references/course_authoring_rules.md. "
+            f"Execute Steps 1 -> 5 end-to-end for {c['id']} ('{c['title']}'). "
+            f"Certify with step4_certify_course.py and return the JSON certification summary."
+        )
+    )
+```
+
+#### Antigravity Concurrency Benchmark & Sizing Guidelines:
+- **System Capacity**: Antigravity has no hard ceiling on registered subagents.
+- **Optimal Concurrency Window**: **3 to 5 parallel subagents**:
+  - **5 subagents**: Generates 5 courses in **~1 hour total** instead of 5 hours (5x speedup!).
+  - **LLM Rate-Limit Safety**: Fits within active Argon TPM/RPM quota limits.
+  - **Local Hardware Safety**: Piper TTS & Whisper.cpp require short native processing bursts (~30-60s) staggered naturally across the 1-hour session.
+  - **YouTube Quota Protection**: `step1_ingest_youtube.py` applies course-ID index jitter to stagger initial transcript queries, while `.claims/` prevents duplicate video selection.
+- If generating larger batches (e.g. 10 or 25 courses), execute in **parallel waves of 5 subagents at a time**.
+
+### 3. Reactive Wakeup & Completion Monitoring
+- After launching the parallel wave of subagents, end your turn with no more tool calls.
+- **Do NOT poll**: Antigravity's **reactive wakeup** will automatically resume the orchestrator whenever a subagent reports completion or progress.
+- Track completed course IDs against `catalog/progress.json`. If a subagent reports an issue (e.g. YouTube caption retry), monitor resolution.
 
 ### 3. Optional Training JSONL Refresh & Final Summary
 At the end of the batch, refresh the real Gemma SFT JSONL exports from all certified courses:

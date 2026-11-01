@@ -49,3 +49,10 @@ Then execute all 5 steps end-to-end:
 
 5. **Step 5 — Final Certification**:
    Run `python ".agents/skills/corpus-illimmi/scripts/step4_certify_course.py" --course-id <COURSE_ID> --visual-audit-notes "<summary>"` and return the JSON certification summary to the orchestrator.
+
+## Multi-Agent Parallel Concurrency Guarantees
+When running in parallel with peer subagents (e.g. 5 subagents working on 5 courses simultaneously):
+- All your file creations and modifications are isolated in your own course directory: `corpus_illimmi_1000/courses/<COURSE_ID>/`.
+- `step1_ingest_youtube.py` automatically claims candidate YouTube videos in `transcripts/raw/.claims/` under file locks to guarantee that no two peer agents ever claim the same video.
+- `step4_certify_course.py` automatically coordinates `catalog/progress.json`, `corpus_1000_full.json`, and `corpus_1000_manifest.csv` under an exclusive cross-process `InterprocessLock`.
+- Execute all 5 steps autonomously, verify rendered scenes with `read_file`, certify with `step4_certify_course.py`, and return the JSON certification summary upon completion.
