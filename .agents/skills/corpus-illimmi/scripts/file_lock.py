@@ -109,3 +109,4 @@ def atomic_write_text(path: Path, text: str):
                 except Exception:
                     raise
             time.sleep(0.05 * (attempt + 1) + random.uniform(0.02, 0.05))
+

@@ -63,12 +63,18 @@ for c in selected_courses:
   - **LLM Rate-Limit Safety**: Fits within active Argon TPM/RPM quota limits.
   - **Local Hardware Safety**: Piper TTS & Whisper.cpp require short native processing bursts (~30-60s) staggered naturally across the 1-hour session.
   - **YouTube Quota Protection**: `step1_ingest_youtube.py` applies course-ID index jitter to stagger initial transcript queries, while `.claims/` prevents duplicate video selection.
-- If generating larger batches (e.g. 10 or 25 courses), execute in **parallel waves of 5 subagents at a time**.
+- **Pour les grands lots (ex: 10, 15 ou 25 cours)** : Ne pas faire de "vagues rigides" bloquantes ! Utiliser le **Pool Glissant Continu (Sliding Window de 5 Workers)** :
+  - **Remplissage initial** : L'agent maître lance les 5 premiers cours (`invoke_subagent` pour les cours 1, 2, 3, 4, 5).
+  - **Remplacement continu sans temps mort** : Dès qu'un sous-agent termine son cours (ex: le cours 2 termine en 40 min alors que le cours 1 prend 55 min), le système réveille l'agent maître via **reactive wakeup**. L'agent maître enregistre la certification du cours 2 et **lance immédiatement le cours 6** !
+  - **Saturer en permanence 5 workers** : À chaque instant, il y a toujours exactement 5 sous-agents actifs en parallèle, jusqu'à épuisement complet de la liste demandée.
 
 ### 3. Reactive Wakeup & Completion Monitoring
-- After launching the parallel wave of subagents, end your turn with no more tool calls.
-- **Do NOT poll**: Antigravity's **reactive wakeup** will automatically resume the orchestrator whenever a subagent reports completion or progress.
-- Track completed course IDs against `catalog/progress.json`. If a subagent reports an issue (e.g. YouTube caption retry), monitor resolution.
+- Après avoir saturé les 5 slots de workers, terminer votre tour sans appeler d'autre outil.
+- **NE PAS SCRUTER EN BOUCLE (Zero Polling)** : Le système Antigravity réveille automatiquement l'agent maître dès qu'un sous-agent notifie sa complétion.
+- À chaque réveil :
+  1. Vérifier la complétion du cours dans `catalog/progress.json`.
+  2. S'il reste des cours dans la file demandée (ex: cours 6 à 15), instancier immédiatement un sous-agent frais pour le cours suivant (`TypeName="illimmi-course-agent"`, `Model="inherit"`).
+  3. Lorsque tous les cours du lot sont certifiés, exécuter `export_certified_jsonl.py`, afficher le bilan consolidé et clore le `/goal`.
 
 ### 3. Optional Training JSONL Refresh & Final Summary
 At the end of the batch, refresh the real Gemma SFT JSONL exports from all certified courses:
