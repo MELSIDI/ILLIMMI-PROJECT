@@ -104,7 +104,8 @@ void main() {
       addTearDown(() => tester.view.resetPhysicalSize());
 
       final corpusService = CorpusService();
-      final courses = await corpusService.getCorpusCourses();
+      // Précharge le cache pour que le rendu synchrone soit immédiat
+      await corpusService.getCorpusCourses();
       CorpusCourse? selectedCourse;
 
       await tester.pumpWidget(
@@ -112,37 +113,38 @@ void main() {
           home: Scaffold(
             body: CorpusExplorerDialog(
               corpusService: corpusService,
-              initialCourses: courses,
               onPlayCourse: (course) => selectedCourse = course,
             ),
           ),
         ),
       );
 
-      await tester.pump();
-      await tester.pump(const Duration(milliseconds: 50));
+      // Permet à l'initialisation asynchrone de s'exécuter
+      await tester.runAsync(() async {
+        await Future.delayed(const Duration(milliseconds: 100));
+      });
+      await tester.pumpAndSettle();
 
       // Vérifie l'en-tête et les badges
       expect(find.text('Laboratoire Corpus ILLIMMI'), findsOneWidget);
       expect(find.text('AI ENGINEER / DEV'), findsOneWidget);
 
       // Vérifie la présence des cours certifiés
-      expect(find.byWidgetPredicate((w) => w is Text && w.data == 'MATH_001'), findsOneWidget);
-      expect(find.byWidgetPredicate((w) => w is Text && w.data == 'MATH_002'), findsOneWidget);
+      expect(find.text('MATH_001'), findsOneWidget);
+      expect(find.text('MATH_002'), findsOneWidget);
 
       // Test de recherche par filtre
       await tester.enterText(find.byType(TextField), 'MATH_001');
-      await tester.pump();
-      await tester.pump(const Duration(milliseconds: 50));
+      await tester.pumpAndSettle();
 
-      expect(find.byWidgetPredicate((w) => w is Text && w.data == 'MATH_001'), findsOneWidget);
-      expect(find.byWidgetPredicate((w) => w is Text && w.data == 'MATH_002'), findsNothing);
+      // Il y a 'MATH_001' dans le TextField et dans la carte du cours filtré
+      expect(find.text('MATH_001'), findsNWidgets(2));
+      expect(find.text('MATH_002'), findsNothing);
 
       // Test de sélection du cours pour le player
       final playBtn = find.widgetWithText(FilledButton, 'Lire le cours').first;
       await tester.tap(playBtn);
       await tester.pump();
-      await tester.pump(const Duration(milliseconds: 50));
 
       expect(selectedCourse, isNotNull);
       expect(selectedCourse!.id, equals('MATH_001'));

@@ -89,7 +89,10 @@ python ".agents/skills/corpus-illimmi/scripts/step2_align_audio.py" --course-id 
    - Every `id` strictly unique across the entire `.hc` file!
    - Scale `idgap` freely in the header (`idgap 100`, `idgap 500`, `idgap 1000`, etc.) so all elements fit cleanly in their namespace buckets (`text`: `1..G`, `draw`: `G+1..2G`, `mouse`: `3G+1..4G`, `erase`: `4G+1..5G`).
    - Left column (`x` in `[3, 6]`) for concise explanations & KaTeX formulas; right column (`x` in `[92, 173]`) for rich geometric drawings, axes, plots, and diagrams.
-   - **Progressive Chalk Handwriting (`for <D>s` on `text`)**: ALWAYS use `for <D>s` on explanatory text, definitions, and equations (typically `2.5s` to `5.5s` matching oral delivery in `words.txt`) so `LatexWidget` and `SmartMathClipper` animate the teacher's handwriting character-by-character from left to right with a blinking chalk cursor instead of flashing text instantly!
+   - **Single Action at a Time & Progressive Chalk Handwriting**:
+     - **One Action Rule**: A teacher has only one hand. Two visual elements must NEVER animate simultaneously ($T_i + D_i \le T_{i+1} - 0.2s$).
+     - **Instant reveal when time is short**: If $\Delta T = T_{i+1} - T_i < 1.2s$ (or for rapid series of items), OMIT `for` (instant display).
+     - **Progressive writing when time allows**: If $\Delta T \ge 1.5s$, assign `for <D>s` ($2.0s$ to $4.5s$, capped by $\Delta T - 0.2s$) on sentences, definitions, and formulas so `LatexWidget` and `SmartMathClipper` animate chalk handwriting character-by-character with a blinking cursor!
    - Wrap all math brackets `[a ; b]` or `]2 ; 4]` inside `$...$` and draw axis brackets geometrically with `draw path`. Never write `f''(x)` inside `''...''` (use `f^{\prime\prime}(x)`).
 2. Run the structural audit, `WorldModelVerifier`, and headless Flutter board renderer:
    ```powershell

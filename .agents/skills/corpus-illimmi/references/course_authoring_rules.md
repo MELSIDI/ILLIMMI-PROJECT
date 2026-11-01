@@ -88,16 +88,22 @@ course "Titre du cours" id <INT> idgap 100 for <DURATION>s audio "narration.wav"
    - Text hex colors: `#F8FAFC` (chalk white), `#38BDF8` (sky cyan), `#34D399` (emerald), `#FBBF24` (amber), `#F87171` (coral red), `#C084FC` (lavender).
    - Draw RGBA colors: `(248, 250, 252, 0.95)`, `(56, 189, 248, 1)`, `(52, 211, 153, 1)`, `(251, 191, 36, 1)`, `(248, 113, 113, 1)`, `(192, 132, 252, 1)`.
    - Polygon/circle fills: translucent only (`alpha` between `0.12` and `0.25`), **NEVER** opaque white `(255, 255, 255, 0.95)` or dark navy `#1E3A8A`.
-6. **Progressive Chalk Handwriting & Animation Duration (`for <D>s`)**:
+6. **Progressive Chalk Handwriting & Single Action Rule (`for <D>s`)**:
    - Elements automatically stay visible on the board until the next `erase` (or end of course).
-   - **`for` on `text` (Progressive Chalkboard Handwriting — ESSENTIAL)**:
-     `LatexWidget` and `SmartMathClipper` simulate progressive left-to-right character-by-character chalk handwriting with an active blinking chalk cursor! When `for` is omitted, text pops up instantly like a PowerPoint slide — a real teacher writes on the board while speaking!
-     - **Full sentences, definitions, theorems, explanations**: ALWAYS assign `for <D>s` where `<D>` is proportional to the spoken delivery in `words.txt` (typically `2.5s` to `5.5s`, matching vocal sentence delivery).
-     - **Calculations & KaTeX display formulas**: Assign `for 2.0s` to `4.5s` as the teacher progressively writes out the formula or derivation step.
-     - **Section titles & headers**: Assign `for 1.5s` to `2.5s` for a dignified chalkboard title reveal.
-     - **Single numbers, short labels, axis ticks** (e.g. `$0$`, `$1$`, `$I$`, `$\mathbb{R}$`): Keep `for` short (`0.3s` to `0.8s`) or omit if instantaneous notation is preferred.
-   - **`for` on `draw` / `mouse`**: Keep between `0.5s` and `2.0s` depending on the complexity of the geometric path.
-   - **Pre-erase safety rule**: ALWAYS ensure `start + for < next_erase_start - 0.1s` for every element in a scene so the writing animation finishes before the board is erased, ensuring clean captures and zero truncated text.
+   - **Règle Fondamentale : Une Seule Action à la Fois (La Main du Professeur / Single Action Constraint)** :
+     Dans une vraie classe, un enseignant n'a qu'une seule main qui écrit ou trace à la fois. Deux éléments ne doivent JAMAIS animer simultanément !
+     - **Séquentialité stricte** : Pour tout élément animé $E_i$ démarrant à $T_i$ avec une durée $D_i$, l'animation doit impérativement être achevée avant le début du prochain élément visuel $E_{i+1}$ : $T_i + D_i \le T_{i+1} - 0.2\text{s}$.
+     - **Apparition instantanée quand le temps est court / spam instantané (`for = 0s` ou `for` omis)** : Si l'intervalle avec l'élément suivant $\Delta T = T_{i+1} - T_i < 1.2\text{s}$, ou si plusieurs éléments sont introduits rapidement à la suite, **omettre l'attribut `for`** ! L'élément apparaît alors instantanément au tableau sans animation superflue, évitant tout chevauchement et laissant la main libre pour les explications majeures.
+     - **Écriture progressive quand l'espace temporel le permet** : Si $\Delta T \ge 1.5\text{s}$, assigner $D_i = \min(\text{durée naturelle}, \Delta T - 0.2\text{s})$.
+     - **Éléments simultanés ($T_A = T_B$)** : Au maximum UN SEUL élément peut être animé (ou les deux instantanés sans `for`), jamais deux animations en même temps.
+   - **`for` sur le texte (Écriture manuscrite à la craie)** :
+     `LatexWidget` et `SmartMathClipper` animent le tracé de gauche à droite avec curseur de craie.
+     - **Phrases complètes, définitions, théorèmes** : Assigner `for <D>s` (typiquement `2.0s` à `4.5s`, plafonné par $\Delta T - 0.2\text{s}$).
+     - **Calculs & Formules KaTeX** : Assigner `for 1.5s` à `3.5s` (plafonné par $\Delta T - 0.2\text{s}$).
+     - **Titres & En-têtes** : Assigner `for 1.2s` à `2.0s`.
+     - **Nombres isolés, graduations, étiquettes brèves** : Omettre `for` (apparition instantanée) ou `for <= 0.5s` si $\Delta T \ge 0.8\text{s}$.
+   - **`for` sur `draw` / `mouse`** : Entre `0.4s` et `1.5s` (plafonné par $\Delta T - 0.2\text{s}$).
+   - **Règle de sécurité pré-erase** : Toujours vérifier $start + for \le next\_erase\_start - 0.2\text{s}$.
 7. **Exact Word-Timestamp Synchronization**:
    - Read `words.txt` (`<start>word<end>`) and trigger every `text`, `draw`, `mouse move`, and `erase` at the **actual timestamp** where the corresponding sentence/concept/action verb is spoken!
 

@@ -89,8 +89,11 @@ Affiche un titre, une définition, une formule LaTeX ou une explication au table
 text id <ID> start <TIME>s [for <DURATION>s] at (<X>, <Y>) ''<CONTENU>'' ;
 ```
 
-- **Paramètres communs :** id, start, or (fortement recommandé pour l'écriture progressive à la craie).
-  - or <DURATION>s : Contrôle la vitesse d'écriture du professeur de gauche à droite avec curseur de craie actif. Typiquement 2.5s à 5.5s pour une phrase ou définition, 2.0s à 4.0s pour un calcul / équation KaTeX, et 1.5s à 2.5s pour un titre.
+- **Paramètres communs :** id, start, for (recommandé pour l'écriture progressive à la craie).
+  - or <DURATION>s : Contrôle la vitesse d'écriture du professeur de gauche à droite avec curseur de craie actif.
+  - **Règle de l'Action Unique du Professeur (La Main Unique)** : Un professeur n'écrit ou ne trace qu'une seule chose à la fois ( + D_i \le T_{i+1} - 0.2s$). Deux éléments ne doivent JAMAIS animer simultanément !
+  - **Apparition instantanée** : Si l'intervalle $\Delta T < 1.2s$ ou pour des éléments introduits en rafale, omettre or (l'élément apparaît instantanément à start).
+  - **Écriture progressive** : Si $\Delta T \ge 1.5s$, assigner or <D>s (typiquement 2.0s à 4.5s, plafonné par $\Delta T - 0.2s$).
 - **Paramètres spécifiques (Cas particuliers) :**
   - t (<X>, <Y>) : Coordonnées du point d'ancrage où est positionné le texte sur le tableau blanc 16:9.
   - ''<CONTENU>'' : Chaîne de texte délimitée par '', contenant du texte brut, des balises de style BBCode ([bold], [color=...]) et/ou des expressions LaTeX ($...$ ou $$...).

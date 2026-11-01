@@ -107,8 +107,8 @@
   "course_id": "MATH_001",
   "world_model_score": 10.0,
   "rendered_scenes": 7,
-  "visual_audit_notes": "Audite visuellement a 10.0/10. Toutes les planches PNG verifiees, zero collision, ecriture progressive de la craie activee (for 2.5s-5.5s sur les explications) avec synchronisation Whisper.",
+  "visual_audit_notes": "Single-action teacher hand rule verified: 0 overlapping animations, audio path validated for Windows Media Foundation",
   "certified_by": "antigravity-argon",
-  "certified_at": "2026-11-01T05:18:20.246449",
+  "certified_at": "2026-11-01T06:47:03.470751",
   "status": "COMPLETED"
 }
