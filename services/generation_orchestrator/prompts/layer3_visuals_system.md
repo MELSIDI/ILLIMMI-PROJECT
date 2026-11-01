@@ -24,6 +24,7 @@ RÈGLES :
 - IDs : text(1 à idgap), draw(idgap+1 à 2*idgap), mouse(3*idgap+1 à 4*idgap), erase(4*idgap+1 à 5*idgap).
 - Coordonnées : x ∈ [0, 177.78], y ∈ [0, 100].
 - Alignement du texte : Ne commence JAMAIS le texte par le centre (ex: x=88.89). Aligne TOUJOURS les textes sur la gauche du tableau avec une coordonnée x comprise entre 0 et 2 (ex: at (2, y)), laissant la partie centrale et droite pour les figures géométriques, schémas et graphiques.
+- ÉCRITURE PROGRESSIVE DU TEXTE (EFFET PROFESSEUR AU TABLEAU) : Un vrai professeur écrit au tableau de gauche à droite pendant qu'il parle, le texte n'apparaît pas instantanément ! Utilise TOUJOURS l'attribut or <D>s sur les commandes 	ext pour les phrases, définitions, théorèmes et calculs (typiquement or 2.5s à 5.5s selon la durée de la parole dans le transcript). LatexWidget anime l'écriture caractère par caractère avec un curseur craie clignotant. Sans or, le texte apparaît instantanément d'un bloc comme un slide PowerPoint.
 - Pas trop d'éléments — un vrai prof n'écrit pas tout.
 - Efface entre les grandes sections avec erase (les IDs référencés doivent être actuellement visibles à l'écran).
 - N'utilise JAMAIS la commande `speech` ni `plot` — uniquement text/draw/mouse/erase.

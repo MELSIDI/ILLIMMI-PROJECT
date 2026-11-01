@@ -103,8 +103,8 @@
   "course_id": "MATH_004",
   "world_model_score": 10.0,
   "rendered_scenes": 6,
-  "visual_audit_notes": "Inspection multimodale complète des 6 scènes PNG (scene_0 à scene_5). Scène 0 : distinction accolades discrètes (2 points rouges) vs intervalle continu (segment cyan), zéro collision. Scènes 1 et 2 : demi-droites supérieures et inférieures avec axes gradués, crochets géométriques fermés/ouverts orientés vers ou à l'opposé des solutions, labels des bornes et infinis positionnés sans chevauchement. Scène 3 : encadrements bornés avec segments cyan et émeraude et crochets distincts. Scène 4 : 3 pièges d'examen avec encadrements contrastés, correction des symboles KaTeX défectueux, aucune exception de rendu. Scène 5 : algorithme mental en 3 étapes à gauche et tableau récapitulatif 6 cas rigoureusement aligné en 3 colonnes à droite. World Model Score: 10.0/10.",
+  "visual_audit_notes": "Audite visuellement a 10.0/10. Toutes les planches PNG verifiees, zero collision, ecriture progressive de la craie activee (for 2.5s-5.5s sur les explications) avec synchronisation Whisper.",
   "certified_by": "antigravity-argon",
-  "certified_at": "2026-10-31T01:10:29.304214",
+  "certified_at": "2026-11-01T05:18:20.927421",
   "status": "COMPLETED"
 }

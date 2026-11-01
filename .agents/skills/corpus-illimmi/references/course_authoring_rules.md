@@ -88,15 +88,21 @@ course "Titre du cours" id <INT> idgap 100 for <DURATION>s audio "narration.wav"
    - Text hex colors: `#F8FAFC` (chalk white), `#38BDF8` (sky cyan), `#34D399` (emerald), `#FBBF24` (amber), `#F87171` (coral red), `#C084FC` (lavender).
    - Draw RGBA colors: `(248, 250, 252, 0.95)`, `(56, 189, 248, 1)`, `(52, 211, 153, 1)`, `(251, 191, 36, 1)`, `(248, 113, 113, 1)`, `(192, 132, 252, 1)`.
    - Polygon/circle fills: translucent only (`alpha` between `0.12` and `0.25`), **NEVER** opaque white `(255, 255, 255, 0.95)` or dark navy `#1E3A8A`.
-6. **Lifetime vs `for` Animation Duration**:
+6. **Progressive Chalk Handwriting & Animation Duration (`for <D>s`)**:
    - Elements automatically stay visible on the board until the next `erase` (or end of course).
-   - Omit `for` on `text` (or keep `for` <= `0.8s`), and keep `for` on `draw`/`mouse` between `0.4s` and `2.0s`.
-   - Ensure `start + for < next_erase_start - 0.1s` for every element in a scene so `board_capture_planner.dart` captures the complete scene right before `erase`.
+   - **`for` on `text` (Progressive Chalkboard Handwriting — ESSENTIAL)**:
+     `LatexWidget` and `SmartMathClipper` simulate progressive left-to-right character-by-character chalk handwriting with an active blinking chalk cursor! When `for` is omitted, text pops up instantly like a PowerPoint slide — a real teacher writes on the board while speaking!
+     - **Full sentences, definitions, theorems, explanations**: ALWAYS assign `for <D>s` where `<D>` is proportional to the spoken delivery in `words.txt` (typically `2.5s` to `5.5s`, matching vocal sentence delivery).
+     - **Calculations & KaTeX display formulas**: Assign `for 2.0s` to `4.5s` as the teacher progressively writes out the formula or derivation step.
+     - **Section titles & headers**: Assign `for 1.5s` to `2.5s` for a dignified chalkboard title reveal.
+     - **Single numbers, short labels, axis ticks** (e.g. `$0$`, `$1$`, `$I$`, `$\mathbb{R}$`): Keep `for` short (`0.3s` to `0.8s`) or omit if instantaneous notation is preferred.
+   - **`for` on `draw` / `mouse`**: Keep between `0.5s` and `2.0s` depending on the complexity of the geometric path.
+   - **Pre-erase safety rule**: ALWAYS ensure `start + for < next_erase_start - 0.1s` for every element in a scene so the writing animation finishes before the board is erased, ensuring clean captures and zero truncated text.
 7. **Exact Word-Timestamp Synchronization**:
    - Read `words.txt` (`<start>word<end>`) and trigger every `text`, `draw`, `mouse move`, and `erase` at the **actual timestamp** where the corresponding sentence/concept/action verb is spoken!
 
 ### 3.3 Supported Commands Quick Syntax
-- `text id <1..100> start <T>s at (<X>, <Y>) ''<BBCODE_OR_LATEX>'' ;`
+- `text id <1..100> start <T>s [for <D>s] at (<X>, <Y>) ''<BBCODE_OR_LATEX>'' ;` *(use `for 2.5s-5.5s` for progressive chalk handwriting while speaking!)*
 - `draw line id <101..200> start <T>s for <D>s color (r, g, b, a) width <W> at [(x1, y1), (x2, y2)] ;`
 - `draw arrow id <101..200> start <T>s for <D>s color (r, g, b, a) width <W> at [(x1, y1), (x2, y2)] ;`
 - `draw path id <101..200> start <T>s for <D>s color (r, g, b, a) width <W> at [(x1, y1), (x2, y2), (x3, y3)] ;`

@@ -349,7 +349,7 @@ def deep_audit_hc(
                 if b_i < len(scene_bounds) - 2 and e_t >= b_end - 0.04:
                     errors.append(
                         f"Line {st['line']} (id {st['id']}): start({s_t}s) + for({st['duration']}s) = {e_t:.2f}s "
-                        f"reaches/exceeds next erase at {b_end}s! Keep `for` animation short (e.g. 0.4s-1.5s, or omit `for` on `text`) "
+                        f"reaches/exceeds next erase at {b_end}s! Ensure start + for is strictly before next_erase - 0.1s "
                         f"so pre-erase scene capture happens strictly before {b_end}s."
                     )
                 break

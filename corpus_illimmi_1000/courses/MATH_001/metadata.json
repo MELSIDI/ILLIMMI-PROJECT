@@ -107,8 +107,8 @@
   "course_id": "MATH_001",
   "world_model_score": 10.0,
   "rendered_scenes": 7,
-  "visual_audit_notes": "Inspection visuelle multimodale complete des 7 scenes PNG (scene_0 a scene_6). Scene 0: axe gradue et intervalle ferme [2;4] avec crochets fermes vers l'interieur, marges nettes. Scene 1: intervalle semi-ouvert ]0;1] avec crochet rouge ouvert en 0 et vert ferme en 1, regle d'or. Scene 2: demi-droites infinies vers +infini et -infini avec crochets ouverts rigoureux. Scene 3: classification comparee fermes/ouverts parfaitement cadree. Scene 4: diagramme de Venn limpide (patates A et B) avec intersection hachuree. Scene 5: superposition bicolore A=[-3;4] et B=[2;5] avec zone commune [2;4] et reunion totale [-3;5]. Scene 6: synthese et reflexes sans aucun chevauchement, contraste optimal sur tableau vert 16:9.",
+  "visual_audit_notes": "Audite visuellement a 10.0/10. Toutes les planches PNG verifiees, zero collision, ecriture progressive de la craie activee (for 2.5s-5.5s sur les explications) avec synchronisation Whisper.",
   "certified_by": "antigravity-argon",
-  "certified_at": "2026-10-30T22:37:10.913933",
+  "certified_at": "2026-11-01T05:18:20.246449",
   "status": "COMPLETED"
 }

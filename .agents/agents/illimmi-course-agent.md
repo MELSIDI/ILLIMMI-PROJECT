@@ -42,6 +42,7 @@ Then execute all 5 steps end-to-end:
      - Every `id` globally unique across the entire `.hc` file!
      - Scale `idgap` freely (`100`, `500`, `1000`, etc.) for buckets (`text`: `1..G`, `draw`: `G+1..2G`, `mouse`: `3G+1..4G`, `erase`: `4G+1..5G`).
      - Left column ($x \in [3, 6]$) for explanations & KaTeX; right column ($x \in [92, 173]$) for axes, curves, vectors, geometry, and diagrams.
+     - **Progressive Chalk Handwriting (or <D>s on 	ext)**: ALWAYS use or <D>s on explanatory sentences, theorems, definitions, and equations (2.5s to 5.5s matching oral speech in words.txt). LatexWidget and SmartMathClipper render real-time character-by-character chalk handwriting with an active blinking cursor — never flash text instantaneously without or!
      - Math interval brackets wrapped in `$...$` (`$[a ; b]$`, `$]2 ; 4]$`) or drawn with `draw path`; never write `f''(x)` inside `''...''` (use `f^{\prime\prime}(x)`).
    - Run `python ".agents/skills/corpus-illimmi/scripts/step3_render_and_verify.py" --course-id <COURSE_ID>`.
    - **Call `read_file` on EVERY generated `renders/scene_*.png` screenshot** and inspect visually! If any overlap, clipping, missing bracket, or arrow misalignment appears, fix `course.hc` (**NEVER alter existing `start` timestamps!**), re-run `step3_render_and_verify.py`, and re-inspect the updated PNGs.

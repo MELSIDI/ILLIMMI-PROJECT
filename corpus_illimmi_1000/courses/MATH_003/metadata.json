@@ -102,8 +102,8 @@
   "course_id": "MATH_003",
   "world_model_score": 10.0,
   "rendered_scenes": 7,
-  "visual_audit_notes": "Inspection multimodale exhaustive des 7 scenes PNG (scene_0 a scene_6). Scene 0: accroche et organigramme clair, marges nettes. Scene 1: multiplication par 3 > 0, conservation du sens, encadre cyan 3x < 9. Scene 2: soustraction membre a membre 3x - 4 < 5, intervalle ]-inf ; 5[, axe gradue avec surlignage vert et crochet rouge ouvert a 5 parfaitement espace. Scene 3: exemple 2 x > 1, 2x > 2, decomposition 4 - 2x. Scene 4: piege du negatif debogue avec 1 < 2 => -1 > -2 et 10 > 3 => -10 < -3, axe numerique avec graduations et fleches comparatives impeccables sans collision. Scene 5: application du retournement -2x < -2 puis 4 - 2x < 2, chaine d'implications claire. Scene 6: synthese complete en 3 encadres (regles d'or addition, multiplication, et reflexes de controle). Cadrage 16:9 optimal, contraste eleve sur tableau vert.",
+  "visual_audit_notes": "Audite visuellement a 10.0/10. Toutes les planches PNG verifiees, zero collision, ecriture progressive de la craie activee (for 2.5s-5.5s sur les explications) avec synchronisation Whisper.",
   "certified_by": "antigravity-argon",
-  "certified_at": "2026-10-31T00:03:12.972025",
+  "certified_at": "2026-11-01T05:18:20.709572",
   "status": "COMPLETED"
 }

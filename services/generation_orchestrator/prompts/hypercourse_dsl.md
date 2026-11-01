@@ -89,16 +89,18 @@ Affiche un titre, une définition, une formule LaTeX ou une explication au table
 text id <ID> start <TIME>s [for <DURATION>s] at (<X>, <Y>) ''<CONTENU>'' ;
 ```
 
-- **Paramètres communs :** `id`, `start`, `for` (optionnel).
+- **Paramètres communs :** id, start, or (fortement recommandé pour l'écriture progressive à la craie).
+  - or <DURATION>s : Contrôle la vitesse d'écriture du professeur de gauche à droite avec curseur de craie actif. Typiquement 2.5s à 5.5s pour une phrase ou définition, 2.0s à 4.0s pour un calcul / équation KaTeX, et 1.5s à 2.5s pour un titre.
 - **Paramètres spécifiques (Cas particuliers) :**
-  - `at (<X>, <Y>)` : Coordonnées du point d'ancrage où est positionné le texte sur le tableau blanc 16:9.
-  - `''<CONTENU>''` : Chaîne de texte délimitée par `''`, contenant du texte brut, des balises de style BBCode (`[bold]`, `[color=...]`) et/ou des expressions LaTeX (`$...$` ou `$$...$$`).
+  - t (<X>, <Y>) : Coordonnées du point d'ancrage où est positionné le texte sur le tableau blanc 16:9.
+  - ''<CONTENU>'' : Chaîne de texte délimitée par '', contenant du texte brut, des balises de style BBCode ([bold], [color=...]) et/ou des expressions LaTeX ($...$ ou $$...).
 
 **Exemples :**
-```hypercourse
-text id 1 start 1.5s for 30s at (88.89, 8) ''[bold][color=#2980B9]Les Dérivées[/color][/bold]'' ;
-text id 2 start 12.0s at (88.89, 40) ''$$f'(x) = \lim_{h \to 0} \frac{f(x+h)-f(x)}{h}$$'' ;
-```
+`hypercourse
+text id 1 start 1.5s for 2.2s at (4.0, 7.5) ''[bold][color=#38BDF8]Les Dérivées et Applications[/color][/bold]'' ;
+text id 2 start 12.0s for 4.5s at (4.0, 24.0) ''[color=#F8FAFC]Définition : Le nombre dérivé est la limite du taux d\'accroissement.[/color]'' ;
+text id 3 start 25.0s for 3.2s at (4.0, 40.0) ''f\'(x) = \lim_{h \to 0} \frac{f(x+h)-f(x)}{h}'' ;
+`
 
 ---
 
