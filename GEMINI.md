@@ -21,7 +21,7 @@ Chaque fois que des modifications sont apportées au projet (création, modifica
 Chaque fois que l'utilisateur écrit dans le chat **`dsl_dev -> main`** (ou une variation telle que `dsl_dev to main`, `/dsl_dev-to-main`, ou demande de synchroniser/fusionner `dsl_dev` dans `main`) :
 
 1. **Vérifier et committer `dsl_dev`** : Si des modifications restent non commitées sur `dsl_dev`, les committer et exécuter `git push origin dsl_dev`.
-2. **Basculer sur `main`** : Exécuter `git checkout main` puis `git pull origin main`.
+2. **Basculer sur `main`** : Exécuter `git checkout main` (sans faire de pull distant).
 3. **Fusionner `dsl_dev` dans `main`** : Exécuter `git merge dsl_dev -m "merge: sync dsl_dev into main"`.
 4. **Pousser `main` sur GitHub** : Exécuter `git push origin main`.
 5. **Revenir immédiatement sur `dsl_dev`** : Exécuter `git checkout dsl_dev` car `dsl_dev` est la branche active de développement des nouvelles fonctionnalités.

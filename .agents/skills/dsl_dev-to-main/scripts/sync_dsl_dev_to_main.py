@@ -4,17 +4,24 @@ sync_dsl_dev_to_main.py - Autonomous Git Synchronization from dsl_dev to main.
 
 Workflow:
 1. Verifies/commits pending changes on dsl_dev and pushes to origin/dsl_dev.
-2. Checks out main and pulls origin/main.
-3. Merges dsl_dev into main.
+2. Checks out main (no remote pull, uses local main directly).
+3. Merges local dsl_dev changes into main.
 4. Pushes main to origin/main.
 5. Switches back to dsl_dev (active feature development branch).
 6. Outputs full status conforming to ILLIMMI Git notification directives.
 """
 
 import argparse
+import io
 import subprocess
 import sys
 from pathlib import Path
+
+if sys.platform == "win32":
+    if isinstance(sys.stdout, io.TextIOWrapper):
+        sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+    if isinstance(sys.stderr, io.TextIOWrapper):
+        sys.stderr.reconfigure(encoding="utf-8", errors="replace")
 
 PROJECT_ROOT = Path(__file__).resolve().parents[4]
 
@@ -78,14 +85,12 @@ def sync(commit_msg: str = "chore(dsl_dev): commit pending changes before sync t
         print("☁️ Pushing dsl_dev to origin/dsl_dev...")
         run_cmd("git push origin dsl_dev")
 
-        # Step 4: Checkout main and pull latest
-        print("🔀 Switching to main...")
+        # Step 4: Checkout main directly (no git pull origin main)
+        print("🔀 Switching directly to main...")
         run_cmd("git checkout main")
-        print("⬇️ Pulling latest origin/main...")
-        run_cmd("git pull origin main", check=False)
 
-        # Step 5: Merge dsl_dev into main
-        print("⚡ Merging dsl_dev into main...")
+        # Step 5: Merge local dsl_dev into main
+        print("⚡ Merging local dsl_dev into main...")
         merge_msg = f"merge: sync dsl_dev into main ({dsl_dev_commit})"
         merge_res = run_cmd(f'git merge dsl_dev -m "{merge_msg}"', check=False)
 
@@ -118,7 +123,7 @@ def sync(commit_msg: str = "chore(dsl_dev): commit pending changes before sync t
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Synchronize dsl_dev into main and push both to GitHub")
+    parser = argparse.ArgumentParser(description="Synchronize dsl_dev into main and push both to GitHub without pulling main")
     parser.add_argument("--message", "-m", default="chore(dsl_dev): commit pending changes before sync to main",
                         help="Commit message for uncommitted changes on dsl_dev")
     args = parser.parse_args()
