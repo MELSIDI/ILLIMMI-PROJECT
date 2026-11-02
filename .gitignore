@@ -38,6 +38,11 @@ services/generation_orchestrator/illimmi_jobs.db
 services/audio_service/audio_service.exe
 denial_report.txt
 
+# Concurrency locks and claims
+corpus_illimmi_1000/catalog/.catalog_lock
+corpus_illimmi_1000/transcripts/raw/.claims/
+*.lock
+
 __pycache__/
 *.py[cod]
 *$py.class
