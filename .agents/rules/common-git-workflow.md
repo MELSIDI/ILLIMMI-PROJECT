@@ -20,5 +20,11 @@ When creating PRs:
 4. Include test plan with TODOs
 5. Push with `-u` flag if new branch
 
+## Push Status Notification Rule (MANDATORY)
+
+Whenever changes or modifications are made to the codebase:
+- **If pushed to remote**: ALWAYS explicitly state in the final response that changes were pushed, including the target branch (e.g. `dsl_dev`), commit hash, and summary.
+- **If NOT pushed to remote**: ALWAYS explicitly state in the final response that changes remain local only (not pushed to remote), noting whether they are uncommitted in the working tree or committed locally only.
+
 > For the full development process (planning, TDD, code review) before git operations,
 > see [development-workflow.md](common-development-workflow.md).
