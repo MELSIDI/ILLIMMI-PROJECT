@@ -68,12 +68,12 @@ def sync(commit_msg: str = "chore(dsl_dev): commit pending changes before sync t
             run_cmd("git checkout dsl_dev")
 
         # Step 2: Check for uncommitted changes on dsl_dev
-        status_res = run_cmd("git status --porcelain")
-        has_uncommitted = bool(status_res.stdout.strip())
+        run_cmd("git add -A")
+        diff_cached = run_cmd("git diff --cached --quiet", check=False)
+        has_staged = (diff_cached.returncode != 0)
 
-        if has_uncommitted:
-            print(f"📝 Uncommitted changes detected on dsl_dev. Staging and committing...")
-            run_cmd("git add -A")
+        if has_staged:
+            print(f"📝 Staged changes detected on dsl_dev. Committing...")
             run_cmd(f'git commit -m "{commit_msg}"')
             dsl_dev_commit = get_head_commit()
             print(f"✅ Committed on dsl_dev: {dsl_dev_commit}")
