@@ -36,6 +36,23 @@ MANIFEST_PATH = CORPUS_DIR / "corpus_manifest.json"
 DEFAULT_EXPORT_DIR = PROJECT_ROOT / "corpus_exports"
 
 
+def find_gdrive_bin() -> str:
+    """Finds the installed gdrive CLI binary executable."""
+    # Check Antigravity plugin data directory first
+    home = Path(os.environ.get("USERPROFILE") or os.environ.get("HOME") or "")
+    plugin_bin_dir = home / ".gemini" / "antigravity" / "plugin_data" / "gdrive" / "bin"
+    if plugin_bin_dir.exists():
+        for exe in plugin_bin_dir.glob("gdrive*.exe"):
+            return str(exe)
+
+    # Check PATH
+    sh_path = shutil.which("gdrive")
+    if sh_path:
+        return sh_path
+
+    raise FileNotFoundError("Could not find gdrive executable in plugin_data or PATH.")
+
+
 def compute_sha256(file_path: Path) -> str:
     """Computes SHA-256 hexadecimal digest for a file."""
     h = hashlib.sha256()
@@ -64,11 +81,6 @@ def package_course(course_id: str, output_dir: Path, archive_format: str = "zip"
         except Exception:
             pass
 
-    # Files to include in the cloud archive:
-    # 1. Renders
-    # 2. Narration.wav (if exists)
-    # 3. Transcripts and word alignments
-    # 4. Course definitions (.hc, metadata)
     files_to_pack = []
     for item in cdir.rglob("*"):
         if item.is_file():
@@ -99,7 +111,7 @@ def package_course(course_id: str, output_dir: Path, archive_format: str = "zip"
     }
 
 
-def generate_manifest(release_tag: str = "v0.1.0", archive_dir: Optional[Path] = None) -> Dict[str, Any]:
+def generate_manifest(release_tag: str = "v0.1.0", archive_dir: Optional[Path] = None, gdrive_ids: Optional[Dict[str, str]] = None) -> Dict[str, Any]:
     """Builds the lightweight corpus_manifest.json that stays in Git."""
     progress_file = CATALOG_DIR / "progress.json"
     if not progress_file.exists():
@@ -139,6 +151,9 @@ def generate_manifest(release_tag: str = "v0.1.0", archive_dir: Optional[Path] =
                 c_entry["archive_sha256"] = compute_sha256(afile)
                 c_entry["archive_size_mb"] = round(afile.stat().st_size / (1024 * 1024), 2)
 
+        if gdrive_ids and cid in gdrive_ids:
+            c_entry["gdrive_file_id"] = gdrive_ids[cid]
+
         courses_manifest[cid] = c_entry
 
     manifest_data = {
@@ -150,7 +165,11 @@ def generate_manifest(release_tag: str = "v0.1.0", archive_dir: Optional[Path] =
         "total_scenes": total_scenes,
         "courses": courses_manifest,
         "gdrive_store": {
-            "target_folder": "ILLIMMI_CORPUS_STORE",
+            "root_folder_name": "ILLIMMI_CORPUS_STORE",
+            "root_folder_id": "1z8MJTy-UnKKs_t24xnqiGNEEMnM06tTM",
+            "releases_folder_id": "1g7HxYXpt0oY6jr6Lq1G0exKT3a5N57KD",
+            "current_release_id": "13_O04HKBPWCW7C9B8PgXp2mP2BpxgM2b",
+            "release_url": "https://drive.google.com/drive/folders/13_O04HKBPWCW7C9B8PgXp2mP2BpxgM2b",
             "release_path": f"releases/{release_tag}",
             "documentation": "docs/gdrive_corpus_architecture.md",
         },
@@ -206,6 +225,55 @@ def package_release(release_tag: str, output_base: Path) -> Path:
     return release_dir
 
 
+def upload_course_archive(gdrive_bin: str, archive_path: Path, parent_id: str) -> str:
+    """Uploads a single archive to Google Drive using gdrive CLI and returns file ID."""
+    cmd = [gdrive_bin, "mutate", "upload", str(archive_path), "--parent", parent_id]
+    res = subprocess.run(cmd, capture_output=True, text=True, check=True)
+    out = res.stdout.strip()
+    # Expected: "Uploaded: MATH_001.zip (ID: 1abc...)"
+    fid = ""
+    if "(ID: " in out:
+        fid = out.split("(ID: ")[1].rstrip(")")
+    print(f"  ☁️ {archive_path.name} -> GDrive ID: {fid}")
+    return fid
+
+
+def sync_cloud(release_tag: str, release_base: Path):
+    """Synchronizes packaged release files to Google Drive using the authenticated CLI."""
+    gdrive_bin = find_gdrive_bin()
+    release_dir = release_base / release_tag
+    if not release_dir.exists():
+        raise FileNotFoundError(f"Release dir does not exist: {release_dir}. Run package-release first.")
+
+    courses_archive_dir = release_dir / "courses_archives"
+    # Pre-created target folder IDs on Google Drive:
+    courses_archives_parent_id = "1C39f9_4YN0HqTviNQ67vC38NaI63Xowa"
+    release_folder_id = "13_O04HKBPWCW7C9B8PgXp2mP2BpxgM2b"
+
+    print(f"🚀 Starting cloud synchronization for {release_tag} to Google Drive...")
+    gdrive_file_ids: Dict[str, str] = {}
+
+    archives = sorted(courses_archive_dir.glob("*.zip"))
+    total = len(archives)
+    for idx, arch in enumerate(archives, 1):
+        cid = arch.stem
+        print(f"[{idx}/{total}] Uploading {arch.name} ({round(arch.stat().st_size / (1024*1024), 2)} MB)...")
+        fid = upload_course_archive(gdrive_bin, arch, courses_archives_parent_id)
+        if fid:
+            gdrive_file_ids[cid] = fid
+
+    # Re-generate local manifest with the Google Drive File IDs
+    manifest = generate_manifest(release_tag=release_tag, archive_dir=courses_archive_dir, gdrive_ids=gdrive_file_ids)
+    shutil.copy2(MANIFEST_PATH, release_dir / "corpus_manifest.json")
+
+    # Upload updated manifest to release root on Drive
+    print("☁️ Uploading final corpus_manifest.json to Google Drive...")
+    upload_course_archive(gdrive_bin, MANIFEST_PATH, release_folder_id)
+
+    print(f"\n🎉 Cloud synchronization of {release_tag} successfully completed!")
+    print(f"   Drive URL: https://drive.google.com/drive/folders/{release_folder_id}")
+
+
 def sync_to_gdrive_desktop(source_release_dir: Path, drive_path: Path):
     """Copies the release package to Google Drive Desktop mounted folder."""
     if not drive_path.exists():
@@ -230,6 +298,8 @@ def clean_git_cache():
     patterns = [
         "corpus_illimmi_1000/courses/*/renders/*.png",
         "corpus_illimmi_1000/training_data/*.jsonl",
+        "corpus_illimmi_1000/transcripts/raw/*.txt",
+        "corpus_illimmi_1000/transcripts/processed/*.txt",
     ]
     print("🧹 Removing heavy binary assets from Git tracking (keeping local disk files)...")
     for pat in patterns:
@@ -255,6 +325,11 @@ def main():
     p_man = subparsers.add_parser("manifest", help="Generate corpus_manifest.json")
     p_man.add_argument("--tag", default="v0.1.0", help="Release tag")
 
+    # sync-cloud
+    p_cloud = subparsers.add_parser("sync-cloud", help="Upload packaged release to Google Drive via CLI")
+    p_cloud.add_argument("--tag", default="v0.1.0", help="Release tag (e.g. v0.1.0)")
+    p_cloud.add_argument("--output-dir", default=str(DEFAULT_EXPORT_DIR), help="Base output directory")
+
     # sync-desktop
     p_sync = subparsers.add_parser("sync-desktop", help="Sync release to Google Drive Desktop folder")
     p_sync.add_argument("--release-dir", required=True, help="Path to packaged release dir")
@@ -273,6 +348,8 @@ def main():
     elif args.action == "manifest":
         man = generate_manifest(args.tag)
         print(json.dumps(man, indent=2))
+    elif args.action == "sync-cloud":
+        sync_cloud(args.tag, Path(args.output_dir))
     elif args.action == "sync-desktop":
         sync_to_gdrive_desktop(Path(args.release_dir), Path(args.drive_path))
     elif args.action == "clean-git":
