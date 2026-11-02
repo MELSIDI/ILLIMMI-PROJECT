@@ -1,0 +1,111 @@
+{
+  "id": "MATH_018",
+  "subject": "Mathématiques",
+  "level": "Seconde",
+  "domain": "Nombres & Calculs",
+  "title": "Méthode pas à pas : Comment résoudre un problème de Valeur absolue et distance sur la droite réelle",
+  "pedagogical_type": "methode_pas_a_pas",
+  "pedagogical_target": "Maîtriser la définition géométrique et algébrique de la valeur absolue d'un réel, assimiler la notion de distance à zéro, et appliquer la méthode pas à pas pour calculer et représenter la distance entre deux réels sur la droite graduée.",
+  "duration_seconds": 407.8,
+  "sections": [
+    {
+      "section_id": "sec_1",
+      "title": "1. Droite des réels et représentation géométrique",
+      "summary": "Représentation de l'axe réel gradué avec l'origine O d'abscisse 0 et le point M d'abscisse x pour introduire la notion géométrique de distance.",
+      "support_visuel_suggere": "draw line + draw path + draw arrow",
+      "concepts_cles": [
+        "droite réelle",
+        "origine O",
+        "abscisse x",
+        "point M"
+      ]
+    },
+    {
+      "section_id": "sec_2",
+      "title": "2. Définition de la valeur absolue et distance à zéro",
+      "summary": "Définition géométrique (|x| = OM) et disjonction algébrique selon le signe de x (|x| = x si x >= 0, |x| = -x si x < 0). Notion de distance à zéro.",
+      "support_visuel_suggere": "draw path + draw arrow + text",
+      "concepts_cles": [
+        "barres verticales |x|",
+        "distance OM",
+        "distance à zéro",
+        "positivité",
+        "opposé -x"
+      ]
+    },
+    {
+      "section_id": "sec_3",
+      "title": "3. Exemples numériques et propriété fondamentale des opposés",
+      "summary": "Évaluation de valeurs absolues directes (|4|, |-12|, |-4/3|, |0|) et mise en évidence de la propriété symétrique essentielle |x| = |-x|.",
+      "support_visuel_suggere": "draw path + draw line + text",
+      "concepts_cles": [
+        "valeur absolue numérique",
+        "nombres opposés",
+        "symétrie |x| = |-x|",
+        "invariance de distance"
+      ]
+    },
+    {
+      "section_id": "sec_4",
+      "title": "4. Distance entre deux nombres réels sur la droite graduée",
+      "summary": "Définition de la distance entre deux points A(a) et B(b) comme longueur AB = |b - a| = |a - b|. Justification de l'indépendance de l'ordre de soustraction.",
+      "support_visuel_suggere": "draw arrow + draw line + draw path",
+      "concepts_cles": [
+        "points A et B",
+        "longueur AB",
+        "formule |b - a|",
+        "ordre indifférent |a - b|"
+      ]
+    },
+    {
+      "section_id": "sec_5",
+      "title": "5. Décomposition méthodique : Distance entre -7 et 2",
+      "summary": "Calcul pas à pas de la distance entre -7 et 2 par les deux formules |2 - (-7)| et |-7 - 2|, et vérification visuelle par décomposition sur l'axe.",
+      "support_visuel_suggere": "draw line + draw path + draw arrow + text",
+      "concepts_cles": [
+        "application pas à pas",
+        "règle des signes -(-7)",
+        "calcul de différence",
+        "vérification géométrique"
+      ]
+    },
+    {
+      "section_id": "sec_6",
+      "title": "6. Erreur fréquente : Piège des parenthèses et positivité",
+      "summary": "Mise en garde contre l'oubli des parenthèses lors de la soustraction d'un nombre négatif et rappel qu'une distance ne peut jamais être négative.",
+      "support_visuel_suggere": "draw path + draw arrow + text",
+      "concepts_cles": [
+        "piège des parenthèses",
+        "soustraction d'un négatif",
+        "positivité absolue",
+        "vigilance calculatoire"
+      ]
+    },
+    {
+      "section_id": "sec_7",
+      "title": "7. Synthèse méthodologique et réflexes pour le lycée",
+      "summary": "Récapitulatif des trois règles fondamentales : distance à zéro, distance entre deux réels |b - a|, et égalité des valeurs absolues d'opposés.",
+      "support_visuel_suggere": "draw path + draw line + text",
+      "concepts_cles": [
+        "synthèse lycée",
+        "distance à zéro",
+        "différence en valeur absolue",
+        "réflexe examen"
+      ]
+    }
+  ],
+  "source_video": {
+    "video_id": "A1bIc8B9KPM",
+    "title": "Valeur absolue d'un réel et distance entre deux réels",
+    "channel": "Jean-Yves Labouche",
+    "youtube_url": "https://www.youtube.com/watch?v=A1bIc8B9KPM"
+  },
+  "course_id": "MATH_018",
+  "word_count": 1226,
+  "world_model_score": 9.0,
+  "rendered_scenes": 7,
+  "visual_audit_notes": "Visual audit of scene_0.png to scene_6.png confirmed: perfect split-board layout on dark green chalkboard. Crisp KaTeX piecewise formulas, graduated axes with arrowheads, correctly positioned ticks for origins and points (A, B, M), highlighted segments in amber/cyan/gold with dimension brackets, zero collisions or text clipping, high color contrast (#38BDF8, #34D399, #FBBF24, #F87171, #F8FAFC), and strictly synchronized progressive chalk animations obeying the Single Action Teacher Rule.",
+  "certified_by": "antigravity-argon",
+  "certified_at": "2026-11-01T20:24:28.046236",
+  "status": "COMPLETED"
+}

@@ -1,0 +1,109 @@
+Bonjour et bienvenue dans ce cours d'entraînement du lycée. Aujourd'hui, nous allons corriger ensemble un exercice classique incontournable de la classe de seconde : comment transformer très simplement un intervalle en une inéquation avec valeur absolue, et inversement, en suivant une méthode méthodique en trois étapes.
+
+Pour réussir ce type d'exercice, il faut comprendre ce que représente géométriquement la valeur absolue. Sur la droite des réels, la valeur absolue de x moins c mesure la distance entre le nombre x et un nombre de référence c.
+Traçons à droite un axe gradué horizontal pour visualiser notre droite des réels.
+Lorsque l'on nous donne un intervalle délimité par deux bornes petit a et petit b, nous pouvons interpréter tous les nombres de cet intervalle en observant leur position par rapport au centre de l'intervalle.
+La méthode repose sur trois étapes très claires :
+Première étape : nous calculons le milieu entre les deux bornes. Le milieu correspond à la moyenne des deux nombres, c'est-à-dire a plus b divisé par deux. Trouver ce milieu nous permet de fixer notre point de référence.
+Deuxième étape : nous calculons la distance entre ce milieu et l'une des deux bornes, que l'on appelle souvent le rayon de l'intervalle. Pour trouver cette distance, il suffit de soustraire la plus petite valeur à la plus grande, par exemple b moins le milieu.
+Troisième étape : nous écrivons notre inéquation. Si nous cherchons les nombres situés à l'intérieur de l'intervalle, leur distance au milieu doit être plus petite que le rayon. Nous écrirons donc la valeur absolue de x moins le milieu inférieure ou égale au rayon. Si au contraire nous nous intéressons aux nombres situés à l'extérieur, la distance sera plus grande que le rayon.
+
+Appliquons immédiatement cette méthode sur notre premier cas d'exercice : transformons l'intervalle fermé moins 5 point-virgule 3 en une inéquation avec valeur absolue.
+Pour bien visualiser ce que nous faisons, représentons toujours l'intervalle sur notre axe gradué.
+Plaçons en couleur sur cet axe les deux bornes moins 5 et 3, puis surlignons en couleur tout le segment compris entre ces deux nombres.
+Passons à la première étape : cherchons le milieu entre moins 5 et 3.
+Pour calculer le milieu entre deux points d'abscisses a et b, nous faisons la somme des deux abscisses et nous la divisons par deux.
+Ici, nous calculons donc moins 5 plus 3, le tout divisé par 2.
+Au numérateur, moins 5 plus 3 est égal à moins 2. Et moins 2 divisé par 2 nous donne moins 1.
+Marquons au milieu un repère cyan pour afficher le centre moins 1.
+Le milieu de notre intervalle est donc exactement moins 1.
+Grâce à ce résultat, nous savons déjà que notre inéquation va faire intervenir la distance entre x et moins 1, ce qui s'écrit la valeur absolue de x moins entre parenthèses moins 1, c'est-à-dire la valeur absolue de x plus 1.
+
+Passons à la deuxième étape : nous devons maintenant déterminer le rayon, c'est-à-dire la distance entre notre milieu moins 1 et la borne 3, ou entre le milieu moins 1 et la borne moins 5.
+Puisque moins 1 est le milieu parfait du segment, la distance est exactement la même des deux côtés ! Il n'est donc pas nécessaire de faire les deux calculs, mais vérifions les deux pour nous assurer de notre résultat.
+Pour calculer la distance sur l'axe réel, nous faisons le nombre de droite moins le nombre de gauche.
+Entre moins 1 et 3, cela nous donne 3 moins entre parenthèses moins 1. Trois moins moins un devient 3 plus 1, ce qui est égal à 4.
+Vérifions de l'autre côté entre moins 5 et moins 1 : nous faisons moins 1 moins entre parenthèses moins 5. Cela devient moins 1 plus 5, ce qui est également égal à 4.
+Traçons à droite une double flèche entre moins 1 et 3 pour matérialiser ce rayon de 4 unités.
+Notre distance vaut donc 4.
+
+Reste la troisième étape : comment comparer la valeur absolue de x plus 1 avec ce nombre 4 ?
+Demandons-nous ce que nous cherchons : nous voulons tous les nombres réels x compris entre moins 5 et 3.
+Tous ces nombres sont situés à l'intérieur du segment délimité par moins 5 et 3. Leur distance par rapport au milieu moins 1 est donc forcément plus petite que la distance maximale, qui est 4.
+Nous écrivons donc la valeur absolue de x plus 1 plus petite que 4.
+Mais attention : devons-nous écrire une inégalité stricte ou une inégalité large ?
+Pour trancher, regardons les crochets de notre intervalle de départ. L'intervalle était fermé en moins 5 et fermé en 3. Les crochets sont tournés vers l'intérieur, ce qui signifie que les bornes moins 5 et 3 font partie de l'ensemble des solutions.
+Or, en moins 5 et en 3, la distance par rapport à moins 1 est exactement égale à 4. Nous devons donc accepter que la distance soit égale à 4.
+Par conséquent, l'inégalité est large : nous écrivons la valeur absolue de x plus 1 inférieure ou égale à 4.
+Voilà notre premier résultat validé : l'intervalle fermé moins 5 point-virgule 3 équivaut exactement à la valeur absolue de x plus 1 inférieure ou égale à 4.
+
+Poursuivons sans attendre avec un deuxième exemple très formateur : l'intervalle fermé moins 7 point-virgule moins 4.
+Ici, les deux bornes sont négatives, ce qui va faire apparaître des fractions. Pas de panique, la méthode reste rigoureusement identique !
+Traçons un nouvel axe gradué à droite pour examiner notre deuxième intervalle.
+Plaçons les bornes moins 7 et moins 4 sur l'axe et surlignons la zone entre les deux.
+Première étape : calculons le milieu entre moins 7 et moins 4.
+Nous faisons la somme des deux nombres divisée par deux : moins 7 plus entre parenthèses moins 4, le tout divisé par 2.
+Moins 7 plus moins 4 nous donne moins 11. Le milieu est donc la fraction moins 11 demis.
+Cette fraction ne se simplifie pas, elle vaut exactement moins 5 virgule 5 sous forme décimale, mais gardons l'écriture fractionnaire exacte moins 11 demis.
+Plaçons ce milieu moins 11 demis au centre de notre zone sur l'axe.
+Notre inéquation sera donc de la forme valeur absolue de x moins entre parenthèses moins 11 demis, ce qui s'écrit plus simplement valeur absolue de x plus 11 demis.
+
+Deuxième étape : calculons la distance entre le milieu moins 11 demis et l'une des deux bornes, par exemple la borne moins 4.
+Nous effectuons la soustraction de la borne droite moins le milieu : moins 4 moins entre parenthèses moins 11 demis.
+Cela devient moins 4 plus 11 demis.
+Pour additionner ces deux termes, mettons moins 4 au même dénominateur 2. Moins 4 est égal à moins 8 demis.
+Nous obtenons alors moins 8 demis plus 11 demis, ce qui fait exactement 3 demis.
+Vérifions de l'autre côté : moins 11 demis moins entre parenthèses moins 7 donne moins 11 demis plus 14 demis, ce qui fait également 3 demis.
+Traçons une double flèche entre moins 11 demis et moins 4 pour mettre en évidence ce rayon de 3 demis.
+La distance entre le milieu et chaque borne est donc égale à 3 demis.
+
+Troisième étape : déterminons le sens de l'inégalité.
+Comme nous avons un intervalle en un seul morceau, c'est-à-dire un bloc fermé entre moins 7 et moins 4, tous les points x se trouvent à l'intérieur. Leur distance au milieu moins 11 demis est donc inférieure à 3 demis.
+De plus, les crochets sont fermés en moins 7 et en moins 4, ce qui signifie que les bornes sont incluses.
+Nous acceptons donc que la distance soit égale à 3 demis.
+L'inéquation finale est donc : la valeur absolue de x plus 11 demis est inférieure ou égale à 3 demis.
+À chaque fois que tu rencontres un intervalle en un seul bloc, retiens bien que l'inéquation s'écrit toujours avec un symbole inférieur ou égal, ou inférieur strict si les crochets sont ouverts.
+
+Passons maintenant à un cas légèrement plus délicat, très classique dans les devoirs surveillés : que se passe-t-il lorsque nous avons une union de deux intervalles, par exemple l'intervalle ouvert moins l'infini point-virgule 0 fermé, union l'intervalle fermé 10 point-virgule plus l'infini ouvert ?
+Observons bien cette situation géométrique.
+Représentons maintenant sur notre troisième axe les deux demi-droites extérieures colorées en vert : à gauche tous les nombres inférieurs ou égaux à 0, et à droite tous les nombres supérieurs ou égaux à 10.
+Contrairement aux exemples précédents où nous cherchions une zone intérieure, nous voulons cette fois-ci garder les deux zones extérieures !
+Quand tu vois une union d'intervalles comme celle-ci, tu peux être certain que l'inégalité sera inversée : au lieu d'avoir un symbole inférieur, nous aurons un symbole supérieur !
+
+Appliquons notre méthode en trois étapes.
+Les deux bornes qui délimitent le trou central sont 0 et 10.
+Première étape : cherchons le milieu entre ces deux bornes 0 et 10.
+Nous faisons la moyenne : 0 plus 10 divisé par 2, ce qui donne 10 divisé par 2, soit 5.
+Marquons au milieu ce centre 5 sur notre axe.
+Le centre de référence est donc 5. La distance de x à ce centre s'écrit la valeur absolue de x moins 5.
+
+Deuxième étape : calculons la distance entre le centre 5 et l'une des deux bornes.
+Entre 5 et 10, la distance vaut 10 moins 5, c'est-à-dire 5.
+Et entre 0 et 5, la distance vaut 5 moins 0, c'est-à-dire 5 également.
+Traçons à droite une double flèche entre 5 et 10 pour afficher ce rayon de 5 unités.
+Le rayon est donc égal à 5.
+
+Troisième étape : écrivons l'inéquation.
+Puisque nous voulons les nombres x situés à l'extérieur, c'est-à-dire à gauche de 0 ou à droite de 10, leur distance au centre 5 doit être plus grande que le rayon 5.
+Regardons les crochets aux bornes : l'intervalle est fermé en 0 et fermé en 10. Les bornes 0 et 10 font partie de l'ensemble recherché.
+La distance égale à 5 est donc acceptée.
+Nous en concluons que l'inéquation cherchée est : la valeur absolue de x moins 5 supérieure ou égale à 5.
+Retiens bien cette règle fondamentale : un intervalle en un seul bloc correspond à une distance inférieure au rayon, tandis qu'une union d'intervalles extérieurs correspond à une distance supérieure au rayon.
+
+Examinons maintenant un piège d'examen très fréquent : que se passe-t-il si l'on te demande de transformer un intervalle non borné d'un seul côté, comme l'intervalle fermé 3 point-virgule plus l'infini ouvert ?
+Traçons à droite une demi-droite partant de 3 vers plus l'infini pour observer ce cas particulier.
+Certains élèves essaient d'appliquer la formule du milieu mécaniquement. Mais réfléchis un instant : quel est le milieu entre le nombre 3 et plus l'infini ?
+Plus l'infini n'est pas un nombre réel, c'est une limite, une notion d'infini. Il est donc totalement impossible de calculer un milieu fini entre 3 et plus l'infini !
+Puisque cet ensemble n'a pas de centre fini, il est impossible de le représenter sous la forme d'une inéquation avec une seule valeur absolue du type valeur absolue de x moins c inférieure ou supérieure à r.
+Dans ce cas, la seule façon correcte et simple d'écrire cette condition est d'écrire directement : x supérieur ou égal à 3.
+Si tu rencontres ce cas lors d'un devoir, ne cherche pas à inventer une valeur absolue : dis simplement que l'intervalle n'est pas symétrique par rapport à un centre fini, et écris directement l'inégalité sur x.
+
+Pour conclure cette séance d'entraînement, récapitulons la méthode infaillible pour réussir tous tes exercices sur les intervalles et la valeur absolue :
+Premièrement, identifie les deux bornes finies petit a et petit b.
+Deuxièmement, calcule le centre c grâce à la formule : a plus b divisé par deux.
+Troisièmement, calcule le rayon r en faisant la différence positive : b moins c, ou bien b moins a divisé par deux.
+Quatrièmement, choisis le sens de l'inégalité :
+Si tu as un intervalle borné en un seul bloc entre a et b, écris la valeur absolue de x moins c inférieure à r.
+Si tu as une union de deux intervalles extérieurs vers moins l'infini et plus l'infini, écris la valeur absolue de x moins c supérieure à r.
+Enfin, observe attentivement les crochets : s'ils sont fermés, l'inégalité est large avec inférieure ou égale, ou supérieure ou égale. S'ils sont ouverts, l'inégalité est stricte.
+En appliquant ce raisonnement géométrique avec rigueur, tu es certain d'obtenir la note maximale à ton prochain contrôle !

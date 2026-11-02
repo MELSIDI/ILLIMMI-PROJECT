@@ -1,0 +1,103 @@
+{
+  "id": "MATH_020",
+  "subject": "Mathématiques",
+  "level": "Seconde",
+  "domain": "Nombres & Calculs",
+  "title": "Correction d'exercice classique : Valeur absolue et distance sur la droite réelle (Entraînement Lycée)",
+  "pedagogical_type": "correction_exercice",
+  "pedagogical_target": "Maîtriser la transformation réciproque entre intervalles et inéquations avec valeur absolue sur la droite réelle, savoir calculer le centre et le rayon d'un intervalle ou d'une union d'intervalles, et éviter les pièges d'intervalles non bornés.",
+  "sections": [
+    {
+      "section_id": "sec_1",
+      "title": "1. Introduction & Méthode générale en trois étapes",
+      "summary": "Présentation de l'objectif de l'exercice : transformer un intervalle en inéquation avec valeur absolue grâce à l'interprétation géométrique du milieu et du rayon.",
+      "support_visuel_suggere": "draw line + draw path + draw arrow",
+      "concepts_cles": [
+        "conversion intervalle inéquation",
+        "droite réelle",
+        "milieu c",
+        "rayon r",
+        "méthode en 3 étapes"
+      ]
+    },
+    {
+      "section_id": "sec_2",
+      "title": "2. Premier exercice : L'intervalle fermé [-5 ; 3]",
+      "summary": "Résolution détaillée sur l'intervalle [-5 ; 3] : calcul du milieu c = -1, calcul du rayon r = 4, et déduction de l'inéquation |x + 1| <= 4.",
+      "support_visuel_suggere": "draw line + draw path + draw arrow + text",
+      "concepts_cles": [
+        "intervalle fermé [-5 ; 3]",
+        "calcul du milieu c = -1",
+        "distance r = 4",
+        "inéquation |x + 1| <= 4",
+        "gestion des crochets fermés"
+      ]
+    },
+    {
+      "section_id": "sec_3",
+      "title": "3. Deuxième exercice : L'intervalle [-7 ; -4] avec fractions",
+      "summary": "Application de la méthode avec deux bornes négatives générant des fractions : calcul du centre -11/2 et du rayon 3/2, conduisant à |x + 11/2| <= 3/2.",
+      "support_visuel_suggere": "draw line + draw path + draw arrow + text",
+      "concepts_cles": [
+        "bornes négatives",
+        "calcul fractionnaire",
+        "milieu -11/2",
+        "rayon 3/2",
+        "inéquation |x + 11/2| <= 3/2"
+      ]
+    },
+    {
+      "section_id": "sec_4",
+      "title": "4. Troisième exercice : L'union d'intervalles extérieurs",
+      "summary": "Résolution pour l'union d'intervalles ]-inf ; 0] U [10 ; +inf[ : identification des zones extérieures et écriture de l'inégalité supérieure |x - 5| >= 5.",
+      "support_visuel_suggere": "draw line + draw path + draw arrow + text",
+      "concepts_cles": [
+        "union d'intervalles",
+        "zones extérieures",
+        "centre c = 5",
+        "rayon r = 5",
+        "inéquation |x - 5| >= 5"
+      ]
+    },
+    {
+      "section_id": "sec_5",
+      "title": "5. Erreur fréquente : L'intervalle non borné sans milieu",
+      "summary": "Analyse d'un cas piège comme [3 ; +inf[ : absence de deuxième borne finie, impossibilité d'écrire une valeur absolue simple et réflexe x >= 3.",
+      "support_visuel_suggere": "draw line + draw path + text",
+      "concepts_cles": [
+        "intervalle non borné",
+        "absence de centre fini",
+        "piège d'examen",
+        "inéquation classique x >= 3"
+      ]
+    },
+    {
+      "section_id": "sec_6",
+      "title": "6. Synthèse méthodologique et réflexes pour le contrôle",
+      "summary": "Grille de décision complète pour réussir le contrôle : calcul du centre, calcul du rayon, choix entre inférieur ou supérieur, et sens des crochets.",
+      "support_visuel_suggere": "draw path + draw line + text",
+      "concepts_cles": [
+        "synthèse lycée",
+        "formule du centre (a+b)/2",
+        "formule du rayon (b-a)/2",
+        "règle bloc intérieur vs extérieur",
+        "réflexes examen"
+      ]
+    }
+  ],
+  "source_video": {
+    "video_id": "OQYeWEQpwtM",
+    "title": "INTERVALLE et VALEUR ABSOLUE - Exercice Corrigé - Seconde",
+    "channel": "Galilee ac",
+    "youtube_url": "https://www.youtube.com/watch?v=OQYeWEQpwtM"
+  },
+  "duration_seconds": 681.96,
+  "word_count": 2118,
+  "course_id": "MATH_020",
+  "world_model_score": 10.0,
+  "rendered_scenes": 6,
+  "visual_audit_notes": "Multimodal visual inspection across all 6 scenes (scene_0..scene_5.png). Scene 0: Introduction with real line axis, points a, b, center c, and radius r. Scene 1: First exercise [-5 ; 3] with step-by-step derivation of c = -1, r = 4, and boxed result |x + 1| <= 4. Scene 2: Exercise [-7 ; -4] handling fractions c = -11/2, r = 3/2, and boxed result |x + 11/2| <= 3/2. Scene 3: Exterior union ]-inf ; 0] U [10 ; +inf[ with outward brackets, c = 5, r = 5, and boxed result |x - 5| >= 5. Scene 4: Exam trap [3 ; +inf[ showing why no finite center exists and establishing the direct reflex x >= 3. Scene 5: Synthesis board with formulas and full 4-row interval-to-inequality reference table. Zero text collisions, high-contrast chalkboard colors, correct KaTeX, and 16:9 framing.",
+  "certified_by": "antigravity-argon",
+  "certified_at": "2026-11-01T20:51:31.313744",
+  "status": "COMPLETED"
+}

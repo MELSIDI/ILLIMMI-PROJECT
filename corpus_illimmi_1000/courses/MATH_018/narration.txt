@@ -1,0 +1,50 @@
+Bonjour et bienvenue dans ce cours. Aujourd'hui, nous allons apprendre pas à pas ce qu'est la valeur absolue d'un nombre réel et comment l'utiliser pour déterminer avec précision la distance entre deux nombres sur la droite graduée.
+
+Pour bien comprendre cette notion, partons de la géométrie. Considérons un nombre réel x et associons-lui un point M qui a pour abscisse x sur la droite des réels. Traçons à droite une droite horizontale munie d'une flèche, notre axe des réels. Appelons O l'origine de cette droite. Le point O a donc pour abscisse 0, et le point M a pour abscisse x.
+
+Nous pouvons tout de suite définir géométriquement la valeur absolue du nombre x, que l'on note x encadré par deux barres verticales. La valeur absolue de x est la distance entre le point O et le point M, c'est-à-dire la longueur du segment O M que nous traçons en couleur sur notre axe gradué. Ainsi, la valeur absolue de x représente concrètement la distance entre l'origine de la droite graduée et le point M d'abscisse x.
+
+Rappelons-nous une règle fondamentale : en mathématiques, une distance est toujours un nombre réel positif ou nul. Elle ne peut jamais être négative. Grâce à cette règle, nous pouvons immédiatement déduire comment calculer la valeur absolue de x selon le signe de ce nombre.
+Si x est positif ou nul, alors la distance O M est tout simplement égale à x. Dans ce cas, la valeur absolue de x est égale à x lui-même.
+En revanche, si x est strictement négatif, la distance ne peut pas valoir x car x est négatif. La distance est donc égale à l'opposé de x, c'est-à-dire moins x. Et comme x est négatif, son opposé moins x est bien un nombre strictement positif !
+Écrivons à gauche cette définition algébrique complète : la valeur absolue de x est égale à x si x est positif ou nul, et elle est égale à moins x si x est strictement négatif.
+C'est pour cette raison qu'on appelle aussi très souvent la valeur absolue d'un nombre sa distance à zéro, puisqu'elle mesure la distance exacte qui sépare ce nombre de l'origine de la droite graduée.
+
+Prenons sans attendre quelques exemples numériques concrets pour bien nous approprier cette règle. Traçons à gauche une liste de valeurs absolues.
+Commençons par la valeur absolue de 4 : puisque 4 est un nombre positif, sa valeur absolue est égale à 4.
+Regardons maintenant la valeur absolue de moins 12 : nous avons dit que la valeur absolue est un réel positif. Comme moins 12 est un nombre négatif, sa valeur absolue est égale à son opposé, et l'opposé de moins 12, c'est 12.
+De la même façon, la valeur absolue de moins 4 tiers est égale à 4 tiers, car moins 4 tiers est négatif, sa valeur absolue est donc son opposé positif.
+Et pour zéro, la valeur absolue de 0 est égale à 0, puisque zéro est positif ou nul.
+
+Regardons maintenant ce qui se passe si nous calculons la valeur absolue des nombres opposés à ceux-ci.
+La valeur absolue de moins 4 est égale à 4, tout comme la valeur absolue de 4 est égale à 4.
+La valeur absolue de 12 est égale à 12, tout comme la valeur absolue de moins 12 est égale à 12.
+Et la valeur absolue de 4 tiers est égale à 4 tiers, exactement comme la valeur absolue de moins 4 tiers.
+Ces calculs mettent en lumière une propriété essentielle remarquable : un nombre et son opposé ont toujours la même valeur absolue. Autrement dit, pour tout nombre réel x, la valeur absolue de x est égale à la valeur absolue de moins x.
+
+Utilisons à présent la valeur absolue pour déterminer la distance géométrique entre deux nombres réels quelconques sur notre droite graduée.
+Pour cela, considérons deux points quelconques, le point A d'abscisse petit a, et le point B d'abscisse petit b. Dessinons à droite un nouvel axe gradué et représentons ces deux points A et B.
+La distance entre les deux réels a et b est égale à la longueur géométrique du segment A B.
+Cette distance se calcule très facilement grâce à la valeur absolue : c'est la valeur absolue de la différence b moins a.
+Et cette distance est aussi rigoureusement égale à la valeur absolue de a moins b !
+Pourquoi cela ? Parce que nous venons de démontrer qu'un nombre et son opposé ont la même valeur absolue. Or, b moins a et a moins b sont deux nombres opposés. Leurs valeurs absolues sont donc identiques, ce qui signifie que l'ordre dans lequel nous soustrayons les deux nombres n'a aucune importance.
+
+Appliquons cette méthode pas à pas sur un exemple concret pour bien maîtriser chaque étape.
+Cherchons quelle est la distance entre les deux nombres réels moins 7 et 2.
+Traçons à droite une droite graduée avec son origine 0, et plaçons-y précisément le point A d'abscisse moins 7 et le point B d'abscisse 2.
+Calculons d'abord cette distance avec notre première formule, la valeur absolue de b moins a.
+Ici, b vaut 2 et a vaut moins 7. Nous écrivons donc la valeur absolue de 2 moins entre parenthèses moins 7.
+Grâce à la règle des signes, deux moins moins sept devient deux plus sept, ce qui nous donne la valeur absolue de 9. Et comme 9 est un nombre positif, sa valeur absolue est égale à 9.
+Calculons maintenant cette même distance avec la seconde formule, la valeur absolue de a moins b.
+Nous prenons la valeur absolue de moins 7 moins 2. Moins 7 moins 2 est égal à moins 9. La valeur absolue de moins 9 est égale à son opposé, c'est-à-dire 9.
+Les deux formules nous donnent exactement le même résultat : la distance entre moins 7 et 2 est égale à 9.
+Sur notre droite graduée à droite, nous pouvons vérifier ce résultat géométriquement : pour aller de moins 7 à l'origine 0, nous parcourons 7 unités, puis pour aller de 0 à 2, nous parcourons 2 unités de plus. La distance totale est bien 7 plus 2, soit 9 unités.
+
+Prenons un instant pour pointer une erreur classique très fréquente lors des contrôles.
+Lorsqu'un des nombres est négatif, comme moins 7, attention à ne jamais oublier les parenthèses lors de la soustraction. Écrire deux moins sept au lieu de deux moins entre parenthèses moins sept donnerait moins 5, ce qui est totalement faux ! De plus, souviens-toi toujours qu'une distance ne peut jamais être un résultat négatif. Si tu obtiens un nombre négatif pour une distance, c'est qu'il y a une erreur dans ton calcul.
+
+Pour conclure ce cours, retenons trois réflexes indispensables pour le lycée :
+Premièrement, la valeur absolue d'un nombre x est sa distance à zéro sur la droite graduée, notée avec des barres verticales. Elle vaut x si x est positif, et moins x si x est négatif.
+Deuxièmement, la distance entre deux nombres réels a et b est égale à la valeur absolue de leur différence, indifféremment b moins a ou a moins b.
+Et troisièmement, un nombre et son opposé ont toujours la même valeur absolue.
+Grâce à ces notions et à cette méthode, tu es désormais parfaitement prêt pour réussir tous tes exercices sur la valeur absolue et les distances !

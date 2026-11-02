@@ -1,0 +1,53 @@
+Bonjour et bienvenue dans ce cours. Aujourd'hui, tu vas apprendre à résoudre méthodiquement une inéquation du premier degré et à représenter l'ensemble de ses solutions sur un axe gradué.
+La technique de résolution des inéquations ressemble beaucoup à celle que tu connais déjà pour les équations. L'objectif fondamental reste le même : nous cherchons à isoler x, c'est-à-dire à obtenir à la fin x tout seul d'un côté du symbole d'inégalité, inférieur ou supérieur à un nombre déterminé. Cependant, il existe une subtilité essentielle lors de la multiplication ou de la division par un nombre négatif, que nous allons rencontrer dans le deuxième exemple et pour laquelle il faudra être particulièrement vigilant.
+
+Commençons sans attendre par notre première inéquation. Écrivons à gauche : 2 x plus 3 strictement inférieur à 4 moins 5 x.
+Comme pour une équation, nous voulons regrouper tous les termes contenant x du côté gauche, et tous les termes constants, c'est-à-dire les nombres sans x, du côté droit.
+Observons les termes en présence : nous avons 2 x à gauche et moins 5 x à droite. Nous allons donc ramener ce moins 5 x vers la gauche. Pour faire disparaître moins 5 x du membre de droite, nous ajoutons 5 x de chaque côté. À gauche, nous obtenons ainsi 2 x plus 5 x. Tous nos termes en x sont désormais rassemblés à gauche.
+Regardons maintenant le terme constant plus 3 situé à gauche. Nous souhaitons l'envoyer à droite. Pour éliminer ce plus 3 à gauche, nous soustrayons 3 aux deux membres de l'inégalité. Le membre de droite devient alors 4 moins 3.
+Résumons ce que nous venons de faire : le plus 3 a disparu à gauche pour devenir moins 3 à droite, et le moins 5 x a disparu à droite pour devenir plus 5 x à gauche.
+Passons à la réduction de chaque membre. À gauche, 2 x plus 5 x nous donne 7 x. Le symbole reste strictement inférieur. À droite, 4 moins 3 est égal à 1. Nous arrivons ainsi à l'inégalité simplifiée : 7 x strictement inférieur à 1.
+
+Nous sommes presque au bout de notre résolution. Nous voulons isoler x complètement. Pour nous débarrasser du facteur 7 qui multiplie x, nous divisons les deux membres de l'inégalité par 7.
+Comme 7 est un nombre strictement positif, la division ne modifie pas le sens de l'inégalité. À gauche, les facteurs 7 se simplifient et il nous reste simplement x. À droite, nous obtenons 1 sur 7, c'est-à-dire un septième.
+Nous trouvons donc l'ensemble solution algébrique : x doit être strictement inférieur à un septième. Tous les nombres réels strictement plus petits qu'un septième sont solutions de notre première inéquation.
+
+Représentons à présent cet ensemble de solutions sur un axe gradué pour visualiser parfaitement le résultat.
+Traçons à droite une droite horizontale munie d'une flèche orientée vers la droite, notre axe des réels. Plaçons sur cet axe l'origine 0.
+Nous devons maintenant placer la limite qui vaut un septième. Comme un septième correspond à l'unité 1 divisée en 7 parts égales, prévoyons une graduation suffisamment étendue. Plaçons le nombre 1 plus loin vers la droite, puis partageons mentalement ce segment en sept parts égales de même longueur. Plaçons la graduation un septième juste après zéro.
+Quels sont les nombres réels qui vérifient notre inéquation ? Ce sont tous les x strictement inférieurs à un septième, c'est-à-dire tous les nombres situés à gauche de un septième sur la droite graduée.
+Colorions en couleur sur notre axe toute la partie continue qui part de la gauche et s'arrête exactement à un septième. Cette zone colorée représente l'ensemble de nos solutions.
+Mais attention à la frontière : est-ce que le nombre un septième lui-même fait partie des solutions ? Non, car l'inégalité est stricte : x doit être strictement plus petit qu'un septième. Nous ne voulons donc pas inclure un septième.
+Pour signifier que la borne un septième est exclue, nous traçons un crochet orienté vers l'extérieur, c'est-à-dire qui tourne le dos à notre zone colorée de solutions. Nous pouvons inscrire au-dessus le mot solution pour bien clarifier notre dessin. En terme d'intervalle, l'ensemble des solutions est l'intervalle ouvert de moins l'infini jusqu'à un septième exclu.
+
+Abordons à présent notre deuxième exemple, qui comporte des parenthèses et une subtilité majeure.
+Écrivons à gauche la nouvelle inéquation : 2 facteur de x moins 4, inférieur ou égal à 4 x moins 5.
+Face à une expression contenant des parenthèses, le réflexe immédiat est de développer pour supprimer ces parenthèses. Nous appliquons la distributivité simple en multipliant chaque terme dans la parenthèse par 2 : 2 fois x donne 2 x, et 2 fois moins 4 donne moins 8.
+Notre inéquation s'écrit alors : 2 x moins 8 inférieur ou égal à 4 x moins 5.
+Appliquons la même stratégie de regroupement que précédemment : ramenons tous les termes en x à gauche et tous les nombres à droite.
+Le terme 2 x reste à gauche. Le terme 4 x situé à droite passe à gauche et devient moins 4 x, ce qui revient à soustraire 4 x des deux côtés.
+Le terme moins 5 reste à droite. Le terme moins 8 situé à gauche passe à droite et devient plus 8, ce qui revient à ajouter 8 aux deux côtés.
+Réduisons à présent chaque membre : à gauche, 2 x moins 4 x est égal à moins 2 x. À droite, moins 5 plus 8 est égal à 3.
+Nous obtenons ainsi l'inéquation intermédiaire : moins 2 x inférieur ou égal à 3.
+
+C'est ici qu'intervient l'étape délicate où se produit l'erreur la plus fréquente des élèves.
+Nous souhaitons isoler x. Pour éliminer le coefficient moins 2 qui multiplie x, nous devons diviser les deux membres par moins 2.
+Attention, règle d'or absolue en mathématiques : lorsque l'on multiplie ou que l'on divise les deux membres d'une inégalité par un nombre strictement négatif, le sens de l'inégalité est obligatoirement inversé ! Le symbole inférieur ou égal se transforme en supérieur ou égal.
+Pour comprendre pourquoi cette inversion est indispensable, prenons un exemple numérique très simple : nous savons tous que 1 est inférieur ou égal à 2. Si nous multiplions ou divisons chaque membre par moins 1, nous obtenons moins 1 et moins 2. Or, sur l'axe des réels, moins 1 est situé à droite de moins 2, donc moins 1 est supérieur ou égal à moins 2 ! L'inégalité s'est bien retournée.
+En divisant notre inéquation par moins 2, nous obtenons donc : x supérieur ou égal à moins 3 demis, ou moins 1 virgule 5.
+L'ensemble solution est constitué de tous les nombres réels plus grands ou égaux à moins 3 demis.
+
+Représentons ce nouvel ensemble de solutions sur notre axe gradué.
+Dessinons à droite un nouvel axe horizontal fléché. Plaçons l'origine 0, puis vers la gauche le repère moins 1.
+Puisque moins 3 demis vaut moins 1 virgule 5, nous plaçons la graduation moins 3 demis à mi-chemin entre moins 1 et moins 2.
+Puisque nous cherchons tous les réels x supérieurs ou égaux à moins 3 demis, les solutions sont tous les nombres situés à droite de moins 3 demis.
+Colorions en couleur toute la demi-droite qui part de moins 3 demis et s'étend indéfiniment vers la droite.
+Cette fois-ci, l'inégalité est large : le nombre moins 3 demis est accepté comme solution. Nous le prenons avec nous !
+Pour indiquer que la borne moins 3 demis est incluse, nous traçons un crochet tourné vers l'intérieur, c'est-à-dire orienté vers la zone des solutions.
+Nous pouvons noter au-dessus le mot solution. En notation d'intervalle, l'ensemble solution est l'intervalle fermé à gauche de moins 3 demis jusqu'à plus l'infini.
+
+Terminons par une synthèse des réflexes indispensables pour réussir tous tes exercices sur les inéquations :
+Premièrement, la méthode de base consiste à regrouper les termes en x d'un côté et les constantes de l'autre en appliquant les mêmes opérations aux deux membres.
+Deuxièmement, si tu multiplies ou divises par un nombre positif, le sens de l'inégalité ne change pas. Mais si tu multiplies ou divises par un nombre négatif, tu dois impérativement retourner le symbole d'inégalité.
+Troisièmement, sur l'axe gradué, vérifie toujours le sens du crochet : s'il s'agit d'une inégalité stricte, la borne est exclue et le crochet tourne le dos aux solutions ; s'il s'agit d'une inégalité large, la borne est incluse et le crochet embrasse les solutions.
+En appliquant rigoureusement ces règles, tu résoudras n'importe quelle inéquation avec une parfaite sérénité.

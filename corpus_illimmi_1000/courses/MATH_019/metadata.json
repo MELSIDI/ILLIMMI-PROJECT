@@ -1,0 +1,123 @@
+{
+  "id": "MATH_019",
+  "subject": "Mathématiques",
+  "level": "Seconde",
+  "domain": "Nombres & Calculs",
+  "title": "Exemple guidé et calcul détaillé : Valeur absolue et distance sur la droite réelle en pratique",
+  "pedagogical_type": "exemple_guide_et_calcul_detaille",
+  "pedagogical_target": "Résoudre pas à pas des inéquations du premier degré, maîtriser le changement de sens lors de la division par un nombre négatif, et représenter avec rigueur les ensembles de solutions sous forme d'intervalles sur la droite réelle graduée.",
+  "sections": [
+    {
+      "section_id": "sec_1",
+      "title": "1. Introduction et méthode de résolution des inéquations",
+      "summary": "Présentation de l'objectif : résoudre une inéquation du premier degré et représenter graphiquement l'ensemble des solutions sur la droite réelle graduée.",
+      "support_visuel_suggere": "draw line + draw arrow + text",
+      "concepts_cles": [
+        "inéquation",
+        "inégalité",
+        "axe gradué",
+        "isoler x",
+        "ensemble solution"
+      ]
+    },
+    {
+      "section_id": "sec_2",
+      "title": "2. Premier exemple : Regroupement et réduction algébrique",
+      "summary": "Décomposition détaillée de la résolution de 2x + 3 < 4 - 5x en regroupant les termes en x à gauche et les constantes à droite pour obtenir 7x < 1.",
+      "support_visuel_suggere": "step_solution + draw arrow + text",
+      "concepts_cles": [
+        "regroupement des termes",
+        "soustraction membre à membre",
+        "réduction 7x < 1"
+      ]
+    },
+    {
+      "section_id": "sec_3",
+      "title": "3. Division par un nombre positif et solution algébrique",
+      "summary": "Division par 7 strictement positif des deux membres sans changer le sens de l'inégalité, menant à l'ensemble des réels x < 1/7.",
+      "support_visuel_suggere": "draw path + draw line + text",
+      "concepts_cles": [
+        "division par un positif",
+        "préservation du sens",
+        "solution x < 1/7"
+      ]
+    },
+    {
+      "section_id": "sec_4",
+      "title": "4. Représentation sur l'axe gradué et exclusion de la borne",
+      "summary": "Tracé de l'axe réel, graduation avec l'origine 0 et l'unité découpée en septièmes, surlignage de la zone solution et crochet tourné vers l'extérieur pour exclure 1/7.",
+      "support_visuel_suggere": "draw line + draw path + draw arrow",
+      "concepts_cles": [
+        "axe gradué",
+        "graduation 1/7",
+        "borne exclue",
+        "crochet ouvert",
+        "intervalle infini"
+      ]
+    },
+    {
+      "section_id": "sec_5",
+      "title": "5. Deuxième exemple : Développement et regroupement",
+      "summary": "Résolution de 2(x - 4) <= 4x - 5 : développement par distributivité simple 2x - 8 <= 4x - 5, puis regroupement des termes aboutissant à -2x <= 3.",
+      "support_visuel_suggere": "step_solution + draw line + text",
+      "concepts_cles": [
+        "parenthèses",
+        "distributivité",
+        "regroupement",
+        "inéquation -2x <= 3"
+      ]
+    },
+    {
+      "section_id": "sec_6",
+      "title": "6. Erreur fréquente : Inversion du sens par un nombre négatif",
+      "summary": "Explication du piège majeur : diviser par -2 inverse le sens de l'inégalité de <= en >=, justifié par l'exemple numérique intuitif 1 <= 2 qui devient -1 >= -2.",
+      "support_visuel_suggere": "draw arrow + draw path + text",
+      "concepts_cles": [
+        "piège du nombre négatif",
+        "inversion du sens",
+        "division par -2",
+        "solution x >= -3/2"
+      ]
+    },
+    {
+      "section_id": "sec_7",
+      "title": "7. Représentation sur l'axe gradué et inclusion de la borne",
+      "summary": "Tracé de l'axe gradué avec -3/2 = -1,5, surlignage des solutions vers la droite, et crochet tourné vers l'intérieur pour inclure la borne.",
+      "support_visuel_suggere": "draw line + draw path + draw arrow",
+      "concepts_cles": [
+        "axe gradué",
+        "abscisse -3/2",
+        "borne incluse",
+        "crochet fermé",
+        "intervalle non borné"
+      ]
+    },
+    {
+      "section_id": "sec_8",
+      "title": "8. Synthèse méthodique et réflexes pour le lycée",
+      "summary": "Récapitulatif des étapes systématiques de résolution d'inéquations, vigilance absolue sur le signe du coefficient de division, et conventions des crochets sur la droite numérique.",
+      "support_visuel_suggere": "draw path + draw line + draw arrow",
+      "concepts_cles": [
+        "méthode générale",
+        "vigilance signe diviseur",
+        "convention des crochets",
+        "réflexe examen"
+      ]
+    }
+  ],
+  "source_video": {
+    "video_id": "ycYfb8aHssY",
+    "title": "Résoudre une inéquation (1) - Seconde",
+    "channel": "Yvan Monka",
+    "youtube_url": "https://www.youtube.com/watch?v=ycYfb8aHssY"
+  },
+  "duration_seconds": 484.59,
+  "word_count": 1421,
+  "course_id": "MATH_019",
+  "world_model_score": 9.5,
+  "rendered_scenes": 8,
+  "visual_audit_notes": "Visual audit of all 8 scenes (scene_0 to scene_7) completed via multimodal inspection. Scene 0: Objectives, general inequality forms, and 2 core examples in right box. Scene 1: Step-by-step resolution of 2x+3 < 4-5x with transposition arrows and reduction to 7x < 1. Scene 2: Division by positive factor 7, direction preservation rule, yielding x < 1/7. Scene 3: Graduated real axis with 7 unit divisions, 1/7 marker, blue shaded solution ray ]-inf; 1/7[, and red exterior bracket excluding 1/7. Scene 4: Distributive expansion of 2(x-4) <= 4x-5 to 2x-8 <= 4x-5 and reduction to -2x <= 3. Scene 5: Negative divisor trap, counter-example 1<=2 vs -1>=-2, reversing <= to >= to yield x >= -3/2. Scene 6: Graduated axis with 0, -1, -3/2, -2, green shaded solution ray [-3/2; +inf[, and green interior bracket including -3/2. Scene 7: 3-reflex synthesis in two balanced chalkboard boxes. KaTeX math rendered sharply with zero margin clipping or text collisions.",
+  "certified_by": "antigravity-argon",
+  "certified_at": "2026-11-01T20:45:43.601729",
+  "status": "COMPLETED"
+}
