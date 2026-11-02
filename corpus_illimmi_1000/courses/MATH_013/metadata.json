@@ -1,0 +1,84 @@
+{
+  "id": "MATH_013",
+  "subject": "Mathématiques",
+  "level": "Seconde",
+  "domain": "Nombres & Calculs",
+  "title": "Exemple guidé et calcul détaillé : Valeur absolue et distance sur la droite réelle en pratique",
+  "pedagogical_type": "methode_et_exercices",
+  "pedagogical_target": "Résoudre graphiquement et algébriquement des équations de la forme |x - a| = r grâce à la notion de distance sur la droite réelle.",
+  "sections": [
+    {
+      "section_id": "sec_1",
+      "title": "1. Définition Géométrique : Valeur Absolue et Distance",
+      "summary": "Interprétation géométrique fondamentale de la valeur absolue d'une différence comme la distance AB = |a - b| entre deux points d'une droite graduée.",
+      "support_visuel_suggere": "draw line + draw arrow + draw circle + step_solution",
+      "concepts_cles": [
+        "abscisse",
+        "droite graduée",
+        "valeur absolue d'une différence",
+        "distance géométrique"
+      ]
+    },
+    {
+      "section_id": "sec_2",
+      "title": "2. Premier Exemple Guidé : Résolution de |x - 5| = 2",
+      "summary": "Traduction de l'équation en distance au point d'abscisse 5 égale à 2 unités. Tracé sur l'axe et déplacements bilatéraux pour obtenir les solutions 3 et 7.",
+      "support_visuel_suggere": "draw line + draw arrow + draw circle + step_solution",
+      "concepts_cles": [
+        "équation avec valeur absolue",
+        "point de référence",
+        "rayon ou pas de déplacement",
+        "solutions 3 et 7"
+      ]
+    },
+    {
+      "section_id": "sec_3",
+      "title": "3. Vérification Algébrique Détaillée",
+      "summary": "Vérification rigoureuse par substitution directe des deux valeurs 3 et 7 dans l'expression pour valider le résultat sans ambiguïté.",
+      "support_visuel_suggere": "step_solution + draw line",
+      "concepts_cles": [
+        "substitution numérique",
+        "valeur absolue d'un nombre négatif",
+        "ensemble des solutions"
+      ]
+    },
+    {
+      "section_id": "sec_4",
+      "title": "4. Deuxième Exemple : Résolution de |x + 3| = 1 et Piège du Signe Plus",
+      "summary": "Transformation indispensable de l'addition x + 3 en soustraction x - (-3) pour faire apparaître la distance au point d'abscisse -3.",
+      "support_visuel_suggere": "draw line + draw arrow + draw circle + step_solution",
+      "concepts_cles": [
+        "piège du signe plus",
+        "soustraction de l'opposé",
+        "centre négatif",
+        "solutions -4 et -2"
+      ]
+    },
+    {
+      "section_id": "sec_5",
+      "title": "5. Synthèse Méthodologique et Réflexes Examen",
+      "summary": "Formalisation de la règle générale |x - a| = r, gestion de l'addition et règle d'impossibilité si le second membre est strictement négatif.",
+      "support_visuel_suggere": "draw line + draw arrow + step_solution",
+      "concepts_cles": [
+        "forme canonique",
+        "positivité d'une distance",
+        "réflexes examen"
+      ]
+    }
+  ],
+  "duration_seconds": 369.35,
+  "word_count": 1085,
+  "source_video": {
+    "video_id": "FPj7S1PkNGY",
+    "title": "Résoudre une équation avec valeur absolue - Seconde",
+    "channel": "Yvan Monka",
+    "youtube_url": "https://www.youtube.com/watch?v=FPj7S1PkNGY"
+  },
+  "course_id": "MATH_013",
+  "world_model_score": 10.0,
+  "rendered_scenes": 5,
+  "visual_audit_notes": "Visual audit across scenes 0..4: scene_0 displays graduated line with A(a) and B(b), yellow segment and double-arrow distance d=|a-b|; scene_1 presents equation |x-5|=2 with reference 5 and bilateral displacement arrows (-2 left to 3, +2 right to 7); scene_2 features side-by-side verification cards with algebraic substitution for 3 and 7, and golden solution set banner S={3;7}; scene_3 illustrates trap resolution for |x+3|=1 rewritten as |x-(-3)|=1 with axis centered at -3, -1 left arrow to -4, +1 right arrow to -2; scene_4 summarizes canon form |x-a|=r and both traps (+ sign and negative radius). Zero collisions, crisp chalk contrast, single-action rule strictly verified.",
+  "certified_by": "antigravity-argon",
+  "certified_at": "2026-11-01T19:17:21.851290",
+  "status": "COMPLETED"
+}

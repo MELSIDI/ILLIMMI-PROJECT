@@ -1,0 +1,112 @@
+{
+  "id": "MATH_012",
+  "subject": "Mathématiques",
+  "level": "Seconde",
+  "domain": "Nombres & Calculs",
+  "title": "Méthode pas à pas : Comment résoudre un problème de Valeur absolue et distance sur la droite réelle",
+  "pedagogical_type": "methode_pas_a_pas",
+  "pedagogical_target": "Maîtriser la notion de valeur absolue, son interprétation géométrique comme distance sur la droite réelle, et la résolution pas à pas d'inéquations de la forme |x - a| <= r par méthode géométrique et algébrique.",
+  "sections": [
+    {
+      "section_id": "sec_1",
+      "title": "1. Introduction intuitive et notation de la valeur absolue",
+      "summary": "Découverte de la notation entre barres verticales et observation sur des exemples numériques concrets positifs et négatifs : la valeur absolue isole la grandeur en effaçant le signe.",
+      "support_visuel_suggere": "draw line + draw path + text",
+      "concepts_cles": [
+        "valeur absolue",
+        "notation entre barres",
+        "nombres positifs",
+        "nombres négatifs",
+        "grandeur sans signe"
+      ]
+    },
+    {
+      "section_id": "sec_2",
+      "title": "2. Définition formelle par disjonction de cas",
+      "summary": "Définition rigoureuse de la valeur absolue d'un réel a selon son signe : a si a est positif, et l'opposé -a si a est négatif. Justification de la règle des signes.",
+      "support_visuel_suggere": "draw path + draw arrow + text",
+      "concepts_cles": [
+        "définition formelle",
+        "disjonction de cas",
+        "opposé d'un nombre",
+        "positivité garantie"
+      ]
+    },
+    {
+      "section_id": "sec_3",
+      "title": "3. Lien fondamental entre valeur absolue et distance géométrique",
+      "summary": "Interprétation de la valeur absolue sur la droite réelle : la distance entre deux points A et B d'abscisses respectives a et b est égale à la valeur absolue de a - b. Justification par un contre-exemple sans valeur absolue.",
+      "support_visuel_suggere": "draw arrow + draw line + draw path",
+      "concepts_cles": [
+        "droite graduée",
+        "distance géométrique",
+        "distance AB",
+        "indépendance de l'ordre"
+      ]
+    },
+    {
+      "section_id": "sec_4",
+      "title": "4. Problème pas à pas : Résolution géométrique de |x - 5| <= 2",
+      "summary": "Résolution détaillée et pas à pas de l'inéquation sur la droite graduée : modélisation par la distance entre M d'abscisse x et A d'abscisse 5, exploration à droite et à gauche, et détermination de l'intervalle [3 ; 7].",
+      "support_visuel_suggere": "draw arrow + draw line + draw path + mouse",
+      "concepts_cles": [
+        "inéquation",
+        "point d'abscisse x",
+        "centre",
+        "rayon",
+        "intervalle fermé"
+      ]
+    },
+    {
+      "section_id": "sec_5",
+      "title": "5. Propriété algébrique générale et vérification par encadrement",
+      "summary": "Formulation générale du théorème |x - a| <= r équivaut à x appartenant à [a - r ; a + r] et vérification immédiate du calcul pour le problème étudié.",
+      "support_visuel_suggere": "draw path + draw line + text",
+      "concepts_cles": [
+        "théorème général",
+        "encadrement",
+        "vérification algébrique",
+        "intervalle centré"
+      ]
+    },
+    {
+      "section_id": "sec_6",
+      "title": "6. Pièges fréquents et erreurs classiques à éviter",
+      "summary": "Identification des pièges d'examen récurrents : confusion de signe dans |x - a|, oubli de l'un des deux côtés du centre, et distinction entre inégalités strictes et larges.",
+      "support_visuel_suggere": "draw line + draw path + text",
+      "concepts_cles": [
+        "piège du signe moins",
+        "double exploration",
+        "crochets ouverts ou fermés",
+        "rigueur de rédaction"
+      ]
+    },
+    {
+      "section_id": "sec_7",
+      "title": "7. Synthèse méthodologique et réflexes pour le lycée",
+      "summary": "Récapitulatif de la méthode infaillible en trois étapes pour résoudre tout problème de distance et de valeur absolue en classe de Seconde.",
+      "support_visuel_suggere": "draw arrow + draw line + draw path + text",
+      "concepts_cles": [
+        "méthode en 3 étapes",
+        "lecture du centre",
+        "lecture du rayon",
+        "réflexe examen"
+      ]
+    }
+  ],
+  "source_video": {
+    "video_id": "m3htEMfDxcE",
+    "title": "Utiliser la valeur absolue - Seconde",
+    "channel": "Yvan Monka",
+    "youtube_url": "https://www.youtube.com/watch?v=m3htEMfDxcE"
+  },
+  "duration_seconds": 648.93,
+  "word_count": 2027,
+  "course_id": "MATH_012",
+  "world_model_score": 8.0,
+  "rendered_scenes": 7,
+  "visual_audit_notes": "Multimodal PNG visual inspection completed across all 7 scenes (scene_0.png to scene_6.png). Confirmed high contrast dark green chalkboard layout, split-board separation (left explanations, right geometric axes/diagrams), razor-sharp KaTeX formulas, correct number line ticks and bounds at 3 and 7, distance arrows (+2 and -2), geometric brackets [ and ], zero text-box collisions after Scene 7 refinement, and exact Piper/Whisper acoustic synchronization.",
+  "certified_by": "antigravity-argon",
+  "certified_at": "2026-11-01T19:32:02.970216",
+  "status": "COMPLETED"
+}

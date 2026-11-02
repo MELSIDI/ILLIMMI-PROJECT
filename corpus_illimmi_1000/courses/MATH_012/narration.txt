@@ -1,0 +1,83 @@
+Bonjour et bienvenue dans ce cours. Aujourd'hui, nous allons apprendre à manipuler et utiliser la valeur absolue pour résoudre un problème géométrique concret sur la droite réelle.
+
+L'énoncé qui nous intéresse semble impressionnant à première vue : représenter sur une droite graduée tous les réels x tels que la valeur absolue de x moins 5 soit inférieure ou égale à 2. Ne t'inquiète pas, nous allons voir que c'est en réalité très simple et très visuel dès que l'on comprend ce que cache cette écriture.
+
+Avant d'attaquer directement cet exercice, prenons le temps d'expliquer ce qu'est véritablement la valeur absolue d'un nombre.
+
+De façon générale, la valeur absolue est une notation mathématique particulière, notée avec deux barres verticales de part et d'autre d'un nombre. Pour bien la comprendre, rien ne vaut des exemples concrets.
+
+Commençons par observer ce qui se passe avec des nombres positifs. Écrivons à gauche sur notre tableau quelques exemples concrets. Regardons d'abord la valeur absolue de 3, notée avec le nombre 3 placé entre deux barres verticales. Et bien, la valeur absolue de 3 est tout simplement égale à 3 lui-même. C'est presque déroutant de simplicité : la valeur absolue d'un nombre positif redonne le nombre lui-même !
+
+Est-ce que cela marche pour n'importe quel autre nombre ? Prenons un autre exemple : la valeur absolue de 10 est égale à 10. Si nous prenons un très grand nombre comme la valeur absolue de 1023, elle est égale à 1023. Jusqu'ici, chaque fois que l'on prend la valeur absolue d'un nombre positif, le résultat est le nombre lui-même, inchangé.
+
+Mais est-ce toujours vrai quel que soit le nombre de départ ? Non, tu t'en doutes bien ! Regardons maintenant ce qui se passe avec un nombre négatif.
+
+Prenons par exemple la valeur absolue de moins 3, toujours écrite entre deux barres verticales. Et bien, la valeur absolue de moins 3 est égale à 3 positif ! De même, la valeur absolue de moins 7 est égale à 7 positif. Et la valeur absolue de moins 1023 est égale à 1023 positif.
+
+On dirait, à première vue et de façon un peu informelle, que la valeur absolue efface le signe moins. Pour un nombre positif, comme il n'y a pas de signe moins, on retrouve directement le nombre. Pour un nombre négatif, on retrouve exactement le même nombre mais débarrassé de son signe négatif, c'est-à-dire sa version strictement positive.
+
+Voyons maintenant comment formaliser rigoureusement cette observation mathématique.
+
+La définition formelle s'écrit par disjonction de deux cas selon le signe du réel a. Si a est un nombre positif ou nul, alors la valeur absolue de a est égale à a lui-même. C'est exactement ce que nous avons observé avec 3, 10 ou 1023 : le nombre ne change pas.
+
+En revanche, si a est un nombre strictement négatif, la définition nous dit que la valeur absolue de a est égale à moins a. Attention, cette écriture moins a est souvent déroutante pour les élèves au départ ! On pourrait croire que moins a est un nombre négatif à cause du signe moins, mais c'est tout le contraire.
+
+Prenons l'exemple où a vaut moins 3. Comme moins 3 est négatif, la définition nous dit que sa valeur absolue vaut moins a, c'est-à-dire moins facteur de moins 3. Et d'après la règle des signes, moins par moins donne plus, donc moins moins 3 est bien égal à plus 3 !
+
+Autrement dit, moins a représente ici l'opposé du nombre a. Et comme a est déjà négatif, l'opposé d'un nombre négatif est un nombre positif ! L'opposé de moins 3 est 3, l'opposé de moins 7 est 7, et l'opposé de a est moins a.
+
+En pratique, retiens cette règle d'or : la valeur absolue d'un nombre est toujours positive ou nulle. Si le nombre est positif, il ne bouge pas ; si le nombre est négatif, on prend son opposé pour le rendre positif.
+
+Regardons maintenant le lien fondamental qui unit la valeur absolue et la géométrie. Car oui, la valeur absolue est précisément l'outil mathématique qui permet de définir la distance sur une droite graduée.
+
+Voici la propriété fondamentale à connaître par cœur : sur une droite graduée, si nous avons deux points A et B, le point A ayant pour abscisse petit a et le point B ayant pour abscisse petit b, alors la distance entre A et B, notée AB, est égale à la valeur absolue de a moins b.
+
+Pourquoi cette présence obligatoire de la valeur absolue ? Pourquoi ne pas simplement faire la différence a moins b ? Faisons le test sans valeur absolue pour comprendre l'erreur.
+
+Traçons à droite un axe gradué orienté. Plaçons sur cet axe un point A d'abscisse 1 et un point B d'abscisse 6. Si l'on calculait naïvement la distance en faisant a moins b sans valeur absolue, on obtiendrait 1 moins 6, ce qui fait moins 5 ! Une distance égale à moins 5, c'est une absurdité géométrique majeure, car une longueur ou une distance est toujours une quantité positive.
+
+Pourquoi cette erreur s'est-elle produite ? Tout simplement parce que a priori, sans regarder la figure, on ne sait pas lequel des deux points possède la plus grande abscisse. Si l'on avait su que B était à droite de A, on aurait spontanément calculé b moins a, c'est-à-dire 6 moins 1, ce qui donne bien 5.
+
+Mais la formule mathématique doit être universelle et fonctionner dans tous les cas, que a soit supérieur à b ou que b soit supérieur à a. Et c'est précisément le rôle de la valeur absolue ! En écrivant que la distance AB est la valeur absolue de a moins b, nous obtenons la valeur absolue de 1 moins 6, c'est-à-dire la valeur absolue de moins 5, ce qui est égal à 5. Et si nous avions calculé dans l'autre sens la valeur absolue de 6 moins 1, nous aurions obtenu la valeur absolue de 5, qui vaut également 5 ! Grâce à la valeur absolue, la distance AB est toujours positive et elle est strictement égale à la distance BA.
+
+Nous arrivons maintenant au cœur de notre problème : représenter sur une droite graduée l'ensemble de tous les nombres réels x tels que la valeur absolue de x moins 5 soit inférieure ou égale à 2.
+
+Traduisons immédiatement cette inéquation algébrique en une phrase géométrique limpide. Appelons M le point d'abscisse x sur notre droite graduée, et appelons A le point d'abscisse 5.
+
+D'après la propriété que nous venons d'établir, la quantité valeur absolue de x moins 5 n'est rien d'autre que la distance entre le point M et le point A, c'est-à-dire la longueur du segment MA !
+
+Notre inéquation algébrique, valeur absolue de x moins 5 inférieure ou égale à 2, se traduit donc géométriquement par une condition d'une simplicité lumineuse : la distance MA doit être inférieure ou égale à 2. Cela change absolument tout, car notre problème abstrait devient un problème de repérage géométrique sur un axe !
+
+Regardons notre axe gradué tracé à droite du tableau. Plaçons très clairement notre point de référence A à l'abscisse 5. Nous cherchons où peut se situer le point M d'abscisse x pour que sa distance à A ne dépasse pas 2 unités.
+
+Faisons quelques essais pour explorer les positions possibles. Regardons d'abord vers la droite de A. Si nous plaçons M à l'abscisse 6, la distance entre A et M vaut 1 unité. Est-ce que 1 est inférieur ou égal à 2 ? Oui, parfaitement ! Si nous avançons encore et plaçons M à l'abscisse 7, la distance entre 5 et 7 vaut exactement 2 unités. Est-ce que cela convient ? Oui, puisque nous voulons une distance inférieure ou égale à 2. Mais si nous allions au-delà, par exemple à l'abscisse 8, la distance deviendrait 3, ce qui est strictement supérieur à 2 et donc interdit. Vers la droite, la borne maximale est donc atteinte en 7.
+
+Mais attention, nous pouvons tout aussi bien nous déplacer vers la gauche du point A ! Si nous reculons d'une unité pour placer M à l'abscisse 4, la distance vaut 1, ce qui est inférieur à 2. Si nous reculons de deux unités pour placer M à l'abscisse 3, la distance entre 3 et 5 vaut exactement 2 unités, ce qui convient toujours. En revanche, si nous allions plus à gauche, par exemple à l'abscisse 2, la distance vaudrait 3, ce qui dépasserait notre rayon de 2 unités. Vers la gauche, la borne minimale est donc fixée en 3.
+
+Le point M peut donc occuper n'importe quelle position comprise entre l'abscisse 3 et l'abscisse 7, y compris toutes les valeurs décimales intermédiaires comme 3,5, 4,2 ou 6,8. Surlignons en vert sur notre axe gradué tout ce segment continu qui relie l'abscisse 3 à l'abscisse 7, avec des crochets fermés tournés vers l'intérieur pour indiquer que les bornes 3 et 7 font bien partie des solutions.
+
+En langage mathématique, cela signifie que le réel x appartient à l'intervalle fermé 3 point-virgule 7.
+
+Vérifions maintenant ce résultat remarquable à l'aide de la propriété générale du cours. Le théorème officiel nous affirme que pour tout réel a et tout réel strictement positif r, l'inéquation valeur absolue de x moins a inférieure ou égale à r équivaut à dire que x appartient à l'intervalle fermé a moins r point-virgule a plus r.
+
+Identifions nos paramètres dans notre exemple : dans l'expression valeur absolue de x moins 5 inférieure ou égale à 2, nous reconnaissons immédiatement que a vaut 5, qui est le centre de notre intervalle, et que r vaut 2, qui est le rayon ou la distance maximale autorisée.
+
+Calculons les bornes : la borne inférieure vaut a moins r, c'est-à-dire 5 moins 2, ce qui donne 3. La borne supérieure vaut a plus r, c'est-à-dire 5 plus 2, ce qui donne 7. Nous retrouvons donc exactement, par le calcul direct, l'intervalle fermé 3 point-virgule 7 que nous avions obtenu géométriquement sur notre axe !
+
+Arrêtons-nous un instant sur les erreurs très fréquentes commises dans les contrôles et les devoirs surveillés de Seconde.
+
+Le premier piège concerne le signe du centre a. Dans l'inéquation valeur absolue de x moins 5 inférieure ou égale à 2, le centre est bien plus 5 et non pas moins 5, car la formule de la distance comporte déjà un signe moins ! Si l'on avait eu valeur absolue de x plus 5, il aurait fallu réécrire l'expression sous la forme valeur absolue de x moins entre parenthèses moins 5, et le centre aurait alors été moins 5.
+
+Le deuxième piège classique consiste à oublier la symétrie du problème et à ne chercher des solutions que d'un seul côté, en allant seulement vers la droite en ajoutant 2, tout en oubliant de soustraire 2 pour aller vers la gauche. Rappelle-toi toujours qu'une distance s'exerce dans les deux directions !
+
+Enfin, le troisième piège concerne le sens des inégalités et l'orientation des crochets de l'intervalle. Si l'inégalité est large, inférieure ou égale, les bornes sont incluses et les crochets sont fermés. Si l'inégalité était stricte, strictement inférieure à 2, les bornes 3 et 7 seraient exclues et les crochets seraient ouverts vers l'extérieur.
+
+Pour conclure, récapitulons la méthode infaillible en trois étapes pour résoudre tout exercice de valeur absolue et de distance.
+
+Première étape : identifier clairement le centre a et le rayon r dans l'écriture valeur absolue de x moins a inférieure ou égale à r, en faisant très attention à la gestion du signe.
+
+Deuxième étape : traduire l'inégalité sous forme géométrique en plaçant le centre a sur la droite graduée, puis en se déplaçant de r unités vers la droite pour atteindre la borne a plus r, et de r unités vers la gauche pour atteindre la borne a moins r.
+
+Troisième étape : colorier le segment solution sur la droite graduée et conclure par l'intervalle de solutions, fermé ou ouvert selon la nature de l'inégalité.
+
+Grâce à cette double vision géométrique et algébrique, tu maîtrises parfaitement la valeur absolue et la notion de distance. Entraîne-toi sur d'autres valeurs pour ancrer durablement ce réflexe d'examen !
