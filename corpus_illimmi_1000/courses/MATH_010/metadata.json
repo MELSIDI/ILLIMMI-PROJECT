@@ -1,0 +1,109 @@
+{
+  "id": "MATH_010",
+  "subject": "Mathématiques",
+  "level": "Seconde",
+  "domain": "Nombres & Calculs",
+  "title": "Correction d'exercice classique : Intervalles et encadrements de réels (Entraînement Lycée)",
+  "pedagogical_type": "correction_exercice",
+  "pedagogical_target": "Savoir traduire et représenter les encadrements de réels, intervalles fermés, ouverts et non bornés, sur un axe gradué et sous forme d'intervalles.",
+  "sections": [
+    {
+      "section_id": "sec_1",
+      "title": "1. Introduction et Structure du Tableau de Traduction",
+      "summary": "Présentation des trois registres d'équivalence : Inégalité, Notation par intervalle, et Représentation géométrique sur un axe gradué.",
+      "support_visuel_suggere": "draw line + draw path + text",
+      "concepts_cles": [
+        "inégalité",
+        "intervalle",
+        "axe gradué",
+        "triple registre"
+      ]
+    },
+    {
+      "section_id": "sec_2",
+      "title": "2. Cas 1 : Encadrement Fermé et Crochets Intérieurs [2 ; 4]",
+      "summary": "Traduction de l'inégalité 2 <= x <= 4. Coloration de la zone sur l'axe gradué, analyse des bornes incluses et orientation des crochets vers l'intérieur.",
+      "support_visuel_suggere": "draw line + draw path + text",
+      "concepts_cles": [
+        "encadrement fermé",
+        "bornes incluses",
+        "crochets fermés",
+        "point-virgule"
+      ]
+    },
+    {
+      "section_id": "sec_3",
+      "title": "3. Cas 2 : Inégalité Stricte et Borne Exclue ]-1 ; 3]",
+      "summary": "Traduction de -1 < x <= 3. Délimitation de la zone, exclusion de la borne -1 par un crochet tourné vers l'extérieur et inclusion de 3.",
+      "support_visuel_suggere": "draw line + draw path + text",
+      "concepts_cles": [
+        "inégalité stricte",
+        "borne exclue",
+        "crochet ouvert",
+        "intervalle semi-ouvert"
+      ]
+    },
+    {
+      "section_id": "sec_4",
+      "title": "4. Cas 3 : Intervalle Non Borné à Gauche ]-infini ; 2[",
+      "summary": "Partant de l'intervalle ]-infini ; 2[, tracé de la demi-droite venant de moins l'infini s'arrêtant en 2 exclu, et formulation de l'inégalité x < 2.",
+      "support_visuel_suggere": "draw arrow + draw line + draw path",
+      "concepts_cles": [
+        "moins l'infini",
+        "demi-droite",
+        "inégalité x < 2",
+        "convention de borne infinie"
+      ]
+    },
+    {
+      "section_id": "sec_5",
+      "title": "5. Cas 4 : Demi-Droite Non Bornée à Droite et Intervalle [1 ; +infini[",
+      "summary": "Partant de la représentation graphique d'une demi-droite de 1 inclus vers la droite, déduction de l'intervalle [1 ; +infini[ et de l'inégalité x >= 1.",
+      "support_visuel_suggere": "draw arrow + draw line + draw path",
+      "concepts_cles": [
+        "plus l'infini",
+        "demi-droite fermée",
+        "inégalité x >= 1",
+        "absence de limite à droite"
+      ]
+    },
+    {
+      "section_id": "sec_6",
+      "title": "6. Erreurs Fréquentes et Pièges Classiques d'Examen",
+      "summary": "Identification des pièges fréquents : inversion du sens des crochets, fermeture interdite sur l'infini, et écriture redondante ou incorrecte avec l'infini dans les inégalités.",
+      "support_visuel_suggere": "draw path + text",
+      "concepts_cles": [
+        "sens des crochets",
+        "infini toujours ouvert",
+        "inégalité sans infini",
+        "piège des bornes"
+      ]
+    },
+    {
+      "section_id": "sec_7",
+      "title": "7. Synthèse Méthodologique et Réflexes de Contrôle",
+      "summary": "Bilan synthétique des règles de correspondance entre les inégalités, les intervalles et les axes gradués pour réussir tous les exercices du lycée.",
+      "support_visuel_suggere": "draw line + draw path + text",
+      "concepts_cles": [
+        "tableau de synthèse",
+        "automatisme de lecture",
+        "réflexe examen"
+      ]
+    }
+  ],
+  "source_video": {
+    "video_id": "9MtAK7Xzrls",
+    "title": "Interval Notation - 10th Grade",
+    "channel": "Yvan Monka",
+    "youtube_url": "https://www.youtube.com/watch?v=9MtAK7Xzrls"
+  },
+  "course_id": "MATH_010",
+  "duration_seconds": 629.4,
+  "word_count": 1811,
+  "world_model_score": 10.0,
+  "rendered_scenes": 7,
+  "visual_audit_notes": "Visual inspection of all 7 rendered scenes (scene_0..scene_6.png) confirmed: 16:9 chalkboard framing, zero text/diagram collisions, KaTeX formulas correctly displayed, and geometric interval brackets on axes precisely oriented (closed brackets facing into the interval zone, open brackets facing away from the zone). World Model score 10.0/10.",
+  "certified_by": "antigravity-argon",
+  "certified_at": "2026-11-01T18:15:00.590143",
+  "status": "COMPLETED"
+}

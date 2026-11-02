@@ -1,0 +1,110 @@
+{
+  "id": "MATH_011",
+  "subject": "Mathématiques",
+  "level": "Seconde",
+  "domain": "Nombres & Calculs",
+  "title": "Valeur absolue et distance sur la droite réelle — Cours fondamental et définitions",
+  "pedagogical_type": "cours_fondamental",
+  "pedagogical_target": "Comprendre et manipuler la valeur absolue d'un nombre réel, son interprétation algébrique, ses propriétés fondamentales, et sa signification géométrique en tant que distance sur la droite réelle.",
+  "sections": [
+    {
+      "section_id": "sec_1",
+      "title": "1. Introduction intuitive et premières observations numériques",
+      "summary": "Approche intuitive de la valeur absolue à partir d'exemples numériques concrets : suppression du signe pour isoler la grandeur positive.",
+      "support_visuel_suggere": "draw line + draw path + text",
+      "concepts_cles": [
+        "valeur absolue",
+        "nombre sans signe",
+        "valeur positive",
+        "grandeur numérique"
+      ]
+    },
+    {
+      "section_id": "sec_2",
+      "title": "2. Définition algébrique formelle et notation entre barres",
+      "summary": "Définition rigoureuse de la valeur absolue d'un réel a selon son signe : a si a est positif, et son opposé -a si a est négatif. Introduction de la notation entre barres verticales.",
+      "support_visuel_suggere": "draw path + draw arrow + text",
+      "concepts_cles": [
+        "définition formelle",
+        "barres verticales",
+        "opposé d'un négatif",
+        "disjonction de cas"
+      ]
+    },
+    {
+      "section_id": "sec_3",
+      "title": "3. Application au calcul algébrique avec inconnue : Cas de |x - 5|",
+      "summary": "Explicitation de l'expression algébrique |x - 5| selon les valeurs de x. Décomposition des deux cas x >= 5 et x < 5 pour concentrer une double information.",
+      "support_visuel_suggere": "draw arrow + draw line + text",
+      "concepts_cles": [
+        "inconnue x",
+        "expression algébrique",
+        "double information",
+        "simplification d'expression"
+      ]
+    },
+    {
+      "section_id": "sec_4",
+      "title": "4. Propriétés élémentaires fondamentales de la valeur absolue",
+      "summary": "Étude et justification des propriétés clés : positivité, symétrie |-x| = |x|, annulation |x| = 0 équivaut à x = 0, et équation |x| = |y|.",
+      "support_visuel_suggere": "draw path + draw line + text",
+      "concepts_cles": [
+        "positivité",
+        "symétrie",
+        "annulation",
+        "égalité des valeurs absolues"
+      ]
+    },
+    {
+      "section_id": "sec_5",
+      "title": "5. Propriété remarquable du carré : Racine carrée de x au carré",
+      "summary": "Analyse rigoureuse de l'égalité racine carrée de x au carré = |x|. Démontage de la simplification hâtive pour les nombres réels négatifs.",
+      "support_visuel_suggere": "draw path + draw arrow + text",
+      "concepts_cles": [
+        "racine carrée d'un carré",
+        "cas négatif",
+        "piège classique",
+        "règle générale"
+      ]
+    },
+    {
+      "section_id": "sec_6",
+      "title": "6. Interprétation géométrique : Distance sur la droite réelle graduée",
+      "summary": "Lien fondamental entre valeur absolue et distance entre deux points d'un axe gradué : AB = |a - b| = |b - a|. Analyse concrète sur un exemple numérique.",
+      "support_visuel_suggere": "draw arrow + draw line + draw path",
+      "concepts_cles": [
+        "droite graduée",
+        "abscisse",
+        "distance géométrique",
+        "indépendance de l'ordre"
+      ]
+    },
+    {
+      "section_id": "sec_7",
+      "title": "7. Encadrements, intervalles centrés et synthèse méthodologique",
+      "summary": "Traduction de l'inégalité |x - a| <= r sous la forme d'un intervalle centré [a - r ; a + r] et récapitulatif des réflexes essentiels pour le lycée.",
+      "support_visuel_suggere": "draw arrow + draw line + draw path + text",
+      "concepts_cles": [
+        "inégalité avec valeur absolue",
+        "intervalle centré",
+        "rayon",
+        "synthèse lycée"
+      ]
+    }
+  ],
+  "source_video": {
+    "video_id": "5-rUuceEgAE",
+    "title": "LE COURS : Valeur absolue - Seconde",
+    "channel": "Yvan Monka",
+    "youtube_url": "https://www.youtube.com/watch?v=5-rUuceEgAE"
+  },
+  "duration_seconds": 886.3,
+  "word_count": 2623,
+  "course_id": "MATH_011",
+  "world_model_score": 10.0,
+  "rendered_scenes": 9,
+  "visual_audit_notes": "Visual inspection of all 9 rendered scenes (scene_0..scene_8.png) via read_file confirmed: 16:9 chalkboard framing, zero text/diagram collisions, KaTeX formulas properly rendered (piecewise definitions, square root property, distance formulas), oriented axes with ticks and geometric interval brackets, and World Model score 10.0/10.",
+  "certified_by": "antigravity-argon",
+  "certified_at": "2026-11-01T19:42:19.422759",
+  "status": "COMPLETED"
+}
