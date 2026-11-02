@@ -1,0 +1,109 @@
+{
+  "id": "MATH_007",
+  "subject": "Mathématiques",
+  "level": "Seconde",
+  "domain": "Nombres & Calculs",
+  "title": "Intervalles et encadrements de réels — Cours fondamental et définitions",
+  "pedagogical_type": "cours_methode",
+  "pedagogical_target": "Maîtriser la représentation des encadrements et inégalités sous forme d'intervalles sur la droite graduée, et déterminer avec rigueur l'intersection et la réunion de deux intervalles.",
+  "sections": [
+    {
+      "section_id": "sec_1",
+      "title": "1. Introduction et Problématique des Intervalles",
+      "summary": "Présentation de la méthode pour traduire des encadrements et des inégalités en intervalles de nombres réels à l'aide d'un axe gradué.",
+      "support_visuel_suggere": "draw line + draw arrow + text",
+      "concepts_cles": [
+        "encadrement",
+        "inégalité",
+        "axe gradué",
+        "droite réelle"
+      ]
+    },
+    {
+      "section_id": "sec_2",
+      "title": "2. Intervalle Borné : De l'Encadrement à la Droite Graduée",
+      "summary": "Traduction de -4 <= x < 5 sur un axe gradué. Tracé de la zone rouge, orientation du crochet fermé en -4 et du crochet ouvert en 5, et écriture de I = [-4 ; 5[.",
+      "support_visuel_suggere": "draw line + draw path + text",
+      "concepts_cles": [
+        "intervalle borné",
+        "borne incluse",
+        "borne exclue",
+        "crochet fermé",
+        "crochet ouvert"
+      ]
+    },
+    {
+      "section_id": "sec_3",
+      "title": "3. Intervalle Non Borné : La Demi-Droite et l'Infini",
+      "summary": "Traduction de x >= 2 sous forme d'une demi-droite verte. Inclusion de la borne 2 et crochet toujours ouvert vers plus l'infini : J = [2 ; +infini[.",
+      "support_visuel_suggere": "draw line + draw arrow + draw path",
+      "concepts_cles": [
+        "demi-droite",
+        "plus l'infini",
+        "intervalle non borné",
+        "crochet ouvert à l'infini"
+      ]
+    },
+    {
+      "section_id": "sec_4",
+      "title": "4. Intersection d'Intervalles : La Conjonction 'ET'",
+      "summary": "Définition de l'intersection I inter J comme l'ensemble des éléments appartenant à la fois à I et à J. Identification de la zone bicolore sur l'axe entre 2 et 5.",
+      "support_visuel_suggere": "draw line + draw path + text",
+      "concepts_cles": [
+        "intersection",
+        "symbole inter",
+        "conjonction et",
+        "zone bicolore"
+      ]
+    },
+    {
+      "section_id": "sec_5",
+      "title": "5. Rigueur aux Frontières : Le Statut des Bornes dans l'Intersection",
+      "summary": "Examen détaillé de chaque borne : 2 appartient aux deux intervalles donc est inclus, tandis que 5 est exclu de I donc est exclu de l'intersection : I inter J = [2 ; 5[.",
+      "support_visuel_suggere": "draw line + draw path + text",
+      "concepts_cles": [
+        "statut des bornes",
+        "vérification d'appartenance",
+        "intervalle semi-ouvert"
+      ]
+    },
+    {
+      "section_id": "sec_6",
+      "title": "6. Réunion d'Intervalles : La Disjonction 'OU'",
+      "summary": "Définition de la réunion I union J comme l'ensemble des nombres appartenant à au moins l'un des deux intervalles. Balayage continu de -4 jusqu'à plus l'infini : I union J = [-4 ; +infini[.",
+      "support_visuel_suggere": "draw line + draw arrow + draw path",
+      "concepts_cles": [
+        "réunion",
+        "symbole union",
+        "disjonction ou",
+        "couverture globale"
+      ]
+    },
+    {
+      "section_id": "sec_7",
+      "title": "7. Pièges Fréquents et Synthèse Méthodologique",
+      "summary": "Récapitulatif des réflexes essentiels : distinction entre inter et union, règle d'or pour le test des bornes, et tableau de synthèse.",
+      "support_visuel_suggere": "draw polygone + draw arrow + text",
+      "concepts_cles": [
+        "piège des bornes",
+        "différence inter et union",
+        "méthode graphique infaillible"
+      ]
+    }
+  ],
+  "duration_seconds": 635.5,
+  "word_count": 1925,
+  "source_video": {
+    "video_id": "8b-0LrjhA6s",
+    "title": "EXERCICE : Utiliser les intervalles - Seconde",
+    "channel": "Yvan Monka",
+    "youtube_url": "https://www.youtube.com/watch?v=8b-0LrjhA6s"
+  },
+  "course_id": "MATH_007",
+  "world_model_score": 10.0,
+  "rendered_scenes": 7,
+  "visual_audit_notes": "Toutes les 7 scènes (scene_0 à scene_6) ont été inspectées visuellement via read_file. Les formules KaTeX, symboles mathématiques et encadrements sont parfaitement rendus sans erreur. Les axes gradués, les segments colorés rouge/vert, la zone commune bicolore hachurée et les crochets géométriques fermés/ouverts sont rigoureusement alignés sans chevauchement. Le tableau récapitulatif final offre un contraste et un cadrage 16:9 impeccables avec un World Model Score de 10.0/10.",
+  "certified_by": "antigravity-argon",
+  "certified_at": "2026-11-01T18:32:24.505689",
+  "status": "COMPLETED"
+}

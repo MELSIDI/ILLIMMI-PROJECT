@@ -1,0 +1,121 @@
+{
+  "id": "MATH_006",
+  "subject": "Mathématiques",
+  "level": "Seconde",
+  "domain": "Nombres & Calculs",
+  "title": "Révision express & Fiche de synthèse : Tout retenir sur Intervalles et encadrements de réels",
+  "description": "Comprendre et maîtriser la notation des intervalles, la manipulation des inégalités larges et strictes, les symboles d'appartenance et d'infini, ainsi que leur représentation graphique sur une droite numérique.",
+  "status": "COMPLETED",
+  "sections": [
+    {
+      "section_id": "sec_1",
+      "title": "1. Introduction : Des inégalités aux intervalles de nombres",
+      "summary": "Rappel sur les inégalités et passage de l'inégalité au concept d'intervalle continu de réels.",
+      "support_visuel_suggere": "draw line + draw arrow + step_solution",
+      "concepts_cles": [
+        "Inégalité",
+        "Intervalle de réels",
+        "Ensemble de nombres",
+        "Bornes"
+      ]
+    },
+    {
+      "section_id": "sec_2",
+      "title": "2. Cas d'école : L'encadrement 1 <= x < 5",
+      "summary": "Analyse détaillée de l'inégalité 1 <= x < 5, distinction entre borne incluse et borne exclue.",
+      "support_visuel_suggere": "draw arrow + draw line + draw path + step_solution",
+      "concepts_cles": [
+        "Inégalité large",
+        "Inégalité stricte",
+        "Borne incluse",
+        "Borne exclue"
+      ]
+    },
+    {
+      "section_id": "sec_3",
+      "title": "3. Notation d'intervalle et sens des crochets",
+      "summary": "Règles d'écriture des crochets vers l'intérieur ou l'extérieur et symbole d'appartenance.",
+      "support_visuel_suggere": "draw line + draw path + step_solution",
+      "concepts_cles": [
+        "Symbole d'appartenance",
+        "Crochet intérieur",
+        "Crochet extérieur",
+        "Intervalle [1 ; 5["
+      ]
+    },
+    {
+      "section_id": "sec_4",
+      "title": "4. Représentation sur un axe gradué",
+      "summary": "Traçage d'une droite numérique, surlignage du segment et orientation des crochets sur l'axe.",
+      "support_visuel_suggere": "draw arrow + draw line + draw path",
+      "concepts_cles": [
+        "Axe gradué",
+        "Portion surlignée",
+        "Orientation des crochets",
+        "Représentation graphique"
+      ]
+    },
+    {
+      "section_id": "sec_5",
+      "title": "5. Entraînement 1 : De l'intervalle ]-2 ; 2] à l'inégalité",
+      "summary": "Lecture de l'intervalle semi-ouvert ]-2 ; 2], tracé sur la droite et déduction de l'inégalité -2 < x <= 2.",
+      "support_visuel_suggere": "draw arrow + draw line + draw path + step_solution",
+      "concepts_cles": [
+        "Intervalle semi-ouvert",
+        "Inégalité stricte",
+        "Inégalité large",
+        "Axe numérique"
+      ]
+    },
+    {
+      "section_id": "sec_6",
+      "title": "6. Entraînement 2 : L'inégalité x <= 3 et la notion d'infini",
+      "summary": "Interprétation de x <= 3, absence de borne à gauche et introduction du symbole infini ]-infini ; 3].",
+      "support_visuel_suggere": "draw arrow + draw line + draw path + step_solution",
+      "concepts_cles": [
+        "Symbole infini",
+        "Moins l'infini",
+        "Crochet toujours ouvert à l'infini",
+        "Intervalle ]-infini ; 3]"
+      ]
+    },
+    {
+      "section_id": "sec_7",
+      "title": "7. Entraînements 3 & 4 : Les intervalles infinis ]0 ; +infini[ et ]-infini ; 4[",
+      "summary": "Étude des demi-droites ouvertes x > 0 et x < 4 avec leurs notations d'intervalles respectives.",
+      "support_visuel_suggere": "draw arrow + draw line + draw path + step_solution",
+      "concepts_cles": [
+        "Plus l'infini",
+        "Demi-droite",
+        "x strictement positif",
+        "x strictement inférieur à 4"
+      ]
+    },
+    {
+      "section_id": "sec_8",
+      "title": "8. Fiche de synthèse : Tableau récapitulatif & Réflexes pour l'examen",
+      "summary": "Bilan des correspondances entre inégalités, intervalles et représentations graphiques, et pièges fréquents à éviter.",
+      "support_visuel_suggere": "draw polygone + draw line + draw path + step_solution",
+      "concepts_cles": [
+        "Tableau de synthèse",
+        "Correspondance inégalité-intervalle",
+        "Pièges fréquents",
+        "Réflexe contrôle"
+      ]
+    }
+  ],
+  "duration_seconds": 493.82,
+  "word_count": 1349,
+  "source_video": {
+    "video_id": "YpctDQf1fqI",
+    "title": "Comprendre les INTERVALLES & les INÉGALITÉS ✅ Facile ! 💪 Seconde",
+    "channel": "Paul Olivier",
+    "youtube_url": "https://www.youtube.com/watch?v=YpctDQf1fqI"
+  },
+  "course_id": "MATH_006",
+  "world_model_score": 10.0,
+  "rendered_scenes": 8,
+  "visual_audit_notes": "Toutes les 8 scènes (scene_0 à scene_7) ont été inspectées visuellement via read_file. Scène 0 : présentation des 3 piliers et axe gradué d'introduction. Scène 1 : encadrement 1 <= x < 5 avec boîtes de distinction stricte/large sans chevauchement. Scène 2 : définition formelle et règles des crochets intérieurs/extérieurs parfaitement encadrées. Scène 3 : tracé progressif de l'axe gradué avec crochets géométriques et labels KaTeX. Scène 4 : exercice 1 (]-2 ; 2]) avec axe et déduction d'inégalité. Scène 5 : exercice 2 (x <= 3) avec demi-droite vers -infini et règle d'or d'ouverture à l'infini. Scène 6 : exercices 3 et 4 sur les demi-droites ]0 ; +inf[ et ]-inf ; 4[ avec axes synchronisés. Scène 7 : fiche de synthèse avec tableau récapitulatif complet (inégalité, intervalle, crochets) et 3 réflexes d'examen sans aucune collision. Score World Model : 10/10.",
+  "certified_by": "antigravity-argon",
+  "certified_at": "2026-11-01T18:39:09.008128"
+}

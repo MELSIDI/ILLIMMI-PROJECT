@@ -1,0 +1,69 @@
+Bonjour et bienvenue dans ce cours fondamental consacré à la manipulation des intervalles et des encadrements de réels en classe de seconde. L'objectif aujourd'hui est d'acquérir une méthode infaillible pour traduire des encadrements et des inégalités en termes d'intervalles, les représenter visuellement sur une droite graduée, et déterminer avec une rigueur absolue leur intersection et leur réunion.
+
+Dans tout ce chapitre, nous travaillons avec l'ensemble des nombres réels, que l'on note grand R. Pour visualiser ces nombres réels et manipuler les ensembles de manière concrète, l'outil le plus puissant à notre disposition est l'axe gradué. Un axe gradué permet de donner une forme géométrique à des inégalités algébriques, et il va grandement nous servir tout au long de notre étude, notamment lorsque nous devrons combiner plusieurs conditions.
+
+Commençons par la première situation fondamentale : nous voulons représenter à l'aide d'un intervalle l'ensemble de toutes les valeurs réelles x vérifiant l'encadrement suivant : x est supérieur ou égal à moins 4, et strictement inférieur à 5. Appelons grand I cet ensemble.
+
+Traçons à droite un axe gradué horizontal représentant la droite réelle. Cet axe s'étend de gauche à droite, orienté par une flèche, et nous y plaçons des repères réguliers : moins 5, moins 4, moins 3, moins 2, moins 1, 0, 1, 2, 3, 4, 5, et 6.
+
+Regardons attentivement notre encadrement. Nous nous intéressons aux nombres réels x situés entre moins 4 et 5. Visuellement, sur notre droite graduée, ces nombres occupent tout le segment situé entre la graduation moins 4 et la graduation 5. Colorons sur cet axe la zone comprise entre moins 4 et 5 en rouge.
+
+Mais attention, un intervalle ne se résume pas à une simple zone colorée : il faut impérativement préciser ce qui se passe à ses frontières, c'est-à-dire au niveau de ses deux bornes, moins 4 et 5.
+
+Examinons d'abord la borne de gauche, moins 4. Dans notre énoncé, nous avons x supérieur ou égal à moins 4. Le signe supérieur ou égal signifie explicitement que le nombre x peut être égal à moins 4. Le nombre moins 4 fait donc pleinement partie de notre ensemble, il est inclus dans l'intervalle. Pour indiquer visuellement qu'un nombre fait partie de l'ensemble, on va emmener avec soi le moins 4. Plaçons sur notre axe au niveau de la graduation moins 4 un crochet rouge dirigé vers la droite, c'est-à-dire tourné vers l'intérieur de la zone colorée. Ce crochet attrape le moins 4 et le garde à l'intérieur de l'ensemble.
+
+Examinons maintenant la borne de droite, le nombre 5. Dans l'inégalité de départ, nous avons x strictement inférieur à 5. Le symbole strictement inférieur nous avertit que x ne peut jamais être égal à 5. Le nombre 5 ne fait donc pas partie de notre ensemble : il en est formellement exclu. Comment l'indiquer sur notre axe ? Nous n'en voulons pas, donc nous allons placer un crochet orienté vers l'extérieur de la zone colorée. Plaçons au niveau de la graduation 5 un crochet rouge tourné vers la droite, c'est-à-dire vers l'extérieur de notre segment. Ce crochet repousse le 5 hors de notre intervalle.
+
+Regarde la droite graduée : la représentation géométrique nous donne presque directement la notation de l'intervalle ! Cet intervalle s'appelle grand I. Il part de la borne gauche moins 4 et va jusqu'à la borne droite 5. Nous écrivons donc à gauche : grand I égale crochet fermé moins 4 point-virgule 5 crochet ouvert. On dit que l'intervalle grand I est fermé en moins 4 car moins 4 est inclus, et ouvert en 5 car 5 est exclu.
+
+Passons à la deuxième question fondamentale : nous voulons maintenant représenter l'ensemble des réels x qui vérifient l'inégalité : x supérieur ou égal à 2. Appelons cet ensemble grand J.
+
+Que signifie géométriquement cette condition ? Dire que x est supérieur ou égal à 2 signifie que nous partons du nombre 2 et que nous récupérons toutes les valeurs de l'axe qui sont plus grandes que 2. Puisqu'il n'y a aucune limite vers la droite, nous traçons à droite, au-dessus de notre axe gradué, une demi-droite verte partant de la graduation 2 et filant vers la droite indéfiniment.
+
+Précisons les extrémités de cette demi-droite. Au point de départ, en 2, l'inégalité indique que x est supérieur ou égal à 2. Le nombre 2 fait donc partie de l'ensemble, il est inclus. Plaçons au niveau de 2 un crochet vert tourné vers la droite, c'est-à-dire vers l'intérieur de notre demi-droite, pour emmener le 2 avec nous.
+
+Et que se passe-t-il à droite ? Notre demi-droite ne s'arrête jamais. Puisqu'elle continue sans fin vers les valeurs infiniment grandes, nous disons qu'elle tend vers plus l'infini. Mais attention : l'infini n'est pas un nombre réel, c'est une idée, une limite que l'on ne peut jamais atteindre ni enfermer. Par conséquent, au voisinage de l'infini, le crochet est obligatoirement ouvert, tourné vers l'extérieur.
+
+Nous pouvons donc écrire l'intervalle grand J : grand J égale crochet fermé 2 point-virgule plus l'infini crochet ouvert. Cet intervalle est non borné, fermé en 2 et toujours ouvert en plus l'infini.
+
+Nous disposons maintenant de nos deux ensembles : l'intervalle rouge grand I allant de moins 4 à 5, et la demi-droite verte grand J partant de 2 jusqu'à plus l'infini. Nous allons pouvoir aborder les deux opérations majeures du cours : l'intersection et la réunion.
+
+Commençons par l'intersection, que l'on note avec une arche courbée vers le bas : grand I inter grand J.
+
+Que signifie mathématiquement l'intersection de deux ensembles ? L'intersection correspond à la conjonction logique et. Dire qu'un réel x appartient à grand I inter grand J signifie que x appartient à grand I et en même temps x appartient à grand J. Il faut absolument que le nombre appartienne aux deux ensembles à la fois !
+
+Testons concrètement quelques nombres pour bien comprendre. Prenons par exemple le nombre 0. Le nombre 0 se trouve bien dans la zone rouge de grand I car il est compris entre moins 4 et 5. En revanche, 0 n'est pas supérieur ou égal à 2, donc il n'est pas dans l'ensemble vert grand J. Puisque 0 n'est pas dans les deux à la fois, 0 n'appartient pas à l'intersection.
+
+Prenons maintenant un autre nombre, par exemple 3. Le nombre 3 est bien compris entre moins 4 et 5, donc il appartient à grand I. De plus, 3 est bien supérieur ou égal à 2, donc il appartient aussi à grand J. Le nombre 3 est présent dans grand I et dans grand J : 3 appartient donc pleinement à leur intersection !
+
+Sur notre axe gradué, la règle visuelle est limpide : pour trouver l'intersection, il suffit de rechercher les zones de l'axe où l'on retrouve simultanément les deux couleurs, c'est-à-dire là où le rouge et le vert se superposent !
+
+Observons notre axe gradué : la superposition bicolore rouge et verte commence au niveau du nombre 2 et s'arrête au niveau du nombre 5. La zone commune est donc située entre 2 et 5.
+
+Mais attention, voici le point crucial où tant d'élèves perdent des points en contrôle : quel est le statut exact des bornes 2 et 5 dans l'intersection ? Pour ne jamais te tromper, pose-toi la question pour chacune des bornes, séparément, en revenant à la définition stricte de l'intersection : pour qu'une borne appartienne à l'intersection, elle doit impérativement appartenir aux deux ensembles.
+
+Testons d'abord la borne 2. Est-ce que 2 appartient à grand J ? Oui, car le crochet vert en 2 est fermé : 2 est supérieur ou égal à 2. Est-ce que 2 appartient à grand I ? Oui, 2 se trouve en plein milieu de la zone rouge entre moins 4 et 5. Puisque le nombre 2 appartient à grand I et à grand J, 2 appartient sans aucune hésitation à l'intersection ! Nous plaçons donc en 2 un crochet tourné vers l'intérieur de notre zone commune.
+
+Testons ensuite la borne 5. Est-ce que 5 appartient à grand J ? Oui, car 5 est plus grand que 2, il est situé en plein sur notre demi-droite verte. Mais est-ce que 5 appartient à grand I ? Rappelons-nous notre encadrement de départ : x était strictement inférieur à 5, et le crochet rouge en 5 était tourné vers l'extérieur ! Le nombre 5 est formellement exclu de grand I. Et puisqu'il n'appartient pas à grand I, il ne peut pas appartenir aux deux ensembles à la fois. Le nombre 5 est donc exclu de l'intersection. Nous plaçons donc en 5 un crochet ouvert vers l'extérieur.
+
+Nous pouvons écrire notre résultat final avec une certitude absolue : grand I inter grand J égale l'intervalle fermé en 2 et ouvert en 5, c'est-à-dire crochet fermé 2 point-virgule 5 crochet ouvert.
+
+Abordons maintenant la seconde opération : la réunion de grand I et de grand J, que l'on note avec un symbole en forme de grand U : grand I union grand J.
+
+Que signifie la réunion ? La réunion correspond à la disjonction logique ou. Dire qu'un réel x appartient à grand I union grand J signifie que x appartient à grand I, ou x appartient à grand J, ou éventuellement aux deux à la fois. Il suffit que le nombre appartienne à au moins l'un des deux ensembles pour être accepté dans la réunion !
+
+Sur notre droite graduée, la méthode géométrique devient extrêmement simple : il suffit de parcourir l'axe et de retenir toute portion qui est soit rouge, soit verte, soit rouge et verte à la fois !
+
+Balayons notre axe de gauche à droite pour déterminer la couverture globale. Tout à gauche, avant moins 4, il n'y a aucune couleur. Puis, dès que nous arrivons en moins 4, la couleur rouge commence. Donc notre ensemble commence en moins 4. Ensuite, nous avançons : de moins 4 à 2, c'est rouge, donc c'est accepté. De 2 à 5, c'est rouge et vert à la fois, donc c'est accepté. Et au-delà de 5, la zone verte continue sans interruption jusqu'à plus l'infini ! Par conséquent, la réunion couvre d'un seul bloc tout l'axe à partir de moins 4 jusqu'à plus l'infini.
+
+Il ne nous reste plus qu'à vérifier la borne moins 4. Est-ce que moins 4 appartient à la réunion ? Pour appartenir à la réunion, il suffit que moins 4 appartienne à l'un des deux ensembles. Or nous savons que moins 4 appartient à grand I car son crochet était fermé. Donc moins 4 appartient à la réunion : nous mettons un crochet fermé en moins 4. Du côté de plus l'infini, nous savons que le crochet est toujours ouvert.
+
+Nous obtenons donc notre conclusion pour la réunion : grand I union grand J égale l'intervalle crochet fermé moins 4 point-virgule plus l'infini crochet ouvert.
+
+Terminons par les réflexes indispensables à retenir pour tes devoirs et tes évaluations.
+
+Premier réflexe : pour l'intersection, cherche la double couleur, c'est la condition et. L'intersection rétrécit l'ensemble aux éléments communs.
+
+Deuxième réflexe : pour la réunion, rassemble toutes les couleurs sans exception, c'est la condition ou. La réunion élargit l'ensemble.
+
+Troisième réflexe : pour les bornes, vérifie toujours l'appartenance élément par élément. Dans une intersection, si une borne est exclue d'un seul des ensembles, elle est automatiquement exclue de l'intersection. Enfin, souviens-toi qu'en plus l'infini comme en moins l'infini, le crochet ne se referme jamais : il reste toujours ouvert. En appliquant systématiquement ce schéma graphique avec deux couleurs sur ton axe, tu obtiendras toujours un sans-faute sur les intervalles.
