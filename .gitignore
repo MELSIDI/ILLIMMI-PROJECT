@@ -43,6 +43,15 @@ corpus_illimmi_1000/catalog/.catalog_lock
 corpus_illimmi_1000/transcripts/raw/.claims/
 *.lock
 
+# Google Drive Cloud Store & Heavy Corpus Assets (Out of Git)
+corpus_exports/
+*.zip
+*.tar.gz
+corpus_illimmi_1000/courses/*/renders/*.png
+corpus_illimmi_1000/training_data/*.jsonl
+corpus_illimmi_1000/transcripts/raw/
+corpus_illimmi_1000/transcripts/processed/
+
 __pycache__/
 *.py[cod]
 *$py.class
