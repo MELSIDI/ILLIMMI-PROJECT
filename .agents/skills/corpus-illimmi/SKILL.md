@@ -63,27 +63,39 @@ for c in selected_courses:
   - **LLM Rate-Limit Safety**: Fits within active Argon TPM/RPM quota limits.
   - **Local Hardware Safety**: Piper TTS & Whisper.cpp require short native processing bursts (~30-60s) staggered naturally across the 1-hour session.
   - **YouTube Quota Protection**: `step1_ingest_youtube.py` applies course-ID index jitter to stagger initial transcript queries, while `.claims/` prevents duplicate video selection.
-- **Pour les grands lots (ex: 10, 15 ou 25 cours)** : Ne pas faire de "vagues rigides" bloquantes ! Utiliser le **Pool Glissant Continu (Sliding Window de 5 Workers)** :
-  - **Remplissage initial** : L'agent maître lance les 5 premiers cours (`invoke_subagent` pour les cours 1, 2, 3, 4, 5).
-  - **Remplacement continu sans temps mort** : Dès qu'un sous-agent termine son cours (ex: le cours 2 termine en 40 min alors que le cours 1 prend 55 min), le système réveille l'agent maître via **reactive wakeup**. L'agent maître enregistre la certification du cours 2 et **lance immédiatement le cours 6** !
+- **Pour les grands lots (ex: 10, 15 ou 20 cours)** : Ne pas faire de "vagues rigides" bloquantes ! Utiliser le **Pool Glissant Continu (Sliding Window de 5 Workers)** :
+  - **Remplissage initial** : L'agent maître lance les 5 premiers cours (`invoke_subagent` pour les 5 premiers cours).
+  - **Remplacement continu sans temps mort** : Dès qu'un sous-agent termine son cours, le système réveille l'agent maître via **reactive wakeup**. L'agent maître enregistre la certification et **lance immédiatement le cours suivant** de la file.
   - **Saturer en permanence 5 workers** : À chaque instant, il y a toujours exactement 5 sous-agents actifs en parallèle, jusqu'à épuisement complet de la liste demandée.
 
-### 3. Reactive Wakeup & Completion Monitoring
+### 3. Reactive Wakeup & Completion Monitoring (Zero-Polling Sliding Window)
 - Après avoir saturé les 5 slots de workers, terminer votre tour sans appeler d'autre outil.
 - **NE PAS SCRUTER EN BOUCLE (Zero Polling)** : Le système Antigravity réveille automatiquement l'agent maître dès qu'un sous-agent notifie sa complétion.
 - À chaque réveil :
   1. Vérifier la complétion du cours dans `catalog/progress.json`.
-  2. S'il reste des cours dans la file demandée (ex: cours 6 à 15), instancier immédiatement un sous-agent frais pour le cours suivant (`TypeName="illimmi-course-agent"`, `Model="inherit"`).
-  3. Lorsque tous les cours du lot sont certifiés, exécuter `export_certified_jsonl.py`, afficher le bilan consolidé et clore le `/goal`.
+  2. S'il reste des cours dans la file demandée (ex: cours 6 à 20), instancier immédiatement un sous-agent frais pour le cours suivant (`TypeName="illimmi-course-agent"`, `Model="inherit"`).
+  3. Dès que tous les cours du lot demandé sont certifiés, passer immédiatement à l'Étape 4.
 
-### 3. Optional Training JSONL Refresh & Final Summary
-At the end of the batch, refresh the real Gemma SFT JSONL exports from all certified courses:
+### 4. MANDATORY Automated Google Drive Sync & Semantic Versioning (`auto-sync`)
+Dès que l'ensemble des cours demandés (ex: lot de 15, 20 ou 25 cours) est certifié, l'agent maître **DOIT AUTOMATIQUEMENT** exécuter le synchronisateur cloud :
 
 ```powershell
-python ".agents/skills/corpus-illimmi/scripts/export_certified_jsonl.py"
+python ".agents/skills/corpus-illimmi/scripts/drive_corpus_sync.py" auto-sync
 ```
 
-Report the batch table (`Course ID`, `Title`, `Duration`, `Words`, `Scenes`, `World Model Score`), updated total (`X / 1000`), and next pending course ID. (If `/goal` is active, include `<!-- GOAL_COMPLETE -->` only once the entire requested batch is certified!)
+**Ce que fait `drive_corpus_sync.py auto-sync` en toute autonomie :**
+1. **Régénération des exports JSONL SFT** (`export_certified_jsonl.py`).
+2. **Archivage propre des cours** : Package chaque cours en archive ZIP signée SHA-256 dans `corpus_exports/<release_tag>/`.
+3. **Upload Cloud vers Google Drive** :
+   - Vérifie et téléverse les archives dans `ILLIMMI_CORPUS_STORE / releases / <tag> / courses_archives /`.
+   - Synchronise le snapshot du catalogue (`catalog/`) et les datasets d'entraînement (`training_data/`).
+   - Évite tout doublon (ne ré-uploade que les cours nouveaux ou modifiés).
+4. **Mise à jour du manifeste `corpus_manifest.json`** : Injecte les IDs Google Drive, les liens directs de téléchargement et les empreintes SHA-256.
+5. **Git Push Découplé** : Committe et pousse uniquement le manifeste JSON léger (<50 Ko) sur `origin/dsl_dev`, en garantissant que **zéro binaire lourd** (PNG, WAV, MP4) ne pollue le dépôt Git.
+
+### 5. Final Batch Report & Goal Completion
+Afficher le tableau récapitulatif du lot (`Course ID`, `Title`, `Duration`, `Words`, `Scenes`, `World Model Score`), le total global mis à jour (`X / 1000`), le tag de release Google Drive créé/mis à jour ainsi que son lien (`https://drive.google.com/drive/folders/...`), et l'ID du prochain cours en attente.
+*(Si `/goal` est actif, inclure `<!-- GOAL_COMPLETE -->` uniquement une fois la synchronisation Google Drive et Git confirmée !)*
 
 ---
 
@@ -138,4 +150,3 @@ python ".agents/skills/corpus-illimmi/scripts/step2_align_audio.py" --course-id 
 python ".agents/skills/corpus-illimmi/scripts/step4_certify_course.py" --course-id <COURSE_ID> --visual-audit-notes "<concise summary of what you verified visually across scene_0..scene_N.png>"
 ```
 Confirm `"certified": true` before finishing the course!
-
