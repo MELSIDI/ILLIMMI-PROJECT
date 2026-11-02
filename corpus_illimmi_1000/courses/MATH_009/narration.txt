@@ -1,0 +1,39 @@
+Bonjour et bienvenue. Dans ce cours, tu vas apprendre à maîtriser les intervalles et à les représenter sur une droite graduée avec des nombres réels. Ce sont des notions fondamentales dès la classe de seconde au lycée, indispensables pour résoudre des équations, des inéquations et manipuler des fonctions. Nous allons d'abord comprendre ces différentes notations à travers un exemple détaillé, puis nous traiterons pas à pas quatre exercices d'application pour construire des réflexes infaillibles.
+
+Commençons par observer une notation que tu as déjà rencontrée au collège : un inférieur ou égal à x strictement inférieur à cinq. Cette écriture représente une double inégalité. Que signifie-t-elle exactement ? Elle signifie que la variable x peut prendre n'importe quelle valeur réelle comprise entre un et cinq, avec une nuance cruciale : x peut être égal à un, mais ne peut jamais être égal à cinq.
+Pour bien mesurer ce que cela implique, rappelle-toi qu'il existe une infinité de nombres réels qui vérifient cette inégalité. Ce peut être un, deux, deux virgule cinq, trois, quatre virgule quatre-vingt-sept, et ainsi de suite. Mais jamais cinq ! Pourquoi excluons-nous cinq ? Tout simplement parce que le symbole utilisé est strictement inférieur à cinq. Cinq est donc exclu des valeurs autorisées pour x. À l'inverse, la valeur x égale un vérifie parfaitement la condition, car le symbole inférieur ou égal autorise l'égalité. Le nombre un fait donc partie intégrante des valeurs permises.
+
+Tous ces nombres réels compris entre ces deux limites forment ce que l'on appelle en mathématiques un intervalle de nombres. Retiens simplement qu'un intervalle est un ensemble continu de nombres réels compris entre deux bornes.
+Pour noter cet ensemble et indiquer les valeurs admissibles, on utilise le symbole mathématique appartient, qui ressemble à un petit e arrondi. On écrit alors les deux bornes séparées par un point-virgule, entourées de deux crochets. Le sens de ces crochets est la clé absolue de tout le chapitre.
+Un crochet tourné vers l'intérieur, qui enserre le nombre, indique que la borne est incluse dans l'intervalle. C'est le cas ici devant le un : le crochet s'ouvre vers la droite, il embrasse le un car un est solution de l'inégalité. À l'opposé, un crochet tourné vers l'extérieur, qui tourne le dos au nombre, indique que la borne est exclue. Devant le cinq, le crochet s'ouvre vers la droite, fuyant le cinq, car cinq ne fait pas partie de l'ensemble. On écrit ainsi : x appartient à l'intervalle fermé un point-virgule cinq ouvert.
+
+Traçons à droite un axe gradué pour visualiser géométriquement cet ensemble de nombres.
+Colorions sur cet axe la portion comprise entre les deux bornes un et cinq.
+Dessinons au tableau le crochet tourné vers l'intérieur au niveau du un, et le crochet tourné vers l'extérieur au niveau du cinq.
+Sur cette droite numérique, chaque point coloré correspond à un nombre réel solution. Le crochet fermé en un montre immédiatement que la frontière fait partie de la zone autorisée, tandis que le crochet ouvert en cinq matérialise une frontière interdite.
+
+Passons maintenant à notre premier exemple d'application. Nous partons de la donnée suivante : x appartient à l'intervalle ouvert moins deux point-virgule deux fermé.
+Traçons sur notre droite numérique les deux bornes moins deux et deux.
+Colorions toute la zone située entre moins deux et deux.
+Plaçons le crochet ouvert vers l'extérieur en moins deux, et le crochet fermé vers l'intérieur en deux.
+Quelle est l'inégalité correspondante ? Comme moins deux est exclu par le crochet ouvert, x doit être strictement supérieur à moins deux. Et comme deux est inclus par le crochet fermé, x est inférieur ou égal à deux. L'encadrement s'écrit donc : moins deux strictement inférieur à x inférieur ou égal à deux. Retiens bien la correspondance directe : crochet vers l'intérieur donne une inégalité large avec ou égal, crochet vers l'extérieur donne une inégalité stricte.
+
+Examinons maintenant le deuxième exemple avec une inégalité simple : x inférieur ou égal à trois.
+Cela signifie que x peut prendre toutes les valeurs réelles inférieures ou égales à trois, sans aucune limite vers la gauche.
+Observons sur la droite graduée cette demi-droite qui part de trois et s'étend vers la gauche.
+Au niveau de trois, nous plaçons un crochet fermé vers l'intérieur, car la condition ou égal inclut la borne trois. Mais comment noter un tel intervalle qui n'a pas de borne finie à gauche ? En mathématiques, nous utilisons le symbole infini, qui ressemble à un huit couché horizontal. Pour indiquer que les nombres peuvent être aussi petits que l'on veut, nous écrivons moins l'infini.
+Voici une règle fondamentale absolue : du côté de l'infini, qu'il s'agisse de moins l'infini ou de plus l'infini, le crochet est toujours tourné vers l'extérieur ! L'infini n'est pas un nombre réel que l'on peut atteindre ou inclure, c'est une limite conceptuelle. Nous écrivons donc : x appartient à l'intervalle ouvert moins l'infini point-virgule trois fermé.
+
+Abordons le troisième exemple avec l'intervalle : x appartient à l'intervalle ouvert zéro point-virgule plus l'infini ouvert.
+Plaçons sur l'axe le zéro avec un crochet ouvert vers l'extérieur.
+Colorions ensuite toute la demi-droite orientée vers la droite, en direction des nombres positifs et de plus l'infini.
+En observant notre axe gradué, nous constatons immédiatement que cet intervalle regroupe tous les nombres réels strictement supérieurs à zéro. Zéro est exclu par le crochet ouvert, et il n'y a pas de borne supérieure finie. L'inégalité correspondante est donc tout simplement : x strictement supérieur à zéro. C'est l'ensemble des réels strictement positifs.
+
+Traitons enfin le quatrième exemple à partir d'une représentation graphique.
+Regardons sur le graphique cette zone colorée située entièrement à gauche du nombre quatre.
+Au niveau de quatre, le crochet est tourné vers la droite, c'est-à-dire vers l'extérieur de la zone colorée : la borne quatre est donc strictement exclue. Vers la gauche, la coloration se prolonge sans fin vers moins l'infini.
+Nous traduisons d'abord cette figure sous la forme d'un intervalle : x appartient à l'intervalle ouvert moins l'infini point-virgule quatre ouvert. Là encore, le crochet est obligatoirement ouvert en moins l'infini, et il est ouvert en quatre car la borne est exclue.
+L'inégalité associée est alors immédiate : x strictement inférieur à quatre.
+
+Résumons au tableau l'ensemble de ces règles pour les contrôles et les exercices.
+Pour traduire entre inégalité, intervalle et droite numérique, garde toujours ces trois réflexes en tête. Premièrement, une inégalité large avec inférieur ou égal ou supérieur ou égal correspond toujours à un crochet tourné vers l'intérieur, borne incluse. Deuxièmement, une inégalité stricte avec strictement inférieur ou strictement supérieur correspond toujours à un crochet tourné vers l'extérieur, borne exclue. Troisièmement, le symbole infini, en moins l'infini comme en plus l'infini, exige impérativement un crochet ouvert vers l'extérieur. En appliquant systématiquement ces correspondances, tu ne commettras plus jamais d'erreur sur les intervalles.

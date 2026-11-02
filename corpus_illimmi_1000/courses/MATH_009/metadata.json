@@ -1,0 +1,109 @@
+{
+  "id": "MATH_009",
+  "subject": "Mathématiques",
+  "level": "Seconde",
+  "domain": "Nombres & Calculs",
+  "title": "Exemple guidé et calcul détaillé : Intervalles et encadrements de réels en pratique",
+  "pedagogical_type": "cours_methode_application",
+  "pedagogical_target": "Comprendre et manipuler les intervalles et les inégalités, savoir passer d'un encadrement à un intervalle et à une représentation sur droite graduée, maîtriser l'orientation des crochets et la notation de l'infini.",
+  "sections": [
+    {
+      "section_id": "sec_1",
+      "title": "1. Introduction : Des Inégalités aux Intervalles de Nombres",
+      "summary": "Comprendre le sens d'une double inégalité 1 <= x < 5, la notion d'infinité de réels et la définition d'un intervalle délimité par deux bornes.",
+      "support_visuel_suggere": "draw line + draw path + text",
+      "concepts_cles": [
+        "double inégalité",
+        "ensemble de réels",
+        "bornes",
+        "intervalle"
+      ]
+    },
+    {
+      "section_id": "sec_2",
+      "title": "2. La Règle d'Or des Crochets et la Droite Graduée",
+      "summary": "Assimiler l'orientation des crochets : tourné vers l'intérieur pour une borne incluse, vers l'extérieur pour une borne exclue, et tracer l'axe numérique.",
+      "support_visuel_suggere": "draw arrow + draw path + text",
+      "concepts_cles": [
+        "symbole appartient",
+        "borne incluse",
+        "borne exclue",
+        "axe gradué",
+        "crochets"
+      ]
+    },
+    {
+      "section_id": "sec_3",
+      "title": "3. Exemple 1 : De l'Intervalle ]-2 ; 2] à l'Inégalité",
+      "summary": "Étude pas à pas de l'intervalle semi-ouvert ]-2 ; 2] : représentation sur la droite numérique et traduction en inégalité -2 < x <= 2.",
+      "support_visuel_suggere": "draw line + draw path + text",
+      "concepts_cles": [
+        "intervalle semi-ouvert",
+        "inégalité stricte",
+        "inégalité large",
+        "traduction"
+      ]
+    },
+    {
+      "section_id": "sec_4",
+      "title": "4. Exemple 2 : Inégalité x <= 3 et Découverte de l'Infini",
+      "summary": "Traduction de l'inégalité x <= 3 sur la droite graduée, introduction du symbole infini et écriture de l'intervalle non borné ]-infini ; 3].",
+      "support_visuel_suggere": "draw arrow + draw path + text",
+      "concepts_cles": [
+        "demi-droite",
+        "symbole infini",
+        "moins l'infini",
+        "crochet toujours ouvert en l'infini"
+      ]
+    },
+    {
+      "section_id": "sec_5",
+      "title": "5. Exemple 3 : L'Intervalle Ouvert ]0 ; +infini[",
+      "summary": "Tracé sur la droite graduée de l'intervalle ]0 ; +infini[ à partir de la borne 0 exclue et écriture de l'inégalité stricte x > 0.",
+      "support_visuel_suggere": "draw arrow + draw path + text",
+      "concepts_cles": [
+        "plus l'infini",
+        "borne nulle exclue",
+        "réels strictement positifs"
+      ]
+    },
+    {
+      "section_id": "sec_6",
+      "title": "6. Exemple 4 : De la Représentation Graphique à x < 4",
+      "summary": "Lecture graphique d'une zone non bornée inférieure à 4, notation sous forme d'intervalle ]-infini ; 4[ et formulation de l'inégalité x < 4.",
+      "support_visuel_suggere": "draw arrow + draw path + text",
+      "concepts_cles": [
+        "lecture graphique",
+        "borne supérieure exclue",
+        "intervalle non borné"
+      ]
+    },
+    {
+      "section_id": "sec_7",
+      "title": "7. Synthèse & Réflexes pour le Contrôle",
+      "summary": "Tableau récapitulatif des équivalences entre inégalités, intervalles et représentations graphiques, avec les pièges à éviter sur l'orientation des crochets.",
+      "support_visuel_suggere": "draw line + draw arrow + text",
+      "concepts_cles": [
+        "tableau de synthèse",
+        "piège des infinis",
+        "sens des crochets",
+        "réflexe examen"
+      ]
+    }
+  ],
+  "source_video": {
+    "video_id": "YpctDQf1fqI",
+    "title": "Comprendre les INTERVALLES & les INÉGALITÉS ✅ Facile ! 💪 Seconde",
+    "channel": "Paul Olivier",
+    "youtube_url": "https://www.youtube.com/watch?v=YpctDQf1fqI"
+  },
+  "duration_seconds": 411.83,
+  "word_count": 1133,
+  "course_id": "MATH_009",
+  "world_model_score": 10.0,
+  "rendered_scenes": 7,
+  "visual_audit_notes": "7 scènes vérifiées visuellement : typographie KaTeX impeccable, axes gradués géométriques avec crochets précis sans chevauchement sur les graduations, palette contrastée sur tableau vert, règle de la main unique de l'enseignant respectée.",
+  "certified_by": "antigravity-argon",
+  "certified_at": "2026-11-01T18:14:32.849657",
+  "status": "COMPLETED"
+}

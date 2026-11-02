@@ -1,0 +1,98 @@
+{
+  "id": "MATH_008",
+  "subject": "Mathématiques",
+  "level": "Seconde",
+  "domain": "Nombres & Calculs",
+  "title": "Méthode pas à pas : Comment résoudre un problème de Intervalles et encadrements de réels",
+  "pedagogical_type": "methode_pas_a_pas",
+  "pedagogical_target": "Maîtriser la méthode pas à pas pour passer d'une inégalité à un intervalle et à sa représentation sur un axe gradué, comprendre le sens géométrique des crochets et manier les intervalles non bornés avec l'infini.",
+  "sections": [
+    {
+      "section_id": "sec_1",
+      "title": "1. Présentation de la Méthode et du Tableau à Trois Colonnes",
+      "summary": "Mise en place de la démarche méthodologique articulant inégalités, notation d'intervalles et représentations géométriques sur une droite graduée.",
+      "support_visuel_suggere": "draw line + draw polygone + text",
+      "concepts_cles": [
+        "inégalité",
+        "intervalle",
+        "axe gradué",
+        "tableau de correspondance"
+      ]
+    },
+    {
+      "section_id": "sec_2",
+      "title": "2. Cas 1 : Encadrement Fermé et Bornes Incluses",
+      "summary": "Étude détaillée de l'inégalité 2 <= x <= 4. Visualisation de la zone de déplacement de x, orientation des crochets vers l'intérieur pour inclure 2 et 4, et écriture de l'intervalle fermé [2 ; 4].",
+      "support_visuel_suggere": "draw line + draw path + text",
+      "concepts_cles": [
+        "encadrement",
+        "bornes incluses",
+        "crochets vers l'intérieur",
+        "intervalle fermé"
+      ]
+    },
+    {
+      "section_id": "sec_3",
+      "title": "3. Cas 2 : Intervalle Semi-Ouvert et Exclusion d'une Borne",
+      "summary": "Résolution pour l'inégalité stricte à gauche et large à droite -1 < x <= 3. Exclusion de -1 par un crochet tourné vers l'extérieur et inclusion de 3 par un crochet vers l'intérieur.",
+      "support_visuel_suggere": "draw line + draw path + text",
+      "concepts_cles": [
+        "inégalité stricte",
+        "borne exclue",
+        "crochet vers l'extérieur",
+        "intervalle semi-ouvert"
+      ]
+    },
+    {
+      "section_id": "sec_4",
+      "title": "4. Cas 3 : Intervalles Non Bornés vers Moins l'Infini",
+      "summary": "Traduction de l'intervalle ]-infini ; 2[. Notion de valeurs réelles arbitrairement petites, absence de borne matérielle à gauche et traduction par l'inégalité simple x < 2.",
+      "support_visuel_suggere": "draw arrow + draw line + draw path",
+      "concepts_cles": [
+        "moins l'infini",
+        "intervalle non borné",
+        "absence de limite à gauche",
+        "inégalité simple"
+      ]
+    },
+    {
+      "section_id": "sec_5",
+      "title": "5. Cas 4 : Intervalles Non Bornés vers Plus l'Infini",
+      "summary": "Passage d'une demi-droite graduée partant de 1 avec borne fermée vers la droite illimitée à la notation [1 ; +infini[ et à l'inégalité x >= 1.",
+      "support_visuel_suggere": "draw arrow + draw line + draw path",
+      "concepts_cles": [
+        "plus l'infini",
+        "demi-droite orientée",
+        "inégalité large",
+        "crochet ouvert en l'infini"
+      ]
+    },
+    {
+      "section_id": "sec_6",
+      "title": "6. Piège Fréquent et Synthèse Méthodologique",
+      "summary": "Synthèse des automatismes pour le contrôle : distinction nette entre encadrements et inégalités unilatérales, règle absolue du sens des crochets et interdiction d'écrire l'infini dans les inégalités.",
+      "support_visuel_suggere": "draw line + draw arrow + text",
+      "concepts_cles": [
+        "réflexes de contrôle",
+        "règle des crochets",
+        "piège des symboles infinis",
+        "synthèse visuelle"
+      ]
+    }
+  ],
+  "duration_seconds": 601.45,
+  "word_count": 1693,
+  "source_video": {
+    "video_id": "9MtAK7Xzrls",
+    "title": "Interval Notation - 10th Grade",
+    "channel": "Yvan Monka",
+    "youtube_url": "https://www.youtube.com/watch?v=9MtAK7Xzrls"
+  },
+  "course_id": "MATH_008",
+  "world_model_score": 9.0,
+  "rendered_scenes": 6,
+  "visual_audit_notes": "Visual inspection of all 6 rendered scenes via read_file confirmed crisp chalkboard aesthetics. Scene 0 features a clean 3-box pedagogical roadmap linking inequalities, intervals, and geometric axes. Scenes 1, 2, 3, 4 showcase razor-sharp axes with geometric path brackets (inward/outward) perfectly positioned over intervals [2; 4], ]-1; 3], ]-inf; 2[, and [1; +inf[, with zero text-bracket overlap and full KaTeX math fidelity. Scene 5 presents an impeccably balanced 2-column methodological synthesis and takeaway box. Zero collisions, high-contrast palette, single-action sequentiality respected across the entire 601.45s course.",
+  "certified_by": "antigravity-argon",
+  "certified_at": "2026-11-01T18:13:12.138011",
+  "status": "COMPLETED"
+}

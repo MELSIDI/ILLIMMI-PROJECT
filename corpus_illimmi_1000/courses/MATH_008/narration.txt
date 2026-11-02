@@ -1,0 +1,52 @@
+Bonjour et bienvenue dans ce cours. Aujourd'hui, tu vas apprendre une méthode pas à pas indispensable pour maîtriser les intervalles et les encadrements de réels.
+
+Pour bien comprendre comment s'articulent toutes ces notions, nous allons nous appuyer sur un tableau méthodique en trois colonnes que nous affichons au tableau. La première colonne présente l'inégalité ou l'encadrement, une écriture que tu as déjà rencontrée au collège. La deuxième colonne présente la notation sous forme d'intervalle, qui est la nouveauté majeure de la classe de Seconde. Enfin, la troisième colonne permet de visualiser géométriquement la situation sur un axe gradué. L'objectif est de savoir passer avec une fluidité totale de l'une de ces trois représentations à n'importe quelle autre.
+
+Commençons par notre premier cas. On nous donne l'encadrement suivant : 2 inférieur ou égal à x inférieur ou égal à 4. Cette double inégalité se lit très simplement : x est compris entre 2 et 4. Cela signifie concrètement que le nombre x se balade librement dans toute la zone délimitée par 2 et 4.
+
+Avant même d'écrire la notation en terme d'intervalle, regardons ce que cela donne géométriquement. Traçons à droite un axe gradué régulier et orienté vers la droite avec une flèche. Plaçons sur cet axe les deux nombres repères, 2 et 4. Puisque x est à la fois plus grand ou égal à 2 et plus petit ou égal à 4, le nombre x se déplace sur tout le segment reliant 2 à 4. Colorons en rouge cette zone entre 2 et 4 sur notre axe pour matérialiser l'ensemble des positions possibles de x.
+
+La question essentielle qui se pose maintenant concerne les bornes, c'est-à-dire les deux extrémités de notre zone, qui sont 2 et 4. Que se passe-t-il exactement en ces deux points ? Pour le savoir, il suffit de regarder attentivement les symboles de comparaison dans notre encadrement. Le premier symbole nous indique que x est supérieur ou égal à 2. Le terme ou égal est fondamental. Il signifie que x peut être strictement plus grand que 2, mais qu'il peut également être exactement égal à 2. La valeur 2 est donc pleinement autorisée, elle fait partie intégrante de notre ensemble.
+
+Pour marquer graphiquement que le nombre 2 est emmené avec nous dans l'intervalle, nous allons tracer un crochet dont les deux bras sont tournés vers l'intérieur de la zone rouge. Concrètement, le crochet en 2 regarde vers la droite, c'est-à-dire vers l'intérieur de l'intervalle, pour emprisonner le nombre 2 avec les autres valeurs autorisées.
+
+Intéressons-nous à présent à la deuxième borne, l'extrémité droite qui est 4. De nouveau, nous nous référons au symbole d'inégalité : x est inférieur ou égal à 4. Là encore, l'égalité est permise, donc 4 peut être une valeur prise par x. Nous traçons donc un crochet en 4 dont les bras sont également tournés vers l'intérieur de la zone, c'est-à-dire vers la gauche. Ainsi, le nombre 4 est lui aussi emporté dans l'intervalle.
+
+Une fois que cette représentation graphique sur l'axe est bien claire, la notation sous forme d'intervalle en découle immédiatement. Il nous suffit de reproduire les deux crochets dans le même sens que sur le dessin. À gauche, nous ouvrons un crochet vers l'intérieur. Nous écrivons notre première borne, 2. En mathématiques, pour ne pas confondre avec un nombre décimal comme 2 virgule 4, nous séparons toujours les deux bornes par un point-virgule. Puis nous écrivons la borne droite, 4, et nous refermons le crochet vers l'intérieur. Nous obtenons l'intervalle fermé 2 point-virgule 4. On dit qu'il s'agit d'un intervalle fermé car ses deux bornes appartiennent toutes les deux à l'intervalle.
+
+Passons à notre deuxième cas d'étude. Cette fois-ci, l'inégalité donnée est : x strictement supérieur à moins 1 et inférieur ou égal à 3.
+Comme précédemment, commençons par représenter géométriquement cette situation sur notre axe gradué. Dessinons sur l'axe gradué les repères moins 1 et 3. Le nombre x doit être strictement plus grand que moins 1, tout en restant plus petit ou égal à 3. Colorons en rouge la zone située entre moins 1 et 3. C'est ici que x a le droit de circuler.
+
+Examinons maintenant les bornes avec la plus grande précision. Commençons par la borne gauche, moins 1. Le symbole est une inégalité stricte : x est strictement supérieur à moins 1. Cela signifie que x peut être aussi proche de moins 1 que l'on veut, par exemple moins 0 virgule 9999, mais x n'a absolument pas le droit d'être égal à moins 1. Le nombre moins 1 est formellement interdit, nous devons l'exclure de notre ensemble.
+
+Pour traduire visuellement cette exclusion, nous tournons le crochet vers l'extérieur de l'intervalle, c'est-à-dire le dos tourné à la zone rouge. Le crochet en moins 1 regarde donc vers la gauche, vers l'extérieur. On dit que la borne est ouverte en moins 1.
+
+Pour la borne droite, 3, la situation est identique à celle du premier exemple. L'inégalité nous dit que x est inférieur ou égal à 3. Le nombre 3 est donc accepté et fait partie de l'intervalle. Nous traçons en 3 un crochet tourné vers l'intérieur, c'est-à-dire vers la gauche, pour englober le 3 dans notre zone rouge.
+
+Regarde à droite notre dessin complété : nous avons un crochet tourné vers l'extérieur en moins 1, et un crochet tourné vers l'intérieur en 3. Pour écrire l'intervalle correspondant dans notre tableau, il suffit de recopier fidèlement cette disposition. Nous mettons un crochet ouvert vers l'extérieur à gauche, nous notons moins 1, nous séparons par un point-virgule, puis nous écrivons 3 avec un crochet fermé vers l'intérieur. Nous obtenons l'intervalle semi-ouvert, ouvert en moins 1 et fermé en 3.
+
+Abordons maintenant le troisième cas. Ici, le problème est inversé : on nous donne directement l'intervalle, et c'est à nous de construire la représentation graphique sur l'axe puis d'en déduire l'inégalité. L'intervalle proposé est l'intervalle ouvert moins l'infini point-virgule 2 ouvert.
+
+Remarquons tout de suite la présence de ce symbole particulier : moins l'infini. Que signifie moins l'infini ? Cela indique que les valeurs prises par x n'ont aucune limite vers la gauche. Le nombre x peut être aussi petit que l'on veut, par exemple moins 1000, moins un million ou moins un milliard. L'ensemble part donc du fond de la gauche sans jamais s'arrêter. Et où s'arrête-t-il à droite ? Il s'arrête au nombre 2.
+
+Dessinons cette situation sur notre droite graduée. Traçons une ligne rouge continue qui part de l'extrême gauche de l'axe et qui vient s'arrêter précisément à la graduation 2.
+Regardons maintenant le comportement aux bornes. Du côté de moins l'infini, le crochet est naturellement ouvert vers l'extérieur car l'infini n'est pas un nombre réel que l'on peut atteindre ou enfermer. Sur l'axe gradué, nous ne plaçons aucun crochet à l'extrémité gauche : si nous tracions un crochet dans le vide, on risquerait de croire qu'il s'agit d'une graduation précise comme moins 3 ou moins 4. On laisse donc simplement le trait rouge se prolonger indéfiniment vers la gauche.
+En revanche, à la borne 2, les choses sont parfaitement nettes. Dans la notation de départ, le crochet en 2 est tourné vers l'extérieur. Cela nous indique que 2 est exclu, que nous n'en voulons pas. Nous traçons donc en 2 un crochet tourné vers l'extérieur, vers la droite, dos à la zone rouge.
+
+Comment traduire cet ensemble sous forme d'inégalité ? Puisqu'il n'y a aucune barrière à gauche, nous n'avons pas d'encadrement à deux nombres. Nous avons uniquement une condition sur la droite : toutes les valeurs autorisées sont strictement inférieures à 2. Nous écrivons donc simplement : x strictement inférieur à 2.
+Attention au piège fréquent en devoir : certains élèves ont parfois envie d'écrire moins l'infini strictement inférieur à x inférieur à 2. C'est une faute d'écriture rigoureuse. L'infini n'étant pas un nombre réel, on ne l'utilise jamais dans une inégalité classique. Quand il n'y a pas de limite à gauche, on laisse simplement le côté gauche vide et on note uniquement x strictement inférieur à 2.
+
+Terminons avec notre quatrième et dernier cas. Cette fois-ci, on nous donne la représentation graphique sur l'axe gradué, et nous devons reconstituer l'intervalle et l'inégalité associée.
+Sur notre axe gradué, observons le tracé : nous voyons un trait rouge qui débute à la graduation 1 avec un crochet fermé tourné vers la droite, et qui se poursuit sans interruption jusqu'au bout de l'axe vers la droite.
+
+Puisque la zone rouge ne s'arrête jamais à droite, x peut devenir aussi grand que souhaité : 10, 100, un million, dix milliards. Cela signifie que la borne supérieure est plus l'infini. Et comme l'infini ne peut jamais être inclus, le crochet en plus l'infini sera impérativement ouvert vers l'extérieur.
+À gauche, la borne est 1, et le crochet sur le dessin est tourné vers l'intérieur de la zone rouge. Cela signifie que la valeur 1 est acceptée. Nous notons donc pour l'intervalle : crochet fermé en 1, point-virgule, plus l'infini avec crochet ouvert vers l'extérieur.
+
+Pour finir, traduisons cela en terme d'inégalité. Notre nombre x doit être supérieur ou égal à 1. Puisqu'il n'y a aucune limite vers la droite, nous n'écrivons rien du côté droit. L'inégalité s'écrit tout simplement : x supérieur ou égal à 1.
+
+Récapitulons les réflexes méthodologiques essentiels que nous venons de construire au tableau.
+Premièrement, lorsque x est délimité des deux côtés par deux nombres finis, on obtient un encadrement avec deux inégalités et un intervalle borné.
+Deuxièmement, lorsque x n'a de limite que d'un seul côté, on obtient une inégalité simple sans jamais mentionner les symboles d'infini dans l'inégalité.
+Troisièmement, pour les crochets, la règle visuelle est universelle : un crochet tourné vers l'intérieur emporte le nombre avec lui pour signifier qu'il est inclus avec un symbole inférieur ou égal ou supérieur ou égal. Un crochet tourné vers l'extérieur rejette le nombre pour signifier qu'il est exclu avec une inégalité stricte. Enfin, les symboles plus l'infini et moins l'infini ont toujours, sans aucune exception, un crochet ouvert vers l'extérieur.
+
+En appliquant systématiquement ce va-et-vient entre inégalité, dessin sur l'axe gradué et notation d'intervalle, tu réussiras tous tes exercices sur les intervalles avec une parfaite assurance.
