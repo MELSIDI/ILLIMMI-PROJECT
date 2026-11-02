@@ -1,0 +1,98 @@
+{
+  "id": "MATH_014",
+  "subject": "Mathématiques",
+  "level": "Seconde",
+  "domain": "Nombres & Calculs",
+  "title": "Correction d'exercice classique : Valeur absolue et distance sur la droite réelle (Entraînement Lycée)",
+  "pedagogical_type": "cours_et_exercices",
+  "pedagogical_target": "Maîtriser la notation et la définition par morceaux de la valeur absolue, simplifier des expressions numériques et algébriques exactes, et relier le concept à la distance géométrique sur la droite réelle.",
+  "sections": [
+    {
+      "section_id": "sec_1",
+      "title": "1. Introduction et Définition Intuitive de la Valeur Absolue",
+      "summary": "Découverte de la notation à double barre verticale et principe fondamental : ramener tout nombre à sa valeur positive sans signe. Premiers exemples avec -5 et 3.",
+      "support_visuel_suggere": "draw line + draw arrow + step_solution",
+      "concepts_cles": [
+        "valeur absolue",
+        "notation double barre",
+        "distance sans signe",
+        "positivité"
+      ]
+    },
+    {
+      "section_id": "sec_2",
+      "title": "2. Premiers Cas d'Application : Nombres Négatifs et Positifs",
+      "summary": "Résolution détaillée des deux premiers cas : calcul de la valeur absolue de -7 qui donne 7, et calcul de la valeur absolue de 4 qui reste 4 sans modification.",
+      "support_visuel_suggere": "step_solution + draw line",
+      "concepts_cles": [
+        "valeur absolue de -7",
+        "valeur absolue de 4",
+        "maintien du positif",
+        "changement de signe"
+      ]
+    },
+    {
+      "section_id": "sec_3",
+      "title": "3. Expression Algébrique Positive : Le Cas de Pi Moins 2",
+      "summary": "Étude rigoureuse du cas avec pi moins 2. Détermination du signe de la quantité intérieure grâce à l'approximation de pi et suppression directe des barres.",
+      "support_visuel_suggere": "step_solution + draw line",
+      "concepts_cles": [
+        "approximation de pi",
+        "signe de pi - 2",
+        "retrait direct des barres",
+        "valeur exacte"
+      ]
+    },
+    {
+      "section_id": "sec_4",
+      "title": "4. Expression Algébrique Négative : Le Cas de 1 Moins Racine de 2",
+      "summary": "Traitement approfondi de 1 moins racine carrée de 2. Détection de la stricte négativité et application systématique de l'opposé pour obtenir racine de 2 moins 1.",
+      "support_visuel_suggere": "step_solution + draw line + draw arrow",
+      "concepts_cles": [
+        "approximation de racine de 2",
+        "quantité négative",
+        "opposé d'une expression",
+        "écriture simplifiée"
+      ]
+    },
+    {
+      "section_id": "sec_5",
+      "title": "5. Définition Formelle par Morceaux et Démystification de Moins a",
+      "summary": "Formulation mathématique rigoureuse : |a| = a si a >= 0 et |a| = -a si a < 0. Explication clé du fait que -a est strictement positif lorsque a est négatif.",
+      "support_visuel_suggere": "step_solution + draw line",
+      "concepts_cles": [
+        "définition par morceaux",
+        "piège du signe moins a",
+        "application à a = -7",
+        "règle des signes"
+      ]
+    },
+    {
+      "section_id": "sec_6",
+      "title": "6. Interprétation Géométrique sur la Droite Réelle et Synthèse",
+      "summary": "Interprétation géométrique de la valeur absolue comme distance à l'origine et distance entre deux points. Récapitulatif des réflexes d'examen.",
+      "support_visuel_suggere": "draw line + draw arrow + draw circle + step_solution",
+      "concepts_cles": [
+        "droite graduée",
+        "distance à l'origine",
+        "distance entre deux nombres",
+        "réflexes examen"
+      ]
+    }
+  ],
+  "duration_seconds": 449.41,
+  "word_count": 1358,
+  "source_video": {
+    "video_id": "ejxGmpzrciA",
+    "title": "Comprendre la notation I...I (Valeur absolue) - Seconde",
+    "channel": "Yvan Monka",
+    "youtube_url": "https://www.youtube.com/watch?v=ejxGmpzrciA"
+  },
+  "course_id": "MATH_014",
+  "world_model_score": 10.0,
+  "rendered_scenes": 6,
+  "visual_audit_notes": "Visual inspection of all 6 scenes (scene_0..scene_5.png) performed via read_file. Clean 16:9 split-board layout. High-contrast chalkboard palette. All KaTeX formulas perfectly rendered without collisions. Exact geometric axes with ticks, segments and distance labels for OM and AB. Single action rule strictly respected.",
+  "certified_by": "antigravity-argon",
+  "certified_at": "2026-11-01T19:56:21.368277",
+  "status": "COMPLETED"
+}

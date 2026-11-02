@@ -1,0 +1,73 @@
+Bonjour et bienvenue dans ce cours. Aujourd'hui, nous allons apprendre ensemble à résoudre pas à pas des inéquations comportant des valeurs absolues, en utilisant la géométrie et la droite réelle graduée. C'est une méthode d'une efficacité redoutable, qui te servira tout au long de ton cursus au lycée et qui revient très régulièrement dans les devoirs et les contrôles.
+
+Ce travail fait directement écho à la résolution des équations avec valeur absolue. Souviens-toi : lorsqu'on résout une équation, on a un symbole d'égalité, alors qu'ici, nous allons manipuler des symboles d'inégalité, comme inférieur ou égal ou strictement supérieur. Mais le principe géométrique fondamental reste rigoureusement le même.
+
+Rappelons sans attendre ce principe clé. Lorsque l'on écrit la valeur absolue de a moins b, cela correspond exactement à la distance géométrique entre deux points d'abscisses respectives a et b sur une droite graduée. Dit plus simplement, la valeur absolue de a moins b, c'est la distance entre a et b. Retiens bien cette phrase : la valeur absolue d'une différence, c'est une distance.
+
+Traçons à droite un axe gradué horizontal pour visualiser ce concept en direct.
+
+Attaquons sans plus tarder notre première inéquation. On cherche l'ensemble des nombres réels x vérifiant : valeur absolue de x moins 5 inférieure ou égale à 2.
+
+Regardons attentivement cette écriture. La valeur absolue de x moins 5 correspond, d'après notre définition, à la distance entre le nombre x et le nombre 5. Et le nombre 2, situé dans le membre de droite de l'inéquation, joue un rôle tout à fait privilégié. Il s'agit du seuil de distance, le rayon maximal que l'on s'autorise.
+
+Traduisons cette inéquation de façon purement géométrique : dire que la valeur absolue de x moins 5 est inférieure ou égale à 2 revient à dire que la distance entre le nombre x et le nombre 5 doit être inférieure ou égale à 2. Autrement dit, nous cherchons tous les nombres x sur notre droite tels que la distance entre ce point d'abscisse x et le point pivot d'abscisse 5 ne dépasse jamais 2 unités.
+
+Plaçons sur cet axe gradué notre point pivot, c'est-à-dire le nombre 5, bien au centre de notre étude.
+
+Pour trouver tous les points qui conviennent, commençons par regarder le cas limite, c'est-à-dire le cas où l'on a une égalité parfaite. Que se passerait-il si la distance entre x et 5 était exactement égale à 2 ?
+Pour répondre à cette question, c'est très simple : il suffit de faire un pas de 2 unités dans un sens, et un pas de 2 unités dans l'autre sens à partir de 5.
+Si l'on part de 5 et que l'on se déplace de 2 unités vers la droite, on effectue 5 plus 2, ce qui nous amène en 7. Vérifions : la valeur absolue de 7 moins 5 vaut bien la valeur absolue de 2, qui est égale à 2.
+Si l'on part de 5 et que l'on se déplace de 2 unités vers la gauche, on effectue 5 moins 2, ce qui nous amène en 3. Vérifions là encore : la valeur absolue de 3 moins 5 vaut la valeur absolue de moins 2, qui est bien égale à 2.
+Les deux points frontières où la distance vaut exactement 2 sont donc 3 et 7.
+
+Revenons maintenant à notre inéquation initiale. Ce que l'on cherche, ce ne sont pas seulement ces deux valeurs isolées, mais tous les réels x tels que la distance entre x et 5 soit inférieure ou égale à 2. Nous voulons donc que cette distance ne dépasse pas 2, qu'elle soit plus petite ou égale à 2.
+
+Prenons des exemples concrets pour bien le sentir. Si nous choisissons x égal à 6 : la distance entre 6 et 5 est égale à 1. Puisque 1 est inférieur ou égal à 2, le nombre 6 convient parfaitement.
+Si nous prenons x égal à 6 virgule 5 : la distance entre 6 virgule 5 et 5 vaut 1 virgule 5. Cette distance est encore inférieure à 2, donc 6 virgule 5 convient également.
+En réalité, tu comprends immédiatement que tous les points situés entre 5 et 7 conviennent !
+Et par symétrie évidente, il en va exactement de même à gauche du point 5 : tous les points situés entre 3 et 5 se trouvent à une distance de 5 strictement inférieure à 2.
+Hachurons et colorons sur notre axe toute cette zone comprise entre 3 et 7. C'est l'ensemble de tous les points admissibles.
+
+Reste à trancher une question cruciale : qu'en est-il des deux bornes frontières, c'est-à-dire des valeurs 3 et 7 ?
+Est-ce qu'on accepte x égal à 7 et x égal à 3 ? Autrement dit, est-ce que la distance a le droit d'être exactement égale à 2 ?
+La réponse est oui, car nous avons une inégalité large : inférieure ou égale. Les valeurs 3 et 7 font donc pleinement partie des solutions.
+Pour l'indiquer clairement sur notre graphique, nous tournons les crochets vers l'intérieur du segment de solutions, en 3 et en 7.
+Nous pouvons alors écrire l'ensemble des solutions : l'ensemble S est égal à l'intervalle fermé 3 point-virgule 7. Les deux bornes sont incluses.
+
+Passons à présent à notre deuxième inéquation. On nous demande de déterminer l'ensemble des réels x vérifiant : valeur absolue de x plus 2 strictement supérieure à 3.
+
+Ici, nous rencontrons un petit obstacle apparent. La valeur absolue ne se présente pas sous la forme d'une soustraction x moins quelque chose, mais sous la forme d'une addition : x plus 2.
+Or, notre définition géométrique de la distance repose impérativement sur une différence.
+Comment transformer une addition en soustraction sans changer sa valeur ?
+Souviens-toi de la règle fondamentale des signes : moins par moins donne plus.
+Ainsi, ajouter 2 revient exactement à soustraire moins 2. On peut donc réécrire x plus 2 sous la forme : x moins entre parenthèses moins 2.
+Notre inéquation devient : valeur absolue de x moins entre parenthèses moins 2, strictement supérieure à 3.
+
+Traçons à droite un nouvel axe gradué pour cette seconde situation.
+La traduction géométrique est désormais limpide : nous cherchons tous les nombres x dont la distance au nombre moins 2 est strictement supérieure à 3.
+Le centre de notre étude, le point pivot, c'est donc moins 2. Notons soigneusement moins 2 sur notre axe.
+
+Comme pour la première inéquation, commençons par identifier les valeurs frontières, c'est-à-dire celles pour lesquelles la distance entre x et moins 2 vaut exactement 3.
+Partons de moins 2 et faisons 3 pas vers la droite : moins 2 plus 3 nous donne 1. En effet, la distance entre moins 2 et 1 est bien de 3 unités.
+Partons ensuite de moins 2 et faisons 3 pas vers la gauche : moins 2 moins 3 nous donne moins 5. La distance entre moins 5 et moins 2 est également de 3 unités.
+Nos deux bornes limites sont donc moins 5 et 1.
+
+Mais attention au sens de l'inégalité ! Cette fois-ci, nous voulons que la distance entre x et moins 2 soit strictement plus grande que 3. Nous voulons aller au-delà de 3, c'est exactement le contraire de la situation précédente !
+Testons par exemple la valeur x égal à 2. La distance entre moins 2 et 2 est égale à 4. Comme 4 est strictement supérieur à 3, cette valeur 2 convient parfaitement. Tous les nombres situés à droite de 1 se trouvent à une distance supérieure à 3.
+De même, à gauche de moins 5, si l'on prend par exemple moins 6, la distance à moins 2 vaut 4, ce qui est supérieur à 3. Tous les nombres situés à gauche de moins 5 conviennent donc aussi.
+Colorons sur notre axe ces deux zones extérieures : la demi-droite qui part vers la gauche vers moins l'infini, et la demi-droite qui part vers la droite vers plus l'infini.
+
+Qu'en est-il maintenant des valeurs frontières moins 5 et 1 ? Doit-on les accepter ?
+Cette fois, l'inégalité est stricte : nous avons strictement supérieur à 3. La distance ne doit donc pas être égale à 3. Les valeurs moins 5 et 1 sont strictement exclues de notre ensemble solution !
+Pour marquer cette exclusion sur notre axe, nous tournons les crochets vers l'extérieur de chaque zone coloriée, à la fois en moins 5 et en 1.
+
+Nous pouvons enfin formuler l'ensemble des solutions de cette inéquation. Il est constitué de deux morceaux disjoints. On écrit donc la réunion de deux intervalles :
+L'ensemble S est l'intervalle ouvert moins l'infini point-virgule moins 5, exclu en moins 5, union l'intervalle ouvert 1 point-virgule plus l'infini, exclu en 1. N'oublie jamais que l'infini, qu'il soit positif ou négatif, porte toujours un crochet ouvert vers l'extérieur car l'infini n'est pas un nombre réel que l'on peut atteindre.
+
+Observons la synthèse de notre méthode :
+Première étape : ramener l'expression sous la forme valeur absolue de x moins c, en faisant attention au changement de signe si l'on a une addition.
+Deuxième étape : placer le centre c sur l'axe gradué et faire les pas correspondant au rayon r dans les deux directions pour repérer les deux bornes frontières.
+Troisième étape : si l'inégalité est inférieure, la solution est le segment intérieur entre les bornes. Si l'inégalité est supérieure, la solution est constituée des deux demi-droites extérieures.
+Quatrième étape : observer si l'inégalité est large pour inclure les bornes avec des crochets fermés, ou stricte pour exclure les bornes avec des crochets ouverts.
+
+En appliquant ce raisonnement visuel et rigoureux en plusieurs étapes, tu ne feras plus jamais la moindre erreur sur les valeurs absolues et les distances.

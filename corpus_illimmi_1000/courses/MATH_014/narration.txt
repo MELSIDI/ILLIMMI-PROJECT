@@ -1,0 +1,79 @@
+Bonjour et bienvenue dans ce cours de mathématiques. Aujourd'hui, nous allons découvrir ensemble une notion fondamentale du programme de Seconde : la valeur absolue.
+
+Il existe une définition mathématique formelle très précise que nous formaliserons dans un deuxième temps. Mais pour commencer, nous allons d'abord comprendre de manière très intuitive et concrète comment fonctionne cette nouvelle notation.
+
+L'idée fondamentale de la valeur absolue est très simple : elle consiste à ramener n'importe quel nombre réel, qu'il soit positif ou négatif, à sa valeur strictement positive. C'est en quelque sorte le nombre sans son signe éventuel.
+
+Regardons à droite du tableau comment se note la valeur absolue. Pour l'écrire, on place le nombre considéré entre deux barres verticales.
+
+Prenons deux exemples immédiats pour bien fixer les idées. Si nous considérons le nombre moins 5, sa valeur positive associée est 5. Nous dirons donc que la valeur absolue de moins 5 est égale à 5. Si en revanche le nombre de départ est déjà positif, comme le nombre 3, sa valeur positive reste tout simplement 3. La valeur absolue de 3 est donc égale à 3.
+
+Passons maintenant à un exercice classique d'entraînement comportant quatre expressions progressives, afin de maîtriser parfaitement le maniement de ces barres verticales.
+
+Attaquons-nous au premier cas de notre exercice. On nous demande de calculer la valeur absolue de moins 7.
+
+Rappelons notre règle intuitive : la valeur absolue d'un nombre, c'est ce nombre ramené à sa valeur positive. Comme moins 7 est un nombre strictement négatif, sa valeur positive correspondante est 7.
+
+Observons à droite du tableau l'écriture du calcul : la valeur absolue de moins 7 est donc directement égale à 7. C'est aussi simple que cela.
+
+Traitons à présent le deuxième cas, où l'on nous demande de déterminer la valeur absolue de 4, ou plus 4.
+
+Ici, comme nous l'avons souligné pour le nombre 3, il n'y a absolument aucune difficulté : le nombre 4 est déjà positif. La valeur absolue de 4 est donc égale à 4.
+
+Remarquons bien ce fait fondamental : lorsque le nombre situé entre les barres est déjà positif ou nul, le symbole de valeur absolue ne change rien du tout à l'expression. Nous pouvons tout simplement retirer les barres sans modifier le nombre.
+
+Examinons à présent un troisième cas un peu plus subtil et très fréquent lors des évaluations de lycée : on nous demande d'écrire sans barres de valeur absolue l'expression valeur absolue de pi moins 2.
+
+Pour savoir ce que deviennent les barres, la question indispensable que nous devons nous poser est la suivante : la quantité située à l'intérieur de la valeur absolue, c'est-à-dire pi moins 2, est-elle un nombre positif ou un nombre négatif ?
+
+Si cette quantité est positive, nous pourrons enlever immédiatement les barres sans rien changer. Si au contraire elle est négative, il faudra la ramener à sa valeur positive.
+
+Pour déterminer son signe, rappelons que le nombre pi vaut environ 3 virgule 14.
+
+Observons à droite le raisonnement pas à pas : si nous soustrayons 2 à 3 virgule 14, nous obtenons environ 1 virgule 14, ce qui est un résultat strictement positif. Le nombre pi étant strictement supérieur à 2, la différence pi moins 2 est strictement positive.
+
+Puisque la quantité contenue entre les barres est positive, le symbole de la valeur absolue n'a aucun effet modificateur. Nous pouvons donc écrire directement notre résultat : la valeur absolue de pi moins 2 est égale à pi moins 2.
+
+Passons maintenant au quatrième cas, qui demande une attention toute particulière : que vaut la valeur absolue de 1 moins racine carrée de 2 ?
+
+Nous posons exactement la même question fondamentale : le nombre 1 moins racine carrée de 2 est-il positif ou négatif ?
+
+Pour y répondre, nous devons estimer la valeur approchée de la racine carrée de 2. Nous savons que la racine carrée de 2 vaut environ 1 virgule 414.
+
+Si nous calculons 1 moins 1 virgule 414, nous obtenons environ moins 0 virgule 414, qui est un résultat strictement négatif. Ainsi, le nombre 1 moins racine carrée de 2 situé à l'intérieur de la valeur absolue est strictement négatif.
+
+Il faut donc impérativement le ramener à sa valeur positive. Mais comment transforme-t-on une quantité négative en sa valeur positive ?
+
+C'est très simple : pour rendre positive une quantité négative, il suffit de prendre son opposé, c'est-à-dire de placer un signe moins devant toute l'expression.
+
+Regarde attentivement à droite les étapes du calcul : nous écrivons que la valeur absolue de 1 moins racine carrée de 2 est égale à moins entre parenthèses 1 moins racine carrée de 2.
+
+Nous ne laissons évidemment pas le résultat sous cette forme avec des parenthèses. Nous développons le signe moins : moins 1 devient moins 1, et moins moins racine carrée de 2 devient plus racine carrée de 2.
+
+Nous obtenons ainsi moins 1 plus racine carrée de 2, que nous préférons écrire de manière élégante sous la forme racine carrée de 2 moins 1.
+
+Avec un peu d'entraînement, on passe d'ailleurs directement de 1 moins racine carrée de 2 à racine carrée de 2 moins 1 en inversant l'ordre de la soustraction.
+
+Vérifions numériquement que cette écriture est bien positive : racine carrée de 2 moins 1 vaut environ 1 virgule 414 moins 1, soit environ plus 0 virgule 414. Nous avons bien obtenu la valeur positive correspondante, confirmant que la valeur absolue renvoie toujours un résultat positif ou nul.
+
+À la lumière de ces quatre exemples progressifs, nous pouvons à présent énoncer et comprendre parfaitement la définition mathématique générale de la valeur absolue.
+
+Regarde bien la définition formelle encadrée à droite du tableau. Soit petit a un nombre réel quelconque.
+
+Premier cas : si petit a est supérieur ou égal à zéro, c'est-à-dire si a est positif, alors la valeur absolue de a est égale à a. C'est exactement ce que nous avons observé avec 4 ou avec pi moins 2 : les barres de valeur absolue peuvent être simplement effacées.
+
+Deuxième cas : si petit a est strictement inférieur à zéro, c'est-à-dire si a est négatif, alors la valeur absolue de a est égale à moins a.
+
+Voici le piège classique dans lequel tombent beaucoup d'élèves : lorsqu'ils voient écrit moins a, ils pensent immédiatement qu'il s'agit d'un nombre négatif. C'est une grave erreur ! N'oublions pas que petit a est déjà négatif par hypothèse. Et l'opposé d'un nombre négatif est toujours un nombre strictement positif !
+
+Reprenons l'exemple de moins 7 pour le vérifier sous nos yeux. Ici, petit a vaut moins 7, qui est bien négatif. Notre formule nous dit que la valeur absolue de a est égale à moins a. Nous remplaçons petit a par moins 7 : nous obtenons moins entre parenthèses moins 7. Or, moins par moins donne plus, ce qui fait plus 7, soit 7. Nous retrouvons avec une parfaite rigueur le résultat obtenu intuitivement au tout début.
+
+Pour conclure ce cours, donnons l'interprétation géométrique indispensable qui donne tout son sens à cette notion sur la droite réelle.
+
+Traçons à droite un axe gradué horizontal orienté vers la droite, et plaçons l'origine O d'abscisse zéro.
+
+Si nous plaçons sur cet axe un point M d'abscisse x, la valeur absolue de x représente tout simplement la distance géométrique entre l'origine O et le point M. Comme une distance physique entre deux points est toujours positive ou nulle, la valeur absolue de x est nécessairement positive ou nulle.
+
+De même, si nous considérons deux points A et B d'abscisses respectives a et b, la distance géométrique entre A et B est donnée par la valeur absolue de b moins a, qui est identique à la valeur absolue de a moins b.
+
+Retiens bien ces trois réflexes essentiels pour réussir tes devoirs : premièrement, la valeur absolue d'un nombre est toujours positive ou nulle. Deuxièmement, pour retirer des barres de valeur absolue autour d'une expression, détermine d'abord son signe : si elle est positive, conserve-la telle quelle ; si elle est négative, prends son opposé. Troisièmement, pense toujours à la droite réelle : la valeur absolue est la traduction algébrique d'une distance.

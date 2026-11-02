@@ -1,0 +1,99 @@
+{
+  "id": "MATH_015",
+  "subject": "Mathématiques",
+  "level": "Seconde",
+  "domain": "Nombres & Calculs",
+  "title": "Problème type Bac : Valeur absolue et distance sur la droite réelle — Raisonnement en plusieurs étapes",
+  "pedagogical_type": "probleme_bac",
+  "pedagogical_target": "Résoudre des inéquations comportant des valeurs absolues en utilisant l'interprétation géométrique de la distance sur la droite réelle, en traitant les inégalités larges et strictes, et en écrivant l'ensemble des solutions sous forme d'intervalle ou de réunion d'intervalles.",
+  "sections": [
+    {
+      "section_id": "sec_1",
+      "title": "1. Principe Fondamental : Valeur Absolue et Distance Géométrique",
+      "summary": "Définition géométrique fondamentale : la valeur absolue de a - b représente la distance entre les points d'abscisses a et b sur la droite numérique réelle.",
+      "support_visuel_suggere": "draw line + draw path + text",
+      "concepts_cles": [
+        "droite réelle",
+        "distance géométrique",
+        "valeur absolue",
+        "écart entre deux abscisses"
+      ]
+    },
+    {
+      "section_id": "sec_2",
+      "title": "2. Première Inéquation : Traduction de |x - 5| <= 2 et Point Pivot",
+      "summary": "Traduction géométrique de l'inégalité large : distance entre x et 5 inférieure ou égale au rayon 2. Identification du pivot 5 au centre de l'intervalle.",
+      "support_visuel_suggere": "draw line + draw circle + text",
+      "concepts_cles": [
+        "point pivot",
+        "rayon de distance",
+        "inégalité large",
+        "borne maximale"
+      ]
+    },
+    {
+      "section_id": "sec_3",
+      "title": "3. Résolution Géométrique et Détermination de l'Intervalle [3 ; 7]",
+      "summary": "Détermination des bornes 3 et 7 par déplacement de 2 pas bilatéraux, coloriage du segment intérieur et inclusion des bornes par des crochets fermés.",
+      "support_visuel_suggere": "draw line + draw arrow + draw path",
+      "concepts_cles": [
+        "cas frontière",
+        "déplacement bilatéral",
+        "segment intérieur",
+        "crochets fermés",
+        "intervalle fermé"
+      ]
+    },
+    {
+      "section_id": "sec_4",
+      "title": "4. Deuxième Inéquation : Règle des Signes et Forme |x - (-2)| > 3",
+      "summary": "Transformation de l'addition x + 2 en soustraction x - (-2). Interprétation géométrique comme la distance au pivot -2 strictement supérieure à 3.",
+      "support_visuel_suggere": "draw line + text",
+      "concepts_cles": [
+        "règle des signes",
+        "forme x moins c",
+        "abscisse négative",
+        "inégalité stricte"
+      ]
+    },
+    {
+      "section_id": "sec_5",
+      "title": "5. Cas Frontières et Demi-Droites Extérieures Non Bornées",
+      "summary": "Recherche des bornes -5 et 1 à distance 3 du centre -2, analyse du dépassement strict et coloriage des deux demi-droites extérieures avec bornes exclues.",
+      "support_visuel_suggere": "draw line + draw arrow + draw path",
+      "concepts_cles": [
+        "dépassement de distance",
+        "demi-droites disjointes",
+        "crochets ouverts",
+        "bornes exclues"
+      ]
+    },
+    {
+      "section_id": "sec_6",
+      "title": "6. Synthèse Méthodologique et Réunion d'Intervalles",
+      "summary": "Écriture de l'ensemble solution sous forme de réunion d'intervalles avec le symbole union. Récapitulatif de la méthode infaillible en 4 étapes.",
+      "support_visuel_suggere": "draw line + draw path + text",
+      "concepts_cles": [
+        "symbole union",
+        "réunion d'intervalles",
+        "infinis toujours exclus",
+        "méthode en 4 étapes"
+      ]
+    }
+  ],
+  "source_video": {
+    "video_id": "kTJ09D1Bzs0",
+    "title": "Résoudre une inéquation avec valeur absolue - Seconde",
+    "channel": "Yvan Monka",
+    "youtube_url": "https://www.youtube.com/watch?v=kTJ09D1Bzs0"
+  },
+  "course_id": "MATH_015",
+  "duration_seconds": 540.39,
+  "word_count": 1615,
+  "world_model_score": 10.0,
+  "rendered_scenes": 8,
+  "visual_audit_notes": "Visual audit verified across all 8 rendered chalkboard scenes (scene_0..scene_7.png): World Model score 10.0/10.0, zero collisions, zero overlap. Progressive chalk handwriting and strict single-action teacher hand rule respected (zero concurrent animations). Real number line axes with bilateral step arrows (+-2, +-3), inward-facing closed brackets [3 ; 7] and outward-facing open brackets ]-infty ; -5[ U ]1 ; +infty[ accurately rendered with draw path, high contrast palette, full acoustic alignment to 540.39s.",
+  "certified_by": "antigravity-argon",
+  "certified_at": "2026-11-01T19:56:13.214954",
+  "status": "COMPLETED"
+}
