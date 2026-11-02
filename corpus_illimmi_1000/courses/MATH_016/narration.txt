@@ -1,0 +1,98 @@
+Bienvenue dans ce cours complet consacré à la résolution des équations avec des valeurs absolues et à leur interprétation comme distance sur la droite réelle. C'est un chapitre incontournable du programme de Seconde, qui revient très régulièrement dans les devoirs surveillés et tout au long du lycée.
+
+Commençons par nous poser une question fondamentale. Qu'est-ce que la valeur absolue d'un nombre réel ? Sur le plan algébrique, la valeur absolue d'un nombre réel est toujours positive ou nulle. Si nous prenons la valeur absolue de moins 3, elle vaut 3. Et la valeur absolue de 3 vaut également 3. Cela signifie que la valeur absolue ne modifie pas un nombre déjà positif, mais qu'elle transforme un nombre négatif en son opposé positif.
+
+Traçons à droite une droite graduée pour visualiser la distance géométrique. Sur la droite réelle, la valeur absolue de x moins a représente la distance entre le point d'abscisse x et le point pivot d'abscisse a. Or, une distance physique ne peut jamais être négative. Elle est toujours positive ou nulle. Cette interprétation géométrique éclaire immédiatement toutes les propriétés algébriques que nous allons utiliser.
+
+Découvrons ensemble notre première équation type. Écrivons à gauche l'équation valeur absolue de x moins 3 égale 6.
+Pour résoudre cette équation, nous devons éliminer la valeur absolue. Comme la valeur absolue de l'expression x moins 3 vaut 6, cela signifie que la quantité intérieure x moins 3 peut valoir 6 ou bien valoir moins 6. En effet, la valeur absolue de 6 donne 6, et la valeur absolue de moins 6 donne aussi 6.
+L'équation initiale est donc strictement équivalente à deux équations du premier degré très simples : d'une part x moins 3 égale 6, ou d'autre part x moins 3 égale moins 6.
+
+Regardons sur la droite graduée dessinée à droite. Plaçons le point pivot d'abscisse 3 sur notre axe. Chercher les réels x tels que la valeur absolue de x moins 3 soit égale à 6, cela revient géométriquement à trouver tous les points situés à une distance exactement égale à 6 de notre pivot 3. Si nous partons de 3 et que nous nous déplaçons de 6 unités vers la droite, nous arrivons à 3 plus 6, ce qui fait 9. Si nous partons de 3 et que nous reculons de 6 unités vers la gauche, nous arrivons à 3 moins 6, ce qui fait moins 3.
+
+Résolvons maintenant ces deux branches par le calcul à gauche.
+Pour la première équation, x moins 3 égale 6, nous isolons x en ajoutant 3 des deux côtés. Nous obtenons x égale 6 plus 3, ce qui nous donne x égale 9.
+Pour la deuxième équation, x moins 3 égale moins 6, nous isolons x en ajoutant 3 des deux côtés. Nous obtenons x égale moins 6 plus 3, ce qui nous donne x égale moins 3.
+
+Prenons toujours le réflexe de vérifier nos solutions. Remplaçons d'abord x par moins 3 dans l'équation de départ. Moins 3 moins 3 donne moins 6, et la valeur absolue de moins 6 est bien égale à 6. L'égalité est parfaitement vérifiée.
+Remplaçons ensuite x par 9. Neuf moins 3 donne 6, et la valeur absolue de 6 est bien égale à 6. L'égalité est également vérifiée.
+Nous pouvons donc conclure avec certitude : l'ensemble des solutions de cette première équation est constitué des deux nombres moins 3 et 9.
+
+Passons à présent à la deuxième méthode, avec une équation où deux valeurs absolues sont égales entre elles.
+Écrivons au tableau l'équation suivante : valeur absolue de 2x moins 5 égale valeur absolue de x plus 7.
+Ici, les deux membres de l'équation sont protégés par des barres de valeur absolue. Quelle est la propriété clé ? Deux nombres ont la même valeur absolue si et seulement si leurs carrés sont égaux. Autrement dit, valeur absolue de a égale valeur absolue de b équivaut à a au carré égale b au carré.
+Cette méthode du passage aux carrés est particulièrement élégante et évite les erreurs de signe.
+
+Appliquons cette propriété à notre équation.
+Élevons chaque membre au carré. Nous obtenons : 2x moins 5 entre parenthèses au carré égale x plus 7 entre parenthèses au carré.
+Pour résoudre cette équation, ne développons surtout pas les carrés de façon désordonnée. Regroupons plutôt tous les termes dans le membre de gauche en soustrayant x plus 7 au carré.
+Nous obtenons alors : 2x moins 5 au carré moins x plus 7 au carré égale 0.
+
+Reconnaissons immédiatement à gauche une identité remarquable majeure : la différence de deux carrés. La formule est a au carré moins b au carré égale a moins b facteur de a plus b.
+Ici, notre terme a correspond à 2x moins 5, et notre terme b correspond à x plus 7.
+Factorisons avec précaution en ouvrant des crochets.
+Nous écrivons : crochet, 2x moins 5 entre parenthèses moins x plus 7 entre parenthèses, crochet fermant, facteur de crochet, 2x moins 5 entre parenthèses plus x plus 7 entre parenthèses, crochet fermant, égale 0.
+
+Supprimons maintenant les parenthèses intérieures en faisant très attention à la règle des signes.
+Dans le premier crochet, le signe moins devant la parenthèse inverse tous les signes intérieurs : moins x devient moins x, et plus 7 devient moins 7. Nous obtenons 2x moins 5 moins x moins 7.
+Dans le second crochet, nous additionnons directement : 2x moins 5 plus x plus 7.
+Réduisons chacun des deux facteurs.
+Pour le premier facteur : 2x moins x donne x, et moins 5 moins 7 donne moins 12. Nous obtenons x moins 12.
+Pour le second facteur : 2x plus x donne 3x, et moins 5 plus 7 donne plus 2. Nous obtenons 3x plus 2.
+Notre équation initiale s'écrit donc sous forme factorisée : x moins 12 facteur de 3x plus 2 égale 0.
+
+Rappelons la règle du produit nul : un produit de facteurs est nul si et seulement si l'un au moins des facteurs est nul.
+Cela nous donne deux équations disjointes : soit x moins 12 égale 0, soit 3x plus 2 égale 0.
+Résolvons la première équation : en déplaçant moins 12, nous trouvons x égale 12.
+Résolvons la deuxième équation : en déplaçant plus 2, nous obtenons 3x égale moins 2, puis en divisant par 3, nous trouvons x égale moins 2 tiers.
+L'ensemble des solutions de cette deuxième équation est donc composé des deux réels moins 2 tiers et 12.
+
+Arrivons maintenant au cas le plus riche et le plus formateur : les équations mixtes comportant à la fois une valeur absolue et des termes en x à l'extérieur.
+Écrivons à gauche notre troisième équation : valeur absolue de 5x moins 6 moins 3x égale 2.
+Face à une telle équation, nous ne pouvons pas directement prendre un plus ou moins ni élever au carré, car le terme moins 3x perturbe la structure.
+La méthode rigoureuse consiste à étudier le signe de l'expression située sous la valeur absolue pour savoir quand elle est positive et quand elle est négative.
+
+Posons d'abord l'équation 5x moins 6 égale 0 pour trouver la racine pivot.
+Nous isolons 5x, ce qui donne 5x égale 6, puis nous divisons par 5, ce qui nous donne la valeur charnière x égale 6 cinquièmes.
+Traçons à droite notre tableau de signes avec la racine 6 cinquièmes.
+Sur la première ligne, la variable x varie de moins l'infini à plus l'infini, en passant par 6 cinquièmes.
+Sur la deuxième ligne, nous étudions l'expression affine 5x moins 6.
+Comme le coefficient devant x est 5, et que 5 est strictement positif, la droite monte. L'expression est donc négative avant la racine, s'annule en 6 cinquièmes, puis devient positive après 6 cinquièmes.
+Sur l'intervalle allant de moins l'infini à 6 cinquièmes, 5x moins 6 est négatif.
+Sur l'intervalle allant de 6 cinquièmes à plus l'infini, 5x moins 6 est positif.
+
+Cette étude de signe nous permet de séparer notre résolution en deux cas distincts selon l'intervalle où se trouve x.
+Examinons d'abord le premier cas : pour tout x appartenant à l'intervalle allant de moins l'infini à 6 cinquièmes.
+Sur cet intervalle, nous savons que 5x moins 6 est négatif ou nul. Par définition de la valeur absolue, la valeur absolue d'un nombre négatif est égale à son opposé.
+Nous remplaçons donc la valeur absolue de 5x moins 6 par moins entre parenthèses 5x moins 6, ce qui donne moins 5x plus 6.
+Notre équation devient alors : moins 5x plus 6 moins 3x égale 2.
+Regroupons les termes en x : moins 5x moins 3x nous donne moins 8x.
+Nous avons donc moins 8x plus 6 égale 2.
+En soustrayant 6 des deux côtés, nous obtenons moins 8x égale 2 moins 6, soit moins 8x égale moins 4.
+En divisant par moins 8 et en simplifiant les signes moins, nous trouvons x égale 4 huitièmes, ce qui se simplifie en 1 demi.
+
+Attention, voici l'étape capitale que beaucoup d'élèves oublient en contrôle ! Il faut impérativement vérifier si cette solution candidate appartient bien à notre intervalle de travail.
+Notre intervalle est moins l'infini jusqu'à 6 cinquièmes.
+Or, 1 demi est égal à 0 virgule 5, et 6 cinquièmes est égal à 1 virgule 2.
+Comme 0 virgule 5 est bien inférieur ou égal à 1 virgule 2, le nombre 1 demi appartient parfaitement à notre intervalle. C'est donc une solution tout à fait valide.
+
+Examinons maintenant le deuxième cas : pour tout x appartenant à l'intervalle allant de 6 cinquièmes à plus l'infini.
+Sur cet intervalle, l'expression 5x moins 6 est positive ou nulle. La valeur absolue n'a donc aucun effet modificateur : la valeur absolue de 5x moins 6 est simplement égale à 5x moins 6.
+Notre équation s'écrit alors : 5x moins 6 moins 3x égale 2.
+Regroupons les termes en x : 5x moins 3x nous donne 2x.
+Nous avons donc 2x moins 6 égale 2.
+En ajoutant 6 des deux côtés, nous trouvons 2x égale 2 plus 6, ce qui fait 2x égale 8.
+En divisant par 2, nous obtenons x égale 8 divisé par 2, ce qui donne x égale 4.
+
+Procédons à la vérification d'appartenance pour cette seconde valeur candidate.
+Notre intervalle d'étude est 6 cinquièmes jusqu'à plus l'infini.
+Comme 4 est nettement supérieur à 1 virgule 2, le nombre 4 se trouve bien dans l'intervalle. C'est donc notre deuxième solution valide.
+Nous pouvons rassembler nos résultats : l'ensemble des solutions de cette troisième équation est l'ensemble formé par les nombres 1 demi et 4.
+
+Dressons à présent notre fiche de synthèse au tableau pour retenir l'essentiel.
+Premier réflexe : une équation de la forme valeur absolue de x moins a égale r n'a de solution que si r est positif ou nul. Si r est strictement négatif, par exemple valeur absolue de x égale moins 5, l'équation est strictement impossible car une valeur absolue ne peut jamais être négative.
+Deuxième réflexe : si r est strictement positif, l'équation valeur absolue de x moins a égale r équivaut à x moins a égale r ou x moins a égale moins r, ce qui donne deux solutions réelles a plus r et a moins r.
+Troisième réflexe : face à une égalité de deux valeurs absolues de la forme valeur absolue de a égale valeur absolue de b, utilisez la différence de deux carrés a au carré moins b au carré égale 0, puis factorisez grâce à l'identité remarquable.
+Quatrième réflexe : face à une équation comportant d'autres termes extérieurs, trouvez la racine de l'expression intérieure, dressez son tableau de signes, résolvez sur chaque intervalle sans les valeurs absolues, et vérifiez systématiquement que chaque racine trouvée appartient à l'intervalle où vous travaillez.
+
+En appliquant avec rigueur ces méthodes, vous résoudrez sans la moindre hésitation n'importe quelle équation avec valeur absolue lors de vos prochaines évaluations.

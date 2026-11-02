@@ -1,0 +1,101 @@
+{
+  "course_id": "MATH_017",
+  "subject": "Mathématiques",
+  "level": "Seconde",
+  "domain": "Nombres & Calculs",
+  "title": "Valeur absolue et distance sur la droite réelle — Cours fondamental et définitions",
+  "sections": [
+    {
+      "section_id": "sec_1",
+      "title": "1. Accroche : Mesurer une distance sur un axe gradué",
+      "summary": "Introduction visuelle de la notion de distance entre deux points d'une droite réelle avec un exemple simple.",
+      "support_visuel_suggere": "draw line + draw circle",
+      "concepts_cles": [
+        "droite réelle",
+        "abscisse",
+        "distance géométrique",
+        "axe gradué"
+      ]
+    },
+    {
+      "section_id": "sec_2",
+      "title": "2. Exemple concret : La distance entre -3 et 4",
+      "summary": "Comptage des pas entre deux abscisses et symétrie naturelle de la distance entre deux nombres.",
+      "support_visuel_suggere": "draw line + draw path + draw arrow",
+      "concepts_cles": [
+        "écart géométrique",
+        "symétrie",
+        "positivité"
+      ]
+    },
+    {
+      "section_id": "sec_3",
+      "title": "3. Définition formelle : La valeur absolue d'une différence",
+      "summary": "Calcul de la différence a - b et application de la valeur absolue pour retrouver la distance.",
+      "support_visuel_suggere": "step_solution + draw line",
+      "concepts_cles": [
+        "valeur absolue",
+        "différence",
+        "opposé d'un nombre négatif"
+      ]
+    },
+    {
+      "section_id": "sec_4",
+      "title": "4. Décomposition : Règle générale et égalité |a - b| = |b - a|",
+      "summary": "Théorème fondamental de la distance entre deux réels et propriété de symétrie de la valeur absolue.",
+      "support_visuel_suggere": "draw line + draw polygone",
+      "concepts_cles": [
+        "formule de la distance",
+        "symétrie de la valeur absolue",
+        "règle générale"
+      ]
+    },
+    {
+      "section_id": "sec_5",
+      "title": "5. Décomposition : Première application avec |x - 3|",
+      "summary": "Interprétation géométrique immédiate de la valeur absolue d'une différence avec une variable.",
+      "support_visuel_suggere": "draw line + draw circle + draw arrow",
+      "concepts_cles": [
+        "variable x",
+        "distance à un point fixe",
+        "interprétation géométrique"
+      ]
+    },
+    {
+      "section_id": "sec_6",
+      "title": "6. Erreur fréquente : Le piège de |x + 5| et l'astuce du signe moins",
+      "summary": "Mise en garde contre l'erreur classique du signe d'addition et réécriture sous la forme x - (-5).",
+      "support_visuel_suggere": "draw line + draw path + draw circle",
+      "concepts_cles": [
+        "piège du signe plus",
+        "réécriture soustraction",
+        "distance à un nombre négatif"
+      ]
+    },
+    {
+      "section_id": "sec_7",
+      "title": "7. Synthèse : Réflexe méthodologique pour le lycée",
+      "summary": "Récapitulatif des deux réflexes essentiels pour relier calcul algébrique et géométrie de la droite graduée.",
+      "support_visuel_suggere": "step_solution + draw line",
+      "concepts_cles": [
+        "réflexe distance",
+        "transformation du signe",
+        "préparation aux équations"
+      ]
+    }
+  ],
+  "duration_seconds": 590.9,
+  "word_count": 1871,
+  "source_video": {
+    "video_id": "QQQqu8Fnlqc",
+    "title": "Valeur absolue et distance entre deux nombres. Seconde.",
+    "channel": "KIFFELESMATHS : L'école de maths en ligne",
+    "youtube_url": "https://www.youtube.com/watch?v=QQQqu8Fnlqc"
+  },
+  "world_model_score": 10.0,
+  "rendered_scenes": 6,
+  "visual_audit_notes": "6 chalkboard scenes visually inspected via multimodal PNG: Scene 0: Graduated axis from -4 to 5 with origin 0 in yellow, endpoints A(-3) in cyan and B(4) in emerald, 7 sequential stepping arcs and distance measurement bracket (7 units). Scene 1: Rigorous algebraic derivation of |a - b| = |-7| = 7 and |b - a| = |7| = 7, with KaTeX definition card for absolute value and summary card. Scene 2: Formal theorem d(a, b) = |a - b| = |b - a| highlighted in a cyan card, warning on subtraction asymmetry (a - b != b - a), and gold metric axioms card. Scene 3: Example 1 (|x - 3|) with step-by-step identification of a=x, b=3, conclusion card, and graduated axis displaying point A(3) and mobile point M(x). Scene 4: Example 2 (|x + 5|) explicitly warning against |x+5| != d(x, 5), demonstrating the algebraic transformation +5 = -(-5), conclusion card d(x, -5), and axis with B(-5) and M(x). Scene 5: Comprehensive synthesis of both reflexes and direct application to solving |x - 3| = 2 geometrically, with graduated axis showing center 3, radius 2 to points 1 and 5, yielding S = {1 ; 5}. Zero collisions, zero overlaps, high chalkboard contrast.",
+  "certified_by": "antigravity-argon",
+  "certified_at": "2026-11-01T20:20:37.797322",
+  "status": "COMPLETED"
+}

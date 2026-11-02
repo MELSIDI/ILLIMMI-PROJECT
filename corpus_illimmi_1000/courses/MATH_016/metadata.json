@@ -1,0 +1,122 @@
+{
+  "id": "MATH_016",
+  "course_id": "MATH_016",
+  "subject": "Mathématiques",
+  "level": "Seconde",
+  "domain": "Nombres & Calculs",
+  "title": "Révision express & Fiche de synthèse : Tout retenir sur Valeur absolue et distance sur la droite réelle",
+  "pedagogical_type": "synthese_cours",
+  "pedagogical_target": "Maîtriser la définition et les trois méthodes fondamentales de résolution d'équations avec valeurs absolues : l'égalité à une constante positive |x - a| = r (géométrie et algèbre), l'égalité de deux valeurs absolues |A| = |B| par les carrés, et les expressions mixtes par étude de signe et disjonction de cas sur intervalles.",
+  "sections": [
+    {
+      "section_id": "sec_1",
+      "title": "1. Accroche & Sens Géométrique de la Valeur Absolue",
+      "summary": "Introduction de la valeur absolue comme distance sur la droite réelle. Une distance est toujours positive ou nulle, ce qui conditionne toute équation.",
+      "support_visuel_suggere": "draw line + draw circle + text",
+      "concepts_cles": [
+        "droite réelle",
+        "distance géométrique",
+        "valeur absolue",
+        "positivité"
+      ]
+    },
+    {
+      "section_id": "sec_2",
+      "title": "2. Méthode 1 : Résolution de |x - 3| = 6 par Algèbre et Droite Réelle",
+      "summary": "Résolution de l'équation fondamentale |x - 3| = 6. Traduction géométrique comme distance au pivot 3 égale à 6, et décomposition algébrique en deux équations simples.",
+      "support_visuel_suggere": "draw line + draw arrow + text",
+      "concepts_cles": [
+        "équation fondamentale",
+        "point pivot",
+        "déplacement bilatéral",
+        "branches disjointes"
+      ]
+    },
+    {
+      "section_id": "sec_3",
+      "title": "3. Vérification Rigoureuse des Solutions -3 et 9",
+      "summary": "Substitution pas à pas de chaque solution dans l'équation initiale, confirmant que la valeur absolue d'un nombre négatif redonne sa valeur positive opposée.",
+      "support_visuel_suggere": "draw line + text",
+      "concepts_cles": [
+        "substitution",
+        "validation des racines",
+        "contrôle rigoureux",
+        "ensemble solution"
+      ]
+    },
+    {
+      "section_id": "sec_4",
+      "title": "4. Méthode 2 : Égalité de Deux Valeurs Absolues |2x - 5| = |x + 7|",
+      "summary": "Résolution de l'égalité de deux valeurs absolues par passage aux carrés et application systématique de l'identité remarquable de la différence de deux carrés.",
+      "support_visuel_suggere": "draw line + draw path + text",
+      "concepts_cles": [
+        "égalité de valeurs absolues",
+        "passage aux carrés",
+        "différence de carrés",
+        "factorisation"
+      ]
+    },
+    {
+      "section_id": "sec_5",
+      "title": "5. Équation Produit Nul et Solutions de la Méthode 2",
+      "summary": "Factorisation en produit nul (x - 12)(3x + 2) = 0 et résolution des deux équations du premier degré pour obtenir les solutions 12 et -2/3.",
+      "support_visuel_suggere": "draw line + text",
+      "concepts_cles": [
+        "produit nul",
+        "équation du premier degré",
+        "racines fractionnaires",
+        "ensemble solution"
+      ]
+    },
+    {
+      "section_id": "sec_6",
+      "title": "6. Méthode 3 : Équation Mixte |5x - 6| - 3x = 2 et Tableau de Signes",
+      "summary": "Traitement des équations mixtes avec terme hors valeur absolue. Recherche de la racine pivot 6/5 et construction du tableau de signes de 5x - 6.",
+      "support_visuel_suggere": "draw line + draw path + text",
+      "concepts_cles": [
+        "expression mixte",
+        "racine pivot",
+        "tableau de signes",
+        "changement de signe"
+      ]
+    },
+    {
+      "section_id": "sec_7",
+      "title": "7. Disjonction de Cas sur Intervalles et Solutions Finales",
+      "summary": "Résolution distincte sur ]-infini ; 6/5] et [6/5 ; +infini[, avec vérification indispensable de l'appartenance des solutions candidates 1/2 et 4.",
+      "support_visuel_suggere": "draw line + draw arrow + text",
+      "concepts_cles": [
+        "disjonction de cas",
+        "intervalles de validité",
+        "solutions admissibles",
+        "ensemble final"
+      ]
+    },
+    {
+      "section_id": "sec_8",
+      "title": "8. Fiche de Synthèse & Pièges d'Examen",
+      "summary": "Fiche mémo récapitulative des 3 méthodes, alerte sur le piège du second membre négatif impossible dans R, et réflexes pour les contrôles.",
+      "support_visuel_suggere": "draw line + draw path + text",
+      "concepts_cles": [
+        "fiche réflexe",
+        "second membre négatif",
+        "équation impossible",
+        "synthèse méthodique"
+      ]
+    }
+  ],
+  "source_video": {
+    "video_id": "1ff6MSIbVFw",
+    "title": "Equations with absolute values",
+    "channel": "Éducation Plus",
+    "youtube_url": "https://www.youtube.com/watch?v=1ff6MSIbVFw"
+  },
+  "duration_seconds": 682.17,
+  "word_count": 1978,
+  "world_model_score": 10.0,
+  "rendered_scenes": 8,
+  "visual_audit_notes": "Toutes les 8 scenes (scene_0 a scene_7) inspectees visuellement via read_file avec World Model Score 10.0/10. 1. Definition algebrique et droite reelle avec pivot a et point x. 2. Equation 1 (|x-3|=6) avec decomposition bilaterale, fleches horizontales +6 et -6 vers 9 et -3, et resolution des 2 branches. 3. Controle rigoureux par substitution (-3 et 9) et encadre Fiche Type 1. 4. Equation 2 (|2x-5|=|x+7|) avec passage aux carres et identite remarquable A2-B2. 5. Equation produit nul (x-12)(3x+2)=0 avec solutions 12 et -2/3. 6. Equation mixte (|5x-6|-3x=2) avec racine pivot 6/5 et tableau de signes complet. 7. Disjonction de cas avec axe bicolore (Zone 1 et Zone 2), validation des solutions 1/2 et 4, et ensemble S={1/2;4}. 8. Fiche de synthese express en 4 cartes haute lisibilite. Zero collision, KaTeX net et contraste parfait.",
+  "certified_by": "antigravity-argon",
+  "certified_at": "2026-11-01T20:56:55.563688",
+  "status": "COMPLETED"
+}
