@@ -18,11 +18,15 @@ class Repere2DDrawParser implements DrawParser {
     Offset origin = const Offset(88.89, 50);
     String? color;
     double width = 1.5;
-    double scale = 1.0;
+    double scale = 6.0;
     double xMin = -10;
     double xMax = 10;
     double yMin = -10;
     double yMax = 10;
+    bool grid = false;
+    double gridAlpha = 0.7;
+    double step = 1.0;
+    bool showLabels = false;
     
     int currentIndex = startIndex + 2;
     
@@ -45,8 +49,60 @@ class Repere2DDrawParser implements DrawParser {
         width = double.parse(tokens[currentIndex + 1].value);
         currentIndex += 2;
       } else if (token.value == 'scale') {
-        scale = double.parse(tokens[currentIndex + 2].value); // Skip '='
-        currentIndex += 3;
+        if (currentIndex + 1 < tokens.length && tokens[currentIndex + 1].value == '=') {
+          scale = double.parse(tokens[currentIndex + 2].value);
+          currentIndex += 3;
+        } else {
+          scale = double.parse(tokens[currentIndex + 1].value);
+          currentIndex += 2;
+        }
+      } else if (token.value == 'grid' || token.value == 'grille') {
+        if (currentIndex + 1 < tokens.length && tokens[currentIndex + 1].value == '=') {
+          final val = tokens[currentIndex + 2].value.toLowerCase();
+          grid = val == 'true' || val == '1' || val == 'yes';
+          currentIndex += 3;
+        } else if (currentIndex + 1 < tokens.length &&
+            (tokens[currentIndex + 1].value.toLowerCase() == 'true' ||
+             tokens[currentIndex + 1].value.toLowerCase() == 'false')) {
+          grid = tokens[currentIndex + 1].value.toLowerCase() == 'true';
+          currentIndex += 2;
+        } else {
+          grid = true;
+          currentIndex += 1;
+        }
+      } else if (token.value == 'grid_alpha' || token.value == 'gridalpha') {
+        if (currentIndex + 1 < tokens.length && tokens[currentIndex + 1].value == '=') {
+          gridAlpha = double.parse(tokens[currentIndex + 2].value);
+          currentIndex += 3;
+        } else {
+          gridAlpha = double.parse(tokens[currentIndex + 1].value);
+          currentIndex += 2;
+        }
+      } else if (token.value == 'step' || token.value == 'graduation' || token.value == 'grad') {
+        if (currentIndex + 1 < tokens.length && tokens[currentIndex + 1].value == '=') {
+          final val = tokens[currentIndex + 2].value.toLowerCase();
+          if (val == 'true') {
+            step = 1.0;
+          } else if (val == 'false') {
+            step = 0.0;
+          } else {
+            step = double.tryParse(val) ?? 1.0;
+          }
+          currentIndex += 3;
+        } else {
+          final val = tokens[currentIndex + 1].value.toLowerCase();
+          step = double.tryParse(val) ?? 1.0;
+          currentIndex += 2;
+        }
+      } else if (token.value == 'show_labels' || token.value == 'labels') {
+        if (currentIndex + 1 < tokens.length && tokens[currentIndex + 1].value == '=') {
+          final val = tokens[currentIndex + 2].value.toLowerCase();
+          showLabels = val == 'true' || val == '1' || val == 'yes';
+          currentIndex += 3;
+        } else {
+          showLabels = true;
+          currentIndex += 1;
+        }
       } else if (token.value == 'x_range') {
         final range = ParsingUtils.parseRange(tokens, currentIndex + 2); // Skip '='
         xMin = range[0];
@@ -74,6 +130,10 @@ class Repere2DDrawParser implements DrawParser {
       scale: scale,
       color: ParsingUtils.parseColorString(color),
       width: width,
+      grid: grid,
+      gridAlpha: gridAlpha,
+      step: step,
+      showLabels: showLabels,
     );
   }
 }

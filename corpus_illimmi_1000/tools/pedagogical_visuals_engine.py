@@ -686,12 +686,10 @@ class PedagogicalVisualsEngine:
         texts.append(f"text id {tid+2} start {(t0 + 5.0):.1f}s at (4, 60) ''$$M(x ; y) \\in \\mathcal{{C}}_f \\iff y = f(x)$$'' ;")
         texts.append(f"text id {tid+3} start {(t0 + 7.5):.1f}s at (4, 76) ''Image de x par f et antécédents.'' ;")
 
-        draws.append(f"draw arrow id {did} start {(t0 + 1.5):.1f}s for 0.8s color (248, 250, 252, 0.95) width 1.8 at [(98, 68), (168, 68)] ;")
-        draws.append(f"text id {tid+4} start {(t0 + 2.0):.1f}s at (166.0, 70.0) ''x'' ;")
-        draws.append(f"draw arrow id {did+1} start {(t0 + 2.2):.1f}s for 0.8s color (248, 250, 252, 0.95) width 1.8 at [(110, 84), (110, 28)] ;")
-        draws.append(f"text id {tid+5} start {(t0 + 2.5):.1f}s at (107.0, 30.0) ''y'' ;")
-        draws.append(f"draw curve id {did+2} start {(t0 + 3.8):.1f}s for 1.4s color (56, 189, 248, 1) width 3.0 at [(102, 34), (118, 64), (133, 68), (148, 64), (164, 34)] ;")
-        draws.append(f"text id {tid+6} start {(t0 + 5.0):.1f}s at (152.0, 36.0) ''[bold][color=#38BDF8]Cf[/color][/bold]'' ;")
+        # Repere cartesien 2D avec grille, graduations et echelle optimale en colonne droite
+        draws.append(f"draw 2drep id {did} start {(t0 + 1.5):.1f}s for 1.2s at (132, 56) color (248, 250, 252, 0.95) width 1.5 scale = 6.5 grid = true grid_alpha = 0.7 step = 1 x_range = [-4, 4] y_range = [-2, 5] ;")
+        draws.append(f"draw 2dfunc id {did+1} start {(t0 + 3.2):.1f}s for 1.5s color (56, 189, 248, 1) width 2.5 at {did} y = 0.5 * x^2 - 1 ;")
+        draws.append(f"text id {tid+4} start {(t0 + 5.0):.1f}s at (142.0, 32.0) ''[bold][color=#38BDF8]\\mathcal{{C}}_f[/color][/bold]'' ;")
 
         return texts, draws
 

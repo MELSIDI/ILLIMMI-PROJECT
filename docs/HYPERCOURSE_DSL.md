@@ -261,23 +261,48 @@ draw 2drep id <n> start <t>s [for <d>s]
            at (<x>, <y>)
            [color (<r>,<g>,<b>,<a>)] [width <w>]
            [scale = <facteur>]
+           [grid = true|false]
+           [grid_alpha = <0.0..1.0>]
+           [step = <pas>]
+           [show_labels = true|false]
            [x_range = [xmin, xmax]]
            [y_range = [ymin, ymax]] ;
 ```
 
-**Valeurs par défaut :**
-- Position : `(88.89, 50)`
-- Scale : `1.0`
-- x_range : `[-10, 10]`
-- y_range : `[-10, 10]`
+**Paramètres et options :**
+- `at (<x>, <y>)` : Centre du repère (intersection des axes $x=0, y=0$). Recommandé pour la colonne droite face aux textes : `at (132, 56)`.
+- `scale = <facteur>` : Facteur d'échelle (unités canvas par unité mathématique).
+- `grid = true|false` : Active la grille cartésienne d'arrière-plan (tracée avec la couleur du repère, trait fin et opacité allégée).
+- `grid_alpha = <alpha>` : Opacité de la grille (défaut : `0.7`).
+- `step = <pas>` (ou `graduation = <pas>`) : Pas de graduation sur les axes et espacement de la grille (défaut : `1.0`).
+- `show_labels = true|false` : Affiche les valeurs numériques sur les graduations.
+- `x_range = [xmin, xmax]` : Bornes de l'axe des abscisses (défaut : `[-10, 10]`).
+- `y_range = [ymin, ymax]` : Bornes de l'axe des ordonnées (défaut : `[-10, 10]`).
 
-**Exemple :**
+**Règle d'or de dimensionnement de `scale` (Vérification World Model) :**
+Sur le canevas 16:9 ($177.78 \times 100$), pour une occupation optimale de la colonne droite ($x \in [95, 170]$, largeur cible $\approx 50$ à $60$) :
+$$\text{scale} \approx \frac{52}{x_{max} - x_{min}}$$
+
+| Plage mathématique $x$ | Amplitude $\Delta x$ | `scale` recommandé | Largeur écran résultante |
+|---|---|---|---|
+| $[-3 ; 3]$ | $6$ | `7.0` à `8.5` | $42$ à $51$ u |
+| $[-4 ; 4]$ | $8$ | `6.0` à `6.5` | $48$ à $52$ u |
+| $[-5 ; 5]$ | $10$ | `5.0` à `5.5` | $50$ à $55$ u |
+| $[-2 ; 6]$ | $8$ | `6.0` à `6.5` | $48$ à $52$ u |
+| $[-10 ; 10]$ | $20$ | `2.5` à `3.0` | $50$ à $60$ u |
+
+> [!WARNING]
+> Si `scale` est trop faible (ex: `scale = 1.0` sur $[-4, 4]$), le repère ne mesurera que 8 unités de large (microscopique et illisible). Le World Model Verifier rejettera automatiquement le script (`scale_errors`).
+
+**Exemple recommandé :**
 ```hypercourse
-draw 2drep id 101 start 8s
-           at (88.89, 55)
-           scale = 1.5
-           x_range = [-5, 5]
-           y_range = [-2, 8] ;
+draw 2drep id 101 start 8s for 20s
+           at (132, 56)
+           color (248, 250, 252, 0.95) width 1.5
+           scale = 6.5
+           grid = true grid_alpha = 0.7 step = 1
+           x_range = [-4, 4]
+           y_range = [-2, 6] ;
 ```
 
 ---

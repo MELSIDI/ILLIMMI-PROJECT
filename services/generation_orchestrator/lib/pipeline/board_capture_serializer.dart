@@ -180,4 +180,8 @@ Map<String, dynamic> _repere2dJson(Repere2DElement e) => {
   'yStart': e.yStart,
   'yEnd': e.yEnd,
   'scale': e.scale,
+  'grid': e.grid,
+  'gridAlpha': e.gridAlpha,
+  'step': e.step,
+  'showLabels': e.showLabels,
 };

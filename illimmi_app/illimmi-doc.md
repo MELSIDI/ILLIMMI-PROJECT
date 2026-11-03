@@ -305,23 +305,33 @@ draw 2drep id <n> start <t>s [for <d>s]
            at (<x>, <y>)
            [color (<r>,<g>,<b>,<a>)] [width <w>]
            [scale = <facteur>]
+           [grid = true|false]
+           [grid_alpha = <0.0..1.0>]
+           [step = <pas>]
+           [show_labels = true|false]
            [x_range = [xmin, xmax]]
            [y_range = [ymin, ymax]] ;
 ```
 
-**Valeurs par défaut :**
-- Position : `(88.89, 50)`
-- Scale : `1.0`
-- x_range : `[-10, 10]`
-- y_range : `[-10, 10]`
+**Options et paramètres :**
+- `at (<x>, <y>)` : Position de l'origine $(0, 0)$ sur le canevas (recommandé en colonne droite : `at (132, 56)`).
+- `scale = <facteur>` : Échelle du repère. **Règle : `scale ≈ 52 / (xmax - xmin)`** (ex: pour $x \in [-4, 4]$, `scale = 6.5`).
+- `grid = true|false` : Active la grille cartésienne d'arrière-plan (même teinte que le repère avec opacité allégée et trait fin).
+- `grid_alpha = <alpha>` : Opacité de la grille (défaut : `0.7`).
+- `step = <pas>` : Pas des graduations sur les axes et de la grille (défaut : `1.0`).
+- `show_labels = true|false` : Affiche les valeurs numériques sur les graduations.
+- `x_range = [xmin, xmax]` : Bornes des abscisses (défaut : `[-10, 10]`).
+- `y_range = [ymin, ymax]` : Bornes des ordonnées (défaut : `[-10, 10]`).
 
 **Exemple :**
 ```hypercourse
-draw 2drep id 101 start 8s
-           at (88.89, 55)
-           scale = 1.5
-           x_range = [-5, 5]
-           y_range = [-2, 8] ;
+draw 2drep id 101 start 8s for 20s
+           at (132, 56)
+           color (248, 250, 252, 0.95) width 1.5
+           scale = 6.5
+           grid = true grid_alpha = 0.7 step = 1
+           x_range = [-4, 4]
+           y_range = [-2, 6] ;
 ```
 
 ---

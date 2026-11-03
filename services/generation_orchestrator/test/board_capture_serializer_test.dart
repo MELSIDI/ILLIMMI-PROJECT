@@ -5,6 +5,7 @@ import 'package:generation_orchestrator/models/basic_elements/text_element.dart'
 import 'package:generation_orchestrator/models/course.dart';
 import 'package:generation_orchestrator/models/draw_elements/arrow_element.dart';
 import 'package:generation_orchestrator/models/draw_elements/circle_element.dart';
+import 'package:generation_orchestrator/models/draw_elements/repere2d_element.dart';
 import 'package:generation_orchestrator/models/id_config.dart';
 import 'package:generation_orchestrator/pipeline/board_capture_planner.dart';
 import 'package:generation_orchestrator/pipeline/board_capture_serializer.dart';
@@ -109,5 +110,41 @@ void main() {
     final json = serializeCapturePoint(course, point);
 
     expect(json['elements'], isEmpty);
+  });
+
+  test('serializes repere2d element with grid, gridAlpha, step and showLabels', () {
+    final course = _buildCourse();
+    course.insert(
+      Repere2DElement(
+        id: 100002,
+        startTime: 2.0,
+        duration: 1.5,
+        origin: const Offset(132, 56),
+        xStart: -4,
+        xEnd: 4,
+        yStart: -2,
+        yEnd: 6,
+        scale: 6.5,
+        grid: true,
+        gridAlpha: 0.75,
+        step: 1.0,
+        showLabels: true,
+      ),
+    );
+
+    final point = CapturePoint(time: 3, triggerElementIds: const [100002]);
+    final json = serializeCapturePoint(course, point);
+    final elements = json['elements'] as List;
+    final repereJson = elements.firstWhere((e) => e['id'] == 100002) as Map<String, dynamic>;
+
+    expect(repereJson['type'], 'repere2d');
+    expect(repereJson['origin'], {'dx': 132.0, 'dy': 56.0});
+    expect(repereJson['scale'], 6.5);
+    expect(repereJson['grid'], true);
+    expect(repereJson['gridAlpha'], 0.75);
+    expect(repereJson['step'], 1.0);
+    expect(repereJson['showLabels'], true);
+    expect(repereJson['xStart'], -4.0);
+    expect(repereJson['xEnd'], 4.0);
   });
 }

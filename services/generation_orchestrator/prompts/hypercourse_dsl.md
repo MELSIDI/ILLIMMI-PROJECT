@@ -286,23 +286,33 @@ draw polygone id 110 start 22.0s for 1.5s color (230, 126, 34, 1) width 2 fillco
 ---
 
 ### 6.11 `draw 2drep` — Repère cartésien 2D
-Crée un repère orthonormal ou orthonormé avec axes gradués et origines pour y tracer des fonctions mathématiques.
+Crée un repère orthonormal ou orthonormé avec axes gradués, grille cartésienne et origines pour y tracer des fonctions mathématiques.
 
 ```hypercourse
-draw 2drep id <n> start <t>s [for <d>s] at (<x>, <y>) [color (<r>,<g>,<b>,<a>)] [width <w>] [scale = <facteur>] [x_range = [xmin, xmax]] [y_range = [ymin, ymax]] ;
+draw 2drep id <n> start <t>s [for <d>s] at (<x>, <y>) [color (<r>,<g>,<b>,<a>)] [width <w>] [scale = <facteur>] [grid = true|false] [grid_alpha = <0.0..1.0>] [step = <pas>] [show_labels = true|false] [x_range = [xmin, xmax]] [y_range = [ymin, ymax]] ;
 ```
 
 - **Paramètres communs :** `id`, `start`, `for`, `color`, `width`.
 - **Paramètres spécifiques (Cas particuliers) :**
-  - `at (<x>, <y>)` : Position de l'origine $(0, 0)$ du repère dans les coordonnées 16:9 du tableau (valeur par défaut : `(88.89, 50)`).
-  - `scale = <facteur>` : **Facteur d'échelle / zoom** des unités mathématiques sur l'écran (défaut : `1.0`).
-    > *Important : Le paramètre `scale` contrôle la taille physique d'une unité mathématique sur le tableau blanc.*
+  - `at (<x>, <y>)` : Position de l'origine $(0, 0)$ du repère sur le canevas 16:9. **Recommandé en colonne droite face aux textes : `at (132, 56)`**.
+  - `scale = <facteur>` : **Facteur d'échelle / zoom** des unités mathématiques sur le canevas.
+    > ⚠️ **RÈGLE CRITIQUE D'ÉCHELLE (World Model Verifier) :**
+    > Choisir toujours `scale ≈ 52 / (xmax - xmin)` pour occuper harmonieusement la colonne droite (~50-60u de large).
+    > - Si $x \in [-3, 3] (\Delta x=6)$ : `scale = 7.0` à `8.5`
+    > - Si $x \in [-4, 4] (\Delta x=8)$ : `scale = 6.0` à `6.5`
+    > - Si $x \in [-5, 5] (\Delta x=10)$ : `scale = 5.0` à `5.5`
+    > - Si $x \in [-10, 10] (\Delta x=20)$ : `scale = 2.5` à `3.0`
+    > *Ne JAMAIS laisser scale = 1.0 sur une plage courte ([-4, 4]) : le repère serait microscopique et rejeté par le World Model Verifier !*
+  - `grid = true|false` (ou `grille = true|false`) : Active la grille cartésienne d'arrière-plan (tracée avec la couleur du repère, trait allégé et opacité réduite).
+  - `grid_alpha = <alpha>` : Opacité de la grille (défaut : `0.7`).
+  - `step = <pas>` (ou `graduation = <pas>`) : Pas de graduation des axes et espacement de la grille (défaut : `1.0`).
+  - `show_labels = true|false` : Affiche les valeurs numériques sur les graduations.
   - `x_range = [xmin, xmax]` : Bornes de visibilité de l'axe horizontal (défaut : `[-10, 10]`).
   - `y_range = [ymin, ymax]` : Bornes de visibilité de l'axe vertical (défaut : `[-10, 10]`).
 
-**Exemple :**
+**Exemple optimal Lycée :**
 ```hypercourse
-draw 2drep id 101 start 8.0s for 1.0s at (88.89, 55) scale = 1.5 x_range = [-5, 5] y_range = [-2, 8] ;
+draw 2drep id 101 start 8.0s for 1.0s at (132, 56) color (248, 250, 252, 0.95) width 1.5 scale = 6.5 grid = true grid_alpha = 0.7 step = 1 x_range = [-4, 4] y_range = [-2, 6] ;
 ```
 
 ---

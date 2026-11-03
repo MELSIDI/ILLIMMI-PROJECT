@@ -12,9 +12,14 @@ from pathlib import Path
 THIS_DIR = Path(__file__).resolve().parent
 sys.path.insert(0, str(THIS_DIR))
 
+PROJECT_ROOT = THIS_DIR.parents[3]
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT))
+
 from step1_ingest_youtube import MAX_VIDEO_DURATION_SECONDS  # noqa: E402
 from step2_align_audio import validate_layer1_and_layer2  # noqa: E402
 from step3_render_and_verify import deep_audit_hc  # noqa: E402
+from corpus_illimmi_1000.tools.world_model_verifier import WorldModelVerifier  # noqa: E402
 
 
 VALID_METADATA = {
@@ -56,7 +61,7 @@ VALID_HC = """course "Test Course" id 1 idgap 100 for 95.0s audio "narration.wav
     text id 4 start 32.4s at (4.0, 8.0) ''[bold][color=#34D399]2. Dérivée Seconde & Courbe[/color][/bold]'' ;
     draw line id 105 start 32.6s for 0.5s color (52, 211, 153, 0.45) width 1.5 at [(4, 14), (173, 14)] ;
     text id 5 start 34.0s at (4.0, 30.0) ''Convexité : $$f^{\\prime\\prime}(x) \\ge 0$$'' ;
-    draw 2drep id 106 start 35.0s for 1.0s at (132, 56) color (248, 250, 252, 0.9) width 1.5 scale = 4.0 x_range = [-3, 3] y_range = [-1, 5] ;
+    draw 2drep id 106 start 35.0s for 1.0s at (132, 56) color (248, 250, 252, 0.9) width 1.5 scale = 6.0 grid = true step = 1 x_range = [-3, 3] y_range = [-1, 5] ;
     draw 2dfunc id 107 start 36.5s for 1.5s color (56, 189, 248, 1) width 2.5 at 106 y = 0.5 * x^2 ;
 
     # Scene 3
@@ -138,9 +143,24 @@ def run_tests():
         errs_trunc = validate_layer1_and_layer2(long_dir)
         assert any("TRUNCATION/SUMMARIZATION DETECTED" in e for e in errs_trunc), f"Expected truncation guard, got: {errs_trunc}"
 
-    print("ALL 7 SELF-TESTS PASSED SUCCESSFULLY!")
+        # 7. World Model Verifier: 2drep & 2dfunc scale and grid checks
+        wm_valid = WorldModelVerifier.verify_script(VALID_HC, 95.0)
+        assert wm_valid["ok"], f"Expected VALID_HC to pass WorldModelVerifier, got: {wm_valid['issues']}"
+
+        # Scale too small (scale = 1.0 on x in [-3, 3] gives width = 6u < 22u)
+        small_hc = VALID_HC.replace("scale = 6.0", "scale = 1.0")
+        wm_small = WorldModelVerifier.verify_script(small_hc, 95.0)
+        assert not wm_small["ok"], "Expected WorldModelVerifier to reject tiny repere with scale=1.0"
+        assert any("trop petit" in iss for iss in wm_small["issues"]), f"Expected scale warning, got: {wm_small['issues']}"
+
+        # Overflowing canvas (scale = 25.0 extends to 132 + 3*25 = 207 > 177.78)
+        overflow_hc = VALID_HC.replace("scale = 6.0", "scale = 25.0")
+        wm_over = WorldModelVerifier.verify_script(overflow_hc, 95.0)
+        assert not wm_over["ok"], "Expected WorldModelVerifier to reject overflowing repere"
+        assert any("déborde du canevas" in iss for iss in wm_over["issues"]), f"Expected bounding error, got: {wm_over['issues']}"
+
+    print("ALL 8 SELF-TESTS PASSED SUCCESSFULLY!")
 
 
 if __name__ == "__main__":
     run_tests()
-

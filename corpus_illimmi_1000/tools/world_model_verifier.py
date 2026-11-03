@@ -6,6 +6,7 @@ Checks for:
 - Canvas bounding box violations (X in [0, 177.78], Y in [0, 100])
 - Text-on-text and text-on-figure spatial collisions
 - Left margin alignment compliance (text at left x in [2, 10], leaving center/right for graphs)
+- Cartesian 2D frame (draw 2drep) and mathematical functions (draw 2dfunc) sizing and scale validation
 - Whiteboard clutter and missing erase transitions
 - Visual action anchor synchronicity with narration verbs
 - Automated coordinate refactoring and correction
@@ -148,19 +149,73 @@ class HypercourseParser:
 
         # 5. Parse 2drep (cartesian frame)
         rep_pattern = re.compile(
-            r"draw\s+2drep\s+id\s+(\d+)\s+start\s+([\d\.]+)s(?:\s+for\s+([\d\.]+)s)?.*?at\s*\(([\d\.]+),\s*([\d\.]+)\)\s*width\s*([\d\.]+)\s*height\s*([\d\.]+)",
-            re.MULTILINE
+            r"draw\s+2drep\s+id\s+(\d+)\s+start\s+([\d\.]+)s(?:\s+for\s+([\d\.]+)s)?\s*(.*?);",
+            re.DOTALL
         )
         for m in rep_pattern.finditer(script):
             eid = int(m.group(1))
             start = float(m.group(2))
             dur = float(m.group(3)) if m.group(3) else 1.0
-            cx, cy = float(m.group(4)), float(m.group(5))
-            w, h = float(m.group(6)), float(m.group(7))
-            bbox = (max(0.0, cx - w/2), max(0.0, cy - h/2), min(CANVAS_WIDTH, cx + w/2), min(CANVAS_HEIGHT, cy + h/2))
+            body = m.group(4)
+
+            at_m = re.search(r"at\s*\(([\d\.-]+),\s*([\d\.-]+)\)", body)
+            cx = float(at_m.group(1)) if at_m else 88.89
+            cy = float(at_m.group(2)) if at_m else 50.0
+
+            scale_m = re.search(r"scale\s*=\s*([\d\.-]+)", body)
+            scale = float(scale_m.group(1)) if scale_m else 6.0
+
+            xr_m = re.search(r"x_range\s*=\s*\[\s*([\d\.-]+)\s*,\s*([\d\.-]+)\s*\]", body)
+            xmin = float(xr_m.group(1)) if xr_m else -10.0
+            xmax = float(xr_m.group(2)) if xr_m else 10.0
+
+            yr_m = re.search(r"y_range\s*=\s*\[\s*([\d\.-]+)\s*,\s*([\d\.-]+)\s*\]", body)
+            ymin = float(yr_m.group(1)) if yr_m else -10.0
+            ymax = float(yr_m.group(2)) if yr_m else 10.0
+
+            # Canvas coordinates:
+            # x_canvas = cx + x_math * scale
+            # y_canvas = cy - y_math * scale (canvas Y is inverted)
+            bb_x1 = cx + xmin * scale
+            bb_x2 = cx + xmax * scale
+            bb_y1 = cy - ymax * scale
+            bb_y2 = cy - ymin * scale
+
+            bbox = (
+                round(min(bb_x1, bb_x2), 2),
+                round(min(bb_y1, bb_y2), 2),
+                round(max(bb_x1, bb_x2), 2),
+                round(max(bb_y1, bb_y2), 2),
+            )
+            meta_str = f"scale={scale}|xmin={xmin}|xmax={xmax}|ymin={ymin}|ymax={ymax}|cx={cx}|cy={cy}"
             elements.append(VisualElement(
                 elem_type="2drep", id=eid, start=start, duration=dur,
-                end_time=course_duration, bbox=bbox, raw_cmd=m.group(0)
+                end_time=course_duration, bbox=bbox, raw_cmd=m.group(0),
+                content=meta_str
+            ))
+
+        # 5b. Parse 2dfunc (mathematical curve plotted on a 2drep)
+        func_pattern = re.compile(
+            r"draw\s+2dfunc\s+id\s+(\d+)\s+start\s+([\d\.]+)s(?:\s+for\s+([\d\.]+)s)?\s*(.*?);",
+            re.DOTALL
+        )
+        for m in func_pattern.finditer(script):
+            eid = int(m.group(1))
+            start = float(m.group(2))
+            dur = float(m.group(3)) if m.group(3) else 1.0
+            body = m.group(4)
+            at_rep_m = re.search(r"at\s+(\d+)", body)
+            rep_id = int(at_rep_m.group(1)) if at_rep_m else None
+            expr_m = re.search(r"y\s*=\s*([^;]+)", body)
+            expr = expr_m.group(1).strip() if expr_m else ""
+
+            parent_rep = next((e for e in elements if e.elem_type == "2drep" and e.id == rep_id), None)
+            func_bbox = parent_rep.bbox if parent_rep else (95.0, 25.0, 165.0, 85.0)
+
+            elements.append(VisualElement(
+                elem_type="2dfunc", id=eid, start=start, duration=dur,
+                end_time=course_duration, bbox=func_bbox, raw_cmd=m.group(0),
+                content=f"rep={rep_id}|y={expr}"
             ))
 
         # 6. Parse erase commands
@@ -219,6 +274,7 @@ class WorldModelVerifier:
                 "score": float (0-10),
                 "issues": List[str],
                 "bounding_errors": List[dict],
+                "scale_errors": List[dict],
                 "collision_errors": List[dict],
                 "alignment_errors": List[dict]
             }
@@ -226,6 +282,7 @@ class WorldModelVerifier:
         elements = HypercourseParser.parse_script(script, course_duration)
         issues = []
         bounding_errors = []
+        scale_errors = []
         collision_errors = []
         alignment_errors = []
 
@@ -235,19 +292,62 @@ class WorldModelVerifier:
                 "score": 0.0,
                 "issues": ["Le script Hypercourse est vide ou aucune commande reconnue."],
                 "bounding_errors": [],
+                "scale_errors": [],
                 "collision_errors": [],
                 "alignment_errors": []
             }
 
-        # 1. Check Canvas Boundaries
+        # 1. Check Canvas Boundaries & Bounding Overflow
         for el in elements:
             xmin, ymin, xmax, ymax = el.bbox
             if xmin < 0 or xmax > CANVAS_WIDTH or ymin < 0 or ymax > CANVAS_HEIGHT:
-                err = f"Élément ID {el.id} ({el.elem_type}) déborde du canevas 16:9 : [{xmin}, {ymin}, {xmax}, {ymax}]"
+                if el.elem_type == "2drep":
+                    err = (
+                        f"Repère 2D ID {el.id} déborde du canevas 16:9 : [{xmin:.1f}, {ymin:.1f}, {xmax:.1f}, {ymax:.1f}]. "
+                        f"Réduire 'scale' ou ajuster le centre 'at (x, y)' pour rester dans le cadre [0..177.78] x [0..100]."
+                    )
+                else:
+                    err = f"Élément ID {el.id} ({el.elem_type}) déborde du canevas 16:9 : [{xmin}, {ymin}, {xmax}, {ymax}]"
                 issues.append(err)
                 bounding_errors.append({"id": el.id, "type": el.elem_type, "bbox": el.bbox})
 
-        # 2. Check Left-Alignment Rule (Rule 26: Text must start at left x in [0, 10] except titles)
+        # 2. Check 2D Frame (2drep) Scale & Minimum Visibility (Pedagogical Rule)
+        for el in elements:
+            if el.elem_type == "2drep":
+                xmin, ymin, xmax, ymax = el.bbox
+                width_canvas = xmax - xmin
+                height_canvas = ymax - ymin
+
+                # Parse metadata from content
+                scale_val = 6.0
+                dx = 8.0
+                if el.content:
+                    sm = re.search(r"scale=([\d\.-]+)", el.content)
+                    if sm:
+                        scale_val = float(sm.group(1))
+                    xmm = re.search(r"xmin=([\d\.-]+)\|xmax=([\d\.-]+)", el.content)
+                    if xmm:
+                        dx = max(1.0, float(xmm.group(2)) - float(xmm.group(1)))
+
+                # Target width is ~50-60 on canvas in the right column
+                ideal_scale = round(52.0 / dx, 1)
+
+                if width_canvas < 22.0 or height_canvas < 18.0:
+                    err = (
+                        f"Repère 2D ID {el.id} est trop petit pour être visible (largeur={width_canvas:.1f}u, hauteur={height_canvas:.1f}u < 22u). "
+                        f"Le paramètre scale={scale_val} est insuffisant. Définir `scale = {ideal_scale:.1f}` "
+                        f"(recommandé: 5.0 à 8.0 selon la plage) pour une bonne lisibilité."
+                    )
+                    issues.append(err)
+                    scale_errors.append({
+                        "id": el.id,
+                        "scale": scale_val,
+                        "ideal_scale": ideal_scale,
+                        "width": width_canvas,
+                        "height": height_canvas,
+                    })
+
+        # 3. Check Left-Alignment Rule (Rule 26: Text must start at left x in [0, 10] except titles)
         for el in elements:
             if el.elem_type == "text":
                 xmin = el.bbox[0]
@@ -257,8 +357,7 @@ class WorldModelVerifier:
                     issues.append(err)
                     alignment_errors.append({"id": el.id, "x": xmin})
 
-        # 3. Simulate Scene Milestones & Check Collisions
-        # Check active elements at intervals of 5 seconds
+        # 4. Simulate Scene Milestones & Check Collisions
         sample_times = sorted(list(set(
             [round(t, 1) for t in [el.start for el in elements]] +
             [round(t, 1) for t in [el.start + el.duration for el in elements]]
@@ -267,7 +366,6 @@ class WorldModelVerifier:
         for t in sample_times:
             active = [el for el in elements if el.start <= t <= el.end_time]
 
-            # Check text-text and text-shape collisions among simultaneously active elements
             for i in range(len(active)):
                 for j in range(i + 1, len(active)):
                     e1 = active[i]
@@ -281,6 +379,10 @@ class WorldModelVerifier:
                     if (e1.elem_type == "text" and e2.elem_type == "polygone") or (e2.elem_type == "text" and e1.elem_type == "polygone"):
                         continue
 
+                    # Function curves plotted on top of repere are explicitly intended
+                    if e1.elem_type in ("2drep", "2dfunc") and e2.elem_type in ("2drep", "2dfunc"):
+                        continue
+
                     # Collision between two texts
                     if e1.elem_type == "text" and e2.elem_type == "text":
                         if cls.check_bbox_overlap(e1.bbox, e2.bbox):
@@ -289,15 +391,30 @@ class WorldModelVerifier:
                                 issues.append(err)
                                 collision_errors.append({"time": t, "id1": e1.id, "id2": e2.id})
 
-        # 4. Check Scene Erase Hygiene
+                    # Collision between text on the left and a 2drep overlapping the left margin
+                    if (e1.elem_type == "text" and e2.elem_type == "2drep") or (e2.elem_type == "text" and e1.elem_type == "2drep"):
+                        text_el = e1 if e1.elem_type == "text" else e2
+                        rep_el = e2 if e1.elem_type == "text" else e1
+                        if cls.check_bbox_overlap(text_el.bbox, rep_el.bbox):
+                            err = f"Collision texte/repère à t={t}s : Texte ID {text_el.id} chevauché par Repère ID {rep_el.id}"
+                            if err not in issues:
+                                issues.append(err)
+                                collision_errors.append({"time": t, "id1": text_el.id, "id2": rep_el.id})
+
+        # 5. Check Scene Erase Hygiene
         erase_count = len(re.findall(r"erase\s+id", script))
         if course_duration > 90.0 and erase_count < 2:
             issues.append(f"Cours long ({course_duration:.1f}s) sans assez d'effacements de tableau (seulement {erase_count} erase)")
 
         # Compute Score
-        penalty = len(bounding_errors) * 1.5 + len(collision_errors) * 1.0 + len(alignment_errors) * 0.5
+        penalty = (
+            len(bounding_errors) * 1.5 +
+            len(scale_errors) * 1.5 +
+            len(collision_errors) * 1.0 +
+            len(alignment_errors) * 0.5
+        )
         score = max(0.0, round(10.0 - penalty, 1))
-        ok = (len(bounding_errors) == 0 and len(collision_errors) == 0 and score >= 7.5)
+        ok = (len(bounding_errors) == 0 and len(scale_errors) == 0 and len(collision_errors) == 0 and score >= 7.5)
 
         return {
             "ok": ok,
@@ -306,13 +423,14 @@ class WorldModelVerifier:
             "erase_count": erase_count,
             "issues": issues,
             "bounding_errors": bounding_errors,
+            "scale_errors": scale_errors,
             "collision_errors": collision_errors,
             "alignment_errors": alignment_errors
         }
 
 
 class WorldModelAutoCorrector:
-    """Applies surgical coordinate corrections to eliminate spatial collisions and overflows."""
+    """Applies surgical coordinate corrections to eliminate spatial collisions, small scales, and overflows."""
 
     @staticmethod
     def correct_script(script: str, course_duration: float = 180.0) -> str:
@@ -320,6 +438,7 @@ class WorldModelAutoCorrector:
         Parses script, fixes:
         - Bounding overflows: caps coordinates to valid canvas range [2, 175] x [5, 95]
         - Forces text alignment to left (x in [2, 6]) for explanations
+        - Ensures safe scale for 2drep (scale >= 5.0 in right column)
         - Ensures safe Y spacing (minimum dy >= 14 between stacked text boxes)
         """
         verification = WorldModelVerifier.verify_script(script, course_duration)
@@ -330,11 +449,9 @@ class WorldModelAutoCorrector:
 
         # 1. Fix centered text coordinates at x=88.89 to left x=5.0 for non-banner elements
         def fix_text_pos(match):
-            cmd = match.group(0)
             eid = match.group(1)
             start = match.group(2)
             dur = match.group(3)
-            x = float(match.group(4))
             y = float(match.group(5))
             txt = match.group(6)
 
@@ -342,12 +459,9 @@ class WorldModelAutoCorrector:
             if y <= 15.0:
                 new_x = 88.89
             else:
-                # Left alignment for content
                 new_x = 4.0
 
-            # Clamp Y
             new_y = min(92.0, max(6.0, y))
-
             dur_str = f" for {dur}s" if dur else ""
             return f"text id {eid} start {start}s{dur_str} at ({new_x:.2f}, {new_y:.2f}) ''{txt}'' ;"
 
@@ -382,14 +496,68 @@ class WorldModelAutoCorrector:
         )
         corrected = poly_pat.sub(fix_poly, corrected)
 
-        # 3. Clean any remaining opaque white paper card fills to chalk ardoise style
+        # 3. Fix 2drep if scale is microscopic (< 25w) or overflowing right column
+        def fix_rep(match):
+            eid = match.group(1)
+            start = match.group(2)
+            dur = match.group(3)
+            body = match.group(4)
+
+            at_m = re.search(r"at\s*\(([\d\.-]+),\s*([\d\.-]+)\)", body)
+            cx = float(at_m.group(1)) if at_m else 132.0
+            cy = float(at_m.group(2)) if at_m else 56.0
+
+            scale_m = re.search(r"scale\s*=\s*([\d\.-]+)", body)
+            scale = float(scale_m.group(1)) if scale_m else 6.0
+
+            xr_m = re.search(r"x_range\s*=\s*\[\s*([\d\.-]+)\s*,\s*([\d\.-]+)\s*\]", body)
+            xmin = float(xr_m.group(1)) if xr_m else -4.0
+            xmax = float(xr_m.group(2)) if xr_m else 4.0
+
+            yr_m = re.search(r"y_range\s*=\s*\[\s*([\d\.-]+)\s*,\s*([\d\.-]+)\s*\]", body)
+            ymin = float(yr_m.group(1)) if yr_m else -2.0
+            ymax = float(yr_m.group(2)) if yr_m else 6.0
+
+            dx = max(1.0, xmax - xmin)
+            dy = max(1.0, ymax - ymin)
+
+            w = dx * scale
+            h = dy * scale
+
+            new_scale = scale
+            if w < 25.0 or h < 20.0:
+                new_scale = min(10.0, max(5.0, round(52.0 / dx, 1)))
+            elif (cx + xmax * scale > 175.0) or (cx + xmin * scale < 90.0):
+                new_scale = min(8.0, max(2.5, round(60.0 / dx, 1)))
+                cx = 132.0
+
+            new_body = body
+            if abs(new_scale - scale) > 0.05:
+                if scale_m:
+                    new_body = re.sub(r"scale\s*=\s*[\d\.-]+", f"scale = {new_scale:.1f}", new_body)
+                else:
+                    new_body = f"{new_body} scale = {new_scale:.1f}"
+
+            if at_m and (cx != float(at_m.group(1))):
+                new_body = re.sub(r"at\s*\([\d\.-]+,\s*[\d\.-]+\)", f"at ({cx:.1f}, {cy:.1f})", new_body)
+
+            dur_str = f" for {dur}s" if dur else ""
+            return f"draw 2drep id {eid} start {start}s{dur_str}{new_body};"
+
+        rep_pat = re.compile(
+            r"draw\s+2drep\s+id\s+(\d+)\s+start\s+([\d\.]+)s(?:\s+for\s+([\d\.]+)s)?\s*(.*?);",
+            re.DOTALL
+        )
+        corrected = rep_pat.sub(fix_rep, corrected)
+
+        # 4. Clean any remaining opaque white paper card fills to chalk ardoise style
         corrected = re.sub(
             r"draw\s+polygone\s+id\s+\d+\s+start\s+[\d\.]+s\s+for\s+[\d\.]+s\s+color\s+\([^)]+\)\s+fillcolor\s+\(255,\s*255,\s*255,\s*0\.98\)\s+width\s+[\d\.]+\s+at\s+\[\(92,\s*24\),\s*\(173,\s*24\),\s*\(173,\s*88\),\s*\(92,\s*88\)\]\s*;\n?",
             "",
             corrected
         )
 
-        # 4. Enforce chalk palette for dark lines on green chalkboard
+        # 5. Enforce chalk palette for dark lines on green chalkboard
         corrected = corrected.replace("color (71, 85, 105, 1)", "color (248, 250, 252, 0.95)")
         corrected = corrected.replace("color (15, 23, 42, 1) fillcolor (15, 23, 42, 1)", "color (248, 250, 252, 1) fillcolor (248, 250, 252, 1)")
 

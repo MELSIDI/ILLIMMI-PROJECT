@@ -187,7 +187,11 @@ HyperElement? hyperElementFromJson(Map<String, dynamic> json) {
         xEnd: _num(json['xEnd']),
         yStart: _num(json['yStart']),
         yEnd: _num(json['yEnd']),
-        scale: _numOrNull(json['scale']) ?? 10.0,
+        scale: _numOrNull(json['scale']) ?? 6.0,
+        grid: (json['grid'] as bool?) ?? false,
+        gridAlpha: _numOrNull(json['gridAlpha']) ?? 0.7,
+        step: _numOrNull(json['step']) ?? 1.0,
+        showLabels: (json['showLabels'] as bool?) ?? false,
       );
     default:
       return null;
