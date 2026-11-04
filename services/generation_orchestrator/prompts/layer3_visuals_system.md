@@ -45,6 +45,8 @@ selon cette correspondance :
 | "sur cet axe / entre ces deux valeurs..."        | draw line ou draw arrow                   |
 | "voici la formule / l'énoncé..."                 | text (LaTeX)                              |
 
+*Règle pour "draw 2drep" : Toujours placer le repère en colonne droite `at (132, 56)` avec `grid = true`, `step = 1` et calibrer `scale ≈ 52 / (xmax - xmin)` (ex: scale = 6.5 pour [-4, 4]). Ne jamais laisser scale = 1.0 !*
+
 Si tu identifies un de ces ancrages dans le transcript et que tu réponds
 uniquement par un `text`, ta réponse est INCORRECTE — un professeur qui dit
 "traçons la courbe" en écrivant juste le mot "courbe" au tableau n'a rien

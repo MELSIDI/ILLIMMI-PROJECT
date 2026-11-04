@@ -136,6 +136,7 @@ python ".agents/skills/corpus-illimmi/scripts/step2_align_audio.py" --course-id 
      - **Instant reveal when time is short**: If $\Delta T = T_{i+1} - T_i < 1.2s$ (or for rapid series of items), OMIT `for` (instant display).
      - **Progressive writing when time allows**: If $\Delta T \ge 1.5s$, assign `for <D>s` ($2.0s$ to $4.5s$, capped by $\Delta T - 0.2s$) on sentences, definitions, and formulas so `LatexWidget` and `SmartMathClipper` animate chalk handwriting character-by-character with a blinking cursor!
    - Wrap all math brackets `[a ; b]` or `]2 ; 4]` inside `$...$` and draw axis brackets geometrically with `draw path`. Never write `f''(x)` inside `''...''` (use `f^{\prime\prime}(x)`).
+   - **Fonctions mathématiques (`draw 2drep` & `draw 2dfunc`)** : Placer le repère en colonne droite `at (132, 56)` avec `grid = true`, `step = 1`, et dimensionner impérativement `scale ≈ 52 / (xmax - xmin)` (ex: `scale = 6.5` pour `[-4, 4]`, `scale = 8.0` pour `[-3, 3]`). Ne JAMAIS laisser `scale = 1.0` (microscopique, rejeté par WorldModelVerifier). Tracer la courbe avec `draw 2dfunc id ... at <repere_id> y = <expression>`.
 2. Run the structural audit, `WorldModelVerifier`, and headless Flutter board renderer:
    ```powershell
    python ".agents/skills/corpus-illimmi/scripts/step3_render_and_verify.py" --course-id <COURSE_ID>
