@@ -19,7 +19,7 @@ if str(PROJECT_ROOT) not in sys.path:
 from step1_ingest_youtube import MAX_VIDEO_DURATION_SECONDS  # noqa: E402
 from step2_align_audio import validate_layer1_and_layer2  # noqa: E402
 from step3_render_and_verify import deep_audit_hc  # noqa: E402
-from corpus_illimmi_1000.tools.world_model_verifier import WorldModelVerifier  # noqa: E402
+from corpus_illimmi_1000.tools.world_model_verifier import WorldModelVerifier, WorldModelAutoCorrector  # noqa: E402
 
 
 VALID_METADATA = {
@@ -159,7 +159,25 @@ def run_tests():
         assert not wm_over["ok"], "Expected WorldModelVerifier to reject overflowing repere"
         assert any("déborde du canevas" in iss for iss in wm_over["issues"]), f"Expected bounding error, got: {wm_over['issues']}"
 
-    print("ALL 8 SELF-TESTS PASSED SUCCESSFULLY!")
+        # 8. Positive Domain Repère: [0, 10] x [0, 10] placed at bottom-left at (104, 84) with scale = 5.5
+        pos_hc = VALID_HC.replace(
+            "draw 2drep id 106 start 35.0s for 1.0s at (132, 56) color (248, 250, 252, 0.9) width 1.5 scale = 6.0 grid = true step = 1 x_range = [-3, 3] y_range = [-1, 5] ;",
+            "draw 2drep id 106 start 35.0s for 1.0s at (104, 84) color (248, 250, 252, 0.9) width 1.5 scale = 5.5 grid = true step = 1 x_range = [0, 10] y_range = [0, 10] ;"
+        ).replace("y = 0.5 * x^2", "y = sqrt(x)")
+        wm_pos = WorldModelVerifier.verify_script(pos_hc, 95.0)
+        assert wm_pos["ok"], f"Expected positive-quadrant repere at (104, 84) to pass, got: {wm_pos['issues']}"
+
+        # 9. AutoCorrector: Reposition overflowing repere adaptively
+        bad_pos_hc = VALID_HC.replace(
+            "draw 2drep id 106 start 35.0s for 1.0s at (132, 56) color (248, 250, 252, 0.9) width 1.5 scale = 6.0 grid = true step = 1 x_range = [-3, 3] y_range = [-1, 5] ;",
+            "draw 2drep id 106 start 35.0s for 1.0s at (132, 56) color (248, 250, 252, 0.9) width 1.5 scale = 6.0 grid = true step = 1 x_range = [0, 10] y_range = [0, 10] ;"
+        )
+        corrected_hc = WorldModelAutoCorrector.correct_script(bad_pos_hc)
+        wm_corr = WorldModelVerifier.verify_script(corrected_hc, 95.0)
+        assert wm_corr["ok"], f"Expected auto-corrected script to pass, got: {wm_corr['issues']}"
+        assert "at (103.0, 85.0)" in corrected_hc or "at (103, 85)" in corrected_hc, f"Expected adaptive origin near bottom-left, got: {corrected_hc}"
+
+    print("ALL 9 SELF-TESTS PASSED SUCCESSFULLY!")
 
 
 if __name__ == "__main__":

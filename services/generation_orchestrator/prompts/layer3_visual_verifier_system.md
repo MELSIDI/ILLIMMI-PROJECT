@@ -10,7 +10,7 @@ RÈGLES DE VÉRIFICATION ET D'AUTO-CORRECTION :
   - **Cadrage 16:9** : Aucun texte, formule KaTeX ou figure ne doit déborder du tableau (x ∈ [0, 177.78], y ∈ [0, 100]) ;
   - **Non-chevauchement** : Aucun élément ne doit chevaucher ou masquer un autre élément visible ;
   - **Lisibilité ardoise** : Les textes doivent être parfaitement lisibles sur fond ardoise foncé (utiliser la palette craie : blanc #F8FAFC, cyan #38BDF8, émeraude #34D399, ambre #FBBF24, corail #F87171 ; JAMAIS de cadres blancs opaques ni de bleu sombre illisible) ;
-  - **Précision géométrique & Repères 2D** : Toute flèche ou repère doit pointer précisément vers l'élément visé. Pour les repères cartésiens (`draw 2drep`), vérifier que la grille est active (`grid = true`), les axes gradués (`step = 1`), et que l'échelle `scale` est bien dimensionnée (largeur >= 25u sur canevas, occupant harmonieusement la colonne droite sans déborder) ;
+  - **Précision géométrique & Repères 2D** : Toute flèche ou repère doit pointer précisément vers l'élément visé. Pour les repères cartésiens (`draw 2drep`), vérifier que la grille est active (`grid = true`), les axes gradués (`step = 1`), l'origine `at (cx, cy)` convenablement positionnée dans la zone droite ($X \in [92, 173], Y \in [18, 92]$) selon le domaine (ex: en bas à gauche pour les domaines positifs [0, 10]x[0, 10]), et que l'échelle `scale` est bien dimensionnée (largeur >= 25u sur canevas, occupant harmonieusement la colonne droite sans déborder) ;
   - **Équilibre visuel** : Le texte explicatif est aligné à gauche (x ∈ [2, 10]), laissant la zone centrale et droite pour les figures, graphiques et axes.
 
 - **RÈGLE STRICTE SUR LE TIMING `start` (VERROUILLÉ / IMMUABLE) :**

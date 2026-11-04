@@ -115,7 +115,11 @@ course "Titre du cours" id <INT> idgap 100 for <DURATION>s audio "narration.wav"
 - `draw curve id <101..200> start <T>s for <D>s color (r, g, b, a) width <W> smooth at [(x1, y1), (x2, y2), (x3, y3)] [with +arrow at end] ;`
 - `draw circle id <101..200> start <T>s for <D>s color (r, g, b, a) width <W> [fillcolor (r, g, b, a)] radius <R> at (cx, cy) ;`
 - `draw polygone id <101..200> start <T>s for <D>s color (r, g, b, a) width <W> [fillcolor (r, g, b, a)] at [(x1, y1), (x2, y2), ...] ;`
-- `draw 2drep id <101..200> start <T>s [for <D>s] at (132, 56) color (248, 250, 252, 0.95) width 1.5 scale = <S> grid = true [grid_alpha = 0.7] step = 1 x_range = [xmin, xmax] y_range = [ymin, ymax] ;` *(Règle d'or de scale pour colonne droite : `scale ≈ 52 / (xmax - xmin)`. Ex: [-4, 4] -> scale = 6.5 ; [-3, 3] -> scale = 8.0. Ne JAMAIS laisser scale = 1.0 sur une plage courte !)*
+- `draw 2drep id <101..200> start <T>s [for <D>s] at (cx, cy) color (248, 250, 252, 0.95) width 1.5 scale = <S> grid = true [grid_alpha = 0.7] step = 1 x_range = [xmin, xmax] y_range = [ymin, ymax] ;`
+  *(Règles fondamentales pour `draw 2drep` :
+    1. **Placement flexible de l'origine `at (cx, cy)` dans la zone droite ($X \in [92, 173], Y \in [18, 92]$)** : L'origine $(0, 0)$ est choisie judicieusement par l'agent selon les quadrants utiles. Domaine centré (ex: $[-4, 4] \times [-3, 3]$) $\rightarrow$ `at (133, 55)`. Domaine strictement positif (ex: $[0, 10] \times [0, 10]$) $\rightarrow$ placer en bas à gauche de la zone de dessin `at (104, 84)` pour étendre la courbe vers le haut et la droite sans déborder. Formule d'aide au centrage : $cx \approx 133 - x_{mid} \times scale$, $cy \approx 55 + y_{mid} \times scale$.
+    2. **Dimensionnement du `scale`** : `scale ≈ 52 / (xmax - xmin)`. Ex: $[-4, 4] \rightarrow scale = 6.5$ ; $[-3, 3] \rightarrow scale = 8.0$ ; $[0, 10] \rightarrow scale = 5.5$. Ne JAMAIS laisser `scale = 1.0` sur une plage courte !
+    3. **Grille et graduation** : Activer `grid = true`, `grid_alpha = 0.7`, `step = 1`.)*
 - `draw 2dfunc id <101..200> start <T>s for <D>s color (r, g, b, a) width 2.5 at <REP_ID> y = <EXPR_IN_x> ;` *(ops: `+ - * / ^`, funcs: `sin cos tan exp log sqrt abs`, consts: `pi e`)*
 - `mouse move id <301..400> start <T>s for <D>s at [(x1, y1), (x2, y2)] ;`
 - `erase id <401..500> start <T>s ;` *(clears all active elements cleanly between major sections)*

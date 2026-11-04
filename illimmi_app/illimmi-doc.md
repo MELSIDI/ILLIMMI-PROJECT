@@ -314,7 +314,7 @@ draw 2drep id <n> start <t>s [for <d>s]
 ```
 
 **Options et paramètres :**
-- `at (<x>, <y>)` : Position de l'origine $(0, 0)$ sur le canevas (recommandé en colonne droite : `at (132, 56)`).
+- `at (<x>, <y>)` : Position de l'origine $(0, 0)$ sur le canevas. L'agent la place convenablement dans la zone droite ($X \in [92, 173], Y \in [18, 92]$) selon le domaine étudié (ex: `at (133, 55)` pour domaine centré, ou en bas à gauche ex: `at (104, 84)` pour domaine positif $[0, 10] \times [0, 10]$).
 - `scale = <facteur>` : Échelle du repère. **Règle : `scale ≈ 52 / (xmax - xmin)`** (ex: pour $x \in [-4, 4]$, `scale = 6.5`).
 - `grid = true|false` : Active la grille cartésienne d'arrière-plan (même teinte que le repère avec opacité allégée et trait fin).
 - `grid_alpha = <alpha>` : Opacité de la grille (défaut : `0.7`).

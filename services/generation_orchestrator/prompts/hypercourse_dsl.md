@@ -294,7 +294,11 @@ draw 2drep id <n> start <t>s [for <d>s] at (<x>, <y>) [color (<r>,<g>,<b>,<a>)] 
 
 - **Paramètres communs :** `id`, `start`, `for`, `color`, `width`.
 - **Paramètres spécifiques (Cas particuliers) :**
-  - `at (<x>, <y>)` : Position de l'origine $(0, 0)$ du repère sur le canevas 16:9. **Recommandé en colonne droite face aux textes : `at (132, 56)`**.
+  - `at (<x>, <y>)` : Position de l'origine $(0, 0)$ du repère sur le canevas 16:9.
+    * **Placement optimal dans la zone droite de dessin ($X \in [92, 173], Y \in [18, 92]$)** : L'origine $(0, 0)$ n'est pas figée ; l'agent la place judicieusement selon le domaine étudié pour occuper harmonieusement l'espace :
+      - Pour un domaine centré (ex: $[-4, 4] \times [-3, 3]$) : centrer l'origine au milieu de la colonne droite `at (133, 55)`.
+      - Pour un domaine strictement positif (ex: $[0, 10] \times [0, 10]$ ou $[0, +\infty[$) : placer l'origine en **bas à gauche de la zone de dessin** (ex: `at (104, 84)`) afin que le 1er quadrant se déploie vers le haut et la droite sans déborder.
+      - Formule d'aide au centrage : pour centrer $[xmin, xmax] \times [ymin, ymax]$, poser $cx \approx 133 - x_{mid} \times scale$ et $cy \approx 55 + y_{mid} \times scale$ avec $x_{mid} = \frac{xmin+xmax}{2}, y_{mid} = \frac{ymin+ymax}{2}$.
   - `scale = <facteur>` : **Facteur d'échelle / zoom** des unités mathématiques sur le canevas.
     > ⚠️ **RÈGLE CRITIQUE D'ÉCHELLE (World Model Verifier) :**
     > Choisir toujours `scale ≈ 52 / (xmax - xmin)` pour occuper harmonieusement la colonne droite (~50-60u de large).
@@ -310,9 +314,13 @@ draw 2drep id <n> start <t>s [for <d>s] at (<x>, <y>) [color (<r>,<g>,<b>,<a>)] 
   - `x_range = [xmin, xmax]` : Bornes de visibilité de l'axe horizontal (défaut : `[-10, 10]`).
   - `y_range = [ymin, ymax]` : Bornes de visibilité de l'axe vertical (défaut : `[-10, 10]`).
 
-**Exemple optimal Lycée :**
+**Exemples optimaux Lycée :**
 ```hypercourse
-draw 2drep id 101 start 8.0s for 1.0s at (132, 56) color (248, 250, 252, 0.95) width 1.5 scale = 6.5 grid = true grid_alpha = 0.7 step = 1 x_range = [-4, 4] y_range = [-2, 6] ;
+# Exemple 1 : Domaine centré [-4, 4] x [-2, 6]
+draw 2drep id 101 start 8.0s for 1.0s at (133, 68) color (248, 250, 252, 0.95) width 1.5 scale = 6.5 grid = true grid_alpha = 0.7 step = 1 x_range = [-4, 4] y_range = [-2, 6] ;
+
+# Exemple 2 : Domaine strictement positif [0, 10] x [0, 10] (origine en bas à gauche de la zone dessin)
+draw 2drep id 102 start 25.0s for 1.0s at (104, 84) color (248, 250, 252, 0.95) width 1.5 scale = 5.5 grid = true grid_alpha = 0.7 step = 1 x_range = [0, 10] y_range = [0, 10] ;
 ```
 
 ---

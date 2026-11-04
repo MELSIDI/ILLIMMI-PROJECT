@@ -45,7 +45,7 @@ selon cette correspondance :
 | "sur cet axe / entre ces deux valeurs..."        | draw line ou draw arrow                   |
 | "voici la formule / l'énoncé..."                 | text (LaTeX)                              |
 
-*Règle pour "draw 2drep" : Toujours placer le repère en colonne droite `at (132, 56)` avec `grid = true`, `step = 1` et calibrer `scale ≈ 52 / (xmax - xmin)` (ex: scale = 6.5 pour [-4, 4]). Ne jamais laisser scale = 1.0 !*
+*Règle pour "draw 2drep" : Placer judicieusement l'origine `at (cx, cy)` dans la zone droite ($X \in [92, 173], Y \in [18, 92]$) selon le domaine étudié (centré `at (133, 55)` pour domaine centré [-4, 4] ; en bas à gauche ex: `at (104, 84)` pour domaine positif [0, 10]x[0, 10]). Toujours activer `grid = true`, `grid_alpha = 0.7`, `step = 1`, et calibrer `scale ≈ 52 / (xmax - xmin)` (ex: scale = 6.5 pour [-4, 4], scale = 5.5 pour [0, 10]). Ne jamais laisser scale = 1.0 !*
 
 Si tu identifies un de ces ancrages dans le transcript et que tu réponds
 uniquement par un `text`, ta réponse est INCORRECTE — un professeur qui dit

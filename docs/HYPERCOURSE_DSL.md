@@ -270,7 +270,7 @@ draw 2drep id <n> start <t>s [for <d>s]
 ```
 
 **Paramètres et options :**
-- `at (<x>, <y>)` : Centre du repère (intersection des axes $x=0, y=0$). Recommandé pour la colonne droite face aux textes : `at (132, 56)`.
+- `at (<x>, <y>)` : Centre du repère (intersection des axes $x=0, y=0$). L'agent place convenablement l'origine dans la zone droite ($X \in [92, 173], Y \in [18, 92]$) selon les quadrants utiles (ex: centré `at (133, 55)` pour domaines symétriques, ou en bas à gauche ex: `at (104, 84)` pour un domaine positif $[0, 10] \times [0, 10]$). Formule de centrage : $cx \approx 133 - x_{mid} \times scale$, $cy \approx 55 + y_{mid} \times scale$.
 - `scale = <facteur>` : Facteur d'échelle (unités canvas par unité mathématique).
 - `grid = true|false` : Active la grille cartésienne d'arrière-plan (tracée avec la couleur du repère, trait fin et opacité allégée).
 - `grid_alpha = <alpha>` : Opacité de la grille (défaut : `0.7`).
