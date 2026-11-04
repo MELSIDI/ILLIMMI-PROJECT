@@ -177,7 +177,30 @@ def run_tests():
         assert wm_corr["ok"], f"Expected auto-corrected script to pass, got: {wm_corr['issues']}"
         assert "at (103.0, 85.0)" in corrected_hc or "at (103, 85)" in corrected_hc, f"Expected adaptive origin near bottom-left, got: {corrected_hc}"
 
-    print("ALL 9 SELF-TESTS PASSED SUCCESSFULLY!")
+        # 10. Configurable Workers in select_batch.py (1 to 5, default 5)
+        import subprocess
+        sel_script = Path(__file__).resolve().parent / "select_batch.py"
+
+        # Default workers (must be 5)
+        res_def = subprocess.run([sys.executable, str(sel_script), "--batch-size", "2"], capture_output=True, text=True, check=True)
+        data_def = json.loads(res_def.stdout)
+        assert data_def["configured_workers"] == 5, f"Expected default 5 workers, got {data_def.get('configured_workers')}"
+        assert data_def["recommended_parallel_concurrency"] == 2
+
+        # Explicit workers: 1, 2, 3, 4, 5
+        for w in [1, 2, 3, 4, 5]:
+            res_w = subprocess.run([sys.executable, str(sel_script), "--batch-size", "10", "--workers", str(w)], capture_output=True, text=True, check=True)
+            data_w = json.loads(res_w.stdout)
+            assert data_w["configured_workers"] == w, f"Expected {w} workers, got {data_w.get('configured_workers')}"
+            assert data_w["recommended_parallel_concurrency"] == w
+
+        # Invalid worker counts (e.g. 6 or 0) must be rejected
+        res_inv6 = subprocess.run([sys.executable, str(sel_script), "--batch-size", "2", "--workers", "6"], capture_output=True, text=True)
+        assert res_inv6.returncode != 0, "Expected non-zero exit code for --workers 6"
+        res_inv0 = subprocess.run([sys.executable, str(sel_script), "--batch-size", "2", "--workers", "0"], capture_output=True, text=True)
+        assert res_inv0.returncode != 0, "Expected non-zero exit code for --workers 0"
+
+    print("ALL 10 SELF-TESTS PASSED SUCCESSFULLY!")
 
 
 if __name__ == "__main__":

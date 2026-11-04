@@ -47,6 +47,13 @@ def main():
     parser.add_argument("--subject", type=str, default=None, help="Filter by subject (Mathématiques, Physique-Chimie, Français, Anglais)")
     parser.add_argument("--start-index", type=int, default=None, help="Minimum numeric suffix to start from")
     parser.add_argument("--include-completed", action="store_true", help="Allow re-selecting already completed courses")
+    parser.add_argument(
+        "--workers", "--concurrency", "-w",
+        type=int,
+        default=5,
+        choices=[1, 2, 3, 4, 5],
+        help="Number of concurrent subagents to run (1, 2, 3, 4, or 5. Default: 5)",
+    )
     args = parser.parse_args()
 
     if not CATALOG_FILE.exists():
@@ -102,7 +109,8 @@ def main():
         "in_progress_active": len(in_progress_ids),
         "remaining_pending": len(catalog) - len(effective_completed) - len(in_progress_ids),
         "selected_count": len(selected),
-        "recommended_parallel_concurrency": min(5, len(selected)),
+        "configured_workers": args.workers,
+        "recommended_parallel_concurrency": min(args.workers, len(selected)),
         "courses": [
             {
                 "id": c["id"],

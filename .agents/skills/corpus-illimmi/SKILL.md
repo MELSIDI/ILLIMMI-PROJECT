@@ -16,9 +16,12 @@ Use this skill whenever the user invokes `/corpus-illimmi`, mentions `corpus-ill
    - **NEVER** run `build_daily_batch.bat`, `agentic_corpus_runner.py`, `daily_corpus_builder.py`, or `PedagogicalVisualsEngine` to generate courses (they use hardcoded regex/templates instead of Argon).
 2. **100% Active Model Inheritance (Argon Guarantee)**:
    - Every subagent invoked via `invoke_subagent` **MUST** set `Model="inherit"` (never `"flash"` or `"flash_lite"`), guaranteeing every single course is planned, written, coded in `.hc`, and visually inspected by the user's active model (**Argon**).
-3. **Parallel Multi-Subagent Architecture (5x Acceleration under `/goal`)**:
-   - When generating **multiple courses** (e.g. a batch of 5 courses under `/goal`), the main agent acts as an **Asynchronous Parallel Batch Orchestrator** and launches **multiple subagents in parallel** (recommended: **5 concurrent subagents** with `TypeName="illimmi-course-agent"` and `Model="inherit"`) all in the same turn!
-   - **Massive Time Savings**: Generating 5 courses sequentially takes ~5 hours (1h per course). Running 5 subagents in parallel completes all 5 courses in **~1 hour**!
+3. **Configurable Parallel Multi-Subagent Architecture (1 to 5 Concurrent Subagents, Default: 5)**:
+   - When generating **multiple courses** (e.g. under `/goal` or `/corpus-illimmi`), the main agent acts as an **Asynchronous Parallel Batch Orchestrator** and launches **configurable parallel subagents** :
+     * **Nombre réglable de sous-agents** : l'utilisateur peut choisir d'exécuter `1`, `2`, `3`, `4` ou `5` sous-agents simultanément en parallèle (via `--workers 1..5`, `--concurrency 1..5`, `-w 1..5`, ou en langage naturel).
+     * **Par défaut si non précisé : 5 sous-agents en parallèle** pour une accélération maximale (~5h de travail compressées en **~1h**).
+     * **Mode unitaire / séquentiel** : si l'utilisateur demande explicitement 1 sous-agent (`--workers 1`), les cours sont traités un par un.
+   - Every subagent invoked via `invoke_subagent` **MUST** set `Model="inherit"` (Argon active model).
    - **Zero Collision Guarantee**: Each course has its own directory `courses/<COURSE_ID>/`. Shared catalog files (`progress.json`, `corpus_1000_full.json`, and `manifest.csv`) are protected by exclusive `InterprocessLock` and atomic file writes, while YouTube video claims are reserved in `transcripts/raw/.claims/`.
 4. **ZERO Limit on Words, Audio Duration, Sections, or Scenes (100% Transcript-Driven)**:
    - **NEVER impose any cap on word count, audio length, section count, or scene count!**
@@ -29,20 +32,26 @@ Use this skill whenever the user invokes `/corpus-illimmi`, mentions `corpus-ill
 
 ## Batch Orchestrator Workflow (Main Agent)
 
-### 1. Select the Pending Batch
-Determine requested batch size from the user's prompt (default: `10` if unspecified; max `25` per daily YouTube-safe batch unless requested otherwise) or specific `--course-id`, then run:
+### 1. Parse Concurrency & Select the Pending Batch
+1. **Détection du nombre de sous-agents (`workers` / `concurrency`)** :
+   - L'utilisateur peut régler le nombre de sous-agents dans sa commande ou son prompt (ex: `/corpus-illimmi --workers 2`, `--concurrency 3`, `-w 4`, ou en langage naturel "avec 2 sous-agents", "génère 10 cours avec 3 agents").
+   - **Valeurs autorisées : 1, 2, 3, 4 ou 5**.
+   - **Valeur par défaut si non précisé : 5 sous-agents**.
+2. **Déterminer la taille du lot** (défaut : `10` ; max recommandé : `25` par jour pour YouTube) ou l'identifiant spécifique, puis exécuter :
 
 ```powershell
-python ".agents/skills/corpus-illimmi/scripts/select_batch.py" --batch-size 10
+python ".agents/skills/corpus-illimmi/scripts/select_batch.py" --batch-size 10 --workers <WORKERS_1_TO_5>
 ```
-*(Optional flags: `--course-id MATH_003`, `--subject "Mathématiques"`, `--start-index 3`.)*
+*(Optionnel : `--course-id MATH_021`, `--subject "Mathématiques"`, `--start-index 21`.)*
 
-### 2. Launch Parallel Subagents (All at Once in One Turn)
-For a batch of $N$ courses (e.g. 5 courses), **launch all $N$ subagents in parallel in the same turn**!
+### 2. Launch Parallel Subagents (Sliding Window de W Workers)
+Pour un lot de $N$ cours avec une concurrence configurée à $W \in \{1, 2, 3, 4, 5\}$ (**défaut : 5**) :
+- Lancer immédiatement les $\min(W, N)$ premiers sous-agents simultanément dans le premier tour (`invoke_subagent`).
 
 ```python
-# Launch all subagents concurrently in the same turn:
-for c in selected_courses:
+# Launch initial batch of W subagents (W in [1..5], default: 5):
+initial_count = min(workers, len(selected_courses))
+for c in selected_courses[:initial_count]:
     invoke_subagent(
         TypeName="illimmi-course-agent",
         Role=f"ILLIMMI Course Author ({c['id']})",
@@ -56,24 +65,22 @@ for c in selected_courses:
     )
 ```
 
-#### Antigravity Concurrency Benchmark & Sizing Guidelines:
-- **System Capacity**: Antigravity has no hard ceiling on registered subagents.
-- **Optimal Concurrency Window**: **3 to 5 parallel subagents**:
-  - **5 subagents**: Generates 5 courses in **~1 hour total** instead of 5 hours (5x speedup!).
-  - **LLM Rate-Limit Safety**: Fits within active Argon TPM/RPM quota limits.
-  - **Local Hardware Safety**: Piper TTS & Whisper.cpp require short native processing bursts (~30-60s) staggered naturally across the 1-hour session.
-  - **YouTube Quota Protection**: `step1_ingest_youtube.py` applies course-ID index jitter to stagger initial transcript queries, while `.claims/` prevents duplicate video selection.
-- **Pour les grands lots (ex: 10, 15 ou 20 cours)** : Ne pas faire de "vagues rigides" bloquantes ! Utiliser le **Pool Glissant Continu (Sliding Window de 5 Workers)** :
-  - **Remplissage initial** : L'agent maître lance les 5 premiers cours (`invoke_subagent` pour les 5 premiers cours).
-  - **Remplacement continu sans temps mort** : Dès qu'un sous-agent termine son cours, le système réveille l'agent maître via **reactive wakeup**. L'agent maître enregistre la certification et **lance immédiatement le cours suivant** de la file.
-  - **Saturer en permanence 5 workers** : À chaque instant, il y a toujours exactement 5 sous-agents actifs en parallèle, jusqu'à épuisement complet de la liste demandée.
+#### Pool Glissant Continu (Sliding Window de W Workers) :
+- **Remplissage initial** : L'agent maître lance $\min(W, N)$ cours en parallèle.
+- **Remplacement continu sans temps mort (Reactive Wakeup)** :
+  Dès qu'un sous-agent termine son cours, le système réveille l'agent maître via **reactive wakeup** (zéro polling). L'agent maître enregistre la certification et **lance immédiatement le cours suivant** de la file.
+- **Maintien de la saturation** : À chaque instant, il y a toujours au maximum $W$ sous-agents actifs en parallèle, jusqu'à épuisement complet de la liste demandée.
+- **Dimensionnement selon $W$** :
+  - **$W = 1$** : Exécution séquentielle simple (idéale pour tester ou déboguer un cours isolé).
+  - **$W = 2$ ou $3$** : Concurrence modérée (très économe en ressources système).
+  - **$W = 4$ ou $5$ (défaut: 5)** : Vitesse maximale (génère 5 cours en ~1h au lieu de 5h).
 
 ### 3. Reactive Wakeup & Completion Monitoring (Zero-Polling Sliding Window)
-- Après avoir saturé les 5 slots de workers, terminer votre tour sans appeler d'autre outil.
+- Après avoir saturé les $W$ slots de workers, terminer votre tour sans appeler d'autre outil.
 - **NE PAS SCRUTER EN BOUCLE (Zero Polling)** : Le système Antigravity réveille automatiquement l'agent maître dès qu'un sous-agent notifie sa complétion.
 - À chaque réveil :
   1. Vérifier la complétion du cours dans `catalog/progress.json`.
-  2. S'il reste des cours dans la file demandée (ex: cours 6 à 20), instancier immédiatement un sous-agent frais pour le cours suivant (`TypeName="illimmi-course-agent"`, `Model="inherit"`).
+  2. S'il reste des cours non démarrés dans la file demandée, instancier immédiatement un sous-agent frais pour le cours suivant (`TypeName="illimmi-course-agent"`, `Model="inherit"`).
   3. Dès que tous les cours du lot demandé sont certifiés, passer immédiatement à l'Étape 4.
 
 ### 4. MANDATORY Automated Google Drive Sync & Semantic Versioning (`auto-sync`)
