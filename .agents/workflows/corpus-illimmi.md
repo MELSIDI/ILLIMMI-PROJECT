@@ -71,3 +71,4 @@ Dès que tous les cours du lot sont certifiés, exécuter automatiquement :
 ```powershell
 python ".agents/skills/corpus-illimmi/scripts/drive_corpus_sync.py" auto-sync
 ```
+
