@@ -1,10 +1,21 @@
 {
-  "release_tag": "v0.1.0",
-  "updated_at": "2026-11-02T15:09:17.928022+00:00",
-  "total_courses": 20,
-  "total_duration_hours": 3.05,
-  "total_words": 32598,
-  "total_scenes": 133,
+  "release_tag": "sync-2026-11-12",
+  "last_sync_date": "2026-11-12",
+  "updated_at": "2026-11-12T13:06:54.531341+00:00",
+  "total_courses": 29,
+  "total_duration_hours": 4.32,
+  "total_words": 46331,
+  "total_scenes": 196,
+  "sync_batches": [
+    {
+      "date": "2026-11-12",
+      "synced_at": "2026-11-12T13:06:54.531341+00:00",
+      "tag": "sync-2026-11-12",
+      "courses_added": [],
+      "courses_updated": [],
+      "total_courses": 29
+    }
+  ],
   "courses": {
     "MATH_001": {
       "title": "Intervalles et encadrements de réels — Cours fondamental et définitions",
@@ -15,9 +26,12 @@
       "video_id": "mvJy4LVCmRI",
       "certified_at": "2026-11-01T06:47:03.470751",
       "gdrive_archive": "MATH_001.zip",
-      "archive_sha256": "1b925854a30b4dc764d8345f7366099cf8f59b817cbd35f7da907ab0c719def7",
-      "archive_size_mb": 40.9,
-      "gdrive_file_id": "1SOi_SVc3ssMXGQIRrJFo_RkFJE5_pSmM"
+      "archive_sha256": "21dbc9b08d6597d802ffa1343eaea1610eb879bbb6bc7d8e296a8c02e6cba0e1",
+      "archive_size_mb": 36.64,
+      "gdrive_file_id": "1psAzGlkz_WlHKZjRbKWMh0gVvhQc8_08",
+      "gdrive_download_url": "https://drive.google.com/uc?id=1psAzGlkz_WlHKZjRbKWMh0gVvhQc8_08&export=download",
+      "gdrive_synced_at": "2026-11-12T13:06:54.531341+00:00",
+      "sync_batch_date": "2026-11-01"
     },
     "MATH_002": {
       "title": "Méthode pas à pas : Comment résoudre un problème de Intervalles et encadrements de réels",
@@ -28,9 +42,12 @@
       "video_id": "8WJG_QHQs1Y",
       "certified_at": "2026-11-01T06:47:20.327192",
       "gdrive_archive": "MATH_002.zip",
-      "archive_sha256": "70a37476b945fde1c519dc1ea21292900ed7949210e64a173dbfedcf1b6121b5",
-      "archive_size_mb": 13.63,
-      "gdrive_file_id": "19SzJbYGV4y9RbgrwwdypkCELg9xteoMI"
+      "archive_sha256": "6d91bc05cc4f15e92fef28edbda3fe59d9fa0d96d4d27209ffd2006ead01aa25",
+      "archive_size_mb": 11.21,
+      "gdrive_file_id": "1fPx7DkD0sEQUIBkWa0IxAKwd5HPzJj_b",
+      "gdrive_download_url": "https://drive.google.com/uc?id=1fPx7DkD0sEQUIBkWa0IxAKwd5HPzJj_b&export=download",
+      "gdrive_synced_at": "2026-11-12T13:06:54.531341+00:00",
+      "sync_batch_date": "2026-11-01"
     },
     "MATH_003": {
       "title": "Exemple guidé et calcul détaillé : Intervalles et encadrements de réels en pratique",
@@ -41,9 +58,12 @@
       "video_id": "6I4MbRM0pqs",
       "certified_at": "2026-11-01T06:47:39.397865",
       "gdrive_archive": "MATH_003.zip",
-      "archive_sha256": "ed0101b4faa7a86e1cd824a874cab760866f72bd38eebe0a86caf6ae1c13c81a",
-      "archive_size_mb": 18.1,
-      "gdrive_file_id": "1cvOc-nF97CcrqOAEwuqog21ZcplBd0wz"
+      "archive_sha256": "47870929bc3a69b68ec7f5689d5453340116e96372e37b6a0ad7df69149d002d",
+      "archive_size_mb": 13.97,
+      "gdrive_file_id": "1xruiBdNLt-fJwVSkYlCD358Ic9heVBON",
+      "gdrive_download_url": "https://drive.google.com/uc?id=1xruiBdNLt-fJwVSkYlCD358Ic9heVBON&export=download",
+      "gdrive_synced_at": "2026-11-12T13:06:54.531341+00:00",
+      "sync_batch_date": "2026-11-01"
     },
     "MATH_004": {
       "title": "Correction d'exercice classique : Intervalles et encadrements de réels (Entraînement Lycée)",
@@ -54,9 +74,12 @@
       "video_id": "c-akR4NJhh0",
       "certified_at": "2026-11-01T06:47:56.035619",
       "gdrive_archive": "MATH_004.zip",
-      "archive_sha256": "d9ee7469329916fc101723305890853db2391de4bd9a04aec267d7ea59b34ea9",
-      "archive_size_mb": 23.82,
-      "gdrive_file_id": "1P0zXWiHSLpwfCGvw0doXhTKenKMnGALH"
+      "archive_sha256": "8b5eb3d922884c439a99c476e8f098b155dba95b3d66ea6b750a0d6b50e1c267",
+      "archive_size_mb": 20.07,
+      "gdrive_file_id": "1tZcG7Cpp7lp8or4JBgOTbd93I5oF4ibs",
+      "gdrive_download_url": "https://drive.google.com/uc?id=1tZcG7Cpp7lp8or4JBgOTbd93I5oF4ibs&export=download",
+      "gdrive_synced_at": "2026-11-12T13:06:54.531341+00:00",
+      "sync_batch_date": "2026-11-01"
     },
     "MATH_005": {
       "title": "Problème type Bac : Intervalles et encadrements de réels — Raisonnement en plusieurs étapes",
@@ -67,9 +90,12 @@
       "video_id": "hzINDVy0dgg",
       "certified_at": "2026-11-01T06:48:19.775968",
       "gdrive_archive": "MATH_005.zip",
-      "archive_sha256": "9028384726879651f89037996852622798dc78cfea2e335a390c6a4f28e89fcc",
-      "archive_size_mb": 10.2,
-      "gdrive_file_id": "1-puG11RTMQpj7RCsC_61Q0_vvamMX8qF"
+      "archive_sha256": "d40366b2ec95b2bf9d0b969bdbb75fab357813fb548399514246e8e6a7587e45",
+      "archive_size_mb": 7.81,
+      "gdrive_file_id": "1jFXN2egkeZMJxJ8MjyeEHJC-WCs2zsej",
+      "gdrive_download_url": "https://drive.google.com/uc?id=1jFXN2egkeZMJxJ8MjyeEHJC-WCs2zsej&export=download",
+      "gdrive_synced_at": "2026-11-12T13:06:54.531341+00:00",
+      "sync_batch_date": "2026-11-01"
     },
     "MATH_006": {
       "title": "Révision express & Fiche de synthèse : Tout retenir sur Intervalles et encadrements de réels",
@@ -80,9 +106,12 @@
       "video_id": "YpctDQf1fqI",
       "certified_at": "2026-11-01T18:39:09.008128",
       "gdrive_archive": "MATH_006.zip",
-      "archive_sha256": "31f40572abff19f8c79f405ea05a58225c44580f4ef5aef864745a6eaf284436",
+      "archive_sha256": "8f1047ddecf58386befe876da24aa8c102e6e53e0e5ddbe91b5ec74c4f97449a",
       "archive_size_mb": 22.28,
-      "gdrive_file_id": "1ITbdnp_iPxzQnxH8hYkjtPCLoo0ocFJP"
+      "gdrive_file_id": "1snGWM7MLsHfONR93ga2-1qNTNGKlvysH",
+      "gdrive_download_url": "https://drive.google.com/uc?id=1snGWM7MLsHfONR93ga2-1qNTNGKlvysH&export=download",
+      "gdrive_synced_at": "2026-11-12T13:06:54.531341+00:00",
+      "sync_batch_date": "2026-11-01"
     },
     "MATH_007": {
       "title": "Intervalles et encadrements de réels — Cours fondamental et définitions",
@@ -93,9 +122,12 @@
       "video_id": "8b-0LrjhA6s",
       "certified_at": "2026-11-01T18:32:24.505689",
       "gdrive_archive": "MATH_007.zip",
-      "archive_sha256": "3297dbf3cb8cefa4e9120ffe0dce802fea652d467b6b7d31fb0efbd525906ab9",
+      "archive_sha256": "c066a3c53f50dfbd456be2e865e677d8a1813ac1bd4d991a9313e9c031adb4f6",
       "archive_size_mb": 27.56,
-      "gdrive_file_id": "12KYwCTbWl2nSuon3X92fHaMqaTFTOVaA"
+      "gdrive_file_id": "1BBdJXxPhPmXK3sSMhhi7YIrsdoJV6Ry1",
+      "gdrive_download_url": "https://drive.google.com/uc?id=1BBdJXxPhPmXK3sSMhhi7YIrsdoJV6Ry1&export=download",
+      "gdrive_synced_at": "2026-11-12T13:06:54.531341+00:00",
+      "sync_batch_date": "2026-11-01"
     },
     "MATH_008": {
       "title": "Méthode pas à pas : Comment résoudre un problème de Intervalles et encadrements de réels",
@@ -106,9 +138,12 @@
       "video_id": "9MtAK7Xzrls",
       "certified_at": "2026-11-01T18:13:12.138011",
       "gdrive_archive": "MATH_008.zip",
-      "archive_sha256": "0cd9bdbb6a003507526fe18fb9aaf67eb7fe4cb291902bb2220a87a915effd2e",
+      "archive_sha256": "bde77fb10c95a6b5f15b10b59df53d9a630c764b9459987a14d37f3e4e8e319d",
       "archive_size_mb": 24.96,
-      "gdrive_file_id": "1JGA0MWaw00aG596_QZZa57xr_ESC6U0J"
+      "gdrive_file_id": "1QVcTZOAZSJesmCKhx5dzktN499dFhpf3",
+      "gdrive_download_url": "https://drive.google.com/uc?id=1QVcTZOAZSJesmCKhx5dzktN499dFhpf3&export=download",
+      "gdrive_synced_at": "2026-11-12T13:06:54.531341+00:00",
+      "sync_batch_date": "2026-11-01"
     },
     "MATH_009": {
       "title": "Exemple guidé et calcul détaillé : Intervalles et encadrements de réels en pratique",
@@ -119,9 +154,12 @@
       "video_id": "YpctDQf1fqI",
       "certified_at": "2026-11-01T18:14:32.849657",
       "gdrive_archive": "MATH_009.zip",
-      "archive_sha256": "9702aa9a10b1751ad01ba744afe5a2f36fb8f51d3f3b64006d4964f17b5a976c",
+      "archive_sha256": "b11d3f7f7edf915eed87e1b5fc3c599f216a2d7ff548697b986a1ee29494856f",
       "archive_size_mb": 18.78,
-      "gdrive_file_id": "1crIWQeiNvViu4YP1xNM0m9oguVBW7vxh"
+      "gdrive_file_id": "1tE475PSQDAoxRQlIjw-Hc0YfanTgx87R",
+      "gdrive_download_url": "https://drive.google.com/uc?id=1tE475PSQDAoxRQlIjw-Hc0YfanTgx87R&export=download",
+      "gdrive_synced_at": "2026-11-12T13:06:54.531341+00:00",
+      "sync_batch_date": "2026-11-01"
     },
     "MATH_010": {
       "title": "Correction d'exercice classique : Intervalles et encadrements de réels (Entraînement Lycée)",
@@ -132,9 +170,12 @@
       "video_id": "9MtAK7Xzrls",
       "certified_at": "2026-11-01T18:15:00.590143",
       "gdrive_archive": "MATH_010.zip",
-      "archive_sha256": "7ca6572a89f1642e6bc9ddc48fd66adc341ba11a57176c9d51cac05f3ec7c452",
+      "archive_sha256": "3fa9c389252077721a6b45cc6453e014d192393186ecdcf8a138a2084430edf3",
       "archive_size_mb": 26.72,
-      "gdrive_file_id": "1vmVi7Ztbs-ph_Ec5jYZ6aaSwghpHipF4"
+      "gdrive_file_id": "1lCfbWhZnOxcz6OKcQOqdM8djvan8NQ8o",
+      "gdrive_download_url": "https://drive.google.com/uc?id=1lCfbWhZnOxcz6OKcQOqdM8djvan8NQ8o&export=download",
+      "gdrive_synced_at": "2026-11-12T13:06:54.531341+00:00",
+      "sync_batch_date": "2026-11-01"
     },
     "MATH_011": {
       "title": "Valeur absolue et distance sur la droite réelle — Cours fondamental et définitions",
@@ -145,9 +186,12 @@
       "video_id": "5-rUuceEgAE",
       "certified_at": "2026-11-01T19:42:19.422759",
       "gdrive_archive": "MATH_011.zip",
-      "archive_sha256": "603dfae42b8c4d8aa70eccbbcd3fecdf44df1269f4376ac4797b9b98534dc88f",
+      "archive_sha256": "840508fc46964148c1016772b4d2ebe4030df96b9c9155dc8770d3cf1b0feddb",
       "archive_size_mb": 37.42,
-      "gdrive_file_id": "11Yxax8iJp1C-RszExq63f09JnNo7e7LU"
+      "gdrive_file_id": "10vve2U6GNnsrp0FsN_awv8V1b-J6t_CD",
+      "gdrive_download_url": "https://drive.google.com/uc?id=10vve2U6GNnsrp0FsN_awv8V1b-J6t_CD&export=download",
+      "gdrive_synced_at": "2026-11-12T13:06:54.531341+00:00",
+      "sync_batch_date": "2026-11-01"
     },
     "MATH_012": {
       "title": "Méthode pas à pas : Comment résoudre un problème de Valeur absolue et distance sur la droite réelle",
@@ -158,9 +202,12 @@
       "video_id": "m3htEMfDxcE",
       "certified_at": "2026-11-01T19:32:02.970216",
       "gdrive_archive": "MATH_012.zip",
-      "archive_sha256": "23e1539385696aa9d5eab6a7a9237b80945294de342a438e6f379d522f7d70e2",
+      "archive_sha256": "b7ef67a71bebad6dd49e3678e711773ec1286cc3023f5272a40327a65f905b9a",
       "archive_size_mb": 28.24,
-      "gdrive_file_id": "19djLGgBGTayEjfGaN9297KYOimU0V2N5"
+      "gdrive_file_id": "1i-LZLwIgnNgXBbVw50WRg9Dw3ZcayscN",
+      "gdrive_download_url": "https://drive.google.com/uc?id=1i-LZLwIgnNgXBbVw50WRg9Dw3ZcayscN&export=download",
+      "gdrive_synced_at": "2026-11-12T13:06:54.531341+00:00",
+      "sync_batch_date": "2026-11-01"
     },
     "MATH_013": {
       "title": "Exemple guidé et calcul détaillé : Valeur absolue et distance sur la droite réelle en pratique",
@@ -171,9 +218,12 @@
       "video_id": "FPj7S1PkNGY",
       "certified_at": "2026-11-01T19:17:21.851290",
       "gdrive_archive": "MATH_013.zip",
-      "archive_sha256": "3ccbf6d0f71ff35566bb804e66d71ec084ce89fd638c053e32983cdede60bc3c",
+      "archive_sha256": "c9dcfb11369eee4986ecc18148fc40bb866c44ee71a6c6146fa3e3e95f876b41",
       "archive_size_mb": 16.08,
-      "gdrive_file_id": "1kaxJ14N3_rZXFCo9OEMas6yQ8O2IugfN"
+      "gdrive_file_id": "1sbJJm5_dlu4LfFckwh_0aAEq1NCfhkUt",
+      "gdrive_download_url": "https://drive.google.com/uc?id=1sbJJm5_dlu4LfFckwh_0aAEq1NCfhkUt&export=download",
+      "gdrive_synced_at": "2026-11-12T13:06:54.531341+00:00",
+      "sync_batch_date": "2026-11-01"
     },
     "MATH_014": {
       "title": "Correction d'exercice classique : Valeur absolue et distance sur la droite réelle (Entraînement Lycée)",
@@ -184,9 +234,12 @@
       "video_id": "ejxGmpzrciA",
       "certified_at": "2026-11-01T19:56:21.368277",
       "gdrive_archive": "MATH_014.zip",
-      "archive_sha256": "3833d57e7b5521435f7c41b8697175b3e9b21ae23f50b0bc875894d11d19d137",
+      "archive_sha256": "4613fff28bc0bf8d37fc0e3b9d545b55fef0acfe3bdce488ce97d19f5909e3e6",
       "archive_size_mb": 20.14,
-      "gdrive_file_id": "1YUSqQmGlfi5w8muFx9ymb1-Csp90tZB6"
+      "gdrive_file_id": "1E0_kkcERgl-F-5PaOC3vv73uvsZA1R6Q",
+      "gdrive_download_url": "https://drive.google.com/uc?id=1E0_kkcERgl-F-5PaOC3vv73uvsZA1R6Q&export=download",
+      "gdrive_synced_at": "2026-11-12T13:06:54.531341+00:00",
+      "sync_batch_date": "2026-11-01"
     },
     "MATH_015": {
       "title": "Problème type Bac : Valeur absolue et distance sur la droite réelle — Raisonnement en plusieurs étapes",
@@ -197,9 +250,12 @@
       "video_id": "kTJ09D1Bzs0",
       "certified_at": "2026-11-01T19:56:13.214954",
       "gdrive_archive": "MATH_015.zip",
-      "archive_sha256": "e9df6c01f880dc6a7d550697f1ee4fb2020b890830148b203305a331299fe909",
+      "archive_sha256": "4ebfb80c53cee842017052d595dc478763ca9f95ea4fbb57fb2ae5c97d1c05bd",
       "archive_size_mb": 23.81,
-      "gdrive_file_id": "1IHGG9jDKxnYWL6k2qPfMrEhQh1_1C_rh"
+      "gdrive_file_id": "1PmkPAQ1EuArVT3eNiu2ohZEGybF5LogE",
+      "gdrive_download_url": "https://drive.google.com/uc?id=1PmkPAQ1EuArVT3eNiu2ohZEGybF5LogE&export=download",
+      "gdrive_synced_at": "2026-11-12T13:06:54.531341+00:00",
+      "sync_batch_date": "2026-11-01"
     },
     "MATH_016": {
       "title": "Révision express & Fiche de synthèse : Tout retenir sur Valeur absolue et distance sur la droite réelle",
@@ -210,9 +266,12 @@
       "video_id": "1ff6MSIbVFw",
       "certified_at": "2026-11-01T20:56:55.563688",
       "gdrive_archive": "MATH_016.zip",
-      "archive_sha256": "68410436396b35c905b05e9bcc45ce846bac356c4f273852e374007029250d75",
+      "archive_sha256": "53ee97b642918f50d962361589e5c0914af60e49f634eb1aae45b4276ee9c7fa",
       "archive_size_mb": 30.04,
-      "gdrive_file_id": "1ijNRsgTchjNhd3doWIfthMMgtbpLX-0T"
+      "gdrive_file_id": "1XanOrFLGh3YI_mjnztpOFYJOrzALo3-F",
+      "gdrive_download_url": "https://drive.google.com/uc?id=1XanOrFLGh3YI_mjnztpOFYJOrzALo3-F&export=download",
+      "gdrive_synced_at": "2026-11-12T13:06:54.531341+00:00",
+      "sync_batch_date": "2026-11-01"
     },
     "MATH_017": {
       "title": "Valeur absolue et distance sur la droite réelle — Cours fondamental et définitions",
@@ -223,9 +282,12 @@
       "video_id": "QQQqu8Fnlqc",
       "certified_at": "2026-11-01T20:20:37.797322",
       "gdrive_archive": "MATH_017.zip",
-      "archive_sha256": "11dd309ae3534b25d30caab20393b07397eff2537a8bf4b60c508fabfb923bd4",
+      "archive_sha256": "5bc4f9ada9bdc59c0561f083c9e09996984b0c30e1e1ce838da5bcb706dd2fa9",
       "archive_size_mb": 24.38,
-      "gdrive_file_id": "1GR3wfbRgGSEGid0zmI2z7xELvlJePAJZ"
+      "gdrive_file_id": "1uJUHKhjKS31NzjmnHQ8wjLlUInEwmVkw",
+      "gdrive_download_url": "https://drive.google.com/uc?id=1uJUHKhjKS31NzjmnHQ8wjLlUInEwmVkw&export=download",
+      "gdrive_synced_at": "2026-11-12T13:06:54.531341+00:00",
+      "sync_batch_date": "2026-11-01"
     },
     "MATH_018": {
       "title": "Méthode pas à pas : Comment résoudre un problème de Valeur absolue et distance sur la droite réelle",
@@ -236,9 +298,12 @@
       "video_id": "A1bIc8B9KPM",
       "certified_at": "2026-11-01T20:24:28.046236",
       "gdrive_archive": "MATH_018.zip",
-      "archive_sha256": "d3fd6ad83946bb25e0c2dd261bdfeee247d2d68bc36c5d835c8816483ce393e1",
+      "archive_sha256": "b9a512cb8f7a6029ee1796716d47f6be0c0f67d2f4b4c798f1a90e5b4c66c6c4",
       "archive_size_mb": 18.62,
-      "gdrive_file_id": "1Hq9RFIRKish2eh-5nujY5fgm4sbz7bl-"
+      "gdrive_file_id": "1eGcyZBs5y7prBQWSqHGCZGwawj1jrrCJ",
+      "gdrive_download_url": "https://drive.google.com/uc?id=1eGcyZBs5y7prBQWSqHGCZGwawj1jrrCJ&export=download",
+      "gdrive_synced_at": "2026-11-12T13:06:54.531341+00:00",
+      "sync_batch_date": "2026-11-01"
     },
     "MATH_019": {
       "title": "Exemple guidé et calcul détaillé : Valeur absolue et distance sur la droite réelle en pratique",
@@ -249,9 +314,12 @@
       "video_id": "ycYfb8aHssY",
       "certified_at": "2026-11-01T20:45:43.601729",
       "gdrive_archive": "MATH_019.zip",
-      "archive_sha256": "defb85d46ad71d8f4bfe7ad727534a9f589cc34b7cb32d0102a62aa49c2c8308",
+      "archive_sha256": "1717cd5f12bd542aae2668073de78ec9e7d30935180a3a9c082bf6611494ac02",
       "archive_size_mb": 22.52,
-      "gdrive_file_id": "11zxkt0th3-5e95QAJjJRBCmM1Bepqm-M"
+      "gdrive_file_id": "1PN1ky8sGUtRkWwgSC9a7imQ7aVnd1eH9",
+      "gdrive_download_url": "https://drive.google.com/uc?id=1PN1ky8sGUtRkWwgSC9a7imQ7aVnd1eH9&export=download",
+      "gdrive_synced_at": "2026-11-12T13:06:54.531341+00:00",
+      "sync_batch_date": "2026-11-01"
     },
     "MATH_020": {
       "title": "Correction d'exercice classique : Valeur absolue et distance sur la droite réelle (Entraînement Lycée)",
@@ -262,18 +330,166 @@
       "video_id": "OQYeWEQpwtM",
       "certified_at": "2026-11-01T20:51:31.313744",
       "gdrive_archive": "MATH_020.zip",
-      "archive_sha256": "9881695c56d4a9f32ebd1eb3d1bf25dbecf784464323462b3ec3d13e7f7b5cda",
+      "archive_sha256": "68265ba1c2d5d563a86d813c831c7a4ef7d02b5502bd9240326d4f10283e171e",
       "archive_size_mb": 28.86,
-      "gdrive_file_id": "1VynsKpuE64vTypKmbimNdrhl_32Gf_yh"
+      "gdrive_file_id": "1nCA4wYjQ69l8uH6pxhHyqvtrElRjvPg8",
+      "gdrive_download_url": "https://drive.google.com/uc?id=1nCA4wYjQ69l8uH6pxhHyqvtrElRjvPg8&export=download",
+      "gdrive_synced_at": "2026-11-12T13:06:54.531341+00:00",
+      "sync_batch_date": "2026-11-01"
+    },
+    "MATH_021": {
+      "title": "Généralités sur les fonctions et lecture graphique — Cours fondamental et définitions",
+      "duration_seconds": 361.66,
+      "word_count": 1085,
+      "rendered_scenes": 6,
+      "world_model_score": 10.0,
+      "video_id": "ngzGb45n8S4",
+      "certified_at": "2026-11-04T22:04:35.430075",
+      "gdrive_archive": "MATH_021.zip",
+      "archive_sha256": "88774e66f3b7e33e798076d32c1328f8b75d53a3e98a7535bd4e8bce094f5e48",
+      "archive_size_mb": 16.92,
+      "gdrive_file_id": "1ROg4XFPBqqTKyD0g8X4u6atdRlYa5rBw",
+      "gdrive_download_url": "https://drive.google.com/uc?id=1ROg4XFPBqqTKyD0g8X4u6atdRlYa5rBw&export=download",
+      "gdrive_synced_at": "2026-11-12T13:06:54.531341+00:00",
+      "sync_batch_date": "2026-11-04"
+    },
+    "MATH_022": {
+      "title": "Méthode pas à pas : Comment résoudre un problème de Généralités sur les fonctions et lecture graphique",
+      "duration_seconds": 717.65,
+      "word_count": 2190,
+      "rendered_scenes": 8,
+      "world_model_score": 10.0,
+      "video_id": "gQUt5y8LFKk",
+      "certified_at": "2026-11-05T01:03:37.867560",
+      "gdrive_archive": "MATH_022.zip",
+      "archive_sha256": "bd555a5a718349243fc5fe1fa27e052facf32ed3471d04baa6d88fdd10e3e7f6",
+      "archive_size_mb": 30.81,
+      "gdrive_file_id": "1vcG-YzrZeuU1DwuOtYT-UE47mvggo8gf",
+      "gdrive_download_url": "https://drive.google.com/uc?id=1vcG-YzrZeuU1DwuOtYT-UE47mvggo8gf&export=download",
+      "gdrive_synced_at": "2026-11-12T13:06:54.531341+00:00",
+      "sync_batch_date": "2026-11-05"
+    },
+    "MATH_023": {
+      "title": "Exemple guidé et calcul détaillé : Généralités sur les fonctions et lecture graphique en pratique",
+      "duration_seconds": 297.34,
+      "word_count": 880,
+      "rendered_scenes": 8,
+      "world_model_score": 10.0,
+      "video_id": "8cytzglu8yc",
+      "certified_at": "2026-11-04T22:20:39.161373",
+      "gdrive_archive": "MATH_023.zip",
+      "archive_sha256": "b285d6c96c1c0488320268cbfa72ed721e0586998d8193d5a882c22527b1354a",
+      "archive_size_mb": 15.33,
+      "gdrive_file_id": "1U1GJfvJ0WfZwTHpjWIryx8Gh0sd39aYT",
+      "gdrive_download_url": "https://drive.google.com/uc?id=1U1GJfvJ0WfZwTHpjWIryx8Gh0sd39aYT&export=download",
+      "gdrive_synced_at": "2026-11-12T13:06:54.531341+00:00",
+      "sync_batch_date": "2026-11-04"
+    },
+    "MATH_024": {
+      "title": "Correction d'exercice classique : Généralités sur les fonctions et lecture graphique (Entraînement Lycée)",
+      "duration_seconds": 842.23,
+      "word_count": 2530,
+      "rendered_scenes": 7,
+      "world_model_score": 10.0,
+      "video_id": "VZ4XNCPLo9w",
+      "certified_at": "2026-11-05T00:54:45.044015",
+      "gdrive_archive": "MATH_024.zip",
+      "archive_sha256": "e71a7f0cb16720ad7dc7ae809db87b23b0613e73267092156e3ca2f6f3698547",
+      "archive_size_mb": 35.5,
+      "gdrive_file_id": "1GDER6AUJrUgxnyWcdCkVtaBeWCFRBK81",
+      "gdrive_download_url": "https://drive.google.com/uc?id=1GDER6AUJrUgxnyWcdCkVtaBeWCFRBK81&export=download",
+      "gdrive_synced_at": "2026-11-12T13:06:54.531341+00:00",
+      "sync_batch_date": "2026-11-05"
+    },
+    "MATH_025": {
+      "title": "Problème type Bac : Généralités sur les fonctions et lecture graphique — Raisonnement en plusieurs étapes",
+      "duration_seconds": 305.89,
+      "word_count": 916,
+      "rendered_scenes": 7,
+      "world_model_score": 10.0,
+      "video_id": "EOS5bSPTZjg",
+      "certified_at": "2026-11-04T23:56:57.572151",
+      "gdrive_archive": "MATH_025.zip",
+      "archive_sha256": "a3eaf8223fb4ccbb9cea3f8c69708894514fab590730122cbfd3cf8e1d900780",
+      "archive_size_mb": 15.09,
+      "gdrive_file_id": "1KFVkYHqZGRSELYuBsJF0xmY1urQ1bAA6",
+      "gdrive_download_url": "https://drive.google.com/uc?id=1KFVkYHqZGRSELYuBsJF0xmY1urQ1bAA6&export=download",
+      "gdrive_synced_at": "2026-11-12T13:06:54.531341+00:00",
+      "sync_batch_date": "2026-11-04"
+    },
+    "MATH_026": {
+      "title": "Révision express & Fiche de synthèse : Tout retenir sur Généralités sur les fonctions et lecture graphique",
+      "duration_seconds": 456.79,
+      "word_count": 1361,
+      "rendered_scenes": 7,
+      "world_model_score": 10.0,
+      "video_id": "AZvjA44WfPw",
+      "certified_at": "2026-11-05T02:16:30.027788",
+      "gdrive_archive": "MATH_026.zip",
+      "archive_sha256": "dfb303a6bd3148bc97d957c5e4c228176bf4606efc9da81c1c171281e531ebbb",
+      "archive_size_mb": 21.19,
+      "gdrive_file_id": "1tOSE4nj1-0goOCJvOMcbdRK4NeSAcvsK",
+      "gdrive_download_url": "https://drive.google.com/uc?id=1tOSE4nj1-0goOCJvOMcbdRK4NeSAcvsK&export=download",
+      "gdrive_synced_at": "2026-11-12T13:06:54.531341+00:00",
+      "sync_batch_date": "2026-11-05"
+    },
+    "MATH_027": {
+      "title": "Généralités sur les fonctions et lecture graphique — Cours fondamental et définitions",
+      "duration_seconds": 745.14,
+      "word_count": 2276,
+      "rendered_scenes": 9,
+      "world_model_score": 10.0,
+      "video_id": "E4SY8_L-DTA",
+      "certified_at": "2026-11-05T03:04:28.841419",
+      "gdrive_archive": "MATH_027.zip",
+      "archive_sha256": "95e102934d17fc44ed92fe006da449724f398cc617da9cd71030e6a782cd92cb",
+      "archive_size_mb": 32.84,
+      "gdrive_file_id": "1frE7osM-cOXHddZ2lDuHDnSPCwC59pL0",
+      "gdrive_download_url": "https://drive.google.com/uc?id=1frE7osM-cOXHddZ2lDuHDnSPCwC59pL0&export=download",
+      "gdrive_synced_at": "2026-11-12T13:06:54.531341+00:00",
+      "sync_batch_date": "2026-11-05"
+    },
+    "MATH_028": {
+      "title": "Méthode pas à pas : Comment résoudre un problème de Généralités sur les fonctions et lecture graphique",
+      "duration_seconds": 346.22,
+      "word_count": 1010,
+      "rendered_scenes": 5,
+      "world_model_score": 10.0,
+      "video_id": "b8v2XVwwwLU",
+      "certified_at": "2026-11-05T02:27:51.415322",
+      "gdrive_archive": "MATH_028.zip",
+      "archive_sha256": "97c3d903ce58a746e5877e4ec6dd7d66db3613e91d6d85d0c69991024eb1fd26",
+      "archive_size_mb": 15.53,
+      "gdrive_file_id": "1LPz77kZPRlpkd3MHcYpV61FCt_swRNZp",
+      "gdrive_download_url": "https://drive.google.com/uc?id=1LPz77kZPRlpkd3MHcYpV61FCt_swRNZp&export=download",
+      "gdrive_synced_at": "2026-11-12T13:06:54.531341+00:00",
+      "sync_batch_date": "2026-11-05"
+    },
+    "MATH_029": {
+      "title": "Exemple guidé et calcul détaillé : Généralités sur les fonctions et lecture graphique en pratique",
+      "duration_seconds": 501.05,
+      "word_count": 1485,
+      "rendered_scenes": 6,
+      "world_model_score": 10.0,
+      "video_id": "nwdv78G1kII",
+      "certified_at": "2026-11-05T03:04:54.213491",
+      "gdrive_archive": "MATH_029.zip",
+      "archive_sha256": "be9adefa9d328c2b71ed38a1d0bc22fdec2d853cafac555f6d4d9f7f384a68b1",
+      "archive_size_mb": 22.3,
+      "gdrive_file_id": "1EOMebs_e-gsYCyAznlxT_2lSY8wf1N8C",
+      "gdrive_download_url": "https://drive.google.com/uc?id=1EOMebs_e-gsYCyAznlxT_2lSY8wf1N8C&export=download",
+      "gdrive_synced_at": "2026-11-12T13:06:54.531341+00:00",
+      "sync_batch_date": "2026-11-05"
     }
   },
   "gdrive_store": {
     "root_folder_name": "ILLIMMI_CORPUS_STORE",
-    "root_folder_id": "1z8MJTy-UnKKs_t24xnqiGNEEMnM06tTM",
-    "releases_folder_id": "1g7HxYXpt0oY6jr6Lq1G0exKT3a5N57KD",
-    "current_release_id": "13_O04HKBPWCW7C9B8PgXp2mP2BpxgM2b",
-    "release_url": "https://drive.google.com/drive/folders/13_O04HKBPWCW7C9B8PgXp2mP2BpxgM2b",
-    "release_path": "releases/v0.1.0",
-    "documentation": "docs/gdrive_corpus_architecture.md"
+    "layout": "flat",
+    "root_folder_id": "1q7VkIU3johw0-sFyxpbhn-dbzppbDmOG",
+    "courses_archives_id": "1NOkvmJWAZyIg3Fb5IgUDorB9anXMAK9x",
+    "training_data_id": "1p_eCy4HD2UvEFqJMv0Q9UA7ZHX1nBi2e",
+    "catalog_id": "1DymdriKzYTcNMwhEYGHnISHTO6mNWE_6",
+    "manifest_file_id": "11FVxE-kfjaT3MPPNjmXFylg3ucAytGhM",
+    "store_url": "https://drive.google.com/drive/folders/1q7VkIU3johw0-sFyxpbhn-dbzppbDmOG"
   }
 }

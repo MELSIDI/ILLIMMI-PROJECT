@@ -1,0 +1,50 @@
+Bonjour et bienvenue ! Dans ce cours fondamental, tu vas apprendre à déterminer rigoureusement l'ensemble de définition d'une fonction, et en particulier d'une fonction homographique.
+Regardons ensemble la formule inscrite à gauche du tableau : nous considérons la fonction f définie par f de x égale x divisé par 3x moins 6.
+Mais avant de nous lancer dans les calculs, posons-nous la vraie question : que signifie exactement l'ensemble de définition d'une fonction ? C'est tout simplement l'ensemble de tous les nombres réels x pour lesquels il est possible de calculer une image f de x.
+Traçons à droite un repère pour poser le décor de notre étude graphique.
+
+Faisons d'abord un petit rappel essentiel de cours. Qu'est-ce que c'est, au juste, qu'une fonction homographique ?
+Une fonction homographique est une fonction qui s'écrit sous la forme f de x égale a x plus b, le tout divisé par c x plus d, où les lettres a, b, c et d désignent des nombres réels fixés, avec c non nul.
+Regardons attentivement notre fonction f de x égale x sur 3x moins 6. Est-elle bien homographique ? Oui, tout à fait !
+Au numérateur, devant x, le coefficient a vaut 1, et comme il n'y a pas de terme constant b, cela signifie que b vaut 0.
+Au dénominateur, devant x, le coefficient c vaut 3, et le terme constant d vaut moins 6. Nous avons donc bien un quotient de deux expressions affines, c'est une fonction homographique typique du programme de seconde.
+
+Intéressons-nous maintenant à la géométrie de cette fonction. Ce qu'il faut absolument savoir, c'est l'allure de la représentation graphique d'une fonction homographique.
+Sa courbe représentative s'appelle une hyperbole. Une hyperbole est une courbe géométrique remarquable composée de deux branches distinctes et séparées.
+Une fonction homographique très bien connue que tu as déjà croisée au collège et en début de seconde, c'est la fonction inverse, définie par f de x égale 1 sur x. Sa courbe est justement une hyperbole formée de deux branches symétriques.
+Regarde le graphique que nous traçons à droite dans notre repère.
+Si nous nous intéressons à l'ensemble de définition, c'est parce qu'une fonction homographique n'est pas définie partout sur la droite des réels.
+Regarde bien : si nous choisissons une première valeur de x sur l'axe horizontal et que nous montons verticalement vers la courbe, nous trouvons bien une valeur de y, c'est son image. Pour une autre valeur de x plus à gauche, nous descendons et nous trouvons encore une valeur de y.
+Mais observe attentivement : il y a un endroit précis où la courbe se déchire, où il y a un trou !
+Pour la fonction inverse 1 sur x, ce trou se situe à l'origine en x égale 0. On a beau chercher verticalement vers le haut ou vers le bas, on n'arrive jamais à toucher la courbe. La courbe ne traverse jamais cette frontière verticale.
+Ce trou signifie que l'ensemble de définition connaît une valeur interdite. Et c'est précisément la recherche de cette valeur interdite qui va nous occuper pour notre fonction f.
+
+D'où vient mathématiquement ce trou pour notre fonction f de x égale x sur 3x moins 6 ?
+Ce trou vient tout simplement d'une règle absolue en mathématiques : nous n'avons jamais le droit d'avoir un dénominateur qui s'annule, car il est strictement interdit de diviser par zéro !
+Puisque le dénominateur n'a pas le droit d'être nul, la démarche logique consiste à chercher où le dénominateur s'annule. C'est-à-dire : pour quelle valeur de x l'expression 3x moins 6 est-elle égale à zéro ?
+Posons à gauche cette petite équation du premier degré.
+Nous écrivons : 3x moins 6 égale 0.
+Résolvons-la pas à pas :
+Première étape : ajoutons 6 des deux côtés de l'égalité. Cela nous donne 3x égale 6.
+Deuxième étape : divisons par 3 des deux côtés pour isoler x. Nous obtenons x égale 6 divisé par 3.
+Et 6 divisé par 3, cela se simplifie tout simplement en x égale 2.
+Regarde à droite sur notre repère : nous traçons en pointillés verticaux la droite d'équation x égale 2. C'est exactement là que se situe le trou, la frontière qui sépare les deux branches de notre hyperbole !
+
+Prenons le temps de vérifier concrètement ce résultat par le calcul, pour bien comprendre l'interdiction.
+Que se passerait-il si l'on tentait de calculer f de 2 ? Remplaçons x par 2 dans notre formule.
+Au numérateur, x est remplacé par 2 : aucun souci, le numérateur vaut 2.
+Mais regardons au dénominateur : 3 fois 2 fait 6, et 6 moins 6 donne 0 !
+Nous nous retrouvons donc face à la fraction 2 divisée par 0. Or, sur n'importe quelle calculatrice ou dans les règles fondamentales de l'algèbre, diviser par 0 est une opération impossible. On ne peut rien faire, le calcul n'a aucun sens mathématique.
+Le nombre 2 est donc bel et bien la valeur interdite.
+Attention à l'erreur fréquente que font de nombreux élèves en contrôle : ne confonds jamais le numérateur et le dénominateur !
+Si le numérateur x est nul, c'est-à-dire pour x égale 0, f de 0 vaut 0 divisé par moins 6, ce qui fait 0 : c'est parfaitement légal et autorisé. Ce qui est interdit, c'est uniquement l'annulation du dénominateur.
+
+Puisque notre fonction f est définie pour tous les nombres réels sauf en 2, comment devons-nous rédiger la conclusion ?
+Notons l'ensemble de définition de la fonction f avec la lettre D indice f.
+Traçons à droite une droite réelle graduée pour visualiser la réunion des intervalles.
+Nous partons de moins l'infini à gauche jusqu'à 2, avec un crochet ouvert tourné vers l'extérieur pour exclure formellement 2.
+Puis nous mettons le symbole union, qui ressemble à un grand U majuscule.
+Et nous repartons immédiatement après 2 avec un nouveau crochet ouvert, pour continuer jusqu'à plus l'infini.
+L'ensemble de définition s'écrit donc : l'intervalle ouvert moins l'infini point-virgule 2, union l'intervalle ouvert 2 point-virgule plus l'infini.
+Il existe également une seconde notation très élégante et plus compacte : on écrit grand R, l'ensemble des réels, suivi de la barre oblique inversée et du nombre 2 entre accolades. Cela se lit : grand R privé de 2.
+Retiens bien ce réflexe d'examen : dès que tu vois une fonction avec une fraction, pose immédiatement que le dénominateur est différent de zéro, résous l'équation correspondante pour trouver la valeur interdite, et exclus-la de ton ensemble de définition. Te voilà parfaitement armé !

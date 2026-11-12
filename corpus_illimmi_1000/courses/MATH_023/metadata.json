@@ -1,0 +1,127 @@
+{
+  "id": "MATH_023",
+  "subject": "Mathématiques",
+  "level": "Seconde",
+  "domain": "Fonctions",
+  "title": "Exemple guidé et calcul détaillé : Généralités sur les fonctions et lecture graphique en pratique",
+  "pedagogical_type": "exemple_guide_et_calcul",
+  "pedagogical_target": "Maîtriser la lecture graphique d'une image et des antécédents d'un nombre par une fonction : comprendre le rôle des axes des abscisses (antécédents x) et des ordonnées (images y), tracer les lignes de rappel horizontales et verticales vers la courbe, distinguer l'unicité de l'image de la multiplicité possible des antécédents, et adopter les notations formelles f(x) = y et f: x |-> y.",
+  "sections": [
+    {
+      "section_id": "sec_1",
+      "title": "1. Introduction & Objectif : Image et Antécédents",
+      "summary": "Introduction à la lecture graphique sur la courbe représentative d'une fonction f pour apprendre à déterminer une image puis des antécédents.",
+      "support_visuel_suggere": "draw 2drep + draw 2dfunc + text",
+      "concepts_cles": [
+        "lecture graphique",
+        "fonction f",
+        "courbe représentative",
+        "repère orthogonal",
+        "notion d'image et d'antécédent"
+      ]
+    },
+    {
+      "section_id": "sec_2",
+      "title": "2. Méthode : Déterminer l'image d'un nombre",
+      "summary": "Principe fondamental pour lire une image : repérer la valeur d'entrée x sur l'axe des abscisses pour lire la valeur de sortie y sur l'axe des ordonnées.",
+      "support_visuel_suggere": "text + draw arrow + draw line",
+      "concepts_cles": [
+        "axe des abscisses x",
+        "axe des ordonnées y",
+        "valeur d'entrée",
+        "valeur de sortie",
+        "sens de lecture"
+      ]
+    },
+    {
+      "section_id": "sec_3",
+      "title": "3. Exemple 1 : Détermination de l'image de -4",
+      "summary": "Lecture pas à pas de l'image de -4 : repérage de x = -4, descente verticale jusqu'à la courbe, projection vers l'axe des ordonnées en y = -3, et écritures formelles f(-4) = -3 et f: -4 |-> -3.",
+      "support_visuel_suggere": "draw 2drep + draw 2dfunc + draw arrow + draw path",
+      "concepts_cles": [
+        "x = -4",
+        "point de la courbe (-4, -3)",
+        "ordonnée -3",
+        "notation f(-4) = -3",
+        "flèche d'association"
+      ]
+    },
+    {
+      "section_id": "sec_4",
+      "title": "4. Exemple 2 : Détermination de l'image de 2",
+      "summary": "Lecture pas à pas de l'image de 2 : repérage sur l'axe des abscisses, montée verticale jusqu'à la courbe et lecture de y = 3 sur l'axe des ordonnées. Écriture f(2) = 3.",
+      "support_visuel_suggere": "draw 2drep + draw 2dfunc + draw arrow + text",
+      "concepts_cles": [
+        "x = 2",
+        "point de la courbe (2, 3)",
+        "ordonnée 3",
+        "notation f(2) = 3"
+      ]
+    },
+    {
+      "section_id": "sec_5",
+      "title": "5. Chemin inverse : Définition des antécédents",
+      "summary": "Comprendre la recherche des antécédents comme le chemin inverse : on part d'une valeur y sur l'axe des ordonnées pour rechercher les antécédents x sur l'axe des abscisses.",
+      "support_visuel_suggere": "text + draw line + draw arrow",
+      "concepts_cles": [
+        "chemin inverse",
+        "antécédents",
+        "équation f(x) = k",
+        "recherche de départ"
+      ]
+    },
+    {
+      "section_id": "sec_6",
+      "title": "6. Exemple 3 : Détermination des antécédents de 2",
+      "summary": "Lecture pas à pas des antécédents de 2 : tracer la ligne horizontale y = 2, repérer les deux points d'intersection à droite et à gauche, et projeter sur l'axe des abscisses pour trouver 3 et -1.",
+      "support_visuel_suggere": "draw 2drep + draw 2dfunc + draw line + draw arrow",
+      "concepts_cles": [
+        "hauteur y = 2",
+        "droite horizontale",
+        "deux intersections",
+        "x = 3",
+        "x = -1",
+        "f(3) = 2 et f(-1) = 2"
+      ]
+    },
+    {
+      "section_id": "sec_7",
+      "title": "7. Erreur fréquente : Unicité de l'image vs Pluralité des antécédents",
+      "summary": "Démystifier le piège classique d'examen : une fonction donne au plus une image pour chaque x, mais une valeur y peut posséder plusieurs antécédents distincts.",
+      "support_visuel_suggere": "draw polygone + text + draw arrow",
+      "concepts_cles": [
+        "unicité de l'image",
+        "multiplicité des antécédents",
+        "piège d'examen",
+        "l'image vs un antécédent"
+      ]
+    },
+    {
+      "section_id": "sec_8",
+      "title": "8. Synthèse & Réflexes pour le contrôle",
+      "summary": "Récapitulatif des réflexes méthodologiques : partir de l'axe des abscisses pour une image, partir de l'axe des ordonnées pour des antécédents, et soigner les notations.",
+      "support_visuel_suggere": "text + draw polygone + draw arrow",
+      "concepts_cles": [
+        "réflexe de contrôle",
+        "abscisse vers ordonnée",
+        "ordonnée vers abscisse",
+        "notations rigoureuses"
+      ]
+    }
+  ],
+  "duration_seconds": 297.34,
+  "word_count": 880,
+  "source_video": {
+    "video_id": "8cytzglu8yc",
+    "title": "Graphically read an image or a background - Second",
+    "channel": "Yvan Monka",
+    "youtube_url": "https://www.youtube.com/watch?v=8cytzglu8yc"
+  },
+  "course_id": "MATH_023",
+  "world_model_score": 10.0,
+  "rendered_scenes": 8,
+  "visual_audit_notes": "Inspection multimodale humaine-virtuelle des 8 scenes PNG effectuee avec succes. World Model Verifier score 10.0/10. Reperes 2drep et courbes 2dfunc impeccables avec alignement mathematique exact des projections d image (-4 -> -3 et 2 -> 3) et d antecedents (ligne y=2 coupant en x=3 et x=-1). Contraste parfait sur fond craie vert sombre.",
+  "certified_by": "antigravity-argon",
+  "certified_at": "2026-11-04T22:20:39.161373",
+  "status": "COMPLETED"
+}

@@ -1,0 +1,87 @@
+{
+  "id": "MATH_028",
+  "subject": "Mathématiques",
+  "level": "Seconde",
+  "domain": "Fonctions",
+  "title": "Méthode pas à pas : Comment résoudre un problème de Généralités sur les fonctions et lecture graphique",
+  "pedagogical_type": "methode_pas_a_pas",
+  "pedagogical_target": "Maîtriser la lecture graphique d'images et d'antécédents à partir de la courbe représentative d'une fonction dans un repère cartésien, comprendre la distinction entre l'axe des abscisses et l'axe des ordonnées, et savoir résoudre graphiquement f(x) = k.",
+  "sections": [
+    {
+      "section_id": "sec_1",
+      "title": "1. Vocabulaire fondamental du repère cartésien",
+      "summary": "Présentation des deux axes d'un repère orthonormé : l'axe horizontal des abscisses pour les valeurs de départ x et l'axe vertical des ordonnées pour les images f(x) renvoyées par la fonction f, assimilée à une machine mathématique.",
+      "support_visuel_suggere": "draw 2drep + draw arrow + text",
+      "concepts_cles": [
+        "Axe des abscisses",
+        "Axe des ordonnées",
+        "Variable d'entrée x",
+        "Image f(x)",
+        "Machine fonction"
+      ]
+    },
+    {
+      "section_id": "sec_2",
+      "title": "2. Méthode pas à pas : Lire graphiquement une image",
+      "summary": "Détermination pas à pas de l'image de 1 puis de l'image de -1 : départ sur l'axe des abscisses, projection verticale sur la courbe f, puis projection horizontale vers l'axe des ordonnées pour lire f(1) = -1 et f(-1) = 3.",
+      "support_visuel_suggere": "draw 2drep + draw 2dfunc + draw line + draw arrow",
+      "concepts_cles": [
+        "Image d'un nombre",
+        "Projection verticale",
+        "Projection horizontale",
+        "Notations f(1) = -1 et f(-1) = 3"
+      ]
+    },
+    {
+      "section_id": "sec_3",
+      "title": "3. Méthode pas à pas : Lire graphiquement un antécédent",
+      "summary": "Recherche d'un antécédent de 3 par f : départ sur l'axe vertical à l'ordonnée y = 3, tracé de la droite horizontale parallèle aux abscisses, repérage de l'intersection avec la courbe, puis projection verticale pour lire l'antécédent x = -1.",
+      "support_visuel_suggere": "draw line + draw circle + draw arrow",
+      "concepts_cles": [
+        "Antécédent",
+        "Droite horizontale y = k",
+        "Point d'intersection",
+        "Résolution graphique de f(x) = 3"
+      ]
+    },
+    {
+      "section_id": "sec_4",
+      "title": "4. Cas particulier : Multiplicité des antécédents",
+      "summary": "Détermination de tous les antécédents de 1 montrant qu'une valeur peut avoir plusieurs antécédents (-2, 0 et 2), contrairement à l'image qui est toujours unique pour une valeur donnée de x.",
+      "support_visuel_suggere": "draw line + draw circle + draw arrow",
+      "concepts_cles": [
+        "Multiplicité des antécédents",
+        "Intersections multiples",
+        "Unicité de l'image",
+        "Antécédents multiples {-2, 0, 2}"
+      ]
+    },
+    {
+      "section_id": "sec_5",
+      "title": "5. Fiche réflexe & Erreurs fréquentes d'examen",
+      "summary": "Synthèse des réflexes d'examen : identifier immédiatement le sens de parcours (abscisse vers ordonnée pour l'image, ordonnée vers abscisse pour l'antécédent) et éviter le piège d'inversion des axes.",
+      "support_visuel_suggere": "draw polygone + draw arrow + text",
+      "concepts_cles": [
+        "Sens de parcours",
+        "Abscisse vers ordonnée",
+        "Ordonnée vers abscisse",
+        "Piège d'inversion x et y"
+      ]
+    }
+  ],
+  "duration_seconds": 346.22,
+  "word_count": 1010,
+  "source_video": {
+    "video_id": "b8v2XVwwwLU",
+    "title": "Comment lire graphiquement une IMAGE ou un ANTÉCÉDENT ? ✅ Exemples faciles ! 🎯 3e | Seconde",
+    "channel": "Paul Olivier",
+    "youtube_url": "https://www.youtube.com/watch?v=b8v2XVwwwLU"
+  },
+  "course_id": "MATH_028",
+  "world_model_score": 10.0,
+  "rendered_scenes": 5,
+  "visual_audit_notes": "Toutes les scenes (scene_0 a scene_4) ont ete verifiees visuellement via read_file. Scene 0 : repere orthonorme avec fleches cyan/emeraude sur Ox et Oy, analogie machine claire et sans collision. Scene 1 : courbe cubique y=(2x^3-8x)/3+1 tracee avec precision, etiquette Cf nette en haut a droite, doubles projections orthogonales jaune et violette vers l'image -1 et 3. Scene 2 : droite horizontale y=3, intersection unique en (-1, 3) et projection verticale vers l'antecedent -1. Scene 3 : droite y=1 coupant la courbe en 3 points distincts (-2, 0, 2), fleches descendantes vers l'axe des abscisses, solutions multiples clairement encadrees. Scene 4 : fiche reflexe en double boite contrastee (methode image vs antecedents) avec avertissement piege d'examen en bas. Zero collision, score World Model 10.0/10.",
+  "certified_by": "antigravity-argon",
+  "certified_at": "2026-11-05T02:27:51.415322",
+  "status": "COMPLETED"
+}

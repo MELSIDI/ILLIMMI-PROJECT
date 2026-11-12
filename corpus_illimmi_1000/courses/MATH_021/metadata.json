@@ -1,0 +1,100 @@
+{
+  "id": "MATH_021",
+  "subject": "Mathématiques",
+  "level": "Seconde",
+  "domain": "Fonctions",
+  "title": "Généralités sur les fonctions et lecture graphique — Cours fondamental et définitions",
+  "pedagogical_type": "cours_fondamental",
+  "pedagogical_target": "Comprendre la notion d'ensemble de définition d'une fonction d'un point de vue algébrique et graphique, identifier une fonction homographique et son hyperbole, déterminer une valeur interdite par l'annulation du dénominateur, et écrire rigoureusement l'ensemble de définition sous forme d'intervalles et de réunion.",
+  "sections": [
+    {
+      "section_id": "sec_1",
+      "title": "1. Introduction : Qu'est-ce que l'ensemble de définition ?",
+      "summary": "Introduction au concept d'ensemble de définition d'une fonction à travers l'exemple de la fonction homographique f(x) = x / (3x - 6).",
+      "support_visuel_suggere": "draw 2drep + text",
+      "concepts_cles": [
+        "ensemble de définition",
+        "fonction",
+        "domaine",
+        "antécédent et image",
+        "fonction homographique"
+      ]
+    },
+    {
+      "section_id": "sec_2",
+      "title": "2. Rappel fondamental : Les fonctions homographiques",
+      "summary": "Définition algébrique générale de la fonction homographique f(x) = (ax + b) / (cx + d) et identification des coefficients pour f(x) = x / (3x - 6).",
+      "support_visuel_suggere": "text + draw line + draw polygone",
+      "concepts_cles": [
+        "forme ax+b sur cx+d",
+        "coefficients a, b, c, d",
+        "quotient de polynômes de degré 1"
+      ]
+    },
+    {
+      "section_id": "sec_3",
+      "title": "3. Interprétation graphique : L'hyperbole et le 'trou'",
+      "summary": "Visualisation de l'allure d'une hyperbole en deux branches disjointes en s'appuyant sur la fonction inverse 1/x et repérage visuel du trou ou de la valeur interdite.",
+      "support_visuel_suggere": "draw 2drep + draw 2dfunc + draw line + draw arrow",
+      "concepts_cles": [
+        "hyperbole",
+        "deux branches",
+        "fonction inverse 1/x",
+        "valeur interdite graphique",
+        "trou sur l'axe"
+      ]
+    },
+    {
+      "section_id": "sec_4",
+      "title": "4. Méthode algébrique : Recherche de la valeur interdite",
+      "summary": "Traduction algébrique de l'interdiction de diviser par zéro : poser l'équation du dénominateur nul 3x - 6 = 0 et isoler l'inconnue pour trouver x = 2.",
+      "support_visuel_suggere": "text + step_solution + draw arrow",
+      "concepts_cles": [
+        "division par zéro interdite",
+        "annulation du dénominateur",
+        "équation 3x - 6 = 0",
+        "valeur interdite x = 2"
+      ]
+    },
+    {
+      "section_id": "sec_5",
+      "title": "5. Vérification & Piège classique : Numérateur vs Dénominateur",
+      "summary": "Calcul direct de f(2) montrant le quotient 2 sur 0 impossible, et clarification du piège fréquent consistant à annuler à tort le numérateur.",
+      "support_visuel_suggere": "text + draw polygone + draw arrow",
+      "concepts_cles": [
+        "calcul test f(2)",
+        "division par 0 impossible",
+        "piège du numérateur nul",
+        "distinction antécédent / image"
+      ]
+    },
+    {
+      "section_id": "sec_6",
+      "title": "6. Notation de l'ensemble de définition et synthèse",
+      "summary": "Écriture rigoureuse de l'ensemble de définition D_f sous forme de réunion d'intervalles ouverts ]-inf ; 2[ U ]2 ; +inf[ et de notation ensembliste R privé de 2.",
+      "support_visuel_suggere": "draw line + draw path + text",
+      "concepts_cles": [
+        "ensemble D_f",
+        "union d'intervalles ouverts",
+        "crochets ouverts d'exclusion",
+        "notation R privé de 2",
+        "réflexe d'examen"
+      ]
+    }
+  ],
+  "source_video": {
+    "video_id": "ngzGb45n8S4",
+    "title": "Déterminer L'ENSEMBLE DE DÉFINITION d'une fonction - Seconde",
+    "channel": "Yvan Monka",
+    "youtube_url": "https://www.youtube.com/watch?v=ngzGb45n8S4"
+  },
+  "duration_seconds": 361.66,
+  "word_count": 1085,
+  "course_id": "MATH_021",
+  "world_model_score": 10.0,
+  "rendered_scenes": 6,
+  "visual_audit_notes": "Visual audit across 6 rendered scenes (scene_0..scene_5.png). Scene 0: Introduction with course title, function formula f(x) = x/(3x - 6), formal definition of D_f, and 2drep grid. Scene 1: Homographic function general form (ax+b)/(cx+d), parameter identification (a=1, b=0, c=3, d=-6) in framed translucent box. Scene 2: Geometric hyperbola of 1/x with both asymptotic branches rendered smoothly and red vertical asymptote at x=0. Scene 3: Algebraic resolution 3x - 6 = 0 <=> x = 2, full hyperbola of f(x) with two branches and vertical asymptote at x=2. Scene 4: Concrete substitution f(2) showing 2/0 is impossible, side-by-side comparison box distinguishing forbidden denominator from allowed numerator. Scene 5: Dual notation D_f = ]-inf ; 2[ U ]2 ; +inf[ and R \\ {2}, real line visualization with outward open brackets framing excluded point 2, and exam recap card. High-contrast green chalkboard, zero text/diagram collision, 16:9 framing.",
+  "certified_by": "antigravity-argon",
+  "certified_at": "2026-11-04T22:04:35.430075",
+  "status": "COMPLETED"
+}

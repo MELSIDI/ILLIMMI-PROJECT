@@ -1,0 +1,98 @@
+{
+  "id": "MATH_029",
+  "subject": "Mathématiques",
+  "level": "Seconde",
+  "domain": "Fonctions",
+  "title": "Exemple guidé et calcul détaillé : Généralités sur les fonctions et lecture graphique en pratique",
+  "pedagogical_type": "exemple_guide",
+  "pedagogical_target": "Résoudre graphiquement une équation du type f(x) = g(x) par l'abscisse des points d'intersection de deux courbes représentatives, et résoudre une inéquation du type f(x) < g(x) en identifiant les portions de courbe situées en dessous et en formulant rigoureusement l'ensemble des solutions sous forme d'intervalle ouvert.",
+  "sections": [
+    {
+      "section_id": "sec_1",
+      "title": "1. Introduction et Problématique : Équations et Inéquations Graphiques",
+      "summary": "Présentation des deux fonctions du second degré f(x) = x² + 2 et g(x) = -x² + 3x + 2, et formulation du double objectif : résoudre graphiquement f(x) = g(x) puis f(x) < g(x).",
+      "support_visuel_suggere": "draw 2drep + text",
+      "concepts_cles": [
+        "fonctions du second degré",
+        "équation f(x) = g(x)",
+        "inéquation f(x) < g(x)",
+        "résolution graphique"
+      ]
+    },
+    {
+      "section_id": "sec_2",
+      "title": "2. Principe Théorique : Sens Graphique de f(x) = g(x)",
+      "summary": "Compréhension géométrique à l'aide d'un schéma explicatif : pourquoi un x quelconque donne des images distinctes et pourquoi le point d'intersection fournit des images égales.",
+      "support_visuel_suggere": "draw 2drep + draw curve + draw arrow + draw line",
+      "concepts_cles": [
+        "antécédent x",
+        "images f(x) et g(x)",
+        "point d'intersection",
+        "projection sur les axes"
+      ]
+    },
+    {
+      "section_id": "sec_3",
+      "title": "3. Résolution de f(x) = g(x) : Tracé et Points d'Intersection",
+      "summary": "Tracé précis des paraboles de f et g, repérage des deux points d'intersection, et projection perpendiculaire sur l'axe des abscisses pour obtenir x = 0 et x = 1,5.",
+      "support_visuel_suggere": "draw 2drep + draw 2dfunc + draw line + draw circle",
+      "concepts_cles": [
+        "parabole de f",
+        "parabole de g",
+        "deux intersections",
+        "abscisses solutions x = 0 et x = 1,5"
+      ]
+    },
+    {
+      "section_id": "sec_4",
+      "title": "4. Piège Fréquent & Statut de la Lecture Graphique",
+      "summary": "Alerte méthodologique : la solution est toujours l'abscisse x et non l'ordonnée image f(x), et distinction entre lecture graphique approchée et résolution algébrique exacte.",
+      "support_visuel_suggere": "text + draw polygone + draw arrow",
+      "concepts_cles": [
+        "piège abscisse vs ordonnée",
+        "valeur approchée",
+        "lecture graphique",
+        "résolution algébrique"
+      ]
+    },
+    {
+      "section_id": "sec_5",
+      "title": "5. Résolution de l'Inéquation f(x) < g(x) : Courbe en Dessous",
+      "summary": "Interprétation géométrique de f(x) < g(x) : rechercher où la courbe de f est située strictement en dessous de celle de g, en utilisant les intersections comme frontières.",
+      "support_visuel_suggere": "draw 2drep + draw 2dfunc + draw line + draw arrow",
+      "concepts_cles": [
+        "inéquation f(x) < g(x)",
+        "courbe en dessous",
+        "frontières de l'intervalle",
+        "balayage de gauche à droite"
+      ]
+    },
+    {
+      "section_id": "sec_6",
+      "title": "6. Zone Solution et Rigueur des Crochets d'Intervalles",
+      "summary": "Mise en évidence de la zone entre x = 0 et x = 1,5, justification de l'exclusion des bornes par l'inégalité stricte, et écriture finale de l'ensemble solution S = ]0 ; 1,5[.",
+      "support_visuel_suggere": "draw 2drep + draw path + text + draw polygone",
+      "concepts_cles": [
+        "intervalle ]0 ; 1,5[",
+        "inégalité stricte",
+        "crochets ouverts d'exclusion",
+        "ensemble solution S"
+      ]
+    }
+  ],
+  "source_video": {
+    "video_id": "nwdv78G1kII",
+    "title": "Résoudre graphiquement une équation ou une inéquation - Seconde",
+    "channel": "Yvan Monka",
+    "youtube_url": "https://www.youtube.com/watch?v=nwdv78G1kII"
+  },
+  "duration_seconds": 501.05,
+  "word_count": 1485,
+  "course_id": "MATH_029",
+  "world_model_score": 10.0,
+  "rendered_scenes": 6,
+  "visual_audit_notes": "Visual audit across 6 rendered scenes (scene_0..scene_5.png). Scene 0: Introduction of quadratic functions f(x)=x^2+2 and g(x)=-x^2+3x+2, framed method card for equation and inequation graphical steps. Scene 1: Theoretical principle on 2drep with smooth curves, random test point x with distinct projection heights, and intersection point with unified projection. Scene 2: High-precision 2drep with parabolas C_f and C_g intersecting at A(0, 2) and B(1.5, 4.25), perpendicular projections to x-axis, and solution set S={0; 1.5}. Scene 3: Methodological comparison cards debunking the ordinate-vs-abscissa trap and contrasting exact value x=0 with graphical reading x=1.5. Scene 4: Geometric interpretation of f(x)<g(x), vertical boundary lines through intersections partitioning the domain, left-to-right scanning arrow. Scene 5: Shaded lavender region between curves on ]0, 1.5[, highlighted red segment on x-axis with crisp geometric outward open brackets, and final recap card with solution S=]0; 1.5[. Zero collisions, perfect KaTeX rendering, 16:9 green chalkboard aesthetic.",
+  "certified_by": "antigravity-argon",
+  "certified_at": "2026-11-05T03:04:54.213491",
+  "status": "COMPLETED"
+}

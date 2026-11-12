@@ -1,0 +1,49 @@
+Bonjour et bienvenue dans ce cours. Aujourd'hui, tu vas apprendre à déterminer graphiquement l'image d'un nombre par une fonction, puis nous verrons comment déterminer les antécédents d'un nombre par cette même fonction.
+
+Traçons à droite notre repère orthogonal gradué, avec en vert la courbe représentative de notre fonction f. Savoir lire graphiquement une image et des antécédents est une compétence fondamentale en classe de seconde, qui te servira tout au long du lycée.
+
+Commençons par la méthode pour déterminer l'image d'un nombre. Par définition, chercher l'image d'un nombre x par une fonction f, c'est chercher la valeur que nous renvoie la fonction f lorsque nous lui donnons ce nombre x en entrée.
+
+Retiens bien cette règle essentielle : la valeur d'entrée x se lit toujours sur l'axe horizontal des abscisses. La valeur de sortie renvoyée par la fonction, que l'on note f de x, se lit quant à elle sur l'axe vertical des ordonnées.
+
+Appliquons immédiatement cette méthode avec notre premier exemple. On nous demande de déterminer l'image de moins 4 par la fonction f.
+
+Puisque nous cherchons l'image de moins 4, cela signifie que la valeur d'entrée est x égale moins 4. Plaçons-nous sur l'axe des abscisses et cherchons la graduation moins 4. Elle se situe ici à gauche de l'origine.
+
+À partir de moins 4 sur l'axe horizontal, traçons des pointillés vers le bas pour rejoindre la courbe verte et trouver le point qui lui appartient.
+
+Une fois sur ce point de la courbe, projetons-nous horizontalement vers l'axe vertical des ordonnées pour lire la valeur correspondante. Nous arrivons exactement à la graduation moins 3.
+
+L'image de moins 4 par la fonction f est donc égale à moins 3. En mathématiques, nous pouvons écrire cette égalité sous la forme f de moins 4 égale moins 3. On peut aussi utiliser la notation avec la flèche d'association : par la fonction f, à moins 4 on associe moins 3.
+
+De la même manière, déterminons maintenant l'image de 2 par la fonction f. Pour trouver l'image de 2, nous partons à nouveau de l'axe des abscisses avec x égale 2.
+
+Repérons 2 sur l'axe horizontal. Cette fois-ci, pour rejoindre la courbe verte, nous devons monter vers le haut. Traçons les pointillés verticaux jusqu'au point de la courbe.
+
+Depuis ce point, rejoignons l'axe des ordonnées en traçant des pointillés vers la gauche. Nous lisons sur l'axe vertical la valeur 3. L'image de 2 par la fonction f est donc 3, ce qui se note simplement f de 2 égale 3.
+
+Passons maintenant au chemin inverse. Cette fois-ci, nous cherchons le ou les antécédents d'un nombre par la fonction f.
+
+Chercher les antécédents d'un nombre, c'est chercher toutes les valeurs de x de départ que nous aurions dû donner à la fonction pour obtenir cette valeur en sortie. Autrement dit, le nombre donné représente cette fois l'image, et nous recherchons le x initial. Le point de départ ne se fait plus sur l'axe des abscisses, mais sur l'axe vertical des ordonnées.
+
+Mettons cela en pratique en cherchant les antécédents de 2 par notre fonction f. Puisque 2 est l'image, plaçons-nous sur l'axe des ordonnées à la graduation 2.
+
+Pour retrouver les points de la courbe qui correspondent à cette hauteur, traçons une droite horizontale passant par 2.
+
+Regarde attentivement sur notre repère : en allant vers la droite, nous rencontrons la courbe en un premier point. En descendant verticalement depuis ce point vers l'axe des abscisses, nous lisons la valeur 3. Cela signifie qu'un premier antécédent de 2 par f est 3.
+
+Mais ce n'est pas tout ! En allant vers la gauche le long de notre ligne horizontale, nous coupons également la courbe en un second point. En projetant ce second point vers le bas sur l'axe des abscisses, nous lisons la valeur moins 1.
+
+Nous avons donc trouvé deux antécédents pour le nombre 2. Les antécédents de 2 par la fonction f sont 3 et moins 1. Nous pouvons écrire f de 3 égale 2, car 3 a pour image 2, et également f de moins 1 égale 2, car moins 1 a aussi pour image 2.
+
+Prenons un instant pour souligner un piège très fréquent en devoir. Beaucoup d'élèves confondent image et antécédents.
+
+Rappelle-toi toujours qu'un nombre possède au maximum une seule image par une fonction. On dit bien l'image au singulier. En effet, pour une abscisse x donnée, une fonction ne peut renvoyer qu'une seule hauteur sur la courbe.
+
+En revanche, un nombre peut posséder aucun antécédent, un seul antécédent, ou plusieurs antécédents. C'est pour cela que l'on parle d'un antécédent ou des antécédents. Graphiquement, une droite horizontale peut très bien couper la courbe en plusieurs points, comme nous venons de le constater.
+
+Pour conclure ce cours, mémorisons notre réflexe méthodologique. Pour déterminer une image, on part de l'axe horizontal des abscisses x, on rejoint verticalement la courbe, puis on lit le résultat sur l'axe vertical des ordonnées y.
+
+Pour déterminer des antécédents, on effectue le trajet inverse : on part de l'axe vertical des ordonnées y, on trace une ligne horizontale pour couper la courbe, et on lit toutes les abscisses x correspondantes sur l'axe horizontal.
+
+Entraîne-toi à tracer soigneusement ces lignes de rappel en pointillés lors de tes évaluations, et tu réussiras parfaitement toutes tes lectures graphiques.

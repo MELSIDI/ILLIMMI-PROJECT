@@ -1,0 +1,130 @@
+{
+  "id": "MATH_022",
+  "subject": "Mathématiques",
+  "level": "Seconde",
+  "domain": "Fonctions",
+  "title": "Méthode pas à pas : Comment résoudre un problème de Généralités sur les fonctions et lecture graphique",
+  "pedagogical_type": "methode_resolution",
+  "pedagogical_target": "Maîtriser la lecture graphique de l'image d'un nombre et de ses antécédents par une fonction f, comprendre le rôle des axes des abscisses et des ordonnées, et déterminer graphiquement le maximum d'une fonction ainsi que la valeur d'abscisse où il est atteint.",
+  "sections": [
+    {
+      "section_id": "sec_1",
+      "title": "1. Introduction & Les deux axes du repère",
+      "summary": "Présentation du cadre graphique d'une fonction : le repère orthogonal, l'axe horizontal des abscisses pour la variable x et l'axe vertical des ordonnées pour les images f(x).",
+      "support_visuel_suggere": "draw 2drep + draw arrow + text",
+      "concepts_cles": [
+        "repère orthogonal",
+        "axe des abscisses x",
+        "axe des ordonnées f(x)",
+        "machine fonctionnelle",
+        "courbe représentative Cf"
+      ]
+    },
+    {
+      "section_id": "sec_2",
+      "title": "2. Déterminer une image : Le cas f(2) = -1",
+      "summary": "Méthode complète pour lire l'image d'un nombre : partir de x = 2 sur l'axe horizontal, rejoindre la courbe vers le bas, et lire la valeur -1 sur l'axe vertical.",
+      "support_visuel_suggere": "draw 2drep + draw 2dfunc + draw arrow + draw circle",
+      "concepts_cles": [
+        "lecture d'image",
+        "départ axe des abscisses",
+        "point de la courbe (2, -1)",
+        "projection vers l'ordonnée",
+        "notation f(2) = -1"
+      ]
+    },
+    {
+      "section_id": "sec_3",
+      "title": "3. Images de nombres négatifs et nuls : f(-2) = 1 et f(3) = 0",
+      "summary": "Détermination de l'image de -2 en montant vers y = 1 et de l'image de 3 avec le point d'intersection direct sur l'axe horizontal donnant une ordonnée nulle.",
+      "support_visuel_suggere": "draw 2drep + draw 2dfunc + draw arrow + draw circle",
+      "concepts_cles": [
+        "image de nombre négatif",
+        "point (-2, 1)",
+        "intersection axe horizontal",
+        "image nulle f(3) = 0",
+        "unicité de l'image"
+      ]
+    },
+    {
+      "section_id": "sec_4",
+      "title": "4. Déterminer un antécédent : Le cas de 3 avec f(-3) = 3",
+      "summary": "Inversion du cheminement pour trouver un antécédent : départ de y = 3 sur l'axe des ordonnées, déplacement horizontal vers la courbe, puis descente vers l'abscisse x = -3.",
+      "support_visuel_suggere": "draw 2drep + draw 2dfunc + draw arrow + draw circle",
+      "concepts_cles": [
+        "recherche d'antécédent",
+        "équation f(x) = k",
+        "départ axe vertical y = 3",
+        "point (-3, 3)",
+        "antécédent x = -3"
+      ]
+    },
+    {
+      "section_id": "sec_5",
+      "title": "5. Pluralité des antécédents : Recherche des antécédents de 0",
+      "summary": "Analyse d'un cas à antécédents multiples : repérer les intersections de la courbe avec la droite horizontale y = 0 pour trouver x = 3 et x = -1.5.",
+      "support_visuel_suggere": "draw 2drep + draw 2dfunc + draw arrow + draw line",
+      "concepts_cles": [
+        "antécédents multiples",
+        "équation f(x) = 0",
+        "droite horizontale",
+        "solutions x = 3 et x = -1.5",
+        "différence image vs antécédent"
+      ]
+    },
+    {
+      "section_id": "sec_6",
+      "title": "6. Extremum d'une fonction : Lecture du maximum et de son abscisse",
+      "summary": "Identification du sommet le plus élevé de la courbe : le maximum de la fonction est l'ordonnée maximale 3, atteint pour la valeur d'abscisse x = -3.",
+      "support_visuel_suggere": "draw 2drep + draw 2dfunc + draw arrow + draw line",
+      "concepts_cles": [
+        "maximum d'une fonction",
+        "sommet culminant",
+        "ordonnée maximale y = 3",
+        "abscisse correspondante x = -3",
+        "distinction valeur vs variable"
+      ]
+    },
+    {
+      "section_id": "sec_7",
+      "title": "7. Erreur fréquente & Pièges classiques de contrôle",
+      "summary": "Décryptage des deux pièges récurrents en devoir : la confusion de sens entre abscisses et ordonnées, et l'oubli d'antécédents multiples.",
+      "support_visuel_suggere": "draw line + draw path + text",
+      "concepts_cles": [
+        "erreur fréquente",
+        "confusion image antécédent",
+        "oubli de solutions",
+        "sens de projection",
+        "réflexe de vérification"
+      ]
+    },
+    {
+      "section_id": "sec_8",
+      "title": "8. Synthèse méthodologique et réflexes d'examen",
+      "summary": "Récapitulatif pas à pas de la méthode de lecture graphique : tableau croisé récapitulatif pour les images, les antécédents et les extremums.",
+      "support_visuel_suggere": "draw path + draw arrow + text",
+      "concepts_cles": [
+        "synthèse lycée",
+        "tableau récapitulatif",
+        "procédure image",
+        "procédure antécédent",
+        "réflexes contrôle"
+      ]
+    }
+  ],
+  "source_video": {
+    "video_id": "gQUt5y8LFKk",
+    "title": "Graphically reading an image and a antecedent - Third",
+    "channel": "Yvan Monka",
+    "youtube_url": "https://www.youtube.com/watch?v=gQUt5y8LFKk"
+  },
+  "duration_seconds": 717.65,
+  "word_count": 2190,
+  "course_id": "MATH_022",
+  "world_model_score": 10.0,
+  "rendered_scenes": 8,
+  "visual_audit_notes": "Visually inspected all 8 scenes (scene_0..scene_7.png). Perfect 16:9 framing, high-contrast chalkboard, clear mathematical projections for images (vertical then horizontal) and antecedents (horizontal then vertical), well-spaced error cards and methodological recap. Zero collisions.",
+  "certified_by": "antigravity-argon",
+  "certified_at": "2026-11-05T01:03:37.867560",
+  "status": "COMPLETED"
+}

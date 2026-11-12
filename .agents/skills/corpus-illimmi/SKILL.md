@@ -83,8 +83,8 @@ for c in selected_courses[:initial_count]:
   2. S'il reste des cours non démarrés dans la file demandée, instancier immédiatement un sous-agent frais pour le cours suivant (`TypeName="illimmi-course-agent"`, `Model="inherit"`).
   3. Dès que tous les cours du lot demandé sont certifiés, passer immédiatement à l'Étape 4.
 
-### 4. MANDATORY Automated Google Drive Sync & Semantic Versioning (`auto-sync`)
-Dès que l'ensemble des cours demandés (ex: lot de 15, 20 ou 25 cours) est certifié, l'agent maître **DOIT AUTOMATIQUEMENT** exécuter le synchronisateur cloud :
+### 4. MANDATORY Automated Incremental Google Drive Sync (`auto-sync`)
+Dès que l'ensemble des cours demandés (ex: lot de 9, 15, 20 ou 25 cours) est certifié, l'agent maître **DOIT AUTOMATIQUEMENT** exécuter le synchronisateur cloud incrémental :
 
 ```powershell
 python ".agents/skills/corpus-illimmi/scripts/drive_corpus_sync.py" auto-sync
@@ -92,16 +92,15 @@ python ".agents/skills/corpus-illimmi/scripts/drive_corpus_sync.py" auto-sync
 
 **Ce que fait `drive_corpus_sync.py auto-sync` en toute autonomie :**
 1. **Régénération des exports JSONL SFT** (`export_certified_jsonl.py`).
-2. **Archivage propre des cours** : Package chaque cours en archive ZIP signée SHA-256 dans `corpus_exports/<release_tag>/`.
-3. **Upload Cloud vers Google Drive** :
-   - Vérifie et téléverse les archives dans `ILLIMMI_CORPUS_STORE / releases / <tag> / courses_archives /`.
-   - Synchronise le snapshot du catalogue (`catalog/`) et les datasets d'entraînement (`training_data/`).
-   - Évite tout doublon (ne ré-uploade que les cours nouveaux ou modifiés).
-4. **Mise à jour du manifeste `corpus_manifest.json`** : Injecte les IDs Google Drive, les liens directs de téléchargement et les empreintes SHA-256.
+2. **Archivage strictement incrémental** : Liste l'intégralité des archives sur Drive (`--max 0`) et ne package en ZIP (dans le cache unique `corpus_exports/courses_archives/`) que les cours **nouveaux** ou **re-certifiés** depuis la dernière synchro.
+3. **Upload & Mise à jour Cloud sans duplication (`ILLIMMI_CORPUS_STORE/`)** :
+   - Stockage plat permanent : `ILLIMMI_CORPUS_STORE / (courses_archives, training_data, catalog, corpus_manifest.json)` (aucun dossier `releases/<tag>/`).
+   - Ignore immédiatement les cours déjà présents sur Drive ; téléverse uniquement les nouveaux cours et met à jour `catalog/`, `training_data/` et `corpus_manifest.json` **en place** (`gdrive mutate update`).
+4. **Mise à jour du manifeste `corpus_manifest.json`** : Enregistre les IDs Google Drive, empreintes SHA-256, dates de synchronisation (`last_sync_date`, `gdrive_synced_at`) et l'historique daté `sync_batches`.
 5. **Git Push Découplé** : Committe et pousse uniquement le manifeste JSON léger (<50 Ko) sur `origin/dsl_dev`, en garantissant que **zéro binaire lourd** (PNG, WAV, MP4) ne pollue le dépôt Git.
 
 ### 5. Final Batch Report & Goal Completion
-Afficher le tableau récapitulatif du lot (`Course ID`, `Title`, `Duration`, `Words`, `Scenes`, `World Model Score`), le total global mis à jour (`X / 1000`), le tag de release Google Drive créé/mis à jour ainsi que son lien (`https://drive.google.com/drive/folders/...`), et l'ID du prochain cours en attente.
+Afficher le tableau récapitulatif du lot (`Course ID`, `Title`, `Duration`, `Words`, `Scenes`, `World Model Score`), le total global mis à jour (`X / 1000`), la date/tag de synchro ainsi que le lien du store Google Drive (`https://drive.google.com/drive/folders/...`), et l'ID du prochain cours en attente.
 *(Si `/goal` est actif, inclure `<!-- GOAL_COMPLETE -->` uniquement une fois la synchronisation Google Drive et Git confirmée !)*
 
 ---

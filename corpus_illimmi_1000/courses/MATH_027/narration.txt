@@ -1,0 +1,71 @@
+Bienvenue dans ce cours fondamental consacré à la notion de fonction et à la lecture graphique. Ce chapitre est l'une des pierres angulaires du programme de mathématiques de Seconde, car les fonctions vont t'accompagner tout au long de tes études. Aujourd'hui, nous allons poser des bases extrêmement solides. Nous allons comprendre ce qu'est une fonction, maîtriser parfaitement le vocabulaire d'image et d'antécédent, puis apprendre à construire une courbe représentative et à lire graphiquement des informations avec une méthode rigoureuse.
+
+Commençons par une situation très concrète pour donner du sens à ces nouvelles notions. Imagine que tu organises une sortie et que le prix d'entrée à un spectacle soit fixé à vingt euros par personne. C'est une règle tarifaire claire et automatique. Si une seule personne participe, elle va payer vingt euros. Si deux personnes y vont, le calcul est simple, nous faisons deux fois vingt, ce qui donne quarante euros. Si trois personnes participent, trois fois vingt donne soixante euros. Pour cinq personnes, cinq fois vingt donne cent euros. Et si un groupe de dix personnes se présente, dix fois vingt fait deux cents euros.
+
+Traçons à droite un premier tableau pour organiser ces données. Sur la première ligne, nous indiquons le nombre de personnes qui vont au spectacle. Sur la deuxième ligne, nous indiquons le prix à payer en euros. Nous avons ainsi une correspondance parfaite entre chaque nombre de la première ligne et le résultat obtenu sur la deuxième ligne. À un, nous faisons correspondre vingt. À deux, nous faisons correspondre quarante. À trois, soixante. À cinq, cent. Et à dix, deux cents.
+
+Allons maintenant progressivement vers l'abstraction mathématique. Le nombre de personnes qui participent n'est pas fixe, il peut changer d'une situation à l'autre. En mathématiques, une grandeur qui peut prendre différentes valeurs s'appelle une variable. Nous allons noter cette variable avec la lettre x. Tous les nombres de la première ligne de notre tableau représentent donc différentes valeurs possibles pour x.
+
+De la même façon, le prix total à payer dépend directement de ce nombre de personnes. Nous allons lui donner un nom, par exemple la lettre P, comme prix. À chaque valeur de x correspond donc un prix P bien déterminé. Nous venons d'exprimer le prix à payer en fonction du nombre de personnes, c'est-à-dire en fonction de x.
+
+Généralisons le calcul. Pour une personne, nous avons fait vingt fois un. Pour deux personnes, vingt fois deux. Pour trois personnes, vingt fois trois. Si nous avons maintenant x personnes, quel sera le montant total ? Nous allons tout simplement multiplier vingt par x, ce qui nous donne vingt fois x, ou plus simplement vingt x.
+
+Nous venons de définir une fonction. Une fonction, c'est comme une machine mathématique. Tu introduis un nombre à l'entrée de la machine, la machine lui applique une règle de calcul bien précise, et elle te renvoie un nouveau nombre à la sortie. Ici, notre machine s'appelle la fonction P. Dès que tu lui donnes un nombre x à l'entrée, elle le multiplie par vingt et te délivre vingt x à la sortie.
+
+En mathématiques, il existe deux notations officielles pour écrire cela. La première est la notation fléchée : nous écrivons la lettre P, deux points, puis x avec une flèche vers vingt x. Cela se lit précisément : par la fonction P, à x on associe vingt x. La seconde notation, encore plus courante, consiste à écrire la lettre P suivie de la variable x entre parenthèses, égale vingt x. Cela se lit : P de x égale vingt x. Cette écriture met clairement en évidence que le résultat dépend de la variable x. Le tableau que nous avons construit s'appelle un tableau de valeurs de la fonction.
+
+Attaquons à présent les deux termes fondamentaux de ce chapitre : la notion d'image et la notion d'antécédent. Reprenons l'exemple de notre spectacle. Nous avons établi que P de deux est égal à quarante. Cela signifie que lorsque nous donnons deux à la machine, elle nous renvoie quarante. En langage mathématique, on dit que l'image de deux par la fonction P est quarante. Ou encore, deux a pour image quarante. L'image, c'est donc toujours le résultat final, la valeur obtenue en sortie de machine, qui se lit sur la deuxième ligne du tableau.
+
+Maintenant, faisons le chemin inverse. Si le prix final est quarante euros, combien y avait-il de personnes au départ ? Il y en avait deux. Quel mot mathématique permet de désigner ce nombre de départ ? On appelle cela un antécédent. Quarante a pour antécédent deux. Pour retenir ce mot sans jamais hésiter, pense au préfixe anté, qui signifie avant, comme dans antérieur ou ancêtre. L'antécédent, c'est le nombre qui était là avant la transformation dans la machine.
+
+Vérifions ensemble avec d'autres valeurs de notre tableau. Quelle est l'image de trois ? L'image de trois est soixante. Dans l'autre sens, quel est un antécédent de cent ? C'est cinq, car cinq était la valeur d'entrée qui a produit cent. Quel est un antécédent de deux cents ? C'est dix. Et quelle est l'image de un ? C'est vingt.
+
+Remarque bien le choix des articles dans mes phrases. J'ai dit l'image de deux, avec un article défini, mais j'ai dit un antécédent de quarante. Ce n'est absolument pas un hasard. C'est une règle mathématique fondamentale : un nombre donné ne peut avoir qu'une seule et unique image par une fonction. Quand tu insères un nombre dans la machine, la règle s'applique et te donne un seul résultat. Il est impossible que deux donne quarante et en même temps cinquante. En revanche, dans le sens inverse, un nombre peut tout à fait avoir plusieurs antécédents, un seul antécédent, ou même aucun antécédent du tout.
+
+Pour bien comprendre cette nuance essentielle, étudions un deuxième exemple avec une fonction classique : la fonction carrée. Habituellement, une fonction se note avec la lettre f, comme fonction. Posons f de x égale x au carré. Cette machine prend n'importe quel nombre en entrée et le multiplie par lui-même.
+
+Complétons un tableau de valeurs pour cette fonction f. Si nous donnons deux à la machine, nous calculons deux au carré, c'est-à-dire deux fois deux, ce qui donne quatre. L'image de deux par la fonction f est donc quatre. Si nous lui donnons zéro, nous calculons zéro au carré, zéro fois zéro donne zéro. L'image de zéro est zéro.
+
+Et si nous donnons moins deux ? Soyons très vigilants avec les signes. Moins deux au carré, c'est moins deux entre parenthèses multiplié par moins deux. Moins par moins donne plus, donc moins deux au carré est égal à quatre. L'image de moins deux par la fonction f est donc aussi égale à quatre.
+
+Regarde attentivement ce résultat. Nous avons f de deux égale quatre, et f de moins deux égale quatre. Si nous nous demandons maintenant : quels sont les antécédents de quatre par la fonction f ? La réponse est qu'il y en a deux. Le nombre quatre admet deux antécédents, qui sont deux et moins deux. Deux nombres distincts au départ peuvent donc aboutir au même résultat à l'arrivée. C'est pourquoi on dit bien un antécédent, car il peut y en avoir plusieurs.
+
+Passons maintenant à la deuxième grande partie de notre cours : la représentation graphique d'une fonction. Une fonction peut en effet se visualiser dans un repère sous la forme d'une courbe ou d'une droite. Pour illustrer cela en détail, nous allons travailler avec une nouvelle fonction : f de x égale x au carré moins trois. Cette machine prend le nombre x, calcule son carré, puis retranche trois au résultat.
+
+Pour tracer la courbe d'une fonction, la première étape indispensable est de construire un tableau de valeurs en calculant les images de plusieurs nombres bien choisis. Détaillons ces calculs pas à pas.
+
+Premier calcul, pour x égale moins deux. Nous calculons f de moins deux. Nous remplaçons x par moins deux dans l'expression : moins deux au carré moins trois. Moins deux au carré donne quatre, et quatre moins trois est égal à un. L'image de moins deux est donc un.
+
+Deuxième calcul, pour x égale zéro. Nous calculons f de zéro. Zéro au carré moins trois donne zéro moins trois, c'est-à-dire moins trois. L'image de zéro est moins trois.
+
+Troisième calcul, pour x égale un. Nous calculons f de un. Un au carré moins trois donne un moins trois, ce qui fait moins deux. L'image de un est moins deux.
+
+Quatrième calcul, pour x égale trois. Nous calculons f de trois. Trois au carré moins trois donne neuf moins trois, c'est-à-dire six. L'image de trois est six.
+
+Notre tableau de valeurs est maintenant complet. Chaque colonne de ce tableau nous fournit le nombre de départ x et son image f de x. En géométrie, ce couple x et f de x représente exactement les coordonnées d'un point dans un repère : x est l'abscisse du point, et f de x est son ordonnée.
+
+Traçons à droite un repère orthogonal avec une grille bien graduée. L'axe horizontal est l'axe des abscisses, il porte les valeurs de x. L'axe vertical est l'axe des ordonnées, il porte les images, les valeurs de f de x.
+
+Plaçons nos quatre points dans ce repère. Pour x égale moins deux, f de x vaut un. Nous repérons moins deux sur l'axe horizontal, nous montons d'une unité vers le haut, et nous plaçons notre premier point de coordonnées moins deux, un.
+
+Pour x égale zéro, f de x vaut moins trois. Nous sommes à zéro sur l'axe horizontal, nous descendons de trois unités sur l'axe vertical, et nous marquons le point de coordonnées zéro, moins trois.
+
+Pour x égale un, f de x vaut moins deux. Nous avançons de un sur l'axe horizontal, nous descendons de deux unités sur l'axe vertical, et nous plaçons le point de coordonnées un, moins deux.
+
+Pour x égale trois, f de x vaut six. Nous avançons de trois unités vers la droite, nous montons de six unités vers le haut, et nous marquons le point de coordonnées trois, six.
+
+Ces quatre points appartiennent tous avec certitude à la courbe de la fonction f. Pour obtenir la courbe complète, il ne faut surtout pas relier ces points à la règle avec des segments brisés. Une fonction comme celle-ci produit une courbe continue et lisse, que l'on trace à main levée en reliant harmonieusement les points. Cette jolie forme courbée en U s'appelle une parabole, et tu l'étudieras très en détail au lycée. Précisons aussi que la courbe ne s'arrête pas à nos points extrêmes, elle se prolonge à gauche et à droite à l'infini.
+
+Une fois que la courbe est tracée dans le repère, elle devient un outil formidable pour effectuer des lectures graphiques rapides, sans avoir à refaire de calculs complexes. Voyons d'abord comment lire graphiquement l'image d'un nombre.
+
+Supposons que l'on te demande de déterminer graphiquement l'image de deux par la fonction f. Chercher l'image de deux signifie que l'on connaît la valeur d'entrée x égale deux, et que l'on cherche la valeur de sortie correspondante. La méthode est toujours la même. Première étape : repère deux sur l'axe horizontal des abscisses. Deuxième étape : trace mentalement ou en pointillés une flèche verticale vers le haut pour rejoindre la courbe de la fonction. Troisième étape : depuis ce point de contact sur la courbe, déplace-toi horizontalement vers la gauche pour lire la valeur sur l'axe vertical des ordonnées. Nous lisons directement un. L'image de deux par f est donc un. Nous pouvons vérifier instantanément par le calcul : deux au carré donne quatre, et quatre moins trois donne bien un. La lecture graphique est parfaitement exacte.
+
+Voyons maintenant le chemin inverse : comment déterminer graphiquement les antécédents d'un nombre. Supposons que l'on te demande de trouver les antécédents de moins deux par la fonction f. Cette fois-ci, moins deux est la valeur de sortie, c'est l'ordonnée. Nous cherchons quelles valeurs de x ont permis d'obtenir ce résultat.
+
+Voici la démarche méthodique. Première étape : repère moins deux sur l'axe vertical des ordonnées. Deuxième étape : trace une ligne horizontale passant par moins deux. Cette ligne va couper notre parabole. Regarde attentivement : elle coupe la courbe en deux endroits distincts.
+
+Regardons la première intersection vers la droite : en descendant verticalement vers l'axe des abscisses, nous lisons x égale un. C'est le premier antécédent, que nous avions déjà dans notre tableau de valeurs puisque un au carré moins trois donnait bien moins deux.
+
+Mais ne t'arrête surtout pas là. Regardons la deuxième intersection vers la gauche : en remontant vers l'axe des abscisses, nous lisons x égale moins un. En effet, moins un au carré donne un, et un moins trois donne également moins deux. Le nombre moins deux admet donc deux antécédents par la fonction f, qui sont un et moins un.
+
+Terminons avec une synthèse claire et les réflexes indispensables pour réussir tous tes devoirs et contrôles. Retiens toujours cette boussole mentale : x est l'antécédent, la variable d'entrée, qui se lit toujours sur l'axe horizontal des abscisses. f de x est l'image, la valeur calculée en sortie, qui se lit toujours sur l'axe vertical des ordonnées. Pour trouver une image, on part de l'axe des abscisses, on va vers la courbe, puis on lit sur l'axe des ordonnées. Pour trouver des antécédents, on part de l'axe des ordonnées, on trace une horizontale qui coupe la courbe, et on lit toutes les abscisses correspondantes. Un nombre a toujours au maximum une seule image, mais il peut avoir plusieurs antécédents. En appliquant systématiquement ces principes, tu maîtriseras la notion de fonction avec une aisance absolue.

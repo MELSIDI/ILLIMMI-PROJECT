@@ -1,0 +1,134 @@
+{
+  "id": "MATH_027",
+  "title": "Généralités sur les fonctions et lecture graphique — Cours fondamental et définitions",
+  "subject": "Mathématiques",
+  "level": "Seconde",
+  "domain": "Fonctions",
+  "sections": [
+    {
+      "section_id": "sec_1",
+      "title": "1. Accroche & Modélisation Concrète : Le Tarif du Spectacle",
+      "summary": "Introduction concrète de la dépendance entre deux grandeurs à travers l'exemple du prix d'entrée à un spectacle à 20 euros par personne et construction du tableau de correspondance.",
+      "support_visuel_suggere": "draw polygone + draw line + draw arrow + text",
+      "concepts_cles": [
+        "grandeur variable",
+        "correspondance",
+        "tableau de proportionnalité",
+        "prix en fonction du nombre"
+      ]
+    },
+    {
+      "section_id": "sec_2",
+      "title": "2. De la Machine Mathématique aux Notations Officielles",
+      "summary": "Généralisation algébrique : passage à la variable x, concept de machine mathématique transformant un nombre de départ en nombre d'arrivée, et écriture des deux notations officielles P(x) = 20x et P : x -> 20x.",
+      "support_visuel_suggere": "draw polygone + draw arrow + text",
+      "concepts_cles": [
+        "variable x",
+        "machine mathématique",
+        "notation P(x)",
+        "notation fléchée",
+        "tableau de valeurs"
+      ]
+    },
+    {
+      "section_id": "sec_3",
+      "title": "3. Image et Antécédent : Définitions et Règle d'Unicité",
+      "summary": "Définition précise du vocabulaire fondamental : image (sortie unique) et antécédent (valeur d'entrée avant transformation), illustrée par P(2) = 40 et P(5) = 100.",
+      "support_visuel_suggere": "draw polygone + draw arrow + text",
+      "concepts_cles": [
+        "image",
+        "antécédent",
+        "étymologie anté",
+        "unicité de l'image"
+      ]
+    },
+    {
+      "section_id": "sec_4",
+      "title": "4. Plusieurs Antécédents Possibles : L'Exemple de la Fonction Carrée",
+      "summary": "Mise en évidence qu'un nombre peut posséder zéro, un ou plusieurs antécédents à travers l'étude de la fonction carrée f(x) = x², où 4 admet pour antécédents 2 et -2.",
+      "support_visuel_suggere": "draw polygone + draw arrow + text",
+      "concepts_cles": [
+        "fonction carrée",
+        "antécédents multiples",
+        "symétrie des carrés",
+        "distinction image / antécédent"
+      ]
+    },
+    {
+      "section_id": "sec_5",
+      "title": "5. Préparation Graphique : Tableau de Valeurs de f(x) = x² - 3",
+      "summary": "Calcul détaillé pas à pas des images pour x = -2, 0, 1 et 3 afin d'obtenir des couples coordonnées (x, f(x)) fiables avant le tracé.",
+      "support_visuel_suggere": "draw line + draw polygone + text",
+      "concepts_cles": [
+        "tableau de valeurs",
+        "calcul d'images",
+        "priorité des opérations",
+        "coordonnées d'un point"
+      ]
+    },
+    {
+      "section_id": "sec_6",
+      "title": "6. Tracé de la Courbe Représentative dans le Repère",
+      "summary": "Placement méthodique des quatre points calculés dans un repère orthogonal et raccordement à main levée pour tracer l'allure parabolique de la courbe.",
+      "support_visuel_suggere": "draw 2drep + draw 2dfunc + draw circle + text",
+      "concepts_cles": [
+        "repère orthogonal",
+        "axe des abscisses",
+        "axe des ordonnées",
+        "courbe représentative",
+        "parabole"
+      ]
+    },
+    {
+      "section_id": "sec_7",
+      "title": "7. Lecture Graphique d'une Image : Le Cas f(2)",
+      "summary": "Méthode rigoureuse de lecture graphique d'une image : départ sur l'axe des abscisses en x = 2, projection verticale vers la courbe puis lecture horizontale sur l'axe des ordonnées pour trouver f(2) = 1.",
+      "support_visuel_suggere": "draw 2drep + draw 2dfunc + draw arrow + text",
+      "concepts_cles": [
+        "lecture d'image",
+        "trajet x vers y",
+        "projection orthogonale",
+        "vérification par le calcul"
+      ]
+    },
+    {
+      "section_id": "sec_8",
+      "title": "8. Lecture Graphique des Antécédents : Le Cas de -2",
+      "summary": "Méthode rigoureuse pour déterminer les antécédents d'une valeur y donnée : tracé de l'horizontale en y = -2, recherche des intersections avec la courbe et lecture des abscisses correspondantes x = 1 et x = -1.",
+      "support_visuel_suggere": "draw 2drep + draw 2dfunc + draw line + draw arrow + text",
+      "concepts_cles": [
+        "recherche d'antécédents",
+        "trajet y vers x",
+        "droite horizontale",
+        "points d'intersection"
+      ]
+    },
+    {
+      "section_id": "sec_9",
+      "title": "9. Fiche Réflexe et Synthèse Méthodologique pour le Devoir",
+      "summary": "Tableau récapitulatif des automatismes indispensables : vocabulaire, correspondances entre notation algébrique, tableau et lecture graphique, et pièges classiques à éviter.",
+      "support_visuel_suggere": "draw polygone + draw line + draw arrow + text",
+      "concepts_cles": [
+        "synthèse visuelle",
+        "automatismes d'examen",
+        "axe horizontal antécédents",
+        "axe vertical images"
+      ]
+    }
+  ],
+  "source_video": {
+    "video_id": "E4SY8_L-DTA",
+    "title": "LE COURS : Notion de fonction - Troisième - Seconde",
+    "channel": "Yvan Monka",
+    "youtube_url": "https://www.youtube.com/watch?v=E4SY8_L-DTA"
+  },
+  "duration_seconds": 745.14,
+  "word_count": 2276,
+  "course_id": "MATH_027",
+  "world_model_score": 10.0,
+  "rendered_scenes": 9,
+  "visual_audit_notes": "Inspection visuelle multimodale approfondie des 9 scenes PNG realisee avec succes. Score World Model Verifier de 10.0/10. Reperes cartesiens 2drep, courbe parabolique 2dfunc, projections orthogonales pour l image f(2)=1 et les deux antecedents de -2 (x=1 et x=-1) parfaitement alignes. Schemas de la machine mathematique et convergence des antecedents tres nets sur fond craie vert sombre, sans aucune collision ni debordement.",
+  "certified_by": "antigravity-argon",
+  "certified_at": "2026-11-05T03:04:28.841419",
+  "status": "COMPLETED"
+}

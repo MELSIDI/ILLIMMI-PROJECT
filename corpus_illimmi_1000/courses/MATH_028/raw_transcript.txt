@@ -1,0 +1,61 @@
+Bonjour à tous,
+Dans cette vidéo je te propose de t’expliquer simplement comment 
+lire des images et des antécédents à l’aide de la représentation graphique d’une fonction.
+Pour ça, on va faire ensemble plusieurs exemples puis je te proposerais à la fin une petite 
+fiche de révision avec l’essentiel à retenir. On y va
+Comment lire graphiquement une image Avant de commencer, je te rappel le vocabulaire 
+à connaitre quand on étudie la représentation graphique d’une fonction comme celle-ci.
+L’axe horizontal, celui-ci, c’est l’axe des abscisses sur lequel sont 
+représentées les différentes valeurs de x. L’axe vertical, celui-ci, c’est l’axe des 
+ordonnées sur lequel sont représentées les valeurs renvoyée par la fonction f : 
+c’est ce qu’on appelle l’image de x. Retiens donc que c’est sur cet axe des 
+ordonnées qu’on va venir lire les images. On y va avec un exemple 
+pour que tu comprennes bien. Ici, on souhaite déterminer 
+l’image de 1 par la fonction f. Une fonction, tu peux imaginer que c’est comme 
+une machine, qui quand on lui donne une valeur elle te renvoie une autre valeur.
+Ici, on cherche l’image de 1, donc quand je donne 1 à cette fonction, 
+quelle valeur elle me renvoie ? Pour ça, je viens me placer sur 
+l’axe des abscisses, à x = 1 Et je regarde, en projetant sur la courbe 
+puis par lecture graphique, l’image de 1. Quand je donne 1 à la fonction f
+Elle me renvoie l’image -1 On peut aussi l’écrire comme ça
+F(1) = -1 L’image de 1 par la fonction f est -1.
+On reessaye avec un 2e exemple : Déterminer cette fois l’image de -1 par la fonction f
+Donc quand je donne -1 à la fonction, je viens me placer sur l’axe des x en -1
+Quelle image, quel f(x), elle me renvoie. Je projette sur la courbe puis sur 
+l’axe des ordonnées et je trouve ici 3 F(-1) = 3
+L’image de -1 par la fonction f est 3. Maintenant qu’on sait lire une image, 
+on va voir comment lire un antécédent. Les antécédents, eux, ils vont 
+se lire sur l’axe des abscisses. Par exemple, déterminer un 
+antécédent de 3 par la fonction f Ca revient à dire, pour quelle valeur 
+de x, la fonction me renvoie 3. Ou on peut aussi dire, qu’on cherche 
+les valeurs de x qui renvoie f(x) = 3 Pour déterminer les antécédents de 3 
+: je viens me placer ici à f(x) = 3, et tracer une droite parallèles à l’axe des 
+abscisses, pour repérer facilement toutes les valeurs de x pour lesquelles f(x) = 3
+Autrement toutes les intersections avec la représentation graphique.
+Et la je vois qu’il y a 1 intersection ici Je projette sur l’axe des x pour retrouver 
+la valeur de cet antécédent de 3. Lorsque x = -1, f(x) = 3
+f(-1) = 3 -1 est un antécédent de 3 par la fonction f.
+Et parfois, il peut y avoir plusieurs antécédents !
+Regarde avec ce 2e exemple : on va reprendre tranquillement la 
+méthode pour vérifier que tu as bien compris. On cherche ici les antécédents 
+de 1 par la fonction f Donc pour quelle valeur de 
+x, la fonction me renvoie 1 Je viens me placer ici à f(x) = 1, 
+puisque je cherche les antécédents de 1 Je trace une droite parallèles à l’axe des 
+abscisses, pour repérer facilement toutes les valeurs de x pour lesquelles f(x) = 1
+Et la je vois qu’il y a 3 intersections Je projette sur l’axe des abscisses pour 
+lire les valeurs de ces antécédents. f (-2) = 1
+f (0) = 1 f (2) = 1
+Ou je peux également écrire directement que les antécédentes 
+de 1 par la fonction f sont -2 ; 0 et 2. Voilà pour ces exemples.
+Je te propose pour finir une petite fiche de révisions avec la méthode à retenir.
+Quand tu as la représentation graphique d’une fonction il faut bien avoir en tête 
+que l’axe des abscisses, l’axe des x, correspond aux antécédents, et celui 
+des ordonnées correspond aux images. Si tu veux déterminer l’image de x : la méthode 
+est la suivante : tu commences par placer x sur l’axe des abscisses et tu trouves le points de 
+la courbe correspondant et ici en ordonnée tu lis l’image de x c’est-à-dire f(x) : tout simplement !
+Si tu veux déterminer les antécédents : par exemple ici pour les antécédents de 2 : tu 
+traces tout simplement la droite parallèle à l’axe des abscisses qui passe par 2 
+et tu lis tout simplement en projetant sur l’axe des abscisses les antécédents.
+Voilà ! J’espère avoir été clair dans mes explications et que tu as maintenant bien 
+compris comment déterminer des images et des antécédents par lecture graphique. Bon 
+courage pour tes révisions et à bientôt !

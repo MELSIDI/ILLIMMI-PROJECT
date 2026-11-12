@@ -1,0 +1,54 @@
+Bonjour et bienvenue dans ce cours. Aujourd'hui, nous allons apprendre à résoudre graphiquement une équation et une inéquation à partir des courbes représentatives de deux fonctions.
+
+C'est une compétence fondamentale en classe de seconde, qui te servira tout au long du lycée. Dans de nombreuses situations, on ne sait pas encore résoudre une équation ou une inéquation par le calcul algébrique pur, ou bien l'énoncé nous demande une lecture graphique directe. C'est exactement le cas ici.
+
+Nous considérons deux fonctions du second degré, définies pour tout nombre réel x. D'une part, la fonction f définie par f de x égale x au carré plus 2. D'autre part, la fonction g définie par g de x égale moins x au carré plus 3x plus 2. Notre objectif se découpe en deux grandes étapes. Dans un premier temps, nous allons résoudre graphiquement l'équation f de x égale g de x. Dans un second temps, nous résoudrons l'inéquation f de x strictement inférieur à g de x.
+
+Traçons à droite un premier repère pour comprendre le sens fondamental de cette égalité. Avant même de regarder les fonctions précises de notre énoncé, posons-nous la question essentielle : que signifie géométriquement l'égalité f de x égale g de x ?
+
+Pour bien le comprendre, observons ce schéma de principe au tableau. Traçons une courbe verte représentant une fonction f et une courbe rouge représentant une fonction g. Plaçons un nombre x complètement au hasard sur l'axe des abscisses. La question est simple : est-ce que cette valeur de x est solution de notre équation f de x égale g de x ?
+
+Pour le vérifier, nous cherchons graphiquement l'image de ce x par la fonction f, puis son image par la fonction g. Partons de notre x sur l'axe horizontal, montons verticalement jusqu'à rencontrer la courbe verte, puis projetons-nous horizontalement à angle droit sur l'axe des ordonnées. Nous lisons ici la valeur f de x. Faisons exactement la même démarche pour la fonction g : en partant de notre même x, rejoignons verticalement la courbe rouge, puis projetons-nous sur l'axe vertical des ordonnées pour lire g de x.
+
+Regarde bien sur l'axe des ordonnées : la valeur f de x et la valeur g de x ne sont absolument pas confondues. Elles se trouvent à deux hauteurs différentes. On voit clairement que f de x est différent de g de x. Par conséquent, cette valeur de x prise au hasard n'est pas solution de l'équation.
+
+Alors, comment trouver une valeur de x qui soit véritablement solution ? Il faut trouver un nombre x qui renvoie exactement la même image, que l'on passe par la fonction f ou par la fonction g. Et ce point est très facile à repérer à l'œil nu : il s'agit du point d'intersection de la courbe verte et de la courbe rouge.
+
+Pourquoi en est-il ainsi ? Regarde ce qui se passe si nous choisissons le x situé précisément à l'abscisse de ce point d'intersection. En cherchant son image par f, nous montons jusqu'à la courbe verte et nous lisons son ordonnée. En cherchant son image par g, nous montons jusqu'à la courbe rouge et nous arrivons exactement au même point de croisement. Les deux ordonnées coïncident parfaitement : f de x est bien égal à g de x.
+
+Retiens bien ce principe fondamental : résoudre graphiquement l'équation f de x égale g de x, c'est chercher les abscisses des points d'intersection des deux courbes représentatives.
+
+Passons maintenant à notre problème précis. Traçons dans notre repère les deux paraboles données par l'énoncé : la courbe de f en vert, qui est une parabole tournée vers le haut, et la courbe de g en bleu, qui est une parabole tournée vers le bas.
+
+Observons attentivement le repère à droite pour repérer les points où les deux courbes se croisent. On constate immédiatement qu'il y a deux points d'intersection. Un premier point situé à gauche, posé directement sur l'axe vertical des ordonnées, et un second point situé un peu plus haut vers la droite.
+
+Commençons par analyser ce second point à droite. Si nous regardons son ordonnée sur l'axe vertical, nous constatons que la valeur commune de f de x et de g de x vaut environ 4,25. Mais attention, nous n'avons pas besoin de cette ordonnée pour donner la solution de l'équation ! La solution d'une équation en x, c'est la valeur de l'inconnue x, et x se lit toujours sur l'axe des abscisses.
+
+Partons donc de ce point d'intersection à droite, et traçons des pointillés verticaux pour nous projeter perpendiculairement sur l'axe horizontal des abscisses. Nous voyons nettement que nous tombons sur la graduation 1,5. Nous obtenons ainsi une première solution approchée : x égale 1,5.
+
+Regardons maintenant le second point d'intersection situé sur l'axe des ordonnées. En ce point, la courbe verte et la courbe bleue se croisent à la hauteur 2. Là encore, 2 est la valeur de l'image commune. Mais quel est l'antécédent correspondant sur l'axe des abscisses ? Comme ce point est situé sur l'axe vertical, son abscisse est tout simplement égale à zéro. Nous avons donc trouvé notre deuxième solution : x égale 0.
+
+L'équation f de x égale g de x admet donc deux solutions : x égale 0 et x égale 1,5. On note l'ensemble des solutions S égale l'ensemble contenant 0 et 1,5.
+
+Soulignons ici une remarque méthodologique capitale. Il s'agit d'une lecture graphique. Par nature, une lecture graphique fournit des valeurs approchées. Ici, pour x égale 0, nous sommes certains qu'il s'agit d'une valeur exacte car le point est situé exactement sur l'axe des ordonnées, et le calcul mental nous confirme que f de 0 vaut 2 et g de 0 vaut 2. En revanche, pour x égale 1,5, seule la résolution algébrique par le calcul permettrait de prouver rigoureusement qu'il s'agit de la valeur exacte. Mais en lecture graphique, nous retenons 1,5 avec une excellente précision.
+
+Passons à présent à la deuxième partie de notre problème : résolvons l'inéquation f de x strictement inférieur à g de x.
+
+Avoir résolu l'équation au préalable nous fait gagner un temps précieux. Pourquoi ? Parce que les solutions d'une inéquation forment généralement un intervalle ou une réunion d'intervalles, et que les bornes de ces intervalles sont précisément données par les solutions de l'équation f de x égale g de x. Les points d'intersection constituent en effet les frontières géométriques où les courbes changent de position relative l'une par rapport à l'autre.
+
+Que signifie géométriquement la condition f de x strictement inférieur à g de x ? Cela signifie que pour une abscisse x donnée, l'image par f doit être située strictement en dessous de l'image par g. Sur notre graphique, cela se traduit de façon limpide : nous cherchons les valeurs de x pour lesquelles la courbe verte de f se trouve strictement en dessous de la courbe bleue de g.
+
+Scannons visuellement le graphique de gauche à droite le long de l'axe des abscisses.
+Tout à gauche, pour les nombres négatifs inférieurs à zéro, la parabole verte est située nettement au-dessus de la parabole bleue. Cette zone ne convient donc pas.
+
+Regarde maintenant ce qui se passe entre les abscisses 0 et 1,5. Entre ces deux frontières, la parabole bleue de g passe au sommet, tandis que la parabole verte de f plonge en dessous. Sur toute cette portion, la courbe de f est bien strictement en dessous de la courbe de g.
+
+Colorons en surbrillance rose cette zone entre 0 et 1,5 sur l'axe des abscisses. Enfin, si nous poursuivons notre lecture vers la droite pour les valeurs de x supérieures à 1,5, la courbe verte remonte et repasse au-dessus de la courbe bleue.
+
+La seule zone qui convient est donc bien la zone comprise entre 0 et 1,5. L'inéquation admet donc pour solution l'ensemble des réels de cette portion. Mais une dernière question cruciale se pose : comment devons-nous orienter les crochets aux bornes de notre intervalle ?
+
+Observons l'inégalité de l'énoncé : il s'agit d'une inégalité stricte, f de x strictement inférieur à g de x. Nous refusons catégoriquement le cas d'égalité f de x égale g de x. Or, nous avons démontré que l'égalité se produit précisément en x égale 0 et en x égale 1,5. Il faut donc obligatoirement exclure ces deux bornes pour respecter l'inégalité stricte.
+
+Sur notre axe, nous tournons les crochets vers l'extérieur : l'intervalle est ouvert en zéro et ouvert en 1,5. L'ensemble des solutions de l'inéquation est donc l'intervalle ouvert 0 point-virgule 1,5, noté avec des crochets ouverts.
+
+En résumé, pour résoudre graphiquement une équation ou une inéquation : repère d'abord les points d'intersection pour trouver les solutions de l'égalité qui formeront tes bornes, puis regarde quelle courbe se trouve au-dessus ou en dessous, et ajuste soigneusement tes crochets selon que l'inégalité est stricte ou large. Ce cours est à présent terminé, bravo pour ton attention !

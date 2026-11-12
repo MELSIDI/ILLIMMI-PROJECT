@@ -1,0 +1,123 @@
+{
+  "id": "MATH_024",
+  "subject": "Mathématiques",
+  "level": "Seconde",
+  "domain": "Fonctions",
+  "title": "Correction d'exercice classique : Généralités sur les fonctions et lecture graphique (Entraînement Lycée)",
+  "pedagogical_type": "correction_exercice_classique",
+  "pedagogical_target": "Comprendre et déterminer l'ensemble de définition d'une fonction sous deux angles complémentaires : la lecture graphique sur une courbe représentative, et la détermination algébrique par recherche des valeurs interdites (dénominateur non nul, radicande sous une racine carrée positif ou nul). Maîtriser la résolution des équations et inéquations associées, le changement de sens lors de la division par un nombre négatif, et l'écriture des ensembles sous forme d'intervalles ou de réunions d'intervalles.",
+  "sections": [
+    {
+      "section_id": "sec_1",
+      "title": "1. Introduction & Notion d'ensemble de définition",
+      "summary": "Définition fondamentale de l'ensemble de définition D_f d'une fonction comme l'ensemble des valeurs d'entrée x pour lesquelles la fonction existe et peut être calculée.",
+      "support_visuel_suggere": "text + draw arrow",
+      "concepts_cles": [
+        "ensemble de définition D_f",
+        "valeur d'entrée x",
+        "existence de la fonction",
+        "préambule fondamental"
+      ]
+    },
+    {
+      "section_id": "sec_2",
+      "title": "2. Lecture graphique : Déterminer D_f sur une courbe",
+      "summary": "Lecture concrète sur un graphique : repérer les abscisses minimale et maximale de la courbe représentative C_f pour en déduire l'intervalle D_f = [-4 ; 7].",
+      "support_visuel_suggere": "draw 2drep + draw curve + draw path",
+      "concepts_cles": [
+        "axe des abscisses",
+        "lecture de gauche à droite",
+        "bornes de la courbe",
+        "intervalle fermé [-4 ; 7]"
+      ]
+    },
+    {
+      "section_id": "sec_3",
+      "title": "3. Les deux opérations interdites en mathématiques",
+      "summary": "Présentation des deux seules opérations impossibles au lycée : la division par zéro et la présence d'une quantité strictement négative sous une racine carrée.",
+      "support_visuel_suggere": "draw polygone + text + draw arrow",
+      "concepts_cles": [
+        "division par zéro",
+        "racine carrée d'un négatif",
+        "dénominateur différent de 0",
+        "radicande positif ou nul"
+      ]
+    },
+    {
+      "section_id": "sec_4",
+      "title": "4. Exercice A : Dénominateur et valeurs interdites pour f(x)",
+      "summary": "Détermination algébrique de l'ensemble de définition de f(x) : poser x² - 9 différent de 0, résoudre l'équation x² = 9 pour identifier les deux valeurs interdites 3 et -3, et écrire D_f = R privé de {-3 ; 3}.",
+      "support_visuel_suggere": "step_solution + draw line + draw path",
+      "concepts_cles": [
+        "condition d'existence",
+        "x² - 9 différent de 0",
+        "valeurs interdites 3 et -3",
+        "ensemble R privé de {-3 ; 3}"
+      ]
+    },
+    {
+      "section_id": "sec_5",
+      "title": "5. Exercice B : Fonction polynomiale g(x) sans contrainte",
+      "summary": "Étude de g(x) = 2x² - x : constater l'absence de quotient et de racine carrée, justifier rigoureusement que le calcul est toujours possible et conclure que D_g = R.",
+      "support_visuel_suggere": "text + draw polygone + draw arrow",
+      "concepts_cles": [
+        "fonction polynomiale",
+        "absence de contrainte",
+        "calcul toujours possible",
+        "domaine R"
+      ]
+    },
+    {
+      "section_id": "sec_6",
+      "title": "6. Exercice C : Racine carrée et inéquation pour h(x)",
+      "summary": "Détermination du domaine de h(x) = sqrt(3 - 2x) : poser 3 - 2x supérieur ou égal à 0, résoudre l'inéquation en inversant le sens lors de la division par -2, et exprimer le résultat sous forme de l'intervalle ]-infini ; 3/2].",
+      "support_visuel_suggere": "step_solution + draw line + draw path",
+      "concepts_cles": [
+        "radicande positif ou nul",
+        "inéquation 3 - 2x >= 0",
+        "division par un nombre négatif",
+        "changement de sens",
+        "intervalle semi-fermé"
+      ]
+    },
+    {
+      "section_id": "sec_7",
+      "title": "7. Approfondissement : Le piège déjoué de racine de x² + 1",
+      "summary": "Analyse d'un cas subtil avec f(x) = sqrt(x² + 1) : utiliser la propriété fondamentale qu'un carré est toujours positif pour prouver que x² + 1 >= 1 > 0 pour tout réel, d'où un ensemble de définition égal à R tout entier.",
+      "support_visuel_suggere": "step_solution + draw polygone + draw arrow",
+      "concepts_cles": [
+        "carré toujours positif",
+        "x² + 1 supérieur ou égal à 1",
+        "absence de valeur interdite",
+        "domaine R"
+      ]
+    },
+    {
+      "section_id": "sec_8",
+      "title": "8. Synthèse méthodique & Réflexes pour les devoirs",
+      "summary": "Arbre de décision complet et méthode de rédaction infaillible pour déterminer l'ensemble de définition d'une fonction dans n'importe quel devoir de mathématiques.",
+      "support_visuel_suggere": "draw polygone + draw arrow + text",
+      "concepts_cles": [
+        "arbre de décision",
+        "méthode de rédaction",
+        "intervalles et réunions",
+        "réflexes d'examen"
+      ]
+    }
+  ],
+  "duration_seconds": 842.23,
+  "word_count": 2530,
+  "source_video": {
+    "video_id": "VZ4XNCPLo9w",
+    "title": "FONCTIONS : Ensemble de définition",
+    "channel": "Hedacademy",
+    "youtube_url": "https://www.youtube.com/watch?v=VZ4XNCPLo9w"
+  },
+  "course_id": "MATH_024",
+  "world_model_score": 10.0,
+  "rendered_scenes": 7,
+  "visual_audit_notes": "Inspection visuelle multimodale complete des 7 scenes (scene_0 a scene_6.png): courbe 2dfunc et intervalle [-4; 7] avec repere orthogonal en scene 0, cartes comparatives quotient et racine carree en scene 1, axe gradue des reels avec exclusion de -3 et 3 en scene 2, redaction modele pour polynome en scene 3, inequation avec changement de sens et intervalle semi-ferme en scene 4, parabole x^2+1 strictement positive en scene 5, et arbre de decision d'examen en scene 6. Score WorldModel 10/10, zero collision, formules KaTeX parfaites.",
+  "certified_by": "antigravity-argon",
+  "certified_at": "2026-11-05T00:54:45.044015",
+  "status": "COMPLETED"
+}

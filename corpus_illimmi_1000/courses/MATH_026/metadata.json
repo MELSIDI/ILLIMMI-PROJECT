@@ -1,0 +1,112 @@
+{
+  "id": "MATH_026",
+  "title": "Révision express & Fiche de synthèse : Tout retenir sur Généralités sur les fonctions et lecture graphique",
+  "subject": "Mathématiques",
+  "level": "Seconde",
+  "domain": "Fonctions",
+  "sections": [
+    {
+      "section_id": "sec_1",
+      "title": "1. Accroche & Objectif : Déterminer le Signe d'une Fonction Graphiquement",
+      "summary": "Introduction de la notion de signe d'une fonction f représentée sur son ensemble de définition [-6 ; 7] et rôle fondamental du tableau de signes.",
+      "support_visuel_suggere": "draw 2drep + draw curve + draw line",
+      "concepts_cles": [
+        "fonction",
+        "signe d'une fonction",
+        "ensemble de définition",
+        "intervalle",
+        "repère orthonormé"
+      ]
+    },
+    {
+      "section_id": "sec_2",
+      "title": "2. Les Bornes de l'Ensemble de Définition et Structure du Tableau",
+      "summary": "Mise en place de la structure du tableau de signes avec la ligne des abscisses x et la ligne de f(x), en verrouillant les bornes extrêmes -6 et 7.",
+      "support_visuel_suggere": "draw line + draw polygone + text",
+      "concepts_cles": [
+        "tableau de signes",
+        "bornes du domaine",
+        "intervalle fermé",
+        "ligne des abscisses"
+      ]
+    },
+    {
+      "section_id": "sec_3",
+      "title": "3. Repérage des Valeurs d'Annulation (Intersections avec l'Axe des Abscisses)",
+      "summary": "Recherche des zéros où la courbe traverse l'axe des abscisses en x = -2, 1, 3 et 5, placement des zéros dans le tableau et mise en garde sur les bornes.",
+      "support_visuel_suggere": "draw 2drep + draw circle + draw arrow + text",
+      "concepts_cles": [
+        "équation f(x) = 0",
+        "axe des abscisses",
+        "zéros de la fonction",
+        "annulation",
+        "valeurs particulières"
+      ]
+    },
+    {
+      "section_id": "sec_4",
+      "title": "4. Règle Fondamentale et Étude des Deux Premiers Intervalles",
+      "summary": "Lien direct entre position relative à l'axe et signe de f(x) : au-dessus signifie positif (+), en-dessous signifie négatif (-), validé par des valeurs tests en x = -4 et x = -1.",
+      "support_visuel_suggere": "draw 2drep + draw polygone + draw arrow + text",
+      "concepts_cles": [
+        "au-dessus de l'axe",
+        "en-dessous de l'axe",
+        "signe positif",
+        "signe négatif",
+        "valeur test"
+      ]
+    },
+    {
+      "section_id": "sec_5",
+      "title": "5. Complétion Complète du Tableau de Signes sur Tout le Domaine",
+      "summary": "Analyse rapide des intervalles suivants [1 ; 3], [3 ; 5] et [5 ; 7] pour finaliser les signes + et - sur l'ensemble du tableau.",
+      "support_visuel_suggere": "draw line + draw polygone + text",
+      "concepts_cles": [
+        "alternance des signes",
+        "tableau complet",
+        "lecture systématique",
+        "cohérence globale"
+      ]
+    },
+    {
+      "section_id": "sec_6",
+      "title": "6. Exploitation Pratique et Piège d'Examen : Signe vs Variations",
+      "summary": "Utilisation du tableau pour trouver le signe d'une image comme f(6) et déconstruction du piège classique confondant signe de f(x) et sens de variation.",
+      "support_visuel_suggere": "draw 2drep + draw arrow + text",
+      "concepts_cles": [
+        "lecture d'image f(6)",
+        "piège signe vs variations",
+        "fonction croissante",
+        "fonction décroissante",
+        "rigueur conceptuelle"
+      ]
+    },
+    {
+      "section_id": "sec_7",
+      "title": "7. Fiche Réflexe et Synthèse Méthodologique pour le Devoir",
+      "summary": "Fiche de synthèse récapitulant les 3 étapes infaillibles pour dresser le tableau de signes de n'importe quelle fonction à partir de sa courbe.",
+      "support_visuel_suggere": "draw polygone + draw arrow + draw line + text",
+      "concepts_cles": [
+        "méthode en 3 étapes",
+        "fiche réflexe",
+        "contrôle de Seconde",
+        "synthèse visuelle"
+      ]
+    }
+  ],
+  "source_video": {
+    "video_id": "AZvjA44WfPw",
+    "title": "Déterminer graphiquement le signe d'une fonction - Seconde",
+    "channel": "Yvan Monka",
+    "youtube_url": "https://www.youtube.com/watch?v=AZvjA44WfPw"
+  },
+  "duration_seconds": 456.79,
+  "word_count": 1361,
+  "course_id": "MATH_026",
+  "world_model_score": 10.0,
+  "rendered_scenes": 7,
+  "visual_audit_notes": "Visual inspection of all 7 rendered scenes: Scene 0 introduces f on [-6, 7] with repere and blue path curve; Scene 1 locks domain boundaries x=-6 and x=7 and table skeleton; Scene 2 plots the 4 zeros at -2, 1, 3, 5 with green circles and highlights f(-6)=2 non-zero warning; Scene 3 illustrates the fundamental rule above/below (Ox) with green/red shaded zones on [-6, -2[ and ]-2, 1[ and test points; Scene 4 shows the fully completed sign table with all 5 alternating intervals; Scene 5 debunks the sign vs variations exam trap with test f(6)>0 and decreasing section on [-4, -2]; Scene 6 provides the 3-step synthesis cheat sheet. World Model score 10.0/10.0, zero collisions, zero KaTeX errors, strictly sequential chalkboard handwriting.",
+  "certified_by": "antigravity-argon",
+  "certified_at": "2026-11-05T02:16:30.027788",
+  "status": "COMPLETED"
+}

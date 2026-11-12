@@ -1,0 +1,109 @@
+{
+  "id": "MATH_025",
+  "title": "Problème type Bac : Généralités sur les fonctions et lecture graphique — Raisonnement en plusieurs étapes",
+  "subject": "Mathématiques",
+  "level": "Seconde",
+  "domain": "Fonctions",
+  "sections": [
+    {
+      "section_id": "sec_1",
+      "title": "1. Accroche : La Machine Fonctionnelle et le Tableau de Valeurs",
+      "summary": "Introduction du concept de fonction vue comme une boîte de transformation mathématique qui prend un nombre d'entrée x pour renvoyer une unique sortie f(x), illustrée par un tableau de valeurs.",
+      "support_visuel_suggere": "draw polygone + draw arrow + draw line",
+      "concepts_cles": [
+        "fonction",
+        "machine mathématique",
+        "variable x",
+        "image f(x)",
+        "tableau de valeurs"
+      ]
+    },
+    {
+      "section_id": "sec_2",
+      "title": "2. Déterminer une Image à l'Aide du Tableau",
+      "summary": "Lecture directe de haut en bas : pour trouver l'image de 3, on repère x = 3 sur la première ligne et on lit la sortie correspondante f(3) = 0 sur la deuxième ligne.",
+      "support_visuel_suggere": "draw line + draw arrow + text",
+      "concepts_cles": [
+        "image",
+        "sens direct",
+        "première ligne x",
+        "deuxième ligne f(x)"
+      ]
+    },
+    {
+      "section_id": "sec_3",
+      "title": "3. Déterminer un Antécédent : Le Chemin Inverse",
+      "summary": "Lecture inverse de bas en haut : pour déterminer un antécédent de 3, on repère 3 sur la ligne des images et on remonte pour trouver l'entrée x = 6.",
+      "support_visuel_suggere": "draw line + draw arrow + text",
+      "concepts_cles": [
+        "antécédent",
+        "chemin inverse",
+        "recherche de x",
+        "lecture de bas en haut"
+      ]
+    },
+    {
+      "section_id": "sec_4",
+      "title": "4. Piège Fréquent : Unicité de l'Image vs Multiplicité des Antécédents",
+      "summary": "Explication rigoureuse de la distinction essentielle : l'image est unique pour tout x donné, alors qu'un nombre d'arrivée peut posséder zéro, un ou plusieurs antécédents.",
+      "support_visuel_suggere": "draw circle + draw arrow + text",
+      "concepts_cles": [
+        "unicité de l'image",
+        "pluralité des antécédents",
+        "vocabulaire rigoureux",
+        "piège d'examen"
+      ]
+    },
+    {
+      "section_id": "sec_5",
+      "title": "5. Piège de Formulation : 'Quel Nombre a pour Image 5 ?'",
+      "summary": "Analyse de la tournure de phrase pour identifier si le nombre donné est une entrée ou une sortie, et détermination de l'antécédent correspondant x = 2.",
+      "support_visuel_suggere": "draw line + draw arrow + text",
+      "concepts_cles": [
+        "formulation verbale",
+        "a pour image",
+        "identification d'antécédent",
+        "lecture ciblée"
+      ]
+    },
+    {
+      "section_id": "sec_6",
+      "title": "6. Décoder les Notations Algébriques : f(...) = 0 et Flèche d'Association",
+      "summary": "Traduction des écritures symboliques : compléter f(x) = 0 revient à chercher un antécédent de 0, et l'écriture f : 5 associe -2 donne la valeur de l'image.",
+      "support_visuel_suggere": "draw 2drep + draw arrow + text",
+      "concepts_cles": [
+        "notation f(x)",
+        "flèche d'association",
+        "équation f(x) = 0",
+        "traduction symbolique"
+      ]
+    },
+    {
+      "section_id": "sec_7",
+      "title": "7. Synthèse Méthodologique et Réflexes Bac",
+      "summary": "Récapitulatif des correspondances, sens de lecture dans un tableau et réflexes immédiats pour réussir les questions de lecture fonctionnelle au lycée.",
+      "support_visuel_suggere": "draw polygone + draw arrow + text",
+      "concepts_cles": [
+        "synthèse",
+        "sens de parcours",
+        "réflexe examen",
+        "maîtrise du vocabulaire"
+      ]
+    }
+  ],
+  "duration_seconds": 305.89,
+  "word_count": 916,
+  "source_video": {
+    "video_id": "EOS5bSPTZjg",
+    "title": "Determine an image and an antecedent in a table - Third",
+    "channel": "Yvan Monka",
+    "youtube_url": "https://www.youtube.com/watch?v=EOS5bSPTZjg"
+  },
+  "course_id": "MATH_025",
+  "world_model_score": 10.0,
+  "rendered_scenes": 7,
+  "visual_audit_notes": "Visual audit of all 7 scenes rendered from course.hc: Scene 0 shows clear table of values and functional machine model; Scene 1 highlights column x=3 with downward arrow and image reading cards; Scene 2 illustrates reverse path for antecedent with upward arrow on column 4; Scene 3 contrasts unique image (1 arrow) with multiple antecedents (2 converging arrows) with zero clipping; Scene 4 resolves exam phrasing 'a pour image 5'; Scene 5 presents split board for f(?)=0 and f:5|->? with mini-tables; Scene 6 summarizes reading directions and 3 golden rules. World Model score 10.0/10.0, zero collisions, zero clipping, strictly sequential Chalkboard animations.",
+  "certified_by": "antigravity-argon",
+  "certified_at": "2026-11-04T23:56:57.572151",
+  "status": "COMPLETED"
+}

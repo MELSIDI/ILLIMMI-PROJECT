@@ -57,8 +57,14 @@ class Function2DElementPainter implements ElementPainter {
       final x = repere.xStart + i * step;
       final y = FunctionEvaluator.evaluate(element.expression, x);
       
-      if (y.isNaN || y.isInfinite) continue;
-      if (y < repere.yStart || y > repere.yEnd) continue;
+      if (y.isNaN || y.isInfinite) {
+        firstPoint = true;
+        continue;
+      }
+      if (y < repere.yStart || y > repere.yEnd) {
+        firstPoint = true;
+        continue;
+      }
       
       // Conversion des coordonnées mathématiques en coordonnées canvas
       final canvasX = repere.origin.dx + x * repere.scale;
