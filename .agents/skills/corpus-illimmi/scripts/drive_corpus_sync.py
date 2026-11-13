@@ -24,6 +24,7 @@ import shutil
 import subprocess
 import sys
 import tarfile
+import time
 import zipfile
 from datetime import datetime, timezone
 from pathlib import Path
@@ -213,15 +214,27 @@ def package_course(course_id: str, output_dir: Path, archive_format: str = "zip"
     }
 
 
-def upload_to_drive(gdrive_bin: str, file_path: Path, parent_id: str) -> str:
-    """Uploads a new file to Google Drive under parent_id and returns file ID."""
+def upload_to_drive(gdrive_bin: str, file_path: Path, parent_id: str, max_retries: int = 3) -> str:
+    """Uploads a new file to Google Drive under parent_id and returns file ID with retries."""
     cmd = [gdrive_bin, "mutate", "upload", str(file_path), "--parent", parent_id]
-    proc = subprocess.run(cmd, capture_output=True, text=True, check=True)
-    out = proc.stdout.strip()
-    fid = ""
-    if "(ID: " in out:
-        fid = out.split("(ID: ")[1].rstrip(")")
-    return fid
+    env = dict(os.environ)
+    env["GODEBUG"] = "http2client=0"
+    for attempt in range(1, max_retries + 1):
+        try:
+            proc = subprocess.run(cmd, capture_output=True, text=True, check=True, env=env)
+            out = proc.stdout.strip()
+            fid = ""
+            if "(ID: " in out:
+                fid = out.split("(ID: ")[1].rstrip(")")
+            return fid
+        except Exception as e:
+            if attempt < max_retries:
+                wait_sec = attempt * 5
+                print(f"    ⚠️ Upload {file_path.name} failed (attempt {attempt}/{max_retries}): {e}. Retrying in {wait_sec}s...")
+                time.sleep(wait_sec)
+            else:
+                raise
+    return ""
 
 
 def upsert_to_drive(
@@ -229,15 +242,27 @@ def upsert_to_drive(
     file_path: Path,
     parent_id: str,
     existing_remote: Dict[str, str],
+    max_retries: int = 3,
 ) -> Tuple[str, str]:
-    """Updates an existing Drive file in-place or uploads a new one."""
+    """Updates an existing Drive file in-place or uploads a new one with retries."""
+    env = dict(os.environ)
+    env["GODEBUG"] = "http2client=0"
     if file_path.name in existing_remote:
         fid = existing_remote[file_path.name]
         cmd = [gdrive_bin, "mutate", "update", fid, str(file_path)]
-        subprocess.run(cmd, capture_output=True, text=True, check=True)
-        return fid, "updated"
+        for attempt in range(1, max_retries + 1):
+            try:
+                subprocess.run(cmd, capture_output=True, text=True, check=True, env=env)
+                return fid, "updated"
+            except Exception as e:
+                if attempt < max_retries:
+                    wait_sec = attempt * 5
+                    print(f"    ⚠️ Update {file_path.name} failed (attempt {attempt}/{max_retries}): {e}. Retrying in {wait_sec}s...")
+                    time.sleep(wait_sec)
+                else:
+                    raise
 
-    fid = upload_to_drive(gdrive_bin, file_path, parent_id)
+    fid = upload_to_drive(gdrive_bin, file_path, parent_id, max_retries=max_retries)
     existing_remote[file_path.name] = fid
     return fid, "uploaded"
 
