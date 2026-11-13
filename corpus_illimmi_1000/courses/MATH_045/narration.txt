@@ -1,0 +1,42 @@
+Bonjour et bienvenue dans ce cours. Aujourd'hui, nous allons aborder un problème classique et essentiel du Lycée : comment déterminer l'équation réduite d'une droite du plan lorsque l'on connaît les coordonnées de deux de ses points.
+
+Traçons à droite un repère pour visualiser précisément nos données géométriques.
+Dans cet exercice, nous disposons de deux points distincts, notés grand A et grand B, qui appartiennent à une droite notée d.
+Plaçons le point grand A de coordonnées 4 point-virgule moins 1, puis le point grand B de coordonnées 3 point-virgule 5.
+Notre objectif est d'établir l'équation de la droite d qui passe par ces deux points.
+
+Rappelons la forme générale de l'équation réduite d'une droite non verticale dans le plan : elle s'écrit y égale a x plus b.
+Déterminer l'équation de cette droite revient donc à un raisonnement méthodique en deux temps : trouver d'abord la valeur du nombre petit a, puis trouver la valeur du nombre petit b. Une fois ces deux nombres connus, il nous suffira de les remplacer dans notre équation.
+
+Commençons par déterminer la valeur de petit a.
+Dans l'expression y égale a x plus b, le nombre petit a joue un rôle fondamental : c'est ce qu'on appelle le coefficient directeur de la droite. C'est lui qui dicte la direction et l'inclinaison de la droite dans le repère.
+Pour calculer ce coefficient directeur à partir de deux points connus grand A et grand B, nous disposons d'une formule incontournable que tu dois parfaitement retenir.
+Cette formule est la suivante : petit a est égal à y indice B moins y indice A, le tout divisé par x indice B moins x indice A. C'est-à-dire la différence des ordonnées divisée par la différence des abscisses.
+
+Appliquons directement cette formule avec les coordonnées de nos points.
+Au numérateur, nous calculons la variation des ordonnées : y indice B vaut 5, moins y indice A qui vaut moins 1. Cela nous donne 5 moins entre parenthèses moins 1.
+Au dénominateur, nous calculons la variation des abscisses : x indice B vaut 3, moins x indice A qui vaut 4. Nous écrivons donc 3 moins 4.
+Calculons maintenant pas à pas. Au numérateur, 5 moins moins 1 se transforme en 5 plus 1, ce qui est égal à 6. Au dénominateur, 3 moins 4 donne moins 1.
+Nous obtenons ainsi le quotient 6 divisé par moins 1, ce qui fait exactement moins 6.
+Voilà, nous avons déjà obtenu la valeur de petit a, qui est égale à moins 6. Notre équation s'écrit désormais provisoirement : y égale moins 6 x plus b.
+
+Il nous reste maintenant à calculer la valeur de petit b, l'ordonnée à l'origine.
+Pour calculer b, nous allons utiliser l'un des deux points de l'énoncé. On peut choisir indifféremment grand A ou grand B, le résultat sera rigoureusement le même.
+Prenons par exemple le point grand B. Comme le point grand B appartient à la droite d, ses coordonnées vérifient obligatoirement l'équation de la droite.
+Nous pouvons donc remplacer x et y par les coordonnées respectives du point grand B dans notre relation.
+Pour y, nous remplaçons par l'ordonnée de grand B, qui est 5. Pour x, nous remplaçons par son abscisse, qui est 3.
+L'égalité devient ainsi : 5 est égal à moins 6 multiplié par 3, plus b.
+Nous avons obtenu une équation du premier degré dont l'inconnue est petit b.
+Calculons le produit : moins 6 fois 3 donne moins 18. L'équation s'écrit donc : 5 égale moins 18 plus b.
+Pour isoler petit b, nous faisons passer moins 18 de l'autre côté du signe égal, ce qui le transforme en plus 18.
+Nous obtenons ainsi : b égale 5 plus 18, ce qui donne 23.
+La valeur de b est donc égale à 23.
+
+Vérifions rapidement avec le second point grand A de coordonnées 4 point-virgule moins 1 pour nous assurer de la cohérence totale.
+Si l'on calcule moins 6 multiplié par 4 plus 23, on trouve moins 24 plus 23, ce qui est bien égal à moins 1, l'ordonnée de A. Notre calcul est donc parfaitement validé.
+
+Nous pouvons conclure avec certitude : en remplaçant petit a par moins 6 et petit b par 23, l'équation réduite de la droite d est y égale moins 6 x plus 23.
+Traçons cette droite passant par A et B sur notre repère à droite. Regarde son allure : sa pente est négative et très raide, ce qui correspond exactement à un coefficient directeur de moins 6.
+
+En résumé, pour réussir ce problème type du Lycée, retiens toujours les deux étapes clés : d'abord calculer le coefficient directeur a grâce à la formule de variation des ordonnées sur les abscisses, puis injecter les coordonnées de l'un des deux points pour résoudre une petite équation et trouver l'ordonnée à l'origine b.
+Bravo pour ton attention et à très bientôt pour un nouveau cours de mathématiques !

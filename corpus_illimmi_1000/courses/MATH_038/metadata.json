@@ -1,0 +1,97 @@
+{
+  "course_id": "MATH_038",
+  "subject": "Mathématiques",
+  "level": "Seconde",
+  "domain": "Fonctions",
+  "title": "Méthode pas à pas : Comment résoudre un problème de Variations de fonctions et extrema",
+  "pedagogical_type": "methode_pas_a_pas",
+  "pedagogical_target": "Comprendre la définition rigoureuse d'un maximum et d'un minimum d'une fonction sur un intervalle, et maîtriser la méthode pas à pas de reconstitution d'inégalités à partir d'un carré pour démontrer l'existence et la valeur d'un extremum.",
+  "sections": [
+    {
+      "section_id": "sec_1",
+      "title": "1. Objectif du cours et Intuition d'un Extremum",
+      "summary": "Présentation de l'objectif méthodologique et intuition concrète d'un maximum comme plafond infranchissable vers le haut avec l'exemple de la note 18 sur 20.",
+      "support_visuel_suggere": "draw line + draw arrow + text",
+      "concepts_cles": [
+        "extremum",
+        "maximum",
+        "plafond de verre",
+        "borne supérieure"
+      ]
+    },
+    {
+      "section_id": "sec_2",
+      "title": "2. Définitions Rigoureuses du Maximum et du Minimum",
+      "summary": "Formalisation mathématique du maximum M et du minimum m sur un intervalle I avec représentation graphique d'une courbe bornée par une droite horizontale plafond ou plancher.",
+      "support_visuel_suggere": "draw 2drep + draw 2dfunc + draw line + text",
+      "concepts_cles": [
+        "intervalle I",
+        "pour tout x de I",
+        "f(x) <= M",
+        "f(x) >= m"
+      ]
+    },
+    {
+      "section_id": "sec_3",
+      "title": "3. Prérequis et Cas Simple : La Fonction Carrée et x² + 2",
+      "summary": "Rappel sur la positivité d'un carré pour tout réel x et premier exemple progressif avec f(x) = x² + 2 tracé dans un repère cartésien.",
+      "support_visuel_suggere": "draw 2drep + draw 2dfunc + draw arrow + text",
+      "concepts_cles": [
+        "positivité du carré",
+        "fonction carrée",
+        "minimum égal à 2",
+        "prise de recul"
+      ]
+    },
+    {
+      "section_id": "sec_4",
+      "title": "4. Problème Guidé : Décoder f(x) = 2 - 3(x + 5)²",
+      "summary": "Analyse de l'énoncé demandant un extremum sans préciser max ou min, repérage du bloc carré (x + 5)² >= 0 et stratégie de reconstitution de proche en proche.",
+      "support_visuel_suggere": "draw line + draw arrow + draw polygone + text",
+      "concepts_cles": [
+        "prise d'initiative",
+        "bloc carré positif",
+        "reconstitution de f(x)",
+        "priorités opératoires"
+      ]
+    },
+    {
+      "section_id": "sec_5",
+      "title": "5. Reconstitution de f(x) et Piège du Signe Négatif",
+      "summary": "Multiplication par -3 en inversant le sens de l'inégalité puis ajout de +2 sans changer le sens, jusqu'à retrouver f(x) <= 2.",
+      "support_visuel_suggere": "draw arrow + draw line + draw polygone + text",
+      "concepts_cles": [
+        "changement de sens de l'inégalité",
+        "multiplication par un négatif",
+        "addition d'une constante",
+        "piège classique"
+      ]
+    },
+    {
+      "section_id": "sec_6",
+      "title": "6. Conclusion Graphique, Synthèse et Exercice d'Entraînement",
+      "summary": "Interprétation finale sur le repère avec la parabole admettant un maximum égal à 2, récapitulatif des quatre réflexes et exercice d'entraînement final pour l'élève.",
+      "support_visuel_suggere": "draw 2drep + draw 2dfunc + draw circle + text",
+      "concepts_cles": [
+        "maximum vaut 2",
+        "sommet de la parabole",
+        "méthode en 4 étapes",
+        "mise en pratique"
+      ]
+    }
+  ],
+  "duration_seconds": 706.05,
+  "word_count": 2298,
+  "source_video": {
+    "video_id": "8gb3PQjHEIw",
+    "title": "Montrer que la fonction f admet un maximum",
+    "channel": "Hedacademy",
+    "youtube_url": "https://www.youtube.com/watch?v=8gb3PQjHEIw"
+  },
+  "world_model_score": 10.0,
+  "rendered_scenes": 8,
+  "visual_audit_notes": "Inspected all 8 rendered scenes (scene_0..scene_7.png): crisp green chalkboard contrast, clean KaTeX formulas on left column, accurate vertical 0..20 ceiling axis in scene_0, 2drep+2dfunc parabolas with ceiling/floor lines in scene_1, scene_2, scene_5, scene_7, precise green framing box around (x+5)^2 in scene_3, and zero text/figure overlaps across all 8 scenes.",
+  "certified_by": "antigravity-argon",
+  "certified_at": "2026-11-12T18:08:53.652960",
+  "status": "COMPLETED"
+}

@@ -1,0 +1,48 @@
+Bonjour à tous,
+Bienvenue dans cette nouvelle vidéo qui a pour objectif de t’apprendre à déterminer
+le coefficient directeur d’une droite. C’est un savoir-faire dont on a souvent
+besoin en Mathématique ou en Physique-Chimie, et je vais t’expliquer une méthode simple
+qui permet de le faire. Avant ça, je te propose de commencer par
+expliquer qu’est-ce qu’un coefficient directeur ?
+La représentation graphique d’une fonction affine, définie sous la forme f(x) = ax +
+b est une droite, non verticale. Et dans cette expression, le coefficient noté
+ici petit a, est appelé le coefficient directeur de la droite. C’est un nombre. Un nombre qui caractérise la pente de la
+droite étudiée. A partir de ce nombre on peut en déduire
+à la fois le sens de l'inclinaison, c’est-à-dire si la droite monte comme dans cet exemple,
+ou si elle descend comme ici. Et ce nombre, le coefficient directeur, nous
+renseigne aussi sur la force de la pente, c’est-à-dire si elle est plus pentue…
+ou moins pentue. C’est ça, le coefficient d’une droite. J’en profite pour te rappeler que b est
+appelé l’ordonnée à l’origine, il correspond à la valeur de l’ordonnée du point d’intersection
+entre la droite et l’axe des ordonnées. Qu’on retrouve ici dans cet exemple, l’ordonnée
+à l’origine est égale à 2. Revenons à notre objectif : comment faire
+pour déterminer graphiquement, à partir de cette droite, la valeur du coefficient
+directeur ? On peut pour ça suivre une méthode simple
+en 3 étapes : Première étape, Il faut choisir 2 points
+différents appartenant à la droite. Ici, on note A et B les 2 points choisis sur
+la droite. Si possible, choisis des points pour lesquels
+il sera plus facile de lire l’abscisse et l’ordonnée. Car la deuxième étape consiste à relever
+les coordonnées de ces deux points. On va le faire ici ensemble pour bien te montrer
+comment faire : - On trouve xA, la valeur de l’abscisse
+du point A, en projetant ce point sur l’axe des abscisses : on trouve 1. - Pareil pour yA, la valeur de l’ordonnée
+du point A, en projetant cette fois sur l’axe des ordonnées : on trouve yA = 1. On reproduit la même chose pour le point
+B. L’abscisse de B est égale à 2
+Et son ordonnée est égale à 3 A partir des coordonnées de ces deux points,
+on va utiliser cette formule pour calculer le coefficient directeur de la droite, c’est
+une formule qu’il faut donc retenir pour maitriser ce savoir-faire :
+Petit a, le coefficient directeur, est égale à YB-YA / XB-XA
+La différence des ordonnées divisé par la différence des abscisses. Attention, c’est bien la différence des
+ordonnées aux numérateurs. C’est une erreur qu’on retrouve souvent
+: les élèves inversent y et x au numérateur et au dénominateur. On retrouve parfois cette formule écrite
+comme ça, delta y sur delta x. La lettre delta est couramment utilisée en
+sciences pour représenter une variation, c’est-à-dire une différence entre 2 points. On va donc utiliser cette formule dans notre
+exemple, en remplaçant tout simplement par les valeurs qu’on vient de déterminer à
+l’étape précédente. Et après calcul, on trouve que le coefficient
+de cette droite est égal à 2. Pour finir, faisons le point sur ce qu’il
+faut retenir de cette capsule : Le coefficient directeur d’une droite est
+un nombre qui caractérise la pente de la droite. On peut le déterminer graphiquement en utilisant
+cette méthode en 3 étapes : On choisit 2 points appartenant à la droite
+On relève leurs coordonnées Et on utilise cette formule pour calculer
+le coefficient directeur, noté habituellement a.
+et qui est égal à YB – YA sur XB – XA. J’espère t’avoir aidé et que tu sais
+maintenant comment calculer un coefficient directeur. Bon courage pour tes révisions et à bientôt
+pour une prochaine capsule !

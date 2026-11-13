@@ -1,0 +1,88 @@
+{
+  "id": "MATH_039",
+  "subject": "Mathématiques",
+  "level": "Seconde",
+  "domain": "Fonctions",
+  "title": "Exemple guidé et calcul détaillé : Variations de fonctions et extrema en pratique",
+  "pedagogical_type": "exemple_guide",
+  "pedagogical_target": "Savoir vérifier la forme canonique d'une fonction du second degré par développement, dresser son tableau de variations à partir du signe du coefficient dominant, et déterminer précisément la valeur de son extremum et l'abscisse où il est atteint.",
+  "sections": [
+    {
+      "section_id": "sec_1",
+      "title": "1. Accroche : Extremum et Forme Canonique",
+      "summary": "Présentation de la notion d'extremum (minimum ou maximum) et de la fonction f(x) = 2x^2 + 4x + 5, avec l'objectif de prouver que 2(x+1)^2 + 3 est sa forme canonique.",
+      "support_visuel_suggere": "draw line + draw arrow + text",
+      "concepts_cles": [
+        "extremum",
+        "minimum",
+        "maximum",
+        "forme canonique",
+        "fonction du second degré"
+      ]
+    },
+    {
+      "section_id": "sec_2",
+      "title": "2. Preuve de la Forme Canonique par Développement",
+      "summary": "Développement pas à pas de 2(x+1)^2 + 3 à l'aide de l'identité remarquable (a+b)^2 puis distributivité et réduction jusqu'à retrouver 2x^2 + 4x + 5.",
+      "support_visuel_suggere": "draw arrow + draw line + text",
+      "concepts_cles": [
+        "identité remarquable",
+        "distributivité",
+        "réduction algébrique",
+        "égalité de deux expressions"
+      ]
+    },
+    {
+      "section_id": "sec_3",
+      "title": "3. Préparation du Tableau et Sens de Variation",
+      "summary": "Construction de la structure du tableau de variations et étude géométrique des deux orientations possibles d'une parabole selon le signe du coefficient a devant x^2.",
+      "support_visuel_suggere": "draw curve + draw line + draw arrow",
+      "concepts_cles": [
+        "tableau de variations",
+        "parabole",
+        "branches vers le haut",
+        "branches vers le bas",
+        "signe de a"
+      ]
+    },
+    {
+      "section_id": "sec_4",
+      "title": "4. Piège Classique sur Alpha et Valeur de l'Extremum",
+      "summary": "Identification de alpha et beta dans a(x - alpha)^2 + beta en évitant l'erreur de signe sur +1 qui donne alpha = -1, puis lecture directe du minimum beta = 3.",
+      "support_visuel_suggere": "draw line + draw arrow + draw circle + text",
+      "concepts_cles": [
+        "abscisse du sommet alpha",
+        "piège du signe opposé",
+        "ordonnée du sommet beta",
+        "minimum atteint en -1"
+      ]
+    },
+    {
+      "section_id": "sec_5",
+      "title": "5. Synthèse Visuelle : Parabole et Extremum sur Repère",
+      "summary": "Finalisation du tableau de variations complet et tracé exact de la parabole y = 2(x+1)^2 + 3 dans un repère cartésien avec mise en évidence du sommet (-1, 3).",
+      "support_visuel_suggere": "draw 2drep + draw 2dfunc + draw circle + draw arrow",
+      "concepts_cles": [
+        "courbe représentative",
+        "sommet de la parabole",
+        "tableau complet",
+        "conclusion rédigée"
+      ]
+    }
+  ],
+  "duration_seconds": 435.39,
+  "word_count": 1393,
+  "source_video": {
+    "video_id": "pXWDPw3B3ms",
+    "title": "Déterminer les variations (et l'extremum) d'une fonction du second degré - Première",
+    "channel": "Yvan Monka",
+    "youtube_url": "https://www.youtube.com/watch?v=pXWDPw3B3ms"
+  },
+  "course_id": "MATH_039",
+  "world_model_score": 10.0,
+  "rendered_scenes": 5,
+  "visual_audit_notes": "Inspected all 5 rendered scenes (scene_0..scene_4.png). Scene 0: Clear split-board layout with canonical form structure, derivation strategy box and arrow. Scene 1: Step-by-step expansion using remarkable identity with distributivity arrows, verified f(x) box and conclusion. Scene 2: Variation table structure on the left with descending and ascending arrows; right side displays both upward (a>0) and downward (a<0) parabola profiles using crisp polygon paths. Scene 3: Identification of alpha and beta with trap warning; variation table filled with vertex coordinates (-1, 3) highlighted by amber and lavender circles. Scene 4: Complete Cartesian frame with grid, exact parabola curve y=2(x+1)^2+3, vertex highlight at (-1, 3), and formal interval conclusion. Zero overlap, high chalk contrast, full 16:9 framing compliance.",
+  "certified_by": "antigravity-argon",
+  "certified_at": "2026-11-12T18:05:43.036597",
+  "status": "COMPLETED"
+}

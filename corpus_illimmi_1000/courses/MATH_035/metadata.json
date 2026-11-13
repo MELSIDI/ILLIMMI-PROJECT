@@ -1,0 +1,100 @@
+{
+  "id": "MATH_035",
+  "subject": "Mathématiques",
+  "level": "Seconde",
+  "domain": "Fonctions",
+  "title": "Problème type Bac : Variations de fonctions et extrema — Raisonnement en plusieurs étapes",
+  "pedagogical_type": "methode_et_probleme",
+  "pedagogical_target": "Maîtriser le raisonnement en plusieurs étapes pour déterminer l'extremum d'une fonction du second degré (mise sous forme canonique, identification de alpha et bêta, tableau de variations et représentation graphique).",
+  "sections": [
+    {
+      "section_id": "sec_1",
+      "title": "1. Accroche & Fonction du Second Degré",
+      "summary": "Présentation de la fonction f(x) = -x² + 4x et identification de sa nature de fonction polynôme du second degré ainsi que de l'allure générale de sa courbe.",
+      "support_visuel_suggere": "draw 2drep + draw 2dfunc + text",
+      "concepts_cles": [
+        "fonction du second degré",
+        "extremum",
+        "parabole",
+        "coefficient de x au carré"
+      ]
+    },
+    {
+      "section_id": "sec_2",
+      "title": "2. Allure de la Parabole : Minimum ou Maximum",
+      "summary": "Comparaison visuelle des deux cas selon le signe du coefficient a devant x² : cuvette (minimum) si a > 0, colline (maximum) si a < 0.",
+      "support_visuel_suggere": "draw curve + draw arrow + draw circle + text",
+      "concepts_cles": [
+        "signe de a",
+        "branches vers le haut",
+        "branches vers le bas",
+        "minimum",
+        "maximum"
+      ]
+    },
+    {
+      "section_id": "sec_3",
+      "title": "3. Mise sous Forme Canonique : Étape par Étape",
+      "summary": "Transformation algébrique complète de f(x) = -x² + 4x jusqu'à la forme canonique -(x - 2)² + 4 par factorisation de -1 et complétion du carré.",
+      "support_visuel_suggere": "draw arrow + draw line + text",
+      "concepts_cles": [
+        "forme canonique",
+        "factorisation par moins 1",
+        "identité remarquable",
+        "compensation +4 et -4",
+        "redistribution du signe moins"
+      ]
+    },
+    {
+      "section_id": "sec_4",
+      "title": "4. Lecture de l'Extremum & Piège Fréquent",
+      "summary": "Application de la propriété de la forme canonique a(x - alpha)² + bêta pour lire le maximum 4 atteint en x = 2, en évitant l'erreur classique sur le signe de alpha.",
+      "support_visuel_suggere": "draw arrow + draw polygone + text",
+      "concepts_cles": [
+        "propriété de la forme canonique",
+        "abscisse alpha",
+        "valeur bêta",
+        "piège de signe sur alpha"
+      ]
+    },
+    {
+      "section_id": "sec_5",
+      "title": "5. Tableau de Variations sur R",
+      "summary": "Construction complète du tableau de variations de f sur R : comparaison a > 0 et a < 0, placement de alpha = 2 et de la valeur maximale 4 avec les flèches de variation.",
+      "support_visuel_suggere": "draw line + draw arrow + text",
+      "concepts_cles": [
+        "tableau de variations",
+        "ensemble R",
+        "croissante puis décroissante",
+        "sommet du tableau"
+      ]
+    },
+    {
+      "section_id": "sec_6",
+      "title": "6. Représentation Graphique & Synthèse",
+      "summary": "Tracé précis de la parabole de f(x) = -x² + 4x dans un repère cartésien gradué avec mise en évidence du sommet S(2 ; 4) et récapitulatif de la méthode en plusieurs étapes.",
+      "support_visuel_suggere": "draw 2drep + draw 2dfunc + draw arrow + draw circle",
+      "concepts_cles": [
+        "représentation graphique",
+        "sommet de la parabole",
+        "lecture graphique du maximum",
+        "méthode en plusieurs étapes"
+      ]
+    }
+  ],
+  "duration_seconds": 334.29,
+  "word_count": 1084,
+  "source_video": {
+    "video_id": "KK76UohzUW4",
+    "title": "Determining the extremum of a second-degree function - First",
+    "channel": "Yvan Monka",
+    "youtube_url": "https://www.youtube.com/watch?v=KK76UohzUW4"
+  },
+  "course_id": "MATH_035",
+  "world_model_score": 10.0,
+  "rendered_scenes": 6,
+  "visual_audit_notes": "Inspected all 6 rendered PNGs (scene_0.png through scene_5.png): zero overlaps, zero clipping, crisp KaTeX formulas, accurate y = 4*x - x^2 parabolas on 2drep grids with vertex S(2;4) and roots (0;0)/(4;0) circled, clean variation table and canonical form steps.",
+  "certified_by": "antigravity-argon",
+  "certified_at": "2026-11-12T16:46:53.285974",
+  "status": "COMPLETED"
+}

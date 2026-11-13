@@ -1,0 +1,105 @@
+{
+  "id": "MATH_044",
+  "subject": "Mathématiques",
+  "level": "Seconde",
+  "domain": "Fonctions",
+  "title": "Correction d'exercice classique : Fonctions affines et droites du plan (Entraînement Lycée)",
+  "pedagogical_type": "correction_exercice",
+  "pedagogical_target": "Apprendre à déterminer graphiquement le coefficient directeur d'une droite du plan par la méthode des trois étapes, la lecture des coordonnées de deux points et la formule fondamentale a = (yB - yA) / (xB - xA).",
+  "duration_seconds": 272.56,
+  "word_count": 857,
+  "sections": [
+    {
+      "section_id": "sec_1",
+      "title": "1. Introduction & Notion de Coefficient Directeur",
+      "summary": "Présentation de l'objectif : déterminer le coefficient directeur d'une droite. Définition pour une fonction affine f(x) = ax + b, sens d'inclinaison de la pente et rappel de l'ordonnée à l'origine b.",
+      "support_visuel_suggere": "draw 2drep + draw 2dfunc + text",
+      "concepts_cles": [
+        "coefficient directeur",
+        "fonction affine",
+        "pente",
+        "ordonnée à l'origine"
+      ]
+    },
+    {
+      "section_id": "sec_2",
+      "title": "2. Méthode Graphique : Choix des Points A et B",
+      "summary": "Présentation de la méthode en trois étapes et réalisation de l'étape 1 : choisir deux points distincts A et B sur la droite avec des coordonnées entières faciles à lire.",
+      "support_visuel_suggere": "draw 2drep + draw circle + text",
+      "concepts_cles": [
+        "méthode en 3 étapes",
+        "points distincts",
+        "lecture graphique"
+      ]
+    },
+    {
+      "section_id": "sec_3",
+      "title": "3. Lecture des Coordonnées des Points A et B",
+      "summary": "Étape 2 : projection orthogonale des points A et B sur les axes pour lire xA = 1, yA = 1 puis xB = 2, yB = 3.",
+      "support_visuel_suggere": "draw 2drep + draw line + draw circle",
+      "concepts_cles": [
+        "projection orthogonale",
+        "abscisse x",
+        "ordonnée y",
+        "coordonnées"
+      ]
+    },
+    {
+      "section_id": "sec_4",
+      "title": "4. Formule du Coefficient Directeur & Notation Delta",
+      "summary": "Étape 3 : énoncé de la formule fondamentale a = (yB - yA) / (xB - xA) et explication de la notation scientifique delta y sur delta x représentant la variation.",
+      "support_visuel_suggere": "text + draw arrow",
+      "concepts_cles": [
+        "formule du coefficient directeur",
+        "variation delta y",
+        "variation delta x"
+      ]
+    },
+    {
+      "section_id": "sec_5",
+      "title": "5. Piège Fréquent : L'Inversion Numérateur-Dénominateur",
+      "summary": "Mise en garde contre l'erreur classique consistant à inverser les x et les y : les ordonnées sont impérativement au numérateur.",
+      "support_visuel_suggere": "text + draw arrow",
+      "concepts_cles": [
+        "piège classique",
+        "ordonnées au numérateur",
+        "abscisses au dénominateur"
+      ]
+    },
+    {
+      "section_id": "sec_6",
+      "title": "6. Calcul Numérique Pas à Pas",
+      "summary": "Application numérique de la formule avec les coordonnées relevées : calcul détaillé de a = (3 - 1) / (2 - 1) = 2/1 = 2.",
+      "support_visuel_suggere": "text + draw 2drep + draw arrow",
+      "concepts_cles": [
+        "application numérique",
+        "calcul de pente",
+        "valeur a = 2"
+      ]
+    },
+    {
+      "section_id": "sec_7",
+      "title": "7. Synthèse Méthodique & Réflexe Examen",
+      "summary": "Récapitulatif des 3 étapes indispensables pour réussir tout exercice du Lycée : choisir deux points, lire leurs coordonnées, appliquer la formule de pente.",
+      "support_visuel_suggere": "text + draw line",
+      "concepts_cles": [
+        "réflexe examen",
+        "résumé en 3 étapes",
+        "maîtrise du savoir-faire"
+      ]
+    }
+  ],
+  "source_video": {
+    "video_id": "a6mj7ALL_lI",
+    "title": "How to calculate the slope of a straight line? | Mathematical tools",
+    "channel": "Paul Olivier",
+    "youtube_url": "https://www.youtube.com/watch?v=a6mj7ALL_lI"
+  },
+  "course_id": "MATH_044",
+  "world_model_score": 10.0,
+  "rendered_scenes": 5,
+  "visual_audit_notes": "Inspection visuelle multimodale complete de scene_0.png a scene_4.png : score World Model 10.0/10, zero collision, zero debordement 16:9, KaTeX impeccable, progression pas-a-pas et repere orthogonal parfaitement lisibles.",
+  "certified_by": "antigravity-argon",
+  "certified_at": "2026-11-12T19:50:25.636265",
+  "status": "COMPLETED"
+}

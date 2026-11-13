@@ -1,0 +1,110 @@
+{
+  "id": "MATH_041",
+  "subject": "Mathématiques",
+  "level": "Seconde",
+  "domain": "Fonctions",
+  "title": "Fonctions affines et droites du plan — Cours fondamental et définitions",
+  "pedagogical_type": "cours_fondamental",
+  "pedagogical_target": "Maîtriser la définition des fonctions affines f(x) = ax + b, leurs cas particuliers (linéaires et constantes), l'équation de droite y = ax + b, la lecture graphique de l'ordonnée à l'origine et du coefficient directeur, ainsi que la formule des accroissements.",
+  "source_video": {
+    "video_id": "n5_pRx4ozIg",
+    "title": "LE COURS : Fonctions affines - Troisième - Seconde",
+    "channel": "Yvan Monka",
+    "youtube_url": "https://www.youtube.com/watch?v=n5_pRx4ozIg"
+  },
+  "sections": [
+    {
+      "section_id": "sec_1",
+      "title": "1. Accroche & Définition d'une Fonction Affine",
+      "summary": "Introduction au chapitre des fonctions affines, présentation de la forme générale f(x) = ax + b avec exemples numériques et fractionnaires, et mise en garde contre les expressions non affines comme x au carré.",
+      "support_visuel_suggere": "draw line + draw arrow + draw circle",
+      "concepts_cles": [
+        "fonction affine",
+        "forme ax + b",
+        "paramètres a et b",
+        "contre-exemple x au carré"
+      ]
+    },
+    {
+      "section_id": "sec_2",
+      "title": "2. Cas Particuliers : Fonctions Linéaires et Constantes",
+      "summary": "Étude des deux cas particuliers : la fonction linéaire g(x) = ax lorsque b = 0, et la fonction constante h(x) = b lorsque a = 0, avec exemples concrets et distinction de vocabulaire.",
+      "support_visuel_suggere": "draw line + draw arrow + draw polygone",
+      "concepts_cles": [
+        "fonction linéaire",
+        "b = 0",
+        "fonction constante",
+        "a = 0"
+      ]
+    },
+    {
+      "section_id": "sec_3",
+      "title": "3. Représentations Graphiques des Trois Cas",
+      "summary": "Visualisation dans un repère des droites associées : droite quelconque pour une fonction affine, droite passant par l'origine pour une fonction linéaire, droite parallèle à l'axe des abscisses pour une fonction constante.",
+      "support_visuel_suggere": "draw 2drep + draw 2dfunc + draw circle",
+      "concepts_cles": [
+        "droite du plan",
+        "passage par l'origine",
+        "parallèle à l'axe des abscisses",
+        "tracé à la règle"
+      ]
+    },
+    {
+      "section_id": "sec_4",
+      "title": "4. De la Fonction Affine à l'Équation de Droite",
+      "summary": "Sur l'exemple f(x) = x - 1, calcul de l'image f(3) = 2, placement du point A(3 ; 2), puis généralisation à tout point M(x ; y) de la droite pour établir l'équation de droite y = ax + b.",
+      "support_visuel_suggere": "draw 2drep + draw 2dfunc + draw circle + draw line",
+      "concepts_cles": [
+        "appartenance d'un point à une droite",
+        "coordonnées M(x ; y)",
+        "équation de droite",
+        "y = ax + b"
+      ]
+    },
+    {
+      "section_id": "sec_5",
+      "title": "5. Ordonnée à l'Origine et Coefficient Directeur : Exemples Graphiques",
+      "summary": "Définition et lecture graphique de b (intersection avec l'axe des ordonnées) et de a (déplacement vertical pour un pas de +1 en abscisse) sur deux droites : f(x) = 2x - 2 et g(x) = -0,5x - 1.",
+      "support_visuel_suggere": "draw 2drep + draw 2dfunc + draw arrow + draw circle",
+      "concepts_cles": [
+        "ordonnée à l'origine b",
+        "coefficient directeur a",
+        "pente positive",
+        "pente négative"
+      ]
+    },
+    {
+      "section_id": "sec_6",
+      "title": "6. Rôle Dynamique de a et b : Parallélisme et Sens de Variation",
+      "summary": "Observation de l'effet des variations de b (famille de droites parallèles) et des variations de a (inclinaison, cas horizontal a = 0, fonctions croissantes pour a > 0 et décroissantes pour a < 0).",
+      "support_visuel_suggere": "draw 2drep + draw 2dfunc + draw arrow",
+      "concepts_cles": [
+        "droites parallèles",
+        "sens de variation",
+        "fonction croissante",
+        "fonction décroissante"
+      ]
+    },
+    {
+      "section_id": "sec_7",
+      "title": "7. Propriété des Accroissements & Synthèse Finale",
+      "summary": "Énoncé et illustration géométrique de la formule des accroissements a = (yB - yA) / (xB - xA) à partir de deux points A et B, suivis d'une synthèse des réflexes clés du chapitre.",
+      "support_visuel_suggere": "draw 2drep + draw 2dfunc + draw arrow + draw line",
+      "concepts_cles": [
+        "propriété des accroissements",
+        "taux d'accroissement",
+        "calcul algébrique de a",
+        "réflexes examen"
+      ]
+    }
+  ],
+  "duration_seconds": 1217.54,
+  "word_count": 3786,
+  "course_id": "MATH_041",
+  "world_model_score": 10.0,
+  "rendered_scenes": 11,
+  "visual_audit_notes": "Visual inspection completed across all 11 scenes rendered at 1920x1080. Chalkboard contrast adheres to ILLIMMI green palette, KaTeX formulas properly formatted without collisions, Cartesian axes and function plots accurately scaled and placed in right visual column, and all acoustic timestamps synchronized with words.txt.",
+  "certified_by": "antigravity-argon",
+  "certified_at": "2026-11-12T20:00:45.573698",
+  "status": "COMPLETED"
+}

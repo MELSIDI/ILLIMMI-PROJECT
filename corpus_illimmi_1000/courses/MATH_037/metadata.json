@@ -1,0 +1,97 @@
+{
+  "id": "MATH_037",
+  "subject": "Mathématiques",
+  "level": "Seconde",
+  "domain": "Fonctions",
+  "title": "Variations de fonctions et extrema — Cours fondamental et définitions",
+  "pedagogical_type": "cours_methode",
+  "pedagogical_target": "Maîtriser les notions de maximum, minimum et extremum d'une fonction sur un intervalle donné, savoir les lire graphiquement par projection sur l'axe des ordonnées, comprendre le lien avec les variations et distinguer la valeur de l'extremum de l'abscisse où il est atteint.",
+  "sections": [
+    {
+      "section_id": "sec_1",
+      "title": "1. Accroche : Pourquoi l'intervalle d'étude change tout",
+      "summary": "Comprendre graphiquement que le point le plus haut ou le plus bas d'une courbe dépend directement de l'intervalle choisi pour l'étude.",
+      "support_visuel_suggere": "draw 2drep + draw 2dfunc + draw arrow",
+      "concepts_cles": [
+        "extremum",
+        "intervalle d'étude",
+        "lecture globale ou locale",
+        "représentation graphique"
+      ]
+    },
+    {
+      "section_id": "sec_2",
+      "title": "2. Exemple 1 : Trouver le maximum sur [-15 ; 15]",
+      "summary": "Comparer les deux sommets de la courbe sur [-15 ; 15], projeter leurs hauteurs sur l'axe vertical des ordonnées (11 contre 12), et conclure que le maximum vaut 12, atteint en x = -15.",
+      "support_visuel_suggere": "draw 2drep + draw 2dfunc + draw line + draw arrow + draw circle",
+      "concepts_cles": [
+        "maximum sur un intervalle",
+        "projection sur l'axe des ordonnées",
+        "sommet le plus haut",
+        "valeur atteinte en x = -15"
+      ]
+    },
+    {
+      "section_id": "sec_3",
+      "title": "3. Exemple 2 : Trouver le minimum sur [-10 ; -3]",
+      "summary": "Restreindre l'observation à la portion de courbe sur [-10 ; -3], vérifier que l'abscisse -8 appartient bien à l'intervalle, et lire sur l'axe vertical que le minimum vaut -3.",
+      "support_visuel_suggere": "draw 2drep + draw 2dfunc + draw line + draw arrow + draw circle",
+      "concepts_cles": [
+        "minimum sur un intervalle",
+        "restriction à un sous-intervalle",
+        "vérification de l'abscisse",
+        "minimum égal à -3 en x = -8"
+      ]
+    },
+    {
+      "section_id": "sec_4",
+      "title": "4. Définitions formelles et lien avec les variations",
+      "summary": "Énoncer rigoureusement les définitions de maximum et de minimum d'une fonction f sur un intervalle I, et montrer comment une fonction croissante puis décroissante admet un maximum (et inversement pour un minimum).",
+      "support_visuel_suggere": "draw 2drep + draw 2dfunc + draw arrow + draw polygone",
+      "concepts_cles": [
+        "définition du maximum",
+        "définition du minimum",
+        "changement de variation",
+        "croissante puis décroissante"
+      ]
+    },
+    {
+      "section_id": "sec_5",
+      "title": "5. Piège classique : Confondre la valeur et l'abscisse",
+      "summary": "Déjouer l'erreur la plus fréquente au lycée qui consiste à donner l'abscisse x au lieu de l'ordonnée f(x) comme valeur de l'extremum.",
+      "support_visuel_suggere": "draw polygone + draw arrow + draw line",
+      "concepts_cles": [
+        "axe horizontal des abscisses",
+        "axe vertical des ordonnées",
+        "valeur f(x) vs antécédent x",
+        "rédaction rigoureuse"
+      ]
+    },
+    {
+      "section_id": "sec_6",
+      "title": "6. Synthèse : Les 3 réflexes pour réussir au contrôle",
+      "summary": "Récapituler la méthode complète en trois étapes pour déterminer et rédiger correctement tout extremum d'une fonction à partir d'un graphique.",
+      "support_visuel_suggere": "draw polygone + draw arrow + draw line",
+      "concepts_cles": [
+        "délimiter l'intervalle I",
+        "repérer le point extrême",
+        "lire l'ordonnée et conclure"
+      ]
+    }
+  ],
+  "source_video": {
+    "video_id": "P_d556WWXM8",
+    "title": "The extrema of a function - Solved exercise - Second year",
+    "channel": "Galilee ac",
+    "youtube_url": "https://www.youtube.com/watch?v=P_d556WWXM8"
+  },
+  "duration_seconds": 270.21,
+  "word_count": 857,
+  "course_id": "MATH_037",
+  "world_model_score": 10.0,
+  "rendered_scenes": 6,
+  "visual_audit_notes": "Inspected all 6 rendered scenes (scene_0.png to scene_5.png): smooth 2dfunc curve passes accurately through (-15,12), (-8,-3), and (6,11); all projection arrows, interval brackets, KaTeX definitions, and labels are collision-free with high chalk contrast and clean 16:9 framing.",
+  "certified_by": "antigravity-argon",
+  "certified_at": "2026-11-12T17:08:03.685032",
+  "status": "COMPLETED"
+}

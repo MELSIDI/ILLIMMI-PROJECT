@@ -1,0 +1,19 @@
+Bonjour et bienvenue. Dans ce cours, tu vas apprendre à représenter graphiquement une fonction affine à l'aide de son coefficient directeur et de son ordonnée à l'origine.
+
+Ici, on nous demande de représenter la fonction affine f définie pour tout nombre réel x par f de x égale 2 x plus 1.
+
+La première chose fondamentale à savoir, c'est que la représentation graphique d'une fonction affine est toujours une droite. Et en géométrie, pour tracer une droite, il suffit de connaître deux points distincts, car par deux points distincts du plan, il ne passe qu'une seule et unique droite. Notre objectif est donc de déterminer très facilement les coordonnées de deux points appartenant à cette droite grâce à l'expression de la fonction.
+
+Pour cela, rappelons la forme générale d'une fonction affine. Une fonction affine s'écrit f de x égale a x plus b. Dans cette écriture, la lettre a désigne le coefficient directeur, qui vaut ici 2, et la lettre b désigne l'ordonnée à l'origine, qui vaut ici 1.
+
+Commençons par exploiter l'ordonnée à l'origine, c'est-à-dire le nombre b qui vaut 1. Comme son nom l'indique de façon très explicite, l'ordonnée à l'origine correspond à la valeur de l'ordonnée lorsque l'abscisse est égale à zéro, c'est-à-dire à l'origine du repère. Traçons à droite un repère orthonormé pour visualiser la situation. Sur l'axe vertical des ordonnées, repérons la graduation 1. Plaçons immédiatement notre premier point à la graduation 1 sur cet axe des ordonnées. Ce point a pour coordonnées 0 point-virgule 1, et nous savons de façon quasi immédiate qu'il appartient à la droite représentative de la fonction f.
+
+Il ne nous reste plus qu'à trouver un deuxième point pour pouvoir tracer la droite. C'est ici qu'intervient le coefficient directeur, noté a, qui vaut 2 dans notre formule. Que signifie concrètement le fait que le coefficient directeur soit égal à 2 ? Cela signifie que lorsque la variable x augmente d'une unité, les valeurs de y, c'est-à-dire f de x, augmentent deux fois plus vite, soit de deux unités. Autrement dit, lorsque l'on avance de 1 unité vers la droite dans le sens de l'axe des abscisses, on monte de 2 unités vers le haut dans le sens de l'axe des ordonnées.
+
+Appliquons cette règle géométrique directement au tableau. Regarde attentivement sur ce repère. En partant de notre premier point de coordonnées 0 point-virgule 1, avançons horizontalement d'un pas vers la droite, c'est-à-dire d'une unité. Nous arrivons à l'abscisse 1. Ensuite, montons verticalement de deux pas vers le haut, c'est-à-dire de deux unités. Nous atteignons ainsi le point de coordonnées 1 point-virgule 3. Plaçons notre deuxième point au tableau à cet endroit précis. Ce point appartient également à la représentation graphique de f.
+
+Nous disposons désormais de deux points parfaitement déterminés. Traçons enfin la droite qui relie ces deux points caractéristiques et prolongeons-la de part et d'autre. Voilà, la droite représentative de notre fonction affine f est tracée avec une précision totale.
+
+Attention à l'erreur classique que l'on observe parfois chez les élèves : ne confonds jamais le coefficient directeur a et l'ordonnée à l'origine b. Ne commence jamais par chercher le coefficient directeur sur l'axe vertical. C'est toujours l'ordonnée à l'origine b qui donne le point de départ sur l'axe des ordonnées, et c'est toujours le coefficient directeur a qui dicte ensuite le déplacement : un pas vers la droite pour delta x, puis a pas verticalement pour delta y.
+
+En synthèse, retiens bien ce réflexe d'examen. Pour tracer la droite d'équation y égale 2 x plus 1, tu repères d'abord b égale 1 sur l'axe vertical pour placer le premier point, puis à partir de ce point, tu avances de 1 vers la droite et tu montes de 2 vers le haut pour marquer le deuxième point. Tu n'as plus qu'à relier ces deux points à la règle.

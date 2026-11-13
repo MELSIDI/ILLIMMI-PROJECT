@@ -1,0 +1,97 @@
+{
+  "id": "MATH_032",
+  "course_id": "MATH_032",
+  "subject": "Mathématiques",
+  "level": "Seconde",
+  "domain": "Fonctions",
+  "title": "Méthode pas à pas : Comment résoudre un problème de Variations de fonctions et extrema",
+  "pedagogical_type": "methode_pas_a_pas",
+  "pedagogical_target": "Maîtriser la méthode complète pour étudier les variations d'une fonction et déterminer un extremum : calcul de la dérivée, recherche des racines, étude du signe, tableau de variations et calcul de la valeur de l'extremum.",
+  "sections": [
+    {
+      "section_id": "sec_1",
+      "title": "1. Objectif & Propriété de l'Extremum par la Dérivée",
+      "summary": "Introduction de la fonction f(x) = 5x² - 3x + 4 et énoncé de la propriété clé reliant l'annulation et le changement de signe de f'(x) à l'existence d'un extremum.",
+      "support_visuel_suggere": "draw 2drep + draw 2dfunc + draw circle + text",
+      "concepts_cles": [
+        "extremum d'une fonction",
+        "fonction dérivée",
+        "annulation et changement de signe",
+        "tangente horizontale"
+      ]
+    },
+    {
+      "section_id": "sec_2",
+      "title": "2. Étape 1 : Calcul de la Fonction Dérivée f'(x)",
+      "summary": "Dérivation terme à terme du polynôme du second degré f(x) = 5x² - 3x + 4 pour obtenir f'(x) = 10x - 3.",
+      "support_visuel_suggere": "draw arrow + draw line + text",
+      "concepts_cles": [
+        "polynôme du second degré",
+        "dérivée de x au carré",
+        "dérivée de x",
+        "dérivée d'une constante"
+      ]
+    },
+    {
+      "section_id": "sec_3",
+      "title": "3. Étape 2 : Résolution de f'(x) = 0 et Étude du Signe",
+      "summary": "Résolution de 10x - 3 = 0 donnant x = 3/10, puis justification graphique du changement de signe grâce à la représentation de cette fonction affine croissante.",
+      "support_visuel_suggere": "draw 2drep + draw 2dfunc + draw circle + draw arrow",
+      "concepts_cles": [
+        "équation f'(x) = 0",
+        "fonction affine croissante",
+        "coefficient directeur positif",
+        "changement de signe"
+      ]
+    },
+    {
+      "section_id": "sec_4",
+      "title": "4. Étape 3 : Tableau de Signes de f' et Variations de f",
+      "summary": "Construction du tableau de signes de la dérivée sur R et déduction du tableau de variations de f, mettant en évidence un minimum en x = 3/10.",
+      "support_visuel_suggere": "draw line + draw arrow + text",
+      "concepts_cles": [
+        "tableau de signes",
+        "tableau de variations",
+        "sens de variation",
+        "minimum local et global"
+      ]
+    },
+    {
+      "section_id": "sec_5",
+      "title": "5. Étape 4 : Calcul du Minimum & Piège Classique",
+      "summary": "Mise en garde contre la substitution dans f' au lieu de f, calcul exact de f(3/10) = 71/20 et visualisation du sommet de la parabole sur un repère.",
+      "support_visuel_suggere": "draw 2drep + draw 2dfunc + draw circle + draw arrow",
+      "concepts_cles": [
+        "image par f et non par f'",
+        "calcul fractionnaire",
+        "sommet de la parabole",
+        "minimum atteint en 3/10"
+      ]
+    },
+    {
+      "section_id": "sec_6",
+      "title": "6. Synthèse : Les 4 Réflexes de la Méthode",
+      "summary": "Récapitulatif visuel en quatre étapes pour ne jamais se tromper lors d'un problème de variations et d'extremum en contrôle.",
+      "support_visuel_suggere": "draw polygone + draw arrow + draw line + text",
+      "concepts_cles": [
+        "méthode en 4 étapes",
+        "réflexe de vérification",
+        "rédaction rigoureuse"
+      ]
+    }
+  ],
+  "duration_seconds": 331.98,
+  "word_count": 1007,
+  "source_video": {
+    "video_id": "zxyKLqnlMIk",
+    "title": "Déterminer un extremum - Première",
+    "channel": "Yvan Monka",
+    "youtube_url": "https://www.youtube.com/watch?v=zxyKLqnlMIk"
+  },
+  "world_model_score": 10.0,
+  "rendered_scenes": 6,
+  "visual_audit_notes": "Visual inspection of scene_0..scene_5.png confirmed crisp KaTeX formulas, zero text/figure collisions, exact 2drep+2dfunc plots for y=0.5x^2+1, f'(x)=10x-3 (root x=3/10), and f(x)=5x^2-3x+4 (vertex S(3/10, 71/20)), aligned sign/variation table, and WorldModelVerifier score 10.0.",
+  "certified_by": "antigravity-argon",
+  "certified_at": "2026-11-12T15:49:28.809487",
+  "status": "COMPLETED"
+}

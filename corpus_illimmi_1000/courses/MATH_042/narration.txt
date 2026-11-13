@@ -1,0 +1,207 @@
+Bonjour et bienvenue dans ce cours complet consacré au chapitre des équations de droites en classe de Seconde.
+L'objet de cette grande séquence est de reprendre ensemble, pas à pas et dans le détail, tous les éléments fondamentaux de ce chapitre incontournable de géométrie analytique.
+Plus précisément, nous allons étudier la notion d'équation cartésienne, comprendre la notion d'équation réduite, voir comment calculer la pente d'une droite à partir de deux points, et enfin examiner avec précision la position relative de deux droites du plan.
+Pour réussir tes devoirs et tes examens, il est essentiel de maîtriser chaque démonstration et chaque méthode de calcul. C'est parti pour le cours.
+
+Commençons par nous poser une question essentielle. Pourquoi introduisons-nous des équations de droites au lycée ?
+Au collège, pour démontrer par exemple que deux droites sont parallèles ou perpendiculaires, nous étions obligés d'écrire de longs textes de démonstration en utilisant les théorèmes de la géométrie euclidienne classique.
+L'immense avantage d'une équation de droite, c'est de nous permettre de traiter des problèmes géométriques à l'aide du calcul algébrique.
+Grâce aux coordonnées et aux calculs sur les variables x et y, démontrer que deux droites sont parallèles ou déterminer les coordonnées de leur point d'intersection devient un simple calcul rapide et direct, sans avoir besoin de rédiger une démonstration géométrique complexe.
+Regardons à droite sur notre repère pour comprendre ce principe fondamental : chaque droite tracée dans le plan correspond à une relation mathématique précise entre les coordonnées de ses points.
+
+Nous allons rencontrer deux types majeurs d'équations de droite : tout d'abord les équations cartésiennes, puis ensuite les équations réduites.
+Commençons par les équations cartésiennes.
+Une équation cartésienne de droite s'écrit toujours sous la forme générale : a x plus b y plus c égale zéro.
+Mais qu'est-ce que cela signifie concrètement ?
+Tout d'abord, il faut bien voir que a, b et c sont des nombres réels qui, la plupart du temps, sont fixés dès le départ dans l'énoncé de ton exercice.
+Prenons immédiatement un exemple pour illustrer cette forme. Considérons une droite d qui a pour équation cartésienne : deux x plus trois y moins un égale zéro.
+Nous retrouvons parfaitement une équation de la forme a x plus b y plus c égale zéro, avec ici le coefficient a qui vaut deux, le coefficient b qui vaut trois, et la constante c qui vaut moins un.
+
+Que signifie réellement le fait que notre droite d ait pour équation cartésienne deux x plus trois y moins un égale zéro ?
+Cela signifie que nous travaillons dans un repère du plan, muni d'un axe des abscisses et d'un axe des ordonnées bien gradués.
+Dans ce repère, la droite est caractérisée par le fait que tous les points M de coordonnées x et y qui vérifient cette équation appartiennent à la droite d.
+Si un point a des coordonnées qui vérifient l'égalité, il est sur la droite. Si ses coordonnées ne vérifient pas l'égalité, il n'est pas sur la droite.
+Vérifions cela concrètement à l'aide d'un test d'appartenance.
+Prenons un premier point, le point A de coordonnées un point-virgule deux.
+Nous souhaitons savoir si ce point A se trouve ou non sur notre droite d.
+Pour le savoir, nous remplaçons l'abscisse x par un et l'ordonnée y par deux dans l'expression de gauche de notre équation, et nous regardons si le résultat est égal à zéro.
+Faisons le calcul avec soin : deux fois un plus trois fois deux moins un.
+Deux fois un nous donne deux. Trois fois deux nous donne six. Deux plus six font huit. Et huit moins un nous donne sept.
+Le résultat obtenu est sept, et sept n'est évidemment pas égal à zéro !
+Puisque le résultat n'est pas nul, l'égalité n'est pas vérifiée. Nous en déduisons immédiatement que le point A n'appartient pas à la droite d.
+Plaçons sur notre repère ce point A en rouge pour bien visualiser qu'il se situe à l'extérieur de la droite.
+
+Essayons maintenant avec un deuxième point pour voir ce qui se passe.
+Prenons le point B de coordonnées moins un point-virgule un.
+Reprenons la même méthode : nous remplaçons x par moins un et y par un dans le membre de gauche de notre équation cartésienne.
+Cela nous donne : deux fois moins un plus trois fois un moins un.
+Calculons terme à terme : deux fois moins un est égal à moins deux. Trois fois un est égal à trois. Moins deux plus trois nous donne un. Et un moins un est exactement égal à zéro !
+Cette fois-ci, l'égalité est parfaitement vérifiée.
+Nous pouvons donc affirmer avec certitude que le point B appartient bien à notre droite d.
+Plaçons sur ce repère le point B en vert : il est situé exactement sur la droite.
+Combien existe-t-il de points qui vérifient cette équation cartésienne ?
+Il en existe évidemment une infinité, car une droite géométrique est constituée d'une infinité de points.
+Mais attention, ce n'est pas n'importe quel point du plan, comme nous venons de le constater avec le point A qui a échoué au test.
+Ce qui est remarquable, c'est que cette équation résume et identifie parfaitement l'intégralité des points qui se trouvent sur la droite.
+
+Et ce n'est pas tout, car une propriété essentielle découle directement de l'équation cartésienne.
+Un théorème fondamental nous dit qu'un vecteur directeur de la droite d d'équation cartésienne a x plus b y plus c égale zéro est donné par le vecteur u de coordonnées moins b et a.
+Mais qu'est-ce qu'un vecteur directeur d'une droite ?
+C'est tout simplement un vecteur non nul qui a la même direction que la droite.
+C'est un outil particulièrement commode et puissant en géométrie, car connaître un vecteur directeur d'une droite, c'est disposer immédiatement de la direction de la droite dans le plan.
+Comment extrait-on ce vecteur directeur en pratique ?
+C'est d'une grande simplicité : il suffit de repérer les coefficients a et b dans l'équation cartésienne, et d'écrire le vecteur u de coordonnées moins b en abscisse et a en ordonnée.
+Reprenons notre droite d d'équation deux x plus trois y moins un égale zéro.
+Nous avions identifié a égale deux et b égale trois.
+Par conséquent, la première coordonnée moins b vaut moins trois, et la seconde coordonnée a vaut deux.
+Le vecteur u de coordonnées moins trois point-virgule deux est donc un vecteur directeur de notre droite d.
+Traçons à droite ce vecteur directeur avec une flèche bien visible sur notre graphique pour mettre en évidence la direction de notre droite.
+Soulignons que cette méthode fonctionne également en sens inverse.
+Si un exercice te fournit les coordonnées d'un vecteur directeur, par exemple moins trois et deux, tu peux identifier ces coordonnées à moins b et a.
+Tu obtiens ainsi immédiatement les valeurs de a et de b, ce qui te permet d'écrire le début de l'équation cartésienne a x plus b y.
+Il ne te reste plus alors qu'à trouver la constante c en remplaçant x et y par les coordonnées d'un point dont on sait qu'il appartient à la droite.
+Le passage d'un vecteur directeur à l'équation cartésienne est donc extrêmement rapide et élégant.
+
+Attaquons maintenant le deuxième grand concept de notre cours : l'équation réduite d'une droite.
+Reprenons toujours notre droite d d'équation cartésienne deux x plus trois y moins un égale zéro.
+Nous allons transformer cette équation cartésienne en ce qu'on appelle une équation réduite.
+Quelle est l'idée directrice pour obtenir l'équation réduite ? L'idée consiste tout simplement à isoler la variable y.
+Comment allons-nous procéder ? Exactement comme nous le faisons pour résoudre une équation algébrique ordinaire.
+Toutes les règles du calcul algébrique apprises au collège s'appliquent ici.
+Dans deux x plus trois y moins un égale zéro, commençons par isoler le terme contenant y, c'est-à-dire trois y.
+Nous faisons passer deux x et moins un de l'autre côté du signe égal en changeant leurs signes.
+Nous obtenons alors : trois y égale moins deux x plus un.
+Nous avons déjà isolé trois y. Pour isoler complètement y, il nous suffit maintenant de diviser chaque membre de l'égalité par trois.
+Cela nous donne : y égale moins deux tiers de x plus un tiers.
+Et voilà, nous venons d'obtenir l'équation réduite de notre droite d !
+
+D'une manière générale, une équation réduite de droite s'écrit sous la forme : y égale m x plus p, où m et p sont des nombres réels.
+Dans notre exemple concret, nous avons la valeur de m qui vaut moins deux tiers, et la valeur de p qui vaut un tiers.
+Est-il toujours possible de partir d'une équation cartésienne pour aboutir à une équation réduite sous la forme y égale m x plus p ?
+En réalité, c'est presque toujours possible, mais il existe une exception capitale que nous devons examiner de très près.
+Voyons un deuxième exemple où nous allons être obligés de procéder différemment.
+Considérons une autre droite d qui a pour équation cartésienne : trois x moins six égale zéro.
+Cette équation peut sembler curieuse au premier abord, car il n'y a aucun terme en y !
+Dans l'expression générale a x plus b y plus c égale zéro, nous avons ici le coefficient a qui vaut trois, la constante c qui vaut moins six, et le coefficient b qui vaut zéro.
+C'est comme si nous avions zéro fois y, et c'est pour cette raison que la variable y n'apparaît pas.
+C'est une équation cartésienne parfaitement valide.
+Dans une équation cartésienne, on peut tout à fait avoir b égale zéro, ou bien a égale zéro.
+En revanche, ce qui est strictement impossible, c'est d'avoir simultanément a égale zéro et b égale zéro, car il ne resterait plus que la constante c égale zéro, par exemple moins six égale zéro, ce qui n'a aucun sens géométrique ni mathématique.
+Revenons à notre droite d'équation trois x moins six égale zéro, et essayons de trouver son équation réduite.
+Si nous essayons d'appliquer le principe précédent qui consiste à isoler y, nous nous heurtons immédiatement à une impossibilité : comment isoler y s'il n'y a aucun terme en y dans l'équation ?
+C'est précisément le cas particulier où la forme y égale m x plus p n'est pas accessible.
+Alors, que faisons-nous ? Tout naturellement, puisque nous ne pouvons pas isoler y, nous allons isoler la variable x !
+Partons de trois x moins six égale zéro. Nous isolons trois x, ce qui nous donne : trois x égale six.
+Puis nous divisons par trois de part et d'autre, ce qui nous donne : x égale six divisé par trois, soit x égale deux.
+L'égalité x égale deux est l'équation réduite de notre droite !
+
+Cette écriture x égale deux est particulièrement simple et intuitive à comprendre.
+Elle signifie que l'ensemble des points M de coordonnées x et y qui vérifient cette équation sont tous les points du plan qui ont pour abscisse x égale deux, quelle que soit la valeur de leur ordonnée y.
+Regardons ce que cela donne sur notre graphique à droite.
+Plaçons le point de coordonnées deux point-virgule zéro : son abscisse est deux, il est sur la droite.
+Plaçons le point de coordonnées deux point-virgule un, puis le point deux point-virgule trois, ou encore deux point-virgule moins deux.
+Tous ces points ont la même abscisse deux.
+Lorsque nous relions tous ces points, nous obtenons une droite verticale, c'est-à-dire une droite perpendiculaire à l'axe des abscisses et strictement parallèle à l'axe des ordonnées, qui coupe l'axe des abscisses en deux.
+Nous pouvons ainsi classifier toutes les droites du plan en deux grandes familles bien distinctes.
+Le premier cas concerne les droites qui sont parallèles à l'axe des ordonnées.
+Sous leur forme cartésienne, elles n'ont aucun terme en y, elles s'écrivent a x plus c égale zéro.
+Leur équation réduite est alors de la forme : x égale une constante c, où cette constante correspond à l'abscisse où la droite coupe l'axe horizontal.
+Le second cas concerne les droites qui ne sont pas parallèles à l'axe des ordonnées.
+Pour celles-ci, aucun problème : elles s'écrivent sous la forme réduite y égale m x plus p.
+
+Intéressons-nous maintenant en détail aux deux nombres m et p qui apparaissent dans l'équation réduite y égale m x plus p.
+Ces deux coefficients jouent un rôle géométrique fondamental que tu as déjà commencé à aborder avec les fonctions affines.
+Le coefficient m s'appelle le coefficient directeur de la droite, ou encore sa pente.
+Graphiquement, la signification de la pente est limpide : si nous partons d'un point quelconque de la droite et que nous faisons un pas d'une unité vers la droite dans le sens positif de l'axe des abscisses, nous devons monter ou descendre de m unités dans le sens de l'axe des ordonnées pour retrouver la droite.
+Si m est positif, la droite monte, elle est croissante. Si m est négatif, la droite descend, elle est décroissante.
+Quant au coefficient p, il porte le nom très évocateur d'ordonnée à l'origine.
+Comme son nom l'indique, c'est la valeur de l'ordonnée y lorsque l'abscisse x est égale à zéro.
+Cela signifie que notre droite passe systématiquement par le point de coordonnées zéro point-virgule p, c'est-à-dire qu'elle traverse l'axe vertical des ordonnées à la graduation p.
+
+Illustrons cela par un exemple visuel très clair.
+Traçons sur notre repère la droite d d'équation réduite y égale trois x plus deux.
+Ici, nous identifions immédiatement m égale trois et p égale deux.
+Le coefficient directeur vaut trois et l'ordonnée à l'origine vaut deux.
+Commençons par utiliser l'ordonnée à l'origine : la droite traverse l'axe des ordonnées en deux.
+Plaçons ce point de coordonnées zéro point-virgule deux sur notre graphique.
+Ensuite, exploitons le coefficient directeur m égale trois.
+À partir du point zéro deux, avançons d'un pas d'une unité vers la droite sur l'axe des abscisses.
+Puis montons verticalement de trois unités vers le haut sur l'axe des ordonnées.
+Nous arrivons au point de coordonnées un point-virgule cinq, qui appartient lui aussi à la droite.
+Nous dessinons à droite les marches en escalier illustrant ce déplacement : plus un en abscisse, plus trois en ordonnée.
+Cette marche met parfaitement en évidence la pente de la droite.
+Prenons également un second exemple avec une droite parallèle à l'axe des ordonnées : la droite d'équation x égale trois.
+Elle traverse l'axe des abscisses en trois et monte verticalement en restant strictement parallèle à l'axe des ordonnées.
+
+Parlons à présent du calcul effectif de la pente d'une droite, c'est-à-dire de notre coefficient m.
+Nous disposons en effet d'une formule incontournable dès lors qu'une droite est définie par deux points connus.
+Tu sais depuis le collège que par deux points distincts du plan, il passe une et une seule droite.
+Par conséquent, si un énoncé te donne les coordonnées de deux points, la droite est entièrement déterminée, et sa pente l'est également.
+Énonçons la formule générale : si nous avons un point A de coordonnées x indice A point-virgule y indice A, et un point B de coordonnées x indice B point-virgule y indice B, à condition impérative que x indice A soit différent de x indice B, alors le coefficient directeur m de la droite reliant A et B est donné par :
+m égale y indice B moins y indice A, divisé par x indice B moins x indice A.
+C'est la variation des ordonnées divisée par la variation des abscisses.
+Pourquoi devons-nous poser la condition absolue que x indice A soit différent de x indice B ?
+C'est capital de bien le comprendre : si x indice A était égal à x indice B, que se passerait-il au dénominateur ?
+Nous aurions au dénominateur x indice B moins x indice A qui donnerait zéro !
+Or, nous savons tous qu'il est rigoureusement interdit de diviser par zéro en mathématiques.
+Et sur le plan géométrique, pourquoi ne peut-on pas appliquer cette formule ?
+Tout simplement parce que si x indice A est égal à x indice B, cela signifie que les points A et B ont exactement la même abscisse.
+Dans notre repère, ils sont situés l'un au-dessus de l'autre sur une même ligne verticale.
+La droite reliant A et B est donc une droite parallèle à l'axe des ordonnées, d'équation x égale x indice A.
+Elle ne possède donc pas d'équation sous la forme y égale m x plus p, et n'a par conséquent aucun coefficient directeur m.
+C'est pour cette raison que la formule du coefficient directeur ne s'applique que si les abscisses des deux points sont distinctes.
+
+Mettons immédiatement cette formule en pratique avec un exemple numérique.
+Prenons le point A de coordonnées un point-virgule deux, et le point B de coordonnées trois point-virgule quatre.
+Nous souhaitons déterminer la pente de la droite qui passe par A et B.
+Vérifions d'abord la condition : l'abscisse de A vaut un, l'abscisse de B vaut trois, elles sont bien différentes, nous pouvons appliquer la formule en toute confiance.
+Écrivons notre calcul : m égale y indice B moins y indice A au numérateur, c'est-à-dire quatre moins deux.
+Au dénominateur, nous écrivons x indice B moins x indice A, c'est-à-dire trois moins un.
+Au numérateur, quatre moins deux nous donne deux.
+Au dénominateur, trois moins un nous donne également deux.
+Nous obtenons ainsi deux divisé par deux, ce qui donne exactement un.
+La droite passant par les points A et B a donc pour coefficient directeur un, ce qui signifie que sa pente est égale à un : quand on avance d'une unité vers la droite, on monte d'une unité vers le haut.
+
+Passons maintenant à la dernière grande partie de notre leçon : l'étude de la position relative de deux droites dans le plan.
+Dans le plan, deux droites distinctes peuvent être soit strictement parallèles, soit sécantes en un unique point.
+Nous allons distinguer deux approches selon que nous travaillons avec les équations cartésiennes ou avec les équations réduites.
+Commençons par le cas où nous disposons des équations cartésiennes des deux droites.
+Deux droites d et d prime sont parallèles si et seulement si leurs vecteurs directeurs respectifs sont colinéaires.
+Comme nous savons déjà extraire un vecteur directeur u de coordonnées moins b et a pour la première droite, et un vecteur u prime de coordonnées moins b prime et a prime pour la seconde droite, il nous suffit d'appliquer le critère de colinéarité sur les coordonnées de ces deux vecteurs directeurs.
+Si le produit en croix x fois y prime moins y fois x prime est égal à zéro, alors les vecteurs directeurs sont colinéaires et les deux droites sont parallèles.
+Si ce déterminant est non nul, les deux droites ne sont pas parallèles, elles sont donc sécantes.
+
+Examinons maintenant le deuxième cas, très fréquent dans les exercices, où nous disposons des équations réduites des droites.
+Pour bien saisir toutes les situations possibles, prenons un ensemble d'exemples concrets.
+Considérons cinq droites d'équations suivantes :
+La droite d un d'équation y égale trois x plus quatre.
+La droite d deux d'équation y égale trois x plus neuf.
+La droite d trois d'équation x égale huit.
+La droite d quatre d'équation x égale moins un.
+Et enfin la droite d cinq d'équation y égale moins deux x plus un.
+Analysons méthodiquement leurs positions relatives.
+Commençons par comparer d un et d deux.
+Pour d un, le coefficient directeur est trois. Pour d deux, le coefficient directeur est également trois.
+Les droites d un et d deux ont donc exactement le même coefficient directeur !
+Puisque le coefficient directeur détermine l'inclinaison et la direction de la droite, avoir la même pente signifie avoir la même direction.
+Conclusion immédiate : les droites d un et d deux sont strictement parallèles entre elles.
+
+Regardons ensuite les droites d trois et d quatre.
+Leurs équations sont de la forme x égale une constante : x égale huit pour d trois, et x égale moins un pour d quatre.
+Ces deux droites sont donc toutes les deux parallèles à l'axe des ordonnées.
+Étant toutes les deux verticales, elles sont nécessairement parallèles entre elles !
+Maintenant, que se passe-t-il si nous comparons une droite verticale comme d trois avec une droite de pente finie comme d un ou d deux ?
+La droite d un n'est pas verticale, alors que d trois est verticale. Elles n'ont donc pas la même direction : elles sont sécantes et se coupent en un point du plan.
+Examinons pour finir la droite d cinq, dont l'équation est y égale moins deux x plus un.
+Son coefficient directeur vaut moins deux.
+Si nous comparons d cinq avec d un et d deux, nous constatons que la pente de d cinq vaut moins deux, alors que la pente de d un et d deux vaut trois.
+Comme moins deux est différent de trois, ces droites n'ont pas la même direction.
+Par conséquent, la droite d cinq est sécante avec la droite d un, et elle est également sécante avec la droite d deux.
+
+Synthétisons l'ensemble de ces règles dans un tableau méthodologique clair et rigoureux.
+Première situation : si nous avons deux droites de la forme x égale n et x égale n prime, les deux droites sont parallèles à l'axe des ordonnées, elles sont donc systématiquement parallèles entre elles.
+Deuxième situation : si nous avons une droite de la forme y égale m x plus p et une autre droite de la forme x égale n, l'une est inclinée et l'autre est verticale, elles sont donc obligatoirement sécantes.
+Troisième situation : si nous avons deux droites sous la forme y égale m x plus p et y égale m prime x plus p prime, nous comparons directement leurs coefficients directeurs.
+Si m est égal à m prime, les deux pentes sont identiques, donc les droites sont parallèles.
+Si m est différent de m prime, les deux pentes sont différentes, donc les droites sont sécantes en un point unique.
+Grâce à cette méthode pas à pas, tu disposes de tous les réflexes nécessaires pour aborder avec sérénité n'importe quel problème sur les fonctions affines et les droites du plan. Ce cours est à présent terminé.

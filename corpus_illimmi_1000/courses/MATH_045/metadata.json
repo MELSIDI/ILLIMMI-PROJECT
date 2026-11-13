@@ -1,0 +1,104 @@
+{
+  "id": "MATH_045",
+  "subject": "Mathématiques",
+  "level": "Seconde",
+  "domain": "Fonctions",
+  "title": "Problème type Bac : Fonctions affines et droites du plan — Raisonnement en plusieurs étapes",
+  "pedagogical_type": "probleme_type_bac",
+  "pedagogical_target": "Maîtriser la méthode complète en plusieurs étapes pour déterminer l'équation réduite d'une droite du plan y = ax + b à partir des coordonnées de deux points : calcul du coefficient directeur a, calcul de l'ordonnée à l'origine b par substitution, et validation géométrique.",
+  "duration_seconds": 266.0,
+  "word_count": 821,
+  "sections": [
+    {
+      "section_id": "sec_1",
+      "title": "1. Énoncé du Problème & Forme Réduite d'une Droite",
+      "summary": "Présentation des deux points A(4, -1) et B(3, 5). Rappel de la forme générale d'une équation réduite de droite y = ax + b et de la stratégie en deux temps : déterminer a puis b.",
+      "support_visuel_suggere": "draw 2drep + draw circle + text",
+      "concepts_cles": [
+        "équation réduite",
+        "droite du plan",
+        "coefficient directeur a",
+        "ordonnée à l'origine b"
+      ]
+    },
+    {
+      "section_id": "sec_2",
+      "title": "2. Formule Fondamentale du Coefficient Directeur",
+      "summary": "Rappel du rôle de a qui dicte l'inclinaison et la direction de la droite. Énoncé de la formule fondamentale a = (yB - yA) / (xB - xA).",
+      "support_visuel_suggere": "text + draw arrow",
+      "concepts_cles": [
+        "taux de variation",
+        "direction de la droite",
+        "formule de pente"
+      ]
+    },
+    {
+      "section_id": "sec_3",
+      "title": "3. Calcul Numérique de a & Piège des Signes",
+      "summary": "Application numérique détaillée : substitution de yB=5, yA=-1, xB=3, xA=4. Gestion du signe moins devant un nombre négatif pour obtenir a = -6.",
+      "support_visuel_suggere": "text + draw line + draw 2drep",
+      "concepts_cles": [
+        "substitution numérique",
+        "règle des signes",
+        "pente négative a = -6"
+      ]
+    },
+    {
+      "section_id": "sec_4",
+      "title": "4. Détermination de l'Ordonnée à l'Origine b",
+      "summary": "Utilisation de l'appartenance du point B(3, 5) à la droite. Injection des coordonnées dans y = -6x + b, puis résolution de l'équation du premier degré pour isoler b = 23.",
+      "support_visuel_suggere": "text + draw arrow",
+      "concepts_cles": [
+        "appartenance d'un point",
+        "équation du premier degré",
+        "ordonnée à l'origine b = 23"
+      ]
+    },
+    {
+      "section_id": "sec_5",
+      "title": "5. Vérification Méthodique avec le Point A",
+      "summary": "Vérification de sécurité avec le point A(4, -1) pour montrer que le choix du point de départ ne change pas le résultat et valider les calculs.",
+      "support_visuel_suggere": "text + draw circle",
+      "concepts_cles": [
+        "vérification par le second point",
+        "invariance du calcul",
+        "rigueur mathématique"
+      ]
+    },
+    {
+      "section_id": "sec_6",
+      "title": "6. Conclusion & Interprétation Graphique",
+      "summary": "Écriture de l'équation réduite finale y = -6x + 23. Tracé de la droite dans le repère et interprétation de la pente abrupte descendante.",
+      "support_visuel_suggere": "draw 2drep + draw 2dfunc + text",
+      "concepts_cles": [
+        "équation finale y = -6x + 23",
+        "tracé de la droite",
+        "pente descendante"
+      ]
+    },
+    {
+      "section_id": "sec_7",
+      "title": "7. Synthèse Méthodique & Réflexe Examen",
+      "summary": "Récapitulatif de la méthode en deux étapes incontournable pour les contrôles et les épreuves de mathématiques du Lycée.",
+      "support_visuel_suggere": "text + draw arrow",
+      "concepts_cles": [
+        "méthode en 2 étapes",
+        "réflexe examen",
+        "formule de pente"
+      ]
+    }
+  ],
+  "source_video": {
+    "video_id": "tfagLy6QRuw",
+    "title": "Déterminer une équation de droite connaissant deux points - Seconde",
+    "channel": "Yvan Monka",
+    "youtube_url": "https://www.youtube.com/watch?v=tfagLy6QRuw"
+  },
+  "course_id": "MATH_045",
+  "world_model_score": 10.0,
+  "rendered_scenes": 6,
+  "visual_audit_notes": "Toutes les 6 scènes (scene_0 à scene_5) inspectées avec read_file. Scène 0: repère avec points A(4,-1) et B(3,5) sans collision. Scène 1: rôle de a et boîte mnémotechnique Delta y / Delta x. Scène 2: calcul numérique pas à pas et boîte d'alerte des signes. Scène 3: principe d'appartenance et calcul de b=23. Scène 4: vérification avec le point A, tracé de la droite (d) avec pente raide. Scène 5: synthèse méthodique et checklist du Bac. World Model Score 10.0/10.",
+  "certified_by": "antigravity-argon",
+  "certified_at": "2026-11-12T20:43:06.955894",
+  "status": "COMPLETED"
+}

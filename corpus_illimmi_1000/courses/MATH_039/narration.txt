@@ -1,0 +1,43 @@
+Bonjour ! Dans ce cours, tu vas apprendre à déterminer les variations et l'extrémum d'une fonction du second degré à l'aide de sa forme canonique. L'extrémum d'une fonction, on le rappelle, c'est une valeur extrême qui peut être soit un minimum, soit un maximum.
+
+Regardons ensemble l'énoncé affiché à gauche du tableau. On considère la fonction f définie par f de x égale 2 x au carré plus 4 x plus 5. La première question nous demande de prouver que la forme canonique de notre fonction f est égale à 2 facteur de x plus 1 au carré plus 3.
+
+On reconnaît bien ici la structure d'une forme canonique. De façon générale, rappelons-le au tableau, l'expression d'une forme canonique s'écrit a facteur de x moins alpha le tout au carré plus bêta. En observant notre expression 2 facteur de x plus 1 au carré plus 3, on retrouve exactement cette écriture avec un coefficient multiplicateur devant une parenthèse au carré, puis une constante ajoutée. C'est donc bien une expression sous forme canonique.
+
+Mais comment prouver que cette expression est effectivement égale à notre fonction f ? Pour prouver que ceci est la forme canonique de f, il suffit simplement de montrer que les deux expressions sont égales pour tout réel x. Nous allons donc partir de l'expression qui nous est donnée, c'est-à-dire 2 facteur de x plus 1 au carré plus 3, la développer, la réduire, et montrer qu'on retombe exactement sur l'expression de la fonction f.
+
+Recopions d'abord cette forme canonique à gauche du tableau : 2 facteur de x plus 1 au carré plus 3.
+
+Dans un premier temps, commençons par développer la parenthèse au carré en appliquant l'identité remarquable a plus b au carré. On garde le 2 devant la parenthèse, et le développement de x plus 1 au carré nous donne x au carré plus 2 x plus 1. Celle-ci n'est pas bien difficile. N'oublions surtout pas de recopier le plus 3 qui vient juste derrière. On obtient donc 2 facteur de x au carré plus 2 x plus 1, fermé la parenthèse, plus 3.
+
+Ensuite, traçons à droite les flèches de distributivité pour bien suivre le calcul. On va distribuer le facteur 2 sur chacun des trois termes à l'intérieur de la parenthèse. Ce qui nous donne : 2 fois x au carré, soit 2 x au carré pour le premier terme ; puis 2 fois 2 x, soit plus 4 x pour le deuxième terme ; et enfin 2 fois 1, soit plus 2 pour le troisième terme. Et nous gardons toujours notre plus 3 qui reste à la fin.
+
+Passons à l'étape suivante en réduisant les termes constants. Regardons les deux derniers nombres : plus 2 plus 3, ce qui nous donne plus 5. L'expression simplifiée devient alors 2 x au carré plus 4 x plus 5.
+
+Et là, si nous comparons ce résultat avec l'expression de départ de la fonction f, encadrons-le au tableau : on constate qu'on retombe exactement sur la même formule, 2 x au carré plus 4 x plus 5. Ceci est bien égal à f de x. Nous avons donc rigoureusement prouvé que 2 facteur de x plus 1 au carré plus 3 est la forme canonique de la fonction f.
+
+Passons maintenant à la deuxième partie de l'exercice. On nous demande de dresser le tableau de variations de la fonction f sur l'ensemble des réels, puis d'en déduire l'extrémum de la fonction, et même de préciser quelle est la valeur exacte de cet extrémum.
+
+Commençons déjà par tracer à gauche la structure de notre tableau de variations : une première ligne pour la variable x qui varie de moins l'infini à plus l'infini, et une deuxième ligne pour les variations de f de x. Voilà qui est prêt.
+
+Maintenant, il reste à savoir quelles sont précisément les variations de f. Pour une fonction du second degré, sa courbe représentative est une parabole, et il n'y a que deux possibilités d'orientation. Dessinons ces deux schémas à droite pour bien les visualiser.
+
+Premier cas : soit on a une parabole avec les branches tournées vers le haut, en forme de U. Cela se produit lorsque le coefficient a devant x au carré est strictement positif. Dans ce cas, la fonction est d'abord décroissante, puis croissante.
+
+Deuxième cas : soit on a une parabole avec les branches tournées vers le bas, à l'envers. Cela se produit dans le cas où le coefficient a devant x au carré est strictement négatif. Il n'y a pas d'autres possibilités pour une fonction du second degré : elle est toujours représentée par une parabole orientée soit vers le haut, soit vers le bas.
+
+Regardons donc le signe du coefficient qui se trouve devant x au carré dans notre fonction f. Dans 2 x au carré plus 4 x plus 5, ou directement dans la forme canonique avec le facteur a devant la parenthèse, ce coefficient est égal à 2. Or 2 est un nombre positif, strictement supérieur à zéro. Donc les branches de la parabole sont tournées vers le haut.
+
+Puisque les branches sont tournées vers le haut, notre fonction aura nécessairement cette allure en U quand on la représentera graphiquement. Cela signifie que dans notre tableau de variations, f sera d'abord décroissante, avec une flèche qui descend, puis ensuite croissante, avec une flèche qui monte. Ça, on en est absolument sûr grâce au coefficient 2 positif.
+
+On voit donc clairement sur le schéma et dans le tableau que la fonction admet un minimum. Reste à savoir en quelle valeur de x est atteint ce minimum ! Rappelons la propriété essentielle : dans l'écriture canonique a facteur de x moins alpha au carré plus bêta, ce minimum est atteint exactement pour x égal alpha. C'est précisément pour cela que la forme canonique est si précieuse, car elle nous révèle immédiatement l'abscisse où se trouve l'extrémum.
+
+Il nous reste donc simplement à déterminer la valeur de alpha. Regardons attentivement la forme canonique de notre fonction f écrite au tableau : 2 facteur de x plus 1 au carré plus 3. Mais attention, méfions-nous d'un piège très classique ! On pourrait croire à première vue que alpha vaut plus 1 parce qu'on voit plus 1 dans la parenthèse. Mais en réalité, regarde bien l'expression générale : la formule canonique s'écrit x moins alpha, avec un signe moins devant alpha. Comme ici nous avons x plus 1, on peut le réécrire x moins moins 1. Il faut donc prendre l'opposé ! Ce qui veut dire que notre alpha est égal à moins 1. Ça, c'est certain.
+
+Et si alpha est égal à moins 1, on peut en déduire directement que le minimum de la fonction f est atteint en x égale moins 1. Plaçons tout de suite cette valeur moins 1 en haut de notre tableau de variations, juste au-dessus du changement de sens entre la flèche descendante et la flèche montante.
+
+Nous pouvons maintenant indiquer dans le tableau quelle est la valeur de ce minimum, car c'est extrêmement direct grâce à la forme canonique. Il suffit de lire le nombre bêta tout à la fin de l'expression, qui correspond directement à l'extrémum. Regardons notre expression : plus bêta correspond ici à plus 3. Dans ce cas précis, bêta est donc égal à 3, ce qui veut dire que le minimum de la fonction f est égal à 3. Plaçons ce 3 tout en bas de la pointe entre nos deux flèches dans le tableau de variations.
+
+Pour bien ancrer cette étude visuellement, traçons à droite un repère orthonormé gradué et représentons la parabole d'équation y égale 2 facteur de x plus 1 au carré plus 3. Regarde la courbe qui se dessine dans ce repère : ses branches partent bien vers le haut, elle descend jusqu'au point le plus bas appelé sommet, puis elle remonte symétriquement. Plaçons un cercle sur ce sommet : ses coordonnées sont exactement moins 1 en abscisse et 3 en ordonnée.
+
+En résumé, notre fonction f est d'abord décroissante sur l'intervalle moins l'infini point-virgule moins 1, puis croissante sur l'intervalle moins 1 point-virgule plus l'infini, avec un changement de sens de variation en moins 1. Notons la conclusion finale : le minimum de la fonction f est égal à 3, et ce minimum est atteint en x égale moins 1. Ce cours est terminé !

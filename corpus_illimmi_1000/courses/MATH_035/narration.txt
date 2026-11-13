@@ -1,0 +1,33 @@
+Bonjour ! Dans ce cours, tu vas apprendre à résoudre un problème en plusieurs étapes pour déterminer les variations et l'extremum d'une fonction du second degré.
+Ici, nous travaillons avec la fonction f définie pour tout réel x par f de x est égal à moins x au carré plus 4 x. Notons cette expression en haut à gauche du tableau. Il s'agit bien d'une fonction polynôme du second degré, puisque le plus haut exposant de x est 2.
+Faisons un petit rappel visuel. Quelle est l'allure de la représentation graphique d'une fonction du second degré ? Comme nous l'esquissons à droite dans un repère, c'est toujours une parabole.
+Et le sens de cette parabole va dépendre uniquement du coefficient qui est devant x au carré, que l'on note habituellement petit a.
+
+Regardons les deux cas possibles en les traçant côte à côte à droite sur le tableau.
+Premier cas : si ce coefficient a est strictement positif, alors la parabole a des branches qui sont tournées vers le haut, un peu comme une cuvette. Dans cette situation, tout en bas de la courbe, notre extremum est un minimum.
+À l'inverse, second cas : si ce coefficient a est strictement négatif, et c'est justement notre cas ici puisque devant x au carré nous avons moins 1, alors la parabole a des branches qui sont tournées vers le bas, en forme de colline.
+C'est une étape capitale du raisonnement, parce qu'elle nous indique tout de suite si notre extremum est un minimum ou un maximum. Dans le cas présent, le coefficient vaut moins 1, il est négatif, les branches sont donc tournées vers le bas, et par conséquent l'extremum de la fonction f est un maximum.
+
+Maintenant, comment déterminer avec précision la valeur de ce maximum et l'abscisse en laquelle il est atteint ? Pour cela, il va falloir exprimer notre fonction f sous sa forme canonique. Passons au calcul étape par étape à gauche du tableau.
+Nous partons de f de x est égal à moins x au carré plus 4 x.
+Première étape : je commence par factoriser par moins 1 afin de libérer x au carré du signe moins qui l'accompagne. J'ouvre des crochets et j'obtiens f de x est égal à moins, entre crochets, x au carré moins 4 x. Vérifie bien : moins fois moins 4 x redonne bien plus 4 x.
+Deuxième étape : à l'intérieur des crochets, je reconnais le début d'une identité remarquable, dont je vais faire apparaître la forme développée complète. En effet, x au carré moins 4 x, c'est le début de x au carré moins 4 x plus 4. Mais attention, je n'ai pas le droit de changer l'expression ! Pour équilibrer ce plus 4 que je viens d'ajouter, je retranche aussitôt moins 4 juste derrière. On retrouve donc exactement la même expression, car plus 4 et moins 4 s'annulent.
+Troisième étape : dans quel but avons-nous fait apparaître ce plus 4 ? Tout simplement pour factoriser les trois premiers termes à l'aide de l'identité remarquable. Regarde la flèche sur le tableau : x au carré moins 4 x plus 4 se factorise en x moins 2 le tout au carré. Il reste bien sûr le moins 4 qui traîne derrière à l'intérieur des crochets.
+Quatrième étape : on y est presque ! Nous allons maintenant redistribuer le signe moins qui est devant les crochets sur chacun des deux blocs. Pour le premier terme, cela donne moins facteur de x moins 2 le tout au carré. Et pour le second terme, moins par moins donne plus 4.
+Voilà ! La fonction f de x est maintenant écrite sous sa forme canonique : a facteur de x moins alpha le tout au carré plus bêta, avec a égal moins 1, alpha égal 2 et bêta égal 4.
+
+À partir de cette forme canonique, tout est prêt pour récupérer les coordonnées de notre maximum. Rappelons d'abord la propriété fondamentale au tableau.
+Si une fonction du second degré possède une forme canonique qui s'écrit a facteur de x moins alpha le tout au carré plus bêta, alors son extremum est atteint en x égal alpha, et la valeur de cet extremum est bêta.
+Fais attention à un piège très fréquent : dans la formule, il y a déjà un signe moins devant alpha. Donc quand tu vois x moins 2 au carré, la valeur de alpha est positive et vaut 2, et non pas moins 2 !
+Traduisons maintenant cette propriété sur notre fonction f. Le coefficient a vaut moins 1, donc l'extremum est un maximum. Ce maximum est atteint en x égal 2, qui est notre alpha, et ce maximum est égal à 4, qui est notre bêta. Encadrons cette conclusion importante à droite.
+
+Fort de ce résultat et connaissant l'allure d'une fonction du second degré, nous pouvons maintenant établir le tableau de variations de f.
+Rappelons les deux profils possibles : une fonction du second degré est soit décroissante puis croissante avec un minimum lorsque a est positif, soit croissante puis décroissante avec un maximum lorsque a est négatif.
+Nous sommes dans le second cas. Traçons donc le tableau de variations à droite du tableau.
+Sur la première ligne, nous plaçons x, qui varie de moins l'infini à plus l'infini, car une fonction du second degré est définie sur tout l'ensemble R des nombres réels. Au milieu de cette ligne, nous inscrivons la valeur particulière 2, c'est-à-dire l'abscisse où le maximum est atteint.
+Sur la seconde ligne, nous notons f de x. Puisque la parabole est tournée vers le bas, dessinons d'abord une flèche qui monte de la gauche jusqu'au niveau de 2, puis une flèche qui descend vers la droite. Au sommet, sous la valeur 2, nous écrivons la valeur de notre maximum, qui est 4.
+
+Pour terminer et vérifier visuellement tout notre raisonnement, traçons la représentation graphique complète de la fonction f dans un repère cartésien gradué à droite.
+Plaçons d'abord le sommet S de coordonnées 2 et 4, puis traçons la courbe représentative de f de x est égal à moins x au carré plus 4 x.
+Observe bien sur ce graphique comment tout coïncide : la parabole a bien ses branches tournées vers le bas, elle passe par l'origine et par le point de coordonnées 4 et 0, elle est d'abord croissante puis décroissante, et son maximum vaut bien 4, atteint pour x égal 2.
+Voilà, tu sais désormais mener ce raisonnement complet en plusieurs étapes ! Ce cours est terminé.

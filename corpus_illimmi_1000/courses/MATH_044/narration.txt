@@ -1,0 +1,37 @@
+Bonjour et bienvenue dans ce cours consacré à un savoir-faire fondamental du Lycée : apprendre à déterminer le coefficient directeur d'une droite. C'est une compétence dont on a constamment besoin en mathématiques, mais aussi en physique-chimie, et je vais t'expliquer une méthode claire et infaillible pour y parvenir.
+
+Avant de nous lancer dans le calcul, rappelons précisément ce qu'est un coefficient directeur.
+La représentation graphique d'une fonction affine, définie sous la forme f de x égale a x plus b, est une droite non verticale dans le plan. Dans cette expression, le nombre noté petit a est appelé le coefficient directeur de la droite. C'est un nombre qui caractérise la pente de la droite étudiée.
+À partir de ce nombre, on peut déduire à la fois le sens de l'inclinaison, c'est-à-dire si la droite monte lorsque petit a est positif, ou si la droite descend lorsque petit a est négatif. Et ce coefficient directeur nous renseigne aussi sur la force de la pente : plus sa valeur absolue est grande, plus la droite est pentue, et plus sa valeur est proche de zéro, plus la droite est plate.
+J'en profite pour te rappeler que petit b est appelé l'ordonnée à l'origine : il correspond à la valeur de l'ordonnée du point d'intersection entre la droite et l'axe vertical des ordonnées.
+Traçons à droite un repère orthogonal pour visualiser notre droite d'exercice. Regarde cette droite qui monte : elle coupe l'axe vertical à l'ordonnée moins 1, ce qui signifie que son ordonnée à l'origine vaut moins 1.
+
+Revenons maintenant à notre objectif principal : comment déterminer graphiquement, à partir de cette droite tracée dans le repère, la valeur exacte de son coefficient directeur ?
+Pour cela, nous allons suivre une méthode simple et rigoureuse en trois étapes.
+
+Première étape : il faut choisir deux points distincts appartenant à la droite.
+Plaçons sur notre droite deux points que nous notons grand A et grand B. Un conseil essentiel : choisis des points situés à des intersections du quadrillage, pour lesquels il sera particulièrement facile de lire avec précision l'abscisse et l'ordonnée.
+
+Deuxième étape : nous relevons les coordonnées complètes de ces deux points.
+Faisons-le ensemble pas à pas en observant le graphique.
+Pour le point A : traçons les pointillés de projection orthogonale vers l'axe horizontal des abscisses pour lire x indice A, qui est égal à 1. Puis projetons le point A vers l'axe vertical des ordonnées pour lire y indice A, qui vaut également 1. Le point A a donc pour coordonnées 1 point-virgule 1.
+Reproduisons exactement la même démarche pour le point B. En projetant le point B sur l'axe des abscisses, nous lisons une abscisse x indice B égale à 2. Et en projetant le point B sur l'axe des ordonnées, nous lisons une ordonnée y indice B égale à 3. Le point B a donc pour coordonnées 2 point-virgule 3.
+
+Troisième étape : à partir des coordonnées de ces deux points, nous utilisons la formule fondamentale pour calculer le coefficient directeur. Écrivons cette formule incontournable au tableau :
+Petit a, le coefficient directeur, est égal à y B moins y A, le tout divisé par x B moins x A.
+C'est-à-dire la différence des ordonnées divisée par la différence des abscisses.
+En sciences et en physique-chimie, on rencontre très souvent cette formule écrite sous la forme delta y sur delta x. La lettre grecque delta majuscule désigne couramment une variation, c'est-à-dire l'écart entre la valeur finale et la valeur initiale.
+
+Attention à un piège très classique qui coûte de nombreux points en contrôle : c'est toujours la différence des ordonnées y qui se trouve au numérateur, en haut de la fraction, et la différence des abscisses x qui se trouve au dénominateur, en bas. Trop souvent, les élèves inversent les deux et écrivent par erreur les x au-dessus des y. Retiens bien ce repère mental : les ordonnées montent au ciel, elles vont donc en haut de la fraction !
+
+Appliquons à présent notre formule à notre exemple en remplaçant chaque lettre par sa valeur numérique.
+Au numérateur, y B moins y A devient 3 moins 1, ce qui fait 2.
+Au dénominateur, x B moins x A devient 2 moins 1, ce qui fait 1.
+Nous obtenons ainsi petit a égale 2 divisé par 1, ce qui donne exactement 2.
+Le coefficient directeur de cette droite est donc égal à 2. Géométriquement, cela signifie que lorsque l'on avance de 1 unité vers la droite sur l'axe des abscisses, on monte de 2 unités vers le haut sur l'axe des ordonnées pour rejoindre la droite.
+
+Pour terminer, récapitulons sur notre tableau de synthèse les trois étapes clés de cette méthode à toujours appliquer :
+Premièrement, choisir deux points bien distincts et lisibles sur la droite.
+Deuxièmement, lire attentivement leurs coordonnées par projection sur les deux axes.
+Troisièmement, appliquer la formule petit a égale y B moins y A sur x B moins x A.
+Grâce à ce réflexe méthodique, tu pourras calculer sans hésiter le coefficient directeur de n'importe quelle droite du plan. Bon travail et à très bientôt pour un nouveau cours !

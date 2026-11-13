@@ -1,0 +1,125 @@
+{
+  "id": "MATH_033",
+  "subject": "Mathématiques",
+  "level": "Seconde",
+  "domain": "Fonctions",
+  "title": "Exemple guidé et calcul détaillé : Variations de fonctions et extrema en pratique",
+  "pedagogical_type": "cours_notion",
+  "pedagogical_target": "Comprendre graphiquement et algébriquement la croissance, la décroissance, la constance et la monotonie d'une fonction, identifier ses extrema relatifs et absolus, construire un tableau de variations et connaître les variations des fonctions de référence.",
+  "sections": [
+    {
+      "section_id": "sec_1",
+      "title": "1. Accroche & Programme du Cours sur les Variations",
+      "summary": "Présentation des notions essentielles du chapitre : sens de variation, extrema (minimum et maximum), tableau de variations et fonctions de référence avec exemples concrets.",
+      "support_visuel_suggere": "draw polygone + draw arrow + text",
+      "concepts_cles": [
+        "sens de variation",
+        "extrema",
+        "tableau de variations",
+        "fonctions de référence"
+      ]
+    },
+    {
+      "section_id": "sec_2",
+      "title": "2. Fonction Croissante : Intuition Graphique et Définition Formelle",
+      "summary": "Lecture d'une courbe de gauche à droite dans le sens des abscisses croissantes, formulation algébrique a < b implique f(a) <= f(b) et vérification sur l'exemple a = 1 et b = 2.",
+      "support_visuel_suggere": "draw 2drep + draw 2dfunc + draw line + draw circle + mouse move",
+      "concepts_cles": [
+        "lecture gauche-droite",
+        "axe des abscisses",
+        "fonction croissante",
+        "conservation de l'ordre"
+      ]
+    },
+    {
+      "section_id": "sec_3",
+      "title": "3. Fonction Décroissante, Fonction Constante et Monotonie",
+      "summary": "Étude d'une fonction décroissante avec inversion de l'ordre sur a = 1 et b = 3, définition d'une fonction constante f(a) = f(b), notion de fonction monotone et bilan comparatif.",
+      "support_visuel_suggere": "draw 2drep + draw 2dfunc + draw line + draw circle + mouse move",
+      "concepts_cles": [
+        "fonction décroissante",
+        "inversion de l'ordre",
+        "fonction constante",
+        "fonction monotone"
+      ]
+    },
+    {
+      "section_id": "sec_4",
+      "title": "4. Extrema d'une Fonction : Maximum, Minimum, Relatif vs Absolu",
+      "summary": "Définition formelle et repérage graphique d'un maximum (en x = 2, valeur 3) et d'un minimum (en x = 3, valeur -1), puis distinction cruciale entre extremum relatif (local) et absolu (global).",
+      "support_visuel_suggere": "draw 2drep + draw curve + draw circle + draw line + mouse move",
+      "concepts_cles": [
+        "maximum",
+        "minimum",
+        "extremum relatif",
+        "extremum absolu",
+        "voisinage"
+      ]
+    },
+    {
+      "section_id": "sec_5",
+      "title": "5. Construction Pas à Pas d'un Tableau de Variations",
+      "summary": "Méthode complète de construction d'un tableau de variations à partir d'une courbe définie sur [0 ; 5] avec maximum 6 atteint en x = 2,5 et lecture des images aux bornes.",
+      "support_visuel_suggere": "draw 2drep + draw curve + draw line + draw arrow",
+      "concepts_cles": [
+        "tableau de variations",
+        "ensemble de définition",
+        "changement de variation",
+        "flèches de variation",
+        "lecture d'images"
+      ]
+    },
+    {
+      "section_id": "sec_6",
+      "title": "6. Fonctions de Référence (1) : Fonctions Affines et Fonction Carré",
+      "summary": "Influence du signe du coefficient directeur a sur les variations d'une fonction affine ax + b (cas linéaire b = 0 et constant a = 0), puis étude de la parabole de la fonction carré x^2.",
+      "support_visuel_suggere": "draw 2drep + draw 2dfunc + draw arrow",
+      "concepts_cles": [
+        "fonction affine",
+        "fonction linéaire",
+        "coefficient directeur",
+        "fonction carré",
+        "parabole"
+      ]
+    },
+    {
+      "section_id": "sec_7",
+      "title": "7. Fonctions de Référence (2) : Inverse, Racine Carrée, Cube & Stricte Monotonie",
+      "summary": "Étude de l'hyperbole 1/x et de sa rupture en 0, de la racine carrée sur [0 ; +infini[, de la fonction cube sur R, et distinction entre fonction croissante avec palier et strictement croissante.",
+      "support_visuel_suggere": "draw 2drep + draw 2dfunc + draw curve + draw circle",
+      "concepts_cles": [
+        "fonction inverse",
+        "valeur interdite en 0",
+        "fonction racine carrée",
+        "fonction cube",
+        "strictement croissante"
+      ]
+    },
+    {
+      "section_id": "sec_8",
+      "title": "8. Synthèse et Réflexes d'Examen",
+      "summary": "Récapitulatif visuel des règles d'or pour lire les variations, distinguer l'ordre conservé ou inversé, éviter les pièges sur la fonction inverse et réussir les tableaux de variations.",
+      "support_visuel_suggere": "draw polygone + draw arrow + draw line + text",
+      "concepts_cles": [
+        "réflexes de contrôle",
+        "synthèse des variations",
+        "piège de l'hyperbole"
+      ]
+    }
+  ],
+  "duration_seconds": 1737.75,
+  "word_count": 5849,
+  "source_video": {
+    "video_id": "i8aYSIidNlk",
+    "title": "LE COURS : Variations des fonctions - Seconde",
+    "channel": "Yvan Monka",
+    "youtube_url": "https://www.youtube.com/watch?v=i8aYSIidNlk"
+  },
+  "course_id": "MATH_033",
+  "world_model_score": 10.0,
+  "rendered_scenes": 14,
+  "visual_audit_notes": "Visual inspection completed on all 14 rendered scenes (scene_0.png to scene_13.png) with Argon vision. Fixed initial repère-text collisions by moving annotations to left column (x in 4..6). Cleared control character and KaTeX glyph defects (restored clean UTF-8 bullets and \\forall). Chalkboard layout, typography, KaTeX expressions, geometric axes and curves are flawlessly rendered with score 10.0 and zero collisions.",
+  "certified_by": "antigravity-argon",
+  "certified_at": "2026-11-12T20:28:03.291694",
+  "status": "COMPLETED"
+}

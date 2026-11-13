@@ -1,0 +1,111 @@
+{
+  "id": "MATH_042",
+  "subject": "Mathématiques",
+  "level": "Seconde",
+  "domain": "Fonctions",
+  "title": "Méthode pas à pas : Comment résoudre un problème de Fonctions affines et droites du plan",
+  "pedagogical_type": "cours_fondamental",
+  "pedagogical_target": "Comprendre et manipuler les équations cartésiennes ax + by + c = 0 et équations réduites y = mx + p ou x = c des droites du plan, tester l'appartenance d'un point, extraire un vecteur directeur u(-b ; a), calculer la pente m par deux points et déterminer la position relative de deux droites.",
+  "sections": [
+    {
+      "section_id": "sec_1",
+      "title": "1. Introduction : De la Géométrie du Collège à l'Algèbre Linéaire",
+      "summary": "Comprendre le rôle des équations de droites pour transformer des problèmes géométriques en calculs algébriques rigoureux dans un repère cartésien.",
+      "support_visuel_suggere": "draw 2drep + draw line + draw polygone",
+      "concepts_cles": [
+        "géométrie analytique",
+        "repère cartésien",
+        "coordonnées",
+        "calcul algébrique"
+      ]
+    },
+    {
+      "section_id": "sec_2",
+      "title": "2. Équation Cartésienne ax + by + c = 0 & Test d'Appartenance",
+      "summary": "Définition de l'équation cartésienne ax + by + c = 0, identification des coefficients réels a, b, c et méthode de test d'appartenance d'un point avec l'exemple 2x + 3y - 1 = 0.",
+      "support_visuel_suggere": "draw 2drep + draw line + draw circle",
+      "concepts_cles": [
+        "équation cartésienne",
+        "coefficients réels",
+        "test d'appartenance",
+        "infinité de points"
+      ]
+    },
+    {
+      "section_id": "sec_3",
+      "title": "3. Vecteur Directeur u(-b ; a) d'une Droite",
+      "summary": "Définition du vecteur directeur u(-b ; a) caractérisant la direction de la droite, extraction immédiate à partir des coefficients et passage réciproque du vecteur à l'équation.",
+      "support_visuel_suggere": "draw 2drep + draw arrow + draw line",
+      "concepts_cles": [
+        "vecteur directeur",
+        "coordonnées moins b et a",
+        "direction de droite",
+        "réciproque"
+      ]
+    },
+    {
+      "section_id": "sec_4",
+      "title": "4. Équation Réduite : Isoler y ou Droite Verticale x = c",
+      "summary": "Transformation algébrique pour isoler y et obtenir y = mx + p, et traitement du cas singulier b = 0 conduisant aux droites verticales x = c parallèles à l'axe des ordonnées.",
+      "support_visuel_suggere": "draw 2drep + draw line + draw arrow",
+      "concepts_cles": [
+        "équation réduite",
+        "isoler y",
+        "coefficient directeur m",
+        "droite verticale x = c"
+      ]
+    },
+    {
+      "section_id": "sec_5",
+      "title": "5. Interprétation Graphique : Pente m et Ordonnée à l'Origine p",
+      "summary": "Visualisation géométrique de la pente m (marche en escalier : +1 en abscisse, +m en ordonnée) et de l'ordonnée à l'origine p comme point d'intersection avec l'axe vertical.",
+      "support_visuel_suggere": "draw 2drep + draw 2dfunc + draw path + draw arrow",
+      "concepts_cles": [
+        "pente",
+        "coefficient directeur",
+        "ordonnée à l'origine",
+        "escalier de variation"
+      ]
+    },
+    {
+      "section_id": "sec_6",
+      "title": "6. Calcul de la Pente par Deux Points & Piège du Dénominateur Nul",
+      "summary": "Formule m = (yB - yA) / (xB - xA), application numérique pas à pas et explication géométrique de la condition impérative xA != xB.",
+      "support_visuel_suggere": "draw 2drep + draw line + draw circle + draw arrow",
+      "concepts_cles": [
+        "formule du taux de variation",
+        "deux points distincts",
+        "valeur interdite xA = xB",
+        "verticalité"
+      ]
+    },
+    {
+      "section_id": "sec_7",
+      "title": "7. Position Relative de Deux Droites : Parallélisme & Sécance",
+      "summary": "Méthode complète d'étude de la position relative : colinéarité des vecteurs directeurs pour les formes cartésiennes, et comparaison des coefficients directeurs et formes verticales pour les équations réduites.",
+      "support_visuel_suggere": "draw 2drep + draw line + draw polygone",
+      "concepts_cles": [
+        "droites parallèles",
+        "droites sécantes",
+        "égalité des pentes",
+        "critère de colinéarité",
+        "synthèse"
+      ]
+    }
+  ],
+  "source_video": {
+    "video_id": "d-rUnClmcCY",
+    "title": "LE COURS - Équations de droites - Seconde",
+    "channel": "Yvan Monka",
+    "youtube_url": "https://www.youtube.com/watch?v=d-rUnClmcCY"
+  },
+  "duration_seconds": 1198.01,
+  "word_count": 3695,
+  "course_id": "MATH_042",
+  "world_model_score": 10.0,
+  "rendered_scenes": 7,
+  "visual_audit_notes": "Visual audit completed across all 7 rendered scenes (scene_0..scene_6.png). Scene 0: Introduction to analytical geometry and cartesian frames, contrast between Euclidean text-heavy proofs and linear algebra calculations with parallel lines on 2drep grid. Scene 1: Cartesian equation ax+by+c=0 with point membership testing (A(1;2) fails in red circle off the line, B(-1;1) succeeds in green circle on the line). Scene 2: Direction vector u(-b;a) theorem and extraction for 2x+3y-1=0 yielding u(-3;2), illustrated with directional vectors on repere. Scene 3: Reduced equation y=mx+p by isolating y, and vertical line case x=c (b=0) illustrated by line x=2. Scene 4: Geometric interpretation of slope m (+1 horizontal to +m vertical) and y-intercept p=(0;p), illustrated on y=3x+2 with step triangle. Scene 5: Slope calculation formula m=(yB-yA)/(xB-xA) across points A(1;2) and B(3;4), delta-x/delta-y triangle, and vertical division-by-zero trap when xA=xB. Scene 6: Complete relative position criteria (collinearity of direction vectors for cartesian form, slope comparison and vertical lines for reduced form) accompanied by structured synthesis table. High contrast chalk colors on dark green board, 16:9 framing, zero text-geometry collisions, verified by multimodal inspection.",
+  "certified_by": "antigravity-argon",
+  "certified_at": "2026-11-12T20:06:06.267444",
+  "status": "COMPLETED"
+}

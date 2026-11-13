@@ -1,0 +1,147 @@
+{
+  "id": "MATH_031",
+  "subject": "Mathématiques",
+  "level": "Seconde",
+  "domain": "Fonctions",
+  "title": "Variations de fonctions et extrema — Cours fondamental et définitions",
+  "pedagogical_type": "cours_fondamental",
+  "pedagogical_target": "Maîtriser le sens de variation d'une fonction (croissante, décroissante, constante, monotone) graphiquement et algébriquement, distinguer croissance et croissance stricte, identifier des extrema (maximum et minimum, relatifs et absolus), construire un tableau de variation à partir d'une courbe, et connaître les variations des fonctions de référence (affines, carré, inverse, racine carrée, cube).",
+  "sections": [
+    {
+      "section_id": "sec_1",
+      "title": "1. Accroche : Comprendre l'idée de variation d'une fonction",
+      "summary": "Présentation des notions de variation, d'extremum et de lecture d'une courbe de la gauche vers la droite dans le sens croissant des abscisses.",
+      "support_visuel_suggere": "draw 2drep + draw curve + draw arrow + mouse move",
+      "concepts_cles": [
+        "sens de lecture d'une courbe",
+        "axe des abscisses croissant",
+        "croissance intuitive",
+        "extrema"
+      ]
+    },
+    {
+      "section_id": "sec_2",
+      "title": "2. Fonction croissante : intuition graphique et définition formelle",
+      "summary": "Définition rigoureuse d'une fonction croissante sur un intervalle I (a < b entraîne f(a) <= f(b)) illustrée sur un exemple concret avec a = 1 et b = 2.",
+      "support_visuel_suggere": "draw 2drep + draw curve + draw line + draw circle + mouse move",
+      "concepts_cles": [
+        "fonction croissante",
+        "conservation de l'ordre",
+        "comparaison des images f(a) et f(b)",
+        "intervalle d'étude I"
+      ]
+    },
+    {
+      "section_id": "sec_3",
+      "title": "3. Fonction décroissante : descente et inversion de l'ordre",
+      "summary": "Définition d'une fonction décroissante (a < b entraîne f(a) >= f(b)) et lecture graphique des images pour a = 1 et b = 3.",
+      "support_visuel_suggere": "draw 2drep + draw curve + draw line + draw circle + mouse move",
+      "concepts_cles": [
+        "fonction décroissante",
+        "inversion de l'ordre",
+        "lecture de gauche à droite",
+        "images f(1) et f(3)"
+      ]
+    },
+    {
+      "section_id": "sec_4",
+      "title": "4. Fonction constante, monotonie et bilan sur l'ordre",
+      "summary": "Étude de la fonction constante (f(a) = f(b)), définition d'une fonction monotone et synthèse comparative sur la conservation ou l'inversion de l'ordre.",
+      "support_visuel_suggere": "draw 2drep + draw 2dfunc + draw line + draw circle",
+      "concepts_cles": [
+        "fonction constante",
+        "fonction monotone",
+        "ordre conservé",
+        "ordre inversé"
+      ]
+    },
+    {
+      "section_id": "sec_5",
+      "title": "5. Extrema : Maximum d'une fonction sur un intervalle",
+      "summary": "Définition algébrique et graphique du maximum M = f(a) tel que f(x) <= M pour tout x de I, illustrée par un sommet atteint en x = 2 de valeur 3.",
+      "support_visuel_suggere": "draw 2drep + draw 2dfunc + draw circle + draw arrow",
+      "concepts_cles": [
+        "maximum",
+        "valeur atteinte en x = a",
+        "majoration f(x) <= M",
+        "changement de variation"
+      ]
+    },
+    {
+      "section_id": "sec_6",
+      "title": "6. Minimum et distinction relatif versus absolu",
+      "summary": "Définition du minimum m = f(b) illustrée en x = 3 (valeur -1), puis prolongement de la courbe montrant la différence entre extremum relatif (local) et extremum absolu.",
+      "support_visuel_suggere": "draw 2drep + draw curve + draw circle + draw line + mouse move",
+      "concepts_cles": [
+        "minimum",
+        "minoration f(x) >= m",
+        "extremum relatif",
+        "extremum absolu"
+      ]
+    },
+    {
+      "section_id": "sec_7",
+      "title": "7. Construire un tableau de variation à partir d'une courbe",
+      "summary": "Méthode pas à pas pour dresser le tableau de variation sur [0 ; 5] : bornes, abscisse du changement de sens x = 2,5, flèches et valeurs des images aux extrémités et au sommet.",
+      "support_visuel_suggere": "draw 2drep + draw curve + draw line + draw arrow",
+      "concepts_cles": [
+        "tableau de variation",
+        "domaine d'étude [0 ; 5]",
+        "flèches de variation",
+        "valeurs remarquables"
+      ]
+    },
+    {
+      "section_id": "sec_8",
+      "title": "8. Fonctions de référence : affines et fonction carré",
+      "summary": "Variations des fonctions affines f(x) = ax + b selon le signe du coefficient directeur a (positif, négatif, nul) et étude de la parabole f(x) = x^2.",
+      "support_visuel_suggere": "draw 2drep + draw 2dfunc + draw arrow",
+      "concepts_cles": [
+        "fonction affine",
+        "coefficient directeur a",
+        "fonction linéaire",
+        "fonction carré",
+        "parabole"
+      ]
+    },
+    {
+      "section_id": "sec_9",
+      "title": "9. Fonction inverse et piège de l'ensemble de définition",
+      "summary": "Étude de l'hyperbole f(x) = 1/x, mise en évidence de la valeur interdite en 0 et explication de l'erreur fréquente concernant la réunion d'intervalles.",
+      "support_visuel_suggere": "draw 2drep + draw 2dfunc + draw line + draw circle",
+      "concepts_cles": [
+        "fonction inverse",
+        "hyperbole",
+        "valeur interdite x = 0",
+        "erreur de l'union d'intervalles"
+      ]
+    },
+    {
+      "section_id": "sec_10",
+      "title": "10. Racine carrée, fonction cube et croissance stricte",
+      "summary": "Variations de la racine carrée sur [0 ; +infini[, de la fonction cube sur R, distinction entre croissance large (avec palier) et croissance stricte, et synthèse finale.",
+      "support_visuel_suggere": "draw 2drep + draw 2dfunc + draw curve + draw arrow",
+      "concepts_cles": [
+        "fonction racine carrée",
+        "fonction cube",
+        "croissance stricte",
+        "palier constant"
+      ]
+    }
+  ],
+  "duration_seconds": 1435.91,
+  "word_count": 4816,
+  "source_video": {
+    "video_id": "i8aYSIidNlk",
+    "title": "LE COURS : Variations des fonctions - Seconde",
+    "channel": "Yvan Monka",
+    "youtube_url": "https://www.youtube.com/watch?v=i8aYSIidNlk"
+  },
+  "course_id": "MATH_031",
+  "world_model_score": 10.0,
+  "rendered_scenes": 14,
+  "visual_audit_notes": "Inspected all 14 rendered scenes (scene_0.png..scene_13.png): zero text/diagram overlaps, zero KaTeX errors (fixed BBCode/LaTeX ordering in scene 5), crisp 2drep grids/curves/tangent projections, well-framed variation table and piecewise plateau diagram, WorldModelVerifier score 10.0.",
+  "certified_by": "antigravity-argon",
+  "certified_at": "2026-11-12T16:47:27.434453",
+  "status": "COMPLETED"
+}

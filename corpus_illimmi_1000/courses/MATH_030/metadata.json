@@ -1,0 +1,103 @@
+{
+  "id": "MATH_030",
+  "subject": "Mathématiques",
+  "level": "Seconde",
+  "domain": "Fonctions",
+  "title": "Correction d'exercice classique : Généralités sur les fonctions et lecture graphique (Entraînement Lycée)",
+  "pedagogical_type": "correction_exercice",
+  "pedagogical_target": "Maîtriser la lecture graphique d'images et d'antécédents, la résolution graphique d'inéquations strictes avec bornes ouvertes, l'association d'une courbe à son tableau de variations, et l'exploitation d'un tableau de variations pour valider ou réfuter des affirmations.",
+  "sections": [
+    {
+      "section_id": "sec_1",
+      "title": "1. Accroche : QCM d'Entraînement sur les Fonctions",
+      "summary": "Présentation du QCM en cinq questions couvrant l'ensemble des compétences graphiques sur les fonctions en classe de Seconde, suivie des trois propositions par question.",
+      "support_visuel_suggere": "draw 2drep + draw 2dfunc + text",
+      "concepts_cles": [
+        "généralités sur les fonctions",
+        "lecture graphique",
+        "méthode QCM"
+      ]
+    },
+    {
+      "section_id": "sec_2",
+      "title": "2. Découverte des Questions 1 à 5 et Bilan des Réponses",
+      "summary": "Passage en revue des cinq questions du QCM avec les représentations graphiques et tableaux associés, puis affichage de la grille de réponses avant la correction détaillée.",
+      "support_visuel_suggere": "draw 2drep + draw 2dfunc + draw curve + draw line",
+      "concepts_cles": [
+        "image et antécédent",
+        "inéquation graphique",
+        "tableau de variations"
+      ]
+    },
+    {
+      "section_id": "sec_3",
+      "title": "3. Question 1 : Déterminer Graphiquement l'Image d'un Nombre",
+      "summary": "Méthode pas à pas pour lire l'image de 2 par la fonction f : repérage sur l'axe des abscisses, projection verticale sur la courbe, puis lecture sur l'axe des ordonnées.",
+      "support_visuel_suggere": "draw 2drep + draw 2dfunc + draw arrow + mouse",
+      "concepts_cles": [
+        "axe des abscisses",
+        "axe des ordonnées",
+        "image f(2) = -1"
+      ]
+    },
+    {
+      "section_id": "sec_4",
+      "title": "4. Question 2 : Déterminer Graphiquement des Antécédents",
+      "summary": "Principe inverse pour trouver les antécédents de 2 : repérage de 2 sur l'axe des ordonnées, tracé de la droite horizontale y = 2 et lecture des abscisses 1 et 5.",
+      "support_visuel_suggere": "draw 2drep + draw 2dfunc + draw line + draw arrow",
+      "concepts_cles": [
+        "antécédents de 2",
+        "droite horizontale y = 2",
+        "multiplicité des antécédents"
+      ]
+    },
+    {
+      "section_id": "sec_5",
+      "title": "5. Question 3 : Résoudre Graphiquement une Inéquation Stricte",
+      "summary": "Résolution de x² - 6x + 7 < -1 via f(x) < -1 : tracé de la droite limite y = -1, repérage de la portion de courbe en dessous, projection sur l'axe des abscisses et exclusion des bornes 2 et 4.",
+      "support_visuel_suggere": "draw 2drep + draw 2dfunc + draw line + draw path",
+      "concepts_cles": [
+        "inéquation f(x) < -1",
+        "inégalité stricte",
+        "intervalle ouvert ]2 ; 4["
+      ]
+    },
+    {
+      "section_id": "sec_6",
+      "title": "6. Question 4 : Associer une Courbe à son Tableau de Variations",
+      "summary": "Élimination méthodique des tableaux erronés en vérifiant d'abord le sens de variation initial (croissante), puis les bornes exactes de l'axe des abscisses (-3 à -2).",
+      "support_visuel_suggere": "draw 2drep + draw curve + draw line + draw arrow",
+      "concepts_cles": [
+        "sens de variation",
+        "fonction croissante et décroissante",
+        "piège des bornes sur x"
+      ]
+    },
+    {
+      "section_id": "sec_7",
+      "title": "7. Question 5 : Exploiter un Tableau de Variations et Synthèse",
+      "summary": "Construction d'une courbe compatible avec un tableau de variations donné pour tester les trois affirmations : unicité de l'antécédent de -4, contre-exemple sur l'image de 2 et dénombrement des antécédents de 0.",
+      "support_visuel_suggere": "draw 2drep + draw curve + draw line + draw arrow",
+      "concepts_cles": [
+        "courbe compatible",
+        "contre-exemple mathématique",
+        "antécédents de zéro"
+      ]
+    }
+  ],
+  "duration_seconds": 746.56,
+  "word_count": 2387,
+  "source_video": {
+    "video_id": "HjBZ2QcD5V8",
+    "title": "QCM : Généralités sur les fonctions - Seconde",
+    "channel": "Yvan Monka",
+    "youtube_url": "https://www.youtube.com/watch?v=HjBZ2QcD5V8"
+  },
+  "course_id": "MATH_030",
+  "world_model_score": 10.0,
+  "rendered_scenes": 14,
+  "visual_audit_notes": "Inspected all 14 chalkboard PNG scenes (scene_0..scene_13.png): crisp 16:9 split-board layout, KaTeX interval brackets and equations legible, 2drep grids properly scaled (scale 4.0 to 7.0), Q1-Q3 parabola f(x)=x^2-6x+7 and Q4/Q5 curves precisely aligned with intersection markers, arrows, and open brackets on number line; replaced unsupported draw curve with dense draw path and Unicode check/cross glyphs with clean ASCII/French labels, re-rendered and verified zero overlap or clipping.",
+  "certified_by": "antigravity-argon",
+  "certified_at": "2026-11-12T16:13:46.965732",
+  "status": "COMPLETED"
+}

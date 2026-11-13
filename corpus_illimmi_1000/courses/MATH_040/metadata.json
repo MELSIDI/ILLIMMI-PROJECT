@@ -1,0 +1,89 @@
+{
+  "id": "MATH_040",
+  "subject": "Mathématiques",
+  "level": "Seconde",
+  "domain": "Fonctions",
+  "title": "Correction d'exercice classique : Variations de fonctions et extrema (Entraînement Lycée)",
+  "pedagogical_type": "exercice_corrige",
+  "pedagogical_target": "Maîtriser le lien fondamental entre le signe de la dérivée, les variations d'une fonction et ses extrema, à la fois dans le sens direct, dans le sens réciproque et par lecture graphique d'une parabole.",
+  "source_video": {
+    "video_id": "dPIlTNyBCiw",
+    "title": "Comprendre SIGNE DE LA DÉRIVÉE ↔︎ VARIATIONS - Première",
+    "channel": "Yvan Monka",
+    "youtube_url": "https://www.youtube.com/watch?v=dPIlTNyBCiw"
+  },
+  "sections": [
+    {
+      "section_id": "sec_1",
+      "title": "1. Accroche & Théorème des Variations",
+      "summary": "Présentation du théorème fondamental reliant le signe de la dérivée f'(x) au sens de variation de la fonction f, et structure générale d'un tableau de variations complet.",
+      "support_visuel_suggere": "draw line + draw arrow + draw curve",
+      "concepts_cles": [
+        "théorème des variations",
+        "signe de la dérivée",
+        "fonction croissante",
+        "fonction décroissante",
+        "tableau de variations"
+      ]
+    },
+    {
+      "section_id": "sec_2",
+      "title": "2. Exemple 1 : Du Signe de f' aux Variations et au Minimum",
+      "summary": "À partir d'un tableau donnant le signe de f'(x) négatif puis positif autour de x = 2, déduction des flèches de variation de f, placement de f(2) = -1 et identification du minimum.",
+      "support_visuel_suggere": "draw line + draw arrow + draw 2drep + draw 2dfunc",
+      "concepts_cles": [
+        "dérivée négative",
+        "dérivée positive",
+        "flèches de variation",
+        "minimum atteint en 2",
+        "image f(2) = -1"
+      ]
+    },
+    {
+      "section_id": "sec_3",
+      "title": "3. Exemple 2 : Réciproque, Maximum et Zéro de la Dérivée",
+      "summary": "Exercice inverse : à partir des variations de f et de f(4) = 3, retrouver le signe de f'(x), reconnaître le maximum en x = 4 et justifier la présence du zéro sur la ligne de f'.",
+      "support_visuel_suggere": "draw line + draw arrow + draw circle + draw curve",
+      "concepts_cles": [
+        "sens réciproque",
+        "maximum égal à 3",
+        "changement de signe",
+        "annulation de la dérivée",
+        "pratique de l'étude de fonction"
+      ]
+    },
+    {
+      "section_id": "sec_4",
+      "title": "4. Exemple 3 : Lecture Graphique d'une Parabole vers le Tableau",
+      "summary": "Compléter un tableau de variations entièrement vide à partir de la courbe d'un trinôme orientée vers le bas : lecture des variations, abscisse du sommet x = -2, signe de f' et maximum f(-2) = 5.",
+      "support_visuel_suggere": "draw 2drep + draw 2dfunc + draw line + draw arrow + draw circle",
+      "concepts_cles": [
+        "lecture graphique",
+        "parabole tournée vers le bas",
+        "sommet (-2, 5)",
+        "signe de la dérivée",
+        "tableau complet"
+      ]
+    },
+    {
+      "section_id": "sec_5",
+      "title": "5. Synthèse & Réflexes d'Entraînement",
+      "summary": "Récapitulatif visuel des correspondances entre signe de f', sens de variation de f, tangente horizontale au sommet et lecture des extrema.",
+      "support_visuel_suggere": "draw arrow + draw line + draw circle",
+      "concepts_cles": [
+        "équivalence signe-variation",
+        "extremum local",
+        "réflexe examen"
+      ]
+    }
+  ],
+  "duration_seconds": 482.3,
+  "word_count": 1566,
+  "course_id": "MATH_040",
+  "world_model_score": 9.5,
+  "rendered_scenes": 5,
+  "visual_audit_notes": "Inspection visuelle des 5 scènes PNG (scene_0 à scene_4) : tableau de variations complet et net, courbes polynomiales et paraboles sans collision, tangentes et extrema clairement positionnés, KaTeX et BBCode sans artefact.",
+  "certified_by": "antigravity-argon",
+  "certified_at": "2026-11-12T18:58:53.432064",
+  "status": "COMPLETED"
+}

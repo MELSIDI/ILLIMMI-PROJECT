@@ -1,0 +1,107 @@
+{
+  "course_id": "MATH_036",
+  "subject": "Mathématiques",
+  "level": "Seconde",
+  "domain": "Fonctions",
+  "title": "Révision express & Fiche de synthèse : Tout retenir sur Variations de fonctions et extrema",
+  "sections": [
+    {
+      "section_id": "sec_1",
+      "type": "accroche",
+      "title": "1. Lecture d'une courbe et ensemble de définition",
+      "summary": "Introduction de la courbe représentative de f sur l'intervalle [-5 ; 5] et rappel de la règle d'or : la lecture graphique des variations s'effectue toujours de la gauche vers la droite.",
+      "support_visuel_suggere": "draw 2drep + draw curve + mouse move",
+      "concepts_cles": [
+        "Ensemble de définition",
+        "Courbe représentative",
+        "Sens de lecture gauche-droite"
+      ]
+    },
+    {
+      "section_id": "sec_2",
+      "type": "exemple_concret",
+      "title": "2. Parcours intuitif : Croissance et décroissance",
+      "summary": "Parcours concret de la courbe verte de x = -5 à x = 5 en identifiant les zones de descente (fonction décroissante) et de montée (fonction croissante).",
+      "support_visuel_suggere": "draw 2drep + draw curve + draw arrow + mouse move",
+      "concepts_cles": [
+        "Fonction croissante",
+        "Fonction décroissante",
+        "Changement de variation"
+      ]
+    },
+    {
+      "section_id": "sec_3",
+      "type": "definition_formelle",
+      "title": "3. Intervalles de monotonie et extrema sur les axes",
+      "summary": "Repérage précis sur l'axe des abscisses des intervalles où f est croissante ([-2 ; 1] et [3 ; 5]) ou décroissante ([-5 ; -2] et [1 ; 3]), et distinction entre minimum relatif et extrema globaux.",
+      "support_visuel_suggere": "draw 2drep + draw curve + draw circle + draw arrow",
+      "concepts_cles": [
+        "Intervalles de variation",
+        "Minimum relatif",
+        "Maximum et minimum",
+        "Axe des abscisses et ordonnées"
+      ]
+    },
+    {
+      "section_id": "sec_4",
+      "type": "decomposition",
+      "title": "4. Construire le tableau de variations : structure et ligne des x",
+      "summary": "Présentation de la structure à deux lignes d'un tableau de variations et placement ordonné des bornes du domaine (-5 et 5) ainsi que des abscisses de changement de variation (-2, 1 et 3).",
+      "support_visuel_suggere": "draw line + draw path + draw arrow",
+      "concepts_cles": [
+        "Tableau à deux lignes",
+        "Bornes de définition",
+        "Abscisses des extrema"
+      ]
+    },
+    {
+      "section_id": "sec_5",
+      "type": "decomposition",
+      "title": "5. Tracer les flèches et placer les images des extrema",
+      "summary": "Ajout des flèches montantes et descendantes sur chaque intervalle puis inscription des images f(-2) = 1, f(1) = 4 et f(3) = -1 aux pointes des flèches, avec gestion des bornes.",
+      "support_visuel_suggere": "draw line + draw arrow + draw circle",
+      "concepts_cles": [
+        "Flèches de variation",
+        "Images des extrema",
+        "Bornes éventuelles"
+      ]
+    },
+    {
+      "section_id": "sec_6",
+      "type": "erreur_frequente",
+      "title": "6. Erreur fréquente : Le tableau n'est pas un dessin à l'échelle",
+      "summary": "Mise en garde contre le piège classique consistant à vouloir reproduire la hauteur ou l'allure exacte de la courbe dans la longueur des flèches du tableau.",
+      "support_visuel_suggere": "draw line + draw arrow + draw curve",
+      "concepts_cles": [
+        "Allure vs variations",
+        "Sens de variation uniquement"
+      ]
+    },
+    {
+      "section_id": "sec_7",
+      "type": "synthese",
+      "title": "7. Fiche de synthèse & Réflexe examen",
+      "summary": "Récapitulatif express des règles d'or pour lire les variations, distinguer abscisse de l'extremum et valeur de l'extremum, et dresser un tableau de variations sans erreur en contrôle.",
+      "support_visuel_suggere": "draw polygone + draw line + draw arrow",
+      "concepts_cles": [
+        "Méthode en 3 étapes",
+        "Lecture sur x vs lecture sur y",
+        "Réflexe contrôle de Seconde"
+      ]
+    }
+  ],
+  "duration_seconds": 540.82,
+  "word_count": 1735,
+  "source_video": {
+    "video_id": "yGqqoBMq8Fw",
+    "title": "Draw up a variation table - Second",
+    "channel": "Yvan Monka",
+    "youtube_url": "https://www.youtube.com/watch?v=yGqqoBMq8Fw"
+  },
+  "world_model_score": 10.0,
+  "rendered_scenes": 7,
+  "visual_audit_notes": "Inspected all 7 PNG scenes (scene_0..scene_6.png): clean 2drep grid with smooth sampled Cf curve through (-5,3.5), (-2,1), (1,4), (3,-1), (5,2.5); crisp slope arrows and axis projections with -5,-2,1,3,5 markers; spacious 2-row variation table with centered extrema values (1, 4, -1); 3-reflex synthesis boxes; zero overlaps, zero clipping, high-contrast chalk colors, WorldModel score 10.0/10.",
+  "certified_by": "antigravity-argon",
+  "certified_at": "2026-11-12T17:26:16.730529",
+  "status": "COMPLETED"
+}

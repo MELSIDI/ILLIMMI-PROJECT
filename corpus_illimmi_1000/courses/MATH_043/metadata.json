@@ -1,0 +1,104 @@
+{
+  "id": "MATH_043",
+  "subject": "Mathématiques",
+  "level": "Seconde",
+  "domain": "Fonctions",
+  "title": "Exemple guidé et calcul détaillé : Fonctions affines et droites du plan en pratique",
+  "pedagogical_type": "methode_pas_a_pas",
+  "pedagogical_target": "Apprendre à représenter graphiquement une fonction affine f(x) = ax + b dans un repère à l'aide de l'ordonnée à l'origine b et du coefficient directeur a, en déterminant deux points clés par lecture géométrique pas à pas.",
+  "sections": [
+    {
+      "section_id": "sec_1",
+      "title": "1. Introduction : Objectif et Représentation d'une Fonction Affine",
+      "summary": "Présentation de la fonction affine f(x) = 2x + 1 et rappel fondamental : sa représentation graphique est une droite, déterminée de manière unique par deux points distincts.",
+      "support_visuel_suggere": "draw 2drep + text",
+      "concepts_cles": [
+        "fonction affine",
+        "droite du plan",
+        "détermination par deux points"
+      ]
+    },
+    {
+      "section_id": "sec_2",
+      "title": "2. Rappel Théorique : Forme f(x) = ax + b",
+      "summary": "Rappel de la forme générale f(x) = ax + b, identification du coefficient directeur a = 2 et de l'ordonnée à l'origine b = 1 pour notre exemple.",
+      "support_visuel_suggere": "text + draw line",
+      "concepts_cles": [
+        "forme générale ax + b",
+        "coefficient directeur a",
+        "ordonnée à l'origine b"
+      ]
+    },
+    {
+      "section_id": "sec_3",
+      "title": "3. Premier Point : L'Ordonnée à l'Origine b = 1",
+      "summary": "Interprétation graphique de l'ordonnée à l'origine b = 1 : obtention immédiate du point de départ sur l'axe vertical des ordonnées à l'abscisse zéro.",
+      "support_visuel_suggere": "draw 2drep + draw circle + draw arrow",
+      "concepts_cles": [
+        "ordonnée à l'origine",
+        "axe des ordonnées",
+        "point (0, 1)"
+      ]
+    },
+    {
+      "section_id": "sec_4",
+      "title": "4. Deuxième Point : Rôle du Coefficient Directeur a = 2",
+      "summary": "Compréhension géométrique du coefficient directeur a = 2 : lorsque x avance de 1 unité, l'image f(x) augmente deux fois plus vite, soit de 2 unités verticalement.",
+      "support_visuel_suggere": "draw 2drep + draw arrow + draw circle",
+      "concepts_cles": [
+        "coefficient directeur",
+        "vitesse d'accroissement",
+        "déplacement horizontal et vertical"
+      ]
+    },
+    {
+      "section_id": "sec_5",
+      "title": "5. Construction Pas à Pas et Tracé de la Droite",
+      "summary": "Mise en pratique du déplacement : départ de (0, 1), avance d'un pas vers la droite, montée de deux pas vers le haut pour placer le point (1, 3), et tracé de la droite.",
+      "support_visuel_suggere": "draw 2drep + draw 2dfunc + draw arrow",
+      "concepts_cles": [
+        "pas horizontal plus 1",
+        "pas vertical plus 2",
+        "point (1, 3)",
+        "tracé de la droite"
+      ]
+    },
+    {
+      "section_id": "sec_6",
+      "title": "6. Erreur Fréquente : Inverser les Rôles de a et b",
+      "summary": "Analyse du piège classique consistant à placer le coefficient directeur sur l'axe des ordonnées ou à inverser le sens des déplacements horizontal et vertical.",
+      "support_visuel_suggere": "text + draw arrow",
+      "concepts_cles": [
+        "piège fréquent",
+        "confusion a et b",
+        "inversion abscisse et ordonnée"
+      ]
+    },
+    {
+      "section_id": "sec_7",
+      "title": "7. Synthèse Méthodique & Réflexe Examen",
+      "summary": "Récapitulatif des deux étapes clés de la méthode : placer b sur l'axe vertical, appliquer la pente a pour trouver le second point, puis relier à la règle.",
+      "support_visuel_suggere": "draw 2drep + draw 2dfunc + text",
+      "concepts_cles": [
+        "méthode en deux temps",
+        "réflexe examen",
+        "droite affine"
+      ]
+    }
+  ],
+  "duration_seconds": 207.83,
+  "word_count": 639,
+  "source_video": {
+    "video_id": "fq2sXpbdJQg",
+    "title": "Représenter une fonction affine - Seconde",
+    "channel": "Yvan Monka",
+    "youtube_url": "https://www.youtube.com/watch?v=fq2sXpbdJQg"
+  },
+  "course_id": "MATH_043",
+  "world_model_score": 10.0,
+  "rendered_scenes": 7,
+  "visual_audit_notes": "Audited all 7 rendered scenes (scene_0..scene_6.png) visually via Argon read_file: fixed initial KaTeX color syntax error in scene_1, resolved text/2drep bounding overlaps by strictly placing textual calculations on the left column and geometry on the right, ensured perfect horizontal spacing between label and equation in scene_4. All scenes exhibit 100% chalk contrast, crisp KaTeX formulas, accurate slope staircase vectors, and flawless 16:9 framing with zero overlap. World Model score: 10.0/10.",
+  "certified_by": "antigravity-argon",
+  "certified_at": "2026-11-12T19:38:08.024349",
+  "status": "COMPLETED"
+}

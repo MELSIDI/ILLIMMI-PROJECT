@@ -1,0 +1,87 @@
+{
+  "id": "MATH_034",
+  "subject": "Mathématiques",
+  "level": "Seconde",
+  "domain": "Fonctions",
+  "title": "Correction d'exercice classique : Variations de fonctions et extrema (Entraînement Lycée)",
+  "pedagogical_type": "exercice_methode",
+  "pedagogical_target": "Savoir démontrer algébriquement qu'une fonction est croissante sur un intervalle donné en utilisant la définition (a < b implique f(a) < f(b)) et l'étude du signe de la différence f(a) - f(b).",
+  "sections": [
+    {
+      "section_id": "sec_1",
+      "title": "1. Objectif et Rappel Graphique sur la Croissance",
+      "summary": "Présentation de l'exercice sur f(x) = x^2 + 1 sur [0 ; +infini[. Rappel visuel du sens de lecture d'une courbe de gauche à droite pour identifier une fonction croissante.",
+      "support_visuel_suggere": "draw 2drep + draw curve + draw arrow",
+      "concepts_cles": [
+        "fonction croissante",
+        "lecture de gauche à droite",
+        "sens croissant des abscisses",
+        "intervalle [0 ; +infini["
+      ]
+    },
+    {
+      "section_id": "sec_2",
+      "title": "2. Propriété Algébrique et Vérification Graphique",
+      "summary": "Énoncé rigoureux de la définition d'une fonction croissante : si a < b alors f(a) < f(b). Illustration graphique avec deux réels a et b et leurs images f(a) et f(b).",
+      "support_visuel_suggere": "draw 2drep + draw curve + draw line + draw arrow",
+      "concepts_cles": [
+        "définition algébrique",
+        "conservation de l'ordre",
+        "images f(a) et f(b)",
+        "comparaison"
+      ]
+    },
+    {
+      "section_id": "sec_3",
+      "title": "3. Stratégie : Étudier le Signe de f(a) - f(b)",
+      "summary": "Mise en place de la méthode par calcul de la différence f(a) - f(b). Remplacement par a^2 + 1 et b^2 + 1 avec gestion rigoureuse des parenthèses et simplification.",
+      "support_visuel_suggere": "draw arrow + draw line + text",
+      "concepts_cles": [
+        "différence f(a) - f(b)",
+        "parenthèses après un signe moins",
+        "simplification algébrique",
+        "a^2 - b^2"
+      ]
+    },
+    {
+      "section_id": "sec_4",
+      "title": "4. Factorisation et Étude du Signe du Produit",
+      "summary": "Utilisation de la troisième identité remarquable pour factoriser a^2 - b^2 en (a - b)(a + b), puis détermination du signe de chaque facteur sur [0 ; +infini[.",
+      "support_visuel_suggere": "draw arrow + draw line + draw polygone + text",
+      "concepts_cles": [
+        "troisième identité remarquable",
+        "factorisation",
+        "signe de a + b",
+        "signe de a - b",
+        "règle des signes"
+      ]
+    },
+    {
+      "section_id": "sec_5",
+      "title": "5. Conclusion et Synthèse de la Méthode",
+      "summary": "Passage de f(a) - f(b) < 0 à f(a) < f(b) pour conclure que f est croissante sur [0 ; +infini[, accompagné du graphique exact de f(x) = x^2 + 1 et d'une synthèse des réflexes d'exercice.",
+      "support_visuel_suggere": "draw 2drep + draw 2dfunc + draw arrow",
+      "concepts_cles": [
+        "conclusion de la démonstration",
+        "courbe de x^2 + 1",
+        "minimum en x = 0",
+        "méthode en quatre étapes"
+      ]
+    }
+  ],
+  "duration_seconds": 440.82,
+  "word_count": 1534,
+  "source_video": {
+    "video_id": "zHYaPOWi4Iw",
+    "title": "Déterminer les variations d'une fonction (1) - Seconde",
+    "channel": "Yvan Monka",
+    "youtube_url": "https://www.youtube.com/watch?v=zHYaPOWi4Iw"
+  },
+  "course_id": "MATH_034",
+  "world_model_score": 10.0,
+  "rendered_scenes": 5,
+  "visual_audit_notes": "Inspected all 5 rendered PNGs (scene_0..scene_4): crisp dark-green chalkboard contrast, clean split-board layout, zero text/diagram overlaps, exact KaTeX formulas (no missing brackets), well-scaled 2drep grids and 2dfunc curves, accurate projection lines and minimum annotation at (0; 1), WorldModelVerifier 10.0/10, Single-Action Rule respected.",
+  "certified_by": "antigravity-argon",
+  "certified_at": "2026-11-12T15:51:35.733539",
+  "status": "COMPLETED"
+}
