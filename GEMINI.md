@@ -28,3 +28,26 @@ Chaque fois que l'utilisateur écrit dans le chat **`dsl_dev -> main`** (ou une 
 6. **Notifier l'utilisateur** en détaillant les commits poussés sur `origin/dsl_dev` et sur `origin/main`, et en confirmant que le dépôt est de retour sur `dsl_dev`.
 
 *(Le script autonome dédié `python ".agents/skills/dsl_dev-to-main/scripts/sync_dsl_dev_to_main.py"` réalise cette séquence de façon sécurisée et atomique).*
+
+---
+
+## Règle de Notification de Progression lors du Push Google Drive (25%, 50%, 75%)
+
+Pendant la phase de synchronisation des cours vers Google Drive (`drive_corpus_sync.py auto-sync`) :
+
+1. **Surveillance proactive des jalons** :
+   L'agent orchestrateur doit obligatoirement suivre l'état d'avancement du téléversement (`.sync_progress.json` ou `drive_corpus_sync.py progress`) et tenir l'utilisateur informé dans le chat dès que le lot de cours franchit ou atteint les seuils de progression suivants :
+   - **Palier 25 %** du lot téléversé
+   - **Palier 50 %** du lot téléversé
+   - **Palier 75 %** du lot téléversé
+   *(Pour les petits lots de moins de 4 cours, notifier à chaque cours terminé).*
+
+2. **Format obligatoire du message chat à chaque palier** :
+   Format synthétique et visuel :
+   - Titre avec le palier (ex: `### 🚀 Synchro Google Drive : Palier 50% atteint !`)
+   - Compteur de cours (ex: `- **Progression** : 8 / 16 cours envoyés (50.0%)`)
+   - Volume cumulé transféré en Mo (ex: `- **Volume transféré** : 245.8 Mo`)
+   - Dernier cours téléversé (ex: `- **Dernier cours** : MATH_037 (14.3 Mo)`)
+
+3. **Notification finale (100 %)** :
+   Afficher le récapitulatif complet avec le total global du corpus (`X / 1000`), le lien du store Google Drive et le statut du push Git découplé (`origin/dsl_dev`).

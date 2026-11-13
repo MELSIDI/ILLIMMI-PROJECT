@@ -44,6 +44,59 @@ TRAINING_DIR = CORPUS_DIR / "training_data"
 MANIFEST_PATH = CORPUS_DIR / "corpus_manifest.json"
 DEFAULT_EXPORT_DIR = PROJECT_ROOT / "corpus_exports"
 LOCAL_ARCHIVES_CACHE = DEFAULT_EXPORT_DIR / "courses_archives"
+SYNC_PROGRESS_FILE = CATALOG_DIR / ".sync_progress.json"
+
+
+def write_sync_progress(
+    active: bool,
+    total_to_sync: int,
+    synced_count: int,
+    transferred_mb: float,
+    last_course_id: str,
+    last_milestone: Optional[int] = None,
+    completed: bool = False,
+    error: Optional[str] = None,
+) -> None:
+    """Atomically writes current Google Drive sync progress to .sync_progress.json."""
+    try:
+        ratio = (synced_count / total_to_sync) if total_to_sync > 0 else (1.0 if completed else 0.0)
+        data = {
+            "active": active,
+            "total_to_sync": total_to_sync,
+            "synced_count": synced_count,
+            "progress_pct": round(ratio * 100, 1),
+            "transferred_mb": round(transferred_mb, 2),
+            "last_course_id": last_course_id,
+            "last_milestone": last_milestone,
+            "completed": completed,
+            "error": error,
+            "updated_at": datetime.now(timezone.utc).isoformat(),
+        }
+        CATALOG_DIR.mkdir(parents=True, exist_ok=True)
+        tmp = SYNC_PROGRESS_FILE.with_suffix(".tmp")
+        tmp.write_text(json.dumps(data, indent=2, ensure_ascii=False), encoding="utf-8")
+        tmp.replace(SYNC_PROGRESS_FILE)
+    except Exception:
+        pass
+
+
+def get_sync_progress() -> Dict[str, Any]:
+    """Reads current Google Drive sync progress."""
+    if SYNC_PROGRESS_FILE.exists():
+        try:
+            return json.loads(SYNC_PROGRESS_FILE.read_text(encoding="utf-8"))
+        except Exception:
+            pass
+    return {
+        "active": False,
+        "total_to_sync": 0,
+        "synced_count": 0,
+        "progress_pct": 0.0,
+        "transferred_mb": 0.0,
+        "last_course_id": "",
+        "last_milestone": None,
+        "completed": False,
+    }
 
 
 def find_gdrive_bin() -> str:
@@ -480,12 +533,11 @@ def auto_sync_to_gdrive(
 
     gdrive_file_ids: Dict[str, str] = {}
     course_sync_meta: Dict[str, Dict[str, str]] = {}
-    courses_added: List[str] = []
-    courses_updated: List[str] = []
     skipped_count = 0
+    courses_to_sync: List[Tuple[str, bool]] = []  # (cid, is_update)
 
     print(f"\n☁️ Checking {total_completed} certified courses against {len(existing_remote_archives)} remote Drive archives...")
-    for idx, cid in enumerate(completed_ids, 1):
+    for cid in completed_ids:
         arch_name = f"{cid}.zip"
         remote_fid = existing_remote_archives.get(arch_name)
         prev_entry = existing_courses.get(cid, {})
@@ -501,29 +553,90 @@ def auto_sync_to_gdrive(
                 "gdrive_synced_at": prev_synced_at or now_iso,
                 "sync_batch_date": prev_entry.get("sync_batch_date") or (certified_at[:10] if certified_at else sync_date),
             }
-            print(f"  [{idx}/{total_completed}] {arch_name} -> déjà sur Drive (ID: {remote_fid}) [ignoré]")
-            continue
+            print(f"  [archive] {arch_name} -> déjà sur Drive (ID: {remote_fid}) [ignoré]")
+        else:
+            courses_to_sync.append((cid, bool(remote_fid)))
 
-        # Package ONLY this new or updated course
+    total_to_sync = len(courses_to_sync)
+    print(f"\n☁️ Sync queue: {total_to_sync} courses to upload/update ({skipped_count} already on Drive).")
+
+    write_sync_progress(
+        active=(total_to_sync > 0),
+        total_to_sync=total_to_sync,
+        synced_count=0,
+        transferred_mb=0.0,
+        last_course_id="",
+        last_milestone=None,
+        completed=(total_to_sync == 0),
+    )
+
+    courses_added: List[str] = []
+    courses_updated: List[str] = []
+    total_transferred_mb = 0.0
+    milestones_reached = set()
+
+    for idx, (cid, is_remote) in enumerate(courses_to_sync, 1):
+        arch_name = f"{cid}.zip"
         pkg = package_course(cid, LOCAL_ARCHIVES_CACHE, archive_format="zip")
         arch_path = Path(pkg["archive_path"])
+        pkg_mb = pkg["size_mb"]
 
-        if remote_fid:
-            print(f"  [{idx}/{total_completed}] Updating {arch_name} in-place ({pkg['size_mb']} MB)...")
+        if is_remote:
+            print(f"  [{idx}/{total_to_sync}] Updating {arch_name} in-place ({pkg_mb} MB)...")
             fid, _ = upsert_to_drive(gdrive_bin, arch_path, courses_archives_id, existing_remote_archives)
             courses_updated.append(cid)
         else:
-            print(f"  [{idx}/{total_completed}] Uploading NEW {arch_name} ({pkg['size_mb']} MB)...")
+            print(f"  [{idx}/{total_to_sync}] Uploading NEW {arch_name} ({pkg_mb} MB)...")
             fid = upload_to_drive(gdrive_bin, arch_path, courses_archives_id)
             existing_remote_archives[arch_name] = fid
             courses_added.append(cid)
 
-        print(f"    ☁️ OK -> GDrive ID: {fid}")
+        total_transferred_mb += pkg_mb
         gdrive_file_ids[cid] = fid
         course_sync_meta[cid] = {
             "gdrive_synced_at": now_iso,
             "sync_batch_date": sync_date,
         }
+        print(f"    ☁️ OK -> GDrive ID: {fid}")
+
+        # Check milestone thresholds (25%, 50%, 75%)
+        progress_pct = round((idx / total_to_sync) * 100, 1)
+        new_milestone = None
+
+        if total_to_sync >= 4:
+            for threshold in [25, 50, 75]:
+                if progress_pct >= threshold and threshold not in milestones_reached:
+                    milestones_reached.add(threshold)
+                    new_milestone = threshold
+                    print(
+                        f"\n"
+                        f"===========================================================\n"
+                        f"🔔 PROGRESS MILESTONE: {threshold}% atteint ({idx}/{total_to_sync} cours)\n"
+                        f"   Volume transféré : {round(total_transferred_mb, 1)} Mo\n"
+                        f"   Dernier cours    : {cid} ({pkg_mb} Mo)\n"
+                        f"===========================================================\n"
+                    )
+        else:
+            # For small batches (< 4 courses), notify on every course
+            new_milestone = int(progress_pct)
+            print(
+                f"\n"
+                f"===========================================================\n"
+                f"🔔 PROGRESS MILESTONE: {idx}/{total_to_sync} cours ({progress_pct}%)\n"
+                f"   Volume transféré : {round(total_transferred_mb, 1)} Mo\n"
+                f"   Dernier cours    : {cid} ({pkg_mb} Mo)\n"
+                f"===========================================================\n"
+            )
+
+        write_sync_progress(
+            active=True,
+            total_to_sync=total_to_sync,
+            synced_count=idx,
+            transferred_mb=total_transferred_mb,
+            last_course_id=cid,
+            last_milestone=new_milestone or (max(milestones_reached) if milestones_reached else None),
+            completed=(idx == total_to_sync),
+        )
 
     print(
         f"\n📊 Delta summary: {len(courses_added)} uploaded, {len(courses_updated)} updated, "
@@ -596,6 +709,16 @@ def auto_sync_to_gdrive(
         else:
             print("  No manifest changes to commit.")
 
+    write_sync_progress(
+        active=False,
+        total_to_sync=total_to_sync,
+        synced_count=total_to_sync,
+        transferred_mb=total_transferred_mb,
+        last_course_id=courses_to_sync[-1][0] if courses_to_sync else "",
+        last_milestone=100,
+        completed=True,
+    )
+
     print("\n=======================================================")
     print("🎉 INCREMENTAL GOOGLE DRIVE SYNC FINISHED SUCCESSFULLY!")
     print(f"   Sync Tag/Date: {effective_tag} ({total_completed} courses)")
@@ -615,6 +738,9 @@ def main():
     p_auto.add_argument("--no-git", action="store_true", help="Skip git commit/push")
     p_auto.add_argument("--force", action="store_true", help="Force re-package and re-upload all certified courses")
 
+    # progress
+    p_prog = subparsers.add_parser("progress", help="Check current sync progress milestones")
+
     # package-course
     p_course = subparsers.add_parser("package-course", help="Package a single course into a zip archive")
     p_course.add_argument("--course-id", required=True, help="Course ID (e.g. MATH_001)")
@@ -632,6 +758,9 @@ def main():
 
     if args.action == "auto-sync":
         auto_sync_to_gdrive(release_tag=args.tag, push_git=not args.no_git, force=args.force)
+    elif args.action == "progress":
+        prog = get_sync_progress()
+        print(json.dumps(prog, indent=2))
     elif args.action == "package-course":
         res = package_course(args.course_id, Path(args.output_dir))
         print(json.dumps(res, indent=2))

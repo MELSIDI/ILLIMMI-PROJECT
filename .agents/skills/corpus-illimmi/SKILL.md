@@ -83,12 +83,23 @@ for c in selected_courses[:initial_count]:
   2. S'il reste des cours non démarrés dans la file demandée, instancier immédiatement un sous-agent frais pour le cours suivant (`TypeName="illimmi-course-agent"`, `Model="inherit"`).
   3. Dès que tous les cours du lot demandé sont certifiés, passer immédiatement à l'Étape 4.
 
-### 4. MANDATORY Automated Incremental Google Drive Sync (`auto-sync`)
+### 4. MANDATORY Automated Incremental Google Drive Sync (`auto-sync`) & Progress Notifications (25%, 50%, 75%)
 Dès que l'ensemble des cours demandés (ex: lot de 9, 15, 20 ou 25 cours) est certifié, l'agent maître **DOIT AUTOMATIQUEMENT** exécuter le synchronisateur cloud incrémental :
 
 ```powershell
 python ".agents/skills/corpus-illimmi/scripts/drive_corpus_sync.py" auto-sync
 ```
+
+#### Suivi et Notifications Proactives des Paliers (25 %, 50 %, 75 %) :
+Pendant le téléversement des archives binaires sur Google Drive, `drive_corpus_sync.py` calcule en continu l'avancement du lot et maintient le fichier d'état `corpus_illimmi_1000/catalog/.sync_progress.json` tout en affichant des bannières de jalon explicites.
+- **Surveillance périodique** : L'agent utilise `schedule` (toutes les 45 à 60s) ou vérifie la tâche pour interroger `python ".agents/skills/corpus-illimmi/scripts/drive_corpus_sync.py" progress`.
+- **Notification chat obligatoire à chaque palier** : Dès que l'envoi franchit ou atteint **25 %**, **50 %** ou **75 %** du lot (ou à chaque cours terminé pour les petits lots de moins de 4 cours), l'agent **doit poster un message synthétique et visuel dans le chat** :
+  ```markdown
+  ### 🚀 Synchro Google Drive : Palier [25% | 50% | 75%] atteint !
+  - **Progression** : `X / N cours envoyés` (P%)
+  - **Volume transféré** : `Y Mo`
+  - **Dernier cours téléversé** : `MATH_XXX`
+  ```
 
 **Ce que fait `drive_corpus_sync.py auto-sync` en toute autonomie :**
 1. **Régénération des exports JSONL SFT** (`export_certified_jsonl.py`).
